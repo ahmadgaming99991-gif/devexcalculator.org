@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Rational } from "@/lib/calculations/rational";
 import type { FxRates, FxResponse } from "./types";
 
@@ -14,6 +14,10 @@ import type { FxRates, FxResponse } from "./types";
  *      plus an explanation instead of an error boundary.
  *   3. Stale data is labelled as stale, always. A rate that came from the
  *      fallback snapshot is never displayed as if it were current.
+ *
+ * `status` is derived rather than stored, so the effect never calls `setState`
+ * synchronously — the only writes happen in the fetch callbacks, which is what
+ * an effect subscribing to an external system should do.
  */
 
 export type FxStatus = "idle" | "loading" | "ready" | "unavailable";
@@ -24,33 +28,37 @@ export interface FxState {
   readonly error: string | null;
 }
 
-const initialState: FxState = { status: "idle", rates: null, error: null };
+interface FxOutcome {
+  readonly rates: FxRates | null;
+  readonly error: string | null;
+}
 
 export function useFxRates(enabled: boolean): FxState {
-  const [state, setState] = useState<FxState>(initialState);
+  const [outcome, setOutcome] = useState<FxOutcome | null>(null);
+  // Reference rates change once a working day, so one fetch per session is
+  // enough — this guards against refetching when the currency changes again.
+  const started = useRef(false);
 
   useEffect(() => {
-    if (!enabled) return;
-    // Already loaded or in flight: reference rates change once a working day,
-    // so there is no reason to refetch within a session.
-    if (state.status === "ready" || state.status === "loading") return;
+    if (!enabled || started.current) return;
+    started.current = true;
 
     const controller = new AbortController();
-    setState({ status: "loading", rates: null, error: null });
 
     fetch("/api/fx/latest/", { signal: controller.signal })
       .then(async (response) => {
         const payload = (await response.json()) as FxResponse;
-        if (!payload.ok) {
-          setState({ status: "unavailable", rates: null, error: payload.error.message });
-          return;
-        }
-        setState({ status: "ready", rates: payload.data, error: null });
+        setOutcome(
+          payload.ok
+            ? { rates: payload.data, error: null }
+            : { rates: null, error: payload.error.message },
+        );
       })
       .catch((error: unknown) => {
         if (error instanceof Error && error.name === "AbortError") return;
-        setState({
-          status: "unavailable",
+        // Allow a later attempt if this one was aborted mid-flight.
+        started.current = false;
+        setOutcome({
           rates: null,
           error:
             "Local-currency estimates are temporarily unavailable. The USD figures above are unaffected.",
@@ -58,9 +66,14 @@ export function useFxRates(enabled: boolean): FxState {
       });
 
     return () => controller.abort();
-  }, [enabled, state.status]);
+  }, [enabled]);
 
-  return state;
+  if (!enabled) return { status: "idle", rates: null, error: null };
+  if (outcome === null) return { status: "loading", rates: null, error: null };
+  if (outcome.rates === null) {
+    return { status: "unavailable", rates: null, error: outcome.error };
+  }
+  return { status: "ready", rates: outcome.rates, error: null };
 }
 
 /**

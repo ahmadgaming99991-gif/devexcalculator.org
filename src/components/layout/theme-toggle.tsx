@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useClientValue } from "@/lib/utilities/use-client-value";
 
 type Theme = "light" | "dark" | "system";
 
@@ -13,49 +14,41 @@ const STORAGE_KEY = "devex:theme";
  * implicit default, so a reader who wants to follow their OS can get back to
  * that after trying the other two.
  *
- * The button renders a stable placeholder until mounted. Reading localStorage
- * during render would produce different markup on the server and the client;
- * the inline script in the document head is what prevents a flash of the wrong
- * theme, not this component.
+ * The current theme is read from the `data-theme` attribute the inline head
+ * script has already applied, rather than from React state seeded in an
+ * effect. That keeps the button's label correct on first paint and avoids a
+ * cascading render on mount.
  */
 export function ThemeToggle() {
-  const [theme, setTheme] = useState<Theme>("system");
-  const [mounted, setMounted] = useState(false);
+  // Reflects a choice made in this session; before that, the DOM is the truth.
+  const [chosen, setChosen] = useState<Theme | null>(null);
 
-  useEffect(() => {
-    setMounted(true);
-    try {
-      const stored = window.localStorage.getItem(STORAGE_KEY);
-      if (stored === "light" || stored === "dark") setTheme(stored);
-    } catch {
-      // Storage can be unavailable in private modes; the default stands.
-    }
-  }, []);
+  const applied = useClientValue(
+    () => document.documentElement.getAttribute("data-theme") ?? "system",
+    "system",
+  );
 
-  function apply(next: Theme) {
-    setTheme(next);
+  const theme: Theme = chosen ?? (applied === "light" || applied === "dark" ? applied : "system");
+  const next: Theme = theme === "light" ? "dark" : theme === "dark" ? "system" : "light";
+
+  function apply(value: Theme) {
+    setChosen(value);
     const root = document.documentElement;
-    if (next === "system") {
-      root.removeAttribute("data-theme");
-      try {
+    try {
+      if (value === "system") {
+        root.removeAttribute("data-theme");
         window.localStorage.removeItem(STORAGE_KEY);
-      } catch {
-        /* ignore */
+      } else {
+        root.setAttribute("data-theme", value);
+        window.localStorage.setItem(STORAGE_KEY, value);
       }
-    } else {
-      root.setAttribute("data-theme", next);
-      try {
-        window.localStorage.setItem(STORAGE_KEY, next);
-      } catch {
-        /* ignore */
-      }
+    } catch {
+      // Storage can be unavailable in private modes. The attribute is still
+      // applied, so the theme works for this page view.
     }
   }
 
-  const next: Theme = theme === "light" ? "dark" : theme === "dark" ? "system" : "light";
-  const label = mounted
-    ? `Theme: ${theme}. Switch to ${next}.`
-    : "Change colour theme";
+  const label = `Theme: ${theme}. Switch to ${next}.`;
 
   return (
     <button
@@ -73,16 +66,19 @@ export function ThemeToggle() {
         strokeWidth="1.6"
         aria-hidden="true"
       >
-        {mounted && theme === "dark" ? (
+        {theme === "dark" ? (
           <path
             d="M16 11.5A6.5 6.5 0 0 1 8.5 4a6.5 6.5 0 1 0 7.5 7.5Z"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
-        ) : mounted && theme === "light" ? (
+        ) : theme === "light" ? (
           <>
             <circle cx="10" cy="10" r="3.5" />
-            <path d="M10 2v1.5M10 16.5V18M18 10h-1.5M3.5 10H2M15.7 4.3l-1 1M5.3 14.7l-1 1M15.7 15.7l-1-1M5.3 5.3l-1-1" strokeLinecap="round" />
+            <path
+              d="M10 2v1.5M10 16.5V18M18 10h-1.5M3.5 10H2M15.7 4.3l-1 1M5.3 14.7l-1 1M15.7 15.7l-1-1M5.3 5.3l-1-1"
+              strokeLinecap="round"
+            />
           </>
         ) : (
           <>

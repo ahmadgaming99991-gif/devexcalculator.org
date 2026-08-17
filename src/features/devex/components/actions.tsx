@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui";
+import { useClientValue } from "@/lib/utilities/use-client-value";
 
 /**
  * Copy, share and reset.
@@ -88,14 +89,12 @@ export function ShareButton({
   title: string;
   onAnnounce: (message: string) => void;
 }) {
-  const [canShare, setCanShare] = useState(false);
-
-  // Checked in an effect rather than during render: `navigator.share` does not
-  // exist on the server, and branching on it while rendering would produce
-  // different server and client markup.
-  useEffect(() => {
-    setCanShare(typeof navigator !== "undefined" && typeof navigator.share === "function");
-  }, []);
+  // `navigator.share` does not exist on the server, so the button renders as
+  // "Copy link" during hydration and swaps to "Share" where the API exists.
+  const canShare = useClientValue(
+    () => typeof navigator !== "undefined" && typeof navigator.share === "function",
+    false,
+  );
 
   const handle = useCallback(async () => {
     if (canShare) {

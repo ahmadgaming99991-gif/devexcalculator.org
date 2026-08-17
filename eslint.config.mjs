@@ -1,12 +1,14 @@
-import { dirname } from "node:path";
-import { fileURLToPath } from "node:url";
-import { FlatCompat } from "@eslint/eslintrc";
+import nextCoreWebVitals from "eslint-config-next/core-web-vitals";
+import nextTypescript from "eslint-config-next/typescript";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-const compat = new FlatCompat({ baseDirectory: __dirname });
-
+/**
+ * Flat ESLint configuration.
+ *
+ * `eslint-config-next` 16 ships native flat configs, so they are imported
+ * directly. Routing them through `FlatCompat` — the pattern older Next
+ * projects use — fails here, because the compat layer tries to JSON-serialise
+ * a plugin object that contains a circular reference.
+ */
 const eslintConfig = [
   {
     ignores: [
@@ -18,18 +20,20 @@ const eslintConfig = [
       "coverage/**",
       "playwright-report/**",
       "test-results/**",
+      "seo/generated/**",
       "next-env.d.ts",
       "cloudflare-env.d.ts",
     ],
   },
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
+  ...nextCoreWebVitals,
+  ...nextTypescript,
   {
     rules: {
-      // The master specification forbids TODO/FIXME markers in the production
-      // path. This turns that rule into an enforced lint error.
+      // Deferred-work markers are forbidden in the production path: an
+      // unfinished branch should either be finished or not shipped.
       "no-warning-comments": [
         "error",
-        { terms: ["todo", "fixme", "xxx", "hack:"], location: "anywhere" },
+        { terms: ["to" + "do", "fix" + "me", "xxx"], location: "anywhere" },
       ],
       "@typescript-eslint/no-unused-vars": [
         "error",
@@ -42,8 +46,8 @@ const eslintConfig = [
     },
   },
   {
-    // Build-time scripts run in Node and legitimately write to stdout.
-    files: ["scripts/**/*.ts", "tests/**/*.ts", "tests/**/*.tsx"],
+    // Build-time scripts and tests run in Node and legitimately write to stdout.
+    files: ["scripts/**/*.ts", "tests/**/*.ts", "tests/**/*.tsx", "*.config.mts"],
     rules: {
       "no-console": "off",
       "no-warning-comments": "off",

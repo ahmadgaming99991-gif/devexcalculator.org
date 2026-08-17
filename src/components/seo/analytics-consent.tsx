@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Button, Container } from "@/components/ui";
+import { useClientValue } from "@/lib/utilities/use-client-value";
 
 /**
  * Consent prompt for cookie-setting analytics.
@@ -16,20 +17,25 @@ import { Button, Container } from "@/components/ui";
 const STORAGE_KEY = "devex:consent";
 
 export function AnalyticsConsent() {
-  const [decision, setDecision] = useState<"unknown" | "granted" | "denied">("granted");
+  // A choice made in this session; before that, storage is the truth. The
+  // server snapshot is "granted" so the banner renders nothing during
+  // hydration rather than flashing in and out.
+  const [choice, setChoice] = useState<"granted" | "denied" | null>(null);
 
-  useEffect(() => {
+  const stored = useClientValue(() => {
     try {
-      const stored = window.localStorage.getItem(STORAGE_KEY);
-      setDecision(stored === "granted" ? "granted" : stored === "denied" ? "denied" : "unknown");
+      const value = window.localStorage.getItem(STORAGE_KEY);
+      // Storage unavailable or unanswered: never assume consent.
+      return value === "granted" ? "granted" : value === "denied" ? "denied" : "unknown";
     } catch {
-      // Storage unavailable: treat as denied rather than assuming consent.
-      setDecision("denied");
+      return "denied";
     }
-  }, []);
+  }, "granted");
+
+  const decision = choice ?? stored;
 
   function record(value: "granted" | "denied") {
-    setDecision(value);
+    setChoice(value);
     try {
       window.localStorage.setItem(STORAGE_KEY, value);
     } catch {

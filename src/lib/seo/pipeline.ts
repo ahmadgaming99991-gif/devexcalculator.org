@@ -728,7 +728,7 @@ export function buildAmountEntities(
   let approvedCount = 0;
   return entities.map((entity) => {
     const override = overrides.publicationOverrides[entity.entityId];
-    let status = override ?? entity.publicationStatus;
+    const status = override ?? entity.publicationStatus;
 
     if (status === "approved") {
       if (approvedCount >= MAX_LAUNCH_AMOUNT_PAGES) {

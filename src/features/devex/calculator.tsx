@@ -22,8 +22,15 @@ import {
   maxUsdTargetInput,
   minimumEarnedRobux,
 } from "@/lib/calculations/rate-registry";
-import { formatCurrency, formatRate, formatRobux, minorUnitsFor } from "@/lib/calculations/format";
+import {
+  formatCurrency,
+  formatRate,
+  formatRobux,
+  isSupportedCurrency,
+  minorUnitsFor,
+} from "@/lib/calculations/format";
 import { Card, Disclosure, cx } from "@/components/ui";
+import { useClientValue } from "@/lib/utilities/use-client-value";
 import { convertToCurrency, useFxRates } from "@/features/fx/use-fx";
 import {
   AmountInput,
@@ -99,26 +106,53 @@ export function Calculator({
 }: CalculatorProps) {
   const [state, setState] = useState<CalculatorState>(initialState);
   const [announcement, setAnnouncement] = useState("");
-  const [history, setHistory] = useState<HistoryEntry[]>([]);
-  const [advancedOpen, setAdvancedOpen] = useState(false);
 
   const mode = lockedMode ?? state.mode;
 
-  // Restore preferences after mount. Reading storage during render would make
-  // the server and client markup disagree.
-  useEffect(() => {
-    const preferences = loadPreferences();
-    setState((current) => ({
-      ...current,
-      // A currency in the URL was explicit, so it wins over the stored default.
-      currency: initialState.currency !== "USD" ? current.currency : (preferences.currency ?? current.currency),
-    }));
-    if (preferences.advancedOpen !== undefined) setAdvancedOpen(preferences.advancedOpen);
-    if (showHistory) setHistory(loadHistory());
-  }, [initialState.currency, showHistory]);
+  /*
+   * Stored preferences are read through `useClientValue`, which renders the
+   * server snapshot during hydration and swaps in the real value in the same
+   * commit. Seeding them with `useState` plus a mount effect would cause a
+   * cascading render, and reading storage during render would make the server
+   * and client markup disagree.
+   *
+   * Each preference pairs a stored value with an optional in-session override.
+   * The override is written only from an event handler, never from an effect.
+   */
+  const storedCurrency = useClientValue(() => loadPreferences().currency ?? "", "");
+  const storedAdvancedOpen = useClientValue(() => loadPreferences().advancedOpen === true, false);
+  const storedHistoryJson = useClientValue(
+    () => (showHistory ? JSON.stringify(loadHistory()) : "[]"),
+    "[]",
+  );
+
+  const [currencyChoice, setCurrencyChoice] = useState<string | null>(
+    // A currency in the URL was explicit, so it outranks the stored default.
+    initialState.currency !== "USD" ? initialState.currency : null,
+  );
+  const [advancedOverride, setAdvancedOverride] = useState<boolean | null>(null);
+  const [historyOverride, setHistoryOverride] = useState<HistoryEntry[] | null>(null);
+
+  const currency =
+    currencyChoice ?? (isSupportedCurrency(storedCurrency) ? storedCurrency : "USD");
+  const advancedOpen = advancedOverride ?? storedAdvancedOpen;
+
+  const storedHistory = useMemo<HistoryEntry[]>(() => {
+    try {
+      return JSON.parse(storedHistoryJson) as HistoryEntry[];
+    } catch {
+      return [];
+    }
+  }, [storedHistoryJson]);
+  const history = historyOverride ?? storedHistory;
 
   const update = useCallback((patch: Partial<CalculatorState>) => {
     setState((current) => ({ ...current, ...patch }));
+  }, []);
+
+  const selectCurrency = useCallback((value: string) => {
+    setCurrencyChoice(value);
+    savePreferences({ currency: value });
   }, []);
 
   // ---- Parsing -----------------------------------------------------------
@@ -147,8 +181,8 @@ export function Calculator({
     () =>
       state.targetUsd.trim() === ""
         ? null
-        : parseCurrencyAmount(state.targetUsd, maxUsdTargetInput, minorUnitsFor(state.currency)),
-    [state.targetUsd, state.currency],
+        : parseCurrencyAmount(state.targetUsd, maxUsdTargetInput, minorUnitsFor(currency)),
+    [state.targetUsd, currency],
   );
   const currentParse = useMemo(
     () =>
@@ -169,17 +203,17 @@ export function Calculator({
 
   // ---- Currency ----------------------------------------------------------
 
-  const needsFx = state.currency !== "USD";
+  const needsFx = currency !== "USD";
   const fx = useFxRates(needsFx);
   const convert = useCallback(
     (usd: Rational): { value: Rational; currency: string } => {
-      const converted = convertToCurrency(usd, state.currency, fx.rates);
+      const converted = convertToCurrency(usd, currency, fx.rates);
       // Fall back to USD rather than showing a blank or a wrong-currency figure.
       return converted === null
         ? { value: usd, currency: "USD" }
-        : { value: converted, currency: state.currency };
+        : { value: converted, currency };
     },
-    [state.currency, fx.rates],
+    [currency, fx.rates],
   );
 
   // ---- Results -----------------------------------------------------------
@@ -247,10 +281,14 @@ export function Calculator({
 
   // ---- Share and copy ----------------------------------------------------
 
-  const query = useMemo(() => serialiseCalculatorState({ ...state, mode }), [state, mode]);
+  const query = useMemo(
+    () => serialiseCalculatorState({ ...state, currency, mode }),
+    [state, currency, mode],
+  );
 
-  const [origin, setOrigin] = useState("");
-  useEffect(() => setOrigin(window.location.origin), []);
+  // Empty during hydration, which is correct: a share link is only meaningful
+  // once there is a real origin to build it from.
+  const origin = useClientValue(() => window.location.origin, "");
   const shareUrl = `${origin}${pathname}${query}`;
 
   // Reflect state in the address bar so back and forward work and a reload
@@ -327,7 +365,7 @@ export function Calculator({
       mode === "target"
         ? `Target ${formatCurrency(targetResult.targetUsd, "USD")}`
         : `${formatRobux(mode === "advanced" ? splitResult.totalRobux : quickResult.robux)} Robux`;
-    setHistory(addHistoryEntry({ label, result: primaryValueText, query }));
+    setHistoryOverride(addHistoryEntry({ label, result: primaryValueText, query }));
     setAnnouncement("Calculation saved to this browser.");
   }, [summaryText, mode, targetResult, splitResult, quickResult, primaryValueText, query]);
 
@@ -438,13 +476,7 @@ export function Calculator({
             </>
           ) : null}
 
-          <CurrencySelector
-            value={state.currency}
-            onChange={(value) => {
-              update({ currency: value });
-              savePreferences({ currency: value });
-            }}
-          />
+          <CurrencySelector value={currency} onChange={selectCurrency} />
 
           <Disclosure
             summary="Optional: payment fees and your own tax estimate"
@@ -461,6 +493,7 @@ export function Calculator({
                   value={state.feePercent}
                   onChange={(value) => {
                     update({ feePercent: value });
+                    setAdvancedOverride(true);
                     savePreferences({ advancedOpen: true });
                   }}
                   error={feeParse.ok ? null : feeParse.message}
@@ -517,12 +550,7 @@ export function Calculator({
                   threshold={mode === "advanced" ? splitResult.threshold : quickResult.threshold}
                 />
               )}
-              <FxNote
-                rates={fx.rates}
-                currency={state.currency}
-                status={fx.status}
-                error={fx.error}
-              />
+              <FxNote rates={fx.rates} currency={currency} status={fx.status} error={fx.error} />
             </div>
           </ResultSummary>
 
@@ -558,7 +586,7 @@ export function Calculator({
             />
             <ResetButton
               hasData={hasData}
-              onReset={() => setState({ ...defaultState, mode, currency: state.currency })}
+              onReset={() => setState({ ...defaultState, mode, currency })}
               onAnnounce={setAnnouncement}
             />
           </div>
@@ -570,7 +598,7 @@ export function Calculator({
               onSave={saveToHistory}
               onClear={() => {
                 clearHistory();
-                setHistory([]);
+                setHistoryOverride([]);
                 setAnnouncement("Saved calculations cleared.");
               }}
               pathname={pathname}

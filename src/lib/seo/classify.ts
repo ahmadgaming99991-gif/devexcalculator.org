@@ -63,12 +63,6 @@ interface Rule {
   readonly result: (key: string) => Classification;
 }
 
-const has = (key: string, ...tokens: string[]): boolean =>
-  tokens.some((token) => new RegExp(`(^| )${token}( |$)`).test(key));
-
-const contains = (key: string, ...fragments: string[]): boolean =>
-  fragments.some((fragment) => key.includes(fragment));
-
 /** DevEx spelling variants, all of which mean the Developer Exchange programme. */
 const DEVEX = /\bdevex\b|\bdev ex\b|\bdev x\b|\bdevx\b|\bdeveloper exchange\b|\bdev exchange\b|\bdevexchange\b|\bdevelopper exchange\b/;
 
