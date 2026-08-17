@@ -71,7 +71,13 @@ function write(fileName: string, data: unknown): void {
   console.log(`  wrote seo/generated/${fileName}`);
 }
 
-export function generateAll(): PipelineResult {
+export interface GenerateResult {
+  readonly pipeline: PipelineResult;
+  /** Returned so validators apply the same manual decisions this run did. */
+  readonly overrides: Overrides;
+}
+
+export function generateAll(): GenerateResult {
   const overrides = readOverrides();
   const files = loadSourceFiles();
   const result = runPipeline(files, overrides);
@@ -161,7 +167,7 @@ export function generateAll(): PipelineResult {
         .join(", "),
   );
 
-  return result;
+  return { pipeline: result, overrides };
 }
 
 function buildRouteMap(result: PipelineResult) {

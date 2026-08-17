@@ -29,12 +29,17 @@ import { formatCurrency, formatRobux } from "@/lib/calculations/format";
 /**
  * Standalone amount pages.
  *
- * Only the amounts in `APPROVED_AMOUNTS` are generated, and
- * `dynamicParams = false` means any other slug is a genuine 404 rather than a
- * page rendered on demand. That is what stops this route becoming an unbounded
- * crawl space of one page per number.
+ * Only the amounts in `APPROVED_AMOUNTS` are prerendered, and every other slug
+ * calls `notFound()` below — so the route cannot become an unbounded crawl
+ * space of one page per number.
+ *
+ * `dynamicParams = false` would express the same intent declaratively, but the
+ * Cloudflare adapter cannot resolve a fallback for it and every prerendered
+ * path 404s with `NoFallbackError` under the Workers runtime. The explicit
+ * `notFound()` is what actually enforces the guarantee, and it behaves
+ * identically from outside: approved amounts return a prerendered 200,
+ * everything else returns a genuine 404.
  */
-export const dynamicParams = false;
 
 export function generateStaticParams(): { slug: string }[] {
   return APPROVED_AMOUNTS.map((definition) => ({ slug: amountPageSlug(definition.amount) }));

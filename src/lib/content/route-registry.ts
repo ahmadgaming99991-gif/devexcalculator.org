@@ -25,7 +25,7 @@ const staticRoutes: readonly RouteRecord[] = [
     pageType: "tool",
     title: "DevEx Calculator: Convert Earned Robux to USD",
     metaDescription:
-      "Work out what your eligible Earned Robux are worth in US dollars at the current DevEx rate of 0.0038, with legacy and U.S. 18+ comparisons, source links and a verification date.",
+      "What your eligible Earned Robux are worth in USD at the current 0.0038 DevEx rate, with legacy and U.S. 18+ comparisons and a source for every figure.",
     h1: "DevEx Calculator: Convert Earned Robux to USD",
     navLabel: "Calculator",
     primaryIntent: "core-devex-calculator",
@@ -123,7 +123,7 @@ const staticRoutes: readonly RouteRecord[] = [
     pageType: "tool",
     title: "Robux to USD: Creator Payout vs Purchase Price",
     metaDescription:
-      "Two different numbers answer \"Robux to USD\". Compare what Roblox pays a creator through DevEx against what buying Robux costs, and convert any amount with the rate stated openly.",
+      "Two numbers answer this. Compare what DevEx pays a creator against what buying Robux costs, and convert any amount with the rate stated openly.",
     h1: "Robux to USD",
     navLabel: "Robux to USD",
     primaryIntent: "generic-robux-to-usd",
@@ -202,7 +202,7 @@ const staticRoutes: readonly RouteRecord[] = [
     pageType: "tool",
     title: "USD to Robux: Earned Robux Needed for a Payout Target",
     metaDescription:
-      "Set a payout goal in dollars and see exactly how many eligible Earned Robux it takes to reach it, rounded up to whole Robux, with progress against your current balance.",
+      "Set a payout goal in dollars and see how many eligible Earned Robux it takes, rounded up, with progress against your current balance.",
     h1: "USD to Robux: work backwards from a payout target",
     navLabel: "Payout target",
     primaryIntent: "reverse-usd-to-robux",
@@ -278,7 +278,7 @@ const staticRoutes: readonly RouteRecord[] = [
     pageType: "pillar-guide",
     title: "Roblox DevEx Rates: Current, Legacy and U.S. 18+",
     metaDescription:
-      "The three DevEx rates Roblox documents, what each one pays per 1,000 and per 30,000 Robux, when each applies, and the effective date of the September 2025 change.",
+      "The three DevEx rates Roblox documents, what each pays per 1,000 and 30,000 Robux, and when each applies.",
     h1: "Roblox DevEx rates",
     navLabel: "Rates",
     primaryIntent: "devex-rate",
@@ -357,7 +357,7 @@ const staticRoutes: readonly RouteRecord[] = [
     pageType: "pillar-guide",
     title: "DevEx Requirements: Minimum Robux and Eligibility",
     metaDescription:
-      "The requirements Roblox documents for the Developer Exchange: a 30,000 Earned Robux minimum, a verified email, a DevEx portal account, a W-9 or W-8 on file, and account standing.",
+      "What Roblox requires for DevEx: 30,000 Earned Robux, a verified email, a portal account, a W-9 or W-8, and an account in good standing.",
     h1: "DevEx requirements",
     navLabel: "Requirements",
     primaryIntent: "devex-eligibility",
@@ -432,7 +432,7 @@ const staticRoutes: readonly RouteRecord[] = [
     pageType: "pillar-guide",
     title: "Earned Robux: What Qualifies for DevEx",
     metaDescription:
-      "Earned Robux is not the same as your Robux balance. What Roblox counts as earned, what it does not, how pending balances work, and why the distinction decides your payout.",
+      "Earned Robux is not your whole balance. What counts, what does not, and why the distinction decides whether a payout is possible.",
     h1: "Earned Robux",
     navLabel: "Earned Robux",
     primaryIntent: "earned-robux-definition",
@@ -506,7 +506,7 @@ const staticRoutes: readonly RouteRecord[] = [
     pageType: "pillar-guide",
     title: "How to Cash Out Robux Through DevEx",
     metaDescription:
-      "The steps Roblox documents for converting eligible Earned Robux into real money, what to prepare beforehand, and the warning signs of unofficial services that should be avoided.",
+      "The official steps for converting eligible Earned Robux into real money, what to prepare first, and which services to avoid.",
     h1: "How to cash out Robux",
     navLabel: "Cashing out",
     primaryIntent: "cash-out-process",
@@ -579,7 +579,7 @@ const staticRoutes: readonly RouteRecord[] = [
     pageType: "pillar-guide",
     title: "DevEx Rate History: The 2025 Change from 0.0035",
     metaDescription:
-      "A dated record of the DevEx rates this site has verified, including the increase from 0.0035 to 0.0038 on 5 September 2025 and how legacy balances are treated afterwards.",
+      "A dated record of verified DevEx rates, including the September 2025 rise from 0.0035 to 0.0038 and how legacy balances are treated.",
     h1: "DevEx rate history",
     navLabel: "Rate history",
     primaryIntent: "devex-rate-history",
@@ -645,7 +645,7 @@ const staticRoutes: readonly RouteRecord[] = [
     pageType: "pillar-guide",
     title: "DevEx Fees and Taxes: What Comes Off a Payout",
     metaDescription:
-      "The DevEx rate is not the last number. Payment-provider fees, currency spreads and income tax all sit between the conversion and your bank account — modelled here with your own figures.",
+      "Provider fees, currency spreads and income tax all sit between the DevEx rate and your bank account. Model each with your own figures.",
     h1: "DevEx fees and taxes",
     navLabel: "Fees and taxes",
     primaryIntent: "fees-payment",
@@ -712,7 +712,7 @@ const staticRoutes: readonly RouteRecord[] = [
     pageType: "tool",
     title: "Roblox Tax Calculator: Marketplace Fee on a Sale",
     metaDescription:
-      "Work out what you keep after the Roblox platform commission, or what to charge to clear a target. Covers in-experience sales and the progressive Marketplace revenue share.",
+      "What you keep after the Roblox platform commission, or what to charge to clear a target. Covers in-experience and Marketplace sales.",
     h1: "Roblox tax calculator",
     navLabel: "Roblox tax",
     primaryIntent: "marketplace-tax",
@@ -781,7 +781,7 @@ const staticRoutes: readonly RouteRecord[] = [
     pageType: "directory",
     title: "Creator Finance Calculators for Roblox",
     metaDescription:
-      "Every calculator on this site, what each one answers, and which to reach for. Four working tools covering DevEx payouts, conversions, payout targets and marketplace fees.",
+      "Four working calculators covering DevEx payouts, Robux conversions, payout targets and marketplace fees, and which to reach for.",
     h1: "Creator finance calculators",
     navLabel: "Calculators",
     primaryIntent: "calculator-comparison",
@@ -815,7 +815,7 @@ const staticRoutes: readonly RouteRecord[] = [
     pageType: "directory",
     title: "DevEx Guides: Rates, Eligibility and Cashing Out",
     metaDescription:
-      "The explanatory pages on this site arranged as a reading order, from what Earned Robux means through to what comes off a payout — with what each guide answers and what it assumes.",
+      "Six guides in a reading order, from what Earned Robux means through to what comes off a payout.",
     h1: "DevEx guides",
     navLabel: "Guides",
     primaryIntent: "informational-definition",
@@ -837,6 +837,7 @@ const staticRoutes: readonly RouteRecord[] = [
       { route: "/devex-rate-history/", anchor: "rate history", relationship: "child" },
       { route: "/devex-fees-and-taxes/", anchor: "fees and taxes", relationship: "child" },
       { route: "/calculators/", anchor: "the calculators these guides support", relationship: "sibling" },
+      { route: "/", anchor: "the DevEx calculator itself", relationship: "parent" },
     ],
     schemaTypes: ["CollectionPage", "ItemList", "BreadcrumbList"],
     parent: "/",
@@ -851,7 +852,7 @@ const staticRoutes: readonly RouteRecord[] = [
     pageType: "conversion-hub",
     title: "Robux to USD Conversions for Common Amounts",
     metaDescription:
-      "A server-rendered table of common Earned Robux amounts with their value at the current, legacy and conditional U.S. 18+ rates, plus an input for any amount you like.",
+      "Common Earned Robux amounts valued at the current, legacy and U.S. 18+ rates, plus an input for any amount you like.",
     h1: "Robux to USD conversions",
     navLabel: "Conversions",
     primaryIntent: "numeric-amount-conversion",
@@ -919,6 +920,7 @@ const staticRoutes: readonly RouteRecord[] = [
       { route: "/methodology/", anchor: "the calculation methodology", relationship: "next-step" },
       { route: "/sources/", anchor: "the sources behind every figure", relationship: "next-step" },
       { route: "/editorial-policy/", anchor: "the editorial policy", relationship: "sibling" },
+      { route: "/accessibility/", anchor: "the accessibility statement", relationship: "sibling" },
       { route: "/", anchor: "the calculator itself", relationship: "parent" },
     ],
     schemaTypes: ["AboutPage", "BreadcrumbList"],
@@ -934,7 +936,7 @@ const staticRoutes: readonly RouteRecord[] = [
     pageType: "trust",
     title: "Calculation Methodology",
     metaDescription:
-      "Exactly how every figure on this site is produced: the formulas, the exact-arithmetic approach, the rounding policy, and the limits of what an estimate can tell you.",
+      "How every figure here is produced: the formulas, the exact arithmetic, the rounding policy, and what an estimate cannot tell you.",
     h1: "Calculation methodology",
     navLabel: "Methodology",
     primaryIntent: "informational-definition",
@@ -980,7 +982,9 @@ const staticRoutes: readonly RouteRecord[] = [
     primaryKeyword: "devex rate source",
     secondaryKeywords: ["official devex rate", "roblox devex documentation"],
     entities: ["Roblox", "Developer Exchange Program", "European Central Bank"],
-    sourceIds: [],
+    // The page renders the whole registry, but declares the primary sources so
+    // the rate-sensitive citation check has something concrete to verify.
+    sourceIds: ["roblox-devex-program", "ecb-exchange-rates"],
     lastReviewedAt: REVIEWED,
     dateModified: REVIEWED,
     quickAnswer:
@@ -994,7 +998,7 @@ const staticRoutes: readonly RouteRecord[] = [
       { route: "/methodology/", anchor: "how the figures are calculated", relationship: "sibling" },
       { route: "/devex-rates/", anchor: "the rates these sources support", relationship: "next-step" },
       { route: "/corrections/", anchor: "report an out-of-date figure", relationship: "next-step" },
-      { route: "/", anchor: "back to the calculator", relationship: "parent" },
+      { route: "/", anchor: "the calculator these sources feed", relationship: "parent" },
     ],
     schemaTypes: ["WebPage", "BreadcrumbList"],
     parent: "/",
@@ -1031,7 +1035,7 @@ const staticRoutes: readonly RouteRecord[] = [
     internalLinks: [
       { route: "/corrections/", anchor: "the corrections policy", relationship: "sibling" },
       { route: "/sources/", anchor: "the source registry", relationship: "sibling" },
-      { route: "/about/", anchor: "about this site", relationship: "parent" },
+      { route: "/about/", anchor: "who runs this site", relationship: "parent" },
     ],
     schemaTypes: ["WebPage", "BreadcrumbList"],
     parent: "/about/",
@@ -1068,7 +1072,7 @@ const staticRoutes: readonly RouteRecord[] = [
       { route: "/changelog/", anchor: "the public changelog", relationship: "next-step" },
       { route: "/editorial-policy/", anchor: "the editorial policy", relationship: "sibling" },
       { route: "/contact/", anchor: "get in touch", relationship: "next-step" },
-      { route: "/about/", anchor: "about this site", relationship: "parent" },
+      { route: "/about/", anchor: "what this site is for", relationship: "parent" },
     ],
     schemaTypes: ["WebPage", "BreadcrumbList"],
     parent: "/about/",
@@ -1101,7 +1105,7 @@ const staticRoutes: readonly RouteRecord[] = [
       { route: "/devex-rate-history/", anchor: "the DevEx rate history itself", relationship: "sibling" },
       { route: "/corrections/", anchor: "the corrections policy", relationship: "sibling" },
       { route: "/sources/", anchor: "the source registry", relationship: "next-step" },
-      { route: "/about/", anchor: "about this site", relationship: "parent" },
+      { route: "/about/", anchor: "how this site is maintained", relationship: "parent" },
     ],
     schemaTypes: ["WebPage", "BreadcrumbList"],
     parent: "/about/",
@@ -1181,7 +1185,7 @@ const staticRoutes: readonly RouteRecord[] = [
       { route: "/terms/", anchor: "the terms of use", relationship: "sibling" },
       { route: "/disclaimer/", anchor: "the disclaimer", relationship: "sibling" },
       { route: "/contact/", anchor: "contact", relationship: "next-step" },
-      { route: "/", anchor: "back to the calculator", relationship: "parent" },
+      { route: "/", anchor: "the calculator this policy covers", relationship: "parent" },
     ],
     schemaTypes: ["WebPage", "BreadcrumbList"],
     parent: "/",
@@ -1219,7 +1223,7 @@ const staticRoutes: readonly RouteRecord[] = [
     internalLinks: [
       { route: "/privacy/", anchor: "the privacy policy", relationship: "sibling" },
       { route: "/disclaimer/", anchor: "the disclaimer", relationship: "sibling" },
-      { route: "/", anchor: "back to the calculator", relationship: "parent" },
+      { route: "/", anchor: "the calculator these terms cover", relationship: "parent" },
     ],
     schemaTypes: ["WebPage", "BreadcrumbList"],
     parent: "/",
@@ -1257,7 +1261,7 @@ const staticRoutes: readonly RouteRecord[] = [
       { route: "/methodology/", anchor: "how the estimates are produced", relationship: "next-step" },
       { route: "/terms/", anchor: "the terms of use", relationship: "sibling" },
       { route: "/sources/", anchor: "the sources used", relationship: "next-step" },
-      { route: "/", anchor: "back to the calculator", relationship: "parent" },
+      { route: "/", anchor: "the estimates this disclaimer applies to", relationship: "parent" },
     ],
     schemaTypes: ["WebPage", "BreadcrumbList"],
     parent: "/",
@@ -1294,7 +1298,7 @@ const staticRoutes: readonly RouteRecord[] = [
     faqs: [],
     internalLinks: [
       { route: "/contact/", anchor: "report an accessibility problem", relationship: "next-step" },
-      { route: "/", anchor: "back to the calculator", relationship: "parent" },
+      { route: "/", anchor: "the calculator itself", relationship: "parent" },
     ],
     schemaTypes: ["WebPage", "BreadcrumbList"],
     parent: "/",
@@ -1315,7 +1319,7 @@ function amountRouteRecord(definition: (typeof APPROVED_AMOUNTS)[number]): Route
     indexation: "index",
     pageType: "conversion-amount",
     title: `${display} Robux to USD: DevEx Payout Estimate`,
-    metaDescription: `${display} eligible Earned Robux is about ${values.standardUsd} at the current DevEx rate. Compare it against the legacy and conditional rates, and see what it takes to reach it.`,
+    metaDescription: `${display} eligible Earned Robux is about ${values.standardUsd} at the current DevEx rate. Compared against the legacy and U.S. 18+ rates.`,
     h1: `${display} Robux to USD`,
     navLabel: `${display} Robux`,
     primaryIntent: "numeric-amount-conversion",
@@ -1353,10 +1357,25 @@ function amountRouteRecord(definition: (typeof APPROVED_AMOUNTS)[number]): Route
         sourceIds: ["roblox-devex-program"],
       },
     ],
+    // Anchors carry the amount so that eight generated pages do not all point
+    // at the same three destinations with identical text, which reads as a
+    // sitewide exact-match link block rather than as contextual linking.
     internalLinks: [
-      { route: "/conversions/", anchor: "all common amount conversions", relationship: "parent" },
-      { route: "/robux-to-usd/", anchor: "convert a different amount", relationship: "tool" },
-      { route: "/devex-rates/", anchor: "the rates used here", relationship: "prerequisite" },
+      {
+        route: "/conversions/",
+        anchor: `the amounts either side of ${display}`,
+        relationship: "parent",
+      },
+      {
+        route: "/robux-to-usd/",
+        anchor: `convert something other than ${display} Robux`,
+        relationship: "tool",
+      },
+      {
+        route: "/devex-rates/",
+        anchor: `the rate behind the ${values.standardUsd} figure`,
+        relationship: "prerequisite",
+      },
       ...definition.relatedAmounts.map((amount) => ({
         route: amountPageRoute(amount),
         anchor: `${formatRobux(amount)} Robux to USD`,

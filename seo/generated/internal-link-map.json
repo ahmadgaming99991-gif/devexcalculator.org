@@ -1,35 +1,12 @@
 {
-  "generatedAt": "2026-08-17T10:35:06.247Z",
-  "edgeCount": 141,
+  "generatedAt": "2026-08-17T20:22:21.913Z",
+  "edgeCount": 143,
   "nodeCount": 32,
-  "orphans": [
-    "/accessibility/"
-  ],
+  "orphans": [],
   "brokenTargets": [],
-  "overusedAnchors": [
-    {
-      "key": "/::back to the calculator",
-      "count": 5
-    },
-    {
-      "key": "/about/::about this site",
-      "count": 4
-    },
-    {
-      "key": "/conversions/::all common amount conversions",
-      "count": 8
-    },
-    {
-      "key": "/robux-to-usd/::convert a different amount",
-      "count": 8
-    },
-    {
-      "key": "/devex-rates/::the rates used here",
-      "count": 8
-    }
-  ],
+  "overusedAnchors": [],
   "inboundCounts": {
-    "/": 18,
+    "/": 19,
     "/robux-to-usd/": 12,
     "/usd-to-robux/": 3,
     "/devex-rates/": 17,
@@ -52,7 +29,7 @@
     "/privacy/": 2,
     "/terms/": 2,
     "/disclaimer/": 2,
-    "/accessibility/": 0,
+    "/accessibility/": 1,
     "/conversions/30000-robux-to-usd/": 1,
     "/conversions/50000-robux-to-usd/": 2,
     "/conversions/100000-robux-to-usd/": 3,
@@ -418,6 +395,12 @@
       "relationship": "sibling"
     },
     {
+      "from": "/guides/",
+      "to": "/",
+      "anchor": "the DevEx calculator itself",
+      "relationship": "parent"
+    },
+    {
       "from": "/conversions/",
       "to": "/robux-to-usd/",
       "anchor": "the Robux to USD converter",
@@ -451,6 +434,12 @@
       "from": "/about/",
       "to": "/editorial-policy/",
       "anchor": "the editorial policy",
+      "relationship": "sibling"
+    },
+    {
+      "from": "/about/",
+      "to": "/accessibility/",
+      "anchor": "the accessibility statement",
       "relationship": "sibling"
     },
     {
@@ -504,7 +493,7 @@
     {
       "from": "/sources/",
       "to": "/",
-      "anchor": "back to the calculator",
+      "anchor": "the calculator these sources feed",
       "relationship": "parent"
     },
     {
@@ -522,7 +511,7 @@
     {
       "from": "/editorial-policy/",
       "to": "/about/",
-      "anchor": "about this site",
+      "anchor": "who runs this site",
       "relationship": "parent"
     },
     {
@@ -546,7 +535,7 @@
     {
       "from": "/corrections/",
       "to": "/about/",
-      "anchor": "about this site",
+      "anchor": "what this site is for",
       "relationship": "parent"
     },
     {
@@ -570,7 +559,7 @@
     {
       "from": "/changelog/",
       "to": "/about/",
-      "anchor": "about this site",
+      "anchor": "how this site is maintained",
       "relationship": "parent"
     },
     {
@@ -612,7 +601,7 @@
     {
       "from": "/privacy/",
       "to": "/",
-      "anchor": "back to the calculator",
+      "anchor": "the calculator this policy covers",
       "relationship": "parent"
     },
     {
@@ -630,7 +619,7 @@
     {
       "from": "/terms/",
       "to": "/",
-      "anchor": "back to the calculator",
+      "anchor": "the calculator these terms cover",
       "relationship": "parent"
     },
     {
@@ -654,7 +643,7 @@
     {
       "from": "/disclaimer/",
       "to": "/",
-      "anchor": "back to the calculator",
+      "anchor": "the estimates this disclaimer applies to",
       "relationship": "parent"
     },
     {
@@ -666,25 +655,25 @@
     {
       "from": "/accessibility/",
       "to": "/",
-      "anchor": "back to the calculator",
+      "anchor": "the calculator itself",
       "relationship": "parent"
     },
     {
       "from": "/conversions/30000-robux-to-usd/",
       "to": "/conversions/",
-      "anchor": "all common amount conversions",
+      "anchor": "the amounts either side of 30,000",
       "relationship": "parent"
     },
     {
       "from": "/conversions/30000-robux-to-usd/",
       "to": "/robux-to-usd/",
-      "anchor": "convert a different amount",
+      "anchor": "convert something other than 30,000 Robux",
       "relationship": "tool"
     },
     {
       "from": "/conversions/30000-robux-to-usd/",
       "to": "/devex-rates/",
-      "anchor": "the rates used here",
+      "anchor": "the rate behind the $114.00 figure",
       "relationship": "prerequisite"
     },
     {
@@ -702,19 +691,19 @@
     {
       "from": "/conversions/50000-robux-to-usd/",
       "to": "/conversions/",
-      "anchor": "all common amount conversions",
+      "anchor": "the amounts either side of 50,000",
       "relationship": "parent"
     },
     {
       "from": "/conversions/50000-robux-to-usd/",
       "to": "/robux-to-usd/",
-      "anchor": "convert a different amount",
+      "anchor": "convert something other than 50,000 Robux",
       "relationship": "tool"
     },
     {
       "from": "/conversions/50000-robux-to-usd/",
       "to": "/devex-rates/",
-      "anchor": "the rates used here",
+      "anchor": "the rate behind the $190.00 figure",
       "relationship": "prerequisite"
     },
     {
@@ -732,19 +721,19 @@
     {
       "from": "/conversions/100000-robux-to-usd/",
       "to": "/conversions/",
-      "anchor": "all common amount conversions",
+      "anchor": "the amounts either side of 100,000",
       "relationship": "parent"
     },
     {
       "from": "/conversions/100000-robux-to-usd/",
       "to": "/robux-to-usd/",
-      "anchor": "convert a different amount",
+      "anchor": "convert something other than 100,000 Robux",
       "relationship": "tool"
     },
     {
       "from": "/conversions/100000-robux-to-usd/",
       "to": "/devex-rates/",
-      "anchor": "the rates used here",
+      "anchor": "the rate behind the $380.00 figure",
       "relationship": "prerequisite"
     },
     {
@@ -762,19 +751,19 @@
     {
       "from": "/conversions/200000-robux-to-usd/",
       "to": "/conversions/",
-      "anchor": "all common amount conversions",
+      "anchor": "the amounts either side of 200,000",
       "relationship": "parent"
     },
     {
       "from": "/conversions/200000-robux-to-usd/",
       "to": "/robux-to-usd/",
-      "anchor": "convert a different amount",
+      "anchor": "convert something other than 200,000 Robux",
       "relationship": "tool"
     },
     {
       "from": "/conversions/200000-robux-to-usd/",
       "to": "/devex-rates/",
-      "anchor": "the rates used here",
+      "anchor": "the rate behind the $760.00 figure",
       "relationship": "prerequisite"
     },
     {
@@ -792,19 +781,19 @@
     {
       "from": "/conversions/300000-robux-to-usd/",
       "to": "/conversions/",
-      "anchor": "all common amount conversions",
+      "anchor": "the amounts either side of 300,000",
       "relationship": "parent"
     },
     {
       "from": "/conversions/300000-robux-to-usd/",
       "to": "/robux-to-usd/",
-      "anchor": "convert a different amount",
+      "anchor": "convert something other than 300,000 Robux",
       "relationship": "tool"
     },
     {
       "from": "/conversions/300000-robux-to-usd/",
       "to": "/devex-rates/",
-      "anchor": "the rates used here",
+      "anchor": "the rate behind the $1,140.00 figure",
       "relationship": "prerequisite"
     },
     {
@@ -822,19 +811,19 @@
     {
       "from": "/conversions/500000-robux-to-usd/",
       "to": "/conversions/",
-      "anchor": "all common amount conversions",
+      "anchor": "the amounts either side of 500,000",
       "relationship": "parent"
     },
     {
       "from": "/conversions/500000-robux-to-usd/",
       "to": "/robux-to-usd/",
-      "anchor": "convert a different amount",
+      "anchor": "convert something other than 500,000 Robux",
       "relationship": "tool"
     },
     {
       "from": "/conversions/500000-robux-to-usd/",
       "to": "/devex-rates/",
-      "anchor": "the rates used here",
+      "anchor": "the rate behind the $1,900.00 figure",
       "relationship": "prerequisite"
     },
     {
@@ -852,19 +841,19 @@
     {
       "from": "/conversions/1000000-robux-to-usd/",
       "to": "/conversions/",
-      "anchor": "all common amount conversions",
+      "anchor": "the amounts either side of 1,000,000",
       "relationship": "parent"
     },
     {
       "from": "/conversions/1000000-robux-to-usd/",
       "to": "/robux-to-usd/",
-      "anchor": "convert a different amount",
+      "anchor": "convert something other than 1,000,000 Robux",
       "relationship": "tool"
     },
     {
       "from": "/conversions/1000000-robux-to-usd/",
       "to": "/devex-rates/",
-      "anchor": "the rates used here",
+      "anchor": "the rate behind the $3,800.00 figure",
       "relationship": "prerequisite"
     },
     {
@@ -882,19 +871,19 @@
     {
       "from": "/conversions/10000000-robux-to-usd/",
       "to": "/conversions/",
-      "anchor": "all common amount conversions",
+      "anchor": "the amounts either side of 10,000,000",
       "relationship": "parent"
     },
     {
       "from": "/conversions/10000000-robux-to-usd/",
       "to": "/robux-to-usd/",
-      "anchor": "convert a different amount",
+      "anchor": "convert something other than 10,000,000 Robux",
       "relationship": "tool"
     },
     {
       "from": "/conversions/10000000-robux-to-usd/",
       "to": "/devex-rates/",
-      "anchor": "the rates used here",
+      "anchor": "the rate behind the $38,000.00 figure",
       "relationship": "prerequisite"
     },
     {

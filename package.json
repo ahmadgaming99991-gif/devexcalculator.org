@@ -29,7 +29,7 @@
     "validate:routes": "tsx scripts/quality/check-routes.ts",
     "validate:worker": "tsx scripts/quality/check-worker-size.ts",
     "validate:bundle": "tsx scripts/quality/check-bundle-budget.ts",
-    "check": "npm run lint && npm run typecheck && npm run test && npm run validate:content && npm run validate:seo && npm run build && npm run validate:links",
+    "check": "npm run lint && npm run typecheck && npm run test && npm run validate:content && npm run validate:seo && npm run build && npm run validate:routes && npm run validate:links && npm run validate:bundle",
     "fx:snapshot": "tsx scripts/content/generate-fx-snapshot.ts"
   },
   "dependencies": {
