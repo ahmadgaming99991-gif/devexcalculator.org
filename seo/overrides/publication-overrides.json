@@ -1,0 +1,23 @@
+{
+  "$comment": "Manual publication decisions for standalone numeric amount pages, keyed by amount entity id. Values: approved | review | excluded. Every approved amount must still clear the automated quality gates; this file can only make the launch set smaller or hold an amount back, and each decision is reviewed against real Search Console data after launch.",
+  "amounts": {
+    "robux-1000000": "approved",
+    "robux-100000": "approved",
+    "robux-500000": "approved",
+    "robux-200000": "approved",
+    "robux-50000": "approved",
+    "robux-30000": "approved",
+    "robux-10000000": "approved",
+    "robux-300000": "approved"
+  },
+  "rationale": {
+    "robux-30000": "The DevEx minimum itself. Highest explanatory value of any amount because it is the threshold every creator checks first.",
+    "robux-100000": "Strong demand across several formatting variants and a common creator milestone.",
+    "robux-1000000": "Large, well-searched milestone amount with distinct variants including 1 mil and a million.",
+    "robux-10000000": "Distinct upper-range milestone with its own query variants.",
+    "robux-500000": "Round milestone with demonstrated demand.",
+    "robux-300000": "Round milestone with demonstrated demand.",
+    "robux-200000": "Round milestone with demonstrated demand.",
+    "robux-50000": "Round milestone with demonstrated demand and a strong how-much query family."
+  }
+}

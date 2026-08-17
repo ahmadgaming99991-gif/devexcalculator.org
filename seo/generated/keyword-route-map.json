@@ -1,0 +1,911 @@
+{
+  "generatedAt": "2026-08-17T10:34:34.579Z",
+  "routes": [
+    {
+      "route": "/robux-to-usd/",
+      "isCanonicalOwner": true,
+      "primaryKeyword": "robux to usd",
+      "keywordCount": 88,
+      "uniqueKeywordCount": 88,
+      "nonOverlappingVolume": 29680,
+      "topKeywords": [
+        {
+          "keyword": "robux to usd",
+          "volume": 16470,
+          "organicTraffic": 3937,
+          "intent": "generic-robux-to-usd",
+          "priority": "P0"
+        },
+        {
+          "keyword": "robux calculator",
+          "volume": 4810,
+          "organicTraffic": 752,
+          "intent": "generic-robux-to-usd",
+          "priority": "P0"
+        },
+        {
+          "keyword": "robux to usd calculator",
+          "volume": 2110,
+          "organicTraffic": 243,
+          "intent": "generic-robux-to-usd",
+          "priority": "P0"
+        },
+        {
+          "keyword": "robux converter",
+          "volume": 1310,
+          "organicTraffic": 323,
+          "intent": "generic-robux-to-usd",
+          "priority": "P0"
+        },
+        {
+          "keyword": "robux to money converter",
+          "volume": 750,
+          "organicTraffic": 283,
+          "intent": "generic-robux-to-usd",
+          "priority": "P0"
+        },
+        {
+          "keyword": "robux to usd conversion",
+          "volume": 450,
+          "organicTraffic": 158,
+          "intent": "generic-robux-to-usd",
+          "priority": "P0"
+        },
+        {
+          "keyword": "robux to usd converter",
+          "volume": 390,
+          "organicTraffic": 245,
+          "intent": "generic-robux-to-usd",
+          "priority": "P0"
+        },
+        {
+          "keyword": "roblox to usd",
+          "volume": 370,
+          "organicTraffic": 52,
+          "intent": "generic-robux-to-usd",
+          "priority": "P0"
+        },
+        {
+          "keyword": "robux to money",
+          "volume": 300,
+          "organicTraffic": 29,
+          "intent": "generic-robux-to-usd",
+          "priority": "P0"
+        },
+        {
+          "keyword": "robux converter to usd",
+          "volume": 250,
+          "organicTraffic": 35,
+          "intent": "generic-robux-to-usd",
+          "priority": "P0"
+        },
+        {
+          "keyword": "robux calculator to usd",
+          "volume": 150,
+          "organicTraffic": 23,
+          "intent": "generic-robux-to-usd",
+          "priority": "P0"
+        },
+        {
+          "keyword": "robux conversion",
+          "volume": 110,
+          "organicTraffic": 19,
+          "intent": "generic-robux-to-usd",
+          "priority": "P0"
+        },
+        {
+          "keyword": "roblox converter",
+          "volume": 100,
+          "organicTraffic": 18,
+          "intent": "generic-robux-to-usd",
+          "priority": "P0"
+        },
+        {
+          "keyword": "roblox to usd converter",
+          "volume": 100,
+          "organicTraffic": 17,
+          "intent": "generic-robux-to-usd",
+          "priority": "P0"
+        },
+        {
+          "keyword": "robux into usd",
+          "volume": 100,
+          "organicTraffic": 13,
+          "intent": "generic-robux-to-usd",
+          "priority": "P0"
+        },
+        {
+          "keyword": "robux money converter",
+          "volume": 90,
+          "organicTraffic": 35,
+          "intent": "generic-robux-to-usd",
+          "priority": "P0"
+        },
+        {
+          "keyword": "convert robux to usd",
+          "volume": 90,
+          "organicTraffic": 13,
+          "intent": "generic-robux-to-usd",
+          "priority": "P0"
+        },
+        {
+          "keyword": "roblox robux to usd",
+          "volume": 90,
+          "organicTraffic": 8,
+          "intent": "generic-robux-to-usd",
+          "priority": "P0"
+        },
+        {
+          "keyword": "robux to dollar",
+          "volume": 90,
+          "organicTraffic": 4,
+          "intent": "generic-robux-to-usd",
+          "priority": "P0"
+        },
+        {
+          "keyword": "robux to usd exchange rate",
+          "volume": 80,
+          "organicTraffic": 12,
+          "intent": "generic-robux-to-usd",
+          "priority": "P0"
+        },
+        {
+          "keyword": "robux to cash converter",
+          "volume": 80,
+          "organicTraffic": 12,
+          "intent": "generic-robux-to-usd",
+          "priority": "P0"
+        },
+        {
+          "keyword": "roblox calculator",
+          "volume": 70,
+          "organicTraffic": 10,
+          "intent": "generic-robux-to-usd",
+          "priority": "P0"
+        },
+        {
+          "keyword": "robux to real money converter",
+          "volume": 60,
+          "organicTraffic": 12,
+          "intent": "generic-robux-to-usd",
+          "priority": "P0"
+        },
+        {
+          "keyword": "roblox robux calculator",
+          "volume": 60,
+          "organicTraffic": 8,
+          "intent": "generic-robux-to-usd",
+          "priority": "P0"
+        },
+        {
+          "keyword": "robux to dollars",
+          "volume": 60,
+          "organicTraffic": 3,
+          "intent": "generic-robux-to-usd",
+          "priority": "P0"
+        }
+      ]
+    },
+    {
+      "route": "/conversions/",
+      "isCanonicalOwner": true,
+      "primaryKeyword": "how much is 1000 robux",
+      "keywordCount": 180,
+      "uniqueKeywordCount": 180,
+      "nonOverlappingVolume": 24450,
+      "topKeywords": [
+        {
+          "keyword": "how much is 1000 robux",
+          "volume": 1700,
+          "organicTraffic": 0,
+          "intent": "numeric-amount-conversion",
+          "priority": "P1"
+        },
+        {
+          "keyword": "1 million robux to usd",
+          "volume": 1550,
+          "organicTraffic": 186,
+          "intent": "numeric-amount-conversion",
+          "priority": "P1"
+        },
+        {
+          "keyword": "how much is 17k robux in dollars",
+          "volume": 1110,
+          "organicTraffic": 0,
+          "intent": "numeric-amount-conversion",
+          "priority": "P1"
+        },
+        {
+          "keyword": "1000 robux to usd",
+          "volume": 700,
+          "organicTraffic": 66,
+          "intent": "numeric-amount-conversion",
+          "priority": "P1"
+        },
+        {
+          "keyword": "10000 robux to usd",
+          "volume": 600,
+          "organicTraffic": 89,
+          "intent": "numeric-amount-conversion",
+          "priority": "P1"
+        },
+        {
+          "keyword": "200 robux to usd",
+          "volume": 600,
+          "organicTraffic": 55,
+          "intent": "numeric-amount-conversion",
+          "priority": "P1"
+        },
+        {
+          "keyword": "5000 robux to usd",
+          "volume": 600,
+          "organicTraffic": 30,
+          "intent": "numeric-amount-conversion",
+          "priority": "P1"
+        },
+        {
+          "keyword": "10 million robux to usd",
+          "volume": 500,
+          "organicTraffic": 45,
+          "intent": "numeric-amount-conversion",
+          "priority": "P1"
+        },
+        {
+          "keyword": "100 000 robux to usd",
+          "volume": 500,
+          "organicTraffic": 31,
+          "intent": "numeric-amount-conversion",
+          "priority": "P1"
+        },
+        {
+          "keyword": "how much is 10000 robux",
+          "volume": 500,
+          "organicTraffic": 0,
+          "intent": "numeric-amount-conversion",
+          "priority": "P1"
+        },
+        {
+          "keyword": "17000 robux to usd",
+          "volume": 400,
+          "organicTraffic": 12,
+          "intent": "numeric-amount-conversion",
+          "priority": "P1"
+        },
+        {
+          "keyword": "50k robux to usd",
+          "volume": 360,
+          "organicTraffic": 52,
+          "intent": "numeric-amount-conversion",
+          "priority": "P1"
+        },
+        {
+          "keyword": "500k robux to usd",
+          "volume": 350,
+          "organicTraffic": 0,
+          "intent": "numeric-amount-conversion",
+          "priority": "P1"
+        },
+        {
+          "keyword": "how much is 5 million robux in usd",
+          "volume": 350,
+          "organicTraffic": 0,
+          "intent": "numeric-amount-conversion",
+          "priority": "P1"
+        },
+        {
+          "keyword": "30k robux to usd",
+          "volume": 350,
+          "organicTraffic": 42,
+          "intent": "numeric-amount-conversion",
+          "priority": "P1"
+        },
+        {
+          "keyword": "2500 robux to usd",
+          "volume": 350,
+          "organicTraffic": 20,
+          "intent": "numeric-amount-conversion",
+          "priority": "P1"
+        },
+        {
+          "keyword": "30000 robux to usd",
+          "volume": 300,
+          "organicTraffic": 54,
+          "intent": "numeric-amount-conversion",
+          "priority": "P1"
+        },
+        {
+          "keyword": "200k robux to usd",
+          "volume": 300,
+          "organicTraffic": 47,
+          "intent": "numeric-amount-conversion",
+          "priority": "P1"
+        },
+        {
+          "keyword": "1.5 million robux to usd",
+          "volume": 300,
+          "organicTraffic": 45,
+          "intent": "numeric-amount-conversion",
+          "priority": "P1"
+        },
+        {
+          "keyword": "20k robux to usd",
+          "volume": 300,
+          "organicTraffic": 37,
+          "intent": "numeric-amount-conversion",
+          "priority": "P1"
+        },
+        {
+          "keyword": "300k robux to usd",
+          "volume": 300,
+          "organicTraffic": 34,
+          "intent": "numeric-amount-conversion",
+          "priority": "P1"
+        },
+        {
+          "keyword": "how much is 10k robux in usd",
+          "volume": 300,
+          "organicTraffic": 28,
+          "intent": "numeric-amount-conversion",
+          "priority": "P1"
+        },
+        {
+          "keyword": "4000 robux to usd",
+          "volume": 300,
+          "organicTraffic": 28,
+          "intent": "numeric-amount-conversion",
+          "priority": "P1"
+        },
+        {
+          "keyword": "17k robux to usd",
+          "volume": 300,
+          "organicTraffic": 17,
+          "intent": "numeric-amount-conversion",
+          "priority": "P1"
+        },
+        {
+          "keyword": "how much is 100k robux",
+          "volume": 300,
+          "organicTraffic": 16,
+          "intent": "numeric-amount-conversion",
+          "priority": "P1"
+        }
+      ]
+    },
+    {
+      "route": "/",
+      "isCanonicalOwner": true,
+      "primaryKeyword": "devex calculator",
+      "keywordCount": 52,
+      "uniqueKeywordCount": 52,
+      "nonOverlappingVolume": 22980,
+      "topKeywords": [
+        {
+          "keyword": "devex calculator",
+          "volume": 6440,
+          "organicTraffic": 2301,
+          "intent": "core-devex-calculator",
+          "priority": "P0"
+        },
+        {
+          "keyword": "devex",
+          "volume": 5620,
+          "organicTraffic": 52,
+          "intent": "informational-definition",
+          "priority": "P2"
+        },
+        {
+          "keyword": "devex roblox",
+          "volume": 4950,
+          "organicTraffic": 443,
+          "intent": "core-devex-calculator",
+          "priority": "P0"
+        },
+        {
+          "keyword": "roblox devex",
+          "volume": 1740,
+          "organicTraffic": 106,
+          "intent": "core-devex-calculator",
+          "priority": "P0"
+        },
+        {
+          "keyword": "roblox devex calculator",
+          "volume": 580,
+          "organicTraffic": 213,
+          "intent": "core-devex-calculator",
+          "priority": "P0"
+        },
+        {
+          "keyword": "dev exchange roblox",
+          "volume": 220,
+          "organicTraffic": 35,
+          "intent": "core-devex-calculator",
+          "priority": "P0"
+        },
+        {
+          "keyword": "devex to usd",
+          "volume": 210,
+          "organicTraffic": 86,
+          "intent": "core-devex-calculator",
+          "priority": "P0"
+        },
+        {
+          "keyword": "devex calc",
+          "volume": 200,
+          "organicTraffic": 75,
+          "intent": "core-devex-calculator",
+          "priority": "P0"
+        },
+        {
+          "keyword": "dev ex calc",
+          "volume": 200,
+          "organicTraffic": 74,
+          "intent": "core-devex-calculator",
+          "priority": "P0"
+        },
+        {
+          "keyword": "devex converter",
+          "volume": 180,
+          "organicTraffic": 72,
+          "intent": "core-devex-calculator",
+          "priority": "P0"
+        },
+        {
+          "keyword": "dev ex roblox",
+          "volume": 170,
+          "organicTraffic": 13,
+          "intent": "core-devex-calculator",
+          "priority": "P0"
+        },
+        {
+          "keyword": "dev ex",
+          "volume": 170,
+          "organicTraffic": 11,
+          "intent": "informational-definition",
+          "priority": "P2"
+        },
+        {
+          "keyword": "robux devex calculator",
+          "volume": 160,
+          "organicTraffic": 54,
+          "intent": "core-devex-calculator",
+          "priority": "P0"
+        },
+        {
+          "keyword": "devex robux",
+          "volume": 160,
+          "organicTraffic": 50,
+          "intent": "core-devex-calculator",
+          "priority": "P0"
+        },
+        {
+          "keyword": "devex calculator roblox",
+          "volume": 150,
+          "organicTraffic": 53,
+          "intent": "core-devex-calculator",
+          "priority": "P0"
+        },
+        {
+          "keyword": "dev ex calculator",
+          "volume": 130,
+          "organicTraffic": 46,
+          "intent": "core-devex-calculator",
+          "priority": "P0"
+        },
+        {
+          "keyword": "roblox dev exchange",
+          "volume": 100,
+          "organicTraffic": 138,
+          "intent": "core-devex-calculator",
+          "priority": "P0"
+        },
+        {
+          "keyword": "dev x calculator",
+          "volume": 100,
+          "organicTraffic": 62,
+          "intent": "core-devex-calculator",
+          "priority": "P0"
+        },
+        {
+          "keyword": "devex robux to usd",
+          "volume": 100,
+          "organicTraffic": 34,
+          "intent": "core-devex-calculator",
+          "priority": "P0"
+        },
+        {
+          "keyword": "devex exchange",
+          "volume": 90,
+          "organicTraffic": 33,
+          "intent": "informational-definition",
+          "priority": "P2"
+        },
+        {
+          "keyword": "robux to usd devex",
+          "volume": 90,
+          "organicTraffic": 33,
+          "intent": "core-devex-calculator",
+          "priority": "P0"
+        },
+        {
+          "keyword": "robux to devex",
+          "volume": 90,
+          "organicTraffic": 32,
+          "intent": "core-devex-calculator",
+          "priority": "P0"
+        },
+        {
+          "keyword": "roblox dev ex",
+          "volume": 90,
+          "organicTraffic": 8,
+          "intent": "core-devex-calculator",
+          "priority": "P0"
+        },
+        {
+          "keyword": "1 million robux to usd devex",
+          "volume": 80,
+          "organicTraffic": 30,
+          "intent": "core-devex-calculator",
+          "priority": "P0"
+        },
+        {
+          "keyword": "robux devex",
+          "volume": 80,
+          "organicTraffic": 29,
+          "intent": "core-devex-calculator",
+          "priority": "P0"
+        }
+      ]
+    },
+    {
+      "route": "/devex-rates/",
+      "isCanonicalOwner": true,
+      "primaryKeyword": "devex rates",
+      "keywordCount": 38,
+      "uniqueKeywordCount": 38,
+      "nonOverlappingVolume": 3600,
+      "topKeywords": [
+        {
+          "keyword": "devex rates",
+          "volume": 1160,
+          "organicTraffic": 417,
+          "intent": "devex-rate",
+          "priority": "P0"
+        },
+        {
+          "keyword": "roblox devex rates",
+          "volume": 480,
+          "organicTraffic": 85,
+          "intent": "devex-rate",
+          "priority": "P0"
+        },
+        {
+          "keyword": "robux conversion rate",
+          "volume": 430,
+          "organicTraffic": 62,
+          "intent": "devex-rate",
+          "priority": "P0"
+        },
+        {
+          "keyword": "devex rate",
+          "volume": 260,
+          "organicTraffic": 100,
+          "intent": "devex-rate",
+          "priority": "P0"
+        },
+        {
+          "keyword": "dev ex rates",
+          "volume": 210,
+          "organicTraffic": 45,
+          "intent": "devex-rate",
+          "priority": "P0"
+        },
+        {
+          "keyword": "robux to usd conversion rate",
+          "volume": 200,
+          "organicTraffic": 29,
+          "intent": "devex-rate",
+          "priority": "P0"
+        },
+        {
+          "keyword": "roblox devex rate",
+          "volume": 170,
+          "organicTraffic": 25,
+          "intent": "devex-rate",
+          "priority": "P0"
+        },
+        {
+          "keyword": "devex exchange rate",
+          "volume": 110,
+          "organicTraffic": 40,
+          "intent": "devex-rate",
+          "priority": "P0"
+        },
+        {
+          "keyword": "devex rates roblox",
+          "volume": 80,
+          "organicTraffic": 16,
+          "intent": "devex-rate",
+          "priority": "P0"
+        },
+        {
+          "keyword": "dev ex rate",
+          "volume": 70,
+          "organicTraffic": 25,
+          "intent": "devex-rate",
+          "priority": "P0"
+        },
+        {
+          "keyword": "devex exchange rates",
+          "volume": 60,
+          "organicTraffic": 13,
+          "intent": "devex-rate",
+          "priority": "P0"
+        },
+        {
+          "keyword": "robux exchange rate",
+          "volume": 50,
+          "organicTraffic": 5,
+          "intent": "devex-rate",
+          "priority": "P0"
+        },
+        {
+          "keyword": "roblox devex exchange rate",
+          "volume": 40,
+          "organicTraffic": 5,
+          "intent": "devex-rate",
+          "priority": "P0"
+        },
+        {
+          "keyword": "roblox exchange rate",
+          "volume": 30,
+          "organicTraffic": 5,
+          "intent": "devex-rate",
+          "priority": "P0"
+        },
+        {
+          "keyword": "roblox dev exchange rates",
+          "volume": 30,
+          "organicTraffic": 4,
+          "intent": "devex-rate",
+          "priority": "P0"
+        },
+        {
+          "keyword": "devx rates",
+          "volume": 20,
+          "organicTraffic": 8,
+          "intent": "devex-rate",
+          "priority": "P0"
+        },
+        {
+          "keyword": "dev x rates",
+          "volume": 20,
+          "organicTraffic": 5,
+          "intent": "devex-rate",
+          "priority": "P0"
+        },
+        {
+          "keyword": "roblox dev ex rates",
+          "volume": 20,
+          "organicTraffic": 4,
+          "intent": "devex-rate",
+          "priority": "P0"
+        },
+        {
+          "keyword": "devex roblox rates",
+          "volume": 20,
+          "organicTraffic": 3,
+          "intent": "devex-rate",
+          "priority": "P0"
+        },
+        {
+          "keyword": "robux to dollar conversion rate",
+          "volume": 20,
+          "organicTraffic": 3,
+          "intent": "devex-rate",
+          "priority": "P0"
+        },
+        {
+          "keyword": "roblox developer exchange rate",
+          "volume": 20,
+          "organicTraffic": 3,
+          "intent": "devex-rate",
+          "priority": "P0"
+        },
+        {
+          "keyword": "robux developer exchange rate",
+          "volume": 20,
+          "organicTraffic": 2,
+          "intent": "devex-rate",
+          "priority": "P0"
+        },
+        {
+          "keyword": "devex prices",
+          "volume": 10,
+          "organicTraffic": 5,
+          "intent": "devex-rate",
+          "priority": "P0"
+        },
+        {
+          "keyword": "roblox dev exchange rate",
+          "volume": 10,
+          "organicTraffic": 2,
+          "intent": "devex-rate",
+          "priority": "P0"
+        },
+        {
+          "keyword": "roblox robux exchange rate",
+          "volume": 10,
+          "organicTraffic": 2,
+          "intent": "devex-rate",
+          "priority": "P0"
+        }
+      ]
+    },
+    {
+      "route": "/usd-to-robux/",
+      "isCanonicalOwner": true,
+      "primaryKeyword": "usd to robux",
+      "keywordCount": 11,
+      "uniqueKeywordCount": 11,
+      "nonOverlappingVolume": 1590,
+      "topKeywords": [
+        {
+          "keyword": "usd to robux",
+          "volume": 1040,
+          "organicTraffic": 32,
+          "intent": "reverse-usd-to-robux",
+          "priority": "P1"
+        },
+        {
+          "keyword": "usd to robux calculator",
+          "volume": 250,
+          "organicTraffic": 35,
+          "intent": "reverse-usd-to-robux",
+          "priority": "P1"
+        },
+        {
+          "keyword": "usd to robux converter",
+          "volume": 150,
+          "organicTraffic": 21,
+          "intent": "reverse-usd-to-robux",
+          "priority": "P1"
+        },
+        {
+          "keyword": "money to robux calculator",
+          "volume": 80,
+          "organicTraffic": 11,
+          "intent": "reverse-usd-to-robux",
+          "priority": "P1"
+        },
+        {
+          "keyword": "money to robux converter",
+          "volume": 20,
+          "organicTraffic": 3,
+          "intent": "reverse-usd-to-robux",
+          "priority": "P1"
+        },
+        {
+          "keyword": "money into robux",
+          "volume": 20,
+          "organicTraffic": 3,
+          "intent": "reverse-usd-to-robux",
+          "priority": "P1"
+        },
+        {
+          "keyword": "dollars to robux calculator",
+          "volume": 10,
+          "organicTraffic": 2,
+          "intent": "reverse-usd-to-robux",
+          "priority": "P1"
+        },
+        {
+          "keyword": "money to robux",
+          "volume": 10,
+          "organicTraffic": 1,
+          "intent": "reverse-usd-to-robux",
+          "priority": "P1"
+        },
+        {
+          "keyword": "dollars to robux conversion",
+          "volume": 10,
+          "organicTraffic": 1,
+          "intent": "reverse-usd-to-robux",
+          "priority": "P1"
+        },
+        {
+          "keyword": "money to robux ratio",
+          "volume": 0,
+          "organicTraffic": 0,
+          "intent": "reverse-usd-to-robux",
+          "priority": "P1"
+        },
+        {
+          "keyword": "money to robux converter usd",
+          "volume": 0,
+          "organicTraffic": 0,
+          "intent": "reverse-usd-to-robux",
+          "priority": "P1"
+        }
+      ]
+    },
+    {
+      "route": "/robux-tax-calculator/",
+      "isCanonicalOwner": true,
+      "primaryKeyword": "roblox tax",
+      "keywordCount": 2,
+      "uniqueKeywordCount": 2,
+      "nonOverlappingVolume": 670,
+      "topKeywords": [
+        {
+          "keyword": "roblox tax",
+          "volume": 650,
+          "organicTraffic": 10,
+          "intent": "marketplace-tax",
+          "priority": "P1"
+        },
+        {
+          "keyword": "tax roblox",
+          "volume": 20,
+          "organicTraffic": 0,
+          "intent": "marketplace-tax",
+          "priority": "P1"
+        }
+      ]
+    },
+    {
+      "route": "/how-to-cash-out-robux/",
+      "isCanonicalOwner": true,
+      "primaryKeyword": "how to convert robux to usd",
+      "keywordCount": 4,
+      "uniqueKeywordCount": 4,
+      "nonOverlappingVolume": 110,
+      "topKeywords": [
+        {
+          "keyword": "how to convert robux to usd",
+          "volume": 70,
+          "organicTraffic": 9,
+          "intent": "cash-out-process",
+          "priority": "P1"
+        },
+        {
+          "keyword": "cash out robux",
+          "volume": 20,
+          "organicTraffic": 0,
+          "intent": "cash-out-process",
+          "priority": "P1"
+        },
+        {
+          "keyword": "turn robux into money",
+          "volume": 20,
+          "organicTraffic": 1,
+          "intent": "cash-out-process",
+          "priority": "P1"
+        },
+        {
+          "keyword": "sell robux to usd",
+          "volume": 0,
+          "organicTraffic": 0,
+          "intent": "cash-out-process",
+          "priority": "P1"
+        }
+      ]
+    },
+    {
+      "route": "/devex-rate-history/",
+      "isCanonicalOwner": true,
+      "primaryKeyword": "roblox devex rates 2023",
+      "keywordCount": 1,
+      "uniqueKeywordCount": 1,
+      "nonOverlappingVolume": 0,
+      "topKeywords": [
+        {
+          "keyword": "roblox devex rates 2023",
+          "volume": 0,
+          "organicTraffic": 0,
+          "intent": "devex-rate-history",
+          "priority": "P2"
+        }
+      ]
+    }
+  ]
+}

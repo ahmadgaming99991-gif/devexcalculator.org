@@ -141,11 +141,13 @@ function clean(input: string): ParseResult<Cleaned> {
     working = working.replace(/,/g, "");
   }
 
-  if (!/^\d*\.?\d*$/.test(working) || working === "." || working === "") {
-    return fail("not-a-number", "Enter digits only, for example 100000.");
-  }
+  // Check separator placement before the general shape test, so that a value
+  // like "1.2.3" is reported as a separator problem rather than as gibberish.
   if ((working.match(/\./g) ?? []).length > 1) {
     return fail("malformed-separators", "There is more than one decimal point.");
+  }
+  if (!/^\d*\.?\d*$/.test(working) || working === "." || working === "") {
+    return fail("not-a-number", "Enter digits only, for example 100000.");
   }
 
   return { ok: true, value: { digits: working, multiplier }, canonical: working };

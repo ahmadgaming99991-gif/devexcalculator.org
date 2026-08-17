@@ -1,0 +1,1609 @@
+{
+  "generatedAt": "2026-08-17T10:34:34.579Z",
+  "approvedCount": 9,
+  "entities": [
+    {
+      "entityId": "robux-1000",
+      "amount": 1000,
+      "display": "1,000",
+      "slug": "1000-robux-to-usd",
+      "route": "/conversions/1000-robux-to-usd/",
+      "variants": [
+        "1,000 robux to usd",
+        "1000 robux to usd",
+        "how much is 1000 robux",
+        "how much is 1000 robux in philippines pesos"
+      ],
+      "totalVolume": 2620,
+      "totalOrganicTraffic": 68,
+      "publicationStatus": "review",
+      "gateResults": {
+        "meaningfulDemand": true,
+        "distinctIntent": true,
+        "isRoundAmount": true,
+        "atOrAboveMinimum": false,
+        "withinSafeRange": true
+      },
+      "rationale": "Held at review: below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-1000000",
+      "amount": 1000000,
+      "display": "1,000,000",
+      "slug": "1000000-robux-to-usd",
+      "route": "/conversions/1000000-robux-to-usd/",
+      "variants": [
+        "1 million robux",
+        "1 million robux devex",
+        "1 million robux in pounds",
+        "1 million robux in usd",
+        "1 million robux to usd",
+        "1 million robux to usd devex",
+        "1000000 robux to usd",
+        "1mil robux to usd",
+        "how much is 1 million robux in devex"
+      ],
+      "totalVolume": 2120,
+      "totalOrganicTraffic": 231,
+      "publicationStatus": "approved",
+      "gateResults": {
+        "meaningfulDemand": true,
+        "distinctIntent": true,
+        "isRoundAmount": true,
+        "atOrAboveMinimum": true,
+        "withinSafeRange": true
+      },
+      "rationale": "Manual publication override applied: approved."
+    },
+    {
+      "entityId": "robux-17000",
+      "amount": 17000,
+      "display": "17,000",
+      "slug": "17000-robux-to-usd",
+      "route": "/conversions/17000-robux-to-usd/",
+      "variants": [
+        "17000 robux berapa rupiah",
+        "17000 robux to dollars",
+        "17000 robux to usd",
+        "17k robux to usd",
+        "how much is 17k robux in dollars",
+        "how much is 17k robux in usd"
+      ],
+      "totalVolume": 1920,
+      "totalOrganicTraffic": 29,
+      "publicationStatus": "review",
+      "gateResults": {
+        "meaningfulDemand": true,
+        "distinctIntent": true,
+        "isRoundAmount": false,
+        "atOrAboveMinimum": false,
+        "withinSafeRange": true
+      },
+      "rationale": "Held at review: not a round amount that reads as a real query, below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-10000",
+      "amount": 10000,
+      "display": "10,000",
+      "slug": "10000-robux-to-usd",
+      "route": "/conversions/10000-robux-to-usd/",
+      "variants": [
+        "10,000 robux to usd",
+        "10000 robux to dollars",
+        "10000 robux to usd",
+        "how much does 10k robux cost",
+        "how much is 10 000 robux in usd",
+        "how much is 10000 robux",
+        "how much is 10k robux in usd"
+      ],
+      "totalVolume": 1590,
+      "totalOrganicTraffic": 132,
+      "publicationStatus": "review",
+      "gateResults": {
+        "meaningfulDemand": true,
+        "distinctIntent": true,
+        "isRoundAmount": true,
+        "atOrAboveMinimum": false,
+        "withinSafeRange": true
+      },
+      "rationale": "Held at review: below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-100000",
+      "amount": 100000,
+      "display": "100,000",
+      "slug": "100000-robux-to-usd",
+      "route": "/conversions/100000-robux-to-usd/",
+      "variants": [
+        "100 000 robux to usd",
+        "100,000 robux to usd",
+        "100000 robux to usd",
+        "100k robux in usd",
+        "100k robux to usd",
+        "how much is 100k robux"
+      ],
+      "totalVolume": 1270,
+      "totalOrganicTraffic": 97,
+      "publicationStatus": "approved",
+      "gateResults": {
+        "meaningfulDemand": true,
+        "distinctIntent": true,
+        "isRoundAmount": true,
+        "atOrAboveMinimum": true,
+        "withinSafeRange": true
+      },
+      "rationale": "Manual publication override applied: approved."
+    },
+    {
+      "entityId": "robux-10000000",
+      "amount": 10000000,
+      "display": "10,000,000",
+      "slug": "10000000-robux-to-usd",
+      "route": "/conversions/10000000-robux-to-usd/",
+      "variants": [
+        "10 million robux in dollars",
+        "10 million robux to usd",
+        "10,000,000 robux to usd",
+        "10m robux to usd",
+        "how much is 10m robux in usd",
+        "how much money is 10 million robux"
+      ],
+      "totalVolume": 920,
+      "totalOrganicTraffic": 74,
+      "publicationStatus": "approved",
+      "gateResults": {
+        "meaningfulDemand": true,
+        "distinctIntent": true,
+        "isRoundAmount": true,
+        "atOrAboveMinimum": true,
+        "withinSafeRange": true
+      },
+      "rationale": "Manual publication override applied: approved."
+    },
+    {
+      "entityId": "robux-50000",
+      "amount": 50000,
+      "display": "50,000",
+      "slug": "50000-robux-to-usd",
+      "route": "/conversions/50000-robux-to-usd/",
+      "variants": [
+        "50k robux in usd",
+        "50k robux to usd",
+        "how much is 50k robux",
+        "how much is 50k robux in us dollars",
+        "how much is 50k robux in usd",
+        "how much money is 50k robux"
+      ],
+      "totalVolume": 870,
+      "totalOrganicTraffic": 81,
+      "publicationStatus": "approved",
+      "gateResults": {
+        "meaningfulDemand": true,
+        "distinctIntent": true,
+        "isRoundAmount": true,
+        "atOrAboveMinimum": true,
+        "withinSafeRange": true
+      },
+      "rationale": "Manual publication override applied: approved."
+    },
+    {
+      "entityId": "robux-30000",
+      "amount": 30000,
+      "display": "30,000",
+      "slug": "30000-robux-to-usd",
+      "route": "/conversions/30000-robux-to-usd/",
+      "variants": [
+        "30,000 robux to usd",
+        "30000 robux to usd",
+        "30k robux in dollars",
+        "30k robux to usd",
+        "how much is 30,000 robux",
+        "how much is 30000 robux in real money"
+      ],
+      "totalVolume": 790,
+      "totalOrganicTraffic": 58,
+      "publicationStatus": "approved",
+      "gateResults": {
+        "meaningfulDemand": true,
+        "distinctIntent": true,
+        "isRoundAmount": true,
+        "atOrAboveMinimum": true,
+        "withinSafeRange": true
+      },
+      "rationale": "Manual publication override applied: approved."
+    },
+    {
+      "entityId": "robux-20000",
+      "amount": 20000,
+      "display": "20,000",
+      "slug": "20000-robux-to-usd",
+      "route": "/conversions/20000-robux-to-usd/",
+      "variants": [
+        "20,000 robux to usd",
+        "20000 robux to usd",
+        "20k robux in dollars",
+        "20k robux to cad",
+        "20k robux to usd",
+        "how much is 20000 robux",
+        "how much is 20k robux in dollars",
+        "how much money is 20000 robux",
+        "how much money is 20k robux"
+      ],
+      "totalVolume": 760,
+      "totalOrganicTraffic": 39,
+      "publicationStatus": "review",
+      "gateResults": {
+        "meaningfulDemand": true,
+        "distinctIntent": true,
+        "isRoundAmount": true,
+        "atOrAboveMinimum": false,
+        "withinSafeRange": true
+      },
+      "rationale": "Held at review: below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-500000",
+      "amount": 500000,
+      "display": "500,000",
+      "slug": "500000-robux-to-usd",
+      "route": "/conversions/500000-robux-to-usd/",
+      "variants": [
+        "500,000 robux to usd",
+        "500k robux to usd",
+        "how much is 500k robux",
+        "how much is 500k robux in usd"
+      ],
+      "totalVolume": 690,
+      "totalOrganicTraffic": 29,
+      "publicationStatus": "approved",
+      "gateResults": {
+        "meaningfulDemand": true,
+        "distinctIntent": true,
+        "isRoundAmount": true,
+        "atOrAboveMinimum": true,
+        "withinSafeRange": true
+      },
+      "rationale": "Manual publication override applied: approved."
+    },
+    {
+      "entityId": "robux-3000",
+      "amount": 3000,
+      "display": "3,000",
+      "slug": "3000-robux-to-usd",
+      "route": "/conversions/3000-robux-to-usd/",
+      "variants": [
+        "3000 robux to cad",
+        "3000 robux to usd",
+        "3k robux to dollars",
+        "3k robux to usd",
+        "how much is 3000 robux in dollars",
+        "how much is 3000 robux in usd"
+      ],
+      "totalVolume": 680,
+      "totalOrganicTraffic": 51,
+      "publicationStatus": "review",
+      "gateResults": {
+        "meaningfulDemand": true,
+        "distinctIntent": true,
+        "isRoundAmount": true,
+        "atOrAboveMinimum": false,
+        "withinSafeRange": true
+      },
+      "rationale": "Held at review: below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-200",
+      "amount": 200,
+      "display": "200",
+      "slug": "200-robux-to-usd",
+      "route": "/conversions/200-robux-to-usd/",
+      "variants": [
+        "200 robux to usd",
+        "how much money is 200 robux"
+      ],
+      "totalVolume": 680,
+      "totalOrganicTraffic": 55,
+      "publicationStatus": "review",
+      "gateResults": {
+        "meaningfulDemand": true,
+        "distinctIntent": true,
+        "isRoundAmount": false,
+        "atOrAboveMinimum": false,
+        "withinSafeRange": true
+      },
+      "rationale": "Held at review: not a round amount that reads as a real query, below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-5000",
+      "amount": 5000,
+      "display": "5,000",
+      "slug": "5000-robux-to-usd",
+      "route": "/conversions/5000-robux-to-usd/",
+      "variants": [
+        "5000 robux to usd"
+      ],
+      "totalVolume": 600,
+      "totalOrganicTraffic": 30,
+      "publicationStatus": "review",
+      "gateResults": {
+        "meaningfulDemand": true,
+        "distinctIntent": false,
+        "isRoundAmount": true,
+        "atOrAboveMinimum": false,
+        "withinSafeRange": true
+      },
+      "rationale": "Held at review: too few distinct query variants, below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-200000",
+      "amount": 200000,
+      "display": "200,000",
+      "slug": "200000-robux-to-usd",
+      "route": "/conversions/200000-robux-to-usd/",
+      "variants": [
+        "200,000 robux to usd",
+        "200k robux in usd",
+        "200k robux to usd",
+        "how much is 200k robux in usd"
+      ],
+      "totalVolume": 560,
+      "totalOrganicTraffic": 39,
+      "publicationStatus": "approved",
+      "gateResults": {
+        "meaningfulDemand": true,
+        "distinctIntent": true,
+        "isRoundAmount": true,
+        "atOrAboveMinimum": true,
+        "withinSafeRange": true
+      },
+      "rationale": "Manual publication override applied: approved."
+    },
+    {
+      "entityId": "robux-2000",
+      "amount": 2000,
+      "display": "2,000",
+      "slug": "2000-robux-to-usd",
+      "route": "/conversions/2000-robux-to-usd/",
+      "variants": [
+        "2k robux to usd",
+        "how much is 2000 robux in dollars"
+      ],
+      "totalVolume": 400,
+      "totalOrganicTraffic": 28,
+      "publicationStatus": "review",
+      "gateResults": {
+        "meaningfulDemand": true,
+        "distinctIntent": true,
+        "isRoundAmount": true,
+        "atOrAboveMinimum": false,
+        "withinSafeRange": true
+      },
+      "rationale": "Held at review: below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-300000",
+      "amount": 300000,
+      "display": "300,000",
+      "slug": "300000-robux-to-usd",
+      "route": "/conversions/300000-robux-to-usd/",
+      "variants": [
+        "300 000 robux to usd",
+        "300k robux to usd",
+        "how much is 300k robux"
+      ],
+      "totalVolume": 390,
+      "totalOrganicTraffic": 42,
+      "publicationStatus": "approved",
+      "gateResults": {
+        "meaningfulDemand": true,
+        "distinctIntent": true,
+        "isRoundAmount": true,
+        "atOrAboveMinimum": true,
+        "withinSafeRange": true
+      },
+      "rationale": "Manual publication override applied: approved."
+    },
+    {
+      "entityId": "robux-31000",
+      "amount": 31000,
+      "display": "31,000",
+      "slug": "31000-robux-to-usd",
+      "route": "/conversions/31000-robux-to-usd/",
+      "variants": [
+        "31,000 robux to usd",
+        "31000 robux to usd",
+        "31k robux to usd"
+      ],
+      "totalVolume": 370,
+      "totalOrganicTraffic": 20,
+      "publicationStatus": "review",
+      "gateResults": {
+        "meaningfulDemand": true,
+        "distinctIntent": true,
+        "isRoundAmount": false,
+        "atOrAboveMinimum": true,
+        "withinSafeRange": true
+      },
+      "rationale": "Held at review: not a round amount that reads as a real query. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-2500",
+      "amount": 2500,
+      "display": "2,500",
+      "slug": "2500-robux-to-usd",
+      "route": "/conversions/2500-robux-to-usd/",
+      "variants": [
+        "2500 robux to usd",
+        "how much is 2.5k robux"
+      ],
+      "totalVolume": 360,
+      "totalOrganicTraffic": 20,
+      "publicationStatus": "review",
+      "gateResults": {
+        "meaningfulDemand": true,
+        "distinctIntent": true,
+        "isRoundAmount": false,
+        "atOrAboveMinimum": false,
+        "withinSafeRange": true
+      },
+      "rationale": "Held at review: not a round amount that reads as a real query, below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-5000000",
+      "amount": 5000000,
+      "display": "5,000,000",
+      "slug": "5000000-robux-to-usd",
+      "route": "/conversions/5000000-robux-to-usd/",
+      "variants": [
+        "how much is 5 million robux in usd"
+      ],
+      "totalVolume": 350,
+      "totalOrganicTraffic": 0,
+      "publicationStatus": "review",
+      "gateResults": {
+        "meaningfulDemand": true,
+        "distinctIntent": false,
+        "isRoundAmount": true,
+        "atOrAboveMinimum": true,
+        "withinSafeRange": true
+      },
+      "rationale": "Held at review: too few distinct query variants. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-40000",
+      "amount": 40000,
+      "display": "40,000",
+      "slug": "40000-robux-to-usd",
+      "route": "/conversions/40000-robux-to-usd/",
+      "variants": [
+        "40000 robux to usd",
+        "40k robux to usd",
+        "how much money is 40k robux"
+      ],
+      "totalVolume": 340,
+      "totalOrganicTraffic": 12,
+      "publicationStatus": "approved",
+      "gateResults": {
+        "meaningfulDemand": true,
+        "distinctIntent": true,
+        "isRoundAmount": true,
+        "atOrAboveMinimum": true,
+        "withinSafeRange": true
+      },
+      "rationale": "Clears every publication gate: demonstrated demand, several distinct query variants, a round amount at or above the DevEx minimum."
+    },
+    {
+      "entityId": "robux-4000",
+      "amount": 4000,
+      "display": "4,000",
+      "slug": "4000-robux-to-usd",
+      "route": "/conversions/4000-robux-to-usd/",
+      "variants": [
+        "4 000 robux in dollars",
+        "4000 robux in usd",
+        "4000 robux to usd",
+        "how many dollars is 4000 robux"
+      ],
+      "totalVolume": 340,
+      "totalOrganicTraffic": 28,
+      "publicationStatus": "review",
+      "gateResults": {
+        "meaningfulDemand": true,
+        "distinctIntent": true,
+        "isRoundAmount": true,
+        "atOrAboveMinimum": false,
+        "withinSafeRange": true
+      },
+      "rationale": "Held at review: below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-300",
+      "amount": 300,
+      "display": "300",
+      "slug": "300-robux-to-usd",
+      "route": "/conversions/300-robux-to-usd/",
+      "variants": [
+        "300 robux to usd",
+        "how much money is 300 robux"
+      ],
+      "totalVolume": 340,
+      "totalOrganicTraffic": 28,
+      "publicationStatus": "review",
+      "gateResults": {
+        "meaningfulDemand": true,
+        "distinctIntent": true,
+        "isRoundAmount": false,
+        "atOrAboveMinimum": false,
+        "withinSafeRange": true
+      },
+      "rationale": "Held at review: not a round amount that reads as a real query, below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-25000",
+      "amount": 25000,
+      "display": "25,000",
+      "slug": "25000-robux-to-usd",
+      "route": "/conversions/25000-robux-to-usd/",
+      "variants": [
+        "25000 robux to usd",
+        "25k robux to usd",
+        "how much is 25000 robux",
+        "how much money is 25k robux"
+      ],
+      "totalVolume": 320,
+      "totalOrganicTraffic": 24,
+      "publicationStatus": "review",
+      "gateResults": {
+        "meaningfulDemand": true,
+        "distinctIntent": true,
+        "isRoundAmount": false,
+        "atOrAboveMinimum": false,
+        "withinSafeRange": true
+      },
+      "rationale": "Held at review: not a round amount that reads as a real query, below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-15000",
+      "amount": 15000,
+      "display": "15,000",
+      "slug": "15000-robux-to-usd",
+      "route": "/conversions/15000-robux-to-usd/",
+      "variants": [
+        "15 000 robux to usd",
+        "15000 robux to usd",
+        "how much is 15k robux",
+        "how much money is 15000 robux"
+      ],
+      "totalVolume": 310,
+      "totalOrganicTraffic": 31,
+      "publicationStatus": "review",
+      "gateResults": {
+        "meaningfulDemand": true,
+        "distinctIntent": true,
+        "isRoundAmount": false,
+        "atOrAboveMinimum": false,
+        "withinSafeRange": true
+      },
+      "rationale": "Held at review: not a round amount that reads as a real query, below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-6000",
+      "amount": 6000,
+      "display": "6,000",
+      "slug": "6000-robux-to-usd",
+      "route": "/conversions/6000-robux-to-usd/",
+      "variants": [
+        "6000 robux in dollars",
+        "6000 robux to usd",
+        "how much is 6000 robux",
+        "how much is 6000 robux in usd",
+        "how much is 6k robux in dollars",
+        "how much money is 6k robux"
+      ],
+      "totalVolume": 310,
+      "totalOrganicTraffic": 20,
+      "publicationStatus": "review",
+      "gateResults": {
+        "meaningfulDemand": true,
+        "distinctIntent": true,
+        "isRoundAmount": true,
+        "atOrAboveMinimum": false,
+        "withinSafeRange": true
+      },
+      "rationale": "Held at review: below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-1500000",
+      "amount": 1500000,
+      "display": "1,500,000",
+      "slug": "1500000-robux-to-usd",
+      "route": "/conversions/1500000-robux-to-usd/",
+      "variants": [
+        "1.5 million robux to usd"
+      ],
+      "totalVolume": 300,
+      "totalOrganicTraffic": 45,
+      "publicationStatus": "review",
+      "gateResults": {
+        "meaningfulDemand": true,
+        "distinctIntent": false,
+        "isRoundAmount": false,
+        "atOrAboveMinimum": true,
+        "withinSafeRange": true
+      },
+      "rationale": "Held at review: too few distinct query variants, not a round amount that reads as a real query. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-8000",
+      "amount": 8000,
+      "display": "8,000",
+      "slug": "8000-robux-to-usd",
+      "route": "/conversions/8000-robux-to-usd/",
+      "variants": [
+        "8000 robux to usd",
+        "8k robux to usd",
+        "how much money is 8k robux"
+      ],
+      "totalVolume": 270,
+      "totalOrganicTraffic": 26,
+      "publicationStatus": "review",
+      "gateResults": {
+        "meaningfulDemand": false,
+        "distinctIntent": true,
+        "isRoundAmount": true,
+        "atOrAboveMinimum": false,
+        "withinSafeRange": true
+      },
+      "rationale": "Held at review: demand below the standalone-page threshold, below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-1000000000",
+      "amount": 1000000000,
+      "display": "1,000,000,000",
+      "slug": "1000000000-robux-to-usd",
+      "route": "/conversions/1000000000-robux-to-usd/",
+      "variants": [
+        "1 billion robux to usd"
+      ],
+      "totalVolume": 250,
+      "totalOrganicTraffic": 18,
+      "publicationStatus": "review",
+      "gateResults": {
+        "meaningfulDemand": false,
+        "distinctIntent": false,
+        "isRoundAmount": true,
+        "atOrAboveMinimum": true,
+        "withinSafeRange": false
+      },
+      "rationale": "Held at review: demand below the standalone-page threshold, too few distinct query variants, outside the safe display range. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-2000000",
+      "amount": 2000000,
+      "display": "2,000,000",
+      "slug": "2000000-robux-to-usd",
+      "route": "/conversions/2000000-robux-to-usd/",
+      "variants": [
+        "2 million robux in pounds",
+        "2 million robux to usd",
+        "how much is 2 million robux in dollars"
+      ],
+      "totalVolume": 250,
+      "totalOrganicTraffic": 19,
+      "publicationStatus": "review",
+      "gateResults": {
+        "meaningfulDemand": false,
+        "distinctIntent": true,
+        "isRoundAmount": true,
+        "atOrAboveMinimum": true,
+        "withinSafeRange": true
+      },
+      "rationale": "Held at review: demand below the standalone-page threshold. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-7000",
+      "amount": 7000,
+      "display": "7,000",
+      "slug": "7000-robux-to-usd",
+      "route": "/conversions/7000-robux-to-usd/",
+      "variants": [
+        "7000 robux to usd",
+        "how much does 7000 robux cost",
+        "how much is 7000 robux",
+        "how much is 7k robux"
+      ],
+      "totalVolume": 220,
+      "totalOrganicTraffic": 27,
+      "publicationStatus": "review",
+      "gateResults": {
+        "meaningfulDemand": false,
+        "distinctIntent": true,
+        "isRoundAmount": true,
+        "atOrAboveMinimum": false,
+        "withinSafeRange": true
+      },
+      "rationale": "Held at review: demand below the standalone-page threshold, below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-400000",
+      "amount": 400000,
+      "display": "400,000",
+      "slug": "400000-robux-to-usd",
+      "route": "/conversions/400000-robux-to-usd/",
+      "variants": [
+        "400 000 robux to usd",
+        "400k robux to usd"
+      ],
+      "totalVolume": 210,
+      "totalOrganicTraffic": 24,
+      "publicationStatus": "review",
+      "gateResults": {
+        "meaningfulDemand": false,
+        "distinctIntent": true,
+        "isRoundAmount": true,
+        "atOrAboveMinimum": true,
+        "withinSafeRange": true
+      },
+      "rationale": "Held at review: demand below the standalone-page threshold. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-150000",
+      "amount": 150000,
+      "display": "150,000",
+      "slug": "150000-robux-to-usd",
+      "route": "/conversions/150000-robux-to-usd/",
+      "variants": [
+        "150 000 robux to usd",
+        "150000 robux to usd",
+        "150k robux to usd"
+      ],
+      "totalVolume": 200,
+      "totalOrganicTraffic": 23,
+      "publicationStatus": "review",
+      "gateResults": {
+        "meaningfulDemand": false,
+        "distinctIntent": true,
+        "isRoundAmount": true,
+        "atOrAboveMinimum": true,
+        "withinSafeRange": true
+      },
+      "rationale": "Held at review: demand below the standalone-page threshold. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-60000",
+      "amount": 60000,
+      "display": "60,000",
+      "slug": "60000-robux-to-usd",
+      "route": "/conversions/60000-robux-to-usd/",
+      "variants": [
+        "60000 robux to usd",
+        "60k robux to usd"
+      ],
+      "totalVolume": 200,
+      "totalOrganicTraffic": 24,
+      "publicationStatus": "review",
+      "gateResults": {
+        "meaningfulDemand": false,
+        "distinctIntent": true,
+        "isRoundAmount": true,
+        "atOrAboveMinimum": true,
+        "withinSafeRange": true
+      },
+      "rationale": "Held at review: demand below the standalone-page threshold. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-600",
+      "amount": 600,
+      "display": "600",
+      "slug": "600-robux-to-usd",
+      "route": "/conversions/600-robux-to-usd/",
+      "variants": [
+        "600 robux cost",
+        "how much is 600 robux in dollars"
+      ],
+      "totalVolume": 200,
+      "totalOrganicTraffic": 0,
+      "publicationStatus": "review",
+      "gateResults": {
+        "meaningfulDemand": false,
+        "distinctIntent": true,
+        "isRoundAmount": false,
+        "atOrAboveMinimum": false,
+        "withinSafeRange": true
+      },
+      "rationale": "Held at review: demand below the standalone-page threshold, not a round amount that reads as a real query, below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-18000000",
+      "amount": 18000000,
+      "display": "18,000,000",
+      "slug": "18000000-robux-to-usd",
+      "route": "/conversions/18000000-robux-to-usd/",
+      "variants": [
+        "18 million robux to usd",
+        "how much is 18 million robux in dollars"
+      ],
+      "totalVolume": 190,
+      "totalOrganicTraffic": 18,
+      "publicationStatus": "review",
+      "gateResults": {
+        "meaningfulDemand": false,
+        "distinctIntent": true,
+        "isRoundAmount": true,
+        "atOrAboveMinimum": true,
+        "withinSafeRange": true
+      },
+      "rationale": "Held at review: demand below the standalone-page threshold. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-700",
+      "amount": 700,
+      "display": "700",
+      "slug": "700-robux-to-usd",
+      "route": "/conversions/700-robux-to-usd/",
+      "variants": [
+        "700 robux to usd",
+        "how much is 700 robux in dollars"
+      ],
+      "totalVolume": 190,
+      "totalOrganicTraffic": 16,
+      "publicationStatus": "review",
+      "gateResults": {
+        "meaningfulDemand": false,
+        "distinctIntent": true,
+        "isRoundAmount": false,
+        "atOrAboveMinimum": false,
+        "withinSafeRange": true
+      },
+      "rationale": "Held at review: demand below the standalone-page threshold, not a round amount that reads as a real query, below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-14000000",
+      "amount": 14000000,
+      "display": "14,000,000",
+      "slug": "14000000-robux-to-usd",
+      "route": "/conversions/14000000-robux-to-usd/",
+      "variants": [
+        "14 million robux to usd",
+        "how much is 14 million robux in real money"
+      ],
+      "totalVolume": 150,
+      "totalOrganicTraffic": 23,
+      "publicationStatus": "review",
+      "gateResults": {
+        "meaningfulDemand": false,
+        "distinctIntent": true,
+        "isRoundAmount": true,
+        "atOrAboveMinimum": true,
+        "withinSafeRange": true
+      },
+      "rationale": "Held at review: demand below the standalone-page threshold. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-250",
+      "amount": 250,
+      "display": "250",
+      "slug": "250-robux-to-usd",
+      "route": "/conversions/250-robux-to-usd/",
+      "variants": [
+        "250 robux to usd"
+      ],
+      "totalVolume": 150,
+      "totalOrganicTraffic": 9,
+      "publicationStatus": "review",
+      "gateResults": {
+        "meaningfulDemand": false,
+        "distinctIntent": false,
+        "isRoundAmount": false,
+        "atOrAboveMinimum": false,
+        "withinSafeRange": true
+      },
+      "rationale": "Held at review: demand below the standalone-page threshold, too few distinct query variants, not a round amount that reads as a real query, below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-150",
+      "amount": 150,
+      "display": "150",
+      "slug": "150-robux-to-usd",
+      "route": "/conversions/150-robux-to-usd/",
+      "variants": [
+        "how much is 150 robux in dollars"
+      ],
+      "totalVolume": 150,
+      "totalOrganicTraffic": 0,
+      "publicationStatus": "review",
+      "gateResults": {
+        "meaningfulDemand": false,
+        "distinctIntent": false,
+        "isRoundAmount": false,
+        "atOrAboveMinimum": false,
+        "withinSafeRange": true
+      },
+      "rationale": "Held at review: demand below the standalone-page threshold, too few distinct query variants, not a round amount that reads as a real query, below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-9000",
+      "amount": 9000,
+      "display": "9,000",
+      "slug": "9000-robux-to-usd",
+      "route": "/conversions/9000-robux-to-usd/",
+      "variants": [
+        "9 000 robux to usd",
+        "9000 robux to usd",
+        "9k robux to usd"
+      ],
+      "totalVolume": 140,
+      "totalOrganicTraffic": 9,
+      "publicationStatus": "review",
+      "gateResults": {
+        "meaningfulDemand": false,
+        "distinctIntent": true,
+        "isRoundAmount": true,
+        "atOrAboveMinimum": false,
+        "withinSafeRange": true
+      },
+      "rationale": "Held at review: demand below the standalone-page threshold, below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-35000",
+      "amount": 35000,
+      "display": "35,000",
+      "slug": "35000-robux-to-usd",
+      "route": "/conversions/35000-robux-to-usd/",
+      "variants": [
+        "35000 robux to usd",
+        "35k robux to usd"
+      ],
+      "totalVolume": 130,
+      "totalOrganicTraffic": 16,
+      "publicationStatus": "review",
+      "gateResults": {
+        "meaningfulDemand": false,
+        "distinctIntent": true,
+        "isRoundAmount": false,
+        "atOrAboveMinimum": true,
+        "withinSafeRange": true
+      },
+      "rationale": "Held at review: demand below the standalone-page threshold, not a round amount that reads as a real query. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-18000",
+      "amount": 18000,
+      "display": "18,000",
+      "slug": "18000-robux-to-usd",
+      "route": "/conversions/18000-robux-to-usd/",
+      "variants": [
+        "18 000 robux to usd",
+        "18000 robux to usd",
+        "18k robux",
+        "how much money is 18k robux"
+      ],
+      "totalVolume": 130,
+      "totalOrganicTraffic": 10,
+      "publicationStatus": "review",
+      "gateResults": {
+        "meaningfulDemand": false,
+        "distinctIntent": true,
+        "isRoundAmount": false,
+        "atOrAboveMinimum": false,
+        "withinSafeRange": true
+      },
+      "rationale": "Held at review: demand below the standalone-page threshold, not a round amount that reads as a real query, below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-12000",
+      "amount": 12000,
+      "display": "12,000",
+      "slug": "12000-robux-to-usd",
+      "route": "/conversions/12000-robux-to-usd/",
+      "variants": [
+        "12000 robux to usd",
+        "12k robux",
+        "how much money is 12k robux"
+      ],
+      "totalVolume": 120,
+      "totalOrganicTraffic": 8,
+      "publicationStatus": "review",
+      "gateResults": {
+        "meaningfulDemand": false,
+        "distinctIntent": true,
+        "isRoundAmount": false,
+        "atOrAboveMinimum": false,
+        "withinSafeRange": true
+      },
+      "rationale": "Held at review: demand below the standalone-page threshold, not a round amount that reads as a real query, below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-1500",
+      "amount": 1500,
+      "display": "1,500",
+      "slug": "1500-robux-to-usd",
+      "route": "/conversions/1500-robux-to-usd/",
+      "variants": [
+        "how much is 1500 robux in dollars"
+      ],
+      "totalVolume": 100,
+      "totalOrganicTraffic": 4,
+      "publicationStatus": "review",
+      "gateResults": {
+        "meaningfulDemand": false,
+        "distinctIntent": false,
+        "isRoundAmount": false,
+        "atOrAboveMinimum": false,
+        "withinSafeRange": true
+      },
+      "rationale": "Held at review: demand below the standalone-page threshold, too few distinct query variants, not a round amount that reads as a real query, below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-1200",
+      "amount": 1200,
+      "display": "1,200",
+      "slug": "1200-robux-to-usd",
+      "route": "/conversions/1200-robux-to-usd/",
+      "variants": [
+        "1200 robux to usd"
+      ],
+      "totalVolume": 100,
+      "totalOrganicTraffic": 13,
+      "publicationStatus": "review",
+      "gateResults": {
+        "meaningfulDemand": false,
+        "distinctIntent": false,
+        "isRoundAmount": false,
+        "atOrAboveMinimum": false,
+        "withinSafeRange": true
+      },
+      "rationale": "Held at review: demand below the standalone-page threshold, too few distinct query variants, not a round amount that reads as a real query, below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-50",
+      "amount": 50,
+      "display": "50",
+      "slug": "50-robux-to-usd",
+      "route": "/conversions/50-robux-to-usd/",
+      "variants": [
+        "how much is 50 robux in usd"
+      ],
+      "totalVolume": 100,
+      "totalOrganicTraffic": 0,
+      "publicationStatus": "review",
+      "gateResults": {
+        "meaningfulDemand": false,
+        "distinctIntent": false,
+        "isRoundAmount": false,
+        "atOrAboveMinimum": false,
+        "withinSafeRange": true
+      },
+      "rationale": "Held at review: demand below the standalone-page threshold, too few distinct query variants, not a round amount that reads as a real query, below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-80000",
+      "amount": 80000,
+      "display": "80,000",
+      "slug": "80000-robux-to-usd",
+      "route": "/conversions/80000-robux-to-usd/",
+      "variants": [
+        "80000 robux to usd",
+        "80k robux",
+        "how much is 80k robux"
+      ],
+      "totalVolume": 90,
+      "totalOrganicTraffic": 8,
+      "publicationStatus": "review",
+      "gateResults": {
+        "meaningfulDemand": false,
+        "distinctIntent": true,
+        "isRoundAmount": true,
+        "atOrAboveMinimum": true,
+        "withinSafeRange": true
+      },
+      "rationale": "Held at review: demand below the standalone-page threshold. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-1",
+      "amount": 1,
+      "display": "1",
+      "slug": "1-robux-to-usd",
+      "route": "/conversions/1-robux-to-usd/",
+      "variants": [
+        "1 robux to aud",
+        "1 robux to usd"
+      ],
+      "totalVolume": 80,
+      "totalOrganicTraffic": 3,
+      "publicationStatus": "review",
+      "gateResults": {
+        "meaningfulDemand": false,
+        "distinctIntent": true,
+        "isRoundAmount": false,
+        "atOrAboveMinimum": false,
+        "withinSafeRange": true
+      },
+      "rationale": "Held at review: demand below the standalone-page threshold, not a round amount that reads as a real query, below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-7000000",
+      "amount": 7000000,
+      "display": "7,000,000",
+      "slug": "7000000-robux-to-usd",
+      "route": "/conversions/7000000-robux-to-usd/",
+      "variants": [
+        "7 million robux to usd"
+      ],
+      "totalVolume": 70,
+      "totalOrganicTraffic": 0,
+      "publicationStatus": "review",
+      "gateResults": {
+        "meaningfulDemand": false,
+        "distinctIntent": false,
+        "isRoundAmount": true,
+        "atOrAboveMinimum": true,
+        "withinSafeRange": true
+      },
+      "rationale": "Held at review: demand below the standalone-page threshold, too few distinct query variants. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-3000000",
+      "amount": 3000000,
+      "display": "3,000,000",
+      "slug": "3000000-robux-to-usd",
+      "route": "/conversions/3000000-robux-to-usd/",
+      "variants": [
+        "how much is 3 million robux in usd"
+      ],
+      "totalVolume": 70,
+      "totalOrganicTraffic": 9,
+      "publicationStatus": "review",
+      "gateResults": {
+        "meaningfulDemand": false,
+        "distinctIntent": false,
+        "isRoundAmount": true,
+        "atOrAboveMinimum": true,
+        "withinSafeRange": true
+      },
+      "rationale": "Held at review: demand below the standalone-page threshold, too few distinct query variants. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-90000",
+      "amount": 90000,
+      "display": "90,000",
+      "slug": "90000-robux-to-usd",
+      "route": "/conversions/90000-robux-to-usd/",
+      "variants": [
+        "90k robux to usd"
+      ],
+      "totalVolume": 70,
+      "totalOrganicTraffic": 8,
+      "publicationStatus": "review",
+      "gateResults": {
+        "meaningfulDemand": false,
+        "distinctIntent": false,
+        "isRoundAmount": true,
+        "atOrAboveMinimum": true,
+        "withinSafeRange": true
+      },
+      "rationale": "Held at review: demand below the standalone-page threshold, too few distinct query variants. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-200000000",
+      "amount": 200000000,
+      "display": "200,000,000",
+      "slug": "200000000-robux-to-usd",
+      "route": "/conversions/200000000-robux-to-usd/",
+      "variants": [
+        "200 million robux to usd"
+      ],
+      "totalVolume": 60,
+      "totalOrganicTraffic": 7,
+      "publicationStatus": "review",
+      "gateResults": {
+        "meaningfulDemand": false,
+        "distinctIntent": false,
+        "isRoundAmount": true,
+        "atOrAboveMinimum": true,
+        "withinSafeRange": false
+      },
+      "rationale": "Held at review: demand below the standalone-page threshold, too few distinct query variants, outside the safe display range. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-130000",
+      "amount": 130000,
+      "display": "130,000",
+      "slug": "130000-robux-to-usd",
+      "route": "/conversions/130000-robux-to-usd/",
+      "variants": [
+        "130k robux to usd"
+      ],
+      "totalVolume": 60,
+      "totalOrganicTraffic": 7,
+      "publicationStatus": "review",
+      "gateResults": {
+        "meaningfulDemand": false,
+        "distinctIntent": false,
+        "isRoundAmount": false,
+        "atOrAboveMinimum": true,
+        "withinSafeRange": true
+      },
+      "rationale": "Held at review: demand below the standalone-page threshold, too few distinct query variants, not a round amount that reads as a real query. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-100000000",
+      "amount": 100000000,
+      "display": "100,000,000",
+      "slug": "100000000-robux-to-usd",
+      "route": "/conversions/100000000-robux-to-usd/",
+      "variants": [
+        "how much money is 100m robux"
+      ],
+      "totalVolume": 50,
+      "totalOrganicTraffic": 3,
+      "publicationStatus": "review",
+      "gateResults": {
+        "meaningfulDemand": false,
+        "distinctIntent": false,
+        "isRoundAmount": true,
+        "atOrAboveMinimum": true,
+        "withinSafeRange": true
+      },
+      "rationale": "Held at review: demand below the standalone-page threshold, too few distinct query variants. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-14000",
+      "amount": 14000,
+      "display": "14,000",
+      "slug": "14000-robux-to-usd",
+      "route": "/conversions/14000-robux-to-usd/",
+      "variants": [
+        "14000 robux to usd"
+      ],
+      "totalVolume": 50,
+      "totalOrganicTraffic": 5,
+      "publicationStatus": "review",
+      "gateResults": {
+        "meaningfulDemand": false,
+        "distinctIntent": false,
+        "isRoundAmount": false,
+        "atOrAboveMinimum": false,
+        "withinSafeRange": true
+      },
+      "rationale": "Held at review: demand below the standalone-page threshold, too few distinct query variants, not a round amount that reads as a real query, below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-3500",
+      "amount": 3500,
+      "display": "3,500",
+      "slug": "3500-robux-to-usd",
+      "route": "/conversions/3500-robux-to-usd/",
+      "variants": [
+        "how much is 3500 robux"
+      ],
+      "totalVolume": 50,
+      "totalOrganicTraffic": 2,
+      "publicationStatus": "review",
+      "gateResults": {
+        "meaningfulDemand": false,
+        "distinctIntent": false,
+        "isRoundAmount": false,
+        "atOrAboveMinimum": false,
+        "withinSafeRange": true
+      },
+      "rationale": "Held at review: demand below the standalone-page threshold, too few distinct query variants, not a round amount that reads as a real query, below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-1000000000000",
+      "amount": 1000000000000,
+      "display": "1,000,000,000,000",
+      "slug": "1000000000000-robux-to-usd",
+      "route": "/conversions/1000000000000-robux-to-usd/",
+      "variants": [
+        "how much is 1 trillion robux"
+      ],
+      "totalVolume": 40,
+      "totalOrganicTraffic": 1,
+      "publicationStatus": "review",
+      "gateResults": {
+        "meaningfulDemand": false,
+        "distinctIntent": false,
+        "isRoundAmount": true,
+        "atOrAboveMinimum": true,
+        "withinSafeRange": false
+      },
+      "rationale": "Held at review: demand below the standalone-page threshold, too few distinct query variants, outside the safe display range. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-75000",
+      "amount": 75000,
+      "display": "75,000",
+      "slug": "75000-robux-to-usd",
+      "route": "/conversions/75000-robux-to-usd/",
+      "variants": [
+        "75k robux to usd"
+      ],
+      "totalVolume": 40,
+      "totalOrganicTraffic": 5,
+      "publicationStatus": "review",
+      "gateResults": {
+        "meaningfulDemand": false,
+        "distinctIntent": false,
+        "isRoundAmount": false,
+        "atOrAboveMinimum": true,
+        "withinSafeRange": true
+      },
+      "rationale": "Held at review: demand below the standalone-page threshold, too few distinct query variants, not a round amount that reads as a real query. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-160000",
+      "amount": 160000,
+      "display": "160,000",
+      "slug": "160000-robux-to-usd",
+      "route": "/conversions/160000-robux-to-usd/",
+      "variants": [
+        "160k robux to usd"
+      ],
+      "totalVolume": 30,
+      "totalOrganicTraffic": 4,
+      "publicationStatus": "review",
+      "gateResults": {
+        "meaningfulDemand": false,
+        "distinctIntent": false,
+        "isRoundAmount": false,
+        "atOrAboveMinimum": true,
+        "withinSafeRange": true
+      },
+      "rationale": "Held at review: demand below the standalone-page threshold, too few distinct query variants, not a round amount that reads as a real query. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-800",
+      "amount": 800,
+      "display": "800",
+      "slug": "800-robux-to-usd",
+      "route": "/conversions/800-robux-to-usd/",
+      "variants": [
+        "how much is 800 robux in us dollars"
+      ],
+      "totalVolume": 30,
+      "totalOrganicTraffic": 0,
+      "publicationStatus": "review",
+      "gateResults": {
+        "meaningfulDemand": false,
+        "distinctIntent": false,
+        "isRoundAmount": false,
+        "atOrAboveMinimum": false,
+        "withinSafeRange": true
+      },
+      "rationale": "Held at review: demand below the standalone-page threshold, too few distinct query variants, not a round amount that reads as a real query, below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-3600000000",
+      "amount": 3600000000,
+      "display": "3,600,000,000",
+      "slug": "3600000000-robux-to-usd",
+      "route": "/conversions/3600000000-robux-to-usd/",
+      "variants": [
+        "3.6 billion robux to usd"
+      ],
+      "totalVolume": 20,
+      "totalOrganicTraffic": 2,
+      "publicationStatus": "review",
+      "gateResults": {
+        "meaningfulDemand": false,
+        "distinctIntent": false,
+        "isRoundAmount": true,
+        "atOrAboveMinimum": true,
+        "withinSafeRange": false
+      },
+      "rationale": "Held at review: demand below the standalone-page threshold, too few distinct query variants, outside the safe display range. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-600000000",
+      "amount": 600000000,
+      "display": "600,000,000",
+      "slug": "600000000-robux-to-usd",
+      "route": "/conversions/600000000-robux-to-usd/",
+      "variants": [
+        "600m robux to usd"
+      ],
+      "totalVolume": 20,
+      "totalOrganicTraffic": 2,
+      "publicationStatus": "review",
+      "gateResults": {
+        "meaningfulDemand": false,
+        "distinctIntent": false,
+        "isRoundAmount": true,
+        "atOrAboveMinimum": true,
+        "withinSafeRange": false
+      },
+      "rationale": "Held at review: demand below the standalone-page threshold, too few distinct query variants, outside the safe display range. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-70000",
+      "amount": 70000,
+      "display": "70,000",
+      "slug": "70000-robux-to-usd",
+      "route": "/conversions/70000-robux-to-usd/",
+      "variants": [
+        "70k robux"
+      ],
+      "totalVolume": 20,
+      "totalOrganicTraffic": 0,
+      "publicationStatus": "review",
+      "gateResults": {
+        "meaningfulDemand": false,
+        "distinctIntent": false,
+        "isRoundAmount": true,
+        "atOrAboveMinimum": true,
+        "withinSafeRange": true
+      },
+      "rationale": "Held at review: demand below the standalone-page threshold, too few distinct query variants. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-13000",
+      "amount": 13000,
+      "display": "13,000",
+      "slug": "13000-robux-to-usd",
+      "route": "/conversions/13000-robux-to-usd/",
+      "variants": [
+        "how much is 13k robux"
+      ],
+      "totalVolume": 20,
+      "totalOrganicTraffic": 2,
+      "publicationStatus": "review",
+      "gateResults": {
+        "meaningfulDemand": false,
+        "distinctIntent": false,
+        "isRoundAmount": false,
+        "atOrAboveMinimum": false,
+        "withinSafeRange": true
+      },
+      "rationale": "Held at review: demand below the standalone-page threshold, too few distinct query variants, not a round amount that reads as a real query, below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-11000",
+      "amount": 11000,
+      "display": "11,000",
+      "slug": "11000-robux-to-usd",
+      "route": "/conversions/11000-robux-to-usd/",
+      "variants": [
+        "how much is 11k robux"
+      ],
+      "totalVolume": 20,
+      "totalOrganicTraffic": 3,
+      "publicationStatus": "review",
+      "gateResults": {
+        "meaningfulDemand": false,
+        "distinctIntent": false,
+        "isRoundAmount": false,
+        "atOrAboveMinimum": false,
+        "withinSafeRange": true
+      },
+      "rationale": "Held at review: demand below the standalone-page threshold, too few distinct query variants, not a round amount that reads as a real query, below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-2300",
+      "amount": 2300,
+      "display": "2,300",
+      "slug": "2300-robux-to-usd",
+      "route": "/conversions/2300-robux-to-usd/",
+      "variants": [
+        "2300 robux to usd"
+      ],
+      "totalVolume": 20,
+      "totalOrganicTraffic": 1,
+      "publicationStatus": "review",
+      "gateResults": {
+        "meaningfulDemand": false,
+        "distinctIntent": false,
+        "isRoundAmount": false,
+        "atOrAboveMinimum": false,
+        "withinSafeRange": true
+      },
+      "rationale": "Held at review: demand below the standalone-page threshold, too few distinct query variants, not a round amount that reads as a real query, below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-48000",
+      "amount": 48000,
+      "display": "48,000",
+      "slug": "48000-robux-to-usd",
+      "route": "/conversions/48000-robux-to-usd/",
+      "variants": [
+        "how much money is 48000 robux"
+      ],
+      "totalVolume": 10,
+      "totalOrganicTraffic": 0,
+      "publicationStatus": "review",
+      "gateResults": {
+        "meaningfulDemand": false,
+        "distinctIntent": false,
+        "isRoundAmount": false,
+        "atOrAboveMinimum": true,
+        "withinSafeRange": true
+      },
+      "rationale": "Held at review: demand below the standalone-page threshold, too few distinct query variants, not a round amount that reads as a real query. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-25",
+      "amount": 25,
+      "display": "25",
+      "slug": "25-robux-to-usd",
+      "route": "/conversions/25-robux-to-usd/",
+      "variants": [
+        "how much is 25 robux in dollars",
+        "how much is 25 robux in pounds"
+      ],
+      "totalVolume": 10,
+      "totalOrganicTraffic": 0,
+      "publicationStatus": "review",
+      "gateResults": {
+        "meaningfulDemand": false,
+        "distinctIntent": true,
+        "isRoundAmount": false,
+        "atOrAboveMinimum": false,
+        "withinSafeRange": true
+      },
+      "rationale": "Held at review: demand below the standalone-page threshold, not a round amount that reads as a real query, below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-8500",
+      "amount": 8500,
+      "display": "8,500",
+      "slug": "8500-robux-to-usd",
+      "route": "/conversions/8500-robux-to-usd/",
+      "variants": [
+        "how much money is 8500 robux"
+      ],
+      "totalVolume": 0,
+      "totalOrganicTraffic": 0,
+      "publicationStatus": "review",
+      "gateResults": {
+        "meaningfulDemand": false,
+        "distinctIntent": false,
+        "isRoundAmount": false,
+        "atOrAboveMinimum": false,
+        "withinSafeRange": true
+      },
+      "rationale": "Held at review: demand below the standalone-page threshold, too few distinct query variants, not a round amount that reads as a real query, below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-2700",
+      "amount": 2700,
+      "display": "2,700",
+      "slug": "2700-robux-to-usd",
+      "route": "/conversions/2700-robux-to-usd/",
+      "variants": [
+        "2700 robux to dollars"
+      ],
+      "totalVolume": 0,
+      "totalOrganicTraffic": 0,
+      "publicationStatus": "review",
+      "gateResults": {
+        "meaningfulDemand": false,
+        "distinctIntent": false,
+        "isRoundAmount": false,
+        "atOrAboveMinimum": false,
+        "withinSafeRange": true
+      },
+      "rationale": "Held at review: demand below the standalone-page threshold, too few distinct query variants, not a round amount that reads as a real query, below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-2400",
+      "amount": 2400,
+      "display": "2,400",
+      "slug": "2400-robux-to-usd",
+      "route": "/conversions/2400-robux-to-usd/",
+      "variants": [
+        "how much is 2400 robux in usd"
+      ],
+      "totalVolume": 0,
+      "totalOrganicTraffic": 0,
+      "publicationStatus": "review",
+      "gateResults": {
+        "meaningfulDemand": false,
+        "distinctIntent": false,
+        "isRoundAmount": false,
+        "atOrAboveMinimum": false,
+        "withinSafeRange": true
+      },
+      "rationale": "Held at review: demand below the standalone-page threshold, too few distinct query variants, not a round amount that reads as a real query, below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    }
+  ]
+}

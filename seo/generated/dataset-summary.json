@@ -1,0 +1,78 @@
+{
+  "generatedAt": "2026-08-17T10:34:34.579Z",
+  "files": [
+    {
+      "fileName": "rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv",
+      "sha256": "510A080DD7845E2B367317DE20CB26BC23921D26622A1DC27DA37A07ADB9A90B",
+      "byteSize": 4898,
+      "encoding": "UTF-8",
+      "delimiter": ",",
+      "hadBom": false,
+      "headers": [
+        "Keyword",
+        "Volume",
+        "Organic traffic",
+        "Paid traffic",
+        "Average position",
+        "Locations",
+        "Top location",
+        "Top location code",
+        "Top location's volume",
+        "Top location's traffic"
+      ],
+      "missingColumns": [],
+      "unmappedHeaders": [],
+      "rowCount": 82,
+      "summedVolume": 14270,
+      "summedOrganicTraffic": 1564,
+      "expectedRowCount": 82,
+      "expectedVolume": 14270,
+      "expectedOrganicTraffic": 1564,
+      "checkpointMatches": true,
+      "checkpointNotes": "Recomputed row count and metric sums match the specification checkpoint exactly."
+    },
+    {
+      "fileName": "romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv",
+      "sha256": "1A794DA07900A1F8EAA7EEAD84F3DA82D4DDE298D8F6D39200F553EFBAF16750",
+      "byteSize": 21801,
+      "encoding": "UTF-8",
+      "delimiter": ",",
+      "hadBom": false,
+      "headers": [
+        "Keyword",
+        "Volume",
+        "Organic traffic",
+        "Paid traffic",
+        "Average position",
+        "Locations",
+        "Top location",
+        "Top location code",
+        "Top location's volume",
+        "Top location's traffic"
+      ],
+      "missingColumns": [],
+      "unmappedHeaders": [],
+      "rowCount": 362,
+      "summedVolume": 81220,
+      "summedOrganicTraffic": 13534,
+      "expectedRowCount": 362,
+      "expectedVolume": 81220,
+      "expectedOrganicTraffic": 13534,
+      "checkpointMatches": true,
+      "checkpointNotes": "Recomputed row count and metric sums match the specification checkpoint exactly."
+    }
+  ],
+  "accounting": {
+    "totalSourceRows": 444,
+    "byStatus": {
+      "included": 376,
+      "excluded": 5,
+      "ambiguous-review": 0,
+      "duplicate-variant": 63
+    },
+    "reconciles": true,
+    "uniqueComparisonKeys": 381,
+    "duplicateVariantRows": 63
+  },
+  "note": "Metrics are third-party estimates from the supplied exports, not guaranteed traffic."
+}

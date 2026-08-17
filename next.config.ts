@@ -8,9 +8,10 @@ const nextConfig: NextConfig = {
   // non-slash form, which keeps redirects single-hop.
   trailingSlash: true,
 
-  // Fail the production build on type or lint errors instead of shipping them.
+  // Fail the production build on type errors instead of shipping them.
+  // Linting runs as its own gate (`npm run lint`) and in CI; Next 16 no longer
+  // accepts an `eslint` key here.
   typescript: { ignoreBuildErrors: false },
-  eslint: { ignoreDuringBuilds: false },
 
   // The site ships no remote images; all art is local SVG.
   images: {

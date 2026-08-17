@@ -1,0 +1,4 @@
+{
+  "$comment": "Manual cluster label and parent-topic overrides, keyed by cluster id. Empty at launch: the rule-derived clusters were reviewed and accepted as generated. Recorded here so a future adjustment does not require editing pipeline code.",
+  "clusters": {}
+}

@@ -1,0 +1,494 @@
+{
+  "generatedAt": "2026-08-17T10:34:34.579Z",
+  "excluded": [
+    {
+      "keywordRaw": "rbx tax",
+      "status": "excluded",
+      "reasonCode": "intent-mismatch",
+      "reason": "Navigational query for the RBXTax brand. Targeting a competitor's brand name is out of scope.",
+      "candidateRoute": null,
+      "sourceFile": "rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv",
+      "sourceRow": 58
+    },
+    {
+      "keywordRaw": "rbxtax",
+      "status": "excluded",
+      "reasonCode": "intent-mismatch",
+      "reason": "Navigational query for the RBXTax brand. Targeting a competitor's brand name is out of scope.",
+      "candidateRoute": null,
+      "sourceFile": "rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv",
+      "sourceRow": 59
+    },
+    {
+      "keywordRaw": "visits to robux calculator",
+      "status": "excluded",
+      "reasonCode": "intent-mismatch",
+      "reason": "Asks about converting experience visits into Robux, which is a different tool this site does not build.",
+      "candidateRoute": null,
+      "sourceFile": "romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv",
+      "sourceRow": 216
+    },
+    {
+      "keywordRaw": "robux to",
+      "status": "excluded",
+      "reasonCode": "intent-mismatch",
+      "reason": "Truncated query with no resolvable search task.",
+      "candidateRoute": null,
+      "sourceFile": "romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv",
+      "sourceRow": 231
+    },
+    {
+      "keywordRaw": "roblox幣值",
+      "status": "excluded",
+      "reasonCode": "non-latin-locale-unsupported",
+      "reason": "Non-Latin query requiring native localisation the site does not offer at launch.",
+      "candidateRoute": null,
+      "sourceFile": "romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv",
+      "sourceRow": 351
+    }
+  ],
+  "ambiguous": [],
+  "duplicateVariants": [
+    {
+      "keywordRaw": "1 million robux devex",
+      "comparisonKey": "1 million robux devex",
+      "note": "Same normalised keyword as romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv row 116, which carries the stronger metrics (volume 30). Metrics from this row retained for evidence.",
+      "sourceFile": "rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv",
+      "sourceRow": 1
+    },
+    {
+      "keywordRaw": "1 million robux to usd devex",
+      "comparisonKey": "1 million robux to usd devex",
+      "note": "Same normalised keyword as romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv row 52, which carries the stronger metrics (volume 80). Metrics from this row retained for evidence.",
+      "sourceFile": "rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv",
+      "sourceRow": 2
+    },
+    {
+      "keywordRaw": "15 000 robux to usd",
+      "comparisonKey": "15 000 robux to usd",
+      "note": "Same normalised keyword as romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv row 214, which carries the stronger metrics (volume 30). Metrics from this row retained for evidence.",
+      "sourceFile": "rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv",
+      "sourceRow": 3
+    },
+    {
+      "keywordRaw": "200k robux to usd",
+      "comparisonKey": "200k robux to usd",
+      "note": "Same normalised keyword as romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv row 33, which carries the stronger metrics (volume 300). Metrics from this row retained for evidence.",
+      "sourceFile": "rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv",
+      "sourceRow": 5
+    },
+    {
+      "keywordRaw": "20k robux to usd",
+      "comparisonKey": "20k robux to usd",
+      "note": "Same normalised keyword as romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv row 40, which carries the stronger metrics (volume 300). Metrics from this row retained for evidence.",
+      "sourceFile": "rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv",
+      "sourceRow": 6
+    },
+    {
+      "keywordRaw": "30000 robux to usd",
+      "comparisonKey": "30000 robux to usd",
+      "note": "Same normalised keyword as romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv row 27, which carries the stronger metrics (volume 300). Metrics from this row retained for evidence.",
+      "sourceFile": "rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv",
+      "sourceRow": 8
+    },
+    {
+      "keywordRaw": "70k robux",
+      "comparisonKey": "70k robux",
+      "note": "Same normalised keyword as romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv row 244, which carries the stronger metrics (volume 20). Metrics from this row retained for evidence.",
+      "sourceFile": "rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv",
+      "sourceRow": 12
+    },
+    {
+      "keywordRaw": "dev ex calc",
+      "comparisonKey": "dev ex calc",
+      "note": "Same normalised keyword as romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv row 20, which carries the stronger metrics (volume 200). Metrics from this row retained for evidence.",
+      "sourceFile": "rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv",
+      "sourceRow": 16
+    },
+    {
+      "keywordRaw": "dev ex calculator",
+      "comparisonKey": "dev ex calculator",
+      "note": "Same normalised keyword as romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv row 34, which carries the stronger metrics (volume 130). Metrics from this row retained for evidence.",
+      "sourceFile": "rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv",
+      "sourceRow": 17
+    },
+    {
+      "keywordRaw": "dev ex rate",
+      "comparisonKey": "dev ex rate",
+      "note": "Same normalised keyword as romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv row 63, which carries the stronger metrics (volume 70). Metrics from this row retained for evidence.",
+      "sourceFile": "rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv",
+      "sourceRow": 18
+    },
+    {
+      "keywordRaw": "dev ex rates",
+      "comparisonKey": "dev ex rates",
+      "note": "Same normalised keyword as romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv row 35, which carries the stronger metrics (volume 210). Metrics from this row retained for evidence.",
+      "sourceFile": "rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv",
+      "sourceRow": 19
+    },
+    {
+      "keywordRaw": "dev ex to usd",
+      "comparisonKey": "dev ex to usd",
+      "note": "Same normalised keyword as romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv row 106, which carries the stronger metrics (volume 30). Metrics from this row retained for evidence.",
+      "sourceFile": "rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv",
+      "sourceRow": 20
+    },
+    {
+      "keywordRaw": "dev exchange",
+      "comparisonKey": "dev exchange",
+      "note": "Same normalised keyword as romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv row 70, which carries the stronger metrics (volume 60). Metrics from this row retained for evidence.",
+      "sourceFile": "rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv",
+      "sourceRow": 21
+    },
+    {
+      "keywordRaw": "dev exchange roblox",
+      "comparisonKey": "dev exchange roblox",
+      "note": "Same normalised keyword as romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv row 42, which carries the stronger metrics (volume 220). Metrics from this row retained for evidence.",
+      "sourceFile": "rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv",
+      "sourceRow": 22
+    },
+    {
+      "keywordRaw": "dev x calculator",
+      "comparisonKey": "dev x calculator",
+      "note": "Same normalised keyword as romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv row 24, which carries the stronger metrics (volume 100). Metrics from this row retained for evidence.",
+      "sourceFile": "rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv",
+      "sourceRow": 24
+    },
+    {
+      "keywordRaw": "dev x rates",
+      "comparisonKey": "dev x rates",
+      "note": "Same normalised keyword as romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv row 162, which carries the stronger metrics (volume 20). Metrics from this row retained for evidence.",
+      "sourceFile": "rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv",
+      "sourceRow": 25
+    },
+    {
+      "keywordRaw": "developer exchange roblox",
+      "comparisonKey": "developer exchange roblox",
+      "note": "Same normalised keyword as romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv row 92, which carries the stronger metrics (volume 70). Metrics from this row retained for evidence.",
+      "sourceFile": "rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv",
+      "sourceRow": 26
+    },
+    {
+      "keywordRaw": "developer exchange roblox calculator",
+      "comparisonKey": "developer exchange roblox calculator",
+      "note": "Same normalised keyword as romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv row 164, which carries the stronger metrics (volume 10). Metrics from this row retained for evidence.",
+      "sourceFile": "rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv",
+      "sourceRow": 27
+    },
+    {
+      "keywordRaw": "devex calc",
+      "comparisonKey": "devex calc",
+      "note": "Same normalised keyword as romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv row 19, which carries the stronger metrics (volume 200). Metrics from this row retained for evidence.",
+      "sourceFile": "rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv",
+      "sourceRow": 29
+    },
+    {
+      "keywordRaw": "devex calculator",
+      "comparisonKey": "devex calculator",
+      "note": "Same normalised keyword as romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv row 2, which carries the stronger metrics (volume 6440). Metrics from this row retained for evidence.",
+      "sourceFile": "rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv",
+      "sourceRow": 30
+    },
+    {
+      "keywordRaw": "devex calculator roblox",
+      "comparisonKey": "devex calculator roblox",
+      "note": "Same normalised keyword as romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv row 28, which carries the stronger metrics (volume 150). Metrics from this row retained for evidence.",
+      "sourceFile": "rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv",
+      "sourceRow": 31
+    },
+    {
+      "keywordRaw": "devex conversion",
+      "comparisonKey": "devex conversion",
+      "note": "Same normalised keyword as romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv row 120, which carries the stronger metrics (volume 30). Metrics from this row retained for evidence.",
+      "sourceFile": "rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv",
+      "sourceRow": 32
+    },
+    {
+      "keywordRaw": "devex converter",
+      "comparisonKey": "devex converter",
+      "note": "Same normalised keyword as romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv row 21, which carries the stronger metrics (volume 180). Metrics from this row retained for evidence.",
+      "sourceFile": "rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv",
+      "sourceRow": 34
+    },
+    {
+      "keywordRaw": "devex prices",
+      "comparisonKey": "devex prices",
+      "note": "Same normalised keyword as romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv row 169, which carries the stronger metrics (volume 10). Metrics from this row retained for evidence.",
+      "sourceFile": "rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv",
+      "sourceRow": 35
+    },
+    {
+      "keywordRaw": "devex rate",
+      "comparisonKey": "devex rate",
+      "note": "Same normalised keyword as romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv row 15, which carries the stronger metrics (volume 260). Metrics from this row retained for evidence.",
+      "sourceFile": "rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv",
+      "sourceRow": 36
+    },
+    {
+      "keywordRaw": "devex rates",
+      "comparisonKey": "devex rates",
+      "note": "Same normalised keyword as romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv row 5, which carries the stronger metrics (volume 1160). Metrics from this row retained for evidence.",
+      "sourceFile": "rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv",
+      "sourceRow": 37
+    },
+    {
+      "keywordRaw": "devex rates roblox",
+      "comparisonKey": "devex rates roblox",
+      "note": "Same normalised keyword as romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv row 88, which carries the stronger metrics (volume 80). Metrics from this row retained for evidence.",
+      "sourceFile": "rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv",
+      "sourceRow": 38
+    },
+    {
+      "keywordRaw": "devex roblox",
+      "comparisonKey": "devex roblox",
+      "note": "Same normalised keyword as romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv row 4, which carries the stronger metrics (volume 4950). Metrics from this row retained for evidence.",
+      "sourceFile": "rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv",
+      "sourceRow": 39
+    },
+    {
+      "keywordRaw": "devex roblox calculator",
+      "comparisonKey": "devex roblox calculator",
+      "note": "Same normalised keyword as romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv row 59, which carries the stronger metrics (volume 80). Metrics from this row retained for evidence.",
+      "sourceFile": "rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv",
+      "sourceRow": 40
+    },
+    {
+      "keywordRaw": "devex roblox converter",
+      "comparisonKey": "devex roblox converter",
+      "note": "Same normalised keyword as romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv row 130, which carries the stronger metrics (volume 20). Metrics from this row retained for evidence.",
+      "sourceFile": "rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv",
+      "sourceRow": 41
+    },
+    {
+      "keywordRaw": "devex roblox to usd",
+      "comparisonKey": "devex roblox to usd",
+      "note": "Same normalised keyword as romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv row 140, which carries the stronger metrics (volume 20). Metrics from this row retained for evidence.",
+      "sourceFile": "rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv",
+      "sourceRow": 42
+    },
+    {
+      "keywordRaw": "devex robux",
+      "comparisonKey": "devex robux",
+      "note": "Same normalised keyword as romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv row 32, which carries the stronger metrics (volume 160). Metrics from this row retained for evidence.",
+      "sourceFile": "rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv",
+      "sourceRow": 43
+    },
+    {
+      "keywordRaw": "devex robux to usd",
+      "comparisonKey": "devex robux to usd",
+      "note": "Same normalised keyword as romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv row 45, which carries the stronger metrics (volume 100). Metrics from this row retained for evidence.",
+      "sourceFile": "rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv",
+      "sourceRow": 44
+    },
+    {
+      "keywordRaw": "devex to usd",
+      "comparisonKey": "devex to usd",
+      "note": "Same normalised keyword as romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv row 17, which carries the stronger metrics (volume 210). Metrics from this row retained for evidence.",
+      "sourceFile": "rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv",
+      "sourceRow": 45
+    },
+    {
+      "keywordRaw": "devx rates",
+      "comparisonKey": "devx rates",
+      "note": "Same normalised keyword as romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv row 141, which carries the stronger metrics (volume 20). Metrics from this row retained for evidence.",
+      "sourceFile": "rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv",
+      "sourceRow": 46
+    },
+    {
+      "keywordRaw": "how much is 1 million robux in devex",
+      "comparisonKey": "how much is 1 million robux in devex",
+      "note": "Same normalised keyword as romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv row 144, which carries the stronger metrics (volume 20). Metrics from this row retained for evidence.",
+      "sourceFile": "rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv",
+      "sourceRow": 47
+    },
+    {
+      "keywordRaw": "how much is 6k robux in dollars",
+      "comparisonKey": "how much is 6k robux in dollars",
+      "note": "Same normalised keyword as romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv row 223, which carries the stronger metrics (volume 50). Metrics from this row retained for evidence.",
+      "sourceFile": "rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv",
+      "sourceRow": 52
+    },
+    {
+      "keywordRaw": "roblox dev ex calculator",
+      "comparisonKey": "roblox dev ex calculator",
+      "note": "Same normalised keyword as romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv row 131, which carries the stronger metrics (volume 20). Metrics from this row retained for evidence.",
+      "sourceFile": "rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv",
+      "sourceRow": 60
+    },
+    {
+      "keywordRaw": "roblox dev exchange calculator",
+      "comparisonKey": "roblox dev exchange calculator",
+      "note": "Same normalised keyword as romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv row 181, which carries the stronger metrics (volume 10). Metrics from this row retained for evidence.",
+      "sourceFile": "rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv",
+      "sourceRow": 62
+    },
+    {
+      "keywordRaw": "roblox developer exchange rates",
+      "comparisonKey": "roblox developer exchange rates",
+      "note": "Same normalised keyword as romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv row 281, which carries the stronger metrics (volume 10). Metrics from this row retained for evidence.",
+      "sourceFile": "rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv",
+      "sourceRow": 65
+    },
+    {
+      "keywordRaw": "roblox devex",
+      "comparisonKey": "roblox devex",
+      "note": "Same normalised keyword as romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv row 14, which carries the stronger metrics (volume 1740). Metrics from this row retained for evidence.",
+      "sourceFile": "rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv",
+      "sourceRow": 66
+    },
+    {
+      "keywordRaw": "roblox devex calculator",
+      "comparisonKey": "roblox devex calculator",
+      "note": "Same normalised keyword as romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv row 10, which carries the stronger metrics (volume 580). Metrics from this row retained for evidence.",
+      "sourceFile": "rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv",
+      "sourceRow": 67
+    },
+    {
+      "keywordRaw": "roblox devex rates calculator",
+      "comparisonKey": "roblox devex rates calculator",
+      "note": "Same normalised keyword as romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv row 251, which carries the stronger metrics (volume 10). Metrics from this row retained for evidence.",
+      "sourceFile": "rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv",
+      "sourceRow": 68
+    },
+    {
+      "keywordRaw": "roblox robux exchange",
+      "comparisonKey": "roblox robux exchange",
+      "note": "Same normalised keyword as romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv row 272, which carries the stronger metrics (volume 10). Metrics from this row retained for evidence.",
+      "sourceFile": "rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv",
+      "sourceRow": 69
+    },
+    {
+      "keywordRaw": "robux developer exchange rate",
+      "comparisonKey": "robux developer exchange rate",
+      "note": "Same normalised keyword as romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv row 239, which carries the stronger metrics (volume 20). Metrics from this row retained for evidence.",
+      "sourceFile": "rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv",
+      "sourceRow": 71
+    },
+    {
+      "keywordRaw": "robux devex calculator",
+      "comparisonKey": "robux devex calculator",
+      "note": "Same normalised keyword as romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv row 26, which carries the stronger metrics (volume 160). Metrics from this row retained for evidence.",
+      "sourceFile": "rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv",
+      "sourceRow": 72
+    },
+    {
+      "keywordRaw": "robux devex to usd",
+      "comparisonKey": "robux devex to usd",
+      "note": "Same normalised keyword as romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv row 199, which carries the stronger metrics (volume 10). Metrics from this row retained for evidence.",
+      "sourceFile": "rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv",
+      "sourceRow": 73
+    },
+    {
+      "keywordRaw": "robux in money",
+      "comparisonKey": "robux in money",
+      "note": "Same normalised keyword as romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv row 277, which carries the stronger metrics (volume 10). Metrics from this row retained for evidence.",
+      "sourceFile": "rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv",
+      "sourceRow": 74
+    },
+    {
+      "keywordRaw": "robux to devex",
+      "comparisonKey": "robux to devex",
+      "note": "Same normalised keyword as romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv row 50, which carries the stronger metrics (volume 90). Metrics from this row retained for evidence.",
+      "sourceFile": "rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv",
+      "sourceRow": 76
+    },
+    {
+      "keywordRaw": "robux to irl money",
+      "comparisonKey": "robux to irl money",
+      "note": "Same normalised keyword as romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv row 262, which carries the stronger metrics (volume 10). Metrics from this row retained for evidence.",
+      "sourceFile": "rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv",
+      "sourceRow": 77
+    },
+    {
+      "keywordRaw": "robux to usd",
+      "comparisonKey": "robux to usd",
+      "note": "Same normalised keyword as romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv row 1, which carries the stronger metrics (volume 16470). Metrics from this row retained for evidence.",
+      "sourceFile": "rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv",
+      "sourceRow": 79
+    },
+    {
+      "keywordRaw": "robux to usd calculator devex",
+      "comparisonKey": "robux to usd calculator devex",
+      "note": "Same normalised keyword as romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv row 270, which carries the stronger metrics (volume 0). Metrics from this row retained for evidence.",
+      "sourceFile": "rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv",
+      "sourceRow": 80
+    },
+    {
+      "keywordRaw": "robux to usd devex",
+      "comparisonKey": "robux to usd devex",
+      "note": "Same normalised keyword as romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv row 48, which carries the stronger metrics (volume 90). Metrics from this row retained for evidence.",
+      "sourceFile": "rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv",
+      "sourceRow": 81
+    },
+    {
+      "keywordRaw": "how much is 18 million robux in dollars",
+      "comparisonKey": "how much is 18 million robux in dollars",
+      "note": "Same normalised keyword as rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv row 48, which carries the stronger metrics (volume 80). Metrics from this row retained for evidence.",
+      "sourceFile": "romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv",
+      "sourceRow": 274
+    },
+    {
+      "keywordRaw": "how much money is 48000 robux",
+      "comparisonKey": "how much money is 48000 robux",
+      "note": "Same normalised keyword as rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv row 55, which carries the stronger metrics (volume 10). Metrics from this row retained for evidence.",
+      "sourceFile": "romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv",
+      "sourceRow": 286
+    },
+    {
+      "keywordRaw": "roblox dev ex rate",
+      "comparisonKey": "roblox dev ex rate",
+      "note": "Same normalised keyword as rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv row 61, which carries the stronger metrics (volume 0). Metrics from this row retained for evidence.",
+      "sourceFile": "romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv",
+      "sourceRow": 288
+    },
+    {
+      "keywordRaw": "9 000 robux to usd",
+      "comparisonKey": "9 000 robux to usd",
+      "note": "Same normalised keyword as rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv row 14, which carries the stronger metrics (volume 10). Metrics from this row retained for evidence.",
+      "sourceFile": "romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv",
+      "sourceRow": 291
+    },
+    {
+      "keywordRaw": "roblox developer exchange calculator",
+      "comparisonKey": "roblox developer exchange calculator",
+      "note": "Same normalised keyword as rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv row 64, which carries the stronger metrics (volume 0). Metrics from this row retained for evidence.",
+      "sourceFile": "romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv",
+      "sourceRow": 308
+    },
+    {
+      "keywordRaw": "robux money conversion",
+      "comparisonKey": "robux money conversion",
+      "note": "Same normalised keyword as rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv row 75, which carries the stronger metrics (volume 0). Metrics from this row retained for evidence.",
+      "sourceFile": "romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv",
+      "sourceRow": 313
+    },
+    {
+      "keywordRaw": "developer exchange roblox rates",
+      "comparisonKey": "developer exchange roblox rates",
+      "note": "Same normalised keyword as rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv row 28, which carries the stronger metrics (volume 0). Metrics from this row retained for evidence.",
+      "sourceFile": "romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv",
+      "sourceRow": 329
+    },
+    {
+      "keywordRaw": "devex conversion rates",
+      "comparisonKey": "devex conversion rates",
+      "note": "Same normalised keyword as rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv row 33, which carries the stronger metrics (volume 0). Metrics from this row retained for evidence.",
+      "sourceFile": "romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv",
+      "sourceRow": 347
+    },
+    {
+      "keywordRaw": "dev exchange roblox rates",
+      "comparisonKey": "dev exchange roblox rates",
+      "note": "Same normalised keyword as rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv row 23, which carries the stronger metrics (volume 0). Metrics from this row retained for evidence.",
+      "sourceFile": "romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv",
+      "sourceRow": 357
+    },
+    {
+      "keywordRaw": "3k robux to dollars",
+      "comparisonKey": "3k robux to dollars",
+      "note": "Same normalised keyword as rbxtax.com-devex.html-organic-keywords-path_2026-08-17_14-15-54.csv row 9, which carries the stronger metrics (volume 0). Metrics from this row retained for evidence.",
+      "sourceFile": "romonitorstats.com-devex-calculator-organic_2026-08-17_14-15-10.csv",
+      "sourceRow": 359
+    }
+  ]
+}

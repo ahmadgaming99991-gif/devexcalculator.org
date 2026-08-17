@@ -1,0 +1,9 @@
+{
+  "$comment": "Manual keyword exclusions, keyed by the lowercase comparison key. A value is the human reason recorded in the exclusion report. These override the automated classifier.",
+  "exclusions": {
+    "rbx tax": "Navigational query for the RBXTax brand. Targeting a competitor's brand name is out of scope.",
+    "rbxtax": "Navigational query for the RBXTax brand. Targeting a competitor's brand name is out of scope.",
+    "visits to robux calculator": "Asks about converting experience visits into Robux, which is a different tool this site does not build.",
+    "robux to": "Truncated query with no resolvable search task."
+  }
+}

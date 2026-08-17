@@ -1,0 +1,318 @@
+{
+  "generatedAt": "2026-08-17T10:34:34.606Z",
+  "errorCount": 0,
+  "warningCount": 0,
+  "findings": [],
+  "amountsHeldAtReview": [
+    {
+      "entityId": "robux-1000",
+      "amount": 1000,
+      "rationale": "Held at review: below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-17000",
+      "amount": 17000,
+      "rationale": "Held at review: not a round amount that reads as a real query, below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-10000",
+      "amount": 10000,
+      "rationale": "Held at review: below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-20000",
+      "amount": 20000,
+      "rationale": "Held at review: below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-3000",
+      "amount": 3000,
+      "rationale": "Held at review: below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-200",
+      "amount": 200,
+      "rationale": "Held at review: not a round amount that reads as a real query, below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-5000",
+      "amount": 5000,
+      "rationale": "Held at review: too few distinct query variants, below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-2000",
+      "amount": 2000,
+      "rationale": "Held at review: below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-31000",
+      "amount": 31000,
+      "rationale": "Held at review: not a round amount that reads as a real query. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-2500",
+      "amount": 2500,
+      "rationale": "Held at review: not a round amount that reads as a real query, below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-5000000",
+      "amount": 5000000,
+      "rationale": "Held at review: too few distinct query variants. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-4000",
+      "amount": 4000,
+      "rationale": "Held at review: below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-300",
+      "amount": 300,
+      "rationale": "Held at review: not a round amount that reads as a real query, below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-25000",
+      "amount": 25000,
+      "rationale": "Held at review: not a round amount that reads as a real query, below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-15000",
+      "amount": 15000,
+      "rationale": "Held at review: not a round amount that reads as a real query, below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-6000",
+      "amount": 6000,
+      "rationale": "Held at review: below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-1500000",
+      "amount": 1500000,
+      "rationale": "Held at review: too few distinct query variants, not a round amount that reads as a real query. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-8000",
+      "amount": 8000,
+      "rationale": "Held at review: demand below the standalone-page threshold, below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-1000000000",
+      "amount": 1000000000,
+      "rationale": "Held at review: demand below the standalone-page threshold, too few distinct query variants, outside the safe display range. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-2000000",
+      "amount": 2000000,
+      "rationale": "Held at review: demand below the standalone-page threshold. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-7000",
+      "amount": 7000,
+      "rationale": "Held at review: demand below the standalone-page threshold, below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-400000",
+      "amount": 400000,
+      "rationale": "Held at review: demand below the standalone-page threshold. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-150000",
+      "amount": 150000,
+      "rationale": "Held at review: demand below the standalone-page threshold. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-60000",
+      "amount": 60000,
+      "rationale": "Held at review: demand below the standalone-page threshold. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-600",
+      "amount": 600,
+      "rationale": "Held at review: demand below the standalone-page threshold, not a round amount that reads as a real query, below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-18000000",
+      "amount": 18000000,
+      "rationale": "Held at review: demand below the standalone-page threshold. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-700",
+      "amount": 700,
+      "rationale": "Held at review: demand below the standalone-page threshold, not a round amount that reads as a real query, below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-14000000",
+      "amount": 14000000,
+      "rationale": "Held at review: demand below the standalone-page threshold. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-250",
+      "amount": 250,
+      "rationale": "Held at review: demand below the standalone-page threshold, too few distinct query variants, not a round amount that reads as a real query, below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-150",
+      "amount": 150,
+      "rationale": "Held at review: demand below the standalone-page threshold, too few distinct query variants, not a round amount that reads as a real query, below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-9000",
+      "amount": 9000,
+      "rationale": "Held at review: demand below the standalone-page threshold, below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-35000",
+      "amount": 35000,
+      "rationale": "Held at review: demand below the standalone-page threshold, not a round amount that reads as a real query. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-18000",
+      "amount": 18000,
+      "rationale": "Held at review: demand below the standalone-page threshold, not a round amount that reads as a real query, below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-12000",
+      "amount": 12000,
+      "rationale": "Held at review: demand below the standalone-page threshold, not a round amount that reads as a real query, below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-1500",
+      "amount": 1500,
+      "rationale": "Held at review: demand below the standalone-page threshold, too few distinct query variants, not a round amount that reads as a real query, below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-1200",
+      "amount": 1200,
+      "rationale": "Held at review: demand below the standalone-page threshold, too few distinct query variants, not a round amount that reads as a real query, below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-50",
+      "amount": 50,
+      "rationale": "Held at review: demand below the standalone-page threshold, too few distinct query variants, not a round amount that reads as a real query, below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-80000",
+      "amount": 80000,
+      "rationale": "Held at review: demand below the standalone-page threshold. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-1",
+      "amount": 1,
+      "rationale": "Held at review: demand below the standalone-page threshold, not a round amount that reads as a real query, below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-7000000",
+      "amount": 7000000,
+      "rationale": "Held at review: demand below the standalone-page threshold, too few distinct query variants. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-3000000",
+      "amount": 3000000,
+      "rationale": "Held at review: demand below the standalone-page threshold, too few distinct query variants. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-90000",
+      "amount": 90000,
+      "rationale": "Held at review: demand below the standalone-page threshold, too few distinct query variants. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-200000000",
+      "amount": 200000000,
+      "rationale": "Held at review: demand below the standalone-page threshold, too few distinct query variants, outside the safe display range. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-130000",
+      "amount": 130000,
+      "rationale": "Held at review: demand below the standalone-page threshold, too few distinct query variants, not a round amount that reads as a real query. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-100000000",
+      "amount": 100000000,
+      "rationale": "Held at review: demand below the standalone-page threshold, too few distinct query variants. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-14000",
+      "amount": 14000,
+      "rationale": "Held at review: demand below the standalone-page threshold, too few distinct query variants, not a round amount that reads as a real query, below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-3500",
+      "amount": 3500,
+      "rationale": "Held at review: demand below the standalone-page threshold, too few distinct query variants, not a round amount that reads as a real query, below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-1000000000000",
+      "amount": 1000000000000,
+      "rationale": "Held at review: demand below the standalone-page threshold, too few distinct query variants, outside the safe display range. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-75000",
+      "amount": 75000,
+      "rationale": "Held at review: demand below the standalone-page threshold, too few distinct query variants, not a round amount that reads as a real query. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-160000",
+      "amount": 160000,
+      "rationale": "Held at review: demand below the standalone-page threshold, too few distinct query variants, not a round amount that reads as a real query. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-800",
+      "amount": 800,
+      "rationale": "Held at review: demand below the standalone-page threshold, too few distinct query variants, not a round amount that reads as a real query, below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-3600000000",
+      "amount": 3600000000,
+      "rationale": "Held at review: demand below the standalone-page threshold, too few distinct query variants, outside the safe display range. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-600000000",
+      "amount": 600000000,
+      "rationale": "Held at review: demand below the standalone-page threshold, too few distinct query variants, outside the safe display range. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-70000",
+      "amount": 70000,
+      "rationale": "Held at review: demand below the standalone-page threshold, too few distinct query variants. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-13000",
+      "amount": 13000,
+      "rationale": "Held at review: demand below the standalone-page threshold, too few distinct query variants, not a round amount that reads as a real query, below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-11000",
+      "amount": 11000,
+      "rationale": "Held at review: demand below the standalone-page threshold, too few distinct query variants, not a round amount that reads as a real query, below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-2300",
+      "amount": 2300,
+      "rationale": "Held at review: demand below the standalone-page threshold, too few distinct query variants, not a round amount that reads as a real query, below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-48000",
+      "amount": 48000,
+      "rationale": "Held at review: demand below the standalone-page threshold, too few distinct query variants, not a round amount that reads as a real query. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-25",
+      "amount": 25,
+      "rationale": "Held at review: demand below the standalone-page threshold, not a round amount that reads as a real query, below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-8500",
+      "amount": 8500,
+      "rationale": "Held at review: demand below the standalone-page threshold, too few distinct query variants, not a round amount that reads as a real query, below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-2700",
+      "amount": 2700,
+      "rationale": "Held at review: demand below the standalone-page threshold, too few distinct query variants, not a round amount that reads as a real query, below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-2400",
+      "amount": 2400,
+      "rationale": "Held at review: demand below the standalone-page threshold, too few distinct query variants, not a round amount that reads as a real query, below the 30,000 Earned Robux DevEx minimum. Served by the conversion hub and calculator query state instead."
+    }
+  ]
+}

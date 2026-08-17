@@ -1,0 +1,913 @@
+{
+  "generatedAt": "2026-08-17T10:34:34.604Z",
+  "edgeCount": 141,
+  "nodeCount": 32,
+  "orphans": [
+    "/accessibility/"
+  ],
+  "brokenTargets": [],
+  "overusedAnchors": [
+    {
+      "key": "/::back to the calculator",
+      "count": 5
+    },
+    {
+      "key": "/about/::about this site",
+      "count": 4
+    },
+    {
+      "key": "/conversions/::all common amount conversions",
+      "count": 8
+    },
+    {
+      "key": "/robux-to-usd/::convert a different amount",
+      "count": 8
+    },
+    {
+      "key": "/devex-rates/::the rates used here",
+      "count": 8
+    }
+  ],
+  "inboundCounts": {
+    "/": 18,
+    "/robux-to-usd/": 12,
+    "/usd-to-robux/": 3,
+    "/devex-rates/": 17,
+    "/devex-requirements/": 6,
+    "/earned-robux/": 7,
+    "/how-to-cash-out-robux/": 6,
+    "/devex-rate-history/": 3,
+    "/devex-fees-and-taxes/": 3,
+    "/robux-tax-calculator/": 3,
+    "/calculators/": 3,
+    "/guides/": 1,
+    "/conversions/": 10,
+    "/about/": 4,
+    "/methodology/": 5,
+    "/sources/": 6,
+    "/editorial-policy/": 2,
+    "/corrections/": 5,
+    "/changelog/": 2,
+    "/contact/": 3,
+    "/privacy/": 2,
+    "/terms/": 2,
+    "/disclaimer/": 2,
+    "/accessibility/": 0,
+    "/conversions/30000-robux-to-usd/": 1,
+    "/conversions/50000-robux-to-usd/": 2,
+    "/conversions/100000-robux-to-usd/": 3,
+    "/conversions/200000-robux-to-usd/": 2,
+    "/conversions/300000-robux-to-usd/": 2,
+    "/conversions/500000-robux-to-usd/": 3,
+    "/conversions/1000000-robux-to-usd/": 2,
+    "/conversions/10000000-robux-to-usd/": 1
+  },
+  "edges": [
+    {
+      "from": "/",
+      "to": "/robux-to-usd/",
+      "anchor": "converting Robux to USD generally",
+      "relationship": "tool"
+    },
+    {
+      "from": "/",
+      "to": "/devex-rates/",
+      "anchor": "the current DevEx rates in full",
+      "relationship": "child"
+    },
+    {
+      "from": "/",
+      "to": "/devex-requirements/",
+      "anchor": "what Roblox requires before a payout",
+      "relationship": "child"
+    },
+    {
+      "from": "/",
+      "to": "/earned-robux/",
+      "anchor": "which Robux count as Earned Robux",
+      "relationship": "child"
+    },
+    {
+      "from": "/",
+      "to": "/how-to-cash-out-robux/",
+      "anchor": "how the cash-out process works",
+      "relationship": "child"
+    },
+    {
+      "from": "/",
+      "to": "/calculators/",
+      "anchor": "all creator finance calculators",
+      "relationship": "child"
+    },
+    {
+      "from": "/",
+      "to": "/methodology/",
+      "anchor": "how these figures are calculated",
+      "relationship": "next-step"
+    },
+    {
+      "from": "/",
+      "to": "/usd-to-robux/",
+      "anchor": "work backwards from a payout goal",
+      "relationship": "tool"
+    },
+    {
+      "from": "/",
+      "to": "/conversions/",
+      "anchor": "conversions for common amounts",
+      "relationship": "child"
+    },
+    {
+      "from": "/robux-to-usd/",
+      "to": "/",
+      "anchor": "the full DevEx calculator",
+      "relationship": "parent"
+    },
+    {
+      "from": "/robux-to-usd/",
+      "to": "/devex-rates/",
+      "anchor": "the rate behind this conversion",
+      "relationship": "prerequisite"
+    },
+    {
+      "from": "/robux-to-usd/",
+      "to": "/usd-to-robux/",
+      "anchor": "convert in the other direction",
+      "relationship": "sibling"
+    },
+    {
+      "from": "/robux-to-usd/",
+      "to": "/earned-robux/",
+      "anchor": "what makes a Robux eligible",
+      "relationship": "prerequisite"
+    },
+    {
+      "from": "/robux-to-usd/",
+      "to": "/conversions/",
+      "anchor": "a table of common amounts",
+      "relationship": "next-step"
+    },
+    {
+      "from": "/usd-to-robux/",
+      "to": "/",
+      "anchor": "the main DevEx calculator",
+      "relationship": "parent"
+    },
+    {
+      "from": "/usd-to-robux/",
+      "to": "/robux-to-usd/",
+      "anchor": "convert in the other direction",
+      "relationship": "sibling"
+    },
+    {
+      "from": "/usd-to-robux/",
+      "to": "/devex-requirements/",
+      "anchor": "the minimum and the requirements",
+      "relationship": "prerequisite"
+    },
+    {
+      "from": "/usd-to-robux/",
+      "to": "/devex-rates/",
+      "anchor": "the rates used in this calculation",
+      "relationship": "prerequisite"
+    },
+    {
+      "from": "/usd-to-robux/",
+      "to": "/how-to-cash-out-robux/",
+      "anchor": "what happens once you reach your target",
+      "relationship": "next-step"
+    },
+    {
+      "from": "/devex-rates/",
+      "to": "/",
+      "anchor": "calculate a payout at these rates",
+      "relationship": "parent"
+    },
+    {
+      "from": "/devex-rates/",
+      "to": "/devex-rate-history/",
+      "anchor": "how the rate changed over time",
+      "relationship": "child"
+    },
+    {
+      "from": "/devex-rates/",
+      "to": "/earned-robux/",
+      "anchor": "which Robux the rate applies to",
+      "relationship": "prerequisite"
+    },
+    {
+      "from": "/devex-rates/",
+      "to": "/devex-requirements/",
+      "anchor": "the requirements alongside the rate",
+      "relationship": "sibling"
+    },
+    {
+      "from": "/devex-rates/",
+      "to": "/sources/",
+      "anchor": "the sources behind these figures",
+      "relationship": "next-step"
+    },
+    {
+      "from": "/devex-requirements/",
+      "to": "/",
+      "anchor": "check whether your balance meets the minimum",
+      "relationship": "parent"
+    },
+    {
+      "from": "/devex-requirements/",
+      "to": "/earned-robux/",
+      "anchor": "which Robux count toward the minimum",
+      "relationship": "prerequisite"
+    },
+    {
+      "from": "/devex-requirements/",
+      "to": "/how-to-cash-out-robux/",
+      "anchor": "the cash-out process itself",
+      "relationship": "next-step"
+    },
+    {
+      "from": "/devex-requirements/",
+      "to": "/devex-rates/",
+      "anchor": "what your balance would pay",
+      "relationship": "sibling"
+    },
+    {
+      "from": "/earned-robux/",
+      "to": "/",
+      "anchor": "calculate a payout on eligible Robux",
+      "relationship": "parent"
+    },
+    {
+      "from": "/earned-robux/",
+      "to": "/devex-requirements/",
+      "anchor": "the eligibility requirements",
+      "relationship": "sibling"
+    },
+    {
+      "from": "/earned-robux/",
+      "to": "/robux-tax-calculator/",
+      "anchor": "how much of a sale you keep",
+      "relationship": "tool"
+    },
+    {
+      "from": "/earned-robux/",
+      "to": "/how-to-cash-out-robux/",
+      "anchor": "converting an eligible balance",
+      "relationship": "next-step"
+    },
+    {
+      "from": "/how-to-cash-out-robux/",
+      "to": "/devex-requirements/",
+      "anchor": "the requirements you need to meet first",
+      "relationship": "prerequisite"
+    },
+    {
+      "from": "/how-to-cash-out-robux/",
+      "to": "/",
+      "anchor": "estimate what your balance would pay",
+      "relationship": "parent"
+    },
+    {
+      "from": "/how-to-cash-out-robux/",
+      "to": "/devex-fees-and-taxes/",
+      "anchor": "what comes off after the conversion",
+      "relationship": "next-step"
+    },
+    {
+      "from": "/how-to-cash-out-robux/",
+      "to": "/earned-robux/",
+      "anchor": "check which Robux qualify",
+      "relationship": "prerequisite"
+    },
+    {
+      "from": "/devex-rate-history/",
+      "to": "/devex-rates/",
+      "anchor": "the rates in effect now",
+      "relationship": "parent"
+    },
+    {
+      "from": "/devex-rate-history/",
+      "to": "/",
+      "anchor": "compare rates on your own balance",
+      "relationship": "tool"
+    },
+    {
+      "from": "/devex-rate-history/",
+      "to": "/changelog/",
+      "anchor": "when this site last updated its data",
+      "relationship": "next-step"
+    },
+    {
+      "from": "/devex-fees-and-taxes/",
+      "to": "/",
+      "anchor": "the calculator with optional fee and tax controls",
+      "relationship": "parent"
+    },
+    {
+      "from": "/devex-fees-and-taxes/",
+      "to": "/how-to-cash-out-robux/",
+      "anchor": "the cash-out process",
+      "relationship": "prerequisite"
+    },
+    {
+      "from": "/devex-fees-and-taxes/",
+      "to": "/robux-tax-calculator/",
+      "anchor": "the separate Roblox marketplace fee",
+      "relationship": "sibling"
+    },
+    {
+      "from": "/devex-fees-and-taxes/",
+      "to": "/methodology/",
+      "anchor": "how these estimates are produced",
+      "relationship": "next-step"
+    },
+    {
+      "from": "/robux-tax-calculator/",
+      "to": "/calculators/",
+      "anchor": "the other creator calculators",
+      "relationship": "parent"
+    },
+    {
+      "from": "/robux-tax-calculator/",
+      "to": "/earned-robux/",
+      "anchor": "what happens to the Robux you keep",
+      "relationship": "next-step"
+    },
+    {
+      "from": "/robux-tax-calculator/",
+      "to": "/",
+      "anchor": "convert your Earned Robux to USD",
+      "relationship": "tool"
+    },
+    {
+      "from": "/robux-tax-calculator/",
+      "to": "/devex-fees-and-taxes/",
+      "anchor": "deductions after a DevEx payout",
+      "relationship": "sibling"
+    },
+    {
+      "from": "/calculators/",
+      "to": "/",
+      "anchor": "DevEx calculator",
+      "relationship": "child"
+    },
+    {
+      "from": "/calculators/",
+      "to": "/robux-to-usd/",
+      "anchor": "Robux to USD converter",
+      "relationship": "child"
+    },
+    {
+      "from": "/calculators/",
+      "to": "/usd-to-robux/",
+      "anchor": "payout target calculator",
+      "relationship": "child"
+    },
+    {
+      "from": "/calculators/",
+      "to": "/robux-tax-calculator/",
+      "anchor": "Roblox tax calculator",
+      "relationship": "child"
+    },
+    {
+      "from": "/calculators/",
+      "to": "/guides/",
+      "anchor": "the explanatory guides",
+      "relationship": "sibling"
+    },
+    {
+      "from": "/guides/",
+      "to": "/earned-robux/",
+      "anchor": "Earned Robux",
+      "relationship": "child"
+    },
+    {
+      "from": "/guides/",
+      "to": "/devex-rates/",
+      "anchor": "DevEx rates",
+      "relationship": "child"
+    },
+    {
+      "from": "/guides/",
+      "to": "/devex-requirements/",
+      "anchor": "DevEx requirements",
+      "relationship": "child"
+    },
+    {
+      "from": "/guides/",
+      "to": "/how-to-cash-out-robux/",
+      "anchor": "cashing out Robux",
+      "relationship": "child"
+    },
+    {
+      "from": "/guides/",
+      "to": "/devex-rate-history/",
+      "anchor": "rate history",
+      "relationship": "child"
+    },
+    {
+      "from": "/guides/",
+      "to": "/devex-fees-and-taxes/",
+      "anchor": "fees and taxes",
+      "relationship": "child"
+    },
+    {
+      "from": "/guides/",
+      "to": "/calculators/",
+      "anchor": "the calculators these guides support",
+      "relationship": "sibling"
+    },
+    {
+      "from": "/conversions/",
+      "to": "/robux-to-usd/",
+      "anchor": "the Robux to USD converter",
+      "relationship": "parent"
+    },
+    {
+      "from": "/conversions/",
+      "to": "/",
+      "anchor": "the full DevEx calculator",
+      "relationship": "tool"
+    },
+    {
+      "from": "/conversions/",
+      "to": "/devex-rates/",
+      "anchor": "the rates used in this table",
+      "relationship": "prerequisite"
+    },
+    {
+      "from": "/about/",
+      "to": "/methodology/",
+      "anchor": "the calculation methodology",
+      "relationship": "next-step"
+    },
+    {
+      "from": "/about/",
+      "to": "/sources/",
+      "anchor": "the sources behind every figure",
+      "relationship": "next-step"
+    },
+    {
+      "from": "/about/",
+      "to": "/editorial-policy/",
+      "anchor": "the editorial policy",
+      "relationship": "sibling"
+    },
+    {
+      "from": "/about/",
+      "to": "/",
+      "anchor": "the calculator itself",
+      "relationship": "parent"
+    },
+    {
+      "from": "/methodology/",
+      "to": "/sources/",
+      "anchor": "the source registry",
+      "relationship": "sibling"
+    },
+    {
+      "from": "/methodology/",
+      "to": "/",
+      "anchor": "the calculator these formulas drive",
+      "relationship": "parent"
+    },
+    {
+      "from": "/methodology/",
+      "to": "/corrections/",
+      "anchor": "how to report an error",
+      "relationship": "next-step"
+    },
+    {
+      "from": "/methodology/",
+      "to": "/devex-rates/",
+      "anchor": "the rates used",
+      "relationship": "prerequisite"
+    },
+    {
+      "from": "/sources/",
+      "to": "/methodology/",
+      "anchor": "how the figures are calculated",
+      "relationship": "sibling"
+    },
+    {
+      "from": "/sources/",
+      "to": "/devex-rates/",
+      "anchor": "the rates these sources support",
+      "relationship": "next-step"
+    },
+    {
+      "from": "/sources/",
+      "to": "/corrections/",
+      "anchor": "report an out-of-date figure",
+      "relationship": "next-step"
+    },
+    {
+      "from": "/sources/",
+      "to": "/",
+      "anchor": "back to the calculator",
+      "relationship": "parent"
+    },
+    {
+      "from": "/editorial-policy/",
+      "to": "/corrections/",
+      "anchor": "the corrections policy",
+      "relationship": "sibling"
+    },
+    {
+      "from": "/editorial-policy/",
+      "to": "/sources/",
+      "anchor": "the source registry",
+      "relationship": "sibling"
+    },
+    {
+      "from": "/editorial-policy/",
+      "to": "/about/",
+      "anchor": "about this site",
+      "relationship": "parent"
+    },
+    {
+      "from": "/corrections/",
+      "to": "/changelog/",
+      "anchor": "the public changelog",
+      "relationship": "next-step"
+    },
+    {
+      "from": "/corrections/",
+      "to": "/editorial-policy/",
+      "anchor": "the editorial policy",
+      "relationship": "sibling"
+    },
+    {
+      "from": "/corrections/",
+      "to": "/contact/",
+      "anchor": "get in touch",
+      "relationship": "next-step"
+    },
+    {
+      "from": "/corrections/",
+      "to": "/about/",
+      "anchor": "about this site",
+      "relationship": "parent"
+    },
+    {
+      "from": "/changelog/",
+      "to": "/devex-rate-history/",
+      "anchor": "the DevEx rate history itself",
+      "relationship": "sibling"
+    },
+    {
+      "from": "/changelog/",
+      "to": "/corrections/",
+      "anchor": "the corrections policy",
+      "relationship": "sibling"
+    },
+    {
+      "from": "/changelog/",
+      "to": "/sources/",
+      "anchor": "the source registry",
+      "relationship": "next-step"
+    },
+    {
+      "from": "/changelog/",
+      "to": "/about/",
+      "anchor": "about this site",
+      "relationship": "parent"
+    },
+    {
+      "from": "/contact/",
+      "to": "/corrections/",
+      "anchor": "the corrections policy",
+      "relationship": "prerequisite"
+    },
+    {
+      "from": "/contact/",
+      "to": "/privacy/",
+      "anchor": "how your message is handled",
+      "relationship": "next-step"
+    },
+    {
+      "from": "/contact/",
+      "to": "/about/",
+      "anchor": "about this site",
+      "relationship": "parent"
+    },
+    {
+      "from": "/privacy/",
+      "to": "/terms/",
+      "anchor": "the terms of use",
+      "relationship": "sibling"
+    },
+    {
+      "from": "/privacy/",
+      "to": "/disclaimer/",
+      "anchor": "the disclaimer",
+      "relationship": "sibling"
+    },
+    {
+      "from": "/privacy/",
+      "to": "/contact/",
+      "anchor": "contact",
+      "relationship": "next-step"
+    },
+    {
+      "from": "/privacy/",
+      "to": "/",
+      "anchor": "back to the calculator",
+      "relationship": "parent"
+    },
+    {
+      "from": "/terms/",
+      "to": "/privacy/",
+      "anchor": "the privacy policy",
+      "relationship": "sibling"
+    },
+    {
+      "from": "/terms/",
+      "to": "/disclaimer/",
+      "anchor": "the disclaimer",
+      "relationship": "sibling"
+    },
+    {
+      "from": "/terms/",
+      "to": "/",
+      "anchor": "back to the calculator",
+      "relationship": "parent"
+    },
+    {
+      "from": "/disclaimer/",
+      "to": "/methodology/",
+      "anchor": "how the estimates are produced",
+      "relationship": "next-step"
+    },
+    {
+      "from": "/disclaimer/",
+      "to": "/terms/",
+      "anchor": "the terms of use",
+      "relationship": "sibling"
+    },
+    {
+      "from": "/disclaimer/",
+      "to": "/sources/",
+      "anchor": "the sources used",
+      "relationship": "next-step"
+    },
+    {
+      "from": "/disclaimer/",
+      "to": "/",
+      "anchor": "back to the calculator",
+      "relationship": "parent"
+    },
+    {
+      "from": "/accessibility/",
+      "to": "/contact/",
+      "anchor": "report an accessibility problem",
+      "relationship": "next-step"
+    },
+    {
+      "from": "/accessibility/",
+      "to": "/",
+      "anchor": "back to the calculator",
+      "relationship": "parent"
+    },
+    {
+      "from": "/conversions/30000-robux-to-usd/",
+      "to": "/conversions/",
+      "anchor": "all common amount conversions",
+      "relationship": "parent"
+    },
+    {
+      "from": "/conversions/30000-robux-to-usd/",
+      "to": "/robux-to-usd/",
+      "anchor": "convert a different amount",
+      "relationship": "tool"
+    },
+    {
+      "from": "/conversions/30000-robux-to-usd/",
+      "to": "/devex-rates/",
+      "anchor": "the rates used here",
+      "relationship": "prerequisite"
+    },
+    {
+      "from": "/conversions/30000-robux-to-usd/",
+      "to": "/conversions/50000-robux-to-usd/",
+      "anchor": "50,000 Robux to USD",
+      "relationship": "sibling"
+    },
+    {
+      "from": "/conversions/30000-robux-to-usd/",
+      "to": "/conversions/100000-robux-to-usd/",
+      "anchor": "100,000 Robux to USD",
+      "relationship": "sibling"
+    },
+    {
+      "from": "/conversions/50000-robux-to-usd/",
+      "to": "/conversions/",
+      "anchor": "all common amount conversions",
+      "relationship": "parent"
+    },
+    {
+      "from": "/conversions/50000-robux-to-usd/",
+      "to": "/robux-to-usd/",
+      "anchor": "convert a different amount",
+      "relationship": "tool"
+    },
+    {
+      "from": "/conversions/50000-robux-to-usd/",
+      "to": "/devex-rates/",
+      "anchor": "the rates used here",
+      "relationship": "prerequisite"
+    },
+    {
+      "from": "/conversions/50000-robux-to-usd/",
+      "to": "/conversions/30000-robux-to-usd/",
+      "anchor": "30,000 Robux to USD",
+      "relationship": "sibling"
+    },
+    {
+      "from": "/conversions/50000-robux-to-usd/",
+      "to": "/conversions/100000-robux-to-usd/",
+      "anchor": "100,000 Robux to USD",
+      "relationship": "sibling"
+    },
+    {
+      "from": "/conversions/100000-robux-to-usd/",
+      "to": "/conversions/",
+      "anchor": "all common amount conversions",
+      "relationship": "parent"
+    },
+    {
+      "from": "/conversions/100000-robux-to-usd/",
+      "to": "/robux-to-usd/",
+      "anchor": "convert a different amount",
+      "relationship": "tool"
+    },
+    {
+      "from": "/conversions/100000-robux-to-usd/",
+      "to": "/devex-rates/",
+      "anchor": "the rates used here",
+      "relationship": "prerequisite"
+    },
+    {
+      "from": "/conversions/100000-robux-to-usd/",
+      "to": "/conversions/50000-robux-to-usd/",
+      "anchor": "50,000 Robux to USD",
+      "relationship": "sibling"
+    },
+    {
+      "from": "/conversions/100000-robux-to-usd/",
+      "to": "/conversions/200000-robux-to-usd/",
+      "anchor": "200,000 Robux to USD",
+      "relationship": "sibling"
+    },
+    {
+      "from": "/conversions/200000-robux-to-usd/",
+      "to": "/conversions/",
+      "anchor": "all common amount conversions",
+      "relationship": "parent"
+    },
+    {
+      "from": "/conversions/200000-robux-to-usd/",
+      "to": "/robux-to-usd/",
+      "anchor": "convert a different amount",
+      "relationship": "tool"
+    },
+    {
+      "from": "/conversions/200000-robux-to-usd/",
+      "to": "/devex-rates/",
+      "anchor": "the rates used here",
+      "relationship": "prerequisite"
+    },
+    {
+      "from": "/conversions/200000-robux-to-usd/",
+      "to": "/conversions/100000-robux-to-usd/",
+      "anchor": "100,000 Robux to USD",
+      "relationship": "sibling"
+    },
+    {
+      "from": "/conversions/200000-robux-to-usd/",
+      "to": "/conversions/300000-robux-to-usd/",
+      "anchor": "300,000 Robux to USD",
+      "relationship": "sibling"
+    },
+    {
+      "from": "/conversions/300000-robux-to-usd/",
+      "to": "/conversions/",
+      "anchor": "all common amount conversions",
+      "relationship": "parent"
+    },
+    {
+      "from": "/conversions/300000-robux-to-usd/",
+      "to": "/robux-to-usd/",
+      "anchor": "convert a different amount",
+      "relationship": "tool"
+    },
+    {
+      "from": "/conversions/300000-robux-to-usd/",
+      "to": "/devex-rates/",
+      "anchor": "the rates used here",
+      "relationship": "prerequisite"
+    },
+    {
+      "from": "/conversions/300000-robux-to-usd/",
+      "to": "/conversions/200000-robux-to-usd/",
+      "anchor": "200,000 Robux to USD",
+      "relationship": "sibling"
+    },
+    {
+      "from": "/conversions/300000-robux-to-usd/",
+      "to": "/conversions/500000-robux-to-usd/",
+      "anchor": "500,000 Robux to USD",
+      "relationship": "sibling"
+    },
+    {
+      "from": "/conversions/500000-robux-to-usd/",
+      "to": "/conversions/",
+      "anchor": "all common amount conversions",
+      "relationship": "parent"
+    },
+    {
+      "from": "/conversions/500000-robux-to-usd/",
+      "to": "/robux-to-usd/",
+      "anchor": "convert a different amount",
+      "relationship": "tool"
+    },
+    {
+      "from": "/conversions/500000-robux-to-usd/",
+      "to": "/devex-rates/",
+      "anchor": "the rates used here",
+      "relationship": "prerequisite"
+    },
+    {
+      "from": "/conversions/500000-robux-to-usd/",
+      "to": "/conversions/300000-robux-to-usd/",
+      "anchor": "300,000 Robux to USD",
+      "relationship": "sibling"
+    },
+    {
+      "from": "/conversions/500000-robux-to-usd/",
+      "to": "/conversions/1000000-robux-to-usd/",
+      "anchor": "1,000,000 Robux to USD",
+      "relationship": "sibling"
+    },
+    {
+      "from": "/conversions/1000000-robux-to-usd/",
+      "to": "/conversions/",
+      "anchor": "all common amount conversions",
+      "relationship": "parent"
+    },
+    {
+      "from": "/conversions/1000000-robux-to-usd/",
+      "to": "/robux-to-usd/",
+      "anchor": "convert a different amount",
+      "relationship": "tool"
+    },
+    {
+      "from": "/conversions/1000000-robux-to-usd/",
+      "to": "/devex-rates/",
+      "anchor": "the rates used here",
+      "relationship": "prerequisite"
+    },
+    {
+      "from": "/conversions/1000000-robux-to-usd/",
+      "to": "/conversions/500000-robux-to-usd/",
+      "anchor": "500,000 Robux to USD",
+      "relationship": "sibling"
+    },
+    {
+      "from": "/conversions/1000000-robux-to-usd/",
+      "to": "/conversions/10000000-robux-to-usd/",
+      "anchor": "10,000,000 Robux to USD",
+      "relationship": "sibling"
+    },
+    {
+      "from": "/conversions/10000000-robux-to-usd/",
+      "to": "/conversions/",
+      "anchor": "all common amount conversions",
+      "relationship": "parent"
+    },
+    {
+      "from": "/conversions/10000000-robux-to-usd/",
+      "to": "/robux-to-usd/",
+      "anchor": "convert a different amount",
+      "relationship": "tool"
+    },
+    {
+      "from": "/conversions/10000000-robux-to-usd/",
+      "to": "/devex-rates/",
+      "anchor": "the rates used here",
+      "relationship": "prerequisite"
+    },
+    {
+      "from": "/conversions/10000000-robux-to-usd/",
+      "to": "/conversions/1000000-robux-to-usd/",
+      "anchor": "1,000,000 Robux to USD",
+      "relationship": "sibling"
+    },
+    {
+      "from": "/conversions/10000000-robux-to-usd/",
+      "to": "/conversions/500000-robux-to-usd/",
+      "anchor": "500,000 Robux to USD",
+      "relationship": "sibling"
+    }
+  ]
+}

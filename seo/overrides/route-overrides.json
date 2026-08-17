@@ -1,0 +1,19 @@
+{
+  "$comment": "Manual route reassignments, keyed by the lowercase comparison key. Use sparingly: a route override that is needed often means the classifier rule should be fixed instead. Every entry must record why the automated assignment was wrong.",
+  "routes": {
+    "roblox tax": "/robux-tax-calculator/",
+    "tax roblox": "/robux-tax-calculator/",
+    "how to convert robux to usd": "/how-to-cash-out-robux/",
+    "sell robux to usd": "/how-to-cash-out-robux/",
+    "turn robux into money": "/how-to-cash-out-robux/",
+    "cash out robux": "/how-to-cash-out-robux/"
+  },
+  "rationale": {
+    "roblox tax": "The marketplace fee is a separate product from DevEx and owns its own calculator route.",
+    "tax roblox": "Word-order variant of the same marketplace fee intent.",
+    "how to convert robux to usd": "Phrased as a process question rather than a conversion, so the cash-out guide serves it better than the converter.",
+    "sell robux to usd": "Process intent. The guide also carries the warning against unofficial selling services.",
+    "turn robux into money": "Process intent rather than an arithmetic conversion.",
+    "cash out robux": "Explicit cash-out process intent."
+  }
+}

@@ -1,0 +1,568 @@
+{
+  "generatedAt": "2026-08-17T10:34:34.579Z",
+  "bands": [
+    {
+      "band": "EXCLUDED",
+      "count": 5,
+      "routes": [],
+      "topKeywords": [
+        {
+          "keyword": "rbx tax",
+          "route": null,
+          "strategicPriorityScore": 0,
+          "quickWinScore": 0
+        },
+        {
+          "keyword": "rbxtax",
+          "route": null,
+          "strategicPriorityScore": 0,
+          "quickWinScore": 0
+        },
+        {
+          "keyword": "visits to robux calculator",
+          "route": null,
+          "strategicPriorityScore": 0,
+          "quickWinScore": 0
+        },
+        {
+          "keyword": "robux to",
+          "route": null,
+          "strategicPriorityScore": 0,
+          "quickWinScore": 0
+        },
+        {
+          "keyword": "roblox幣值",
+          "route": null,
+          "strategicPriorityScore": 0,
+          "quickWinScore": 0
+        }
+      ]
+    },
+    {
+      "band": "P0",
+      "count": 171,
+      "routes": [
+        "/devex-rates/",
+        "/",
+        "/robux-to-usd/"
+      ],
+      "topKeywords": [
+        {
+          "keyword": "devex roblox",
+          "route": "/",
+          "strategicPriorityScore": 92.78,
+          "quickWinScore": 87.18
+        },
+        {
+          "keyword": "devex calculator",
+          "route": "/",
+          "strategicPriorityScore": 91.8,
+          "quickWinScore": 80.71
+        },
+        {
+          "keyword": "robux to usd",
+          "route": "/robux-to-usd/",
+          "strategicPriorityScore": 89.84,
+          "quickWinScore": 84.61
+        },
+        {
+          "keyword": "roblox devex",
+          "route": "/",
+          "strategicPriorityScore": 88.95,
+          "quickWinScore": 85.07
+        },
+        {
+          "keyword": "robux calculator",
+          "route": "/robux-to-usd/",
+          "strategicPriorityScore": 86.86,
+          "quickWinScore": 85.12
+        },
+        {
+          "keyword": "roblox devex calculator",
+          "route": "/",
+          "strategicPriorityScore": 84.07,
+          "quickWinScore": 75.85
+        },
+        {
+          "keyword": "robux to usd calculator",
+          "route": "/robux-to-usd/",
+          "strategicPriorityScore": 83.84,
+          "quickWinScore": 83.46
+        },
+        {
+          "keyword": "dev exchange roblox",
+          "route": "/",
+          "strategicPriorityScore": 81.97,
+          "quickWinScore": 77.9
+        },
+        {
+          "keyword": "robux converter",
+          "route": "/robux-to-usd/",
+          "strategicPriorityScore": 81.72,
+          "quickWinScore": 79.5
+        },
+        {
+          "keyword": "devex rates",
+          "route": "/devex-rates/",
+          "strategicPriorityScore": 81.53,
+          "quickWinScore": 78.25
+        },
+        {
+          "keyword": "devex to usd",
+          "route": "/",
+          "strategicPriorityScore": 80.94,
+          "quickWinScore": 73.81
+        },
+        {
+          "keyword": "devex calc",
+          "route": "/",
+          "strategicPriorityScore": 80.68,
+          "quickWinScore": 73.71
+        },
+        {
+          "keyword": "dev ex calc",
+          "route": "/",
+          "strategicPriorityScore": 80.67,
+          "quickWinScore": 73.71
+        },
+        {
+          "keyword": "robux to money converter",
+          "route": "/robux-to-usd/",
+          "strategicPriorityScore": 80.43,
+          "quickWinScore": 78.37
+        },
+        {
+          "keyword": "devex converter",
+          "route": "/",
+          "strategicPriorityScore": 80.42,
+          "quickWinScore": 73.5
+        },
+        {
+          "keyword": "dev ex roblox",
+          "route": "/",
+          "strategicPriorityScore": 80.32,
+          "quickWinScore": 77.38
+        },
+        {
+          "keyword": "developer exchange roblox",
+          "route": "/",
+          "strategicPriorityScore": 80.2,
+          "quickWinScore": 78.61
+        },
+        {
+          "keyword": "roblox dev exchange",
+          "route": "/",
+          "strategicPriorityScore": 80.02,
+          "quickWinScore": 72.32
+        },
+        {
+          "keyword": "roblox devex rates",
+          "route": "/devex-rates/",
+          "strategicPriorityScore": 79.84,
+          "quickWinScore": 80.47
+        },
+        {
+          "keyword": "robux devex calculator",
+          "route": "/",
+          "strategicPriorityScore": 79.84,
+          "quickWinScore": 73.26
+        }
+      ]
+    },
+    {
+      "band": "P1",
+      "count": 84,
+      "routes": [
+        "/conversions/",
+        "/how-to-cash-out-robux/",
+        "/usd-to-robux/",
+        "/robux-tax-calculator/"
+      ],
+      "topKeywords": [
+        {
+          "keyword": "usd to robux",
+          "route": "/usd-to-robux/",
+          "strategicPriorityScore": 76.95,
+          "quickWinScore": 79.73
+        },
+        {
+          "keyword": "usd to robux calculator",
+          "route": "/usd-to-robux/",
+          "strategicPriorityScore": 72.68,
+          "quickWinScore": 73.86
+        },
+        {
+          "keyword": "usd to robux converter",
+          "route": "/usd-to-robux/",
+          "strategicPriorityScore": 71.06,
+          "quickWinScore": 72.83
+        },
+        {
+          "keyword": "money to robux calculator",
+          "route": "/usd-to-robux/",
+          "strategicPriorityScore": 69.07,
+          "quickWinScore": 71.57
+        },
+        {
+          "keyword": "money to robux converter",
+          "route": "/usd-to-robux/",
+          "strategicPriorityScore": 66.52,
+          "quickWinScore": 71.85
+        },
+        {
+          "keyword": "10000 robux to usd",
+          "route": "/conversions/",
+          "strategicPriorityScore": 65.85,
+          "quickWinScore": 72.42
+        },
+        {
+          "keyword": "1 million robux to usd",
+          "route": "/conversions/",
+          "strategicPriorityScore": 65.14,
+          "quickWinScore": 67.34
+        },
+        {
+          "keyword": "money into robux",
+          "route": "/usd-to-robux/",
+          "strategicPriorityScore": 65.02,
+          "quickWinScore": 68.85
+        },
+        {
+          "keyword": "200k robux to usd",
+          "route": "/conversions/",
+          "strategicPriorityScore": 63.69,
+          "quickWinScore": 71.03
+        },
+        {
+          "keyword": "roblox tax",
+          "route": "/robux-tax-calculator/",
+          "strategicPriorityScore": 63.62,
+          "quickWinScore": 68.48
+        },
+        {
+          "keyword": "dollars to robux calculator",
+          "route": "/usd-to-robux/",
+          "strategicPriorityScore": 63.37,
+          "quickWinScore": 67.54
+        },
+        {
+          "keyword": "300k robux to usd",
+          "route": "/conversions/",
+          "strategicPriorityScore": 63.31,
+          "quickWinScore": 71.03
+        },
+        {
+          "keyword": "10 million robux to usd",
+          "route": "/conversions/",
+          "strategicPriorityScore": 63.17,
+          "quickWinScore": 69.05
+        },
+        {
+          "keyword": "money to robux",
+          "route": "/usd-to-robux/",
+          "strategicPriorityScore": 62.88,
+          "quickWinScore": 67.54
+        },
+        {
+          "keyword": "1000 robux to usd",
+          "route": "/conversions/",
+          "strategicPriorityScore": 62.3,
+          "quickWinScore": 65.73
+        },
+        {
+          "keyword": "how much is 200k robux in usd",
+          "route": "/conversions/",
+          "strategicPriorityScore": 61.99,
+          "quickWinScore": 70.21
+        },
+        {
+          "keyword": "200 robux to usd",
+          "route": "/conversions/",
+          "strategicPriorityScore": 61.78,
+          "quickWinScore": 65.42
+        },
+        {
+          "keyword": "14 million robux to usd",
+          "route": "/conversions/",
+          "strategicPriorityScore": 61.46,
+          "quickWinScore": 69.63
+        },
+        {
+          "keyword": "5000 robux to usd",
+          "route": "/conversions/",
+          "strategicPriorityScore": 61.06,
+          "quickWinScore": 65.42
+        },
+        {
+          "keyword": "8000 robux to usd",
+          "route": "/conversions/",
+          "strategicPriorityScore": 61.05,
+          "quickWinScore": 69.63
+        }
+      ]
+    },
+    {
+      "band": "P2",
+      "count": 115,
+      "routes": [
+        "/conversions/",
+        "/",
+        "/devex-rate-history/"
+      ],
+      "topKeywords": [
+        {
+          "keyword": "devex",
+          "route": "/",
+          "strategicPriorityScore": 64.72,
+          "quickWinScore": 78.94
+        },
+        {
+          "keyword": "dev ex",
+          "route": "/",
+          "strategicPriorityScore": 55.88,
+          "quickWinScore": 71.88
+        },
+        {
+          "keyword": "devex program",
+          "route": "/",
+          "strategicPriorityScore": 53.7,
+          "quickWinScore": 69.94
+        },
+        {
+          "keyword": "developer exchange",
+          "route": "/",
+          "strategicPriorityScore": 53.53,
+          "quickWinScore": 70.37
+        },
+        {
+          "keyword": "devex exchange",
+          "route": "/",
+          "strategicPriorityScore": 53.11,
+          "quickWinScore": 64.11
+        },
+        {
+          "keyword": "dev exchange",
+          "route": "/",
+          "strategicPriorityScore": 51.03,
+          "quickWinScore": 62.8
+        },
+        {
+          "keyword": "devexchange",
+          "route": "/",
+          "strategicPriorityScore": 50.8,
+          "quickWinScore": 69.8
+        },
+        {
+          "keyword": "roblox devex rates 2023",
+          "route": "/devex-rate-history/",
+          "strategicPriorityScore": 44.7,
+          "quickWinScore": 58.7
+        },
+        {
+          "keyword": "35k robux to usd",
+          "route": "/conversions/",
+          "strategicPriorityScore": 39.27,
+          "quickWinScore": 48.37
+        },
+        {
+          "keyword": "90k robux to usd",
+          "route": "/conversions/",
+          "strategicPriorityScore": 38.76,
+          "quickWinScore": 48.11
+        },
+        {
+          "keyword": "how much is 7000 robux",
+          "route": "/conversions/",
+          "strategicPriorityScore": 38.45,
+          "quickWinScore": 47.8
+        },
+        {
+          "keyword": "130k robux to usd",
+          "route": "/conversions/",
+          "strategicPriorityScore": 38.31,
+          "quickWinScore": 47.8
+        },
+        {
+          "keyword": "12000 robux to usd",
+          "route": "/conversions/",
+          "strategicPriorityScore": 38.15,
+          "quickWinScore": 47.8
+        },
+        {
+          "keyword": "80000 robux to usd",
+          "route": "/conversions/",
+          "strategicPriorityScore": 38.15,
+          "quickWinScore": 47.8
+        },
+        {
+          "keyword": "400 000 robux to usd",
+          "route": "/conversions/",
+          "strategicPriorityScore": 37.96,
+          "quickWinScore": 47.8
+        },
+        {
+          "keyword": "35000 robux to usd",
+          "route": "/conversions/",
+          "strategicPriorityScore": 37.79,
+          "quickWinScore": 47.44
+        },
+        {
+          "keyword": "75k robux to usd",
+          "route": "/conversions/",
+          "strategicPriorityScore": 37.16,
+          "quickWinScore": 47
+        },
+        {
+          "keyword": "how much is 300k robux",
+          "route": "/conversions/",
+          "strategicPriorityScore": 36.94,
+          "quickWinScore": 47
+        },
+        {
+          "keyword": "18 000 robux to usd",
+          "route": "/conversions/",
+          "strategicPriorityScore": 36.94,
+          "quickWinScore": 47
+        },
+        {
+          "keyword": "200 million robux to usd",
+          "route": "/conversions/",
+          "strategicPriorityScore": 36.81,
+          "quickWinScore": 44.8
+        }
+      ]
+    },
+    {
+      "band": "P3",
+      "count": 69,
+      "routes": [
+        "/",
+        "/conversions/",
+        "/devex-rates/",
+        "/robux-to-usd/"
+      ],
+      "topKeywords": [
+        {
+          "keyword": "devex calculator",
+          "route": "/",
+          "strategicPriorityScore": 94.17,
+          "quickWinScore": 87.71
+        },
+        {
+          "keyword": "roblox devex calculator",
+          "route": "/",
+          "strategicPriorityScore": 86.47,
+          "quickWinScore": 82.85
+        },
+        {
+          "keyword": "devex roblox",
+          "route": "/",
+          "strategicPriorityScore": 85.15,
+          "quickWinScore": 82.92
+        },
+        {
+          "keyword": "devex rates",
+          "route": "/devex-rates/",
+          "strategicPriorityScore": 82.3,
+          "quickWinScore": 82.16
+        },
+        {
+          "keyword": "devex to usd",
+          "route": "/",
+          "strategicPriorityScore": 81.88,
+          "quickWinScore": 77.81
+        },
+        {
+          "keyword": "dev ex calc",
+          "route": "/",
+          "strategicPriorityScore": 81.6,
+          "quickWinScore": 77.71
+        },
+        {
+          "keyword": "devex calc",
+          "route": "/",
+          "strategicPriorityScore": 81.6,
+          "quickWinScore": 77.71
+        },
+        {
+          "keyword": "devex converter",
+          "route": "/",
+          "strategicPriorityScore": 81.35,
+          "quickWinScore": 77.5
+        },
+        {
+          "keyword": "robux devex calculator",
+          "route": "/",
+          "strategicPriorityScore": 80.79,
+          "quickWinScore": 77.26
+        },
+        {
+          "keyword": "devex calculator roblox",
+          "route": "/",
+          "strategicPriorityScore": 80.61,
+          "quickWinScore": 77.13
+        },
+        {
+          "keyword": "devex robux to usd",
+          "route": "/",
+          "strategicPriorityScore": 80.57,
+          "quickWinScore": 79.32
+        },
+        {
+          "keyword": "dev ex calculator",
+          "route": "/",
+          "strategicPriorityScore": 80.15,
+          "quickWinScore": 76.85
+        },
+        {
+          "keyword": "dev x calculator",
+          "route": "/",
+          "strategicPriorityScore": 80,
+          "quickWinScore": 76.32
+        },
+        {
+          "keyword": "robux to devex",
+          "route": "/",
+          "strategicPriorityScore": 79.04,
+          "quickWinScore": 76.11
+        },
+        {
+          "keyword": "robux to usd devex",
+          "route": "/",
+          "strategicPriorityScore": 79.04,
+          "quickWinScore": 76.11
+        },
+        {
+          "keyword": "devex roblox calculator",
+          "route": "/",
+          "strategicPriorityScore": 78.62,
+          "quickWinScore": 75.87
+        },
+        {
+          "keyword": "roblox devex",
+          "route": "/",
+          "strategicPriorityScore": 77.69,
+          "quickWinScore": 77.5
+        },
+        {
+          "keyword": "developer exchange roblox",
+          "route": "/",
+          "strategicPriorityScore": 77.3,
+          "quickWinScore": 75.61
+        },
+        {
+          "keyword": "dev ex to usd",
+          "route": "/",
+          "strategicPriorityScore": 75.85,
+          "quickWinScore": 73.93
+        },
+        {
+          "keyword": "devex rate",
+          "route": "/devex-rates/",
+          "strategicPriorityScore": 75.79,
+          "quickWinScore": 80.11
+        }
+      ]
+    }
+  ]
+}

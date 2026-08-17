@@ -1,0 +1,12 @@
+# Normalise line endings so Linux CI and the Windows workstation agree.
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+
+# Keep the supplied keyword exports byte-identical to the originals so their
+# recorded SHA-256 hashes stay verifiable.
+seo/source/*.csv -text

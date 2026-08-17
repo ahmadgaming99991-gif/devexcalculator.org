@@ -1,0 +1,1120 @@
+{
+  "generatedAt": "2026-08-17T10:34:34.604Z",
+  "total": 127,
+  "answeredOnPage": 55,
+  "questions": [
+    {
+      "question": "What is the current Roblox DevEx rate?",
+      "canonicalRoute": "/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [
+        "roblox-devex-program"
+      ],
+      "updateSensitivity": "high"
+    },
+    {
+      "question": "How much is 100,000 Earned Robux in DevEx?",
+      "canonicalRoute": "/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [
+        "roblox-devex-program"
+      ],
+      "updateSensitivity": "high"
+    },
+    {
+      "question": "What is the minimum Earned Robux for DevEx?",
+      "canonicalRoute": "/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [
+        "roblox-devex-program"
+      ],
+      "updateSensitivity": "high"
+    },
+    {
+      "question": "Does every Robux balance qualify for DevEx?",
+      "canonicalRoute": "/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [
+        "roblox-devex-program"
+      ],
+      "updateSensitivity": "high"
+    },
+    {
+      "question": "Why is the DevEx rate lower than the price of buying Robux?",
+      "canonicalRoute": "/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [],
+      "updateSensitivity": "high"
+    },
+    {
+      "question": "Can I choose which rate applies to my balance?",
+      "canonicalRoute": "/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [
+        "roblox-devex-program"
+      ],
+      "updateSensitivity": "high"
+    },
+    {
+      "question": "How much is 1,000 Robux in USD?",
+      "canonicalRoute": "/robux-to-usd/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [
+        "roblox-devex-program"
+      ],
+      "updateSensitivity": "high"
+    },
+    {
+      "question": "Can I convert any Robux to USD?",
+      "canonicalRoute": "/robux-to-usd/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [
+        "roblox-devex-program"
+      ],
+      "updateSensitivity": "high"
+    },
+    {
+      "question": "Why does this site not publish a single Robux purchase price?",
+      "canonicalRoute": "/robux-to-usd/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [],
+      "updateSensitivity": "high"
+    },
+    {
+      "question": "Is the conversion the same in every country?",
+      "canonicalRoute": "/robux-to-usd/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [
+        "ecb-exchange-rates"
+      ],
+      "updateSensitivity": "high"
+    },
+    {
+      "question": "How many Earned Robux do I need for 1,000 USD?",
+      "canonicalRoute": "/usd-to-robux/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [
+        "roblox-devex-program"
+      ],
+      "updateSensitivity": "high"
+    },
+    {
+      "question": "How many Earned Robux do I need for 100 USD?",
+      "canonicalRoute": "/usd-to-robux/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [
+        "roblox-devex-program"
+      ],
+      "updateSensitivity": "high"
+    },
+    {
+      "question": "Does this tell me how much Robux I can buy for a dollar amount?",
+      "canonicalRoute": "/usd-to-robux/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [],
+      "updateSensitivity": "high"
+    },
+    {
+      "question": "Does the answer change if part of my balance is legacy?",
+      "canonicalRoute": "/usd-to-robux/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [
+        "roblox-devex-program"
+      ],
+      "updateSensitivity": "high"
+    },
+    {
+      "question": "What is the DevEx rate per 1,000 Robux?",
+      "canonicalRoute": "/devex-rates/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [
+        "roblox-devex-program"
+      ],
+      "updateSensitivity": "high"
+    },
+    {
+      "question": "When did the DevEx rate change to 0.0038?",
+      "canonicalRoute": "/devex-rates/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [
+        "roblox-devex-program"
+      ],
+      "updateSensitivity": "high"
+    },
+    {
+      "question": "Who qualifies for the 0.0054 rate?",
+      "canonicalRoute": "/devex-rates/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [
+        "roblox-devex-program"
+      ],
+      "updateSensitivity": "high"
+    },
+    {
+      "question": "Will the DevEx rate change again?",
+      "canonicalRoute": "/devex-rates/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [
+        "roblox-devex-program"
+      ],
+      "updateSensitivity": "high"
+    },
+    {
+      "question": "What is the minimum Robux needed for DevEx?",
+      "canonicalRoute": "/devex-requirements/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [
+        "roblox-devex-program"
+      ],
+      "updateSensitivity": "high"
+    },
+    {
+      "question": "How old do you have to be for DevEx?",
+      "canonicalRoute": "/devex-requirements/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [
+        "roblox-devex-program"
+      ],
+      "updateSensitivity": "high"
+    },
+    {
+      "question": "Do I need to submit tax forms?",
+      "canonicalRoute": "/devex-requirements/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [
+        "roblox-devex-program"
+      ],
+      "updateSensitivity": "high"
+    },
+    {
+      "question": "Does reaching 30,000 Earned Robux mean I will be paid?",
+      "canonicalRoute": "/devex-requirements/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [
+        "roblox-devex-program"
+      ],
+      "updateSensitivity": "high"
+    },
+    {
+      "question": "Is my whole Robux balance Earned Robux?",
+      "canonicalRoute": "/earned-robux/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [
+        "roblox-devex-program"
+      ],
+      "updateSensitivity": "low"
+    },
+    {
+      "question": "Do Robux I bought count toward the 30,000 minimum?",
+      "canonicalRoute": "/earned-robux/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [
+        "roblox-devex-program"
+      ],
+      "updateSensitivity": "low"
+    },
+    {
+      "question": "How do creators earn Robux in the first place?",
+      "canonicalRoute": "/earned-robux/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [
+        "roblox-monetization-overview"
+      ],
+      "updateSensitivity": "low"
+    },
+    {
+      "question": "Can group funds be cashed out?",
+      "canonicalRoute": "/earned-robux/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [
+        "roblox-devex-program"
+      ],
+      "updateSensitivity": "low"
+    },
+    {
+      "question": "Where do I submit a DevEx request?",
+      "canonicalRoute": "/how-to-cash-out-robux/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [
+        "roblox-devex-program"
+      ],
+      "updateSensitivity": "low"
+    },
+    {
+      "question": "How long does a DevEx payout take?",
+      "canonicalRoute": "/how-to-cash-out-robux/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [
+        "roblox-devex-help"
+      ],
+      "updateSensitivity": "low"
+    },
+    {
+      "question": "Is there a faster way to sell Robux?",
+      "canonicalRoute": "/how-to-cash-out-robux/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [],
+      "updateSensitivity": "low"
+    },
+    {
+      "question": "Do I pay tax on a DevEx payout?",
+      "canonicalRoute": "/how-to-cash-out-robux/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [],
+      "updateSensitivity": "low"
+    },
+    {
+      "question": "What was the DevEx rate before September 2025?",
+      "canonicalRoute": "/devex-rate-history/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [
+        "roblox-devex-program"
+      ],
+      "updateSensitivity": "high"
+    },
+    {
+      "question": "Does my old balance convert at the old rate?",
+      "canonicalRoute": "/devex-rate-history/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [
+        "roblox-devex-program"
+      ],
+      "updateSensitivity": "high"
+    },
+    {
+      "question": "Will the rate go up again?",
+      "canonicalRoute": "/devex-rate-history/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [],
+      "updateSensitivity": "high"
+    },
+    {
+      "question": "Does Roblox take a fee on top of the DevEx rate?",
+      "canonicalRoute": "/devex-fees-and-taxes/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [
+        "roblox-monetization-overview"
+      ],
+      "updateSensitivity": "low"
+    },
+    {
+      "question": "What tax rate applies to a DevEx payout?",
+      "canonicalRoute": "/devex-fees-and-taxes/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [],
+      "updateSensitivity": "low"
+    },
+    {
+      "question": "Why is my bank's conversion different from this site's?",
+      "canonicalRoute": "/devex-fees-and-taxes/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [
+        "ecb-exchange-rates"
+      ],
+      "updateSensitivity": "low"
+    },
+    {
+      "question": "How much is the Roblox tax?",
+      "canonicalRoute": "/robux-tax-calculator/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [
+        "roblox-marketplace-fees",
+        "roblox-monetization-overview"
+      ],
+      "updateSensitivity": "high"
+    },
+    {
+      "question": "Is the Roblox tax applied again when I use DevEx?",
+      "canonicalRoute": "/robux-tax-calculator/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [
+        "roblox-monetization-overview"
+      ],
+      "updateSensitivity": "high"
+    },
+    {
+      "question": "What is the price floor?",
+      "canonicalRoute": "/robux-tax-calculator/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [
+        "roblox-marketplace-fees"
+      ],
+      "updateSensitivity": "high"
+    },
+    {
+      "question": "How much is 30,000 Robux in USD?",
+      "canonicalRoute": "/conversions/30000-robux-to-usd/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [
+        "roblox-devex-program"
+      ],
+      "updateSensitivity": "high"
+    },
+    {
+      "question": "Does 30,000 Robux meet the DevEx minimum?",
+      "canonicalRoute": "/conversions/30000-robux-to-usd/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [
+        "roblox-devex-program"
+      ],
+      "updateSensitivity": "high"
+    },
+    {
+      "question": "How much is 50,000 Robux in USD?",
+      "canonicalRoute": "/conversions/50000-robux-to-usd/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [
+        "roblox-devex-program"
+      ],
+      "updateSensitivity": "high"
+    },
+    {
+      "question": "Does 50,000 Robux meet the DevEx minimum?",
+      "canonicalRoute": "/conversions/50000-robux-to-usd/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [
+        "roblox-devex-program"
+      ],
+      "updateSensitivity": "high"
+    },
+    {
+      "question": "How much is 100,000 Robux in USD?",
+      "canonicalRoute": "/conversions/100000-robux-to-usd/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [
+        "roblox-devex-program"
+      ],
+      "updateSensitivity": "high"
+    },
+    {
+      "question": "Does 100,000 Robux meet the DevEx minimum?",
+      "canonicalRoute": "/conversions/100000-robux-to-usd/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [
+        "roblox-devex-program"
+      ],
+      "updateSensitivity": "high"
+    },
+    {
+      "question": "How much is 200,000 Robux in USD?",
+      "canonicalRoute": "/conversions/200000-robux-to-usd/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [
+        "roblox-devex-program"
+      ],
+      "updateSensitivity": "high"
+    },
+    {
+      "question": "Does 200,000 Robux meet the DevEx minimum?",
+      "canonicalRoute": "/conversions/200000-robux-to-usd/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [
+        "roblox-devex-program"
+      ],
+      "updateSensitivity": "high"
+    },
+    {
+      "question": "How much is 300,000 Robux in USD?",
+      "canonicalRoute": "/conversions/300000-robux-to-usd/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [
+        "roblox-devex-program"
+      ],
+      "updateSensitivity": "high"
+    },
+    {
+      "question": "Does 300,000 Robux meet the DevEx minimum?",
+      "canonicalRoute": "/conversions/300000-robux-to-usd/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [
+        "roblox-devex-program"
+      ],
+      "updateSensitivity": "high"
+    },
+    {
+      "question": "How much is 500,000 Robux in USD?",
+      "canonicalRoute": "/conversions/500000-robux-to-usd/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [
+        "roblox-devex-program"
+      ],
+      "updateSensitivity": "high"
+    },
+    {
+      "question": "Does 500,000 Robux meet the DevEx minimum?",
+      "canonicalRoute": "/conversions/500000-robux-to-usd/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [
+        "roblox-devex-program"
+      ],
+      "updateSensitivity": "high"
+    },
+    {
+      "question": "How much is 1,000,000 Robux in USD?",
+      "canonicalRoute": "/conversions/1000000-robux-to-usd/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [
+        "roblox-devex-program"
+      ],
+      "updateSensitivity": "high"
+    },
+    {
+      "question": "Does 1,000,000 Robux meet the DevEx minimum?",
+      "canonicalRoute": "/conversions/1000000-robux-to-usd/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [
+        "roblox-devex-program"
+      ],
+      "updateSensitivity": "high"
+    },
+    {
+      "question": "How much is 10,000,000 Robux in USD?",
+      "canonicalRoute": "/conversions/10000000-robux-to-usd/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [
+        "roblox-devex-program"
+      ],
+      "updateSensitivity": "high"
+    },
+    {
+      "question": "Does 10,000,000 Robux meet the DevEx minimum?",
+      "canonicalRoute": "/conversions/10000000-robux-to-usd/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [
+        "roblox-devex-program"
+      ],
+      "updateSensitivity": "high"
+    },
+    {
+      "question": "how much is 18 million robux in dollars",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much is 25000 robux",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much is 30000 robux in real money",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much is 5 million robux in usd",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much money is 10 million robux",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much money is 25k robux",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much money is 48000 robux",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much money is 8k robux",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much is 10k robux in usd",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much is 50k robux in usd",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much is 200k robux in usd",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much is 500k robux in usd",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much is 2 million robux in dollars",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much is 100k robux",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much is 10m robux in usd",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much is 15k robux",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much money is 20k robux",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much is 30,000 robux",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how to convert robux to usd",
+      "canonicalRoute": "/how-to-cash-out-robux/",
+      "section": "process",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much is 3 million robux in usd",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much is 7000 robux",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much is 1 million robux in devex",
+      "canonicalRoute": "/",
+      "section": "calculator",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much is 2000 robux in dollars",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "what is the robux to usd conversion",
+      "canonicalRoute": "/robux-to-usd/",
+      "section": "converter",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much is 7k robux",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much is 1500 robux in dollars",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much is 10 000 robux in usd",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much is 300k robux",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much money is 15000 robux",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much is 500k robux",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much is 700 robux in dollars",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much is 20k robux in dollars",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much money is 40k robux",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much money is 6k robux",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much money is 100m robux",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much is 6k robux in dollars",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much is 11k robux",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much is 3500 robux",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much is 80k robux",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much money is 18k robux",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much money is 300 robux",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much is 3000 robux in usd",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much money is 12k robux",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much is 13k robux",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much money is 20000 robux",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much is 1 trillion robux",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much is 14 million robux in real money",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much is 2400 robux in usd",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much is 20000 robux",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much is 6000 robux in usd",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much does 7000 robux cost",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much is 2.5k robux",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much money is 200 robux",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much money is 8500 robux",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much is 25 robux in dollars",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how many dollars is 4000 robux",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much is 17k robux in usd",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much is 1000 robux",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much is 3000 robux in dollars",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much is 1000 robux in philippines pesos",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much is 600 robux in dollars",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much is 50 robux in usd",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much is 25 robux in pounds",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much is 800 robux in us dollars",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much is 10000 robux",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much is 50k robux",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much is 6000 robux",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much is 50k robux in us dollars",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much is 150 robux in dollars",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much does 10k robux cost",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much money is 50k robux",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    },
+    {
+      "question": "how much is 17k robux in dollars",
+      "canonicalRoute": "/conversions/",
+      "section": "popular-amounts",
+      "answeredOnPage": false,
+      "sourceIds": [],
+      "updateSensitivity": "medium"
+    }
+  ]
+}

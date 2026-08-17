@@ -1,0 +1,298 @@
+{
+  "generatedAt": "2026-08-17T10:34:34.603Z",
+  "entities": [
+    {
+      "entity": "Roblox Corporation",
+      "aliases": [
+        "Roblox"
+      ],
+      "sourceIds": [
+        "roblox-devex-program"
+      ],
+      "keywordCount": 0,
+      "routes": [
+        "/",
+        "/robux-to-usd/",
+        "/devex-rates/",
+        "/devex-requirements/",
+        "/earned-robux/",
+        "/how-to-cash-out-robux/",
+        "/robux-tax-calculator/",
+        "/calculators/",
+        "/sources/",
+        "/disclaimer/"
+      ],
+      "relationship": "Operates the Roblox platform and the Developer Exchange programme. Not affiliated with this site."
+    },
+    {
+      "entity": "Developer Exchange Program",
+      "aliases": [
+        "DevEx",
+        "dev ex",
+        "dev x",
+        "devx",
+        "developer exchange",
+        "dev exchange"
+      ],
+      "sourceIds": [
+        "roblox-devex-program"
+      ],
+      "keywordCount": 82,
+      "routes": [
+        "/",
+        "/robux-to-usd/",
+        "/usd-to-robux/",
+        "/devex-rates/",
+        "/devex-requirements/",
+        "/earned-robux/",
+        "/how-to-cash-out-robux/",
+        "/devex-rate-history/",
+        "/devex-fees-and-taxes/",
+        "/calculators/",
+        "/guides/",
+        "/conversions/",
+        "/about/",
+        "/methodology/",
+        "/sources/",
+        "/changelog/",
+        "/disclaimer/",
+        "/conversions/30000-robux-to-usd/",
+        "/conversions/50000-robux-to-usd/",
+        "/conversions/100000-robux-to-usd/",
+        "/conversions/200000-robux-to-usd/",
+        "/conversions/300000-robux-to-usd/",
+        "/conversions/500000-robux-to-usd/",
+        "/conversions/1000000-robux-to-usd/",
+        "/conversions/10000000-robux-to-usd/"
+      ],
+      "relationship": "The official Roblox programme that converts eligible Earned Robux into currency."
+    },
+    {
+      "entity": "Robux",
+      "aliases": [
+        "robux",
+        "rbx",
+        "robucks"
+      ],
+      "sourceIds": [
+        "roblox-devex-program"
+      ],
+      "keywordCount": 288,
+      "routes": [
+        "/",
+        "/robux-to-usd/",
+        "/usd-to-robux/",
+        "/devex-rates/",
+        "/earned-robux/",
+        "/devex-rate-history/",
+        "/robux-tax-calculator/",
+        "/calculators/",
+        "/guides/",
+        "/conversions/",
+        "/methodology/",
+        "/conversions/30000-robux-to-usd/",
+        "/conversions/50000-robux-to-usd/",
+        "/conversions/100000-robux-to-usd/",
+        "/conversions/200000-robux-to-usd/",
+        "/conversions/300000-robux-to-usd/",
+        "/conversions/500000-robux-to-usd/",
+        "/conversions/1000000-robux-to-usd/",
+        "/conversions/10000000-robux-to-usd/"
+      ],
+      "relationship": "The Roblox virtual currency. Only the earned portion of a balance is eligible for DevEx."
+    },
+    {
+      "entity": "Earned Robux",
+      "aliases": [
+        "earned robux",
+        "qualifying robux"
+      ],
+      "sourceIds": [
+        "roblox-devex-program",
+        "roblox-monetization-overview"
+      ],
+      "keywordCount": 0,
+      "routes": [
+        "/",
+        "/usd-to-robux/",
+        "/devex-rates/",
+        "/devex-requirements/",
+        "/earned-robux/",
+        "/how-to-cash-out-robux/",
+        "/guides/",
+        "/conversions/",
+        "/conversions/30000-robux-to-usd/",
+        "/conversions/50000-robux-to-usd/",
+        "/conversions/100000-robux-to-usd/",
+        "/conversions/200000-robux-to-usd/",
+        "/conversions/300000-robux-to-usd/",
+        "/conversions/500000-robux-to-usd/",
+        "/conversions/1000000-robux-to-usd/",
+        "/conversions/10000000-robux-to-usd/"
+      ],
+      "relationship": "Robux accumulated through creator activity, and the only category DevEx converts."
+    },
+    {
+      "entity": "Roblox Creator Hub",
+      "aliases": [
+        "create.roblox.com",
+        "creator hub"
+      ],
+      "sourceIds": [
+        "roblox-devex-program"
+      ],
+      "keywordCount": 0,
+      "routes": [],
+      "relationship": "Publishes the official DevEx documentation this site cites."
+    },
+    {
+      "entity": "DevEx portal",
+      "aliases": [
+        "devex portal"
+      ],
+      "sourceIds": [
+        "roblox-devex-program"
+      ],
+      "keywordCount": 0,
+      "routes": [
+        "/how-to-cash-out-robux/"
+      ],
+      "relationship": "Where a DevEx request is submitted. A valid portal account is a documented requirement."
+    },
+    {
+      "entity": "standard rate",
+      "aliases": [
+        "current devex rate",
+        "0.0038"
+      ],
+      "sourceIds": [
+        "roblox-devex-program"
+      ],
+      "keywordCount": 0,
+      "routes": [
+        "/devex-rate-history/"
+      ],
+      "relationship": "0.0038 USD per eligible Earned Robux, effective 5 September 2025 at 10:00 PT."
+    },
+    {
+      "entity": "legacy rate",
+      "aliases": [
+        "old devex rate",
+        "0.0035"
+      ],
+      "sourceIds": [
+        "roblox-devex-program"
+      ],
+      "keywordCount": 0,
+      "routes": [
+        "/devex-rate-history/"
+      ],
+      "relationship": "0.0035 USD per Earned Robux, applied to balances earned before the September 2025 transition."
+    },
+    {
+      "entity": "U.S. 18+ rate",
+      "aliases": [
+        "us 18 plus rate",
+        "0.0054"
+      ],
+      "sourceIds": [
+        "roblox-devex-program"
+      ],
+      "keywordCount": 0,
+      "routes": [],
+      "relationship": "0.0054 USD per Robux for certain Earned Robux from verified United States players aged 18 or over."
+    },
+    {
+      "entity": "USD",
+      "aliases": [
+        "us dollars",
+        "dollars",
+        "$"
+      ],
+      "sourceIds": [
+        "roblox-devex-program"
+      ],
+      "keywordCount": 191,
+      "routes": [
+        "/",
+        "/robux-to-usd/",
+        "/usd-to-robux/",
+        "/devex-rates/",
+        "/devex-fees-and-taxes/",
+        "/conversions/",
+        "/methodology/",
+        "/conversions/30000-robux-to-usd/",
+        "/conversions/50000-robux-to-usd/",
+        "/conversions/100000-robux-to-usd/",
+        "/conversions/200000-robux-to-usd/",
+        "/conversions/300000-robux-to-usd/",
+        "/conversions/500000-robux-to-usd/",
+        "/conversions/1000000-robux-to-usd/",
+        "/conversions/10000000-robux-to-usd/"
+      ],
+      "relationship": "The currency the DevEx rate is denominated in and the base of every calculation here."
+    },
+    {
+      "entity": "European Central Bank",
+      "aliases": [
+        "ecb"
+      ],
+      "sourceIds": [
+        "ecb-exchange-rates"
+      ],
+      "keywordCount": 0,
+      "routes": [
+        "/sources/"
+      ],
+      "relationship": "Publishes the euro reference rates used to derive local-currency estimates."
+    },
+    {
+      "entity": "Marketplace fee",
+      "aliases": [
+        "roblox tax",
+        "platform commission",
+        "revenue share"
+      ],
+      "sourceIds": [
+        "roblox-marketplace-fees",
+        "roblox-monetization-overview"
+      ],
+      "keywordCount": 2,
+      "routes": [
+        "/robux-tax-calculator/"
+      ],
+      "relationship": "The commission Roblox retains when Robux are spent, applied before DevEx and never twice."
+    },
+    {
+      "entity": "identity verification",
+      "aliases": [
+        "age verification"
+      ],
+      "sourceIds": [
+        "roblox-devex-program"
+      ],
+      "keywordCount": 0,
+      "routes": [
+        "/devex-requirements/",
+        "/how-to-cash-out-robux/"
+      ],
+      "relationship": "Part of the DevEx eligibility requirements and of the U.S. 18+ rate conditions."
+    },
+    {
+      "entity": "tax information",
+      "aliases": [
+        "w-9",
+        "w-8"
+      ],
+      "sourceIds": [
+        "roblox-devex-program"
+      ],
+      "keywordCount": 0,
+      "routes": [
+        "/devex-requirements/",
+        "/devex-fees-and-taxes/"
+      ],
+      "relationship": "An IRS form W-9 or W-8 must be on file before a DevEx request can proceed."
+    }
+  ]
+}
