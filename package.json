@@ -29,9 +29,10 @@
     "validate:routes": "tsx scripts/quality/check-routes.ts",
     "validate:worker": "tsx scripts/quality/check-worker-size.ts",
     "validate:bundle": "tsx scripts/quality/check-bundle-budget.ts",
-    "check": "npm run lint && npm run typecheck && npm run test && npm run validate:content && npm run validate:seo && npm run build && npm run validate:routes && npm run validate:links && npm run validate:bundle",
+    "check": "npm run lint && npm run typecheck && npm run test && npm run validate:content && npm run validate:seo && npm run build && npm run validate:routes && npm run validate:links && npm run validate:duplicates && npm run validate:bundle",
     "fx:snapshot": "tsx scripts/content/generate-fx-snapshot.ts",
-    "test:visual": "playwright test --project=visual"
+    "test:visual": "playwright test --project=visual",
+    "validate:duplicates": "tsx scripts/seo/detect-near-duplicate-content.ts"
   },
   "dependencies": {
     "next": "16.3.1",

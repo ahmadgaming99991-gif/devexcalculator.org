@@ -91,6 +91,12 @@ jobs:
       - name: Internal link crawl
         run: npm run validate:links
 
+      # Catches duplication in the rendered output, which the keyword and
+      # metadata checks cannot see. The eight templated amount pages are the
+      # real target.
+      - name: Near-duplicate content detection
+        run: npm run validate:duplicates
+
       # The Workers build is where Node-runtime and adapter incompatibilities
       # surface; it has caught two on this project already.
       - name: OpenNext Cloudflare build

@@ -1,0 +1,187 @@
+{
+  "$comment": "Derived from docs/competitor-audit.md, which records the full methodology. Hand-maintained rather than generated: it encodes judgements about accuracy and product scope that no script can make. Regenerate by re-auditing (quarterly cadence in docs/seo/content-roadmap.md) and updating both files together.",
+  "auditedAt": "2026-08-17",
+  "evidenceLabel": "Observed on public competitor page",
+
+  "competitors": [
+    {
+      "id": "rbxcalc",
+      "url": "https://rbxcalc.com/robux-devex-calculator",
+      "access": "fetched",
+      "assessment": "The genuine benchmark. Correct rate, correct minimum, cited source, visible verification date and an honest Earned-versus-purchased explanation.",
+      "accurateOn": ["standard-rate", "minimum", "earned-vs-purchased"],
+      "gaps": [
+        "models only the standard rate, so a mixed balance cannot be calculated",
+        "no legacy rate",
+        "no conditional U.S. 18+ rate",
+        "no reverse target calculator",
+        "no local currencies",
+        "no rate history",
+        "no methodology or corrections policy"
+      ]
+    },
+    {
+      "id": "devexconverter",
+      "url": "https://www.devexconverter.com/",
+      "access": "fetched",
+      "assessment": "Correct rate and genuine multi-currency support, with no way for a reader to tell whether the figure is current.",
+      "accurateOn": ["standard-rate"],
+      "gaps": [
+        "no source",
+        "no verification date",
+        "no minimum stated",
+        "no Earned-versus-purchased distinction",
+        "no currency provenance or observation date",
+        "no supporting content beyond attribution"
+      ]
+    },
+    {
+      "id": "toolblx",
+      "url": "https://toolblx.com/tools/devex-calculator",
+      "access": "fetched",
+      "assessment": "Substantial supporting content built on figures that current official documentation contradicts.",
+      "accurateOn": [],
+      "inaccuracies": [
+        {
+          "claim": "100,000 Robux = 350 USD",
+          "actual": "380 USD at the current 0.0038 rate",
+          "impact": "worked example table understates a 1,000,000 Robux payout by 300 USD"
+        },
+        {
+          "claim": "minimum of 100,000 Robux",
+          "actual": "30,000 Earned Robux",
+          "impact": "a creator with 50,000 Earned Robux would wrongly conclude they cannot cash out"
+        }
+      ],
+      "gaps": ["no source", "no verification date", "no Earned-versus-purchased distinction"]
+    },
+    {
+      "id": "rbxtax",
+      "url": "https://rbxtax.com/devex.html",
+      "access": "fetched",
+      "assessment": "Links the official terms but contradicts itself on the page.",
+      "accurateOn": [],
+      "inaccuracies": [
+        {
+          "claim": "a minimum of 10,000 earned Robux, and separately 30,000 Robux or more",
+          "actual": "30,000 Earned Robux",
+          "impact": "two different minimums on one page; the reader cannot tell which is correct"
+        }
+      ],
+      "gaps": [
+        "no rate stated at all",
+        "no verification date, copyright 2024",
+        "no Earned-versus-purchased distinction"
+      ]
+    },
+    {
+      "id": "romonitorstats",
+      "url": "https://romonitorstats.com/devex-calculator/",
+      "access": "fetched-but-javascript-dependent",
+      "assessment": "The served document contains only a page title. All content requires JavaScript.",
+      "accurateOn": [],
+      "gaps": [
+        "nothing renders without JavaScript, so a crawler or a no-script reader gets nothing"
+      ],
+      "unknown": ["rate", "minimum", "sources", "supporting content"]
+    },
+    {
+      "id": "devexcalc",
+      "url": "https://devexcalc.com/",
+      "access": "http-403",
+      "assessment": "Returned 403 Forbidden to an automated request. Not audited; no attempt was made to bypass the restriction.",
+      "accurateOn": [],
+      "gaps": [],
+      "unknown": ["everything"]
+    }
+  ],
+
+  "gaps": [
+    {
+      "id": "stale-rates-undated",
+      "observedIn": ["toolblx", "devexconverter"],
+      "description": "Rates published with no source and no verification date, so a reader cannot distinguish a current figure from one a year out of date.",
+      "response": "Every rate carries a source link and a verification date rendered on the page. The build fails if a rate is unsourced, and the badge changes tone as the registry ages.",
+      "routes": ["/", "/devex-rates/", "/conversions/", "/sources/"]
+    },
+    {
+      "id": "contradictory-minimums",
+      "observedIn": ["rbxtax", "toolblx"],
+      "description": "Minimum thresholds that contradict official documentation or contradict themselves within one page.",
+      "response": "One validated registry is the only source of the minimum. Content referencing a rate that does not exist fails the build.",
+      "routes": ["/devex-requirements/", "/"]
+    },
+    {
+      "id": "javascript-dependent-content",
+      "observedIn": ["romonitorstats"],
+      "description": "Page substance invisible without JavaScript.",
+      "response": "Rates, formulas, tables, worked examples, FAQs and every link are server rendered. A test asserts each route renders over 800 characters with scripting disabled.",
+      "routes": ["all"]
+    },
+    {
+      "id": "no-earned-robux-distinction",
+      "observedIn": ["devexconverter", "toolblx", "rbxtax"],
+      "description": "No warning that purchased, gift-card or traded Robux cannot be converted.",
+      "response": "Stated next to every result, given its own page, and repeated wherever a payout figure appears.",
+      "routes": ["/earned-robux/", "/", "/robux-to-usd/"]
+    },
+    {
+      "id": "single-rate-only",
+      "observedIn": ["rbxcalc", "devexconverter", "toolblx", "rbxtax"],
+      "description": "Only one rate modelled, so a balance spanning the September 2025 transition cannot be calculated.",
+      "response": "All three documented rates, a split calculator for a mixed balance, and a comparison table showing what each would pay.",
+      "routes": ["/", "/devex-rates/", "/devex-rate-history/"]
+    },
+    {
+      "id": "no-reverse-calculation",
+      "observedIn": ["rbxcalc", "toolblx", "rbxtax", "devexconverter"],
+      "description": "No way to work backwards from a payout goal to the Earned Robux required.",
+      "response": "Target mode with round-up logic, the minimum applied, and progress against a current balance.",
+      "routes": ["/usd-to-robux/"]
+    },
+    {
+      "id": "no-currency-provenance",
+      "observedIn": ["devexconverter"],
+      "description": "Converted currency figures with no provider, observation date or indication of staleness.",
+      "response": "Provider, observation date and a reference-rates-not-bank-quotes note on every converted figure, with an explicitly labelled stale fallback.",
+      "routes": ["/", "/methodology/", "/devex-fees-and-taxes/"]
+    },
+    {
+      "id": "no-rate-history",
+      "observedIn": ["rbxcalc", "devexconverter", "toolblx", "rbxtax"],
+      "description": "No record of past rates, so a creator holding a legacy balance has nowhere to understand it.",
+      "response": "A dated timeline with effective dates and sources, plus a public changelog of this site's own data changes.",
+      "routes": ["/devex-rate-history/", "/changelog/"]
+    },
+    {
+      "id": "threshold-presented-as-eligibility",
+      "observedIn": ["toolblx", "rbxtax"],
+      "description": "Reaching the minimum implied to mean qualifying for a payout.",
+      "response": "The threshold meter says 'Meets the stated minimum', never 'eligible'. A test asserts the stronger phrasing appears nowhere on the site.",
+      "routes": ["/", "/devex-requirements/"]
+    },
+    {
+      "id": "no-trust-infrastructure",
+      "observedIn": ["rbxcalc", "devexconverter", "toolblx", "rbxtax"],
+      "description": "No methodology, editorial policy, corrections process or accessibility statement.",
+      "response": "All four published, each describing actual configured behaviour rather than generic policy text.",
+      "routes": [
+        "/methodology/",
+        "/editorial-policy/",
+        "/corrections/",
+        "/accessibility/",
+        "/sources/"
+      ]
+    }
+  ],
+
+  "summary": {
+    "competitorsAudited": 5,
+    "competitorsInaccessible": 1,
+    "publishingContradictedFigures": 2,
+    "publishingUndatedRates": 2,
+    "showingAVerificationDate": 1,
+    "modellingMoreThanOneRate": 0,
+    "renderingWithoutJavaScript": "unknown for 5, confirmed absent for 1"
+  }
+}
