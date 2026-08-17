@@ -1,0 +1,33 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "devexcalculator-org",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2026-06-01",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  },
+  // Required by @opennextjs/cloudflare so the Worker can invoke itself for
+  // cache revalidation. This is not an extra product binding.
+  "services": [
+    {
+      "binding": "WORKER_SELF_REFERENCE",
+      "service": "devexcalculator-org"
+    }
+  ],
+  "vars": {
+    "NEXT_PUBLIC_SITE_URL": "https://devexcalculator.org",
+    "FX_PROVIDER": "ecb",
+    "FX_CACHE_TTL_SECONDS": "43200",
+    "CONTACT_MODE": "disabled"
+  }
+  // No KV / D1 / R2 / Durable Object / Queue bindings are declared.
+  // The calculator is stateless, FX responses use the Workers Cache API via
+  // `fetch` caching, and contact submissions are disabled by default.
+  // See docs/architecture.md § State and storage policy.
+}

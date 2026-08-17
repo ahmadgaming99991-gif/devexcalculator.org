@@ -1,0 +1,161 @@
+{
+  "schemaVersion": 1,
+  "registryVersion": "2026-08-17.1",
+  "lastVerifiedAt": "2026-08-17T00:00:00Z",
+  "sources": [
+    {
+      "id": "roblox-devex-program",
+      "publisher": "Roblox Corporation",
+      "title": "Developer Exchange (DevEx)",
+      "url": "https://create.roblox.com/docs/production/monetization/developer-exchange",
+      "factsSupported": [
+        "Standard DevEx rate of 0.0038 USD per eligible Earned Robux (114 USD per 30,000).",
+        "Higher 0.0054 USD per Robux rate for certain Earned Robux from verified U.S. 18+ player spending.",
+        "Legacy 0.0035 USD per Robux rate for balances earned before 5 September 2025 at 10:00 PT.",
+        "Minimum of 30,000 Earned Robux to participate.",
+        "Eligibility requirements: minimum age 13, Roblox-verified email address, valid DevEx portal account, IRS form W-9 or W-8 on file, compliance with the Roblox Terms of Use and Community Standards."
+      ],
+      "lastCheckedAt": "2026-08-17T00:00:00Z",
+      "effectiveDate": "2025-09-05T10:00:00-07:00",
+      "reviewCadenceDays": 30,
+      "evidenceLabel": "Verified through official source"
+    },
+    {
+      "id": "roblox-devex-help",
+      "publisher": "Roblox Corporation",
+      "title": "Developer Exchange — Help and Information Page",
+      "url": "https://en.help.roblox.com/hc/en-us/articles/13061189551124-Developer-Exchange-Help-and-Information-Page",
+      "factsSupported": [
+        "DevEx request handling, review, and payout process is operated solely by Roblox.",
+        "Supporting eligibility and account-standing context for the DevEx programme."
+      ],
+      "lastCheckedAt": "2026-08-17T00:00:00Z",
+      "effectiveDate": null,
+      "reviewCadenceDays": 60,
+      "evidenceLabel": "Verified through official source"
+    },
+    {
+      "id": "roblox-marketplace-fees",
+      "publisher": "Roblox Corporation",
+      "title": "Marketplace fees and commissions",
+      "url": "https://create.roblox.com/docs/marketplace/marketplace-fees-and-commissions",
+      "factsSupported": [
+        "Marketplace avatar item sale: creator receives 30%, Roblox receives 70%.",
+        "Avatar item bought inside an experience: item creator 30%, experience owner 40%, Roblox 30%.",
+        "Progressive Marketplace revenue share by price-floor multiple: 1x=30%, 1.3x=37%, 1.5x=41%, 2x=50%, 2.5x=57%, 3x=62%, 3.5x=65%, 4x=67%, 5x=69%, 6x and above=70%.",
+        "Progressive revenue share applies only to Marketplace purchases; in-experience purchases use the base commission."
+      ],
+      "lastCheckedAt": "2026-08-17T00:00:00Z",
+      "effectiveDate": null,
+      "reviewCadenceDays": 60,
+      "evidenceLabel": "Verified through official source"
+    },
+    {
+      "id": "roblox-monetization-overview",
+      "publisher": "Roblox Corporation",
+      "title": "How do I make money?",
+      "url": "https://create.roblox.com/docs/get-started/monetization",
+      "factsSupported": [
+        "Creators receive 70% of Robux spent on in-experience purchases such as developer products and passes; Roblox retains 30%.",
+        "Earned Robux must be converted through the Developer Exchange programme to become real currency."
+      ],
+      "lastCheckedAt": "2026-08-17T00:00:00Z",
+      "effectiveDate": null,
+      "reviewCadenceDays": 60,
+      "evidenceLabel": "Verified through official source"
+    },
+    {
+      "id": "ecb-exchange-rates",
+      "publisher": "European Central Bank",
+      "title": "ECB Data Portal — Exchange Rates (EXR dataflow)",
+      "url": "https://data-api.ecb.europa.eu/",
+      "factsSupported": [
+        "Euro foreign exchange reference rates used to derive USD cross rates for local-currency estimates.",
+        "Reference rates are published once per working day at approximately 16:00 CET and are not tradable bank quotes."
+      ],
+      "lastCheckedAt": "2026-08-17T00:00:00Z",
+      "effectiveDate": null,
+      "reviewCadenceDays": 90,
+      "evidenceLabel": "Verified through official source"
+    },
+    {
+      "id": "google-spam-policies",
+      "publisher": "Google",
+      "title": "Spam policies for Google web search",
+      "url": "https://developers.google.com/search/docs/essentials/spam-policies",
+      "factsSupported": [
+        "Scaled content abuse and doorway pages are policy violations, which is why numeric amount pages on this site are capped and manually approved."
+      ],
+      "lastCheckedAt": "2026-08-17T00:00:00Z",
+      "effectiveDate": null,
+      "reviewCadenceDays": 90,
+      "evidenceLabel": "Verified through official source"
+    },
+    {
+      "id": "google-canonicalization",
+      "publisher": "Google",
+      "title": "How to specify a canonical URL with rel=\"canonical\" and other methods",
+      "url": "https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls",
+      "factsSupported": [
+        "Canonical URL guidance applied to calculator query-parameter states, which canonicalise to their clean owning route."
+      ],
+      "lastCheckedAt": "2026-08-17T00:00:00Z",
+      "effectiveDate": null,
+      "reviewCadenceDays": 90,
+      "evidenceLabel": "Verified through official source"
+    },
+    {
+      "id": "cloudflare-workers-nextjs",
+      "publisher": "Cloudflare",
+      "title": "Next.js — Cloudflare Workers framework guide",
+      "url": "https://developers.cloudflare.com/workers/framework-guides/web-apps/nextjs/",
+      "factsSupported": [
+        "Next.js applications deploy to Cloudflare Workers through the OpenNext adapter with Workers Static Assets."
+      ],
+      "lastCheckedAt": "2026-08-17T00:00:00Z",
+      "effectiveDate": null,
+      "reviewCadenceDays": 90,
+      "evidenceLabel": "Verified through official source"
+    },
+    {
+      "id": "opennext-cloudflare",
+      "publisher": "OpenNext",
+      "title": "Cloudflare adapter — Get started",
+      "url": "https://opennext.js.org/cloudflare/get-started",
+      "factsSupported": [
+        "Required wrangler configuration: `.open-next/worker.js` entry, `.open-next/assets` static directory, `nodejs_compat` and `global_fetch_strictly_public` compatibility flags, and the WORKER_SELF_REFERENCE service binding.",
+        "`initOpenNextCloudflareForDev()` enables Cloudflare bindings during `next dev`."
+      ],
+      "lastCheckedAt": "2026-08-17T00:00:00Z",
+      "effectiveDate": null,
+      "reviewCadenceDays": 90,
+      "evidenceLabel": "Verified through official source"
+    },
+    {
+      "id": "cloudflare-turnstile-validation",
+      "publisher": "Cloudflare",
+      "title": "Turnstile — Server-side validation",
+      "url": "https://developers.cloudflare.com/turnstile/get-started/server-side-validation/",
+      "factsSupported": [
+        "Turnstile tokens must be validated server-side against the siteverify endpoint, and each token may be redeemed only once."
+      ],
+      "lastCheckedAt": "2026-08-17T00:00:00Z",
+      "effectiveDate": null,
+      "reviewCadenceDays": 90,
+      "evidenceLabel": "Verified through official source"
+    },
+    {
+      "id": "cloudflare-workers-builds",
+      "publisher": "Cloudflare",
+      "title": "Workers Builds — Git integration",
+      "url": "https://developers.cloudflare.com/workers/ci-cd/builds/git-integration/",
+      "factsSupported": [
+        "Cloudflare Workers Builds connects a GitHub repository to a Worker for automatic builds and deployments on push."
+      ],
+      "lastCheckedAt": "2026-08-17T00:00:00Z",
+      "effectiveDate": null,
+      "reviewCadenceDays": 90,
+      "evidenceLabel": "Verified through official source"
+    }
+  ]
+}

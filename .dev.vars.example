@@ -1,0 +1,38 @@
+# ---------------------------------------------------------------------------
+# DevExCalculator.org — server-only secrets for local Workers development
+#
+# Copy to `.dev.vars` (git-ignored) for `opennextjs-cloudflare preview`.
+# In production these are configured as Cloudflare Worker secrets:
+#   npx wrangler secret put TURNSTILE_SECRET_KEY
+#
+# Every value is OPTIONAL. Leave a value empty to keep its feature disabled.
+# Nothing here is ever exposed to the browser.
+# ---------------------------------------------------------------------------
+
+# Contact submission mode. One of: disabled | mailto | webhook | resend
+# Default when unset: disabled
+CONTACT_MODE=
+
+# Destination mailbox for `mailto` and `resend` modes.
+CONTACT_EMAIL=
+
+# HTTPS endpoint for `webhook` mode.
+CONTACT_WEBHOOK_URL=
+
+# API key for `resend` mode. SECRET — never commit a real value.
+RESEND_API_KEY=
+
+# Cloudflare Turnstile SECRET key, paired with NEXT_PUBLIC_TURNSTILE_SITE_KEY.
+# Required whenever CONTACT_MODE is webhook or resend. SECRET.
+TURNSTILE_SECRET_KEY=
+
+# Optional Turnstile hardening: expected action name and hostname.
+TURNSTILE_EXPECTED_ACTION=
+TURNSTILE_EXPECTED_HOSTNAME=
+
+# Foreign-exchange provider. Currently supported: ecb
+# Default when unset: ecb
+FX_PROVIDER=
+
+# Seconds to cache a successful FX response. Default: 43200 (12 hours).
+FX_CACHE_TTL_SECONDS=
