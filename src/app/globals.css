@@ -1,0 +1,264 @@
+@import "tailwindcss";
+
+/*
+ * DevExCalculator.org — Creator Finance design system.
+ *
+ * Every colour pair below was checked against WCAG 2.2 AA before being used.
+ * Two deviations from the candidate palette in the specification, both made to
+ * pass that check rather than for taste:
+ *
+ *   --focus  #f59e0b -> #a16207. The candidate amber is 2.15:1 against white,
+ *            below the 3:1 that WCAG 2.2 requires of a focus indicator. The
+ *            darker amber measures 4.96:1 and is still unmistakably amber.
+ *   --accent #0891b2 -> #0e7490 for text use, since the lighter cyan falls
+ *            just under 4.5:1 on white.
+ *
+ * Measured contrast on --surface (#ffffff):
+ *   --text          #0b1220  18.9:1
+ *   --text-muted    #526174   6.4:1
+ *   --primary       #2563eb   5.2:1
+ *   --success       #15803d   5.0:1
+ *   --warning       #b45309   5.0:1
+ *   --danger        #b91c1c   6.5:1
+ *   --focus         #a16207   5.0:1
+ */
+
+@theme {
+  /* ---- Light palette (default) ---- */
+  --color-background: #f6f8fc;
+  --color-surface: #ffffff;
+  --color-surface-subtle: #eef3fa;
+  --color-surface-raised: #ffffff;
+  --color-text: #0b1220;
+  --color-text-muted: #526174;
+  --color-primary: #2563eb;
+  --color-primary-strong: #1d4ed8;
+  --color-primary-soft: #dbe7fe;
+  --color-secondary: #7c3aed;
+  --color-accent: #0e7490;
+  --color-accent-soft: #cffafe;
+  --color-success: #15803d;
+  --color-success-soft: #dcfce7;
+  --color-warning: #b45309;
+  --color-warning-soft: #fef3c7;
+  --color-danger: #b91c1c;
+  --color-danger-soft: #fee2e2;
+  --color-border: #dce4ef;
+  --color-border-strong: #b9c6da;
+  --color-focus: #a16207;
+
+  /* ---- Type ---- */
+  --font-sans:
+    ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  --font-mono:
+    ui-monospace, "SF Mono", "Cascadia Mono", "Roboto Mono", Menlo, Consolas,
+    "Liberation Mono", monospace;
+
+  /* ---- Layout ---- */
+  --spacing-safe-bottom: env(safe-area-inset-bottom, 0px);
+  --radius-card: 0.875rem;
+  --radius-control: 0.625rem;
+
+  --shadow-card: 0 1px 2px rgb(11 18 32 / 0.04), 0 4px 16px rgb(11 18 32 / 0.06);
+  --shadow-raised: 0 2px 4px rgb(11 18 32 / 0.06), 0 12px 32px rgb(11 18 32 / 0.10);
+}
+
+/*
+ * Dark palette.
+ *
+ * Deliberately not an inversion of the light palette. Saturated blues that
+ * read well on white become harsh on a dark ground, so the primary is lifted
+ * to #60a5fa (6.8:1 on --surface) and surfaces are given a slight blue cast so
+ * elevation is legible without borders doing all the work.
+ *
+ * Measured contrast on dark --surface (#131c2e):
+ *   --text          #e8edf5  14.9:1
+ *   --text-muted    #9aa8bd   7.2:1
+ *   --primary       #60a5fa   6.8:1
+ *   --success       #4ade80  10.0:1
+ *   --warning       #fbbf24  10.9:1
+ *   --danger        #f87171   6.6:1
+ *
+ * Defined for both the explicit toggle and the system preference so that
+ * neither state can fall back to a half-applied theme.
+ */
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --color-background: #080d17;
+      --color-surface: #131c2e;
+      --color-surface-subtle: #1b2740;
+      --color-surface-raised: #1b2740;
+      --color-text: #e8edf5;
+      --color-text-muted: #9aa8bd;
+      --color-primary: #60a5fa;
+      --color-primary-strong: #93c5fd;
+      --color-primary-soft: #1e3a63;
+      --color-secondary: #c4b5fd;
+      --color-accent: #67e8f9;
+      --color-accent-soft: #164e63;
+      --color-success: #4ade80;
+      --color-success-soft: #14532d;
+      --color-warning: #fbbf24;
+      --color-warning-soft: #451a03;
+      --color-danger: #f87171;
+      --color-danger-soft: #4c1111;
+      --color-border: #2a3651;
+      --color-border-strong: #3d4d70;
+      --color-focus: #fbbf24;
+      --shadow-card: 0 1px 2px rgb(0 0 0 / 0.3), 0 4px 16px rgb(0 0 0 / 0.35);
+      --shadow-raised: 0 2px 4px rgb(0 0 0 / 0.35), 0 12px 32px rgb(0 0 0 / 0.45);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --color-background: #080d17;
+    --color-surface: #131c2e;
+    --color-surface-subtle: #1b2740;
+    --color-surface-raised: #1b2740;
+    --color-text: #e8edf5;
+    --color-text-muted: #9aa8bd;
+    --color-primary: #60a5fa;
+    --color-primary-strong: #93c5fd;
+    --color-primary-soft: #1e3a63;
+    --color-secondary: #c4b5fd;
+    --color-accent: #67e8f9;
+    --color-accent-soft: #164e63;
+    --color-success: #4ade80;
+    --color-success-soft: #14532d;
+    --color-warning: #fbbf24;
+    --color-warning-soft: #451a03;
+    --color-danger: #f87171;
+    --color-danger-soft: #4c1111;
+    --color-border: #2a3651;
+    --color-border-strong: #3d4d70;
+    --color-focus: #fbbf24;
+    --shadow-card: 0 1px 2px rgb(0 0 0 / 0.3), 0 4px 16px rgb(0 0 0 / 0.35);
+    --shadow-raised: 0 2px 4px rgb(0 0 0 / 0.35), 0 12px 32px rgb(0 0 0 / 0.45);
+  }
+
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    /* Anchor links must not land under the sticky header. */
+    scroll-padding-top: 5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    /* Prevents any single element from forcing a horizontal scrollbar at 320px. */
+    overflow-x: hidden;
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /*
+   * One focus style for the whole site. `:focus-visible` keeps it off mouse
+   * clicks while guaranteeing it for keyboard users. The offset keeps the ring
+   * clear of the control's own border so it stays legible on every surface.
+   */
+  :focus-visible {
+    outline: 3px solid var(--color-focus);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  /* Numeric output aligns in columns and never reflows as digits change. */
+  .tabular {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
+  }
+
+  /* Long numbers must wrap rather than push the layout sideways at 320px. */
+  .numeric-display {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    overflow-wrap: anywhere;
+  }
+
+  h1, h2, h3, h4 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Respect a reduced-motion preference everywhere, including smooth scroll. */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  /*
+   * Windows High Contrast Mode strips author colours. Borders keep the card
+   * and control structure visible when that happens.
+   */
+  @media (forced-colors: active) {
+    .card,
+    .control,
+    button,
+    input,
+    select {
+      border: 1px solid CanvasText;
+    }
+    :focus-visible {
+      outline: 3px solid Highlight;
+    }
+  }
+}
+
+@layer utilities {
+  /* Visible only to assistive technology. */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  /* A skip link that becomes visible when it receives focus. */
+  .skip-link:not(:focus) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
+}

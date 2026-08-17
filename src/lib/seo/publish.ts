@@ -92,6 +92,34 @@ export function buildCannibalizationMap(
     }
   }
 
+  // The pipeline's approved set and the site's published set must agree.
+  // Without this check the two drift silently: the pipeline can approve an
+  // amount that no page exists for, or a page can outlive its approval.
+  const pipelineApproved = new Set(
+    amounts.filter((a) => a.publicationStatus === "approved").map((a) => a.amount),
+  );
+  const published = new Set(approvedAmountValues);
+  for (const amount of pipelineApproved) {
+    if (!published.has(amount)) {
+      findings.push({
+        code: "amount-page-not-approved",
+        severity: "error",
+        detail: `The pipeline approved ${amount.toLocaleString("en-US")} Robux but no page is published for it. Either add it to APPROVED_AMOUNTS or hold it at review in publication-overrides.json.`,
+        routes: [`/conversions/${amount}-robux-to-usd/`],
+      });
+    }
+  }
+  for (const amount of published) {
+    if (!pipelineApproved.has(amount)) {
+      findings.push({
+        code: "amount-page-not-approved",
+        severity: "error",
+        detail: `A page is published for ${amount.toLocaleString("en-US")} Robux but the pipeline did not approve that amount.`,
+        routes: [`/conversions/${amount}-robux-to-usd/`],
+      });
+    }
+  }
+
   // No route may carry a query string in its canonical.
   for (const route of routeRegistry) {
     if (route.route.includes("?")) {

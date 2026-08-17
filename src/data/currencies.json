@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "baseCurrency": "USD",
   "providerId": "ecb",
-  "note": "Every currency below is published in the European Central Bank euro foreign exchange reference rate set. USD is the base of this calculator and is derived from the ECB USD/EUR series. A currency is listed here only if the configured provider actually publishes it daily.",
+  "note": "Every currency below is published in the European Central Bank euro foreign exchange reference rate set. USD is the base of this calculator and is derived from the ECB USD/EUR series. A currency is listed here only if the configured provider actually publishes it daily. BGN was removed on 2026-08-17 because the ECB stopped publishing it after 2025-12-31; claiming support for a rate the provider no longer supplies would be dishonest.",
   "currencies": [
     { "code": "USD", "name": "US dollar", "minorUnits": 2, "isBase": true },
     { "code": "EUR", "name": "Euro", "minorUnits": 2, "isBase": false },
@@ -19,7 +19,6 @@
     { "code": "CZK", "name": "Czech koruna", "minorUnits": 2, "isBase": false },
     { "code": "HUF", "name": "Hungarian forint", "minorUnits": 2, "isBase": false },
     { "code": "RON", "name": "Romanian leu", "minorUnits": 2, "isBase": false },
-    { "code": "BGN", "name": "Bulgarian lev", "minorUnits": 2, "isBase": false },
     { "code": "ISK", "name": "Icelandic krona", "minorUnits": 0, "isBase": false },
     { "code": "TRY", "name": "Turkish lira", "minorUnits": 2, "isBase": false },
     { "code": "BRL", "name": "Brazilian real", "minorUnits": 2, "isBase": false },

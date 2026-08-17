@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-08-17T10:34:34.579Z",
-  "approvedCount": 9,
+  "generatedAt": "2026-08-17T10:35:06.222Z",
+  "approvedCount": 8,
   "entities": [
     {
       "entityId": "robux-1000",
@@ -482,7 +482,7 @@
       ],
       "totalVolume": 340,
       "totalOrganicTraffic": 12,
-      "publicationStatus": "approved",
+      "publicationStatus": "review",
       "gateResults": {
         "meaningfulDemand": true,
         "distinctIntent": true,
@@ -490,7 +490,7 @@
         "atOrAboveMinimum": true,
         "withinSafeRange": true
       },
-      "rationale": "Clears every publication gate: demonstrated demand, several distinct query variants, a round amount at or above the DevEx minimum."
+      "rationale": "Manual publication override applied: review."
     },
     {
       "entityId": "robux-4000",

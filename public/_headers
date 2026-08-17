@@ -1,0 +1,34 @@
+# Cloudflare Workers Static Assets headers.
+#
+# Applied to static assets served directly from the assets binding. Headers for
+# dynamic Worker responses are set in src/middleware.ts, because `_headers`
+# only covers assets.
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: DENY
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()
+  Cross-Origin-Opener-Policy: same-origin
+
+# Next.js fingerprints every file under /_next/static, so the content at a
+# given URL can never change. A year of immutable caching is safe and is what
+# the Cloudflare and OpenNext guidance recommends.
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/icons/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Small text files that should refresh promptly when the site is redeployed.
+/robots.txt
+  Cache-Control: public, max-age=3600
+
+/llms.txt
+  Cache-Control: public, max-age=3600
+
+/sitemap.xml
+  Cache-Control: public, max-age=3600

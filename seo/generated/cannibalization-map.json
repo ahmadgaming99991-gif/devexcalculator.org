@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-17T10:34:34.606Z",
+  "generatedAt": "2026-08-17T10:35:06.248Z",
   "errorCount": 0,
   "warningCount": 0,
   "findings": [],
@@ -58,6 +58,11 @@
       "entityId": "robux-5000000",
       "amount": 5000000,
       "rationale": "Held at review: too few distinct query variants. Served by the conversion hub and calculator query state instead."
+    },
+    {
+      "entityId": "robux-40000",
+      "amount": 40000,
+      "rationale": "Manual publication override applied: review."
     },
     {
       "entityId": "robux-4000",
