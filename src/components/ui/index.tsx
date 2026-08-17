@@ -51,14 +51,14 @@ export function Card({
   tone?: "default" | "subtle" | "raised";
 }) {
   const tones = {
-    default: "bg-[--color-surface] shadow-[--shadow-card]",
-    subtle: "bg-[--color-surface-subtle]",
-    raised: "bg-[--color-surface-raised] shadow-[--shadow-raised]",
+    default: "bg-(--color-surface) shadow-(--shadow-card)",
+    subtle: "bg-(--color-surface-subtle)",
+    raised: "bg-(--color-surface-raised) shadow-(--shadow-raised)",
   };
   return (
     <Tag
       className={cx(
-        "card rounded-[--radius-card] border border-[--color-border] p-4 sm:p-6",
+        "card rounded-(--radius-card) border border-(--color-border) p-4 sm:p-6",
         tones[tone],
         className,
       )}
@@ -89,14 +89,14 @@ export function Section({
       <Heading
         id={`${id}-heading`}
         className={cx(
-          "font-semibold tracking-tight text-[--color-text]",
+          "font-semibold tracking-tight text-(--color-text)",
           headingLevel === 2 ? "text-xl sm:text-2xl" : "text-lg sm:text-xl",
         )}
       >
         {heading}
       </Heading>
       {description ? (
-        <p className="mt-2 text-[--color-text-muted]">{description}</p>
+        <p className="mt-2 text-(--color-text-muted)">{description}</p>
       ) : null}
       <div className="mt-4">{children}</div>
     </section>
@@ -108,18 +108,18 @@ export function Section({
 // ---------------------------------------------------------------------------
 
 const buttonBase =
-  "inline-flex min-h-[44px] items-center justify-center gap-2 rounded-[--radius-control] " +
+  "inline-flex min-h-[44px] items-center justify-center gap-2 rounded-(--radius-control) " +
   "px-4 py-2.5 text-sm font-semibold transition-colors " +
   "disabled:cursor-not-allowed disabled:opacity-55";
 
 const buttonVariants = {
   primary:
-    "bg-[--color-primary] text-white hover:bg-[--color-primary-strong] " +
+    "bg-(--color-primary) text-white hover:bg-(--color-primary-strong) " +
     "dark:text-[#08111f]",
   secondary:
-    "border border-[--color-border-strong] bg-[--color-surface] text-[--color-text] " +
-    "hover:bg-[--color-surface-subtle]",
-  ghost: "text-[--color-primary] hover:bg-[--color-primary-soft]",
+    "border border-(--color-border-strong) bg-(--color-surface) text-(--color-text) " +
+    "hover:bg-(--color-surface-subtle)",
+  ghost: "text-(--color-primary) hover:bg-(--color-primary-soft)",
 } as const;
 
 export type ButtonVariant = keyof typeof buttonVariants;
@@ -188,7 +188,7 @@ export function SourceLink({
       target="_blank"
       rel="noopener noreferrer"
       className={cx(
-        "font-medium text-[--color-primary] underline underline-offset-2 hover:text-[--color-primary-strong]",
+        "font-medium text-(--color-primary) underline underline-offset-2 hover:text-(--color-primary-strong)",
         className,
       )}
     >
@@ -211,7 +211,7 @@ export function InlineLink({
     <Link
       href={href}
       className={cx(
-        "font-medium text-[--color-primary] underline underline-offset-2 hover:text-[--color-primary-strong]",
+        "font-medium text-(--color-primary) underline underline-offset-2 hover:text-(--color-primary-strong)",
         className,
       )}
     >
@@ -227,11 +227,11 @@ export function InlineLink({
 export type BadgeTone = "neutral" | "info" | "success" | "warning" | "danger";
 
 const badgeTones: Record<BadgeTone, string> = {
-  neutral: "bg-[--color-surface-subtle] text-[--color-text-muted]",
-  info: "bg-[--color-accent-soft] text-[--color-accent]",
-  success: "bg-[--color-success-soft] text-[--color-success]",
-  warning: "bg-[--color-warning-soft] text-[--color-warning]",
-  danger: "bg-[--color-danger-soft] text-[--color-danger]",
+  neutral: "bg-(--color-surface-subtle) text-(--color-text-muted)",
+  info: "bg-(--color-accent-soft) text-(--color-accent)",
+  success: "bg-(--color-success-soft) text-(--color-success)",
+  warning: "bg-(--color-warning-soft) text-(--color-warning)",
+  danger: "bg-(--color-danger-soft) text-(--color-danger)",
 };
 
 export function Badge({
@@ -272,22 +272,22 @@ export function Callout({
   className?: string;
 }) {
   const borders: Record<BadgeTone, string> = {
-    neutral: "border-l-[--color-border-strong]",
-    info: "border-l-[--color-accent]",
-    success: "border-l-[--color-success]",
-    warning: "border-l-[--color-warning]",
-    danger: "border-l-[--color-danger]",
+    neutral: "border-l-(--color-border-strong)",
+    info: "border-l-(--color-accent)",
+    success: "border-l-(--color-success)",
+    warning: "border-l-(--color-warning)",
+    danger: "border-l-(--color-danger)",
   };
   return (
     <div
       className={cx(
-        "rounded-[--radius-control] border border-[--color-border] border-l-4 bg-[--color-surface] p-4",
+        "rounded-(--radius-control) border border-(--color-border) border-l-4 bg-(--color-surface) p-4",
         borders[tone],
         className,
       )}
     >
-      <p className="text-sm font-semibold text-[--color-text]">{title}</p>
-      <div className="mt-1.5 text-sm text-[--color-text-muted] [&_a]:text-[--color-primary] [&_a]:underline">
+      <p className="text-sm font-semibold text-(--color-text)">{title}</p>
+      <div className="mt-1.5 text-sm text-(--color-text-muted) [&_a]:text-(--color-primary) [&_a]:underline">
         {children}
       </div>
     </div>
@@ -316,7 +316,12 @@ export function TableWrapper({
   return (
     <div
       className={cx(
-        "overflow-x-auto rounded-[--radius-control] border border-[--color-border]",
+        // `min-w-0` is load-bearing. Grid and flex items default to
+        // `min-width: auto`, which means they refuse to shrink below their
+        // content — so a wide table inside one pushes the whole page sideways
+        // instead of scrolling within this container. Without it the tax
+        // calculator overflowed by 227px at 320px wide.
+        "min-w-0 max-w-full overflow-x-auto rounded-(--radius-control) border border-(--color-border)",
         className,
       )}
       tabIndex={0}
@@ -350,7 +355,7 @@ export function Th({
     <th
       scope={scope}
       className={cx(
-        "border-b border-[--color-border] bg-[--color-surface-subtle] px-3 py-2.5 text-xs font-semibold uppercase tracking-wide text-[--color-text-muted]",
+        "border-b border-(--color-border) bg-(--color-surface-subtle) px-3 py-2.5 text-xs font-semibold uppercase tracking-wide text-(--color-text-muted)",
         numeric && "text-right",
       )}
     >
@@ -371,7 +376,7 @@ export function Td({
   return (
     <td
       className={cx(
-        "border-b border-[--color-border] px-3 py-2.5 text-[--color-text]",
+        "border-b border-(--color-border) px-3 py-2.5 text-(--color-text)",
         numeric && "text-right tabular",
         className,
       )}
@@ -407,14 +412,14 @@ export function Disclosure({
     <details
       open={defaultOpen}
       className={cx(
-        "group rounded-[--radius-control] border border-[--color-border] bg-[--color-surface]",
+        "group rounded-(--radius-control) border border-(--color-border) bg-(--color-surface)",
         className,
       )}
     >
-      <summary className="flex min-h-[44px] cursor-pointer list-none items-center justify-between gap-3 px-4 py-3 text-sm font-semibold text-[--color-text] [&::-webkit-details-marker]:hidden">
+      <summary className="flex min-h-[44px] cursor-pointer list-none items-center justify-between gap-3 px-4 py-3 text-sm font-semibold text-(--color-text) [&::-webkit-details-marker]:hidden">
         <span>{summary}</span>
         <svg
-          className="size-4 shrink-0 text-[--color-text-muted] transition-transform group-open:rotate-180"
+          className="size-4 shrink-0 text-(--color-text-muted) transition-transform group-open:rotate-180"
           viewBox="0 0 20 20"
           fill="none"
           stroke="currentColor"
@@ -424,7 +429,7 @@ export function Disclosure({
           <path d="M5 7.5 10 12.5 15 7.5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </summary>
-      <div className="border-t border-[--color-border] px-4 py-3 text-sm text-[--color-text-muted]">
+      <div className="border-t border-(--color-border) px-4 py-3 text-sm text-(--color-text-muted)">
         {children}
       </div>
     </details>

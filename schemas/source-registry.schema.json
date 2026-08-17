@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://devexcalculator.org/schemas/source-registry.schema.json",
+  "title": "Source registry",
+  "description": "Validates src/data/source-registry.json. Every time-sensitive claim on the site resolves to an entry here, and every entry records what it establishes and when it was last checked.",
+  "type": "object",
+  "required": ["schemaVersion", "registryVersion", "lastVerifiedAt", "sources"],
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": { "type": "integer", "const": 1 },
+    "registryVersion": { "type": "string" },
+    "lastVerifiedAt": { "type": "string", "format": "date-time" },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "publisher",
+          "title",
+          "url",
+          "factsSupported",
+          "lastCheckedAt",
+          "effectiveDate",
+          "reviewCadenceDays",
+          "evidenceLabel"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+          "publisher": { "type": "string", "minLength": 2 },
+          "title": { "type": "string", "minLength": 3 },
+          "url": {
+            "type": "string",
+            "pattern": "^https://",
+            "description": "Absolute HTTPS only."
+          },
+          "factsSupported": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "string", "minLength": 20 },
+            "description": "A source that supports no fact should be removed rather than listed."
+          },
+          "lastCheckedAt": { "type": "string", "format": "date-time" },
+          "effectiveDate": { "type": ["string", "null"], "format": "date-time" },
+          "reviewCadenceDays": { "type": "integer", "minimum": 1 },
+          "evidenceLabel": {
+            "enum": [
+              "Observed in repository",
+              "Derived from supplied CSV",
+              "Observed on public competitor page",
+              "Verified through official source",
+              "Reasonable inference",
+              "New implementation decision"
+            ],
+            "description": "Provenance label. An inference must never be recorded as an observed fact."
+          }
+        }
+      }
+    }
+  }
+}

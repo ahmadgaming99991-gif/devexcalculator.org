@@ -88,18 +88,18 @@ export default function AccessibilityPage() {
         <div className="flex flex-col gap-10">
           <QuickAnswer>{record.quickAnswer}</QuickAnswer>
 
-          <p className="text-sm text-[--color-text-muted]">
+          <p className="text-sm text-(--color-text-muted)">
             Last reviewed {formatDate(record.lastReviewedAt)}.
           </p>
 
           <Section id="standard" heading="The standard targeted">
-            <p className="text-[--color-text-muted]">
+            <p className="text-(--color-text-muted)">
               This site aims to meet{" "}
               <a
                 href="https://www.w3.org/TR/WCAG22/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[--color-primary] underline"
+                className="text-(--color-primary) underline"
               >
                 WCAG 2.2 level AA
               </a>
@@ -110,12 +110,12 @@ export default function AccessibilityPage() {
           </Section>
 
           <Section id="tested" heading="What has been tested">
-            <ul className="flex list-disc flex-col gap-2 pl-5 text-[--color-text-muted]">
+            <ul className="flex list-disc flex-col gap-2 pl-5 text-(--color-text-muted)">
               {TESTED.map((item) => (
                 <li key={item}>{item}</li>
               ))}
             </ul>
-            <p className="mt-3 text-[--color-text-muted]">
+            <p className="mt-3 text-(--color-text-muted)">
               Automated checks catch a minority of real accessibility problems, so
               the keyboard walkthrough and the manual layout checks matter more
               than the axe results do.
@@ -127,17 +127,17 @@ export default function AccessibilityPage() {
               {FEATURES.map((feature) => (
                 <div
                   key={feature.title}
-                  className="rounded-[--radius-control] border border-[--color-border] bg-[--color-surface] p-4"
+                  className="rounded-(--radius-control) border border-(--color-border) bg-(--color-surface) p-4"
                 >
-                  <dt className="text-sm font-semibold text-[--color-text]">{feature.title}</dt>
-                  <dd className="mt-1 text-sm text-[--color-text-muted]">{feature.detail}</dd>
+                  <dt className="text-sm font-semibold text-(--color-text)">{feature.title}</dt>
+                  <dd className="mt-1 text-sm text-(--color-text-muted)">{feature.detail}</dd>
                 </div>
               ))}
             </dl>
           </Section>
 
           <Section id="limitations" heading="Known limitations">
-            <ul className="flex list-disc flex-col gap-2 pl-5 text-[--color-text-muted]">
+            <ul className="flex list-disc flex-col gap-2 pl-5 text-(--color-text-muted)">
               <li>
                 No testing has been done with a live screen reader by someone who
                 uses one daily. Semantics have been built and inspected carefully,
@@ -165,7 +165,7 @@ export default function AccessibilityPage() {
           </Section>
 
           <Section id="feedback" heading="Reporting a problem">
-            <p className="text-[--color-text-muted]">
+            <p className="text-(--color-text-muted)">
               If something here blocks you, telling us is the fastest way to get
               it fixed. Include the page, what you were trying to do, and the
               browser and assistive technology you were using if that is
@@ -175,7 +175,7 @@ export default function AccessibilityPage() {
             <div className="mt-4">
               <ButtonLink href="/contact/">Report an accessibility problem</ButtonLink>
             </div>
-            <p className="mt-4 text-sm text-[--color-text-muted]">
+            <p className="mt-4 text-sm text-(--color-text-muted)">
               For how the site is built more generally, see the{" "}
               <InlineLink href="/about/">about page</InlineLink>.
             </p>

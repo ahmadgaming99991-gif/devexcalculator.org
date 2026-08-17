@@ -15,22 +15,22 @@ export function Breadcrumbs({ route }: { route: string }) {
 
   return (
     <nav aria-label="Breadcrumb" className="mb-4">
-      <ol className="flex flex-wrap items-center gap-x-1.5 gap-y-1 text-sm text-[--color-text-muted]">
+      <ol className="flex flex-wrap items-center gap-x-1.5 gap-y-1 text-sm text-(--color-text-muted)">
         {trail.map((ancestor) => (
           <li key={ancestor.route} className="flex items-center gap-1.5">
             <Link
               href={ancestor.route}
-              className="hover:text-[--color-primary] hover:underline"
+              className="hover:text-(--color-primary) hover:underline"
             >
               {ancestor.route === "/" ? "Home" : ancestor.navLabel}
             </Link>
-            <span aria-hidden="true" className="text-[--color-border-strong]">
+            <span aria-hidden="true" className="text-(--color-border-strong)">
               /
             </span>
           </li>
         ))}
         <li>
-          <span aria-current="page" className="font-medium text-[--color-text]">
+          <span aria-current="page" className="font-medium text-(--color-text)">
             {record.navLabel}
           </span>
         </li>

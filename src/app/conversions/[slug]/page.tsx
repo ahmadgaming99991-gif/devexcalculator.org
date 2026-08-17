@@ -98,14 +98,14 @@ export default async function AmountPage({ params }: { params: Promise<{ slug: s
             heading={`What ${values.display} Robux is worth`}
             description="At the current standard rate, before any payment-provider fee or tax."
           >
-            <div className="rounded-[--radius-card] border border-[--color-border] bg-[--color-surface-subtle] p-5">
-              <p className="text-sm font-medium text-[--color-text-muted]">
+            <div className="rounded-(--radius-card) border border-(--color-border) bg-(--color-surface-subtle) p-5">
+              <p className="text-sm font-medium text-(--color-text-muted)">
                 {values.display} eligible Earned Robux
               </p>
-              <p className="numeric-display mt-1 text-4xl font-bold text-[--color-text]">
+              <p className="numeric-display mt-1 text-4xl font-bold text-(--color-text)">
                 {values.standardUsd}
               </p>
-              <p className="mt-2 text-sm text-[--color-text-muted]">
+              <p className="mt-2 text-sm text-(--color-text-muted)">
                 {values.meetsMinimum ? (
                   <>
                     That is {values.multipleOfMinimum} times the{" "}
@@ -159,13 +159,13 @@ export default async function AmountPage({ params }: { params: Promise<{ slug: s
                         </Td>
                         <Td numeric>
                           {isStandard ? (
-                            <span className="text-[--color-text-muted]">baseline</span>
+                            <span className="text-(--color-text-muted)">baseline</span>
                           ) : (
                             <span
                               className={
                                 difference.gt(Rational.ZERO)
-                                  ? "text-[--color-success]"
-                                  : "text-[--color-text-muted]"
+                                  ? "text-(--color-success)"
+                                  : "text-(--color-text-muted)"
                               }
                             >
                               {difference.gt(Rational.ZERO) ? "+" : ""}
@@ -179,7 +179,7 @@ export default async function AmountPage({ params }: { params: Promise<{ slug: s
                 </tbody>
               </Table>
             </TableWrapper>
-            <p className="mt-3 text-sm text-[--color-text-muted]">
+            <p className="mt-3 text-sm text-(--color-text-muted)">
               The {values.standardVsLegacyUsd} gap between the current and legacy
               rates is what the September 2025 change is worth at this amount.{" "}
               <InlineLink href="/devex-rate-history/">
@@ -190,7 +190,7 @@ export default async function AmountPage({ params }: { params: Promise<{ slug: s
           </Section>
 
           <Section id="context" heading="Why this amount matters">
-            <p className="text-[--color-text-muted]">{definition.context}</p>
+            <p className="text-(--color-text-muted)">{definition.context}</p>
           </Section>
 
           <Section
@@ -214,9 +214,9 @@ export default async function AmountPage({ params }: { params: Promise<{ slug: s
                       <Td numeric>{formatRobux(row.required)}</Td>
                       <Td>
                         {row.covered ? (
-                          <span className="font-medium text-[--color-success]">Yes</span>
+                          <span className="font-medium text-(--color-success)">Yes</span>
                         ) : (
-                          <span className="text-[--color-text-muted]">
+                          <span className="text-(--color-text-muted)">
                             Not yet — {formatRobux(row.required - BigInt(amount))} more
                           </span>
                         )}
@@ -226,7 +226,7 @@ export default async function AmountPage({ params }: { params: Promise<{ slug: s
                 </tbody>
               </Table>
             </TableWrapper>
-            <p className="mt-3 text-sm text-[--color-text-muted]">
+            <p className="mt-3 text-sm text-(--color-text-muted)">
               <InlineLink href="/usd-to-robux/">
                 Work backwards from your own target
               </InlineLink>
@@ -245,12 +245,12 @@ export default async function AmountPage({ params }: { params: Promise<{ slug: s
                   <li key={related}>
                     <Link
                       href={amountPageRoute(related)}
-                      className="flex items-baseline justify-between gap-3 rounded-[--radius-control] border border-[--color-border] bg-[--color-surface] p-4 hover:border-[--color-primary]"
+                      className="flex items-baseline justify-between gap-3 rounded-(--radius-control) border border-(--color-border) bg-(--color-surface) p-4 hover:border-(--color-primary)"
                     >
-                      <span className="font-semibold text-[--color-text]">
+                      <span className="font-semibold text-(--color-text)">
                         {relatedValues.display} Robux
                       </span>
-                      <span className="tabular font-bold text-[--color-primary]">
+                      <span className="tabular font-bold text-(--color-primary)">
                         {relatedValues.standardUsd}
                       </span>
                     </Link>
@@ -258,7 +258,7 @@ export default async function AmountPage({ params }: { params: Promise<{ slug: s
                 );
               })}
             </ul>
-            <p className="mt-4 text-sm text-[--color-text-muted]">
+            <p className="mt-4 text-sm text-(--color-text-muted)">
               <InlineLink href="/conversions/">
                 Back to all conversions
               </InlineLink>{" "}

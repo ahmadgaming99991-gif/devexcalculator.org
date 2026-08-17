@@ -54,11 +54,11 @@ export default async function RobuxToUsdPage({
             description="Asking what Robux are worth in dollars only has one answer once you say which direction the money is travelling."
           >
             <div className="grid gap-4 sm:grid-cols-2">
-              <div className="rounded-[--radius-control] border border-[--color-border] border-l-4 border-l-[--color-primary] bg-[--color-surface] p-4">
-                <p className="font-semibold text-[--color-text]">
+              <div className="rounded-(--radius-control) border border-(--color-border) border-l-4 border-l-(--color-primary) bg-(--color-surface) p-4">
+                <p className="font-semibold text-(--color-text)">
                   Money coming out — creator payout
                 </p>
-                <p className="mt-2 text-sm text-[--color-text-muted]">
+                <p className="mt-2 text-sm text-(--color-text-muted)">
                   You earned Robux from players spending in your experience, and
                   you want to convert them to cash. That goes through DevEx at a
                   documented rate, and it is what the calculator above
@@ -66,11 +66,11 @@ export default async function RobuxToUsdPage({
                   from 30,000 upward.
                 </p>
               </div>
-              <div className="rounded-[--radius-control] border border-[--color-border] border-l-4 border-l-[--color-secondary] bg-[--color-surface] p-4">
-                <p className="font-semibold text-[--color-text]">
+              <div className="rounded-(--radius-control) border border-(--color-border) border-l-4 border-l-(--color-secondary) bg-(--color-surface) p-4">
+                <p className="font-semibold text-(--color-text)">
                   Money going in — purchase price
                 </p>
-                <p className="mt-2 text-sm text-[--color-text-muted]">
+                <p className="mt-2 text-sm text-(--color-text-muted)">
                   You want to know what a Robux package costs. Roblox sets that
                   price by package, region, platform and any promotion running at
                   the time. It is a retail price, not an exchange rate, and it
@@ -139,7 +139,7 @@ export default async function RobuxToUsdPage({
               </Table>
             </TableWrapper>
 
-            <p className="mt-4 text-sm text-[--color-text-muted]">
+            <p className="mt-4 text-sm text-(--color-text-muted)">
               The gap between the two exists because Roblox operates a platform,
               handles payment processing, and has already taken its 30% share at
               the point the Robux were spent.{" "}
@@ -164,7 +164,7 @@ export default async function RobuxToUsdPage({
             description="Calculated at all three documented rates. Amounts below the minimum are marked."
           >
             <AmountTable />
-            <p className="mt-3 text-sm text-[--color-text-muted]">
+            <p className="mt-3 text-sm text-(--color-text-muted)">
               <InlineLink href="/conversions/">
                 Browse the full conversion hub
               </InlineLink>{" "}

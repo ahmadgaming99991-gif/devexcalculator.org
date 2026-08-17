@@ -63,11 +63,11 @@ export default async function HomePage({
           >
             <div className="grid gap-4 lg:grid-cols-2">
               <FormulaBlock />
-              <div className="rounded-[--radius-control] border border-[--color-border] bg-[--color-surface] p-4">
-                <p className="text-sm font-semibold text-[--color-text]">
+              <div className="rounded-(--radius-control) border border-(--color-border) bg-(--color-surface) p-4">
+                <p className="text-sm font-semibold text-(--color-text)">
                   Why the arithmetic is done exactly
                 </p>
-                <p className="mt-2 text-sm text-[--color-text-muted]">
+                <p className="mt-2 text-sm text-(--color-text-muted)">
                   A rate like 0.0038 cannot be represented exactly in binary
                   floating point, so a naive calculation drifts: 17,000 Robux at
                   the U.S. 18+ rate comes out as 91.80000000000001 rather than
@@ -85,7 +85,7 @@ export default async function HomePage({
             description="Three rates are documented. Roblox decides which applies to which part of a balance."
           >
             <RateTable />
-            <p className="mt-3 text-sm text-[--color-text-muted]">
+            <p className="mt-3 text-sm text-(--color-text-muted)">
               <InlineLink href="/devex-rates/">
                 Full detail on each rate, with effective dates and worked examples
               </InlineLink>
@@ -103,24 +103,24 @@ export default async function HomePage({
             description="This is the single most common misunderstanding about DevEx, and it decides whether a payout is possible at all."
           >
             <div className="grid gap-4 sm:grid-cols-2">
-              <div className="rounded-[--radius-control] border border-[--color-border] bg-[--color-surface] p-4">
-                <p className="font-semibold text-[--color-success]">Generally qualifies</p>
-                <ul className="mt-2 flex list-disc flex-col gap-1.5 pl-5 text-sm text-[--color-text-muted]">
+              <div className="rounded-(--radius-control) border border-(--color-border) bg-(--color-surface) p-4">
+                <p className="font-semibold text-(--color-success)">Generally qualifies</p>
+                <ul className="mt-2 flex list-disc flex-col gap-1.5 pl-5 text-sm text-(--color-text-muted)">
                   <li>Robux from players buying developer products in your experience</li>
                   <li>Robux from pass and private server purchases</li>
                   <li>Your share of avatar items you created and sold</li>
                 </ul>
               </div>
-              <div className="rounded-[--radius-control] border border-[--color-border] bg-[--color-surface] p-4">
-                <p className="font-semibold text-[--color-warning]">Generally does not</p>
-                <ul className="mt-2 flex list-disc flex-col gap-1.5 pl-5 text-sm text-[--color-text-muted]">
+              <div className="rounded-(--radius-control) border border-(--color-border) bg-(--color-surface) p-4">
+                <p className="font-semibold text-(--color-warning)">Generally does not</p>
+                <ul className="mt-2 flex list-disc flex-col gap-1.5 pl-5 text-sm text-(--color-text-muted)">
                   <li>Robux you bought yourself, at any price</li>
                   <li>Gift card credit and promotional grants</li>
                   <li>Robux received through trades or from other players</li>
                 </ul>
               </div>
             </div>
-            <p className="mt-3 text-sm text-[--color-text-muted]">
+            <p className="mt-3 text-sm text-(--color-text-muted)">
               Roblox makes the final determination for any specific balance.{" "}
               <InlineLink href="/earned-robux/">
                 Read the full explanation of Earned Robux
@@ -135,7 +135,7 @@ export default async function HomePage({
             description="Every figure below is calculated at the three documented rates. Amounts under the minimum are shown for reference and marked as such."
           >
             <AmountTable />
-            <p className="mt-3 text-sm text-[--color-text-muted]">
+            <p className="mt-3 text-sm text-(--color-text-muted)">
               <InlineLink href="/conversions/">
                 See the full conversion hub, or convert any amount you like
               </InlineLink>
@@ -149,7 +149,7 @@ export default async function HomePage({
             description="Meeting all of these lets you submit a request. It does not guarantee one will be approved."
           >
             <RequirementsList />
-            <p className="mt-3 text-sm text-[--color-text-muted]">
+            <p className="mt-3 text-sm text-(--color-text-muted)">
               <InlineLink href="/devex-requirements/">
                 Full requirements, with the official source for each
               </InlineLink>{" "}
@@ -190,9 +190,9 @@ export default async function HomePage({
 
           <SourceNote sourceIds={record.sourceIds} />
 
-          <p className="text-sm text-[--color-text-muted]">
+          <p className="text-sm text-(--color-text-muted)">
             Something out of date?{" "}
-            <Link href="/corrections/" className="text-[--color-primary] underline">
+            <Link href="/corrections/" className="text-(--color-primary) underline">
               Tell us and it gets fixed
             </Link>
             .

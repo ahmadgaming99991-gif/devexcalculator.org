@@ -25,10 +25,10 @@ export default function ErrorBoundary({
   return (
     <Container width="prose">
       <div className="py-8">
-        <h1 className="text-2xl font-bold tracking-tight text-[--color-text]">
+        <h1 className="text-2xl font-bold tracking-tight text-(--color-text)">
           Something went wrong on this page
         </h1>
-        <p className="mt-3 text-[--color-text-muted]">
+        <p className="mt-3 text-(--color-text-muted)">
           The calculator itself is unaffected — calculations run in your browser
           and do not depend on this page loading. Try again, or go straight to
           the calculator.
@@ -42,9 +42,9 @@ export default function ErrorBoundary({
         </div>
 
         {error.digest ? (
-          <p className="mt-6 text-sm text-[--color-text-muted]">
+          <p className="mt-6 text-sm text-(--color-text-muted)">
             If you report this, quote reference{" "}
-            <code className="rounded bg-[--color-surface-subtle] px-1.5 py-0.5 font-mono text-xs">
+            <code className="rounded bg-(--color-surface-subtle) px-1.5 py-0.5 font-mono text-xs">
               {error.digest}
             </code>
             .

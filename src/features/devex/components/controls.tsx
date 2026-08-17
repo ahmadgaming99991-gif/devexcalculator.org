@@ -49,7 +49,7 @@ export function AmountInput({
 
   return (
     <div>
-      <label htmlFor={id} className="block text-sm font-semibold text-[--color-text]">
+      <label htmlFor={id} className="block text-sm font-semibold text-(--color-text)">
         {label}
       </label>
       <div className="relative mt-1.5">
@@ -69,29 +69,29 @@ export function AmountInput({
           aria-invalid={error ? true : undefined}
           aria-describedby={describedBy || undefined}
           className={cx(
-            "control numeric-display min-h-[52px] w-full rounded-[--radius-control] border bg-[--color-surface] px-3 py-2.5 text-lg text-[--color-text] placeholder:text-[--color-text-muted]/60",
+            "control numeric-display min-h-[52px] w-full rounded-(--radius-control) border bg-(--color-surface) px-3 py-2.5 text-lg text-(--color-text) placeholder:text-(--color-text-muted)/60",
             suffix ? "pr-20" : "",
-            error ? "border-[--color-danger]" : "border-[--color-border-strong]",
+            error ? "border-(--color-danger)" : "border-(--color-border-strong)",
           )}
         />
         {suffix ? (
           <span
             aria-hidden="true"
-            className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-sm font-medium text-[--color-text-muted]"
+            className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-sm font-medium text-(--color-text-muted)"
           >
             {suffix}
           </span>
         ) : null}
       </div>
       {hint ? (
-        <p id={hintId} className="mt-1.5 text-xs text-[--color-text-muted]">
+        <p id={hintId} className="mt-1.5 text-xs text-(--color-text-muted)">
           {hint}
         </p>
       ) : null}
       {error ? (
         // `role="alert"` announces the problem as soon as it appears, without
         // the reader needing to navigate back to the field.
-        <p id={errorId} role="alert" className="mt-1.5 text-sm font-medium text-[--color-danger]">
+        <p id={errorId} role="alert" className="mt-1.5 text-sm font-medium text-(--color-danger)">
           {error}
         </p>
       ) : null}
@@ -117,7 +117,7 @@ export function RateSelector({
 
   return (
     <div>
-      <label htmlFor={id} className="block text-sm font-semibold text-[--color-text]">
+      <label htmlFor={id} className="block text-sm font-semibold text-(--color-text)">
         {label}
       </label>
       <select
@@ -125,7 +125,7 @@ export function RateSelector({
         value={value}
         onChange={(event) => onChange(event.target.value)}
         aria-describedby={`${id}-note`}
-        className="control mt-1.5 min-h-[52px] w-full rounded-[--radius-control] border border-[--color-border-strong] bg-[--color-surface] px-3 py-2.5 text-[--color-text]"
+        className="control mt-1.5 min-h-[52px] w-full rounded-(--radius-control) border border-(--color-border-strong) bg-(--color-surface) px-3 py-2.5 text-(--color-text)"
       >
         {selectableRates.map((rate) => (
           <option key={rate.id} value={rate.id}>
@@ -133,7 +133,7 @@ export function RateSelector({
           </option>
         ))}
       </select>
-      <p id={`${id}-note`} className="mt-1.5 text-xs text-[--color-text-muted]">
+      <p id={`${id}-note`} className="mt-1.5 text-xs text-(--color-text-muted)">
         {selected?.conditionNote ??
           selected?.eligibilitySummary ??
           "Roblox decides which rate applies to your balance."}
@@ -159,7 +159,7 @@ export function CurrencySelector({
 
   return (
     <div>
-      <label htmlFor={id} className="block text-sm font-semibold text-[--color-text]">
+      <label htmlFor={id} className="block text-sm font-semibold text-(--color-text)">
         Show result in
       </label>
       <select
@@ -167,7 +167,7 @@ export function CurrencySelector({
         value={value}
         disabled={disabled}
         onChange={(event) => onChange(event.target.value)}
-        className="control mt-1.5 min-h-[52px] w-full rounded-[--radius-control] border border-[--color-border-strong] bg-[--color-surface] px-3 py-2.5 text-[--color-text] disabled:opacity-60"
+        className="control mt-1.5 min-h-[52px] w-full rounded-(--radius-control) border border-(--color-border-strong) bg-(--color-surface) px-3 py-2.5 text-(--color-text) disabled:opacity-60"
       >
         {supportedCurrencies.map((currency) => (
           <option key={currency.code} value={currency.code}>
@@ -210,7 +210,7 @@ export function QuickPresets({
 }) {
   return (
     <div>
-      <p id="presets-label" className="text-sm font-semibold text-[--color-text]">
+      <p id="presets-label" className="text-sm font-semibold text-(--color-text)">
         Quick amounts
       </p>
       <div
@@ -229,8 +229,8 @@ export function QuickPresets({
               className={cx(
                 "min-h-[44px] rounded-full border px-4 text-sm font-semibold transition-colors",
                 isActive
-                  ? "border-[--color-primary] bg-[--color-primary] text-white dark:text-[#08111f]"
-                  : "border-[--color-border-strong] bg-[--color-surface] text-[--color-text] hover:bg-[--color-surface-subtle]",
+                  ? "border-(--color-primary) bg-(--color-primary) text-white dark:text-[#08111f]"
+                  : "border-(--color-border-strong) bg-(--color-surface) text-(--color-text) hover:bg-(--color-surface-subtle)",
               )}
             >
               {formatCompactRobux(preset)}
@@ -271,7 +271,7 @@ export function PercentInput({
 
   return (
     <div>
-      <label htmlFor={id} className="block text-sm font-medium text-[--color-text]">
+      <label htmlFor={id} className="block text-sm font-medium text-(--color-text)">
         {label}
       </label>
       <div className="relative mt-1.5">
@@ -286,24 +286,24 @@ export function PercentInput({
           aria-invalid={error ? true : undefined}
           aria-describedby={describedBy || undefined}
           className={cx(
-            "control numeric-display min-h-[44px] w-full rounded-[--radius-control] border bg-[--color-surface] px-3 py-2 pr-9 text-[--color-text]",
-            error ? "border-[--color-danger]" : "border-[--color-border-strong]",
+            "control numeric-display min-h-[44px] w-full rounded-(--radius-control) border bg-(--color-surface) px-3 py-2 pr-9 text-(--color-text)",
+            error ? "border-(--color-danger)" : "border-(--color-border-strong)",
           )}
         />
         <span
           aria-hidden="true"
-          className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-sm text-[--color-text-muted]"
+          className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-sm text-(--color-text-muted)"
         >
           {suffix}
         </span>
       </div>
       {hint ? (
-        <p id={hintId} className="mt-1 text-xs text-[--color-text-muted]">
+        <p id={hintId} className="mt-1 text-xs text-(--color-text-muted)">
           {hint}
         </p>
       ) : null}
       {error ? (
-        <p id={errorId} role="alert" className="mt-1 text-sm font-medium text-[--color-danger]">
+        <p id={errorId} role="alert" className="mt-1 text-sm font-medium text-(--color-danger)">
           {error}
         </p>
       ) : null}
@@ -359,7 +359,7 @@ export function ModeTabs({
       role="tablist"
       aria-label="Calculator mode"
       onKeyDown={onKeyDown}
-      className="flex w-full gap-1 rounded-[--radius-control] border border-[--color-border] bg-[--color-surface-subtle] p-1"
+      className="flex w-full gap-1 rounded-(--radius-control) border border-(--color-border) bg-(--color-surface-subtle) p-1"
     >
       {options.map((option) => {
         const selected = option.id === value;
@@ -374,10 +374,10 @@ export function ModeTabs({
             tabIndex={selected ? 0 : -1}
             onClick={() => onChange(option.id)}
             className={cx(
-              "min-h-[44px] flex-1 rounded-[--radius-control] px-3 text-sm font-semibold transition-colors",
+              "min-h-[44px] flex-1 rounded-(--radius-control) px-3 text-sm font-semibold transition-colors",
               selected
-                ? "bg-[--color-surface] text-[--color-text] shadow-[--shadow-card]"
-                : "text-[--color-text-muted] hover:text-[--color-text]",
+                ? "bg-(--color-surface) text-(--color-text) shadow-(--shadow-card)"
+                : "text-(--color-text-muted) hover:text-(--color-text)",
             )}
           >
             {option.label}

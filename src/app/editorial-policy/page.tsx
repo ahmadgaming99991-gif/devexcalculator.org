@@ -54,7 +54,7 @@ export default function EditorialPolicyPage() {
           <QuickAnswer>{record.quickAnswer}</QuickAnswer>
 
           <Section id="sourcing" heading="Sourcing standard">
-            <ul className="flex flex-col gap-3 text-[--color-text-muted]">
+            <ul className="flex flex-col gap-3 text-(--color-text-muted)">
               <li>
                 Every time-sensitive claim — a rate, a minimum, a fee percentage,
                 an eligibility rule — is tied to an official source and carries
@@ -86,17 +86,17 @@ export default function EditorialPolicyPage() {
               {LABELS.map((entry) => (
                 <div
                   key={entry.label}
-                  className="rounded-[--radius-control] border border-[--color-border] bg-[--color-surface] p-4"
+                  className="rounded-(--radius-control) border border-(--color-border) bg-(--color-surface) p-4"
                 >
-                  <dt className="text-sm font-semibold text-[--color-text]">{entry.label}</dt>
-                  <dd className="mt-1 text-sm text-[--color-text-muted]">{entry.meaning}</dd>
+                  <dt className="text-sm font-semibold text-(--color-text)">{entry.label}</dt>
+                  <dd className="mt-1 text-sm text-(--color-text-muted)">{entry.meaning}</dd>
                 </div>
               ))}
             </dl>
           </Section>
 
           <Section id="never" heading="What this site never publishes">
-            <ul className="flex list-disc flex-col gap-2 pl-5 text-[--color-text-muted]">
+            <ul className="flex list-disc flex-col gap-2 pl-5 text-(--color-text-muted)">
               <li>Invented testimonials, ratings, review counts or user numbers.</li>
               <li>An author biography or credential that does not correspond to a real person.</li>
               <li>A rate without a source and a verification date.</li>
@@ -115,7 +115,7 @@ export default function EditorialPolicyPage() {
           </Section>
 
           <Section id="review" heading="Review cadence">
-            <p className="text-[--color-text-muted]">
+            <p className="text-(--color-text-muted)">
               Rate-sensitive content is reviewed every{" "}
               {rateRegistry.reviewCadenceDays} days, and escalates to a required
               manual review after {rateRegistry.criticalReviewAgeDays}. The build
@@ -123,7 +123,7 @@ export default function EditorialPolicyPage() {
               rate-sensitive page, so a stale figure is visible to readers rather
               than only to whoever maintains the site.
             </p>
-            <p className="mt-3 text-[--color-text-muted]">
+            <p className="mt-3 text-(--color-text-muted)">
               A figure is never left online because it performs well in search
               after it stops being accurate. If it is wrong, it changes, and the
               change is recorded.{" "}

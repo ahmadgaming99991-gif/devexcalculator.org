@@ -58,7 +58,7 @@ export default function ContactPage() {
             ) : (
               <>
                 <ContactForm turnstileSiteKey={turnstileConfig.siteKey} />
-                <p className="mt-4 text-xs text-[--color-text-muted]">
+                <p className="mt-4 text-xs text-(--color-text-muted)">
                   Your message and email address are used only to read and reply
                   to what you sent.{" "}
                   <InlineLink href="/privacy/">
@@ -75,7 +75,7 @@ export default function ContactPage() {
             heading="What this site cannot help with"
             description="Not a brush-off — these are genuinely outside what an independent calculator can reach."
           >
-            <ul className="flex list-disc flex-col gap-2 pl-5 text-[--color-text-muted]">
+            <ul className="flex list-disc flex-col gap-2 pl-5 text-(--color-text-muted)">
               <li>
                 Your Roblox account, in any respect. This site has no connection
                 to Roblox and no access to any account.

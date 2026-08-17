@@ -54,7 +54,7 @@ export function ThemeToggle() {
     <button
       type="button"
       onClick={() => apply(next)}
-      className="inline-flex size-11 items-center justify-center rounded-[--radius-control] border border-[--color-border] text-[--color-text-muted] hover:text-[--color-text]"
+      className="inline-flex size-11 items-center justify-center rounded-(--radius-control) border border-(--color-border) text-(--color-text-muted) hover:text-(--color-text)"
       title={label}
     >
       <span className="sr-only">{label}</span>

@@ -45,9 +45,9 @@ export default function HowToCashOutPage() {
             heading="The process Roblox documents"
             description="At a high level, and only as far as official documentation supports."
           >
-            <ol className="flex list-decimal flex-col gap-4 pl-5 text-[--color-text-muted]">
+            <ol className="flex list-decimal flex-col gap-4 pl-5 text-(--color-text-muted)">
               <li>
-                <strong className="text-[--color-text]">
+                <strong className="text-(--color-text)">
                   Accumulate at least {formatRobux(minimumEarnedRobux)} Earned Robux.
                 </strong>{" "}
                 Only Earned Robux count.{" "}
@@ -57,13 +57,13 @@ export default function HowToCashOutPage() {
                 .
               </li>
               <li>
-                <strong className="text-[--color-text]">Meet the account requirements.</strong>{" "}
+                <strong className="text-(--color-text)">Meet the account requirements.</strong>{" "}
                 Verified email, minimum age of 13, a valid DevEx portal account,
                 a W-9 or W-8 on file, and an account in good standing.{" "}
                 <InlineLink href="/devex-requirements/">Full list</InlineLink>.
               </li>
               <li>
-                <strong className="text-[--color-text]">Submit through the DevEx portal.</strong>{" "}
+                <strong className="text-(--color-text)">Submit through the DevEx portal.</strong>{" "}
                 Requests go through the official portal linked from the{" "}
                 <SourceLink href="https://create.roblox.com/docs/production/monetization/developer-exchange">
                   Roblox Creator Hub DevEx documentation
@@ -71,13 +71,13 @@ export default function HowToCashOutPage() {
                 . Nowhere else.
               </li>
               <li>
-                <strong className="text-[--color-text]">Roblox reviews the request.</strong>{" "}
+                <strong className="text-(--color-text)">Roblox reviews the request.</strong>{" "}
                 It decides which Robux qualify and whether the request is
                 approved. No third party influences this, and this site cannot
                 predict the outcome.
               </li>
               <li>
-                <strong className="text-[--color-text]">Payment is issued.</strong> Your
+                <strong className="text-(--color-text)">Payment is issued.</strong> Your
                 payment provider and your bank apply their own handling from
                 there.{" "}
                 <InlineLink href="/devex-fees-and-taxes/">
@@ -97,7 +97,7 @@ export default function HowToCashOutPage() {
             heading="Prepare before you apply"
             description="None of this is difficult, but chasing it after submitting is what causes delays."
           >
-            <ul className="flex list-disc flex-col gap-2 pl-5 text-[--color-text-muted]">
+            <ul className="flex list-disc flex-col gap-2 pl-5 text-(--color-text-muted)">
               <li>Your Roblox email address is verified.</li>
               <li>You can sign in to the DevEx portal.</li>
               <li>The correct tax form is completed and on file.</li>
@@ -115,7 +115,7 @@ export default function HowToCashOutPage() {
             heading="How long it takes"
             description="Honestly: nobody outside Roblox can tell you."
           >
-            <p className="text-[--color-text-muted]">
+            <p className="text-(--color-text-muted)">
               Roblox does not publish a guaranteed processing time, so this page
               does not state one. Specific numbers of days quoted elsewhere are
               other creators&rsquo; experiences, not commitments — and one person&rsquo;s
@@ -137,7 +137,7 @@ export default function HowToCashOutPage() {
               losing the account, or both.
             </Callout>
 
-            <ul className="mt-4 flex list-disc flex-col gap-2 pl-5 text-[--color-text-muted]">
+            <ul className="mt-4 flex list-disc flex-col gap-2 pl-5 text-(--color-text-muted)">
               <li>
                 DevEx is the only official route from Earned Robux to money.
                 There is no faster alternative.
@@ -162,7 +162,7 @@ export default function HowToCashOutPage() {
             heading="After the payout"
             description="The DevEx rate is not the last number involved."
           >
-            <p className="text-[--color-text-muted]">
+            <p className="text-(--color-text-muted)">
               A payout is income, and how it is taxed depends entirely on where
               you live. Your payment provider may charge a fee, and if you are
               paid in a currency other than US dollars there will be a conversion

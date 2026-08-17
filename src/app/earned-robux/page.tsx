@@ -79,12 +79,12 @@ export default function EarnedRobuxPage() {
             heading="What generally counts"
             description="These are the routes by which Robux normally become Earned Robux. Roblox makes the final determination for any specific balance."
           >
-            <ul className="flex list-disc flex-col gap-2 pl-5 text-[--color-text-muted]">
+            <ul className="flex list-disc flex-col gap-2 pl-5 text-(--color-text-muted)">
               {QUALIFYING.map((item) => (
                 <li key={item}>{item}</li>
               ))}
             </ul>
-            <p className="mt-4 text-sm text-[--color-text-muted]">
+            <p className="mt-4 text-sm text-(--color-text-muted)">
               In each case Roblox has already taken its platform commission
               before the Robux reach you — creators receive 70% of what a player
               spends on an in-experience purchase.{" "}
@@ -100,12 +100,12 @@ export default function EarnedRobuxPage() {
             heading="What generally does not"
             description="Robux acquired these ways sit in the same balance but are treated differently."
           >
-            <ul className="flex list-disc flex-col gap-2 pl-5 text-[--color-text-muted]">
+            <ul className="flex list-disc flex-col gap-2 pl-5 text-(--color-text-muted)">
               {NOT_QUALIFYING.map((item) => (
                 <li key={item}>{item}</li>
               ))}
             </ul>
-            <p className="mt-4 text-sm text-[--color-text-muted]">
+            <p className="mt-4 text-sm text-(--color-text-muted)">
               This is also why the retail price of Robux and the DevEx rate are
               unrelated numbers. Buying Robux is a purchase; DevEx is Roblox
               paying a creator.{" "}
@@ -121,7 +121,7 @@ export default function EarnedRobuxPage() {
             heading="Pending and available balances"
             description="Newly earned Robux are not immediately available, which surprises creators watching a balance climb."
           >
-            <p className="text-[--color-text-muted]">
+            <p className="text-(--color-text-muted)">
               Robux from a recent purchase typically spend a period as pending
               before becoming available, which protects against reversed
               transactions. Pending Robux are not yet part of the balance you can
@@ -137,7 +137,7 @@ export default function EarnedRobuxPage() {
             heading="Group funds"
             description="Robux held by a group are not the same as Robux held by you."
           >
-            <p className="text-[--color-text-muted]">
+            <p className="text-(--color-text-muted)">
               Earnings from an experience owned by a group accumulate in the
               group&rsquo;s funds rather than in any individual account. DevEx operates
               on a personal account, so group funds have to reach a personal

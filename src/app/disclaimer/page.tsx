@@ -29,7 +29,7 @@ export default function DisclaimerPage() {
           <QuickAnswer>{record.quickAnswer}</QuickAnswer>
 
           <Section id="estimates" heading="Everything here is an estimate">
-            <p className="text-[--color-text-muted]">
+            <p className="text-(--color-text-muted)">
               The calculator multiplies the Robux figure you enter by a rate taken
               from Roblox&rsquo;s published documentation. That arithmetic is exact and
               covered by tests. What it produces is still an estimate, because the
@@ -37,14 +37,14 @@ export default function DisclaimerPage() {
               Earned Robux, and that the rate you selected is the one Roblox will
               apply to them.
             </p>
-            <p className="mt-3 text-[--color-text-muted]">
+            <p className="mt-3 text-(--color-text-muted)">
               Both assumptions are yours to make. Neither can be verified from
               outside Roblox.
             </p>
           </Section>
 
           <Section id="cannot-determine" heading="What this site cannot determine">
-            <ul className="flex list-disc flex-col gap-2 pl-5 text-[--color-text-muted]">
+            <ul className="flex list-disc flex-col gap-2 pl-5 text-(--color-text-muted)">
               <li>
                 Whether your Robux count as Earned Robux. Roblox tracks where each
                 Robux came from; that record is not visible here.
@@ -62,14 +62,14 @@ export default function DisclaimerPage() {
 
             <Callout tone="warning" title="No calculator can answer these" className="mt-4">
               This is not a limitation of this particular site. Any tool claiming
-              to tell you whether you are eligible, or guaranteeing a payout, is
-              claiming knowledge it does not have. Roblox is the only party who
-              can answer these questions.
+              to know whether your Robux qualify, or promising a specific payout,
+              is claiming knowledge it does not have. Roblox is the only party
+              who can answer these questions.
             </Callout>
           </Section>
 
           <Section id="trademarks" heading="Trademarks">
-            <p className="text-[--color-text-muted]">
+            <p className="text-(--color-text-muted)">
               Roblox, Robux and Developer Exchange are trademarks of Roblox
               Corporation. They appear on this site only to describe what these
               calculations concern, which is ordinary descriptive use. This site
@@ -80,14 +80,14 @@ export default function DisclaimerPage() {
           </Section>
 
           <Section id="accuracy" heading="Accuracy and currency of information">
-            <p className="text-[--color-text-muted]">
+            <p className="text-(--color-text-muted)">
               Rate data on this site was last verified against official
               documentation on {formatDate(rateRegistry.lastVerifiedAt)}, and that
               date is displayed on every rate-sensitive page rather than hidden
               here. Rates change: the standard rate moved in September 2025, and
               it could move again.
             </p>
-            <p className="mt-3 text-[--color-text-muted]">
+            <p className="mt-3 text-(--color-text-muted)">
               If a figure here has fallen behind, the{" "}
               <InlineLink href="/sources/">source registry</InlineLink> links
               directly to the official page it came from, so you can check the

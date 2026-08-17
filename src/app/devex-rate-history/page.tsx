@@ -49,50 +49,50 @@ export default function RateHistoryPage() {
             description="Each entry records what changed, when it took effect, and which source establishes it."
           >
             <ol className="flex flex-col gap-4">
-              <li className="rounded-[--radius-control] border border-[--color-border] border-l-4 border-l-[--color-success] bg-[--color-surface] p-4">
+              <li className="rounded-(--radius-control) border border-(--color-border) border-l-4 border-l-(--color-success) bg-(--color-surface) p-4">
                 <div className="flex flex-wrap items-center gap-2">
                   <Badge tone="success">Current</Badge>
-                  <span className="text-sm font-semibold text-[--color-text]">
+                  <span className="text-sm font-semibold text-(--color-text)">
                     {formatDate("2025-09-05T10:00:00-07:00")}, 10:00 PT
                   </span>
                 </div>
-                <p className="mt-2 font-semibold text-[--color-text]">
+                <p className="mt-2 font-semibold text-(--color-text)">
                   Standard rate increased to 0.0038 USD per Earned Robux
                 </p>
-                <p className="mt-1 text-sm text-[--color-text-muted]">
+                <p className="mt-1 text-sm text-(--color-text-muted)">
                   Roblox states this as 114 USD for 30,000 Earned Robux, up from
                   105. Balances earned before this moment continue to convert at
                   the previous rate and are cashed out first.
                 </p>
               </li>
 
-              <li className="rounded-[--radius-control] border border-[--color-border] border-l-4 border-l-[--color-border-strong] bg-[--color-surface] p-4">
+              <li className="rounded-(--radius-control) border border-(--color-border) border-l-4 border-l-(--color-border-strong) bg-(--color-surface) p-4">
                 <div className="flex flex-wrap items-center gap-2">
                   <Badge tone="neutral">Legacy</Badge>
-                  <span className="text-sm font-semibold text-[--color-text]">
+                  <span className="text-sm font-semibold text-(--color-text)">
                     Until {formatDate("2025-09-05T10:00:00-07:00")}
                   </span>
                 </div>
-                <p className="mt-2 font-semibold text-[--color-text]">
+                <p className="mt-2 font-semibold text-(--color-text)">
                   Standard rate of 0.0035 USD per Earned Robux
                 </p>
-                <p className="mt-1 text-sm text-[--color-text-muted]">
+                <p className="mt-1 text-sm text-(--color-text-muted)">
                   105 USD for 30,000 Earned Robux. Still applied to the portion of
                   any balance earned before the transition.
                 </p>
               </li>
 
-              <li className="rounded-[--radius-control] border border-[--color-border] border-l-4 border-l-[--color-accent] bg-[--color-surface] p-4">
+              <li className="rounded-(--radius-control) border border-(--color-border) border-l-4 border-l-(--color-accent) bg-(--color-surface) p-4">
                 <div className="flex flex-wrap items-center gap-2">
                   <Badge tone="info">Conditional</Badge>
-                  <span className="text-sm font-semibold text-[--color-text]">
+                  <span className="text-sm font-semibold text-(--color-text)">
                     Effective date not published
                   </span>
                 </div>
-                <p className="mt-2 font-semibold text-[--color-text]">
+                <p className="mt-2 font-semibold text-(--color-text)">
                   Higher 0.0054 rate for qualifying U.S. 18+ spending
                 </p>
-                <p className="mt-1 text-sm text-[--color-text-muted]">
+                <p className="mt-1 text-sm text-(--color-text-muted)">
                   Roblox documents this rate for certain Earned Robux from
                   purchases by United States players who have verified they are at
                   least 18. The documentation this site checked does not state an
@@ -126,13 +126,13 @@ export default function RateHistoryPage() {
                     return (
                       <tr key={amount}>
                         <Th scope="row">{formatRobux(amount)}</Th>
-                        <Td numeric className="text-[--color-text-muted]">
+                        <Td numeric className="text-(--color-text-muted)">
                           {formatCurrency(before, "USD")}
                         </Td>
                         <Td numeric className="font-semibold">
                           {formatCurrency(after, "USD")}
                         </Td>
-                        <Td numeric className="text-[--color-success]">
+                        <Td numeric className="text-(--color-success)">
                           +{formatCurrency(after.sub(before), "USD")}
                         </Td>
                       </tr>
@@ -141,7 +141,7 @@ export default function RateHistoryPage() {
                 </tbody>
               </Table>
             </TableWrapper>
-            <p className="mt-3 text-sm text-[--color-text-muted]">
+            <p className="mt-3 text-sm text-(--color-text-muted)">
               The increase is about 8.6% across the board, since it is a change to
               a single multiplier.
             </p>
@@ -152,7 +152,7 @@ export default function RateHistoryPage() {
             heading="How legacy balances are handled"
             description="One balance can span both rates, and you do not choose the split."
           >
-            <p className="text-[--color-text-muted]">
+            <p className="text-(--color-text-muted)">
               Roblox cashes out the pre-transition portion of a balance at 0.0035
               first, then the rest at 0.0038. The split is Roblox&rsquo;s own
               accounting of when each Robux was earned — it is not something a
@@ -170,7 +170,7 @@ export default function RateHistoryPage() {
             heading="Why there is no forecast here"
             description="A page that guesses at future rates would be worse than no page."
           >
-            <p className="text-[--color-text-muted]">
+            <p className="text-(--color-text-muted)">
               Roblox has changed the rate before and may change it again. Nobody
               outside Roblox knows whether or when, and a prediction dressed up as
               analysis would be a guess with a confident tone. This page records

@@ -8,7 +8,7 @@
  * Budgets are deliberately generous enough not to fail on noise and tight
  * enough to catch a heavy dependency being added without anyone noticing.
  */
-import { existsSync, readFileSync, statSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
 import { join } from "node:path";
 import { gzipSync } from "node:zlib";
 import { REPO_ROOT } from "../seo/paths";
@@ -73,7 +73,6 @@ function main(): void {
   const staticChunks = join(NEXT_DIR, "static", "chunks");
   if (existsSync(staticChunks)) {
     const forbidden = ["googletagmanager.com", "cloudflareinsights.com"];
-    const { readdirSync } = require("node:fs") as typeof import("node:fs");
     const walk = (dir: string): string[] =>
       readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
         const path = join(dir, entry.name);

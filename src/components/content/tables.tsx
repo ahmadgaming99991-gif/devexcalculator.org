@@ -41,7 +41,7 @@ export function RateTable({ showExamples = true }: { showExamples?: boolean }) {
             return (
               <tr key={rate.id}>
                 <Th scope="row">
-                  <span className="font-semibold text-[--color-text]">{rate.label}</span>
+                  <span className="font-semibold text-(--color-text)">{rate.label}</span>
                   <span className="mt-1 block">
                     <Badge
                       tone={
@@ -71,7 +71,7 @@ export function RateTable({ showExamples = true }: { showExamples?: boolean }) {
                     {formatCurrency(value.mul(Rational.fromInt(30_000)), "USD")}
                   </Td>
                 ) : null}
-                <Td className="text-[--color-text-muted]">
+                <Td className="text-(--color-text-muted)">
                   {rate.eligibilitySummary}
                   {rate.effectiveFrom ? (
                     <span className="mt-1 block text-xs">
@@ -145,12 +145,12 @@ export function AmountTable({
                   {hasPage ? (
                     <Link
                       href={amountPageRoute(amount)}
-                      className="font-semibold text-[--color-primary] underline underline-offset-2"
+                      className="font-semibold text-(--color-primary) underline underline-offset-2"
                     >
                       {formatRobux(amount)}
                     </Link>
                   ) : (
-                    <span className="font-semibold text-[--color-text]">
+                    <span className="font-semibold text-(--color-text)">
                       {formatRobux(amount)}
                     </span>
                   )}
@@ -158,10 +158,10 @@ export function AmountTable({
                 <Td numeric className="font-semibold">
                   {formatCurrency(robux.mul(standard), "USD")}
                 </Td>
-                <Td numeric className="text-[--color-text-muted]">
+                <Td numeric className="text-(--color-text-muted)">
                   {formatCurrency(robux.mul(legacy), "USD")}
                 </Td>
-                <Td numeric className="text-[--color-text-muted]">
+                <Td numeric className="text-(--color-text-muted)">
                   {formatCurrency(robux.mul(us18), "USD")}
                 </Td>
                 <Td>
@@ -197,16 +197,16 @@ export function FormulaBlock({ className }: { className?: string }) {
 
   return (
     <div
-      className={`rounded-[--radius-control] border border-[--color-border] bg-[--color-surface] p-4 ${className ?? ""}`}
+      className={`rounded-(--radius-control) border border-(--color-border) bg-(--color-surface) p-4 ${className ?? ""}`}
     >
-      <p className="text-sm font-semibold text-[--color-text]">The calculation</p>
-      <p className="numeric-display mt-2 text-sm text-[--color-text]">
+      <p className="text-sm font-semibold text-(--color-text)">The calculation</p>
+      <p className="numeric-display mt-2 text-sm text-(--color-text)">
         eligible Earned Robux × rate per Robux = estimated USD payout
       </p>
-      <p className="numeric-display mt-2 text-sm text-[--color-text-muted]">
+      <p className="numeric-display mt-2 text-sm text-(--color-text-muted)">
         100,000 × ${formatRate(standard)} = {formatCurrency(example, "USD")}
       </p>
-      <p className="mt-3 text-sm text-[--color-text-muted]">
+      <p className="mt-3 text-sm text-(--color-text-muted)">
         Working backwards divides instead, and always rounds up: a target of{" "}
         {formatCurrency(Rational.fromInt(1_000), "USD")} needs{" "}
         {formatRobux(Rational.fromInt(1_000).div(standard).ceilToBigInt())} Earned
@@ -257,10 +257,10 @@ export function RequirementsList({ className }: { className?: string }) {
       {DEVEX_REQUIREMENTS.map((requirement) => (
         <li
           key={requirement.title}
-          className="rounded-[--radius-control] border border-[--color-border] bg-[--color-surface] p-4"
+          className="rounded-(--radius-control) border border-(--color-border) bg-(--color-surface) p-4"
         >
-          <p className="font-semibold text-[--color-text]">{requirement.title}</p>
-          <p className="mt-1 text-sm text-[--color-text-muted]">{requirement.detail}</p>
+          <p className="font-semibold text-(--color-text)">{requirement.title}</p>
+          <p className="mt-1 text-sm text-(--color-text-muted)">{requirement.detail}</p>
         </li>
       ))}
     </ul>

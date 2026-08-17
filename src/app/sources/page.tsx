@@ -40,27 +40,27 @@ export default function SourcesPage() {
               {sources.sources.map((source) => (
                 <article
                   key={source.id}
-                  className="rounded-[--radius-card] border border-[--color-border] bg-[--color-surface] p-5"
+                  className="rounded-(--radius-card) border border-(--color-border) bg-(--color-surface) p-5"
                 >
                   <div className="flex flex-wrap items-baseline justify-between gap-2">
-                    <h3 className="text-base font-semibold text-[--color-text]">
+                    <h3 className="text-base font-semibold text-(--color-text)">
                       <SourceLink href={source.url}>{source.title}</SourceLink>
                     </h3>
                     <Badge tone="neutral">{source.evidenceLabel}</Badge>
                   </div>
 
-                  <p className="mt-1 text-sm text-[--color-text-muted]">{source.publisher}</p>
+                  <p className="mt-1 text-sm text-(--color-text-muted)">{source.publisher}</p>
 
-                  <h4 className="mt-3 text-xs font-semibold uppercase tracking-wide text-[--color-text-muted]">
+                  <h4 className="mt-3 text-xs font-semibold uppercase tracking-wide text-(--color-text-muted)">
                     Facts this source establishes
                   </h4>
-                  <ul className="mt-1.5 flex list-disc flex-col gap-1.5 pl-5 text-sm text-[--color-text-muted]">
+                  <ul className="mt-1.5 flex list-disc flex-col gap-1.5 pl-5 text-sm text-(--color-text-muted)">
                     {source.factsSupported.map((fact) => (
                       <li key={fact}>{fact}</li>
                     ))}
                   </ul>
 
-                  <dl className="mt-3 flex flex-wrap gap-x-6 gap-y-1 text-xs text-[--color-text-muted]">
+                  <dl className="mt-3 flex flex-wrap gap-x-6 gap-y-1 text-xs text-(--color-text-muted)">
                     <div className="flex gap-1.5">
                       <dt className="font-semibold">Last checked:</dt>
                       <dd>{formatDate(source.lastCheckedAt)}</dd>
@@ -86,36 +86,36 @@ export default function SourcesPage() {
             heading="Review cadence"
             description="How often these are rechecked, and what happens when one changes."
           >
-            <div className="rounded-[--radius-control] border border-[--color-border] bg-[--color-surface] p-4">
+            <div className="rounded-(--radius-control) border border-(--color-border) bg-(--color-surface) p-4">
               <dl className="flex flex-col gap-2 text-sm">
                 <div className="flex flex-wrap justify-between gap-2">
-                  <dt className="text-[--color-text-muted]">Rate registry version</dt>
-                  <dd className="font-semibold text-[--color-text]">
+                  <dt className="text-(--color-text-muted)">Rate registry version</dt>
+                  <dd className="font-semibold text-(--color-text)">
                     {rateRegistry.registryVersion}
                   </dd>
                 </div>
                 <div className="flex flex-wrap justify-between gap-2">
-                  <dt className="text-[--color-text-muted]">Rates last verified</dt>
-                  <dd className="font-semibold text-[--color-text]">
+                  <dt className="text-(--color-text-muted)">Rates last verified</dt>
+                  <dd className="font-semibold text-(--color-text)">
                     {formatDate(rateRegistry.lastVerifiedAt)} ({freshness.ageDays} days ago)
                   </dd>
                 </div>
                 <div className="flex flex-wrap justify-between gap-2">
-                  <dt className="text-[--color-text-muted]">Review due after</dt>
-                  <dd className="font-semibold text-[--color-text]">
+                  <dt className="text-(--color-text-muted)">Review due after</dt>
+                  <dd className="font-semibold text-(--color-text)">
                     {rateRegistry.reviewCadenceDays} days
                   </dd>
                 </div>
                 <div className="flex flex-wrap justify-between gap-2">
-                  <dt className="text-[--color-text-muted]">Escalates to critical after</dt>
-                  <dd className="font-semibold text-[--color-text]">
+                  <dt className="text-(--color-text-muted)">Escalates to critical after</dt>
+                  <dd className="font-semibold text-(--color-text)">
                     {rateRegistry.criticalReviewAgeDays} days
                   </dd>
                 </div>
               </dl>
             </div>
 
-            <p className="mt-4 text-[--color-text-muted]">
+            <p className="mt-4 text-(--color-text-muted)">
               Rate data is never updated automatically from a scraped page. A
               change to a published rate requires the source to be verified by
               hand, the registry updated, the unit tests updated to the new

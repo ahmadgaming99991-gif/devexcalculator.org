@@ -87,25 +87,25 @@ export default function GuidesPage() {
                   <li key={entry.route}>
                     <Link
                       href={entry.route}
-                      className="flex gap-4 rounded-[--radius-card] border border-[--color-border] bg-[--color-surface] p-5 hover:border-[--color-primary] hover:bg-[--color-surface-subtle]"
+                      className="flex gap-4 rounded-(--radius-card) border border-(--color-border) bg-(--color-surface) p-5 hover:border-(--color-primary) hover:bg-(--color-surface-subtle)"
                     >
                       <span
                         aria-hidden="true"
-                        className="flex size-8 shrink-0 items-center justify-center rounded-full bg-[--color-primary-soft] text-sm font-bold text-[--color-primary]"
+                        className="flex size-8 shrink-0 items-center justify-center rounded-full bg-(--color-primary-soft) text-sm font-bold text-(--color-primary)"
                       >
                         {index + 1}
                       </span>
                       <span className="min-w-0">
-                        <span className="block text-lg font-semibold text-[--color-text]">
+                        <span className="block text-lg font-semibold text-(--color-text)">
                           {target.navLabel}
                         </span>
-                        <span className="mt-1 block text-sm font-medium text-[--color-primary]">
+                        <span className="mt-1 block text-sm font-medium text-(--color-primary)">
                           {entry.answers}
                         </span>
-                        <span className="mt-1.5 block text-sm text-[--color-text-muted]">
+                        <span className="mt-1.5 block text-sm text-(--color-text-muted)">
                           Assumes: {entry.assumes}
                         </span>
-                        <span className="mt-1.5 block text-xs text-[--color-text-muted]">
+                        <span className="mt-1.5 block text-xs text-(--color-text-muted)">
                           Last reviewed {formatDate(target.lastReviewedAt)}
                         </span>
                       </span>
@@ -123,13 +123,13 @@ export default function GuidesPage() {
           >
             <Link
               href="/calculators/"
-              className="inline-flex rounded-[--radius-card] border border-[--color-border] bg-[--color-surface] p-5 hover:border-[--color-primary]"
+              className="inline-flex rounded-(--radius-card) border border-(--color-border) bg-(--color-surface) p-5 hover:border-(--color-primary)"
             >
               <span>
-                <span className="block text-lg font-semibold text-[--color-text]">
+                <span className="block text-lg font-semibold text-(--color-text)">
                   All calculators
                 </span>
-                <span className="mt-1 block text-sm text-[--color-text-muted]">
+                <span className="mt-1 block text-sm text-(--color-text-muted)">
                   DevEx payout, Robux to USD, payout targets and marketplace fees.
                 </span>
               </span>

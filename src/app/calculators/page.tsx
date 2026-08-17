@@ -70,15 +70,15 @@ export default function CalculatorsPage() {
                   <li key={tool.route}>
                     <Link
                       href={tool.route}
-                      className="flex h-full flex-col rounded-[--radius-card] border border-[--color-border] bg-[--color-surface] p-5 hover:border-[--color-primary] hover:bg-[--color-surface-subtle]"
+                      className="flex h-full flex-col rounded-(--radius-card) border border-(--color-border) bg-(--color-surface) p-5 hover:border-(--color-primary) hover:bg-(--color-surface-subtle)"
                     >
-                      <span className="text-lg font-semibold text-[--color-text]">
+                      <span className="text-lg font-semibold text-(--color-text)">
                         {target.navLabel}
                       </span>
-                      <span className="mt-2 text-sm font-medium text-[--color-primary]">
+                      <span className="mt-2 text-sm font-medium text-(--color-primary)">
                         {tool.answers}
                       </span>
-                      <span className="mt-2 text-sm text-[--color-text-muted]">
+                      <span className="mt-2 text-sm text-(--color-text-muted)">
                         {tool.useWhen}
                       </span>
                     </Link>
@@ -95,13 +95,13 @@ export default function CalculatorsPage() {
           >
             <Link
               href="/conversions/"
-              className="inline-flex rounded-[--radius-card] border border-[--color-border] bg-[--color-surface] p-5 hover:border-[--color-primary]"
+              className="inline-flex rounded-(--radius-card) border border-(--color-border) bg-(--color-surface) p-5 hover:border-(--color-primary)"
             >
               <span>
-                <span className="block text-lg font-semibold text-[--color-text]">
+                <span className="block text-lg font-semibold text-(--color-text)">
                   Robux to USD conversions
                 </span>
-                <span className="mt-1 block text-sm text-[--color-text-muted]">
+                <span className="mt-1 block text-sm text-(--color-text-muted)">
                   Common amounts from 1,000 to 10 million, with detailed pages for
                   the ones creators ask about most.
                 </span>
@@ -116,13 +116,13 @@ export default function CalculatorsPage() {
           >
             <Link
               href="/guides/"
-              className="inline-flex rounded-[--radius-card] border border-[--color-border] bg-[--color-surface] p-5 hover:border-[--color-primary]"
+              className="inline-flex rounded-(--radius-card) border border-(--color-border) bg-(--color-surface) p-5 hover:border-(--color-primary)"
             >
               <span>
-                <span className="block text-lg font-semibold text-[--color-text]">
+                <span className="block text-lg font-semibold text-(--color-text)">
                   DevEx guides
                 </span>
-                <span className="mt-1 block text-sm text-[--color-text-muted]">
+                <span className="mt-1 block text-sm text-(--color-text-muted)">
                   Rates, requirements, what counts as Earned Robux, and how the
                   cash-out process works.
                 </span>

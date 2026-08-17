@@ -44,12 +44,12 @@ export function ResultSummary({
   children?: ReactNode;
 }) {
   return (
-    <div className="rounded-[--radius-card] border border-[--color-border] bg-[--color-surface-subtle] p-4 sm:p-5">
-      <p className="text-sm font-medium text-[--color-text-muted]">{primaryLabel}</p>
-      <p className="numeric-display mt-1 text-3xl font-bold leading-tight text-[--color-text] sm:text-4xl">
+    <div className="rounded-(--radius-card) border border-(--color-border) bg-(--color-surface-subtle) p-4 sm:p-5">
+      <p className="text-sm font-medium text-(--color-text-muted)">{primaryLabel}</p>
+      <p className="numeric-display mt-1 text-3xl font-bold leading-tight text-(--color-text) sm:text-4xl">
         {primaryValue}
       </p>
-      {secondary ? <div className="mt-1.5 text-sm text-[--color-text-muted]">{secondary}</div> : null}
+      {secondary ? <div className="mt-1.5 text-sm text-(--color-text-muted)">{secondary}</div> : null}
       {children ? <div className="mt-4">{children}</div> : null}
     </div>
   );
@@ -80,7 +80,7 @@ export function ResultAnnouncer({ message }: { message: string }) {
  *
  * The wording is chosen with care: reaching 30,000 is described as meeting the
  * stated minimum, never as being eligible. Roblox decides eligibility, and a
- * meter on a third-party site saying "you are eligible" would be a false
+ * meter on a third-party site asserting eligibility outright would be a false
  * promise to someone planning around real money.
  */
 export function ThresholdMeter({ threshold }: { threshold: ThresholdStatus }) {
@@ -91,7 +91,7 @@ export function ThresholdMeter({ threshold }: { threshold: ThresholdStatus }) {
   return (
     <div>
       <div className="flex flex-wrap items-center justify-between gap-2">
-        <p className="text-sm font-semibold text-[--color-text]">
+        <p className="text-sm font-semibold text-(--color-text)">
           {meets ? "Meets the stated minimum" : "Below the stated minimum"}
         </p>
         <Badge tone={meets ? "success" : "warning"}>
@@ -107,18 +107,18 @@ export function ThresholdMeter({ threshold }: { threshold: ThresholdStatus }) {
         aria-valuemin={0}
         aria-valuemax={100}
         aria-label={`Progress toward the ${formatRobux(threshold.minimumRobux)} Earned Robux minimum`}
-        className="mt-2 h-2.5 w-full overflow-hidden rounded-full bg-[--color-border]"
+        className="mt-2 h-2.5 w-full overflow-hidden rounded-full bg-(--color-border)"
       >
         <div
           className={cx(
             "h-full rounded-full transition-[width]",
-            meets ? "bg-[--color-success]" : "bg-[--color-warning]",
+            meets ? "bg-(--color-success)" : "bg-(--color-warning)",
           )}
           style={{ width: `${threshold.progressPercent}%` }}
         />
       </div>
 
-      <p className="mt-2 text-xs text-[--color-text-muted]">
+      <p className="mt-2 text-xs text-(--color-text-muted)">
         Roblox requires {formatRobux(threshold.minimumRobux)} Earned Robux to submit a
         request. Reaching that number is a requirement, not an approval — Roblox
         reviews every request and decides which Robux qualify.
@@ -153,9 +153,9 @@ export function ScenarioComparison({
           {comparison.rows.map((row) => (
             <tr key={row.rate.id}>
               <Td>
-                <span className="font-medium text-[--color-text]">{row.rate.label}</span>
+                <span className="font-medium text-(--color-text)">{row.rate.label}</span>
                 {row.isBaseline ? (
-                  <span className="ml-2 text-xs text-[--color-text-muted]">(baseline)</span>
+                  <span className="ml-2 text-xs text-(--color-text-muted)">(baseline)</span>
                 ) : null}
               </Td>
               <Td numeric>${formatRate(row.rateValue)}</Td>
@@ -164,13 +164,13 @@ export function ScenarioComparison({
               </Td>
               <Td numeric>
                 {row.isBaseline ? (
-                  <span className="text-[--color-text-muted]">—</span>
+                  <span className="text-(--color-text-muted)">—</span>
                 ) : (
                   <span
                     className={
                       row.differenceVsStandardUsd.gt(Rational.ZERO)
-                        ? "text-[--color-success]"
-                        : "text-[--color-text-muted]"
+                        ? "text-(--color-success)"
+                        : "text-(--color-text-muted)"
                     }
                   >
                     {formatSignedCurrency(row.differenceVsStandardUsd, currency)}
@@ -229,7 +229,7 @@ export function ResultBreakdown({
             ))}
           </tbody>
           <tfoot>
-            <tr className="bg-[--color-surface-subtle]">
+            <tr className="bg-(--color-surface-subtle)">
               <Th scope="row">Total</Th>
               <Td numeric className="font-semibold">
                 {formatRobux(result.totalRobux)}
@@ -259,8 +259,8 @@ export function ResultBreakdown({
       </dl>
 
       {result.feesApplied || result.taxApplied ? (
-        <div className="rounded-[--radius-control] border border-[--color-border] bg-[--color-surface] p-4">
-          <h3 className="text-sm font-semibold text-[--color-text]">Your estimated deductions</h3>
+        <div className="rounded-(--radius-control) border border-(--color-border) bg-(--color-surface) p-4">
+          <h3 className="text-sm font-semibold text-(--color-text)">Your estimated deductions</h3>
           <dl className="mt-2 flex flex-col gap-1.5 text-sm">
             <DeductionRow label="Gross payout" value={formatCurrency(result.grossUsd, currency)} />
             {result.feesApplied ? (
@@ -283,7 +283,7 @@ export function ResultBreakdown({
                 value={`−${formatCurrency(result.estimatedTaxUsd, currency)}`}
               />
             ) : null}
-            <div className="mt-1 border-t border-[--color-border] pt-1.5">
+            <div className="mt-1 border-t border-(--color-border) pt-1.5">
               <DeductionRow
                 label="Estimated net"
                 value={formatCurrency(result.netAfterEstimateUsd, currency)}
@@ -291,7 +291,7 @@ export function ResultBreakdown({
               />
             </div>
           </dl>
-          <p className="mt-2 text-xs text-[--color-text-muted]">
+          <p className="mt-2 text-xs text-(--color-text-muted)">
             These are the figures you entered, not amounts Roblox or any provider
             has quoted. This site gives no tax advice.
           </p>
@@ -303,11 +303,11 @@ export function ResultBreakdown({
 
 function SummaryRow({ term, detail }: { term: string; detail: string }) {
   return (
-    <div className="rounded-[--radius-control] border border-[--color-border] bg-[--color-surface] p-3">
-      <dt className="text-xs font-medium uppercase tracking-wide text-[--color-text-muted]">
+    <div className="rounded-(--radius-control) border border-(--color-border) bg-(--color-surface) p-3">
+      <dt className="text-xs font-medium uppercase tracking-wide text-(--color-text-muted)">
         {term}
       </dt>
-      <dd className="mt-1 font-semibold text-[--color-text]">{detail}</dd>
+      <dd className="mt-1 font-semibold text-(--color-text)">{detail}</dd>
     </div>
   );
 }
@@ -323,10 +323,10 @@ function DeductionRow({
 }) {
   return (
     <div className="flex items-baseline justify-between gap-3">
-      <dt className={cx(emphasis ? "font-semibold text-[--color-text]" : "text-[--color-text-muted]")}>
+      <dt className={cx(emphasis ? "font-semibold text-(--color-text)" : "text-(--color-text-muted)")}>
         {label}
       </dt>
-      <dd className={cx("tabular", emphasis ? "font-bold text-[--color-text]" : "text-[--color-text]")}>
+      <dd className={cx("tabular", emphasis ? "font-bold text-(--color-text)" : "text-(--color-text)")}>
         {value}
       </dd>
     </div>
@@ -346,22 +346,22 @@ export function TargetBreakdown({
 }) {
   return (
     <div className="flex flex-col gap-3 text-sm">
-      <p className="text-[--color-text-muted]">
+      <p className="text-(--color-text-muted)">
         {formatCurrency(result.targetUsd, currency)} ÷ ${formatRate(result.rateValue)} per Robux ={" "}
         <span className="tabular">{result.exactRequiredRobux.toFixed(2)}</span>, rounded up to{" "}
-        <strong className="text-[--color-text]">{formatRobux(result.requiredRobux)}</strong> whole
+        <strong className="text-(--color-text)">{formatRobux(result.requiredRobux)}</strong> whole
         Earned Robux. That pays {formatCurrency(result.payoutAtRequiredRobux, currency)}, which is
         the first whole-Robux amount that reaches your target rather than falling just short.
       </p>
 
       {result.requirementIsBelowMinimum ? (
-        <div className="rounded-[--radius-control] border border-[--color-border] border-l-4 border-l-[--color-warning] bg-[--color-surface] p-3">
-          <p className="font-semibold text-[--color-text]">The minimum applies first</p>
-          <p className="mt-1 text-[--color-text-muted]">
+        <div className="rounded-(--radius-control) border border-(--color-border) border-l-4 border-l-(--color-warning) bg-(--color-surface) p-3">
+          <p className="font-semibold text-(--color-text)">The minimum applies first</p>
+          <p className="mt-1 text-(--color-text-muted)">
             {formatRobux(result.requiredRobux)} Earned Robux would reach your target
             arithmetically, but Roblox requires {formatRobux(result.minimumRobux)} before a request
             can be submitted. You would need{" "}
-            <strong className="text-[--color-text]">
+            <strong className="text-(--color-text)">
               {formatRobux(result.effectiveRobuxNeeded)}
             </strong>{" "}
             in practice.
@@ -372,7 +372,7 @@ export function TargetBreakdown({
       {result.progressPercent !== null && result.currentRobux !== null ? (
         <div>
           <div className="flex flex-wrap items-center justify-between gap-2">
-            <p className="font-semibold text-[--color-text]">
+            <p className="font-semibold text-(--color-text)">
               {result.progressPercent}% of the way there
             </p>
             <Badge tone={result.remainingRobux === 0n ? "success" : "info"}>
@@ -387,10 +387,10 @@ export function TargetBreakdown({
             aria-valuemin={0}
             aria-valuemax={100}
             aria-label="Progress toward your payout target"
-            className="mt-2 h-2.5 w-full overflow-hidden rounded-full bg-[--color-border]"
+            className="mt-2 h-2.5 w-full overflow-hidden rounded-full bg-(--color-border)"
           >
             <div
-              className="h-full rounded-full bg-[--color-primary] transition-[width]"
+              className="h-full rounded-full bg-(--color-primary) transition-[width]"
               style={{ width: `${result.progressPercent}%` }}
             />
           </div>
@@ -426,7 +426,7 @@ export function FxNote({
 
   if (status === "loading") {
     return (
-      <p className="text-xs text-[--color-text-muted]" aria-live="polite">
+      <p className="text-xs text-(--color-text-muted)" aria-live="polite">
         Loading reference rates…
       </p>
     );
@@ -436,7 +436,7 @@ export function FxNote({
     return (
       <p
         role="status"
-        className="rounded-[--radius-control] border border-[--color-border] border-l-4 border-l-[--color-warning] bg-[--color-surface] p-3 text-xs text-[--color-text-muted]"
+        className="rounded-(--radius-control) border border-(--color-border) border-l-4 border-l-(--color-warning) bg-(--color-surface) p-3 text-xs text-(--color-text-muted)"
       >
         {error ??
           "Local-currency estimates are temporarily unavailable."}{" "}
@@ -446,9 +446,9 @@ export function FxNote({
   }
 
   return (
-    <div className="text-xs text-[--color-text-muted]">
+    <div className="text-xs text-(--color-text-muted)">
       {rates.stale ? (
-        <p className="mb-1 font-semibold text-[--color-warning]">
+        <p className="mb-1 font-semibold text-(--color-warning)">
           Stale rates. {rates.staleReason}
         </p>
       ) : null}

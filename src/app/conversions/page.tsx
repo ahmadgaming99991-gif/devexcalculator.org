@@ -77,15 +77,15 @@ export default async function ConversionsPage({
                   <li key={definition.amount}>
                     <Link
                       href={amountPageRoute(definition.amount)}
-                      className="flex h-full flex-col rounded-[--radius-control] border border-[--color-border] bg-[--color-surface] p-4 hover:border-[--color-primary] hover:bg-[--color-surface-subtle]"
+                      className="flex h-full flex-col rounded-(--radius-control) border border-(--color-border) bg-(--color-surface) p-4 hover:border-(--color-primary) hover:bg-(--color-surface-subtle)"
                     >
-                      <span className="font-semibold text-[--color-text]">
+                      <span className="font-semibold text-(--color-text)">
                         {values.display} Robux
                       </span>
-                      <span className="tabular mt-1 text-lg font-bold text-[--color-primary]">
+                      <span className="tabular mt-1 text-lg font-bold text-(--color-primary)">
                         {values.standardUsd}
                       </span>
-                      <span className="mt-1 text-xs text-[--color-text-muted]">
+                      <span className="mt-1 text-xs text-(--color-text-muted)">
                         {values.meetsMinimum
                           ? `${values.multipleOfMinimum}× the DevEx minimum`
                           : "Below the DevEx minimum"}
@@ -95,7 +95,7 @@ export default async function ConversionsPage({
                 );
               })}
             </ul>
-            <p className="mt-4 text-sm text-[--color-text-muted]">
+            <p className="mt-4 text-sm text-(--color-text-muted)">
               This list is deliberately short. A page for every number would be a
               page that says nothing new, which is both unhelpful and against
               search-quality guidance. Amounts are added only when they clear a
@@ -112,7 +112,7 @@ export default async function ConversionsPage({
             heading="How these figures are rounded"
             description="Displayed to the cent, calculated with more precision than that."
           >
-            <p className="text-[--color-text-muted]">
+            <p className="text-(--color-text-muted)">
               Each figure is Robux multiplied by an exact decimal rate, held as a
               fraction throughout and rounded to the cent only when it is
               printed. Nothing is rounded partway through, so a total never

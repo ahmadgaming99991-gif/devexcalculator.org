@@ -115,11 +115,11 @@ export function MarketplaceCalculator() {
         role="tabpanel"
         aria-labelledby={`mode-tab-${mode}`}
         tabIndex={0}
-        className="mt-5 grid gap-6 lg:grid-cols-2"
+        className="mt-5 grid min-w-0 gap-6 lg:grid-cols-2"
       >
-        <div className="flex flex-col gap-5">
+        <div className="flex min-w-0 flex-col gap-5">
           <div>
-            <label htmlFor={schemeSelectId} className="block text-sm font-semibold text-[--color-text]">
+            <label htmlFor={schemeSelectId} className="block text-sm font-semibold text-(--color-text)">
               What are you selling?
             </label>
             <select
@@ -127,7 +127,7 @@ export function MarketplaceCalculator() {
               value={schemeId}
               onChange={(event) => setSchemeId(event.target.value)}
               aria-describedby={`${schemeSelectId}-note`}
-              className="control mt-1.5 min-h-[52px] w-full rounded-[--radius-control] border border-[--color-border-strong] bg-[--color-surface] px-3 py-2.5 text-[--color-text]"
+              className="control mt-1.5 min-h-[52px] w-full rounded-(--radius-control) border border-(--color-border-strong) bg-(--color-surface) px-3 py-2.5 text-(--color-text)"
             >
               {marketplaceSchemes.map((entry) => (
                 <option key={entry.id} value={entry.id}>
@@ -135,7 +135,7 @@ export function MarketplaceCalculator() {
                 </option>
               ))}
             </select>
-            <p id={`${schemeSelectId}-note`} className="mt-1.5 text-xs text-[--color-text-muted]">
+            <p id={`${schemeSelectId}-note`} className="mt-1.5 text-xs text-(--color-text-muted)">
               {scheme?.description}
             </p>
           </div>
@@ -154,7 +154,7 @@ export function MarketplaceCalculator() {
 
           {isProgressive ? (
             <div>
-              <label htmlFor={multipleId} className="block text-sm font-semibold text-[--color-text]">
+              <label htmlFor={multipleId} className="block text-sm font-semibold text-(--color-text)">
                 Price as a multiple of the price floor
               </label>
               <input
@@ -164,9 +164,9 @@ export function MarketplaceCalculator() {
                 value={multiple}
                 onChange={(event) => setMultiple(event.target.value)}
                 aria-describedby={`${multipleId}-note`}
-                className="control numeric-display mt-1.5 min-h-[52px] w-full rounded-[--radius-control] border border-[--color-border-strong] bg-[--color-surface] px-3 py-2.5 text-[--color-text]"
+                className="control numeric-display mt-1.5 min-h-[52px] w-full rounded-(--radius-control) border border-(--color-border-strong) bg-(--color-surface) px-3 py-2.5 text-(--color-text)"
               />
-              <p id={`${multipleId}-note`} className="mt-1.5 text-xs text-[--color-text-muted]">
+              <p id={`${multipleId}-note`} className="mt-1.5 text-xs text-(--color-text-muted)">
                 Price floors differ by item category, so this asks for the
                 multiple rather than assuming one universal floor. An item priced
                 at six times its floor or above reaches the top tier.
@@ -175,7 +175,7 @@ export function MarketplaceCalculator() {
           ) : null}
         </div>
 
-        <div className="flex flex-col gap-5">
+        <div className="flex min-w-0 flex-col gap-5">
           <ResultSummary
             primaryLabel={mode === "after" ? "Robux you keep" : "Price to charge"}
             primaryValue={primaryValue}
@@ -247,7 +247,7 @@ export function MarketplaceCalculator() {
                           )}
                         </Td>
                       </tr>
-                      <tr className="bg-[--color-surface-subtle]">
+                      <tr className="bg-(--color-surface-subtle)">
                         <Th scope="row">Total</Th>
                         <Td numeric className="font-bold">
                           {formatRobux(afterFee.grossRobux)}
@@ -280,7 +280,7 @@ export function MarketplaceCalculator() {
 
           <p
             className={cx(
-              "rounded-[--radius-control] border border-[--color-border] border-l-4 border-l-[--color-accent] bg-[--color-surface] p-3 text-sm text-[--color-text-muted]",
+              "rounded-(--radius-control) border border-(--color-border) border-l-4 border-l-(--color-accent) bg-(--color-surface) p-3 text-sm text-(--color-text-muted)",
             )}
           >
             This commission is taken when the Robux are earned. Converting the

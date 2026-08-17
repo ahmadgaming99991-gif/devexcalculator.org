@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://devexcalculator.org/schemas/currencies.schema.json",
+  "title": "Supported currencies",
+  "description": "Validates src/data/currencies.json. A currency may be listed only if the configured FX provider actually publishes it at the required frequency.",
+  "type": "object",
+  "required": ["schemaVersion", "baseCurrency", "providerId", "note", "currencies"],
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": { "type": "integer", "const": 1 },
+    "baseCurrency": { "type": "string", "pattern": "^[A-Z]{3}$" },
+    "providerId": { "type": "string" },
+    "note": { "type": "string", "minLength": 20 },
+    "currencies": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["code", "name", "minorUnits", "isBase"],
+        "additionalProperties": false,
+        "properties": {
+          "code": { "type": "string", "pattern": "^[A-Z]{3}$" },
+          "name": { "type": "string", "minLength": 2 },
+          "minorUnits": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4,
+            "description": "Zero for currencies with no fractional unit, such as JPY and KRW."
+          },
+          "isBase": { "type": "boolean" }
+        }
+      }
+    }
+  }
+}

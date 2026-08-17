@@ -76,17 +76,17 @@ export default function DevexRequirementsPage() {
             heading={`The ${formatRobux(minimumEarnedRobux)} Earned Robux minimum`}
             description="The number everybody looks up first, and the one most often quoted out of date."
           >
-            <div className="rounded-[--radius-control] border border-[--color-border] bg-[--color-surface] p-4">
-              <p className="text-[--color-text-muted]">
+            <div className="rounded-(--radius-control) border border-(--color-border) bg-(--color-surface) p-4">
+              <p className="text-(--color-text-muted)">
                 {formatRobux(minimumEarnedRobux)} Earned Robux is the threshold
                 to submit a request. At the current standard rate that balance is
                 worth about{" "}
-                <strong className="text-[--color-text]">
+                <strong className="text-(--color-text)">
                   {formatCurrency(minimumPayout, "USD")}
                 </strong>{" "}
                 before any payment-provider fees or tax.
               </p>
-              <p className="mt-3 text-[--color-text-muted]">
+              <p className="mt-3 text-(--color-text-muted)">
                 The word that matters is <em>Earned</em>. Robux you bought do not
                 count toward it, and neither does gift card credit.{" "}
                 <InlineLink href="/earned-robux/">
@@ -119,7 +119,7 @@ export default function DevexRequirementsPage() {
             heading="Preparation checklist"
             description="Getting these in place before you apply avoids the obvious delays."
           >
-            <ol className="flex list-decimal flex-col gap-3 pl-5 text-[--color-text-muted]">
+            <ol className="flex list-decimal flex-col gap-3 pl-5 text-(--color-text-muted)">
               <li>
                 Confirm your balance is genuinely Earned Robux and has reached{" "}
                 {formatRobux(minimumEarnedRobux)}.
@@ -154,12 +154,12 @@ export default function DevexRequirementsPage() {
               {MISUNDERSTANDINGS.map((item) => (
                 <div
                   key={item.claim}
-                  className="rounded-[--radius-control] border border-[--color-border] bg-[--color-surface] p-4"
+                  className="rounded-(--radius-control) border border-(--color-border) bg-(--color-surface) p-4"
                 >
-                  <p className="text-sm font-semibold text-[--color-warning]">
+                  <p className="text-sm font-semibold text-(--color-warning)">
                     &ldquo;{item.claim}&rdquo;
                   </p>
-                  <p className="mt-1.5 text-sm text-[--color-text-muted]">{item.reality}</p>
+                  <p className="mt-1.5 text-sm text-(--color-text-muted)">{item.reality}</p>
                 </div>
               ))}
             </div>

@@ -85,7 +85,7 @@ export default async function FeesAndTaxesPage({
             heading="Payment-provider fees"
             description="The one deduction you can find out in advance, and probably should."
           >
-            <p className="text-[--color-text-muted]">
+            <p className="text-(--color-text-muted)">
               Fee structures vary by provider, country and payout method, so this
               page does not publish a table of them — any figure would be out of
               date or wrong for most readers. Check what your own provider
@@ -101,7 +101,7 @@ export default async function FeesAndTaxesPage({
             heading="Currency conversion"
             description="Why the figure on this site and the figure in your account differ."
           >
-            <p className="text-[--color-text-muted]">
+            <p className="text-(--color-text-muted)">
               Local-currency estimates here use European Central Bank reference
               rates, published once each working day. They are a reference, not a
               quote: no bank trades at them. Your provider will apply its own
@@ -120,7 +120,7 @@ export default async function FeesAndTaxesPage({
             heading="Income tax"
             description="The part this site deliberately will not answer for you."
           >
-            <p className="text-[--color-text-muted]">
+            <p className="text-(--color-text-muted)">
               There is no universal percentage, and publishing one would be
               actively harmful — a creator in one country could plan around a
               figure that is wrong for them by a factor of two. What this site
@@ -128,7 +128,7 @@ export default async function FeesAndTaxesPage({
               to the real payout figure, so the arithmetic is done for you even
               though the rate is yours.
             </p>
-            <p className="mt-3 text-[--color-text-muted]">
+            <p className="mt-3 text-(--color-text-muted)">
               A practical note that is not advice: the tax is generally owed on
               the income, not on what is left after fees, and it is usually owed
               in the year the payout is received rather than the year the Robux
@@ -149,7 +149,7 @@ export default async function FeesAndTaxesPage({
             heading="Not to be confused with the marketplace fee"
             description="The 30% platform commission is a different thing at a different point in time."
           >
-            <p className="text-[--color-text-muted]">
+            <p className="text-(--color-text-muted)">
               Roblox takes 30% when a player spends Robux in your experience —
               you receive 70%, and that 70% is what becomes Earned Robux. DevEx
               then converts those Earned Robux. The commission is not applied a

@@ -89,7 +89,7 @@ export default function DevexRatesPage() {
                 </tbody>
               </Table>
             </TableWrapper>
-            <p className="mt-3 text-sm text-[--color-text-muted]">
+            <p className="mt-3 text-sm text-(--color-text-muted)">
               <InlineLink href="/">Use the calculator for any other amount</InlineLink>, or{" "}
               <InlineLink href="/conversions/">browse more amounts in the conversion hub</InlineLink>.
             </p>
@@ -105,14 +105,14 @@ export default function DevexRatesPage() {
                 <DefinitionBlock key={rate.id} term={rate.label}>
                   {rate.eligibilitySummary}
                   {rate.conditionNote ? (
-                    <span className="mt-2 block font-medium text-[--color-text]">
+                    <span className="mt-2 block font-medium text-(--color-text)">
                       {rate.conditionNote}
                     </span>
                   ) : null}
                 </DefinitionBlock>
               ))}
             </div>
-            <p className="mt-4 text-sm text-[--color-text-muted]">
+            <p className="mt-4 text-sm text-(--color-text-muted)">
               A single balance can span more than one rate — Robux earned before
               and after the September 2025 transition are treated separately, and
               Roblox cashes the older portion out first.{" "}
@@ -128,8 +128,8 @@ export default function DevexRatesPage() {
             heading="Compare the rates for your amount"
             description="Enter any amount on the calculator to see all three side by side."
           >
-            <div className="rounded-[--radius-control] border border-[--color-border] bg-[--color-surface] p-4">
-              <p className="text-sm text-[--color-text-muted]">
+            <div className="rounded-(--radius-control) border border-(--color-border) bg-(--color-surface) p-4">
+              <p className="text-sm text-(--color-text-muted)">
                 The gap between the current and legacy rates is{" "}
                 {formatCurrency(
                   Rational.fromInt(100_000).mul(standard).sub(
@@ -152,7 +152,7 @@ export default function DevexRatesPage() {
             heading="Rates can change"
             description="They have before, and this page records only what is currently documented."
           >
-            <p className="text-[--color-text-muted]">
+            <p className="text-(--color-text-muted)">
               Roblox moved the standard rate from 0.0035 to 0.0038 on{" "}
               {formatDate("2025-09-05T10:00:00-07:00")}. There is no way to know
               from outside Roblox whether or when it will change again, so this
@@ -161,7 +161,7 @@ export default function DevexRatesPage() {
               shown at the top of the page and in the{" "}
               <InlineLink href="/sources/">source registry</InlineLink>.
             </p>
-            <p className="mt-3 text-[--color-text-muted]">
+            <p className="mt-3 text-(--color-text-muted)">
               <InlineLink href="/devex-rate-history/">
                 See the dated history of rate changes
               </InlineLink>{" "}

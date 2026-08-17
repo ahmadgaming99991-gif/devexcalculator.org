@@ -100,21 +100,21 @@ export default function ChangelogPage() {
                 return (
                   <li
                     key={`${entry.date}-${index}`}
-                    className="rounded-[--radius-card] border border-[--color-border] bg-[--color-surface] p-5"
+                    className="rounded-(--radius-card) border border-(--color-border) bg-(--color-surface) p-5"
                   >
                     <div className="flex flex-wrap items-center gap-2">
                       <Badge tone={kind.tone}>{kind.label}</Badge>
                       <time
                         dateTime={entry.date}
-                        className="text-sm font-medium text-[--color-text-muted]"
+                        className="text-sm font-medium text-(--color-text-muted)"
                       >
                         {formatDate(entry.date)}
                       </time>
                     </div>
-                    <h3 className="mt-2 text-base font-semibold text-[--color-text]">
+                    <h3 className="mt-2 text-base font-semibold text-(--color-text)">
                       {entry.title}
                     </h3>
-                    <p className="mt-1.5 text-sm text-[--color-text-muted]">{entry.detail}</p>
+                    <p className="mt-1.5 text-sm text-(--color-text-muted)">{entry.detail}</p>
                     {entry.sourceUrl && entry.sourceLabel ? (
                       <p className="mt-2 text-sm">
                         <SourceLink href={entry.sourceUrl}>{entry.sourceLabel}</SourceLink>
@@ -131,14 +131,14 @@ export default function ChangelogPage() {
             heading="What gets recorded here"
             description="This changelog tracks what this site did. What Roblox did is tracked separately."
           >
-            <p className="text-[--color-text-muted]">
+            <p className="text-(--color-text-muted)">
               Any change to a published rate, minimum or fee percentage appears
               here with its date and source. So does any correction to a figure
               that turned out to be wrong — those are not quietly edited away.
               Routine content edits and typo fixes are not listed, because a
               changelog that records everything records nothing useful.
             </p>
-            <p className="mt-3 text-[--color-text-muted]">
+            <p className="mt-3 text-(--color-text-muted)">
               For the history of the DevEx rate itself, including the September
               2025 change,{" "}
               <InlineLink href="/devex-rate-history/">

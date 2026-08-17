@@ -76,11 +76,11 @@ export default async function UsdToRobuxPage({
             heading="Why the answer rounds up"
             description="Rounding down would leave you a fraction of a cent short of your own target, every time."
           >
-            <div className="rounded-[--radius-control] border border-[--color-border] bg-[--color-surface] p-4">
-              <p className="numeric-display text-sm text-[--color-text]">
+            <div className="rounded-(--radius-control) border border-(--color-border) bg-(--color-surface) p-4">
+              <p className="numeric-display text-sm text-(--color-text)">
                 required Earned Robux = ceiling( target USD ÷ rate per Robux )
               </p>
-              <p className="mt-3 text-sm text-[--color-text-muted]">
+              <p className="mt-3 text-sm text-(--color-text-muted)">
                 A 1,000 dollar target divided by 0.0038 gives 263,157.89. Robux
                 come in whole units, so 263,157 would pay{" "}
                 {formatCurrency(Rational.of(263_157n).mul(rate), "USD")} — just
@@ -128,7 +128,7 @@ export default async function UsdToRobuxPage({
                   {rows.map((row) => (
                     <tr key={row.target}>
                       <Th scope="row">{formatCurrency(row.targetUsd, "USD")}</Th>
-                      <Td numeric className="text-[--color-text-muted]">
+                      <Td numeric className="text-(--color-text-muted)">
                         {row.exact.toFixed(2)}
                       </Td>
                       <Td numeric className="font-semibold">
@@ -136,11 +136,11 @@ export default async function UsdToRobuxPage({
                       </Td>
                       <Td>
                         {row.belowMinimum ? (
-                          <span className="text-[--color-warning]">
+                          <span className="text-(--color-warning)">
                             Yes — you would need {formatRobux(row.effective)}
                           </span>
                         ) : (
-                          <span className="text-[--color-text-muted]">No</span>
+                          <span className="text-(--color-text-muted)">No</span>
                         )}
                       </Td>
                     </tr>
@@ -155,7 +155,7 @@ export default async function UsdToRobuxPage({
             heading="This is not about buying Robux"
             description="The reverse direction has a very different answer depending on who is asking."
           >
-            <p className="text-[--color-text-muted]">
+            <p className="text-(--color-text-muted)">
               This page answers the creator question: how much do I need to earn
               to receive a given amount of money. It does not tell you how many
               Robux a given amount of money will buy. Roblox prices Robux

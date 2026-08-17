@@ -33,18 +33,18 @@ export function QuickAnswer({
   jumpLabel?: string;
 }) {
   return (
-    <Card tone="subtle" className="border-l-4 border-l-[--color-primary]">
-      <h2 className="text-xs font-semibold uppercase tracking-wide text-[--color-text-muted]">
+    <Card tone="subtle" className="border-l-4 border-l-(--color-primary)">
+      <h2 className="text-xs font-semibold uppercase tracking-wide text-(--color-text-muted)">
         In short
       </h2>
-      <p className="mt-2 text-base leading-relaxed text-[--color-text] sm:text-lg">
+      <p className="mt-2 text-base leading-relaxed text-(--color-text) sm:text-lg">
         {children}
       </p>
       {jumpTo ? (
         <p className="mt-3">
           <a
             href={`#${jumpTo}`}
-            className="text-sm font-semibold text-[--color-primary] underline underline-offset-2"
+            className="text-sm font-semibold text-(--color-primary) underline underline-offset-2"
           >
             {jumpLabel}
           </a>
@@ -115,21 +115,21 @@ export function SourceNote({
 
   return (
     <Card tone="subtle" className={cx("text-sm", className)}>
-      <h2 className="text-xs font-semibold uppercase tracking-wide text-[--color-text-muted]">
+      <h2 className="text-xs font-semibold uppercase tracking-wide text-(--color-text-muted)">
         {heading}
       </h2>
       <ul className="mt-2 flex flex-col gap-2">
         {sources.map((source) => (
           <li key={source.id}>
             <SourceLink href={source.url}>{source.title}</SourceLink>
-            <span className="text-[--color-text-muted]">
+            <span className="text-(--color-text-muted)">
               {" "}
               — {source.publisher}. Checked {formatDate(source.lastCheckedAt)}.
             </span>
           </li>
         ))}
       </ul>
-      <p className="mt-3 text-xs text-[--color-text-muted]">
+      <p className="mt-3 text-xs text-(--color-text-muted)">
         Rates and requirements change.{" "}
         <InlineLink href="/sources/">See every source and its review cadence</InlineLink>, or{" "}
         <InlineLink href="/corrections/">report something that is out of date</InlineLink>.
@@ -170,7 +170,7 @@ export function EarnedRobuxNote({ className }: { className?: string }) {
 
 export function MethodologyNote({ className }: { className?: string }) {
   return (
-    <p className={cx("text-sm text-[--color-text-muted]", className)}>
+    <p className={cx("text-sm text-(--color-text-muted)", className)}>
       Calculations use exact decimal arithmetic and round only at the point of
       display; required-Robux figures always round up.{" "}
       <InlineLink href="/methodology/">Read the full methodology</InlineLink>.
@@ -187,8 +187,8 @@ export function LimitationsNote({
 }) {
   return (
     <Card tone="subtle" className={className}>
-      <h2 className="text-sm font-semibold text-[--color-text]">What this does not cover</h2>
-      <ul className="mt-2 flex list-disc flex-col gap-1.5 pl-5 text-sm text-[--color-text-muted]">
+      <h2 className="text-sm font-semibold text-(--color-text)">What this does not cover</h2>
+      <ul className="mt-2 flex list-disc flex-col gap-1.5 pl-5 text-sm text-(--color-text-muted)">
         {items.map((item) => (
           <li key={item}>{item}</li>
         ))}
@@ -213,13 +213,13 @@ export function DefinitionBlock({
   return (
     <div
       className={cx(
-        "rounded-[--radius-control] border border-[--color-border] bg-[--color-surface] p-4",
+        "rounded-(--radius-control) border border-(--color-border) bg-(--color-surface) p-4",
         className,
       )}
     >
       <dl>
-        <dt className="text-sm font-semibold text-[--color-text]">{term}</dt>
-        <dd className="mt-1 text-sm leading-relaxed text-[--color-text-muted]">{children}</dd>
+        <dt className="text-sm font-semibold text-(--color-text)">{term}</dt>
+        <dd className="mt-1 text-sm leading-relaxed text-(--color-text-muted)">{children}</dd>
       </dl>
     </div>
   );
@@ -252,7 +252,7 @@ export function FAQAccordion({
     <section id={id} className="scroll-mt-24" aria-labelledby={`${id}-heading`}>
       <h2
         id={`${id}-heading`}
-        className="text-xl font-semibold tracking-tight text-[--color-text] sm:text-2xl"
+        className="text-xl font-semibold tracking-tight text-(--color-text) sm:text-2xl"
       >
         {heading}
       </h2>
@@ -286,8 +286,8 @@ export function TableOfContents({ sections }: { sections: readonly SectionRef[] 
   if (sections.length < 3) return null;
 
   return (
-    <nav aria-labelledby="toc-heading" className="rounded-[--radius-control] border border-[--color-border] bg-[--color-surface] p-4">
-      <h2 id="toc-heading" className="text-xs font-semibold uppercase tracking-wide text-[--color-text-muted]">
+    <nav aria-labelledby="toc-heading" className="rounded-(--radius-control) border border-(--color-border) bg-(--color-surface) p-4">
+      <h2 id="toc-heading" className="text-xs font-semibold uppercase tracking-wide text-(--color-text-muted)">
         On this page
       </h2>
       <ol className="mt-2 flex flex-col gap-1.5 text-sm">
@@ -295,7 +295,7 @@ export function TableOfContents({ sections }: { sections: readonly SectionRef[] 
           <li key={section.id}>
             <a
               href={`#${section.id}`}
-              className="text-[--color-primary] hover:underline"
+              className="text-(--color-primary) hover:underline"
             >
               {section.heading}
             </a>
@@ -337,7 +337,7 @@ export function RelatedLinks({
     <section id={id} className="scroll-mt-24" aria-labelledby={`${id}-heading`}>
       <h2
         id={`${id}-heading`}
-        className="text-xl font-semibold tracking-tight text-[--color-text] sm:text-2xl"
+        className="text-xl font-semibold tracking-tight text-(--color-text) sm:text-2xl"
       >
         {heading}
       </h2>
@@ -346,10 +346,10 @@ export function RelatedLinks({
           <li key={link.route}>
             <Link
               href={link.route}
-              className="flex h-full flex-col rounded-[--radius-control] border border-[--color-border] bg-[--color-surface] p-4 hover:border-[--color-primary] hover:bg-[--color-surface-subtle]"
+              className="flex h-full flex-col rounded-(--radius-control) border border-(--color-border) bg-(--color-surface) p-4 hover:border-(--color-primary) hover:bg-(--color-surface-subtle)"
             >
-              <span className="font-semibold text-[--color-text]">{target.navLabel}</span>
-              <span className="mt-1 text-sm text-[--color-text-muted]">{link.anchor}</span>
+              <span className="font-semibold text-(--color-text)">{target.navLabel}</span>
+              <span className="mt-1 text-sm text-(--color-text-muted)">{link.anchor}</span>
             </Link>
           </li>
         ))}
@@ -370,10 +370,10 @@ export function PageHeader({
 }) {
   return (
     <div className="mb-6">
-      <h1 className="text-2xl font-bold tracking-tight text-[--color-text] sm:text-3xl lg:text-4xl">
+      <h1 className="text-2xl font-bold tracking-tight text-(--color-text) sm:text-3xl lg:text-4xl">
         {record.h1}
       </h1>
-      <p className="mt-3 max-w-2xl text-base text-[--color-text-muted] sm:text-lg">{intro}</p>
+      <p className="mt-3 max-w-2xl text-base text-(--color-text-muted) sm:text-lg">{intro}</p>
       {record.rateSensitive ? (
         <div className="mt-4">
           <TrustStrip />

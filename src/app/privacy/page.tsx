@@ -44,17 +44,17 @@ export default function PrivacyPage() {
         <div className="flex flex-col gap-10">
           <QuickAnswer>{record.quickAnswer}</QuickAnswer>
 
-          <p className="text-sm text-[--color-text-muted]">
+          <p className="text-sm text-(--color-text-muted)">
             Last reviewed {formatDate(record.lastReviewedAt)}.
           </p>
 
           <Section id="calculations" heading="Your calculations">
-            <p className="text-[--color-text-muted]">
+            <p className="text-(--color-text-muted)">
               Every calculation runs in your browser. The amounts you type, the
               rate you select and the results are never transmitted to a server,
               because the arithmetic does not need a server to happen.
             </p>
-            <p className="mt-3 text-[--color-text-muted]">
+            <p className="mt-3 text-(--color-text-muted)">
               One consequence worth understanding: when you use the share button,
               your figures are placed in the URL. That link is safe to share —
               it contains an amount and a rate, nothing about you — but it is
@@ -64,17 +64,17 @@ export default function PrivacyPage() {
           </Section>
 
           <Section id="local-storage" heading="Local storage">
-            <p className="text-[--color-text-muted]">
+            <p className="text-(--color-text-muted)">
               With your action, this site stores a few things in your own
               browser&rsquo;s local storage:
             </p>
-            <ul className="mt-3 flex list-disc flex-col gap-2 pl-5 text-[--color-text-muted]">
+            <ul className="mt-3 flex list-disc flex-col gap-2 pl-5 text-(--color-text-muted)">
               <li>Your preferred display currency</li>
               <li>Your colour theme choice, if you change it</li>
               <li>Whether you had the fee and tax controls open</li>
               <li>Calculations you explicitly chose to save, up to ten</li>
             </ul>
-            <p className="mt-3 text-[--color-text-muted]">
+            <p className="mt-3 text-(--color-text-muted)">
               None of it leaves your device. There is no account, nothing is
               synced, and clearing your browser data removes all of it. The
               calculator also has a <strong>Clear history</strong> button that
@@ -87,27 +87,27 @@ export default function PrivacyPage() {
           <Section id="analytics" heading="Analytics">
             {isAnalyticsEnabled ? (
               <>
-                <p className="text-[--color-text-muted]">
+                <p className="text-(--color-text-muted)">
                   This deployment has analytics enabled:
                 </p>
-                <ul className="mt-3 flex list-disc flex-col gap-2 pl-5 text-[--color-text-muted]">
+                <ul className="mt-3 flex list-disc flex-col gap-2 pl-5 text-(--color-text-muted)">
                   {analyticsConfig.cloudflareToken ? (
                     <li>
-                      <strong className="text-[--color-text]">Cloudflare Web Analytics</strong> —
+                      <strong className="text-(--color-text)">Cloudflare Web Analytics</strong> —
                       cookieless, and records page views rather than individuals.
                       No consent prompt is shown because no cookie is set.
                     </li>
                   ) : null}
                   {analyticsConfig.ga4Id ? (
                     <li>
-                      <strong className="text-[--color-text]">Google Analytics 4</strong> — sets
+                      <strong className="text-(--color-text)">Google Analytics 4</strong> — sets
                       cookies, so it loads only after you accept the prompt. It
                       starts in a denied state and stays there unless you choose
                       otherwise.
                     </li>
                   ) : null}
                 </ul>
-                <p className="mt-3 text-[--color-text-muted]">
+                <p className="mt-3 text-(--color-text-muted)">
                   Calculator values are never sent to analytics. Which pages are
                   visited is useful; how much Robux you hold is not our business.
                 </p>
@@ -125,7 +125,7 @@ export default function PrivacyPage() {
           <Section id="contact" heading="Contact submissions">
             {contactEnabled ? (
               <>
-                <p className="text-[--color-text-muted]">
+                <p className="text-(--color-text-muted)">
                   If you send a message through the contact form, the name, email
                   address, subject and message you enter are transmitted to this
                   site&rsquo;s server and forwarded to the configured destination so it
@@ -133,7 +133,7 @@ export default function PrivacyPage() {
                   message content is not written to server logs.
                 </p>
                 {isTurnstileEnabled ? (
-                  <p className="mt-3 text-[--color-text-muted]">
+                  <p className="mt-3 text-(--color-text-muted)">
                     The form is protected by Cloudflare Turnstile, which checks
                     that a submission comes from a person rather than a script.
                     Turnstile is provided by Cloudflare and processes a token
@@ -150,21 +150,21 @@ export default function PrivacyPage() {
           </Section>
 
           <Section id="infrastructure" heading="Hosting and server logs">
-            <p className="text-[--color-text-muted]">
+            <p className="text-(--color-text-muted)">
               This site runs on Cloudflare Workers. As with any web host,
               Cloudflare processes the requests needed to serve pages, which
               involves your IP address and browser user agent, and it applies its
               own network-level security handling. That processing is governed by
               Cloudflare&rsquo;s own privacy terms rather than by this site.
             </p>
-            <p className="mt-3 text-[--color-text-muted]">
+            <p className="mt-3 text-(--color-text-muted)">
               This site does not operate a database. There is nowhere for personal
               data to accumulate because no such store exists.
             </p>
           </Section>
 
           <Section id="external" heading="External links">
-            <p className="text-[--color-text-muted]">
+            <p className="text-(--color-text-muted)">
               Pages here link to official Roblox documentation, to the European
               Central Bank, and to other sources listed in the{" "}
               <InlineLink href="/sources/">source registry</InlineLink>. Following
@@ -174,7 +174,7 @@ export default function PrivacyPage() {
           </Section>
 
           <Section id="rights" heading="Your choices">
-            <ul className="flex list-disc flex-col gap-2 pl-5 text-[--color-text-muted]">
+            <ul className="flex list-disc flex-col gap-2 pl-5 text-(--color-text-muted)">
               <li>
                 Clear saved calculations at any time with the Clear history button
                 in the calculator.

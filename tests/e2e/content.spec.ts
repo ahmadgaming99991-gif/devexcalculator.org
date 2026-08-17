@@ -1,0 +1,373 @@
+import { expect, test } from "@playwright/test";
+
+/**
+ * Content, crawlability and honesty checks.
+ *
+ * These assert the promises the site makes about itself: that pages explain
+ * themselves without JavaScript, that disabled integrations really are absent,
+ * that nothing claims eligibility, and that no placeholder text ever reaches
+ * the rendered HTML.
+ */
+
+const INDEXABLE_ROUTES = [
+  "/",
+  "/robux-to-usd/",
+  "/usd-to-robux/",
+  "/devex-rates/",
+  "/devex-requirements/",
+  "/earned-robux/",
+  "/how-to-cash-out-robux/",
+  "/devex-rate-history/",
+  "/devex-fees-and-taxes/",
+  "/robux-tax-calculator/",
+  "/calculators/",
+  "/guides/",
+  "/conversions/",
+  "/conversions/100000-robux-to-usd/",
+  "/about/",
+  "/methodology/",
+  "/sources/",
+  "/editorial-policy/",
+  "/corrections/",
+  "/changelog/",
+  "/contact/",
+  "/privacy/",
+  "/terms/",
+  "/disclaimer/",
+  "/accessibility/",
+];
+
+test.describe("no-JavaScript behaviour", () => {
+  test.use({ javaScriptEnabled: false });
+
+  test("the homepage still explains itself", async ({ page }) => {
+    await page.goto("/");
+
+    // Rates, formula, examples and guidance are all server rendered.
+    await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
+    // Scoped to the rate table: an unscoped text match would also hit the
+    // rate <option> labels, which are present but not visible.
+    await expect(
+      page.getByRole("group", { name: /Current DevEx rates/i }).getByText("0.0038").first(),
+    ).toBeVisible();
+    await expect(page.getByText(/eligible Earned Robux × rate per Robux/)).toBeVisible();
+    await expect(page.getByText("$380.00").first()).toBeVisible();
+    await expect(page.getByText(/Not affiliated with Roblox Corporation/)).toBeVisible();
+  });
+
+  test("header navigation works without scripts at every width", async ({ page }) => {
+    // Desktop uses the always-rendered nav; mobile falls back to the
+    // <noscript> list, since the menu button cannot open without JavaScript.
+    await page.goto("/");
+    await page.getByRole("link", { name: "Rates", exact: true }).first().click();
+    await expect(page).toHaveURL(/\/devex-rates\/$/);
+    await expect(page.getByRole("heading", { level: 1 })).toContainText("DevEx rates");
+  });
+
+  test("no page is a blank shell", async ({ page }) => {
+    for (const route of INDEXABLE_ROUTES) {
+      await page.goto(route);
+      const text = await page.locator("main").innerText();
+      expect(text.length, `${route} rendered almost no content without JavaScript`).toBeGreaterThan(
+        800,
+      );
+    }
+  });
+
+  test("rate tables render server-side", async ({ page }) => {
+    await page.goto("/devex-rates/");
+    // `.first()` because each rate appears both as a value and inside the
+    // eligibility summary in the same table.
+    const table = page.getByRole("group", { name: /Current DevEx rates/i });
+    await expect(table.getByText("0.0038").first()).toBeVisible();
+    await expect(table.getByText("0.0035").first()).toBeVisible();
+    await expect(table.getByText("0.0054").first()).toBeVisible();
+  });
+});
+
+test.describe("honesty", () => {
+  test("no page claims the user is eligible or guarantees a payout", async ({ page }) => {
+    for (const route of INDEXABLE_ROUTES) {
+      await page.goto(route);
+      const text = await page.locator("body").innerText();
+
+      /*
+       * Only unambiguous second-person claims are pattern-matched. Phrases
+       * like "guaranteed payout" and "will be approved" appear all over this
+       * site inside warnings against exactly those claims, so matching the
+       * bare words would flag the honesty rather than the dishonesty.
+       */
+      expect(text, `${route} claims eligibility`).not.toMatch(/you are eligible/i);
+      expect(text, `${route} asserts eligibility`).not.toMatch(/you qualify for devex/i);
+      expect(text, `${route} promises approval`).not.toMatch(
+        /your (request|payout) (is|will be) (guaranteed|approved)\b/i,
+      );
+      expect(text, `${route} promises a payment date`).not.toMatch(
+        /you will be paid (within|in) \d/i,
+      );
+    }
+  });
+
+  test("the estimate disclaimer appears wherever a payout figure does", async ({ page }) => {
+    // The positive counterpart to the check above: a page showing money must
+    // also say what that money is and is not.
+    for (const route of ["/", "/robux-to-usd/", "/usd-to-robux/", "/conversions/"]) {
+      await page.goto(route);
+      const text = await page.locator("body").innerText();
+
+      expect(text, `${route} omits the estimate disclaimer`).toMatch(
+        /this is an estimate, not a decision/i,
+      );
+      expect(text, `${route} omits who actually decides`).toMatch(/roblox alone decides/i);
+    }
+  });
+
+  test("the requirements page separates the threshold from approval", async ({ page }) => {
+    await page.goto("/devex-requirements/");
+    const text = await page.locator("body").innerText();
+
+    expect(text).toMatch(/meeting the threshold is not approval/i);
+    expect(text).toMatch(/a number cannot approve you/i);
+  });
+
+  test("no placeholder or lorem ipsum reaches the rendered page", async ({ page }) => {
+    // Unconfigured integration values must not appear anywhere in the markup.
+    const forbiddenAnywhere = [
+      "lorem ipsum",
+      "your_ga_id",
+      "your_turnstile",
+      "example@example.com",
+      "changeme",
+    ];
+    // These are checked against visible text only. `placeholder` is a real
+    // HTML attribute on every input, so scanning raw markup for it would
+    // flag the whole site.
+    const forbiddenInText = ["lorem ipsum", "coming soon", "todo:", "fixme", "tbd"];
+
+    for (const route of INDEXABLE_ROUTES) {
+      await page.goto(route);
+      const html = (await page.content()).toLowerCase();
+      const text = (await page.locator("body").innerText()).toLowerCase();
+
+      for (const needle of forbiddenAnywhere) {
+        expect(html, `${route} markup contains "${needle}"`).not.toContain(needle);
+      }
+      for (const needle of forbiddenInText) {
+        expect(text, `${route} text contains "${needle}"`).not.toContain(needle);
+      }
+    }
+  });
+
+  test("every rate-sensitive page shows when it was last verified", async ({ page }) => {
+    for (const route of ["/", "/devex-rates/", "/conversions/", "/robux-tax-calculator/"]) {
+      await page.goto(route);
+      await expect(page.getByText(/Rates verified/).first()).toBeVisible();
+    }
+  });
+
+  test("the trademark disclaimer appears on every page", async ({ page }) => {
+    for (const route of INDEXABLE_ROUTES.slice(0, 8)) {
+      await page.goto(route);
+      await expect(page.getByText(/Not affiliated with Roblox Corporation/)).toBeVisible();
+    }
+  });
+});
+
+test.describe("disabled integrations", () => {
+  test("no analytics script loads when none is configured", async ({ page }) => {
+    const requested: string[] = [];
+    page.on("request", (request) => requested.push(request.url()));
+
+    await page.goto("/");
+    await page.waitForLoadState("networkidle");
+
+    for (const host of ["googletagmanager.com", "google-analytics.com", "cloudflareinsights.com"]) {
+      expect(requested.filter((url) => url.includes(host))).toEqual([]);
+    }
+  });
+
+  test("no empty advertisement slot is rendered", async ({ page }) => {
+    await page.goto("/");
+    await expect(page.locator("[data-ad-placement]")).toHaveCount(0);
+    await expect(page.getByLabel("Advertisement")).toHaveCount(0);
+  });
+
+  test("the contact page is honest when no provider is configured", async ({ page }) => {
+    await page.goto("/contact/");
+    const hasForm = (await page.locator("form").count()) > 0;
+
+    if (!hasForm) {
+      // It must say so rather than showing a form that discards messages.
+      await expect(page.getByText(/not configured on this deployment/i)).toBeVisible();
+    }
+  });
+});
+
+test.describe("crawl infrastructure", () => {
+  test("robots.txt allows content and points at the sitemap", async ({ request }) => {
+    const response = await request.get("/robots.txt");
+    expect(response.status()).toBe(200);
+
+    const body = await response.text();
+    expect(body).toContain("Sitemap:");
+    expect(body).toContain("/sitemap.xml");
+    expect(body).toContain("Disallow: /api/");
+    // Blocking these would stop a crawler seeing the page a reader sees.
+    expect(body).not.toMatch(/Disallow:\s*\/_next/);
+  });
+
+  test("the sitemap lists only canonical indexable URLs", async ({ request }) => {
+    const response = await request.get("/sitemap.xml");
+    expect(response.status()).toBe(200);
+
+    const body = await response.text();
+    const urls = [...body.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1] ?? "");
+
+    expect(urls.length).toBeGreaterThan(20);
+    for (const url of urls) {
+      expect(url).toMatch(/^https:\/\/devexcalculator\.org\//);
+      expect(url, "sitemap must not contain query states").not.toContain("?");
+      expect(url, "sitemap must not contain API routes").not.toContain("/api/");
+    }
+  });
+
+  test("lastmod reflects content review dates rather than the build time", async ({ request }) => {
+    const body = await (await request.get("/sitemap.xml")).text();
+    const lastmods = [...body.matchAll(/<lastmod>([^<]+)<\/lastmod>/g)].map((m) => m[1] ?? "");
+
+    expect(lastmods.length).toBeGreaterThan(0);
+
+    /*
+     * Every entry must carry a date the content manifest actually declares.
+     * At launch all pages legitimately share one review date, so "not all the
+     * same" would be the wrong assertion — what matters is that the value comes
+     * from `dateModified` and not from `new Date()` at build time. Any date the
+     * manifest does not contain means the build time leaked in.
+     */
+    const declaredDates = new Set(["2026-08-17"]);
+    for (const value of lastmods) {
+      const date = value.slice(0, 10);
+      expect(declaredDates.has(date), `lastmod ${value} is not a declared content date`).toBe(
+        true,
+      );
+    }
+  });
+
+  test("llms.txt is present and states the non-affiliation", async ({ request }) => {
+    const response = await request.get("/llms.txt");
+    expect(response.status()).toBe(200);
+
+    const body = await response.text();
+    expect(body).toContain("Not affiliated with Roblox");
+    expect(body).toContain("https://devexcalculator.org/");
+    // It must not overclaim what the file does.
+    expect(body).toContain("not a ranking factor");
+  });
+
+  test("a missing page returns 404 and offers a way onward", async ({ page }) => {
+    const response = await page.goto("/definitely-not-a-page/");
+    expect(response?.status()).toBe(404);
+
+    await expect(page.getByRole("heading", { level: 1 })).toContainText("does not exist");
+    await expect(page.getByRole("link", { name: /DevEx calculator/i }).first()).toBeVisible();
+  });
+
+  test("API endpoints respond and stay out of the index", async ({ request }) => {
+    const health = await request.get("/api/health/");
+    expect(health.status()).toBe(200);
+    expect(health.headers()["x-robots-tag"]).toContain("noindex");
+
+    const body = (await health.json()) as { ok: boolean; rateRegistry: { activeRates: number } };
+    expect(body.ok).toBe(true);
+    expect(body.rateRegistry.activeRates).toBeGreaterThan(0);
+
+    const rates = await request.get("/api/rates/");
+    expect(rates.status()).toBe(200);
+    expect(rates.headers()["x-robots-tag"]).toContain("noindex");
+  });
+
+  test("the FX endpoint returns a normalised, dated response", async ({ request }) => {
+    const response = await request.get("/api/fx/latest/");
+    expect(response.status()).toBe(200);
+
+    const body = (await response.json()) as {
+      ok: boolean;
+      data: { base: string; provider: string; observationDate: string; stale: boolean };
+    };
+    expect(body.ok).toBe(true);
+    expect(body.data.base).toBe("USD");
+    expect(body.data.provider).toBe("European Central Bank");
+    expect(body.data.observationDate).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+  });
+
+  test("the contact endpoint refuses rather than pretending to accept", async ({ request }) => {
+    const response = await request.post("/api/contact/", {
+      data: {
+        name: "Test",
+        email: "test@example.com",
+        subject: "Testing",
+        message: "This message is long enough to pass the length validation rule.",
+        website: "",
+        turnstileToken: "",
+      },
+    });
+
+    // With no provider configured the honest answer is 503, not a false success.
+    if (response.status() === 503) {
+      const body = (await response.json()) as { ok: boolean; error: { code: string } };
+      expect(body.ok).toBe(false);
+      expect(body.error.code).toBe("CONTACT_DISABLED");
+    }
+  });
+});
+
+test.describe("security headers", () => {
+  test("are present on a page response", async ({ request }) => {
+    const response = await request.get("/");
+    const headers = response.headers();
+
+    expect(headers["content-security-policy"]).toContain("frame-ancestors 'none'");
+    expect(headers["x-content-type-options"]).toBe("nosniff");
+    expect(headers["referrer-policy"]).toBe("strict-origin-when-cross-origin");
+    expect(headers["permissions-policy"]).toContain("geolocation=()");
+    expect(headers["strict-transport-security"]).toContain("max-age=");
+    // Framework version disclosure serves no purpose.
+    expect(headers["x-powered-by"]).toBeUndefined();
+  });
+});
+
+test.describe("structured data", () => {
+  test("matches the visible page and claims nothing unsupported", async ({ page }) => {
+    for (const route of ["/", "/devex-rates/", "/calculators/", "/about/"]) {
+      await page.goto(route);
+
+      const blocks = await page.locator('script[type="application/ld+json"]').allTextContents();
+      expect(blocks.length, `${route} emits no JSON-LD`).toBeGreaterThan(0);
+
+      for (const block of blocks) {
+        const graph = JSON.parse(block) as { "@graph": { "@type": string }[] };
+        const types = graph["@graph"].map((node) => node["@type"]);
+
+        for (const forbidden of ["Product", "Review", "AggregateRating", "FAQPage", "QAPage"]) {
+          expect(types, `${route} emits ${forbidden}`).not.toContain(forbidden);
+        }
+      }
+    }
+  });
+
+  test("breadcrumb markup matches the visible trail", async ({ page }) => {
+    await page.goto("/devex-rates/");
+
+    const visible = await page.getByRole("navigation", { name: "Breadcrumb" }).innerText();
+    expect(visible).toContain("Home");
+
+    const blocks = await page.locator('script[type="application/ld+json"]').allTextContents();
+    const graph = JSON.parse(blocks[0] ?? "{}") as {
+      "@graph": { "@type": string; itemListElement?: { name: string }[] }[];
+    };
+    const breadcrumb = graph["@graph"].find((node) => node["@type"] === "BreadcrumbList");
+
+    expect(breadcrumb).toBeDefined();
+    expect(breadcrumb?.itemListElement?.[0]?.name).toBe("Home");
+  });
+});

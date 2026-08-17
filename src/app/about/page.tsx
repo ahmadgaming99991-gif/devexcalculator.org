@@ -27,7 +27,7 @@ export default function AboutPage() {
           <QuickAnswer>{record.quickAnswer}</QuickAnswer>
 
           <Section id="purpose" heading="What this site is for">
-            <div className="flex flex-col gap-3 text-[--color-text-muted]">
+            <div className="flex flex-col gap-3 text-(--color-text-muted)">
               <p>
                 A creator with a Robux balance wants to know one thing: what is
                 this actually worth. The answer is arithmetic, but getting it
@@ -49,30 +49,30 @@ export default function AboutPage() {
           </Section>
 
           <Section id="principles" heading="How it is built">
-            <ul className="flex flex-col gap-3 text-[--color-text-muted]">
+            <ul className="flex flex-col gap-3 text-(--color-text-muted)">
               <li>
-                <strong className="text-[--color-text]">Every rate has a source and a date.</strong>{" "}
+                <strong className="text-(--color-text)">Every rate has a source and a date.</strong>{" "}
                 Not &ldquo;current as of recently&rdquo; — a link to the official Roblox
                 documentation and the date it was last checked, shown on the page.
               </li>
               <li>
-                <strong className="text-[--color-text]">The arithmetic is exact.</strong>{" "}
+                <strong className="text-(--color-text)">The arithmetic is exact.</strong>{" "}
                 Money is calculated as exact fractions rather than floating-point
                 numbers, and rounded once, at the moment it is displayed.{" "}
                 <InlineLink href="/methodology/">The methodology explains why</InlineLink>.
               </li>
               <li>
-                <strong className="text-[--color-text]">The page works without JavaScript.</strong>{" "}
+                <strong className="text-(--color-text)">The page works without JavaScript.</strong>{" "}
                 Rates, formulas, examples and explanations are all server
                 rendered. Only live recalculation needs scripts.
               </li>
               <li>
-                <strong className="text-[--color-text]">Nothing is collected.</strong>{" "}
+                <strong className="text-(--color-text)">Nothing is collected.</strong>{" "}
                 Calculations run in your browser and are never sent anywhere.{" "}
                 <InlineLink href="/privacy/">The privacy policy is specific about this</InlineLink>.
               </li>
               <li>
-                <strong className="text-[--color-text]">Corrections are published.</strong>{" "}
+                <strong className="text-(--color-text)">Corrections are published.</strong>{" "}
                 When a figure here turns out to be wrong, the fix is recorded with
                 a date in the{" "}
                 <InlineLink href="/changelog/">changelog</InlineLink> rather than
@@ -82,7 +82,7 @@ export default function AboutPage() {
           </Section>
 
           <Section id="limits" heading="What it will not do">
-            <ul className="flex list-disc flex-col gap-2 pl-5 text-[--color-text-muted]">
+            <ul className="flex list-disc flex-col gap-2 pl-5 text-(--color-text-muted)">
               <li>
                 Tell you whether your DevEx request will be approved. Roblox
                 decides that, and no third party can predict it.

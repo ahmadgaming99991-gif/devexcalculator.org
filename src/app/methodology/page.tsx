@@ -89,13 +89,13 @@ export default function MethodologyPage() {
               {FORMULAS.map((entry) => (
                 <div
                   key={entry.label}
-                  className="rounded-[--radius-control] border border-[--color-border] bg-[--color-surface] p-4"
+                  className="rounded-(--radius-control) border border-(--color-border) bg-(--color-surface) p-4"
                 >
-                  <p className="text-sm font-semibold text-[--color-text]">{entry.label}</p>
-                  <p className="numeric-display mt-2 text-sm text-[--color-text]">
+                  <p className="text-sm font-semibold text-(--color-text)">{entry.label}</p>
+                  <p className="numeric-display mt-2 text-sm text-(--color-text)">
                     {entry.formula}
                   </p>
-                  <p className="mt-2 text-sm text-[--color-text-muted]">{entry.note}</p>
+                  <p className="mt-2 text-sm text-(--color-text-muted)">{entry.note}</p>
                 </div>
               ))}
             </div>
@@ -106,7 +106,7 @@ export default function MethodologyPage() {
             heading="Why exact arithmetic matters"
             description="This is not pedantry — it is the difference between a figure you can rely on and one that is nearly right."
           >
-            <div className="flex flex-col gap-3 text-[--color-text-muted]">
+            <div className="flex flex-col gap-3 text-(--color-text-muted)">
               <p>
                 A rate like 0.0038 cannot be represented exactly in binary
                 floating point, which is how JavaScript stores ordinary numbers.
@@ -137,24 +137,24 @@ export default function MethodologyPage() {
             heading="Rounding policy"
             description="Precision is dropped exactly once, and the direction is chosen deliberately in each case."
           >
-            <ul className="flex flex-col gap-3 text-[--color-text-muted]">
+            <ul className="flex flex-col gap-3 text-(--color-text-muted)">
               <li>
-                <strong className="text-[--color-text]">Money rounds half-up</strong> to the
+                <strong className="text-(--color-text)">Money rounds half-up</strong> to the
                 currency&rsquo;s own minor units — two decimal places for dollars, none
                 for yen or won.
               </li>
               <li>
-                <strong className="text-[--color-text]">Required Robux round up.</strong>{" "}
+                <strong className="text-(--color-text)">Required Robux round up.</strong>{" "}
                 Rounding to nearest would sometimes return a figure that falls
                 short of the target you asked for.
               </li>
               <li>
-                <strong className="text-[--color-text]">Marketplace shares round down.</strong>{" "}
+                <strong className="text-(--color-text)">Marketplace shares round down.</strong>{" "}
                 Better to under-promise what you keep than to show a figure a
                 Robux above what arrives.
               </li>
               <li>
-                <strong className="text-[--color-text]">Intermediate values are never rounded.</strong>{" "}
+                <strong className="text-(--color-text)">Intermediate values are never rounded.</strong>{" "}
                 Rounding a subtotal and then using it would let a displayed total
                 disagree with its own breakdown.
               </li>
@@ -166,7 +166,7 @@ export default function MethodologyPage() {
             heading="Local-currency estimates"
             description="Secondary to the USD figure, and labelled as what they are."
           >
-            <div className="flex flex-col gap-3 text-[--color-text-muted]">
+            <div className="flex flex-col gap-3 text-(--color-text-muted)">
               <p>
                 The DevEx rate is denominated in US dollars, so every calculation
                 is performed in USD and converted afterwards. Conversion uses
@@ -203,7 +203,7 @@ export default function MethodologyPage() {
             heading="What this cannot tell you"
             description="The honest boundary of what arithmetic can establish."
           >
-            <ul className="flex list-disc flex-col gap-2 pl-5 text-[--color-text-muted]">
+            <ul className="flex list-disc flex-col gap-2 pl-5 text-(--color-text-muted)">
               <li>
                 Which of your Robux Roblox counts as Earned Robux. That is
                 Roblox&rsquo;s internal accounting and is not visible from outside.

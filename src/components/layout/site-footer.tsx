@@ -10,7 +10,7 @@ export function SiteFooter() {
   const year = new Date(siteConfig.contentReviewedAt).getUTCFullYear();
 
   return (
-    <footer className="mt-16 border-t border-[--color-border] bg-[--color-surface]">
+    <footer className="mt-16 border-t border-(--color-border) bg-(--color-surface)">
       <Container width="wide">
         <div className="grid gap-8 py-10 sm:grid-cols-2 lg:grid-cols-5">
           <div className="lg:col-span-1">
@@ -18,7 +18,7 @@ export function SiteFooter() {
               <Logo className="size-7" />
               <Wordmark className="text-sm" />
             </Link>
-            <p className="mt-3 text-sm text-[--color-text-muted]">
+            <p className="mt-3 text-sm text-(--color-text-muted)">
               Independent DevEx payout estimates for Roblox creators, with every
               figure traced to an official source.
             </p>
@@ -26,7 +26,7 @@ export function SiteFooter() {
 
           {footerNavigation.map((group) => (
             <nav key={group.heading} aria-label={group.heading}>
-              <h2 className="text-xs font-semibold uppercase tracking-wide text-[--color-text]">
+              <h2 className="text-xs font-semibold uppercase tracking-wide text-(--color-text)">
                 {group.heading}
               </h2>
               <ul className="mt-3 flex flex-col gap-2">
@@ -34,7 +34,7 @@ export function SiteFooter() {
                   <li key={entry.href}>
                     <Link
                       href={entry.href}
-                      className="text-sm text-[--color-text-muted] hover:text-[--color-primary] hover:underline"
+                      className="text-sm text-(--color-text-muted) hover:text-(--color-primary) hover:underline"
                     >
                       {entry.label}
                     </Link>
@@ -49,9 +49,9 @@ export function SiteFooter() {
           Trademark and affiliation notice. Required on every page, kept
           readable rather than shrunk into unreadable legal small print.
         */}
-        <div className="border-t border-[--color-border] py-6">
-          <p className="text-sm text-[--color-text-muted]">
-            <strong className="font-semibold text-[--color-text]">
+        <div className="border-t border-(--color-border) py-6">
+          <p className="text-sm text-(--color-text-muted)">
+            <strong className="font-semibold text-(--color-text)">
               Not affiliated with Roblox Corporation.
             </strong>{" "}
             DevExCalculator.org is an independent tool. Roblox, Robux and Developer
@@ -61,13 +61,13 @@ export function SiteFooter() {
             whether any DevEx request will be approved.
           </p>
 
-          <div className="mt-4 flex flex-col gap-2 text-xs text-[--color-text-muted] sm:flex-row sm:items-center sm:justify-between">
+          <div className="mt-4 flex flex-col gap-2 text-xs text-(--color-text-muted) sm:flex-row sm:items-center sm:justify-between">
             <p>
               © {year} {siteConfig.name}. Every payout figure is an estimate.
             </p>
             <p className="tabular">
               Rate data{" "}
-              <Link href="/sources/" className="underline hover:text-[--color-primary]">
+              <Link href="/sources/" className="underline hover:text-(--color-primary)">
                 verified {formatDate(rateRegistry.lastVerifiedAt)}
               </Link>{" "}
               · registry {rateRegistry.registryVersion}

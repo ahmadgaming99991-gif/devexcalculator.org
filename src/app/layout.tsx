@@ -45,7 +45,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
       <body className="flex min-h-dvh flex-col">
-        <a href="#main" className="skip-link absolute left-3 top-3 z-50 rounded-[--radius-control] bg-[--color-primary] px-4 py-2.5 font-semibold text-white">
+        <a href="#main" className="skip-link absolute left-3 top-3 z-50 rounded-(--radius-control) bg-(--color-primary) px-4 py-2.5 font-semibold text-white">
           Skip to main content
         </a>
 

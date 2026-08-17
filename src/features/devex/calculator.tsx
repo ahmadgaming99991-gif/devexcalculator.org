@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   calculateComparison,
   calculateQuick,
@@ -62,6 +62,7 @@ import {
 import {
   defaultState,
   isEmptyState,
+  parseCalculatorState,
   serialiseCalculatorState,
   type CalculatorMode,
   type CalculatorState,
@@ -291,15 +292,40 @@ export function Calculator({
   const origin = useClientValue(() => window.location.origin, "");
   const shareUrl = `${origin}${pathname}${query}`;
 
-  // Reflect state in the address bar so back and forward work and a reload
-  // keeps the calculation. `replaceState` avoids stacking a history entry per
-  // keystroke; the mode and preset buttons are what a reader steps back through.
+  /*
+   * Reflect state in the address bar so a reload keeps the calculation and the
+   * back button does something sensible.
+   *
+   * Typing uses `replaceState`, because pushing an entry per keystroke would
+   * make the back button walk backwards through "10000", "1000", "100". A mode
+   * change pushes a real entry, since switching tabs is a deliberate step a
+   * reader expects to be able to undo.
+   */
+  const previousMode = useRef(mode);
   useEffect(() => {
     if (typeof window === "undefined") return;
     const next = `${pathname}${query}`;
     if (`${window.location.pathname}${window.location.search}` === next) return;
-    window.history.replaceState(null, "", next);
-  }, [pathname, query]);
+
+    const modeChanged = previousMode.current !== mode;
+    previousMode.current = mode;
+
+    if (modeChanged) {
+      window.history.pushState(null, "", next);
+    } else {
+      window.history.replaceState(null, "", next);
+    }
+  }, [pathname, query, mode]);
+
+  // Keep the calculator in step when the reader navigates with back or forward.
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    function onPopState() {
+      setState(parseCalculatorState(new URLSearchParams(window.location.search)));
+    }
+    window.addEventListener("popstate", onPopState);
+    return () => window.removeEventListener("popstate", onPopState);
+  }, []);
 
   const summaryText = useMemo(() => {
     if (mode === "target" && targetParse?.ok) {
@@ -391,10 +417,10 @@ export function Calculator({
         role={lockedMode ? undefined : "tabpanel"}
         aria-labelledby={lockedMode ? undefined : `mode-tab-${mode}`}
         tabIndex={lockedMode ? undefined : 0}
-        className={cx("grid gap-6 lg:grid-cols-2", lockedMode ? "" : "mt-5")}
+        className={cx("grid min-w-0 gap-6 lg:grid-cols-2", lockedMode ? "" : "mt-5")}
       >
         {/* ---- Inputs ---- */}
-        <div className="flex flex-col gap-5">
+        <div className="flex min-w-0 flex-col gap-5">
           {mode === "quick" ? (
             <>
               <AmountInput
@@ -421,7 +447,7 @@ export function Calculator({
 
           {mode === "advanced" ? (
             <>
-              <p className="text-sm text-[--color-text-muted]">
+              <p className="text-sm text-(--color-text-muted)">
                 Enter each part of your balance separately. Nothing is counted
                 twice — every Robux belongs to exactly one bucket, and you are
                 the one who decides which. Roblox makes the real split.
@@ -521,7 +547,7 @@ export function Calculator({
         </div>
 
         {/* ---- Results ---- */}
-        <div className="flex flex-col gap-5">
+        <div className="flex min-w-0 flex-col gap-5">
           <ResultSummary
             primaryLabel={
               mode === "target" ? "Eligible Earned Robux needed" : "Estimated DevEx payout"
@@ -560,10 +586,10 @@ export function Calculator({
 
           {mode !== "target" && comparisonAmount > 0n ? (
             <div>
-              <h3 className="text-sm font-semibold text-[--color-text]">
+              <h3 className="text-sm font-semibold text-(--color-text)">
                 What each rate would pay
               </h3>
-              <p className="mb-2 mt-1 text-xs text-[--color-text-muted]">
+              <p className="mb-2 mt-1 text-xs text-(--color-text-muted)">
                 Roblox decides which rate applies to which part of your balance.
                 This is not a choice you can make.
               </p>
@@ -609,7 +635,7 @@ export function Calculator({
 
       <ResultAnnouncer message={announcement || announceResult} />
 
-      <p className="mt-5 border-t border-[--color-border] pt-4 text-xs text-[--color-text-muted]">
+      <p className="mt-5 border-t border-(--color-border) pt-4 text-xs text-(--color-text-muted)">
         Estimates use the rates Roblox currently documents. The{" "}
         {formatRobux(minimumEarnedRobux)} Earned Robux minimum is a requirement
         to submit a request, not an approval. Roblox decides which Robux qualify
@@ -645,10 +671,10 @@ function HistoryPanel({
               <li key={entry.id}>
                 <a
                   href={`${pathname}${entry.query}`}
-                  className="flex min-h-[44px] items-center justify-between gap-3 rounded-[--radius-control] border border-[--color-border] px-3 py-2 hover:bg-[--color-surface-subtle]"
+                  className="flex min-h-[44px] items-center justify-between gap-3 rounded-(--radius-control) border border-(--color-border) px-3 py-2 hover:bg-(--color-surface-subtle)"
                 >
-                  <span className="text-[--color-text]">{entry.label}</span>
-                  <span className="tabular font-semibold text-[--color-text]">{entry.result}</span>
+                  <span className="text-(--color-text)">{entry.label}</span>
+                  <span className="tabular font-semibold text-(--color-text)">{entry.result}</span>
                 </a>
               </li>
             ))}
@@ -661,7 +687,7 @@ function HistoryPanel({
             type="button"
             onClick={onSave}
             disabled={!canSave}
-            className="min-h-[44px] rounded-[--radius-control] border border-[--color-border-strong] px-3 text-sm font-semibold text-[--color-text] disabled:opacity-50"
+            className="min-h-[44px] rounded-(--radius-control) border border-(--color-border-strong) px-3 text-sm font-semibold text-(--color-text) disabled:opacity-50"
           >
             Save this calculation
           </button>
@@ -669,7 +695,7 @@ function HistoryPanel({
             type="button"
             onClick={onClear}
             disabled={history.length === 0}
-            className="min-h-[44px] rounded-[--radius-control] px-3 text-sm font-semibold text-[--color-danger] disabled:opacity-50"
+            className="min-h-[44px] rounded-(--radius-control) px-3 text-sm font-semibold text-(--color-danger) disabled:opacity-50"
           >
             Clear history
           </button>

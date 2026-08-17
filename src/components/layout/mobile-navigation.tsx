@@ -94,7 +94,7 @@ export function MobileNavigation({ items }: { items: readonly NavItem[] }) {
         aria-expanded={open}
         aria-controls={panelId}
         onClick={() => setOpen((value) => !value)}
-        className="inline-flex size-11 items-center justify-center rounded-[--radius-control] border border-[--color-border] text-[--color-text] md:hidden"
+        className="inline-flex size-11 items-center justify-center rounded-(--radius-control) border border-(--color-border) text-(--color-text) md:hidden"
       >
         <span className="sr-only">{open ? "Close menu" : "Open menu"}</span>
         <svg
@@ -129,7 +129,7 @@ export function MobileNavigation({ items }: { items: readonly NavItem[] }) {
         ref={panelRef}
         id={panelId}
         hidden={!open}
-        className="fixed inset-x-0 top-16 z-50 mx-3 rounded-[--radius-card] border border-[--color-border] bg-[--color-surface] p-3 shadow-[--shadow-raised] md:hidden"
+        className="fixed inset-x-0 top-16 z-50 mx-3 rounded-(--radius-card) border border-(--color-border) bg-(--color-surface) p-3 shadow-(--shadow-raised) md:hidden"
       >
         <nav aria-label="Main">
           <ul className="flex flex-col gap-1">
@@ -138,12 +138,12 @@ export function MobileNavigation({ items }: { items: readonly NavItem[] }) {
                 <Link
                   href={entry.href}
                   onClick={close}
-                  className="flex min-h-[44px] flex-col justify-center rounded-[--radius-control] px-3 py-2 hover:bg-[--color-surface-subtle]"
+                  className="flex min-h-[44px] flex-col justify-center rounded-(--radius-control) px-3 py-2 hover:bg-(--color-surface-subtle)"
                 >
-                  <span className="text-sm font-semibold text-[--color-text]">
+                  <span className="text-sm font-semibold text-(--color-text)">
                     {entry.label}
                   </span>
-                  <span className="text-xs text-[--color-text-muted]">
+                  <span className="text-xs text-(--color-text-muted)">
                     {entry.description}
                   </span>
                 </Link>

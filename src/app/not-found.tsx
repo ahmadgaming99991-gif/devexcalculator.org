@@ -19,13 +19,13 @@ export default function NotFound() {
   return (
     <Container width="prose">
       <div className="py-8">
-        <p className="text-sm font-semibold uppercase tracking-wide text-[--color-text-muted]">
+        <p className="text-sm font-semibold uppercase tracking-wide text-(--color-text-muted)">
           Error 404
         </p>
-        <h1 className="mt-2 text-3xl font-bold tracking-tight text-[--color-text]">
+        <h1 className="mt-2 text-3xl font-bold tracking-tight text-(--color-text)">
           That page does not exist
         </h1>
-        <p className="mt-3 text-[--color-text-muted]">
+        <p className="mt-3 text-(--color-text-muted)">
           The address may have changed, or the link that brought you here may be
           wrong. Nothing has been deleted — this site has never had a page at
           this address.
@@ -38,10 +38,10 @@ export default function NotFound() {
           </ButtonLink>
         </div>
 
-        <h2 className="mt-8 text-lg font-semibold text-[--color-text]">
+        <h2 className="mt-8 text-lg font-semibold text-(--color-text)">
           What people usually want
         </h2>
-        <ul className="mt-3 flex flex-col gap-2 text-[--color-primary]">
+        <ul className="mt-3 flex flex-col gap-2 text-(--color-primary)">
           <li>
             <Link href="/robux-to-usd/" className="underline underline-offset-2">
               Convert Robux to US dollars

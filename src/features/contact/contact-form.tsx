@@ -161,7 +161,7 @@ export function ContactForm({ turnstileSiteKey }: { turnstileSiteKey: string | n
         ) : null}
 
         {issueFor("form") ? (
-          <p role="alert" className="text-sm font-medium text-[--color-danger]">
+          <p role="alert" className="text-sm font-medium text-(--color-danger)">
             {issueFor("form")}
           </p>
         ) : null}
@@ -216,18 +216,18 @@ function Field({
     "aria-invalid": error ? (true as const) : undefined,
     "aria-describedby": describedBy || undefined,
     className: cx(
-      "control mt-1.5 w-full rounded-[--radius-control] border bg-[--color-surface] px-3 py-2.5 text-[--color-text]",
+      "control mt-1.5 w-full rounded-(--radius-control) border bg-(--color-surface) px-3 py-2.5 text-(--color-text)",
       multiline ? "min-h-[9rem]" : "min-h-[48px]",
-      error ? "border-[--color-danger]" : "border-[--color-border-strong]",
+      error ? "border-(--color-danger)" : "border-(--color-border-strong)",
     ),
   };
 
   return (
     <div>
-      <label htmlFor={id} className="block text-sm font-semibold text-[--color-text]">
+      <label htmlFor={id} className="block text-sm font-semibold text-(--color-text)">
         {label}
         {required ? (
-          <span className="ml-1 text-[--color-danger]" aria-hidden="true">
+          <span className="ml-1 text-(--color-danger)" aria-hidden="true">
             *
           </span>
         ) : null}
@@ -235,12 +235,12 @@ function Field({
       </label>
       {multiline ? <textarea {...shared} /> : <input type={type} {...shared} />}
       {hint ? (
-        <p id={hintId} className="mt-1.5 text-xs text-[--color-text-muted]">
+        <p id={hintId} className="mt-1.5 text-xs text-(--color-text-muted)">
           {hint}
         </p>
       ) : null}
       {error ? (
-        <p id={errorId} role="alert" className="mt-1.5 text-sm font-medium text-[--color-danger]">
+        <p id={errorId} role="alert" className="mt-1.5 text-sm font-medium text-(--color-danger)">
           {error}
         </p>
       ) : null}

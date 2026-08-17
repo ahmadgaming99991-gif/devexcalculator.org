@@ -63,7 +63,7 @@ export default function RobuxTaxCalculatorPage() {
                   <tr>
                     <Th scope="row">
                       In-experience purchase
-                      <span className="mt-1 block text-xs font-normal text-[--color-text-muted]">
+                      <span className="mt-1 block text-xs font-normal text-(--color-text-muted)">
                         Developer products, passes, private servers
                       </span>
                     </Th>
@@ -76,7 +76,7 @@ export default function RobuxTaxCalculatorPage() {
                   <tr>
                     <Th scope="row">
                       Marketplace avatar item
-                      <span className="mt-1 block text-xs font-normal text-[--color-text-muted]">
+                      <span className="mt-1 block text-xs font-normal text-(--color-text-muted)">
                         Progressive by price — see below
                       </span>
                     </Th>
@@ -89,7 +89,7 @@ export default function RobuxTaxCalculatorPage() {
                   <tr>
                     <Th scope="row">
                       Avatar item bought inside an experience
-                      <span className="mt-1 block text-xs font-normal text-[--color-text-muted]">
+                      <span className="mt-1 block text-xs font-normal text-(--color-text-muted)">
                         Item creator and experience owner are paid separately
                       </span>
                     </Th>
@@ -102,7 +102,7 @@ export default function RobuxTaxCalculatorPage() {
                 </tbody>
               </Table>
             </TableWrapper>
-            <p className="mt-3 text-sm text-[--color-text-muted]">
+            <p className="mt-3 text-sm text-(--color-text-muted)">
               If you sell your own item inside your own experience you receive
               both the creator share and the experience owner share, which comes
               to 70%.
@@ -169,14 +169,14 @@ export default function RobuxTaxCalculatorPage() {
             heading="This is not the DevEx rate"
             description="The two calculations happen at different times and must not be chained."
           >
-            <p className="text-[--color-text-muted]">
+            <p className="text-(--color-text-muted)">
               The commission on this page applies at the moment a player spends
               Robux. What you keep becomes Earned Robux. DevEx then converts those
               Earned Robux to cash at its own rate, on a balance that has already
               had the commission taken. Subtracting 30% from a DevEx payout
               applies the same fee twice and understates what a creator receives.
             </p>
-            <p className="mt-3 text-[--color-text-muted]">
+            <p className="mt-3 text-(--color-text-muted)">
               <InlineLink href="/">
                 Convert your Earned Robux to a payout estimate
               </InlineLink>{" "}

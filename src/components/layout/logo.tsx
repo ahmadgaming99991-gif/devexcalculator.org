@@ -35,8 +35,8 @@ export function Logo({ className = "size-8" }: { className?: string }) {
 export function Wordmark({ className }: { className?: string }) {
   return (
     <span className={className}>
-      <span className="font-bold tracking-tight text-[--color-text]">DevEx</span>
-      <span className="font-medium tracking-tight text-[--color-text-muted]">Calculator</span>
+      <span className="font-bold tracking-tight text-(--color-text)">DevEx</span>
+      <span className="font-medium tracking-tight text-(--color-text-muted)">Calculator</span>
     </span>
   );
 }

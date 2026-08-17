@@ -53,15 +53,15 @@ export function AnalyticsConsent() {
     <div
       role="dialog"
       aria-labelledby="consent-heading"
-      className="fixed inset-x-0 bottom-0 z-40 border-t border-[--color-border] bg-[--color-surface] pb-[--spacing-safe-bottom] shadow-[--shadow-raised]"
+      className="fixed inset-x-0 bottom-0 z-40 border-t border-(--color-border) bg-(--color-surface) pb-(--spacing-safe-bottom) shadow-(--shadow-raised)"
     >
       <Container>
         <div className="flex flex-col gap-3 py-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <h2 id="consent-heading" className="text-sm font-semibold text-[--color-text]">
+            <h2 id="consent-heading" className="text-sm font-semibold text-(--color-text)">
               Analytics cookies
             </h2>
-            <p className="mt-1 text-sm text-[--color-text-muted]">
+            <p className="mt-1 text-sm text-(--color-text-muted)">
               We would like to measure which pages get used, which needs a cookie.
               The calculator works identically either way, and your calculations
               are never sent anywhere.
