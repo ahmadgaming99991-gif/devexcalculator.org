@@ -1,0 +1,154 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+# A superseded run on the same branch is wasted compute.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+env:
+  # Keeps generated canonicals and sitemap URLs consistent with production.
+  NEXT_PUBLIC_SITE_URL: https://devexcalculator.org
+
+jobs:
+  quality:
+    name: Lint, types, unit tests and validators
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Type check
+        run: npm run typecheck
+
+      - name: Unit and integration tests
+        run: npm run test
+
+      - name: Validate content manifest
+        run: npm run validate:content
+
+      # Regenerates the keyword intelligence from the source exports and fails
+      # on any cannibalisation, ownership or accounting error.
+      - name: Validate SEO
+        run: npm run validate:seo
+
+      # The generated files are committed, so a drift here means someone
+      # changed the pipeline or the overrides without regenerating.
+      - name: Check generated SEO files are up to date
+        run: |
+          if ! git diff --quiet -- seo/generated; then
+            echo "::error::seo/generated is out of date. Run 'npm run seo:analyze' and commit the result."
+            git diff --stat -- seo/generated
+            exit 1
+          fi
+
+  build:
+    name: Build, routes, links and budgets
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    needs: quality
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Next.js build
+        run: npm run build
+
+      - name: Client bundle budget
+        run: npm run validate:bundle
+
+      - name: Route, metadata and structured-data checks
+        run: npm run validate:routes
+
+      - name: Internal link crawl
+        run: npm run validate:links
+
+      # The Workers build is where Node-runtime and adapter incompatibilities
+      # surface; it has caught two on this project already.
+      - name: OpenNext Cloudflare build
+        run: npm run cf-build
+
+      - name: Worker bundle size
+        run: npm run validate:worker
+
+      - name: Upload build artefacts on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-output
+          path: |
+            .next/build-manifest.json
+            .open-next/worker.js
+          retention-days: 7
+
+  e2e:
+    name: End-to-end and accessibility
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    needs: quality
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium firefox
+
+      - name: Build
+        run: npm run build
+
+      - name: Start server
+        run: npx next start --port 3100 &
+
+      - name: Wait for the server
+        run: npx wait-on http://127.0.0.1:3100/api/health/ --timeout 120000
+
+      - name: Run end-to-end and accessibility tests
+        run: npm run test:e2e
+        env:
+          BASE_URL: http://127.0.0.1:3100
+
+      - name: Upload the Playwright report on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: |
+            playwright-report/
+            test-results/
+          retention-days: 14

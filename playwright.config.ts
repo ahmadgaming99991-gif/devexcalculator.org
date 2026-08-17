@@ -34,6 +34,14 @@ export default defineConfig({
     { name: "desktop-chromium", use: { ...devices["Desktop Chrome"] } },
     { name: "mobile-chromium", use: { ...devices["Pixel 7"] } },
     { name: "desktop-firefox", use: { ...devices["Desktop Firefox"] } },
+    {
+      // Screenshot capture for manual review. Separate because it sets its own
+      // viewports and produces artefacts rather than assertions, and because it
+      // is slower than the behavioural suite.
+      name: "visual",
+      testDir: "./tests/visual",
+      use: { ...devices["Desktop Chrome"] },
+    },
   ],
 
   // Skipped when BASE_URL points at an already-running server.

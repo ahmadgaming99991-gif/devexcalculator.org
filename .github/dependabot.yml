@@ -1,0 +1,54 @@
+version: 2
+
+updates:
+  - package-ecosystem: npm
+    directory: "/"
+    schedule:
+      interval: weekly
+      day: monday
+      time: "06:00"
+    open-pull-requests-limit: 5
+    labels: [dependencies]
+    commit-message:
+      prefix: "deps"
+      prefix-development: "deps-dev"
+
+    groups:
+      # Patch and minor updates to development tooling are low risk and noisy
+      # individually, so they arrive as one reviewable pull request.
+      dev-tooling:
+        dependency-type: development
+        update-types: [minor, patch]
+
+      types:
+        patterns: ["@types/*"]
+
+    ignore:
+      # The framework, runtime and adapter move together and a major bump needs
+      # a full build, Workers preview and E2E run before it is safe to merge.
+      # Those arrive as deliberate manual upgrades rather than automated PRs.
+      - dependency-name: next
+        update-types: [version-update:semver-major]
+      - dependency-name: react
+        update-types: [version-update:semver-major]
+      - dependency-name: react-dom
+        update-types: [version-update:semver-major]
+      - dependency-name: "@opennextjs/cloudflare"
+        update-types: [version-update:semver-major]
+      - dependency-name: wrangler
+        update-types: [version-update:semver-major]
+      - dependency-name: tailwindcss
+        update-types: [version-update:semver-major]
+
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly
+      day: monday
+      time: "06:00"
+    labels: [dependencies, ci]
+    commit-message:
+      prefix: "ci"
+    groups:
+      actions:
+        patterns: ["*"]

@@ -24,7 +24,10 @@ next-env.d.ts
 /playwright-report/
 /blob-report/
 /playwright/.cache/
-/tests/visual/__screenshots__/**/*.actual.png
+/tests/visual/__screenshots__/
+/tests/visual/__review__/
+/lighthouse-*.json
+/lh-*.json
 
 # lighthouse
 /.lighthouseci/

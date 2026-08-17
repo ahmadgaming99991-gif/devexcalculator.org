@@ -1,0 +1,98 @@
+name: Security
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    # Weekly, so a newly disclosed advisory surfaces without waiting for a push.
+    - cron: "0 5 * * 2"
+  workflow_dispatch:
+
+concurrency:
+  group: security-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  security-events: write
+
+jobs:
+  audit:
+    name: Dependency audit
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      # Production dependencies are the ones that reach a visitor. A high or
+      # critical advisory there fails the build.
+      - name: Audit production dependencies
+        run: npm audit --omit=dev --audit-level=high
+
+      # Dev dependencies matter less at runtime, so they are reported rather
+      # than gated — a build-tool advisory should not block a content fix.
+      - name: Audit all dependencies (report only)
+        run: npm audit --audit-level=moderate || true
+
+  secrets:
+    name: Secret scan
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          # Full history so a secret committed earlier is still caught.
+          fetch-depth: 0
+
+      - name: Scan for committed secrets
+        run: |
+          set -euo pipefail
+          echo "Scanning tracked files for credential-shaped strings…"
+
+          # Patterns for the credentials this project could plausibly leak.
+          # `.example` files hold empty values by design and are excluded.
+          PATTERNS='(re_[A-Za-z0-9]{20,})|(0x4AAAAAAA[A-Za-z0-9_-]{10,})|(G-[A-Z0-9]{10})|(CLOUDFLARE_API_TOKEN\s*=\s*[A-Za-z0-9_-]{20,})|(-----BEGIN [A-Z ]*PRIVATE KEY-----)'
+
+          if git grep -nEI "$PATTERNS" -- . ':!*.example' ':!.github/workflows/security.yml'; then
+            echo "::error::A credential-shaped string is committed. Rotate it and remove it from history."
+            exit 1
+          fi
+          echo "No committed secrets found."
+
+      - name: Confirm secret files are not tracked
+        run: |
+          set -euo pipefail
+          for file in .dev.vars .env .env.local .env.production; do
+            if git ls-files --error-unmatch "$file" >/dev/null 2>&1; then
+              echo "::error::$file is tracked by Git and must not be."
+              exit 1
+            fi
+          done
+          echo "No secret files are tracked."
+
+  codeql:
+    name: CodeQL
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: github/codeql-action/init@v3
+        with:
+          languages: javascript-typescript
+          queries: security-and-quality
+
+      - uses: github/codeql-action/analyze@v3

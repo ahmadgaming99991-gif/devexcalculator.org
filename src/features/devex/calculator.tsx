@@ -584,19 +584,6 @@ export function Calculator({
             <ResultBreakdown result={splitResult} />
           ) : null}
 
-          {mode !== "target" && comparisonAmount > 0n ? (
-            <div>
-              <h3 className="text-sm font-semibold text-(--color-text)">
-                What each rate would pay
-              </h3>
-              <p className="mb-2 mt-1 text-xs text-(--color-text-muted)">
-                Roblox decides which rate applies to which part of your balance.
-                This is not a choice you can make.
-              </p>
-              <ScenarioComparison comparison={comparison} />
-            </div>
-          ) : null}
-
           <div className="flex flex-wrap gap-2">
             <CopyButton
               label="Copy result"
@@ -632,6 +619,25 @@ export function Calculator({
           ) : null}
         </div>
       </div>
+
+      {/*
+        Full width rather than inside the results column. With four columns the
+        table needs more room than half a 1024px grid gives it, and visual
+        review found it clipping the "vs standard" column mid-figure at that
+        width — a money value cut off mid-digit is worse than no table.
+      */}
+      {mode !== "target" && comparisonAmount > 0n ? (
+        <div className="mt-6 min-w-0 border-t border-(--color-border) pt-5">
+          <h3 className="text-sm font-semibold text-(--color-text)">
+            What each rate would pay
+          </h3>
+          <p className="mb-3 mt-1 text-xs text-(--color-text-muted)">
+            Roblox decides which rate applies to which part of your balance. This
+            is not a choice you can make.
+          </p>
+          <ScenarioComparison comparison={comparison} />
+        </div>
+      ) : null}
 
       <ResultAnnouncer message={announcement || announceResult} />
 
