@@ -232,9 +232,18 @@ test.describe("layout resilience", () => {
     const result = await page.evaluate(() => {
       const root = document.documentElement;
       const limit = root.clientWidth;
+      const scrolls = (element: Element): boolean => {
+        for (let node: Element | null = element; node; node = node.parentElement) {
+          const overflowX = getComputedStyle(node).overflowX;
+          if (overflowX === "auto" || overflowX === "scroll") return true;
+        }
+        return false;
+      };
+
       const offenders = [...document.querySelectorAll("body *")]
         .map((element) => ({ element, rect: element.getBoundingClientRect() }))
-        .filter(({ rect }) => rect.right > limit + 1)
+        // A wide table inside its own scroller is contained, not an offender.
+        .filter(({ element, rect }) => rect.right > limit + 1 && !scrolls(element))
         .map(({ element, rect }) => {
           const classes = element.className?.toString?.() ?? "";
           return `<${element.tagName.toLowerCase()} class="${classes.slice(0, 80)}"> ` +
