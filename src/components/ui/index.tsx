@@ -347,8 +347,15 @@ export function TableWrapper({
 }
 
 export function Table({ children, caption }: { children: ReactNode; caption: string }) {
+  /*
+   * The minimum width is in pixels, not rem, deliberately. A rem minimum
+   * scales with the root font size, so a reader at 200% text zoom made this
+   * table demand 1024px and pushed the page sideways — the exact failure
+   * WCAG 1.4.4 is about. In pixels the columns still get the room they need to
+   * stay readable, and zooming the text does not widen the table.
+   */
   return (
-    <table className="w-full min-w-[32rem] border-collapse text-left text-sm">
+    <table className="w-full min-w-[512px] border-collapse text-left text-sm">
       <caption className="sr-only">{caption}</caption>
       {children}
     </table>

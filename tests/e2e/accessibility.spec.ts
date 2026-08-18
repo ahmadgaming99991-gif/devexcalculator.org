@@ -221,10 +221,34 @@ test.describe("layout resilience", () => {
     await page.getByLabel("Eligible Earned Robux").fill("100000");
     await expect(page.getByText("$380.00").first()).toBeVisible();
 
-    const overflow = await page.evaluate(
-      () => document.documentElement.scrollWidth - document.documentElement.clientWidth,
-    );
-    expect(overflow).toBeLessThanOrEqual(0);
+    /*
+     * Naming the offender matters here. This failed on CI while passing
+     * locally, and reported only "expected 0" — with no way to tell which
+     * element was pushing the page, on a machine nobody can open. The culprit
+     * was a `rem` minimum width on a table, which grows with the root font
+     * size, so text zoom widened the table. The diagnosis is now in the
+     * failure message.
+     */
+    const result = await page.evaluate(() => {
+      const root = document.documentElement;
+      const limit = root.clientWidth;
+      const offenders = [...document.querySelectorAll("body *")]
+        .map((element) => ({ element, rect: element.getBoundingClientRect() }))
+        .filter(({ rect }) => rect.right > limit + 1)
+        .map(({ element, rect }) => {
+          const classes = element.className?.toString?.() ?? "";
+          return `<${element.tagName.toLowerCase()} class="${classes.slice(0, 80)}"> ` +
+            `right=${Math.round(rect.right)} width=${Math.round(rect.width)}`;
+        });
+
+      return { overflow: root.scrollWidth - limit, limit, offenders: offenders.slice(0, 5) };
+    });
+
+    expect(
+      result.overflow,
+      `Page is ${result.overflow}px wider than its ${result.limit}px viewport at 200% ` +
+        `text zoom. Widest elements: ${result.offenders.join(" | ")}`,
+    ).toBeLessThanOrEqual(0);
   });
 
   test("the viewport does not block zooming", async ({ page }) => {

@@ -102,7 +102,13 @@ jobs:
       - name: OpenNext Cloudflare build
         run: npm run cf-build
 
-      - name: Worker bundle size
+      # `cf-build` does not copy the prerendered pages into the asset bundle;
+      # populateCache does. Skipping it ships a Worker that re-renders all 32
+      # pages, which is what exhausted the CPU limit in production.
+      - name: Populate the static asset cache
+        run: npm run cf-populate
+
+      - name: Cloudflare limits and prerender coverage
         run: npm run validate:worker
 
       - name: Upload build artefacts on failure
