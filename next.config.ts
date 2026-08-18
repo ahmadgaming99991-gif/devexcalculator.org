@@ -12,6 +12,50 @@ import type { NextConfig } from "next";
  * Static assets get the same headers from `public/_headers`, since the Workers
  * assets binding serves those without invoking the Worker at all.
  */
+/**
+ * Whether an optional integration is configured.
+ *
+ * Mirrors `readEnv` in `src/config/site.ts` — including its placeholder guard —
+ * because this file cannot import from `src`: it is evaluated before the path
+ * aliases exist. The two must agree, and the contract is narrow enough that
+ * duplicating four lines is safer than moving configuration out of the module
+ * every component reads.
+ */
+function isConfigured(name: string): boolean {
+  const value = process.env[name]?.trim();
+  if (!value) return false;
+  return !/^(your_|example|changeme|placeholder|xxx)/i.test(value);
+}
+
+/**
+ * Third-party origins, each present only while the integration that needs it is
+ * actually configured.
+ *
+ * These used to be listed unconditionally, which left the policy permitting
+ * Google Tag Manager and the Cloudflare beacon on a deployment that loads
+ * neither. That is not a theoretical looseness: `script-src` already carries
+ * 'unsafe-inline', and `googletagmanager.com` will serve an attacker-authored
+ * container, so an allowlisted origin nobody uses is a standing bypass of the
+ * one directive doing the most work here. It also contradicted the privacy
+ * page, which states that no tracking script loads.
+ */
+const ANALYTICS_SCRIPT_ORIGINS = [
+  isConfigured("NEXT_PUBLIC_CF_ANALYTICS_TOKEN") ? "https://static.cloudflareinsights.com" : null,
+  isConfigured("NEXT_PUBLIC_GA4_ID") ? "https://www.googletagmanager.com" : null,
+].filter((origin): origin is string => origin !== null);
+
+const ANALYTICS_CONNECT_ORIGINS = [
+  isConfigured("NEXT_PUBLIC_CF_ANALYTICS_TOKEN") ? "https://cloudflareinsights.com" : null,
+  isConfigured("NEXT_PUBLIC_GA4_ID") ? "https://www.google-analytics.com" : null,
+].filter((origin): origin is string => origin !== null);
+
+const TURNSTILE_ORIGIN = isConfigured("NEXT_PUBLIC_TURNSTILE_SITE_KEY")
+  ? "https://challenges.cloudflare.com"
+  : null;
+
+const directive = (...parts: readonly (string | null)[]): string =>
+  parts.filter((part) => part !== null).join(" ");
+
 const CSP_DIRECTIVES: readonly string[] = [
   "default-src 'self'",
   // Next.js inlines a bootstrap script, and the theme script must run before
@@ -19,13 +63,16 @@ const CSP_DIRECTIVES: readonly string[] = [
   // A nonce would need threading through every streamed chunk, which the
   // adapter does not currently support; recorded in docs/security-model.md
   // rather than left as an unexplained relaxation.
-  "script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://www.googletagmanager.com https://challenges.cloudflare.com",
+  directive("script-src 'self' 'unsafe-inline'", ...ANALYTICS_SCRIPT_ORIGINS, TURNSTILE_ORIGIN),
   // Tailwind emits a stylesheet; inline styles are used for progress-meter widths.
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob:",
   "font-src 'self' data:",
-  "connect-src 'self' https://cloudflareinsights.com https://www.google-analytics.com",
-  "frame-src https://challenges.cloudflare.com",
+  directive("connect-src 'self'", ...ANALYTICS_CONNECT_ORIGINS),
+  // With no Turnstile widget there is nothing legitimate to frame, so the
+  // directive becomes 'none' rather than disappearing — an absent `frame-src`
+  // would fall back to `default-src 'self'` and permit same-origin frames.
+  directive("frame-src", TURNSTILE_ORIGIN ?? "'none'"),
   "frame-ancestors 'none'",
   "base-uri 'self'",
   "form-action 'self'",

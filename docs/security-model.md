@@ -87,21 +87,37 @@ assets, and verified by `scripts/quality/check-routes.ts` and the E2E suite.
 
 ### CSP, and its one honest weakness
 
+As served by production, where no analytics provider and no Turnstile key are
+configured:
+
 ```
 default-src 'self';
-script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com
-           https://www.googletagmanager.com https://challenges.cloudflare.com;
+script-src 'self' 'unsafe-inline';
 style-src 'self' 'unsafe-inline';
 img-src 'self' data: blob:;
 font-src 'self' data:;
-connect-src 'self' https://cloudflareinsights.com https://www.google-analytics.com;
-frame-src https://challenges.cloudflare.com;
+connect-src 'self';
+frame-src 'none';
 frame-ancestors 'none';
 base-uri 'self';
 form-action 'self';
 object-src 'none';
 upgrade-insecure-requests
 ```
+
+**The third-party allowlist is derived, not fixed.** `next.config.ts` adds
+`static.cloudflareinsights.com`, `www.googletagmanager.com` and
+`challenges.cloudflare.com` only when the environment variable that switches the
+corresponding integration on is set — the same variables `src/config/site.ts`
+reads. They were previously listed unconditionally, which mattered more than it
+looks: with `'unsafe-inline'` already present, the origin allowlist is the part
+of `script-src` still doing work, and `googletagmanager.com` will serve an
+attacker-authored container. An entry for an integration that does not run is a
+standing bypass. It also contradicted the privacy page, which states that no
+tracking script loads.
+
+`frame-src` falls to `'none'` rather than being omitted; an absent directive
+would inherit `default-src 'self'` and permit same-origin framing.
 
 **`script-src` includes `'unsafe-inline'`.** This is a real weakening and worth
 stating rather than burying: Next.js inlines a bootstrap script, and the theme

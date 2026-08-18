@@ -1,8 +1,9 @@
 # Cloudflare Workers Static Assets headers.
 #
-# Applied to static assets served directly from the assets binding. Headers for
-# dynamic Worker responses are set in src/middleware.ts, because `_headers`
-# only covers assets.
+# Applied to static assets served directly from the assets binding, which the
+# Worker never sees. Headers for dynamic responses are set in next.config.ts —
+# the adapter does not support Node-runtime middleware, so there is no
+# middleware file to hold them.
 
 /*
   X-Content-Type-Options: nosniff

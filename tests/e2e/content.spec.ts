@@ -403,6 +403,35 @@ test.describe("security headers", () => {
     // Framework version disclosure serves no purpose.
     expect(headers["x-powered-by"]).toBeUndefined();
   });
+
+  test("allowlists a third-party origin only when that integration is configured", async ({
+    request,
+  }) => {
+    const csp = (await request.get("/")).headers()["content-security-policy"] ?? "";
+    const scriptSrc = /script-src ([^;]*)/.exec(csp)?.[1] ?? "";
+    const connectSrc = /connect-src ([^;]*)/.exec(csp)?.[1] ?? "";
+
+    // This deployment configures no analytics provider and no Turnstile key,
+    // so the policy must name none of their origins. 'unsafe-inline' is already
+    // unavoidable here, which makes the origin allowlist the directive actually
+    // limiting what an injected tag can load — a spare entry is a live bypass,
+    // not housekeeping.
+    for (const origin of [
+      "cloudflareinsights.com",
+      "googletagmanager.com",
+      "google-analytics.com",
+      "challenges.cloudflare.com",
+    ]) {
+      expect(
+        `${scriptSrc} ${connectSrc}`,
+        `The CSP allows ${origin} on a deployment that loads nothing from it.`,
+      ).not.toContain(origin);
+    }
+
+    // Without Turnstile there is nothing to frame, and an omitted directive
+    // would silently inherit `default-src 'self'`.
+    expect(csp).toContain("frame-src 'none'");
+  });
 });
 
 test.describe("structured data", () => {
