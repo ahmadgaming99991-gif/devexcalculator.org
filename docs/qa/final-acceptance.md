@@ -92,12 +92,12 @@ Legend: **PASS** · **BLOCKED** (needs an operator) · **DEFERRED** (with reason
 
 | Item | Status | Evidence |
 |---|---|---|
-| CI passes | BLOCKED | Workflows committed; no remote to run them on (B-002) |
+| CI passes | PASS | Green on `main`: lint/types/unit, build/routes/links/budgets, 316 E2E and a11y |
 | Workers preview passes | PASS | 83 E2E tests against `wrangler dev --local` |
-| Public production verification | BLOCKED | Deployment refused by environment policy (B-001) |
-| `www` redirects correctly | PASS (config) | Configured in `next.config.ts`; needs live verification |
+| Public production verification | PASS | Live at https://devexcalculator.org; every indexable route 200, HTTP upgraded 301 |
+| `www` redirects correctly | PASS | Verified live: single 308 to the apex, path and trailing slash preserved |
 | Rollback documented | PASS | `docs/cloudflare-deployment.md` |
-| Final report records commit and deployment | PASS | Commit recorded; deployment id pending |
+| Final report records commit and deployment | PASS | Commit `740bd65`, Worker version `e7fe682d` |
 
 ## Deferred, with reasons
 
@@ -113,9 +113,13 @@ Legend: **PASS** · **BLOCKED** (needs an operator) · **DEFERRED** (with reason
 
 ## Summary
 
-Every applicable gate passes. Two items are blocked on operator authorisation
-rather than on implementation, and both are documented with the exact commands
-needed.
+Every applicable gate passes. The two items that were blocked on operator
+authorisation — the production deployment and the GitHub remote — are both
+resolved: the site is live and CI runs on every push. Nothing remains blocked.
+
+One external value is outstanding by the owner's choice rather than by
+obstruction: `STOCK_API_KEY`. Until it is supplied, `/platform/stock/` says so
+instead of showing a price it cannot attribute.
 
 The seven deferrals are deliberate. Five of them are refusals to publish
 something that would be invented — which the specification requires — rather

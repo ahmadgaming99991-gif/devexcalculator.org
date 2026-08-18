@@ -1,11 +1,11 @@
 # Agent state
 
-Last updated 2026-08-17.
+Last updated 2026-08-18.
 
 ## Phase
 
-**All ten phases complete except production deployment**, which is blocked on
-operator authorisation (blocker B-001).
+**All ten phases complete.** The site is deployed and verified in production;
+no phase remains blocked.
 
 | Phase | Status |
 |---|---|
@@ -19,11 +19,11 @@ operator authorisation (blocker B-001).
 | 7 · Content, page templates, internal linking | Complete |
 | 8 · Technical SEO, metadata, schema, crawl infrastructure | Complete |
 | 9 · Full QA, performance, accessibility, visual acceptance | Complete |
-| 10 · GitHub, preview, production, post-deploy | **Blocked** — B-001, B-002 |
+| 10 · GitHub, preview, production, post-deploy | Complete |
 
 ## Branch and commits
 
-`main`, no remote configured (B-002).
+`main`, tracking `origin` at `github.com/ahmadgaming99991-gif/devexcalculator.org`.
 
 ```
 f8fdbe9  Add E2E and schema tests; fix a site-wide CSS bug and three real defects
@@ -63,41 +63,36 @@ None. Every check listed above passes.
 
 ## External authorisation still required
 
-1. **Production deployment.** `npx wrangler deploy` was refused by this
-   environment's permission policy. Cloudflare authentication is present and
-   every prerequisite verified. See B-001.
-2. **GitHub remote.** No remote configured, because the specification forbids
-   inventing an owner. `gh` is authenticated as `eazagaz-cpu`. See B-002.
+None. Both former blockers are resolved.
+
+One value is outstanding by the owner's choice: `STOCK_API_KEY` and
+`STOCK_PROVIDER` for the Finnhub adapter. `/platform/stock/` states that no
+live price is configured rather than printing one it cannot attribute, so the
+page is correct either way.
 
 ## Deployment state
 
-Not deployed. The Worker has never been created, so there is no production
-deployment to replace and no rollback target — which is why deploying is safe
-whenever it is authorised.
+Live at `https://devexcalculator.org`, Worker version
+`e7fe682d-1211-4a1c-a035-84526f6bcf7d` from commit `740bd65`. Both custom
+domains are attached and the `*/15 * * * *` cron is collecting platform
+observations into KV. Rollback targets exist now, and the procedure is in
+`docs/cloudflare-deployment.md`.
 
 ## Next actions
 
-For the repository owner, in order:
+Redeploying after a change:
 
 ```bash
-# 1. Create the remote and push
-gh repo create devexcalculator.org --private --source=. --remote=origin
-git push -u origin main
-
-# 2. Confirm CI passes on the first push
-
-# 3. Deploy
-npm run cf-build
+export CLOUDFLARE_API_TOKEN=...      # scoped token, kept outside the repo
+npm run check                        # everything CI runs, plus the size budgets
+npm run cf-build && npm run cf-populate
 npx wrangler deploy
-
-# 4. Bind devexcalculator.org in the Cloudflare dashboard,
-#    add the www redirect rule, then:
 BASE_URL=https://devexcalculator.org npm run test:e2e
 ```
 
-Full detail in `docs/cloudflare-deployment.md`. The post-deploy checklist is
-there too, and `docs/final-implementation-report.md` has spaces reserved for the
-deployment id and verification results.
+`cf-populate` is not optional: without it the prerendered pages are absent from
+the assets bundle and every request runs a full render inside the Worker, which
+is what caused B-007. Full detail in `docs/cloudflare-deployment.md`.
 
 ## Maintenance the owner inherits
 

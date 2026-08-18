@@ -182,43 +182,55 @@ binding and not counted against the script.
 
 ## 17. Git
 
-Six commits on `main`, most recent `f8fdbe9`, plus this documentation commit.
-Working tree clean. No remote — see §21.
+`main` tracks `origin/main` at
+`github.com/ahmadgaming99991-gif/devexcalculator.org`, most recent `740bd65`.
+Working tree clean. Every push runs the CI and Security workflows; both are
+green on the current head.
 
 ## 18. Preview URL
 
-Local Workers runtime only: `http://127.0.0.1:8787` via `wrangler dev --local`.
-No remote preview exists without a deployment.
+Local Workers runtime: `http://127.0.0.1:8787` via `wrangler dev --local`.
+Production is live, so the preview is now a development convenience rather than
+the only way to exercise the Worker runtime.
 
 ## 19. Production URL and deployment id
 
-**Not deployed.** Reserved for completion by the operator:
+**Deployed.**
 
 ```
 Production URL:   https://devexcalculator.org
-Worker version:   __________________________
-Deployment time:  __________________________
-Deployed commit:  __________________________
+Worker version:   e7fe682d-1211-4a1c-a035-84526f6bcf7d
+Deployment time:  2026-08-18T23:43Z
+Deployed commit:  740bd65
 ```
+
+Scheduled collection runs on the same Worker: `*/15 * * * *`, writing
+observations to the `PLATFORM_HISTORY` KV namespace.
 
 ## 20. Custom domain verification
 
-Pending deployment. The checklist is in `cloudflare-deployment.md` §
-Post-deploy verification, including the single-hop `www` redirect preserving
-path and query.
+Verified live. `devexcalculator.org` and `www.devexcalculator.org` are both
+attached as custom domains; `www` answers with a single 308 to the apex,
+preserving path and trailing slash, and plain HTTP is upgraded with a 301 from
+the Worker itself. The checklist is in `cloudflare-deployment.md` §
+Post-deploy verification.
 
 ## 21. Remaining external configuration
 
-**Blocking:**
+**Blocking: none.** Both items that were blocking are resolved — the site is
+deployed, and `main` pushes to a GitHub remote that runs CI.
 
-1. **Production deployment** — refused by this environment's permission policy.
-   Cloudflare is authenticated with `workers (write)`; every prerequisite
-   passes. `npm run cf-build && npx wrangler deploy`.
-2. **GitHub remote** — none configured, because inventing an owner is forbidden.
-   `gh` is authenticated as `eazagaz-cpu`.
+**Awaiting a value from the operator:**
+
+1. **`STOCK_API_KEY` / `STOCK_PROVIDER`** — the Finnhub adapter is written and
+   tested but unconfigured, at the operator's request. Until it is set,
+   `/platform/stock/` states that no live price is configured rather than
+   printing one it cannot attribute.
 
 **Optional, all cleanly disabled:** GA4, Cloudflare Web Analytics, organisation
-name, contact email, contact mode and provider secrets, Turnstile keys.
+name, contact email, contact mode and provider secrets, Turnstile keys. Each
+absent provider now also drops its origin from the CSP, so the policy describes
+the same deployment the privacy page does.
 
 Two are deliberately absent rather than pending: no organisation name and no
 contact mailbox are invented.

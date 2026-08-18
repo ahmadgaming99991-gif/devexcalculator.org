@@ -2,39 +2,26 @@
 
 ## Open
 
-### B-002 · No GitHub remote configured
+None. Both blockers are resolved; see below.
 
-**Status:** open — the repository exists, the push needs access.
-**Raised:** 2026-08-17. **Updated:** 2026-08-18.
-
-The owner supplied `https://github.com/ahmadgaming99991-gif/devexcalculator.org`
-(public, empty). The remote is configured. The push cannot proceed because the
-authenticated CLI account is a different user:
-
-```
-gh auth status  → eazagaz-cpu
-repo permissions → {"admin": false, "push": false, "pull": true}
-```
-
-Either grant that account write access on the repository, or authenticate as
-the owner:
-
-```bash
-gh auth login            # as ahmadgaming99991-gif
-git push -u origin main
-```
-
-The tree was scanned before the remote was added: only `.env.example` and
-`.dev.vars.example` are tracked, both placeholders, and no token-shaped string
-appears anywhere in the history. It is safe to publish.
-
-CI workflows, Dependabot and the security scan are committed and will run on the
-first push. Cloudflare Workers Builds can then be connected —
-`docs/cloudflare-deployment.md` has the exact settings.
+The only outstanding external value is not a blocker: `STOCK_API_KEY` and
+`STOCK_PROVIDER` are unset at the owner's request, and `/platform/stock/`
+states that plainly rather than printing an unattributed price.
 
 ---
 
 ## Resolved
+
+### B-002 · No GitHub remote configured
+
+**Resolved 2026-08-18.** The owner authenticated the CLI as the repository
+owner. `main` now tracks
+`https://github.com/ahmadgaming99991-gif/devexcalculator.org`, and every push
+runs the CI and Security workflows; both are green on the current head.
+
+The tree was scanned before the remote was added: only `.env.example` and
+`.dev.vars.example` are tracked, both placeholders, and no token-shaped string
+appears anywhere in the history. It was safe to publish, and remains so.
 
 ### B-006 · Cloudflare injected an analytics beacon
 
