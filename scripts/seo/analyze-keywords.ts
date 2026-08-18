@@ -65,21 +65,84 @@ function loadSourceFiles(): SourceFile[] {
   });
 }
 
-function write(fileName: string, data: unknown): void {
-  mkdirSync(SEO_GENERATED, { recursive: true });
-  writeFileSync(join(SEO_GENERATED, fileName), `${JSON.stringify(data, null, 2)}\n`, "utf8");
-  console.log(`  wrote seo/generated/${fileName}`);
+export interface DatasetStamp {
+  /** When the newest source export was taken, read from its filename. */
+  readonly exportedAt: string;
+  /** SHA-256 over every source file's name and bytes. */
+  readonly digest: string;
+}
+
+/** The timestamp the export tool writes into every filename. */
+const FILENAME_TIMESTAMP = /_(\d{4}-\d{2}-\d{2})_(\d{2})-(\d{2})-(\d{2})\.csv$/i;
+
+/**
+ * Stamps a run from its inputs rather than from the clock.
+ *
+ * The generated files are committed and CI fails when regenerating changes
+ * them, so a wall-clock timestamp would make every run a diff that says
+ * nothing about the data — leaving the drift check permanently red and
+ * therefore useless. Both fields here move only when an input actually
+ * changes: `exportedAt` when a newer export is added, `digest` when any byte
+ * of any export changes.
+ */
+function datasetStamp(files: readonly SourceFile[]): DatasetStamp {
+  const exportTimes = files.map((file) => {
+    const match = FILENAME_TIMESTAMP.exec(file.fileName);
+    if (!match) {
+      throw new Error(
+        `${file.fileName} carries no export timestamp. The generated files are stamped ` +
+          `from the exports, so every source file must record when it was taken.`,
+      );
+    }
+    return `${match[1]}T${match[2]}:${match[3]}:${match[4]}Z`;
+  });
+
+  const digest = createHash("sha256");
+  for (const file of [...files].sort((a, b) => a.fileName.localeCompare(b.fileName))) {
+    digest.update(`${file.fileName}:${file.sha256}\n`);
+  }
+
+  return {
+    exportedAt: [...exportTimes].sort().at(-1) as string,
+    digest: digest.digest("hex").toUpperCase().slice(0, 32),
+  };
+}
+
+/**
+ * Builds the writer for one run, stamping every artefact with the dataset it
+ * was derived from.
+ *
+ * Provenance is applied here, at the one boundary where these files are
+ * written, rather than inside each builder — so there is a single place that
+ * decides what a stamp means, and no builder can quietly attach a clock
+ * reading of its own.
+ */
+function makeWriter(stamp: DatasetStamp) {
+  return function write(fileName: string, data: object): void {
+    const payload = {
+      datasetExportedAt: stamp.exportedAt,
+      datasetDigest: stamp.digest,
+      ...(data as Record<string, unknown>),
+    };
+    mkdirSync(SEO_GENERATED, { recursive: true });
+    writeFileSync(join(SEO_GENERATED, fileName), `${JSON.stringify(payload, null, 2)}\n`, "utf8");
+    console.log(`  wrote seo/generated/${fileName}`);
+  };
 }
 
 export interface GenerateResult {
   readonly pipeline: PipelineResult;
   /** Returned so validators apply the same manual decisions this run did. */
   readonly overrides: Overrides;
+  /** The inputs this run was derived from, for reports and provenance. */
+  readonly stamp: DatasetStamp;
 }
 
 export function generateAll(): GenerateResult {
   const overrides = readOverrides();
   const files = loadSourceFiles();
+  const stamp = datasetStamp(files);
+  const write = makeWriter(stamp);
   const result = runPipeline(files, overrides);
   const clusters = buildClusters(result.records, overrides);
   const amounts = buildAmountEntities(result.records, overrides);
@@ -92,31 +155,26 @@ export function generateAll(): GenerateResult {
   }
 
   write("dataset-summary.json", {
-    generatedAt: result.generatedAt,
     files: result.files,
     accounting: result.accounting,
     note: "Metrics are third-party estimates from the supplied exports, not guaranteed traffic.",
   });
 
   write("keyword-intelligence.json", {
-    generatedAt: result.generatedAt,
     totalRecords: result.records.length,
     clusters,
     records: result.records,
   });
 
   write("keyword-route-map.json", {
-    generatedAt: result.generatedAt,
     routes: buildRouteMap(result),
   });
 
   write("content-priority-map.json", {
-    generatedAt: result.generatedAt,
     bands: buildPriorityBands(result),
   });
 
   write("keyword-exclusions.json", {
-    generatedAt: result.generatedAt,
     excluded: result.records
       .filter((r) => r.status === "excluded")
       .map((r) => ({
@@ -155,7 +213,6 @@ export function generateAll(): GenerateResult {
   write("publish-queue.json", buildPublishQueue(result.records, amounts));
 
   write("amount-entities.json", {
-    generatedAt: result.generatedAt,
     approvedCount: amounts.filter((a) => a.publicationStatus === "approved").length,
     entities: amounts,
   });
@@ -167,7 +224,7 @@ export function generateAll(): GenerateResult {
         .join(", "),
   );
 
-  return { pipeline: result, overrides };
+  return { pipeline: result, overrides, stamp };
 }
 
 function buildRouteMap(result: PipelineResult) {

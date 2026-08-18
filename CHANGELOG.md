@@ -95,6 +95,12 @@ Recorded because each was a real bug that shipped-looking code contained:
 - **The focus indicator failed WCAG 2.2.** The specification's candidate
   `#f59e0b` measures 2.15:1 against white, below the required 3:1; darkened to
   `#a16207` at 4.96:1.
+- **The generated SEO artefacts were stamped with the wall clock**, so every
+  run rewrote all eleven files with nothing but a new timestamp. Because those
+  files are committed and CI fails when regenerating changes them, the drift
+  check would have been red on every run and therefore ignored. They now carry
+  the export date and a digest of the source CSVs, so a regeneration is
+  byte-identical unless an input actually changed.
 
 ### Deliberately not included
 

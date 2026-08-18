@@ -133,7 +133,6 @@ export function buildCannibalizationMap(
   }
 
   return {
-    generatedAt: new Date().toISOString(),
     errorCount: findings.filter((f) => f.severity === "error").length,
     warningCount: findings.filter((f) => f.severity === "warning").length,
     findings,
@@ -275,7 +274,6 @@ export function buildPublishQueue(
   });
 
   return {
-    generatedAt: new Date().toISOString(),
     total: entries.length,
     eligibleForSitemap: entries.filter((e) => e.eligibleForSitemap).length,
     blocked: entries.filter((e) => e.blockers.length > 0).length,

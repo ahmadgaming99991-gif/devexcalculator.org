@@ -136,7 +136,6 @@ const CHECKPOINTS: Readonly<
 };
 
 export interface PipelineResult {
-  readonly generatedAt: string;
   readonly files: readonly FileSummary[];
   readonly records: readonly KeywordRecord[];
   readonly accounting: AccountingSummary;
@@ -154,7 +153,6 @@ export interface AccountingSummary {
 export function runPipeline(
   files: readonly SourceFile[],
   overrides: Overrides = EMPTY_OVERRIDES,
-  generatedAt: string = new Date().toISOString(),
 ): PipelineResult {
   const fileSummaries: FileSummary[] = [];
   const staged: Array<Omit<KeywordRecord, "priority" | "strategicPriorityScore" | "quickWinScore"> & {
@@ -389,7 +387,6 @@ export function runPipeline(
   });
 
   return {
-    generatedAt,
     files: fileSummaries,
     records,
     accounting: buildAccounting(records),

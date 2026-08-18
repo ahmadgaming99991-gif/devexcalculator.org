@@ -28,7 +28,7 @@ function fail(message: string): void {
 
 // The same overrides the generation run used, so the validator sees the manual
 // publication decisions rather than the raw automated gate results.
-const { pipeline: result, overrides } = generateAll();
+const { pipeline: result, overrides, stamp } = generateAll();
 const clusters = buildClusters(result.records, overrides);
 const amounts = buildAmountEntities(result.records, overrides);
 const cannibalization = buildCannibalizationMap(result.records, amounts);
@@ -172,7 +172,10 @@ function buildReport(): string {
 
   return `# SEO validation report
 
-Generated ${result.generatedAt}. Regenerate with \`npm run validate:seo\`.
+Built from exports taken ${stamp.exportedAt}, dataset \`${stamp.digest}\`.
+Regenerate with \`npm run validate:seo\`. The stamp is derived from the source
+exports, not from the clock, so regenerating unchanged inputs produces an
+identical file.
 
 ## Source exports
 

@@ -300,3 +300,29 @@ Eight generated pages initially pointed at the same three destinations with
 identical anchor text — an exact-match link block, which the internal-link
 validator flags. Anchors now include the amount or its payout, so each is
 contextual.
+
+---
+
+## D-022 · Generated artefacts are stamped from their inputs, not the clock
+
+**New implementation decision**, forced by a defect.
+
+`seo/generated/*.json` carried `generatedAt: new Date()`. The files are
+committed and CI fails when regenerating them produces a diff — that check is
+what catches a pipeline change made without regenerating. A wall-clock stamp
+made every run a diff, so the check would have failed on every run for a reason
+that says nothing about the data, and would have been switched off or ignored
+within a week.
+
+Each artefact now carries `datasetExportedAt`, read from the timestamp the
+export tool writes into each source filename, and `datasetDigest`, a SHA-256
+over the source bytes. Both move only when an input changes.
+
+File modification time was considered and rejected: `git clone` does not
+preserve mtimes, so it would have been stable locally and different on every CI
+run — the same failure wearing a disguise.
+
+The stamp is applied at the single point where these files are written rather
+than inside each builder, so no builder can attach a clock reading of its own,
+and `tests/integration/generated-artefacts.test.ts` fails if one does.
+

@@ -137,7 +137,7 @@ export function buildEntityMap(records: readonly KeywordRecord[]) {
     relationship: definition.relationship,
   }));
 
-  return { generatedAt: new Date().toISOString(), entities: nodes };
+  return { entities: nodes };
 }
 
 // ---------------------------------------------------------------------------
@@ -200,7 +200,6 @@ export function buildPaaMap(records: readonly KeywordRecord[]) {
   }
 
   return {
-    generatedAt: new Date().toISOString(),
     total: questions.length,
     answeredOnPage: questions.filter((q) => q.answeredOnPage).length,
     questions,
@@ -257,7 +256,6 @@ export function buildInternalLinkMap() {
     .map(([key, count]) => ({ key, count }));
 
   return {
-    generatedAt: new Date().toISOString(),
     edgeCount: edges.length,
     nodeCount: routeRegistry.length,
     orphans,
