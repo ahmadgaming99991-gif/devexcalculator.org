@@ -57,7 +57,7 @@
         "unused-javascript": "off",
         "unsized-images": "error",
         "color-contrast": "error",
-        "tap-targets": "error",
+        "tap-targets": "off",
         "meta-description": "error",
         "document-title": "error",
         "html-has-lang": "error",
@@ -74,6 +74,7 @@
     "uses-http2 is skipped because the local server is HTTP/1.1; Cloudflare serves HTTP/2 and HTTP/3 in production.",
     "csp-xss is off because it flags the 'unsafe-inline' script-src that Next.js requires; the reasoning is recorded in docs/security-model.md.",
     "Performance is a warning rather than an error: shared CI hardware varies enough that gating on it would fail for reasons unrelated to the change.",
+    "tap-targets is a mobile-only audit and this run uses the desktop preset, so it never executes. Touch target size is covered directly instead: every control carries a 44px minimum, asserted in tests/e2e/accessibility.spec.ts and captured at eight widths by the visual suite.",
     "There is deliberately no preset. A preset asserts every audit Lighthouse ships, so the gate broke whenever Lighthouse added one - bf-cache and three *-insight audits - and whenever it removed one, as it did with no-vulnerable-libraries. The category thresholds above are the real bar: accessibility 100, SEO 100, best practices 95. Dependency vulnerabilities are covered by the Security workflow, not by a page audit."
   ]
 }
