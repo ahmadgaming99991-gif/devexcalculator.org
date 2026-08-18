@@ -8,7 +8,7 @@ DevExCalculator.org · 2026-08-17 · commit `f8fdbe9` plus the documentation com
 
 A complete Roblox DevEx calculator and reference site, built from an empty
 directory to a deployable Cloudflare Workers application with 32 indexable
-routes, 363 unit tests, 248 end-to-end tests and full documentation.
+routes, 377 unit tests, 248 end-to-end tests and full documentation.
 
 Every applicable acceptance gate passes. **Production deployment is the one
 outstanding item**, blocked by this environment's permission policy on
@@ -161,7 +161,7 @@ unconfigured. No secret in the client or in Git; CI scans for both.
 |---|---|
 | Lint | Clean |
 | Typecheck | Clean |
-| Unit and integration | **363 passing** |
+| Unit and integration | **377 passing** |
 | Content validation | 0 errors, 0 warnings |
 | SEO validation | Passed, 444/444 rows |
 | Build | 32 routes |
@@ -268,7 +268,7 @@ Detail in `seo/content-roadmap.md`. Nothing bypasses the publication gate.
 
 ## Closing note
 
-Thirteen real defects were found and fixed during the build, listed in
+Fourteen real defects were found and fixed during the build, listed in
 `CHANGELOG.md`. The pattern is worth recording: nearly all were caught by a
 testing layer that did not exist when the code was written. axe found 608 broken
 CSS utilities producing invisible text; the Workers runtime found two adapter

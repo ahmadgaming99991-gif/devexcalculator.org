@@ -60,7 +60,7 @@ npm run dev              # development server
 npm run build            # production build
 npm run lint             # ESLint
 npm run typecheck        # tsc --noEmit
-npm run test             # Vitest — 363 unit and integration tests
+npm run test             # Vitest — 377 unit and integration tests
 npm run test:e2e         # Playwright — 248 tests, three browsers
 npm run test:a11y        # accessibility suite only
 npm run test:visual      # capture 134 screenshots for review
@@ -176,7 +176,7 @@ schemas/          JSON Schemas for the shipped data files
 
 | | |
 |---|---|
-| Unit and integration | 363 passing |
+| Unit and integration | 377 passing |
 | E2E, three browsers | 248 passing |
 | E2E, Workers runtime | 83 passing |
 | Lighthouse desktop | 100 / 100 / 100 / 100 |
