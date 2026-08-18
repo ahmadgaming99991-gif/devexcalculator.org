@@ -190,3 +190,57 @@ npx wrangler tail --status error     # errors only
 Logged: request ids, FX provider failures by code, contact delivery failures,
 Turnstile rejection reasons. Never logged: contact message content, calculator
 values, or any secret.
+
+---
+
+## Deployment of record
+
+Deployed 2026-08-18 to account `Ahmadgaming99991@gmail.com's Account`.
+
+| | |
+|---|---|
+| Worker | `devexcalculator-org` |
+| Hostnames | `devexcalculator.org`, `www.devexcalculator.org` — both custom domains |
+| Bundle | 8,485 KiB raw, 2,044 KiB gzipped (68% of the 3 MB limit) |
+| Worker startup | 27 ms |
+| Assets | 74 files, including the prerendered HTML |
+| `workers.dev` | disabled — the site answers only on its own domain |
+
+Routing is declared in `wrangler.jsonc`, not clicked into the dashboard, so a
+rebuild from this repository reproduces it.
+
+### Verified against the deployment
+
+| Check | Result |
+|---|---|
+| 32 indexable routes, metadata, structured data | pass |
+| Internal link crawl | 1,947 links, 0 failures |
+| Near-duplicate detection | pass, 0 warnings |
+| Browser E2E, 3 browsers | 245 of 249, see below |
+| Security headers | HSTS, CSP, COOP, `x-frame-options`, `x-content-type-options`, `referrer-policy`, `permissions-policy` all present |
+| `www` → apex | single hop, path and query preserved |
+
+The four non-passing results are three browsers reporting the same finding —
+B-006, the injected analytics beacon — plus one skip.
+
+### Outstanding settings, dashboard only
+
+Neither can be set from this repository, and both need the account owner.
+
+1. **Always Use HTTPS is off.** `http://devexcalculator.org/` currently answers
+   `200` in plaintext instead of redirecting to HTTPS. HSTS is served, so a
+   browser that has already visited will upgrade on its own, but a first-time
+   plaintext request is not redirected. SSL/TLS → Edge Certificates → Always
+   Use HTTPS.
+
+2. **A redirect rule for `www` would remove the second hop.** The Next.js
+   rules answer correctly today, and a page request costs two hops because the
+   destination cannot carry a trailing slash without breaking `/sitemap.xml`.
+   An edge rule redirecting to
+   `concat("https://devexcalculator.org", http.request.uri)` preserves the path
+   exactly and answers in one hop, before the Worker runs.
+
+`/robots.txt` on `www` is served from static assets and does not redirect. That
+is intentional and correct: a host should answer its own `robots.txt` rather
+than redirect it.
+

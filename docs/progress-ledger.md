@@ -135,7 +135,7 @@ Both blockers are documented with exact commands in `docs/blockers.md`.
 
 ## Defects found and fixed
 
-Fourteen, listed in `CHANGELOG.md`. The pattern worth noting: **most were found
+Eighteen, listed in `CHANGELOG.md`. The pattern worth noting: **most were found
 by a layer of testing that did not exist yet when the code was written.** Unit
 tests caught arithmetic; the pipeline audit caught data loss; validators caught
 SEO problems; axe caught the CSS; the Workers runtime caught adapter

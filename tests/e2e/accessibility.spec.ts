@@ -1,5 +1,5 @@
 import AxeBuilder from "@axe-core/playwright";
-import { expect, test } from "@playwright/test";
+import { expect, test, type Page } from "@playwright/test";
 
 /**
  * Accessibility.
@@ -8,6 +8,8 @@ import { expect, test } from "@playwright/test";
  * exercises the things axe cannot: keyboard operation of the calculator and the
  * mobile menu, focus return, live-region announcements, 320px layout and 200%
  * zoom.
+ *
+ * Colour contrast is audited only after animation has stopped; see `settle()`.
  */
 
 const ROUTES = [
@@ -28,10 +30,32 @@ const ROUTES = [
   "/accessibility/",
 ];
 
+/**
+ * Waits for every running CSS transition and animation to finish.
+ *
+ * Colour contrast cannot be audited while colours are still moving. Applying
+ * the stored theme after hydration animates the whole palette through
+ * `transition-colors`, and axe sampling mid-flight reported 58 violations at
+ * ratios like 2.9:1 for colours that are compliant at both ends — Firefox saw
+ * `#dbdcde` on `#457aee`, exactly midway between the light and dark values.
+ *
+ * `reducedMotion` alone was not enough: Chromium honours it here, Firefox
+ * still animated. Waiting on `getAnimations()` settles the question in both,
+ * and does not depend on a timeout.
+ */
+async function settle(page: Page): Promise<void> {
+  await page.evaluate(async () => {
+    await Promise.all(
+      document.getAnimations().map((animation) => animation.finished.catch(() => undefined)),
+    );
+  });
+}
+
 test.describe("axe", () => {
   for (const route of ROUTES) {
     test(`${route} has no violations`, async ({ page }) => {
       await page.goto(route);
+      await settle(page);
       const results = await new AxeBuilder({ page })
         .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "wcag22aa"])
         .analyze();
@@ -52,6 +76,7 @@ test.describe("axe", () => {
     await page.goto("/");
     await page.getByLabel("Eligible Earned Robux").fill("100000");
     await expect(page.getByText("$380.00").first()).toBeVisible();
+    await settle(page);
 
     const results = await new AxeBuilder({ page })
       .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "wcag22aa"])
@@ -229,6 +254,7 @@ test.describe("dark mode", () => {
   test("renders with the dark palette and stays accessible", async ({ page }) => {
     await page.emulateMedia({ colorScheme: "dark" });
     await page.goto("/");
+    await settle(page);
 
     const background = await page.evaluate(
       () => getComputedStyle(document.body).backgroundColor,

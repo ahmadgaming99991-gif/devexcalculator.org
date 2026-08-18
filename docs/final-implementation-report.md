@@ -268,7 +268,7 @@ Detail in `seo/content-roadmap.md`. Nothing bypasses the publication gate.
 
 ## Closing note
 
-Fourteen real defects were found and fixed during the build, listed in
+Eighteen real defects were found and fixed, listed in
 `CHANGELOG.md`. The pattern is worth recording: nearly all were caught by a
 testing layer that did not exist when the code was written. axe found 608 broken
 CSS utilities producing invisible text; the Workers runtime found two adapter

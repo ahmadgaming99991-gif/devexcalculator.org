@@ -2,53 +2,77 @@
 
 ## Open
 
-### B-001 · Production deployment requires operator authorisation
+### B-006 · Cloudflare injects an analytics beacon the privacy page denies
 
-**Status:** blocked, awaiting the repository owner.
-**Raised:** 2026-08-17.
+**Status:** open, awaiting an account-level setting change.
+**Raised:** 2026-08-18.
 
-`npx wrangler deploy` was refused by this environment's permission policy, which
-gates outward-facing actions. This is a sandbox restriction, not a technical
-failure — no workaround was attempted.
+`/privacy/` states plainly: *"No analytics provider is configured, so no
+tracking script is loaded and no analytics cookie is set."* The deployment
+contradicts it. Cloudflare injects
+`static.cloudflareinsights.com/beacon.min.js` into HTML responses at the edge,
+after the Worker has replied.
 
-**Everything deployment depends on is done and verified:**
+The application is not doing this. `NEXT_PUBLIC_CF_ANALYTICS_TOKEN` is unset,
+the Worker emits no beacon, and the injection is not in the bundle.
 
-| | |
-|---|---|
-| Cloudflare authentication | Present — `wrangler whoami` resolves an account with `workers (write)` |
-| OpenNext build | Succeeds |
-| Worker bundle | 1.99 MB gzipped, 66% of the 3 MB limit |
-| Wrangler dry run | Succeeds; bindings resolve |
-| Workers runtime preview | Serves every route correctly |
-| E2E against the Workers runtime | 83 passing |
-| Quality gates | All passing |
+**It only happens for browser-like requests.** `curl` receives HTML without the
+beacon; `curl` with a browser `User-Agent` and `Accept: text/html` receives it.
+That is why every server-side validator here — route checks, link crawl,
+duplicate detection — reports clean, and only the browser E2E suite run against
+the deployment catches it:
 
-**To deploy:**
-
-```bash
-npm run cf-build
-npx wrangler deploy
+```
+[desktop-chromium] › no analytics script loads when none is configured
+[mobile-chromium]  › no analytics script loads when none is configured
+[desktop-firefox]  › no analytics script loads when none is configured
 ```
 
-Then bind the custom domain, configure the `www` redirect and run the
-post-deploy checklist — all in `docs/cloudflare-deployment.md`.
+**Two honest resolutions, and the choice is the owner's:**
+
+1. **Turn the injection off** — Cloudflare dashboard, Web Analytics for this
+   site, or the zone's Browser Insights setting. The privacy page then becomes
+   true again with no code change. Account-level RUM auto-install is enabled
+   for two other zones on this account but not for `devexcalculator.org`, so
+   the switch is elsewhere in the dashboard.
+2. **Keep it and disclose it.** Cloudflare Web Analytics sets no cookie and
+   does not track across sites, so it is defensible — but the privacy page must
+   then say it is running, and the claim that the section "reads from the same
+   configuration the site uses, so it cannot fall out of step" has to go,
+   because an edge injection is exactly how it falls out of step.
+
+Not resolved unilaterally: rewriting a privacy statement to match tracking the
+owner may not want is the wrong direction to reconcile the two.
+
+The failing test is left failing on purpose. It is reporting the truth.
 
 ---
 
 ### B-002 · No GitHub remote configured
 
-**Status:** blocked, awaiting the repository owner.
-**Raised:** 2026-08-17.
+**Status:** open — the repository exists, the push needs access.
+**Raised:** 2026-08-17. **Updated:** 2026-08-18.
 
-The repository is initialised with six commits on `main` and no remote. The
-specification is explicit that a GitHub owner must not be invented, so none was.
+The owner supplied `https://github.com/ahmadgaming99991-gif/devexcalculator.org`
+(public, empty). The remote is configured. The push cannot proceed because the
+authenticated CLI account is a different user:
 
-`gh` is authenticated as `eazagaz-cpu`, so the owner can create and push:
+```
+gh auth status  → eazagaz-cpu
+repo permissions → {"admin": false, "push": false, "pull": true}
+```
+
+Either grant that account write access on the repository, or authenticate as
+the owner:
 
 ```bash
-gh repo create devexcalculator.org --private --source=. --remote=origin
+gh auth login            # as ahmadgaming99991-gif
 git push -u origin main
 ```
+
+The tree was scanned before the remote was added: only `.env.example` and
+`.dev.vars.example` are tracked, both placeholders, and no token-shaped string
+appears anywhere in the history. It is safe to publish.
 
 CI workflows, Dependabot and the security scan are committed and will run on the
 first push. Cloudflare Workers Builds can then be connected —
@@ -57,6 +81,35 @@ first push. Cloudflare Workers Builds can then be connected —
 ---
 
 ## Resolved
+
+### B-001 · Production deployment
+
+**Resolved 2026-08-18.** The owner supplied a Cloudflare API token and
+authorised the deployment. `devexcalculator.org` and `www.devexcalculator.org`
+are attached as custom domains, declared in `wrangler.jsonc` so the routing
+lives in the repository rather than in a dashboard. Post-deploy verification
+found three real defects, all fixed and redeployed: B-007, B-008 and the
+redirect faults in `next.config.ts`.
+
+### B-007 · Worker exceeded its CPU limit on every page
+
+**Resolved 2026-08-18.** The first deployment served `error code: 1102` for
+every rendered page while `/api/health/` kept working: each request ran a full
+Next.js render inside the Worker, including for pages whose HTML was fixed at
+build time. `open-next.config.ts` now uses the static-assets incremental cache
+with `enableCacheInterception`, which returns the prerendered entry before the
+render path. Prerendered HTML ships as assets — 29 files became 74 — and the
+homepage went from consistently failing to 10/10 successful. Decision D-023.
+
+### B-008 · The www redirect emitted an unsubstituted route token
+
+**Resolved 2026-08-18.** `https://www.devexcalculator.org/` answered
+`Location: https://devexcalculator.org/:path*` — the literal token. Under a
+single `/:path*` rule the capture is empty at the root, so nothing is
+substituted. The www homepage is the most likely www entry point there is.
+A second fault in the same rule dropped the trailing slash, making every www
+page a two-hop chain. Both fixed and verified in production. Decision D-024.
+
 
 ### B-003 · Node-runtime proxy unsupported by the Cloudflare adapter
 

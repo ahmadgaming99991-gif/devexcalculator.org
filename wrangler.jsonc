@@ -8,6 +8,13 @@
     "directory": ".open-next/assets",
     "binding": "ASSETS"
   },
+  // Both hostnames route to this Worker. `www` is not a DNS alias: it must
+  // reach the Worker so the redirect in next.config.ts can send it to the
+  // apex with a 308, which is what keeps one canonical origin.
+  "routes": [
+    { "pattern": "devexcalculator.org", "custom_domain": true },
+    { "pattern": "www.devexcalculator.org", "custom_domain": true }
+  ],
   "observability": {
     "enabled": true,
     "head_sampling_rate": 1

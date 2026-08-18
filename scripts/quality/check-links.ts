@@ -129,22 +129,55 @@ async function main(): Promise<void> {
       }
     }
 
-    // The www host must redirect once, preserving path and query.
-    const wwwTest = await fetch(`${server.baseUrl}/devex-rates/?test=1`, {
-      headers: { host: "www.devexcalculator.org" },
-      redirect: "manual",
-    });
-    if (wwwTest.status >= 300 && wwwTest.status < 400) {
-      const location = wwwTest.headers.get("location") ?? "";
-      if (!location.includes("/devex-rates/") || !location.includes("test=1")) {
-        fail(`www redirect dropped the path or query: ${location}`);
+    // The www host must redirect to the apex, preserving path and query.
+    //
+    // Against a public deployment this makes a real request to the www
+    // hostname, which is the only way the rule is genuinely exercised: locally
+    // the Host header is spoofed and the server is free to ignore it. That gap
+    // is not theoretical — it is why the root case below reached production
+    // broken.
+    const publicWwwOrigin = server.baseUrl.startsWith("https://")
+      ? server.baseUrl.replace("https://", "https://www.")
+      : null;
+
+    const wwwCases = [
+      { path: "/devex-rates/?test=1", expected: ["/devex-rates/", "test=1"] },
+      // The root needs its own redirect rule. Under a single `/:path*` rule the
+      // capture is empty here and Next emits the token unsubstituted, so
+      // production served `Location: https://devexcalculator.org/:path*` for
+      // the www homepage.
+      { path: "/", expected: ["https://devexcalculator.org/"] },
+    ];
+
+    for (const testCase of wwwCases) {
+      const response = publicWwwOrigin
+        ? await fetch(`${publicWwwOrigin}${testCase.path}`, { redirect: "manual" })
+        : await fetch(`${server.baseUrl}${testCase.path}`, {
+            headers: { host: "www.devexcalculator.org" },
+            redirect: "manual",
+          });
+
+      if (response.status < 300 || response.status >= 400) {
+        if (publicWwwOrigin) {
+          fail(`www${testCase.path} returned ${response.status} instead of redirecting to the apex.`);
+        } else {
+          warn(
+            `www redirect could not be exercised locally (status ${response.status}); ` +
+              `run this against the deployment to verify it.`,
+          );
+        }
+        continue;
       }
-    } else {
-      // Locally the Host header may not reach the proxy; production is verified
-      // separately by the post-deploy check.
-      warn(
-        `www redirect could not be exercised locally (status ${wwwTest.status}); verify after deployment.`,
-      );
+
+      const location = response.headers.get("location") ?? "";
+      if (location.includes(":path")) {
+        fail(`www${testCase.path} redirect emitted an unsubstituted route token: ${location}`);
+      }
+      for (const fragment of testCase.expected) {
+        if (!location.includes(fragment)) {
+          fail(`www${testCase.path} redirect lost "${fragment}": ${location}`);
+        }
+      }
     }
   } finally {
     await server.stop();

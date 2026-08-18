@@ -326,3 +326,76 @@ The stamp is applied at the single point where these files are written rather
 than inside each builder, so no builder can attach a clock reading of its own,
 and `tests/integration/generated-artefacts.test.ts` fails if one does.
 
+---
+
+## D-023 · Prerendered pages are served from static assets, not re-rendered
+
+**New implementation decision**, forced by a production failure.
+
+The first deployment returned Cloudflare `error code: 1102` — Worker CPU limit
+exceeded — for every rendered page, while `/api/health/` kept answering. Every
+request was running a full Next.js server render inside the Worker, including
+for the 32 pages whose HTML is fixed at build time.
+
+`open-next.config.ts` now sets the static-assets incremental cache with
+`enableCacheInterception`. Prerendered HTML is written into the assets bundle
+and returned before the render path is reached.
+
+This does not reverse D-011. That decision refused a KV, R2 or Durable Object
+binding for a stateless calculator, on cost and failure-mode grounds. The
+static-assets cache adds no binding and no cost — it reads from the Assets
+binding the deployment already has. The adapter's own guidance is that it suits
+applications that never revalidate and only serve prerendered data, which
+describes every route here.
+
+Measured: assets went from 29 files to 74, and the homepage from failing on
+every request to 10 of 10 succeeding.
+
+---
+
+## D-024 · The www redirect is three rules, not one
+
+**New implementation decision**, found in production.
+
+One `/:path*` rule looked correct and was wrong twice.
+
+At the root the capture is empty, and Next emitted the destination
+unsubstituted: `https://www.devexcalculator.org/` answered
+`Location: https://devexcalculator.org/:path*`. The www homepage is the most
+likely www entry point there is, and it pointed at a URL that does not exist.
+
+For every other path the destination carried no trailing slash, so the apex
+answered with a second redirect to add it — a two-hop chain on every www page
+request.
+
+Now three rules: the root explicitly; anything with a file extension preserved
+exactly, so `/sitemap.xml` is not sent to `/sitemap.xml/`; and pages with the
+trailing slash `trailingSlash: true` requires.
+
+Neither fault was reachable locally, because a host condition cannot be
+exercised against `127.0.0.1` — the link checker had been emitting a warning
+saying exactly that, and the warning was correct. It now makes real requests to
+the www hostname whenever it runs against a public deployment, and asserts that
+no `:path` token survives into a `Location` header.
+
+---
+
+## D-025 · Colour contrast is audited only after animation stops
+
+**New implementation decision**, found by a flaky failure.
+
+The axe suite reported 58 colour-contrast violations against the deployment at
+ratios like 3.82:1 and 2.9:1. The colours were real but transient: applying the
+stored theme after hydration animates the palette through `transition-colors`,
+and axe was sampling mid-flight. Firefox measured `#dbdcde` on `#457aee`,
+exactly midway between the light and dark values; both endpoints pass.
+
+`reducedMotion` emulation was tried first and was not enough — Chromium
+honoured it, Firefox still animated. The suite now awaits
+`document.getAnimations()` before every axe run, which is deterministic and
+does not depend on a timeout.
+
+Worth stating plainly: this was a defective test, not a defective site. It was
+also failing intermittently rather than always, which is the kind of test that
+gets retried until it passes and quietly stops meaning anything.
+

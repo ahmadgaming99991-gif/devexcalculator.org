@@ -101,6 +101,20 @@ Recorded because each was a real bug that shipped-looking code contained:
   check would have been red on every run and therefore ignored. They now carry
   the export date and a digest of the source CSVs, so a regeneration is
   byte-identical unless an input actually changed.
+- **Every page exceeded the Worker CPU limit on the first deployment.**
+  Cloudflare returned `error code: 1102` for anything that rendered, while
+  `/api/health/` kept working: each request ran a full Next.js render inside
+  the Worker even for pages whose HTML was fixed at build time. Prerendered
+  pages are now served from static assets through cache interception.
+- **The www redirect emitted a literal `:path*` in the `Location` header** for
+  the root, because the capture is empty there — the www homepage pointed at a
+  URL that does not exist. The same rule also dropped the trailing slash,
+  making every other www page a two-hop chain.
+- **The colour-contrast audit sampled colours mid-animation**, reporting 58
+  violations for values that pass at both ends of the theme transition. A
+  defective test, not a defective site, and an intermittent one.
+- **The analytics test waited on `networkidle`**, which never settles against a
+  real CDN; it timed out at 45s on a page that had fully rendered.
 
 ### Deliberately not included
 

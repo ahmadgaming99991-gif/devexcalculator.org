@@ -1,13 +1,23 @@
 import { defineCloudflareConfig } from "@opennextjs/cloudflare";
+import staticAssetsIncrementalCache from "@opennextjs/cloudflare/overrides/incremental-cache/static-assets-incremental-cache";
 
 /**
  * OpenNext / Cloudflare Workers adapter configuration.
  *
- * No incremental-cache override is configured: every route on this site is
- * either statically prerendered at build time or a short-lived Route Handler
- * that manages its own `Cache-Control`. Adding an R2 or KV incremental cache
- * would introduce a binding, a cost, and a failure mode with no benefit
- * (see docs/architecture.md § Caching and src/lib/cloudflare/README rationale
- * recorded in docs/decision-log.md, decision D-011).
+ * Every route here is prerendered at build time and nothing revalidates, which
+ * is the exact case the static-assets incremental cache is built for: it reads
+ * prerendered pages back out of the Workers Assets binding. No KV, R2 or
+ * Durable Object binding is introduced, so decision D-011 — no paid storage
+ * binding for a stateless calculator — still holds.
+ *
+ * `enableCacheInterception` is what makes it matter. Without it every request,
+ * including one for a page whose HTML was fixed at build time, ran a full
+ * Next.js server render inside the Worker. Production answered `error code:
+ * 1102` — CPU limit exceeded — on every page while the trivial
+ * `/api/health/` route kept working. Interception returns the prerendered
+ * entry before the render path is reached.
  */
-export default defineCloudflareConfig();
+export default defineCloudflareConfig({
+  incrementalCache: staticAssetsIncrementalCache,
+  enableCacheInterception: true,
+});

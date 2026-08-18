@@ -75,14 +75,37 @@ const nextConfig: NextConfig = {
   },
 
   async redirects() {
+    const fromWww = [{ type: "host", value: "www.devexcalculator.org" }] as const;
+
     return [
-      // Canonical host. Also configured as a Cloudflare redirect rule, so the
-      // apex wins even if one layer is ever removed. Path and query are
-      // preserved and it is a single permanent hop.
+      // The root needs its own rule. With `/:path*` the capture is empty here,
+      // and Next emits the unsubstituted token — production served
+      // `Location: https://devexcalculator.org/:path*` for the www homepage,
+      // the single most likely www entry point. Verified in production, not
+      // locally: a host condition cannot be exercised against 127.0.0.1.
+      {
+        source: "/",
+        has: [...fromWww],
+        destination: "https://devexcalculator.org/",
+        permanent: true,
+      },
+      // Files keep their exact path. Appending a slash to /sitemap.xml or
+      // /robots.txt would send a crawler to a URL that does not exist, so
+      // anything with an extension is matched before the page rule below.
+      {
+        source: "/:file(.*\\.[A-Za-z0-9]+)",
+        has: [...fromWww],
+        destination: "https://devexcalculator.org/:file",
+        permanent: true,
+      },
+      // Pages arrive with the trailing slash `trailingSlash: true` requires,
+      // and the destination has to carry it too. Without it the apex answers
+      // with a second redirect to add it, turning every www page request into
+      // a two-hop chain.
       {
         source: "/:path*",
-        has: [{ type: "host", value: "www.devexcalculator.org" }],
-        destination: "https://devexcalculator.org/:path*",
+        has: [...fromWww],
+        destination: "https://devexcalculator.org/:path*/",
         permanent: true,
       },
     ];

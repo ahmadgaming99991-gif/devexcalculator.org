@@ -178,11 +178,27 @@ test.describe("disabled integrations", () => {
     const requested: string[] = [];
     page.on("request", (request) => requested.push(request.url()));
 
-    await page.goto("/");
-    await page.waitForLoadState("networkidle");
+    // This asserts what /privacy/ promises: "no tracking script is loaded".
+    // It can fail against a deployment while passing locally, because
+    // Cloudflare can inject its Web Analytics beacon at the edge, after the
+    // Worker has responded, and only for browser-like requests — curl and
+    // every server-side validator here receive HTML without it. If this fails
+    // in production the deployment is contradicting the privacy page, and the
+    // fix is the Cloudflare setting or the privacy page, not this assertion.
+    //
+    // Not `networkidle`: against the real deployment it never settles — the
+    // page renders completely and the wait times out at 45s. The state is
+    // unreliable by design, and the assertion does not need it. An analytics
+    // tag that was going to load would be in the document, so the check is the
+    // document plus everything requested up to and shortly after load.
+    await page.goto("/", { waitUntil: "load" });
+    await page.waitForTimeout(1_000);
+
+    const html = await page.content();
 
     for (const host of ["googletagmanager.com", "google-analytics.com", "cloudflareinsights.com"]) {
       expect(requested.filter((url) => url.includes(host))).toEqual([]);
+      expect(html).not.toContain(host);
     }
   });
 
