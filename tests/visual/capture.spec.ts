@@ -1,5 +1,6 @@
 import { expect, test } from "@playwright/test";
 import { mkdirSync } from "node:fs";
+import { describeOverflow, measureOverflow } from "../support/overflow";
 import { join } from "node:path";
 
 /**
@@ -63,12 +64,10 @@ test.describe("visual capture", () => {
           fullPage: true,
         });
 
-        const overflow = await page.evaluate(
-          () => document.documentElement.scrollWidth - document.documentElement.clientWidth,
-        );
+        const report = await measureOverflow(page);
         expect(
-          overflow,
-          `${scenario.name} overflows horizontally at ${viewport.name}`,
+          report.overflow,
+          describeOverflow(`${scenario.name} at ${viewport.name}`, report),
         ).toBeLessThanOrEqual(0);
       }
     });

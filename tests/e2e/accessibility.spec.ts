@@ -1,5 +1,6 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test, type Page } from "@playwright/test";
+import { describeOverflow, measureOverflow } from "../support/overflow";
 
 /**
  * Accessibility.
@@ -221,43 +222,11 @@ test.describe("layout resilience", () => {
     await page.getByLabel("Eligible Earned Robux").fill("100000");
     await expect(page.getByText("$380.00").first()).toBeVisible();
 
-    /*
-     * Naming the offender matters here. This failed on CI while passing
-     * locally, and reported only "expected 0" — with no way to tell which
-     * element was pushing the page, on a machine nobody can open. The culprit
-     * was a `rem` minimum width on a table, which grows with the root font
-     * size, so text zoom widened the table. The diagnosis is now in the
-     * failure message.
-     */
-    const result = await page.evaluate(() => {
-      const root = document.documentElement;
-      const limit = root.clientWidth;
-      const scrolls = (element: Element): boolean => {
-        for (let node: Element | null = element; node; node = node.parentElement) {
-          const overflowX = getComputedStyle(node).overflowX;
-          if (overflowX === "auto" || overflowX === "scroll") return true;
-        }
-        return false;
-      };
-
-      const offenders = [...document.querySelectorAll("body *")]
-        .map((element) => ({ element, rect: element.getBoundingClientRect() }))
-        // A wide table inside its own scroller is contained, not an offender.
-        .filter(({ element, rect }) => rect.right > limit + 1 && !scrolls(element))
-        .map(({ element, rect }) => {
-          const classes = element.className?.toString?.() ?? "";
-          return `<${element.tagName.toLowerCase()} class="${classes.slice(0, 80)}"> ` +
-            `right=${Math.round(rect.right)} width=${Math.round(rect.width)}`;
-        });
-
-      return { overflow: root.scrollWidth - limit, limit, offenders: offenders.slice(0, 5) };
-    });
-
+    const report = await measureOverflow(page);
     expect(
-      result.overflow,
-      `Page is ${result.overflow}px wider than its ${result.limit}px viewport at 200% ` +
-        `text zoom. Widest elements: ${result.offenders.join(" | ")}`,
-    ).toBeLessThanOrEqual(0);
+      report.overflow,
+      describeOverflow("The page at 200% text zoom", report),
+        ).toBeLessThanOrEqual(0);
   });
 
   test("the viewport does not block zooming", async ({ page }) => {
