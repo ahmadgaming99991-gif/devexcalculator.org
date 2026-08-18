@@ -27,7 +27,7 @@ export function SiteHeader() {
             <span className="sr-only">— home</span>
           </Link>
 
-          <nav aria-label="Main" className="hidden md:block">
+          <nav aria-label="Main" className="hidden lg:block">
             <ul className="flex items-center gap-1">
               {primaryNavigation.map((entry) => (
                 <li key={entry.href}>
@@ -56,7 +56,7 @@ export function SiteHeader() {
           never duplicates the navigation for anyone else.
         */}
         <noscript>
-          <nav aria-label="Site sections" className="border-t border-(--color-border) py-2 md:hidden">
+          <nav aria-label="Site sections" className="border-t border-(--color-border) py-2 lg:hidden">
             <ul className="flex flex-wrap gap-x-4 gap-y-1">
               {primaryNavigation.map((entry) => (
                 <li key={entry.href}>
