@@ -22,8 +22,36 @@ interface Env {
   PLATFORM_HISTORY?: HistoryStore;
 }
 
+/**
+ * Upgrades a plain HTTP request before anything else sees it.
+ *
+ * The zone's "Always Use HTTPS" setting is off and can only be changed from
+ * the Cloudflare dashboard, but plain HTTP requests reach this Worker — the
+ * logs are full of them — so the redirect can be done here instead. HSTS
+ * already protects anyone who has visited before; this covers the first
+ * visit, which is exactly the case HSTS cannot.
+ *
+ * 301 rather than 308: this is a permanent scheme upgrade for a GET, and 301
+ * is what every crawler and client already understands for it.
+ */
+function upgradeToHttps(request: Request): Response | null {
+  const url = new URL(request.url);
+  if (url.protocol !== "http:") return null;
+
+  url.protocol = "https:";
+  return new Response(null, {
+    status: 301,
+    headers: {
+      location: url.toString(),
+      "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    },
+  });
+}
+
 const handler = {
   fetch(request: Request, env: unknown, ctx: ExecutionContext): Promise<Response> {
+    const upgrade = upgradeToHttps(request);
+    if (upgrade) return Promise.resolve(upgrade);
     return openNextWorker.fetch(request, env, ctx);
   },
 

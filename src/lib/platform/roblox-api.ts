@@ -54,7 +54,23 @@ async function getJson(url: string): Promise<FetchResult<unknown>> {
     if (!response.ok) {
       return { ok: false, reason: `Roblox returned HTTP ${response.status}.` };
     }
-    return { ok: true, data: await response.json(), observedAt: new Date().toISOString() };
+
+    /*
+     * The observation time is Roblox's, not ours.
+     *
+     * A successful response is cached for five minutes, so reading the clock
+     * here would stamp a four-minute-old reading as though it had just been
+     * taken — the page would present a stale number as current, which is the
+     * one thing it must not do. The upstream `date` header travels with the
+     * cached response and records when Roblox actually answered.
+     */
+    const upstream = response.headers.get("date");
+    const observedAt =
+      upstream && !Number.isNaN(Date.parse(upstream))
+        ? new Date(upstream).toISOString()
+        : new Date().toISOString();
+
+    return { ok: true, data: await response.json(), observedAt };
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
     return {

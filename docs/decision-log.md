@@ -548,3 +548,38 @@ There is no placeholder price anywhere in that module, deliberately, so none
 can reach a render by accident. A zero price — what the provider returns for
 an unknown symbol — is treated as no price rather than as a quote of nothing.
 
+---
+
+## D-030 · HTTPS is enforced in the Worker, not by a zone setting
+
+**New implementation decision**, taken because the setting was out of reach.
+
+The zone's "Always Use HTTPS" toggle is a dashboard setting, and plain HTTP
+requests were being served with a 200 rather than redirected. HSTS covers a
+reader who has visited before; the first visit is exactly what it cannot cover,
+and the Worker logs showed real plain-HTTP traffic arriving, including
+vulnerability scanners.
+
+Those requests reach the Worker, so the Worker can answer them. The entry now
+returns a 301 to the HTTPS URL before delegating anything else, which makes the
+behaviour part of the repository rather than a setting someone has to remember.
+The dashboard toggle remains worth enabling — it would answer at the edge
+without spending a Worker invocation — but the site no longer depends on it.
+
+---
+
+## D-031 · The observation time is Roblox's, not ours
+
+**New implementation decision**, found during a production audit.
+
+Successful upstream responses are cached for five minutes. The page stamped
+each reading with the clock at render time, so a four-minute-old response was
+labelled as though it had just been taken — a stale number presented as
+current, which is the specific failure this project spends most of its effort
+avoiding.
+
+The upstream `date` header travels with the cached response and records when
+Roblox actually answered, so that is what the page now shows and what the
+collector records. Verified in production: a request at 22:25:30 displayed
+22:25:27, Roblox's own second-precision timestamp.
+

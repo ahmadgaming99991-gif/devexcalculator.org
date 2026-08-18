@@ -75,7 +75,7 @@ test.describe("live platform activity", () => {
     ).toBe(true);
   });
 
-  test("never labels the window as longer than what has been collected", async ({ page }) => {
+  test("labels the chart with the period actually collected", async ({ page }) => {
     await page.goto("/platform/");
     const section = page.locator("#history");
     await expect(section).not.toContainText("Loading recorded observations", {
@@ -83,12 +83,25 @@ test.describe("live platform activity", () => {
     });
     const history = (await section.innerText()).toLowerCase();
 
-    // The failure this guards against is a chart captioned "14 days" on day
-    // one. A 14-day claim is only allowed once the page also reports having
-    // recorded that many days.
-    if (history.includes("14 days")) {
-      expect(history).toMatch(/period covered[\s\S]{0,40}14 days/);
-    }
+    // Nothing to check until there is a chart to label.
+    if (!history.includes("period covered")) return;
+
+    // The invariant: whatever the chart says it covers must be the same period
+    // the page reports having collected. An earlier heuristic looked for the
+    // string "14 days" anywhere in the section and flagged the sentence about
+    // how long observations are *retained*, which is a different fact.
+    // `innerText` puts each stat on its own line, so the value is separated
+    // from its label by a newline rather than a space.
+    const covered = /period covered\s*([\s\S]+?)\s*most recent/.exec(history);
+    expect(covered, `Could not read the stated period from:
+${history.slice(0, 200)}`).not.toBeNull();
+
+    const period = (covered?.[1] ?? "").trim();
+    expect(period).not.toBe("");
+    expect(
+      history.includes(`observing for ${period}`),
+      `The chart caption does not name the collected period "${period}".`,
+    ).toBe(true);
   });
 
   test("works without JavaScript", async ({ browser }) => {

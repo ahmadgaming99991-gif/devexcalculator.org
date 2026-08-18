@@ -325,7 +325,10 @@ async function ObservedHistory() {
       <div className="mt-6">
         <TimeSeriesChart
           points={series.points.map((point) => ({ at: point.at, value: point.totalPlaying }))}
-          caption={`Total players across the ranked experiences, over the ${describeSpan(series)} this site has been observing. Each point is one recorded observation; gaps are gaps in collection, not zeroes.`}
+          // Phrased so every span reads correctly. An earlier template produced
+          // "over the under an hour this site has been observing" on day one,
+          // because `describeSpan` returns a phrase, not a bare duration.
+          caption={`Total players across the ranked experiences. This site has been observing for ${describeSpan(series)}. Each point is one recorded observation; gaps are gaps in collection, not zeroes.`}
           formatValue={(value) => compact(value)}
         />
       </div>
