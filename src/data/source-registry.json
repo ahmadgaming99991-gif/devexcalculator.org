@@ -187,6 +187,21 @@
       "effectiveDate": "2026-02-05T00:00:00Z",
       "reviewCadenceDays": 90,
       "evidenceLabel": "Verified through official source"
+    },
+    {
+      "id": "roblox-explore-api",
+      "publisher": "Roblox Corporation",
+      "title": "Roblox explore and games endpoints",
+      "url": "https://apis.roblox.com/explore-api/v1/get-sorts?sessionId=devexcalculator",
+      "factsSupported": [
+        "The set of experiences Roblox is currently ranking, and the display name of that ranking.",
+        "The number of players in each listed experience at the moment of the request.",
+        "Lifetime visit counts per experience, from the games endpoint."
+      ],
+      "lastCheckedAt": "2026-08-18T00:00:00Z",
+      "effectiveDate": "2026-08-18T00:00:00Z",
+      "reviewCadenceDays": 30,
+      "evidenceLabel": "Verified through official source"
     }
   ]
 }

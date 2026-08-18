@@ -299,3 +299,144 @@ export function ChartWithTable({
     </div>
   );
 }
+
+export interface SeriesPoint {
+  /** ISO timestamp of the observation. */
+  readonly at: string;
+  readonly value: number;
+}
+
+/**
+ * A time series drawn from observations that were actually recorded.
+ *
+ * The x axis is real time, not evenly spaced slots, so a gap in collection
+ * shows as a gap rather than being quietly closed up. Nothing is interpolated
+ * or back-filled: if the collector missed an hour, the line reflects that.
+ *
+ * The chart does not assume any particular window. On the first day it draws a
+ * few hours; as observations accumulate it draws more, with no code change.
+ */
+export function TimeSeriesChart({
+  points,
+  caption,
+  formatValue,
+  className,
+}: {
+  points: readonly SeriesPoint[];
+  caption: string;
+  formatValue: (value: number) => string;
+  className?: string;
+}) {
+  const width = 720;
+  const height = 260;
+  const padding = { top: 20, right: 16, bottom: 40, left: 72 };
+  const plotWidth = width - padding.left - padding.right;
+  const plotHeight = height - padding.top - padding.bottom;
+
+  const values = points.map((point) => point.value);
+  const max = Math.max(...values);
+  const min = Math.min(...values);
+  // A flat series would otherwise divide by zero and draw nothing.
+  const span = max - min || Math.max(max, 1);
+  const ceiling = max + span * 0.15;
+  const floor = Math.max(0, min - span * 0.15);
+
+  const times = points.map((point) => Date.parse(point.at));
+  const firstTime = Math.min(...times);
+  const lastTime = Math.max(...times);
+  const timeSpan = lastTime - firstTime || 1;
+
+  const xFor = (time: number) => padding.left + ((time - firstTime) / timeSpan) * plotWidth;
+  const yFor = (value: number) =>
+    padding.top + plotHeight - ((value - floor) / (ceiling - floor)) * plotHeight;
+
+  const path = points
+    .map((point, index) => {
+      const command = index === 0 ? "M" : "L";
+      return `${command} ${xFor(Date.parse(point.at)).toFixed(1)} ${yFor(point.value).toFixed(1)}`;
+    })
+    .join(" ");
+
+  const ticks = [floor, floor + (ceiling - floor) / 2, ceiling];
+  const firstLabel = points[0]?.at ?? "";
+  const lastLabel = points[points.length - 1]?.at ?? "";
+
+  return (
+    <figure className={cx("m-0", className)}>
+      <svg
+        viewBox={`0 0 ${width} ${height}`}
+        preserveAspectRatio="xMidYMid meet"
+        className="h-auto w-full"
+        role="presentation"
+        aria-hidden="true"
+        focusable="false"
+      >
+        {ticks.map((tick) => (
+          <g key={tick}>
+            <line
+              x1={padding.left}
+              x2={width - padding.right}
+              y1={yFor(tick)}
+              y2={yFor(tick)}
+              stroke="var(--color-border)"
+            />
+            <text
+              x={padding.left - 10}
+              y={yFor(tick) + 4}
+              textAnchor="end"
+              fontSize="12"
+              fill="var(--color-text-muted)"
+            >
+              {formatValue(tick)}
+            </text>
+          </g>
+        ))}
+
+        <path d={path} fill="none" stroke="var(--color-primary)" strokeWidth="2.5" />
+
+        {/* A handful of points, so a short series still reads as measurements. */}
+        {points.length <= 24
+          ? points.map((point) => (
+              <circle
+                key={point.at}
+                cx={xFor(Date.parse(point.at))}
+                cy={yFor(point.value)}
+                r="3"
+                fill="var(--color-primary)"
+              />
+            ))
+          : null}
+
+        <text
+          x={padding.left}
+          y={height - 14}
+          fontSize="12"
+          fill="var(--color-text-muted)"
+        >
+          {shortTime(firstLabel)}
+        </text>
+        <text
+          x={width - padding.right}
+          y={height - 14}
+          textAnchor="end"
+          fontSize="12"
+          fill="var(--color-text-muted)"
+        >
+          {shortTime(lastLabel)}
+        </text>
+      </svg>
+      <figcaption className="mt-2 text-sm text-(--color-text-muted)">{caption}</figcaption>
+    </figure>
+  );
+}
+
+/** "18 Aug 14:30 UTC" — explicit about the zone, since readers are worldwide. */
+function shortTime(iso: string): string {
+  const at = new Date(iso);
+  if (Number.isNaN(at.getTime())) return "";
+  return `${at.getUTCDate()} ${
+    ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"][
+      at.getUTCMonth()
+    ]
+  } ${String(at.getUTCHours()).padStart(2, "0")}:${String(at.getUTCMinutes()).padStart(2, "0")} UTC`;
+}

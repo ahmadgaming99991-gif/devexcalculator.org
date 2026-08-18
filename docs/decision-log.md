@@ -442,3 +442,109 @@ JavaScript, each paired with a table carrying the same numbers. The SVG is
 announced as coordinates helps nobody. The competitor's page renders nothing at
 all with scripting disabled.
 
+---
+
+## D-027 · Workers KV, reversing D-011
+
+**Reverses a previous decision**, with the owner's explicit authorisation.
+
+D-011 refused a KV, R2, D1 or Durable Object binding. The reasoning was sound
+for what the site was then: a calculator that computes from a validated
+registry has no state, and a binding would have added cost, a failure mode and
+an operational surface for nothing.
+
+`/platform/` changes the premise. It charts how platform activity moves over
+time, and no amount of care makes that possible without storing observations —
+the past cannot be fetched. The options were to publish an estimate, to publish
+nothing, or to start recording. The first is forbidden by everything else in
+this project, so the choice was between the second and the third.
+
+### Why KV specifically
+
+The access pattern is write-once, read-many, keyed, and tiny. That is what KV
+is for. D1 would mean a schema and migrations for a single append-only series;
+R2 is object storage for objects far larger than a few hundred bytes; a
+Durable Object would add a coordination primitive for data with no
+coordination requirement. KV also expires keys natively, which is the whole of
+the retention policy.
+
+### What is stored
+
+Only what a chart needs, and nothing that identifies a reader. Each snapshot
+holds the observation time, the name of the Roblox ranking, the total players
+across the listed experiences, and per experience its universe id, name and
+player count. No visitor data of any kind is written — nothing on this site
+reads a request in order to store anything.
+
+    obs:<ISO timestamp>   one snapshot
+    index                 the ordered list of snapshot keys that exist
+
+The index exists so that rendering the page is a bounded number of reads
+rather than a `list()` over a namespace that grows all week.
+
+### Retention
+
+Fourteen days, applied as an `expirationTtl` on each snapshot at write time.
+KV removes them; there is no cleanup job to schedule, monitor or forget. The
+index is trimmed to the same window on every write, so it cannot outgrow the
+data it points at.
+
+### Frequency and free-tier arithmetic
+
+Every fifteen minutes: 96 runs a day, two writes each — the snapshot and the
+index — so 192 writes against a free-tier allowance of 1,000 a day. Reads are
+one index read plus at most 200 snapshot reads per render, against 100,000 a
+day, and the page is not on a hot path. Storage peaks at roughly 1,344
+snapshots of a few hundred bytes: comfortably inside the 1 GB allowance. A
+test asserts the write arithmetic so a change to the interval cannot silently
+breach it.
+
+### What is not stored
+
+No request data, no reader identifiers, no cookies. The KV namespace holds
+observations of a public API and nothing else, which is why the privacy page
+needed no change.
+
+---
+
+## D-028 · The history chart draws what exists, and says so
+
+**New implementation decision.**
+
+On day one there is no history. The tempting options were to hide the section
+until it filled, or to draw a fourteen-day axis mostly empty. Both mislead: the
+first hides that collection is running, the second implies a fortnight of
+measurement that has not happened.
+
+Instead the page reports the period it actually holds — "4 hours" on the first
+afternoon — and widens on its own as observations accumulate, with no code
+change at one day, three days, seven or fourteen. Below three points it lists
+the readings rather than drawing a line between two dots, because a two-point
+line implies a trend that two readings cannot support.
+
+Nothing is interpolated or back-filled. A gap in collection shows as a gap,
+since the x axis is real time rather than evenly spaced slots. A missed run is
+a fact about the record, and hiding it would make the chart a drawing rather
+than a measurement.
+
+---
+
+## D-029 · A stock page with no share price
+
+**New implementation decision.**
+
+The competitor's stock page is a TradingView embed: they include someone
+else's chart rather than building one. Matching it would mean running a market
+vendor's script in every reader's browser, on a site whose privacy page says
+no third-party scripts run at all. That trade was not worth making for a
+figure that does not affect a single DevEx payout.
+
+The page therefore publishes the reported results a share price responds to,
+and states plainly that there is no live quote and why. `market-data.ts` is
+written and tested but unwired: setting `STOCK_PROVIDER` and `STOCK_API_KEY`
+connects a server-side provider whose response is rendered as ordinary HTML.
+
+There is no placeholder price anywhere in that module, deliberately, so none
+can reach a render by accident. A zero price — what the provider returns for
+an unknown symbol — is treated as no price rather than as a quote of nothing.
+

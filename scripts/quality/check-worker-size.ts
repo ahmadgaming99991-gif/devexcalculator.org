@@ -48,6 +48,11 @@ const DYNAMIC_ROUTES = new Set([
   "/robux-to-usd/",
   "/usd-to-robux/",
   "/devex-fees-and-taxes/",
+  // These two report live figures. Prerendering them would mean serving a
+  // player count from build time as though it were current, which is the one
+  // thing a live page must not do.
+  "/platform/",
+  "/platform/stock/",
 ]);
 
 /** `/devex-rates/` → `devex-rates.cache`, `/` → `index.cache`. */

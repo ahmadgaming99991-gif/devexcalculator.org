@@ -119,6 +119,18 @@ Recorded because each was a real bug that shipped-looking code contained:
   values that were already in millions, producing an axis reading 0k, 1k, 1k,
   2k, 2k. Found by looking at the rendered chart, not by an assertion.
 
+### Added after launch
+
+- `/platform/` — live player counts for the experiences Roblox is ranking, read
+  server-side from Roblox's own public endpoints, plus a chart of what this site
+  has observed. The window reports the period actually collected and widens on
+  its own; nothing is back-filled.
+- `/platform/stock/` — Roblox's reported results, with no embedded market
+  widget and no fabricated price. Wired for a server-side provider behind
+  `STOCK_PROVIDER` and `STOCK_API_KEY`.
+- A Cloudflare Cron Trigger every 15 minutes recording observations into Workers
+  KV, retained 14 days by key expiry. Reverses decision D-011; see D-027.
+
 ### Deliberately not included
 
 - No universal Robux purchase price — Roblox prices by package, region and

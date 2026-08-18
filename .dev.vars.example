@@ -36,3 +36,10 @@ FX_PROVIDER=
 
 # Seconds to cache a successful FX response. Default: 43200 (12 hours).
 FX_CACHE_TTL_SECONDS=
+
+# Market data for /platform/stock/. Both must be set for a price to appear;
+# with either missing the page states that no price is configured rather than
+# showing one. Server-only: never expose these to the browser.
+# Supported provider: finnhub
+STOCK_PROVIDER=
+STOCK_API_KEY=

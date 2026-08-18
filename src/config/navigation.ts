@@ -24,6 +24,7 @@ export const primaryNavigation: readonly NavItem[] = [
   item("/usd-to-robux/", "Work backwards from a payout goal"),
   item("/devex-rates/", "Current, legacy and conditional rates"),
   item("/roblox-stats/", "What Roblox pays creators, from its filings"),
+  item("/platform/", "Live player counts from Roblox public endpoints"),
   item("/calculators/", "Every calculator on the site"),
   item("/guides/", "Explanatory guides in reading order"),
 ];
@@ -52,6 +53,8 @@ export const footerNavigation: readonly {
       item("/devex-rate-history/", "Rate history"),
       item("/devex-fees-and-taxes/", "Fees and taxes"),
       item("/roblox-stats/", "Payout statistics"),
+      item("/platform/", "Platform activity"),
+      item("/platform/stock/", "Roblox stock"),
     ],
   },
   {

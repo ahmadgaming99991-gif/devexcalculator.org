@@ -1,8 +1,8 @@
 {
   "datasetExportedAt": "2026-08-17T14:15:54Z",
   "datasetDigest": "10BA8579C2157BE1CD28874F99E9F448",
-  "total": 131,
-  "answeredOnPage": 59,
+  "total": 137,
+  "answeredOnPage": 65,
   "questions": [
     {
       "question": "What is the current Roblox DevEx rate?",
@@ -177,6 +177,62 @@
         "roblox-devex-program"
       ],
       "updateSensitivity": "high"
+    },
+    {
+      "question": "How many people are playing Roblox right now?",
+      "canonicalRoute": "/platform/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [
+        "roblox-explore-api"
+      ],
+      "updateSensitivity": "low"
+    },
+    {
+      "question": "Why does the chart cover such a short period?",
+      "canonicalRoute": "/platform/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [],
+      "updateSensitivity": "low"
+    },
+    {
+      "question": "Do these player counts affect my DevEx payout?",
+      "canonicalRoute": "/platform/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [
+        "roblox-devex-program"
+      ],
+      "updateSensitivity": "low"
+    },
+    {
+      "question": "Why is there no live RBLX price?",
+      "canonicalRoute": "/platform/stock/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [],
+      "updateSensitivity": "low"
+    },
+    {
+      "question": "Is Roblox profitable?",
+      "canonicalRoute": "/platform/stock/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [
+        "roblox-q2-2026-earnings"
+      ],
+      "updateSensitivity": "low"
+    },
+    {
+      "question": "Does the share price affect the DevEx rate?",
+      "canonicalRoute": "/platform/stock/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [
+        "roblox-devex-program"
+      ],
+      "updateSensitivity": "low"
     },
     {
       "question": "How much does Roblox pay developers in total?",

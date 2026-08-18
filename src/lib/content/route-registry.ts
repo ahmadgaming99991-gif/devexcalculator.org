@@ -349,6 +349,135 @@ const staticRoutes: readonly RouteRecord[] = [
   },
 
   // -------------------------------------------------------------------------
+  // Live platform activity
+  // -------------------------------------------------------------------------
+  {
+    route: "/platform/",
+    status: "published",
+    indexation: "index",
+    // Not a "tool": there is nothing to calculate here. It reports figures,
+    // which is what the guide type covers.
+    pageType: "pillar-guide",
+    title: "Roblox Platform Activity: Live Player Counts",
+    metaDescription:
+      "Live player counts for the experiences Roblox is ranking, read from its own public endpoints, plus a growing record of what this site has observed.",
+    h1: "Roblox platform activity",
+    navLabel: "Platform",
+    primaryIntent: "roblox-live-player-counts",
+    primaryKeyword: "roblox player count",
+    secondaryKeywords: [
+      "roblox live players",
+      "how many people are playing roblox",
+      "roblox concurrent users",
+      "top roblox games right now",
+      "roblox ccu",
+    ],
+    entities: ["Roblox Corporation", "concurrent users", "Roblox experiences"],
+    sourceIds: ["roblox-explore-api"],
+    lastReviewedAt: REVIEWED,
+    dateModified: REVIEWED,
+    quickAnswer:
+      "Player counts on this page are read from Roblox's own public endpoints when the page is served, and the ranking is Roblox's rather than this site's. Alongside them is a record of what this site has observed since it began watching, charted over whatever period has actually been collected.",
+    sections: [
+      { id: "live", heading: "What is being played right now" },
+      { id: "history", heading: "Observed over time" },
+      { id: "how", heading: "How this page gets its numbers" },
+      { id: "faqs", heading: "Questions about these figures" },
+    ],
+    faqs: [
+      {
+        question: "How many people are playing Roblox right now?",
+        answer:
+          "The table totals the players in the experiences Roblox currently ranks, at the moment the page was served. It is not a platform-wide figure: Roblox does not publish a live total, and this site will not estimate one.",
+        sourceIds: ["roblox-explore-api"],
+      },
+      {
+        question: "Why does the chart cover such a short period?",
+        answer:
+          "Because that is how long this site has been recording. The window widens on its own as observations accumulate, up to fourteen days. Showing a fourteen-day axis before fourteen days of data exist would be drawing something that was never measured.",
+      },
+      {
+        question: "Do these player counts affect my DevEx payout?",
+        answer:
+          "No. A payout depends on your eligible Earned Robux and the documented rate, not on how busy the platform is.",
+        sourceIds: ["roblox-devex-program"],
+      },
+    ],
+    internalLinks: [
+      { route: "/roblox-stats/", anchor: "what Roblox pays creators", relationship: "sibling" },
+      { route: "/platform/stock/", anchor: "Roblox's reported results", relationship: "child" },
+      { route: "/", anchor: "estimate your own DevEx payout", relationship: "next-step" },
+    ],
+    schemaTypes: ["WebPage", "BreadcrumbList"],
+    parent: "/",
+    inPrimaryNav: true,
+    rateSensitive: false,
+    ogImageAlt: "Live Roblox player counts and observed activity over time.",
+  },
+
+  {
+    route: "/platform/stock/",
+    status: "published",
+    indexation: "index",
+    pageType: "pillar-guide",
+    title: "Roblox Stock (RBLX): Reported Results, No Embedded Widget",
+    metaDescription:
+      "Roblox's reported quarterly results \u2014 revenue, bookings growth, creator payouts \u2014 with a plain explanation of why no third-party price widget is embedded here.",
+    h1: "Roblox stock and reported results",
+    navLabel: "Stock",
+    primaryIntent: "roblox-stock-results",
+    primaryKeyword: "roblox stock",
+    secondaryKeywords: [
+      "rblx stock",
+      "roblox share price",
+      "roblox quarterly results",
+      "roblox revenue",
+      "is roblox profitable",
+    ],
+    entities: ["Roblox Corporation", "RBLX", "bookings", "developer exchange fees"],
+    sourceIds: ["roblox-q2-2026-earnings"],
+    lastReviewedAt: REVIEWED,
+    dateModified: REVIEWED,
+    quickAnswer:
+      "Roblox reported revenue of 1,469 million US dollars for the quarter ended 30 June 2026, against a consolidated net loss of 185 million, and paid creators 363 million through the Developer Exchange. There is no live share price here: this site embeds no third-party market widget, and it will not print a figure it cannot fetch and attribute.",
+    sections: [
+      { id: "quote", heading: "RBLX share price" },
+      { id: "results", heading: "What the price responds to" },
+      { id: "why", heading: "Why there is no embedded chart" },
+      { id: "faqs", heading: "Questions" },
+    ],
+    faqs: [
+      {
+        question: "Why is there no live RBLX price?",
+        answer:
+          "Because showing one usually means embedding a market vendor's script, which would run in your browser on a site that loads no third-party scripts. The page is wired to fetch a price server-side once a provider is configured.",
+      },
+      {
+        question: "Is Roblox profitable?",
+        answer:
+          "It reported a consolidated net loss of 185 million US dollars for the quarter ended 30 June 2026, narrower than the 280 million loss a year earlier, with adjusted EBITDA of 152 million. Those are the company's own figures.",
+        sourceIds: ["roblox-q2-2026-earnings"],
+      },
+      {
+        question: "Does the share price affect the DevEx rate?",
+        answer:
+          "There is no documented link. Roblox sets the DevEx rate and publishes it; nothing in its documentation ties that rate to the share price. Nothing here is investment advice.",
+        sourceIds: ["roblox-devex-program"],
+      },
+    ],
+    internalLinks: [
+      { route: "/platform/", anchor: "live platform activity", relationship: "parent" },
+      { route: "/roblox-stats/", anchor: "creator payout statistics", relationship: "sibling" },
+      { route: "/sources/", anchor: "every source used here", relationship: "next-step" },
+    ],
+    schemaTypes: ["WebPage", "BreadcrumbList"],
+    parent: "/platform/",
+    inPrimaryNav: false,
+    rateSensitive: false,
+    ogImageAlt: "Roblox reported quarterly results, from its SEC filings.",
+  },
+
+  // -------------------------------------------------------------------------
   // Platform statistics
   // -------------------------------------------------------------------------
   {

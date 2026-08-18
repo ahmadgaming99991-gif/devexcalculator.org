@@ -1,17 +1,19 @@
 {
   "datasetExportedAt": "2026-08-17T14:15:54Z",
   "datasetDigest": "10BA8579C2157BE1CD28874F99E9F448",
-  "edgeCount": 148,
-  "nodeCount": 33,
+  "edgeCount": 154,
+  "nodeCount": 35,
   "orphans": [],
   "brokenTargets": [],
   "overusedAnchors": [],
   "inboundCounts": {
-    "/": 20,
+    "/": 21,
     "/robux-to-usd/": 12,
     "/usd-to-robux/": 3,
     "/devex-rates/": 18,
-    "/roblox-stats/": 1,
+    "/platform/": 1,
+    "/platform/stock/": 1,
+    "/roblox-stats/": 3,
     "/devex-requirements/": 6,
     "/earned-robux/": 7,
     "/how-to-cash-out-robux/": 6,
@@ -23,7 +25,7 @@
     "/conversions/": 10,
     "/about/": 4,
     "/methodology/": 5,
-    "/sources/": 7,
+    "/sources/": 8,
     "/editorial-policy/": 2,
     "/corrections/": 5,
     "/changelog/": 2,
@@ -190,6 +192,42 @@
       "from": "/devex-rates/",
       "to": "/sources/",
       "anchor": "the sources behind these figures",
+      "relationship": "next-step"
+    },
+    {
+      "from": "/platform/",
+      "to": "/roblox-stats/",
+      "anchor": "what Roblox pays creators",
+      "relationship": "sibling"
+    },
+    {
+      "from": "/platform/",
+      "to": "/platform/stock/",
+      "anchor": "Roblox's reported results",
+      "relationship": "child"
+    },
+    {
+      "from": "/platform/",
+      "to": "/",
+      "anchor": "estimate your own DevEx payout",
+      "relationship": "next-step"
+    },
+    {
+      "from": "/platform/stock/",
+      "to": "/platform/",
+      "anchor": "live platform activity",
+      "relationship": "parent"
+    },
+    {
+      "from": "/platform/stock/",
+      "to": "/roblox-stats/",
+      "anchor": "creator payout statistics",
+      "relationship": "sibling"
+    },
+    {
+      "from": "/platform/stock/",
+      "to": "/sources/",
+      "anchor": "every source used here",
       "relationship": "next-step"
     },
     {

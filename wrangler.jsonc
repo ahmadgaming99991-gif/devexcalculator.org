@@ -1,7 +1,14 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "devexcalculator-org",
-  "main": ".open-next/worker.js",
+  // The generated OpenNext worker handles `fetch` only. worker/index.ts
+  // delegates to it and adds the `scheduled` handler the Cron Trigger needs.
+  "main": "worker/index.ts",
+  "alias": {
+    // Resolved here so the entry can import the generated worker without a
+    // relative path to a file that does not exist until `cf-build` runs.
+    "opennext-worker": "./.open-next/worker.js"
+  },
   "compatibility_date": "2026-06-01",
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
   "assets": {
@@ -15,6 +22,21 @@
     { "pattern": "devexcalculator.org", "custom_domain": true },
     { "pattern": "www.devexcalculator.org", "custom_domain": true }
   ],
+  // Every 15 minutes: 96 observations a day, comfortably inside the KV free
+  // tier's 1,000 daily writes while still drawing a readable day.
+  "triggers": {
+    "crons": ["*/15 * * * *"]
+  },
+
+  // The only stored state on the site. Snapshots expire after 14 days, so
+  // retention needs no cleanup job. See docs/decision-log.md, D-027.
+  "kv_namespaces": [
+    {
+      "binding": "PLATFORM_HISTORY",
+      "id": "8f880ad3328f42bb86272bee6e76542b"
+    }
+  ],
+
   "observability": {
     "enabled": true,
     "head_sampling_rate": 1
