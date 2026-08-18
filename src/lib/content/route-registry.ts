@@ -336,6 +336,7 @@ const staticRoutes: readonly RouteRecord[] = [
     internalLinks: [
       { route: "/", anchor: "calculate a payout at these rates", relationship: "parent" },
       { route: "/devex-rate-history/", anchor: "how the rate changed over time", relationship: "child" },
+      { route: "/roblox-stats/", anchor: "what Roblox pays creators in total", relationship: "sibling" },
       { route: "/earned-robux/", anchor: "which Robux the rate applies to", relationship: "prerequisite" },
       { route: "/devex-requirements/", anchor: "the requirements alongside the rate", relationship: "sibling" },
       { route: "/sources/", anchor: "the sources behind these figures", relationship: "next-step" },
@@ -345,6 +346,81 @@ const staticRoutes: readonly RouteRecord[] = [
     inPrimaryNav: true,
     rateSensitive: true,
     ogImageAlt: "Roblox DevEx rates: standard, legacy and conditional U.S. 18+ compared.",
+  },
+
+  // -------------------------------------------------------------------------
+  // Platform statistics
+  // -------------------------------------------------------------------------
+  {
+    route: "/roblox-stats/",
+    status: "published",
+    indexation: "index",
+    pageType: "pillar-guide",
+    title: "Roblox Creator Payout Statistics: DevEx Fees by Quarter",
+    metaDescription:
+      "What Roblox actually pays creators through DevEx, charted from its SEC filings: 1.50 billion USD in 2025, quarter by quarter, with every figure sourced.",
+    h1: "Roblox creator payout statistics",
+    navLabel: "Stats",
+    primaryIntent: "roblox-devex-statistics",
+    primaryKeyword: "roblox devex statistics",
+    secondaryKeywords: [
+      "how much does roblox pay developers",
+      "roblox developer exchange payouts",
+      "roblox developer earnings total",
+      "devex fees roblox",
+      "roblox creator economy stats",
+    ],
+    entities: [
+      "Developer Exchange Program",
+      "Roblox Corporation",
+      "developer exchange fees",
+      "Robux",
+    ],
+    sourceIds: ["roblox-q2-2026-earnings", "roblox-q4-2025-earnings", "roblox-devex-program"],
+    lastReviewedAt: REVIEWED,
+    dateModified: REVIEWED,
+    quickAnswer:
+      "Roblox paid creators 1.503 billion USD through the Developer Exchange in 2025, up from 922.8 million in 2024, and 363 million in the second quarter of 2026 alone. Every figure on this page is read from a Roblox filing with the SEC and linked to it. These are quarterly reported numbers, not live measurements.",
+    sections: [
+      { id: "payouts", heading: "What Roblox pays creators" },
+      { id: "quarterly", heading: "DevEx payouts by quarter" },
+      { id: "rate-history", heading: "What one Robux has been worth" },
+      { id: "what-it-means", heading: "What this means for your own payout" },
+      { id: "no-live-data", heading: "Why there is no live data here" },
+      { id: "faqs", heading: "Questions about these figures" },
+    ],
+    faqs: [
+      {
+        question: "How much does Roblox pay developers in total?",
+        answer:
+          "1,503,106 thousand US dollars in 2025, reported as developer exchange fees on its income statement, against 922,821 thousand in 2024. Both figures come from Roblox's filing with the SEC.",
+        sourceIds: ["roblox-q4-2025-earnings"],
+      },
+      {
+        question: "Is this data live?",
+        answer:
+          "No, and no page can honestly claim it is. Roblox publishes these figures once a quarter, so quarterly is the finest resolution that exists. This site runs no data collection and estimates nothing.",
+        sourceIds: ["roblox-q2-2026-earnings"],
+      },
+      {
+        question: "Does a bigger payout total mean a better DevEx rate?",
+        answer:
+          "No. The total reflects how much creators cashed out, not what each Robux was worth. The rate per Robux is documented separately and has changed once in the period shown.",
+        sourceIds: ["roblox-devex-program"],
+      },
+    ],
+    internalLinks: [
+      { route: "/devex-rate-history/", anchor: "the dated record of rate changes", relationship: "sibling" },
+      { route: "/devex-rates/", anchor: "the rates behind these payouts", relationship: "prerequisite" },
+      { route: "/", anchor: "estimate your own DevEx payout", relationship: "next-step" },
+      { route: "/sources/", anchor: "every source used on this site", relationship: "next-step" },
+    ],
+    schemaTypes: ["WebPage", "BreadcrumbList"],
+    parent: "/",
+    inPrimaryNav: true,
+    rateSensitive: true,
+    ogImageAlt:
+      "Roblox developer exchange payouts by quarter, charted from SEC filings.",
   },
 
   // -------------------------------------------------------------------------

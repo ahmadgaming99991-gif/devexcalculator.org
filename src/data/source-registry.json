@@ -156,6 +156,37 @@
       "effectiveDate": null,
       "reviewCadenceDays": 90,
       "evidenceLabel": "Verified through official source"
+    },
+    {
+      "id": "roblox-q2-2026-earnings",
+      "publisher": "Roblox Corporation (SEC EDGAR)",
+      "title": "Q2 2026 earnings release, Form 8-K Exhibit 99.1",
+      "url": "https://www.sec.gov/Archives/edgar/data/0001315098/000162828026051059/ex991-robloxq22026earnin.htm",
+      "factsSupported": [
+        "Developer exchange fees of 363 million USD for the three months ended 30 June 2026, and 316 million USD for the same period in 2025.",
+        "Developer exchange fees of 786 million USD for the six months ended 30 June 2026, and 598 million USD for the same period in 2025.",
+        "Revenue of 1,469 million USD for the three months ended 30 June 2026, and 1,081 million USD for the same period in 2025.",
+        "Developer exchange fees equal to 25 percent of revenue in Q2 2026 and 29 percent in Q2 2025."
+      ],
+      "lastCheckedAt": "2026-08-18T00:00:00Z",
+      "effectiveDate": "2026-07-30T00:00:00Z",
+      "reviewCadenceDays": 90,
+      "evidenceLabel": "Verified through official source"
+    },
+    {
+      "id": "roblox-q4-2025-earnings",
+      "publisher": "Roblox Corporation (SEC EDGAR)",
+      "title": "Q4 and full year 2025 earnings release, Form 8-K Exhibit 99.1",
+      "url": "https://www.sec.gov/Archives/edgar/data/1315098/000131509826000009/ex991-q42025shareholder.htm",
+      "factsSupported": [
+        "Developer exchange fees of 477,240 thousand USD for the three months ended 31 December 2025, and 280,610 thousand USD for the same period in 2024.",
+        "Developer exchange fees of 1,503,106 thousand USD for the twelve months ended 31 December 2025, and 922,821 thousand USD for 2024.",
+        "Revenue of 1,415,021 thousand USD for the three months ended 31 December 2025, and 4,890,551 thousand USD for the full year."
+      ],
+      "lastCheckedAt": "2026-08-18T00:00:00Z",
+      "effectiveDate": "2026-02-05T00:00:00Z",
+      "reviewCadenceDays": 90,
+      "evidenceLabel": "Verified through official source"
     }
   ]
 }

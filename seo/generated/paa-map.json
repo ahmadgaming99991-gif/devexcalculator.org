@@ -1,8 +1,8 @@
 {
   "datasetExportedAt": "2026-08-17T14:15:54Z",
   "datasetDigest": "10BA8579C2157BE1CD28874F99E9F448",
-  "total": 127,
-  "answeredOnPage": 55,
+  "total": 130,
+  "answeredOnPage": 58,
   "questions": [
     {
       "question": "What is the current Roblox DevEx rate?",
@@ -171,6 +171,36 @@
     {
       "question": "Will the DevEx rate change again?",
       "canonicalRoute": "/devex-rates/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [
+        "roblox-devex-program"
+      ],
+      "updateSensitivity": "high"
+    },
+    {
+      "question": "How much does Roblox pay developers in total?",
+      "canonicalRoute": "/roblox-stats/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [
+        "roblox-q4-2025-earnings"
+      ],
+      "updateSensitivity": "high"
+    },
+    {
+      "question": "Is this data live?",
+      "canonicalRoute": "/roblox-stats/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [
+        "roblox-q2-2026-earnings"
+      ],
+      "updateSensitivity": "high"
+    },
+    {
+      "question": "Does a bigger payout total mean a better DevEx rate?",
+      "canonicalRoute": "/roblox-stats/",
       "section": "faqs",
       "answeredOnPage": true,
       "sourceIds": [

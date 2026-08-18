@@ -23,6 +23,7 @@ export const primaryNavigation: readonly NavItem[] = [
   item("/robux-to-usd/", "Creator payout compared with purchase price"),
   item("/usd-to-robux/", "Work backwards from a payout goal"),
   item("/devex-rates/", "Current, legacy and conditional rates"),
+  item("/roblox-stats/", "What Roblox pays creators, from its filings"),
   item("/calculators/", "Every calculator on the site"),
   item("/guides/", "Explanatory guides in reading order"),
 ];
@@ -50,6 +51,7 @@ export const footerNavigation: readonly {
       item("/how-to-cash-out-robux/", "Cashing out"),
       item("/devex-rate-history/", "Rate history"),
       item("/devex-fees-and-taxes/", "Fees and taxes"),
+      item("/roblox-stats/", "Payout statistics"),
     ],
   },
   {

@@ -1,0 +1,188 @@
+{
+  "schemaVersion": 1,
+  "registryVersion": "2026-08-18.1",
+  "retrievedAt": "2026-08-18",
+
+  "$comment": [
+    "Roblox's published financial figures, as filed with the SEC. Nothing here is scraped, sampled or estimated by this site, and no figure is carried over from memory: each one was read out of the filing named in its `sourceId` on `retrievedAt`.",
+    "`origin` records how a figure came to be. `reported` means it appears in the filing exactly as stated here. `derived` means it is the result of subtracting reported figures from one another - for example a first quarter obtained from a six-month total minus the second quarter - which is exact arithmetic on published numbers but is not itself a number Roblox printed. The page labels the two differently.",
+    "Amounts are in whole US dollars, kept as strings so no figure passes through a JSON number and picks up floating-point error. Values reported in thousands are recorded to the dollar; values reported in millions are recorded with the trailing zeroes the filing implies and marked with the precision they were published at.",
+    "This is deliberately not a live feed. Roblox reports quarterly, so quarterly is the honest resolution. See docs/decision-log.md, decision D-026."
+  ],
+
+  "sourceIds": ["roblox-q2-2026-earnings", "roblox-q4-2025-earnings"],
+
+  "developerExchangeFees": {
+    "label": "Developer exchange fees",
+    "description": "The money Roblox paid out through the Developer Exchange programme, as reported on its income statement.",
+    "unit": "usd",
+    "periods": [
+      {
+        "id": "fy-2024",
+        "label": "FY 2024",
+        "kind": "year",
+        "endsAt": "2024-12-31",
+        "amountUsd": "922821000",
+        "precision": "thousand",
+        "origin": "reported",
+        "sourceId": "roblox-q4-2025-earnings"
+      },
+      {
+        "id": "fy-2025",
+        "label": "FY 2025",
+        "kind": "year",
+        "endsAt": "2025-12-31",
+        "amountUsd": "1503106000",
+        "precision": "thousand",
+        "origin": "reported",
+        "sourceId": "roblox-q4-2025-earnings"
+      },
+      {
+        "id": "q4-2024",
+        "label": "Q4 2024",
+        "kind": "quarter",
+        "endsAt": "2024-12-31",
+        "amountUsd": "280610000",
+        "precision": "thousand",
+        "origin": "reported",
+        "sourceId": "roblox-q4-2025-earnings"
+      },
+      {
+        "id": "q1-2025",
+        "label": "Q1 2025",
+        "kind": "quarter",
+        "endsAt": "2025-03-31",
+        "amountUsd": "282000000",
+        "precision": "million",
+        "origin": "derived",
+        "derivation": "Six months ended 30 June 2025 (598) minus Q2 2025 (316), both in millions.",
+        "sourceId": "roblox-q2-2026-earnings"
+      },
+      {
+        "id": "q2-2025",
+        "label": "Q2 2025",
+        "kind": "quarter",
+        "endsAt": "2025-06-30",
+        "amountUsd": "316000000",
+        "precision": "million",
+        "origin": "reported",
+        "sourceId": "roblox-q2-2026-earnings"
+      },
+      {
+        "id": "q4-2025",
+        "label": "Q4 2025",
+        "kind": "quarter",
+        "endsAt": "2025-12-31",
+        "amountUsd": "477240000",
+        "precision": "thousand",
+        "origin": "reported",
+        "sourceId": "roblox-q4-2025-earnings"
+      },
+      {
+        "id": "q1-2026",
+        "label": "Q1 2026",
+        "kind": "quarter",
+        "endsAt": "2026-03-31",
+        "amountUsd": "423000000",
+        "precision": "million",
+        "origin": "derived",
+        "derivation": "Six months ended 30 June 2026 (786) minus Q2 2026 (363), both in millions.",
+        "sourceId": "roblox-q2-2026-earnings"
+      },
+      {
+        "id": "q2-2026",
+        "label": "Q2 2026",
+        "kind": "quarter",
+        "endsAt": "2026-06-30",
+        "amountUsd": "363000000",
+        "precision": "million",
+        "origin": "reported",
+        "sourceId": "roblox-q2-2026-earnings"
+      }
+    ]
+  },
+
+  "revenue": {
+    "label": "Revenue",
+    "description": "Roblox's reported revenue over the same periods, for scale.",
+    "unit": "usd",
+    "periods": [
+      {
+        "id": "fy-2024",
+        "label": "FY 2024",
+        "kind": "year",
+        "endsAt": "2024-12-31",
+        "amountUsd": "3601979000",
+        "precision": "thousand",
+        "origin": "reported",
+        "sourceId": "roblox-q4-2025-earnings"
+      },
+      {
+        "id": "fy-2025",
+        "label": "FY 2025",
+        "kind": "year",
+        "endsAt": "2025-12-31",
+        "amountUsd": "4890551000",
+        "precision": "thousand",
+        "origin": "reported",
+        "sourceId": "roblox-q4-2025-earnings"
+      },
+      {
+        "id": "q4-2025",
+        "label": "Q4 2025",
+        "kind": "quarter",
+        "endsAt": "2025-12-31",
+        "amountUsd": "1415021000",
+        "precision": "thousand",
+        "origin": "reported",
+        "sourceId": "roblox-q4-2025-earnings"
+      },
+      {
+        "id": "q2-2025",
+        "label": "Q2 2025",
+        "kind": "quarter",
+        "endsAt": "2025-06-30",
+        "amountUsd": "1081000000",
+        "precision": "million",
+        "origin": "reported",
+        "sourceId": "roblox-q2-2026-earnings"
+      },
+      {
+        "id": "q2-2026",
+        "label": "Q2 2026",
+        "kind": "quarter",
+        "endsAt": "2026-06-30",
+        "amountUsd": "1469000000",
+        "precision": "million",
+        "origin": "reported",
+        "sourceId": "roblox-q2-2026-earnings"
+      }
+    ]
+  },
+
+  "shareOfRevenue": {
+    "label": "Developer exchange fees as a share of revenue",
+    "description": "Reported by Roblox as a percentage, not computed here.",
+    "unit": "percent",
+    "periods": [
+      {
+        "id": "q2-2026",
+        "label": "Q2 2026",
+        "kind": "quarter",
+        "endsAt": "2026-06-30",
+        "percent": "25",
+        "origin": "reported",
+        "sourceId": "roblox-q2-2026-earnings"
+      },
+      {
+        "id": "q2-2025",
+        "label": "Q2 2025",
+        "kind": "quarter",
+        "endsAt": "2025-06-30",
+        "percent": "29",
+        "origin": "reported",
+        "sourceId": "roblox-q2-2026-earnings"
+      }
+    ]
+  }
+}

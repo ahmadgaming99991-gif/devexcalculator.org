@@ -1,8 +1,8 @@
 {
   "datasetExportedAt": "2026-08-17T14:15:54Z",
   "datasetDigest": "10BA8579C2157BE1CD28874F99E9F448",
-  "total": 32,
-  "eligibleForSitemap": 32,
+  "total": 33,
+  "eligibleForSitemap": 33,
   "blocked": 0,
   "entries": [
     {
@@ -122,6 +122,23 @@
       ],
       "strategicPriorityScore": 81.53,
       "quickWinScore": 80.47,
+      "uniqueUtilityRequirement": "Explains one topic in depth with official sources and a verification date.",
+      "sourceRequirement": "Must cite an official source and display a last-verified date.",
+      "contentReady": true,
+      "toolReady": true,
+      "internalLinksReady": true,
+      "schemaReady": true,
+      "indexationState": "index",
+      "manualApproval": "approved",
+      "blockers": [],
+      "eligibleForSitemap": true
+    },
+    {
+      "route": "/roblox-stats/",
+      "pageType": "pillar-guide",
+      "canonicalOwnerKeywords": [],
+      "strategicPriorityScore": 0,
+      "quickWinScore": 0,
       "uniqueUtilityRequirement": "Explains one topic in depth with official sources and a verification date.",
       "sourceRequirement": "Must cite an official source and display a last-verified date.",
       "contentReady": true,

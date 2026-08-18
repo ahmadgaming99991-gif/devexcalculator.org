@@ -1,20 +1,21 @@
 {
   "datasetExportedAt": "2026-08-17T14:15:54Z",
   "datasetDigest": "10BA8579C2157BE1CD28874F99E9F448",
-  "edgeCount": 143,
-  "nodeCount": 32,
+  "edgeCount": 148,
+  "nodeCount": 33,
   "orphans": [],
   "brokenTargets": [],
   "overusedAnchors": [],
   "inboundCounts": {
-    "/": 19,
+    "/": 20,
     "/robux-to-usd/": 12,
     "/usd-to-robux/": 3,
-    "/devex-rates/": 17,
+    "/devex-rates/": 18,
+    "/roblox-stats/": 1,
     "/devex-requirements/": 6,
     "/earned-robux/": 7,
     "/how-to-cash-out-robux/": 6,
-    "/devex-rate-history/": 3,
+    "/devex-rate-history/": 4,
     "/devex-fees-and-taxes/": 3,
     "/robux-tax-calculator/": 3,
     "/calculators/": 3,
@@ -22,7 +23,7 @@
     "/conversions/": 10,
     "/about/": 4,
     "/methodology/": 5,
-    "/sources/": 6,
+    "/sources/": 7,
     "/editorial-policy/": 2,
     "/corrections/": 5,
     "/changelog/": 2,
@@ -169,6 +170,12 @@
     },
     {
       "from": "/devex-rates/",
+      "to": "/roblox-stats/",
+      "anchor": "what Roblox pays creators in total",
+      "relationship": "sibling"
+    },
+    {
+      "from": "/devex-rates/",
       "to": "/earned-robux/",
       "anchor": "which Robux the rate applies to",
       "relationship": "prerequisite"
@@ -183,6 +190,30 @@
       "from": "/devex-rates/",
       "to": "/sources/",
       "anchor": "the sources behind these figures",
+      "relationship": "next-step"
+    },
+    {
+      "from": "/roblox-stats/",
+      "to": "/devex-rate-history/",
+      "anchor": "the dated record of rate changes",
+      "relationship": "sibling"
+    },
+    {
+      "from": "/roblox-stats/",
+      "to": "/devex-rates/",
+      "anchor": "the rates behind these payouts",
+      "relationship": "prerequisite"
+    },
+    {
+      "from": "/roblox-stats/",
+      "to": "/",
+      "anchor": "estimate your own DevEx payout",
+      "relationship": "next-step"
+    },
+    {
+      "from": "/roblox-stats/",
+      "to": "/sources/",
+      "anchor": "every source used on this site",
       "relationship": "next-step"
     },
     {
