@@ -399,3 +399,46 @@ Worth stating plainly: this was a defective test, not a defective site. It was
 also failing intermittently rather than always, which is the kind of test that
 gets retried until it passes and quietly stops meaning anything.
 
+---
+
+## D-026 · A statistics page built on filings, not on a data pipeline
+
+**New implementation decision**, prompted by a competitor page.
+
+RoMonitor's platform page charts concurrent users, registrations and session
+length over rolling windows. Those come from their own collectors, running
+continuously for years. This site has no such history, no database, and a
+standing rule against publishing a number it cannot trace to a document. So the
+page was not copied; it was rebuilt on a different premise.
+
+The subject changed with it. Their figures are about players. `/roblox-stats/`
+is about **developer exchange fees** — the line on Roblox's income statement
+recording what it actually paid creators. 1.503 billion USD in 2025 against
+922.8 million in 2024. For a DevEx calculator's readers that is the more useful
+number, and it is one no competitor publishes.
+
+Four rules the page follows:
+
+1. Every figure was read out of an SEC filing on a recorded date and links to
+   it. The registry validates at build time that each one resolves to a source.
+2. Quarterly is the resolution, because that is how often Roblox reports.
+   Anything finer would be invented.
+3. Figures derived by subtraction — a quarter obtained from a six-month total —
+   are labelled `derived`, drawn as hollow bars, and must record the
+   subtraction or the build fails.
+4. Precision follows the filing. Exact to the dollar where Roblox reported in
+   thousands, exact to the million where it reported in millions.
+
+**No share price.** A live quote needs a paid market-data feed and a
+third-party script in the reader's browser. The competitor's stock page is a
+TradingView embed — they did not build a chart, they included someone else's.
+Doing the same would break the content security policy, introduce third-party
+tracking, and put a number on the page that no filing backs. The reported
+results a share price reacts to are published instead.
+
+**Charts are server-rendered SVG**, with no charting library and no client
+JavaScript, each paired with a table carrying the same numbers. The SVG is
+`aria-hidden`; the table is the accessible representation, because a bar chart
+announced as coordinates helps nobody. The competitor's page renders nothing at
+all with scripting disabled.
+

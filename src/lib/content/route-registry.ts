@@ -385,6 +385,7 @@ const staticRoutes: readonly RouteRecord[] = [
       { id: "payouts", heading: "What Roblox pays creators" },
       { id: "quarterly", heading: "DevEx payouts by quarter" },
       { id: "rate-history", heading: "What one Robux has been worth" },
+      { id: "business", heading: "Roblox as a business" },
       { id: "what-it-means", heading: "What this means for your own payout" },
       { id: "no-live-data", heading: "Why there is no live data here" },
       { id: "faqs", heading: "Questions about these figures" },
@@ -400,6 +401,12 @@ const staticRoutes: readonly RouteRecord[] = [
         question: "Is this data live?",
         answer:
           "No, and no page can honestly claim it is. Roblox publishes these figures once a quarter, so quarterly is the finest resolution that exists. This site runs no data collection and estimates nothing.",
+        sourceIds: ["roblox-q2-2026-earnings"],
+      },
+      {
+        question: "Where is the Roblox share price?",
+        answer:
+          "Not here. A live quote needs a paid market-data feed and a third-party script, and this site publishes no figure it cannot trace to a document. The reported results it reacts to are on this page instead. Nothing here is investment advice.",
         sourceIds: ["roblox-q2-2026-earnings"],
       },
       {

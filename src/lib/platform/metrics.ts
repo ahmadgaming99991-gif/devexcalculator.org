@@ -36,6 +36,24 @@ export interface MetricSeries {
   readonly periods: readonly MetricPeriod[];
 }
 
+export interface ContextFigure {
+  readonly id: string;
+  readonly label: string;
+  /** Quoted from the release, not recomputed. */
+  readonly current: string;
+  readonly previous: string;
+  readonly note: string;
+}
+
+export interface CompanyContext {
+  readonly label: string;
+  readonly description: string;
+  readonly period: string;
+  readonly comparedWith: string;
+  readonly sourceId: string;
+  readonly figures: readonly ContextFigure[];
+}
+
 interface Registry {
   readonly schemaVersion: number;
   readonly registryVersion: string;
@@ -44,6 +62,7 @@ interface Registry {
   readonly developerExchangeFees: MetricSeries;
   readonly revenue: MetricSeries;
   readonly shareOfRevenue: MetricSeries;
+  readonly companyContext: CompanyContext;
 }
 
 const registry = raw as unknown as Registry;
@@ -106,6 +125,19 @@ function validate(): void {
     }
   }
 
+  const context = registry.companyContext;
+  if (!sources.sources.some((source) => source.id === context.sourceId)) {
+    problems.push(`companyContext cites unknown source "${context.sourceId}".`);
+  }
+  if (context.figures.length === 0) problems.push("companyContext has no figures.");
+  for (const figure of context.figures) {
+    // Every figure is quoted, so the only thing to enforce is that it says
+    // something and is not left as a placeholder.
+    if (!figure.current.trim() || !figure.label.trim() || !figure.note.trim()) {
+      problems.push(`companyContext.${figure.id} is missing a label, value or note.`);
+    }
+  }
+
   if (problems.length > 0) {
     throw new Error(
       `platform-metrics.json is invalid:\n  ${problems.join("\n  ")}\n` +
@@ -127,6 +159,8 @@ export const devExFeesByYear: readonly MetricPeriod[] = registry.developerExchan
   .filter((period) => period.kind === "year")
   .slice()
   .sort((a, b) => a.endsAt.localeCompare(b.endsAt));
+
+export const companyContext: CompanyContext = registry.companyContext;
 
 export const platformMetrics = registry;
 

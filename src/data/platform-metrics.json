@@ -2,16 +2,17 @@
   "schemaVersion": 1,
   "registryVersion": "2026-08-18.1",
   "retrievedAt": "2026-08-18",
-
   "$comment": [
     "Roblox's published financial figures, as filed with the SEC. Nothing here is scraped, sampled or estimated by this site, and no figure is carried over from memory: each one was read out of the filing named in its `sourceId` on `retrievedAt`.",
     "`origin` records how a figure came to be. `reported` means it appears in the filing exactly as stated here. `derived` means it is the result of subtracting reported figures from one another - for example a first quarter obtained from a six-month total minus the second quarter - which is exact arithmetic on published numbers but is not itself a number Roblox printed. The page labels the two differently.",
     "Amounts are in whole US dollars, kept as strings so no figure passes through a JSON number and picks up floating-point error. Values reported in thousands are recorded to the dollar; values reported in millions are recorded with the trailing zeroes the filing implies and marked with the precision they were published at.",
-    "This is deliberately not a live feed. Roblox reports quarterly, so quarterly is the honest resolution. See docs/decision-log.md, decision D-026."
+    "This is deliberately not a live feed. Roblox reports quarterly, so quarterly is the honest resolution. See docs/decision-log.md, decision D-026.",
+    "companyContext holds figures quoted verbatim from the release rather than recomputed, because each is already a rounded published figure and re-deriving it would only introduce a difference this site would then have to explain. There is deliberately no share price: a live quote needs a paid market-data feed and a third-party script, and neither belongs on a page whose whole claim is that every number is traceable to a filing."
   ],
-
-  "sourceIds": ["roblox-q2-2026-earnings", "roblox-q4-2025-earnings"],
-
+  "sourceIds": [
+    "roblox-q2-2026-earnings",
+    "roblox-q4-2025-earnings"
+  ],
   "developerExchangeFees": {
     "label": "Developer exchange fees",
     "description": "The money Roblox paid out through the Developer Exchange programme, as reported on its income statement.",
@@ -101,7 +102,6 @@
       }
     ]
   },
-
   "revenue": {
     "label": "Revenue",
     "description": "Roblox's reported revenue over the same periods, for scale.",
@@ -159,7 +159,6 @@
       }
     ]
   },
-
   "shareOfRevenue": {
     "label": "Developer exchange fees as a share of revenue",
     "description": "Reported by Roblox as a percentage, not computed here.",
@@ -182,6 +181,64 @@
         "percent": "29",
         "origin": "reported",
         "sourceId": "roblox-q2-2026-earnings"
+      }
+    ]
+  },
+  "companyContext": {
+    "label": "Roblox as a business",
+    "description": "Reported results for the three months ended 30 June, for readers judging how solid the platform they earn from is.",
+    "period": "Q2 2026",
+    "comparedWith": "Q2 2025",
+    "sourceId": "roblox-q2-2026-earnings",
+    "figures": [
+      {
+        "id": "revenue",
+        "label": "Revenue",
+        "current": "$1,469M",
+        "previous": "$1,081M",
+        "note": "Up 36% year on year, as stated in the release."
+      },
+      {
+        "id": "devex-share-revenue",
+        "label": "Developer exchange fees as a share of revenue",
+        "current": "25%",
+        "previous": "29%",
+        "note": "Roughly a quarter of Roblox's revenue leaves again as creator payouts."
+      },
+      {
+        "id": "devex-share-bookings",
+        "label": "Developer exchange fees as a share of bookings",
+        "current": "23%",
+        "previous": "22%",
+        "note": "Measured against bookings rather than revenue."
+      },
+      {
+        "id": "bookings-growth",
+        "label": "Bookings growth, year on year",
+        "current": "8%",
+        "previous": "—",
+        "note": "Described in the release as the low end of guidance."
+      },
+      {
+        "id": "net-loss",
+        "label": "Consolidated net loss",
+        "current": "$185M",
+        "previous": "$280M",
+        "note": "A smaller loss than the same quarter a year earlier."
+      },
+      {
+        "id": "adjusted-ebitda",
+        "label": "Adjusted EBITDA",
+        "current": "$152M",
+        "previous": "$18M",
+        "note": "A non-GAAP measure Roblox defines in the same release."
+      },
+      {
+        "id": "free-cash-flow",
+        "label": "Free cash flow",
+        "current": "$294M",
+        "previous": "—",
+        "note": "Up 66% year on year, as stated in the release."
       }
     ]
   }

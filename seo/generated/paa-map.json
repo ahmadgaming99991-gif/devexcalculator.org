@@ -1,8 +1,8 @@
 {
   "datasetExportedAt": "2026-08-17T14:15:54Z",
   "datasetDigest": "10BA8579C2157BE1CD28874F99E9F448",
-  "total": 130,
-  "answeredOnPage": 58,
+  "total": 131,
+  "answeredOnPage": 59,
   "questions": [
     {
       "question": "What is the current Roblox DevEx rate?",
@@ -190,6 +190,16 @@
     },
     {
       "question": "Is this data live?",
+      "canonicalRoute": "/roblox-stats/",
+      "section": "faqs",
+      "answeredOnPage": true,
+      "sourceIds": [
+        "roblox-q2-2026-earnings"
+      ],
+      "updateSensitivity": "high"
+    },
+    {
+      "question": "Where is the Roblox share price?",
       "canonicalRoute": "/roblox-stats/",
       "section": "faqs",
       "answeredOnPage": true,

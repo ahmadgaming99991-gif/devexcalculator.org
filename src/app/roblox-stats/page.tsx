@@ -26,6 +26,7 @@ import {
 } from "@/components/content";
 import { BarChart, ChartWithTable, StepChart } from "@/components/charts";
 import {
+  companyContext,
   devExFeesByQuarter,
   devExFeesByYear,
   formatUsdMagnitude,
@@ -283,6 +284,55 @@ export default function RobloxStatsPage() {
                 </Table>
               </TableWrapper>
             </ChartWithTable>
+          </Section>
+
+          <Section
+            id="business"
+            heading="Roblox as a business"
+            description={companyContext.description}
+          >
+            <TableWrapper label="Roblox reported results">
+              <Table caption="Roblox's reported results for the most recent quarter, against the same quarter a year earlier.">
+                <thead>
+                  <tr>
+                    <Th>Measure</Th>
+                    <Th>{companyContext.period}</Th>
+                    <Th>{companyContext.comparedWith}</Th>
+                    <Th>Note</Th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {companyContext.figures.map((figure) => (
+                    <tr key={figure.id}>
+                      <Td>{figure.label}</Td>
+                      <Td className="tabular">{figure.current}</Td>
+                      <Td className="tabular">{figure.previous}</Td>
+                      <Td className="text-sm text-(--color-text-muted)">{figure.note}</Td>
+                    </tr>
+                  ))}
+                </tbody>
+              </Table>
+            </TableWrapper>
+
+            <p className="mt-4 text-(--color-text-muted)">
+              The line worth reading twice is the second one. Developer exchange fees are
+              about a quarter of Roblox&rsquo;s revenue, so a meaningful share of what the
+              platform takes in leaves again as creator payouts. Every figure in this table
+              is quoted from{" "}
+              <SourceLink href={getSource(companyContext.sourceId).url}>
+                {getSource(companyContext.sourceId).title}
+              </SourceLink>{" "}
+              rather than recomputed here.
+            </p>
+
+            <Callout tone="warning" title="There is no share price on this page, on purpose">
+              A live RBLX quote would need a paid market-data feed and a third-party script
+              running in your browser. This site loads no third-party scripts, and a number
+              it cannot trace to a document is a number it will not publish. The figures
+              above come from the filing itself, which is the same source a share price
+              ultimately reacts to. None of this is investment advice, and a quarterly
+              result says nothing about what any individual will be paid.
+            </Callout>
           </Section>
 
           <Section id="what-it-means" heading="What this means for your own payout">

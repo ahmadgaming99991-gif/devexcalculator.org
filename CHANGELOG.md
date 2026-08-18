@@ -115,6 +115,9 @@ Recorded because each was a real bug that shipped-looking code contained:
   defective test, not a defective site, and an intermittent one.
 - **The analytics test waited on `networkidle`**, which never settles against a
   real CDN; it timed out at 45s on a page that had fully rendered.
+- **A chart axis printed the same tick twice.** The generic formatter rounded
+  values that were already in millions, producing an axis reading 0k, 1k, 1k,
+  2k, 2k. Found by looking at the rendered chart, not by an assertion.
 
 ### Deliberately not included
 
