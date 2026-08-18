@@ -94,7 +94,7 @@ export function MobileNavigation({ items }: { items: readonly NavItem[] }) {
         aria-expanded={open}
         aria-controls={panelId}
         onClick={() => setOpen((value) => !value)}
-        className="inline-flex size-[44px] shrink-0 items-center justify-center rounded-(--radius-control) border border-(--color-border) text-(--color-text) md:hidden"
+        className="inline-flex size-[44px] items-center justify-center rounded-(--radius-control) border border-(--color-border) text-(--color-text) md:hidden"
       >
         <span className="sr-only">{open ? "Close menu" : "Open menu"}</span>
         <svg
