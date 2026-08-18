@@ -89,7 +89,7 @@ export function LastVerifiedBadge({ className }: { className?: string }) {
 /** Compact strip of trust signals shown directly under the H1 on tool pages. */
 export function TrustStrip() {
   return (
-    <div className="flex flex-wrap items-center gap-2">
+    <div className="flex flex-wrap items-center justify-center gap-2">
       <LastVerifiedBadge />
       <Badge tone="info">Official Roblox sources cited</Badge>
       <Badge tone="neutral">Estimates only</Badge>
@@ -369,13 +369,16 @@ export function PageHeader({
   children?: ReactNode;
 }) {
   return (
-    <div className="mb-6">
-      <h1 className="text-2xl font-bold tracking-tight text-(--color-text) sm:text-3xl lg:text-4xl">
+    <div className="mb-6 text-center">
+      <h1 className="text-balance text-2xl font-bold tracking-tight text-(--color-text) sm:text-3xl lg:text-4xl">
         {record.h1}
       </h1>
-      <p className="mt-3 max-w-2xl text-base text-(--color-text-muted) sm:text-lg">{intro}</p>
+      {/* `text-pretty` keeps a centred paragraph from ending on one orphan word. */}
+      <p className="mx-auto mt-3 max-w-2xl text-pretty text-base text-(--color-text-muted) sm:text-lg">
+        {intro}
+      </p>
       {record.rateSensitive ? (
-        <div className="mt-4">
+        <div className="mt-4 flex justify-center">
           <TrustStrip />
         </div>
       ) : null}

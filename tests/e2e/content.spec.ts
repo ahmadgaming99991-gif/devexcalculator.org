@@ -174,31 +174,74 @@ test.describe("honesty", () => {
 });
 
 test.describe("disabled integrations", () => {
-  test("no analytics script loads when none is configured", async ({ page }) => {
+  test("this site loads no analytics of its own", async ({ page }) => {
     const requested: string[] = [];
     page.on("request", (request) => requested.push(request.url()));
 
-    // This asserts what /privacy/ promises: "no tracking script is loaded".
-    // It can fail against a deployment while passing locally, because
-    // Cloudflare can inject its Web Analytics beacon at the edge, after the
-    // Worker has responded, and only for browser-like requests — curl and
-    // every server-side validator here receive HTML without it. If this fails
-    // in production the deployment is contradicting the privacy page, and the
-    // fix is the Cloudflare setting or the privacy page, not this assertion.
-    //
     // Not `networkidle`: against the real deployment it never settles — the
     // page renders completely and the wait times out at 45s. The state is
-    // unreliable by design, and the assertion does not need it. An analytics
-    // tag that was going to load would be in the document, so the check is the
-    // document plus everything requested up to and shortly after load.
+    // unreliable by design, and the assertion does not need it. A tag that was
+    // going to load would be in the document, so the check is the document
+    // plus everything requested up to and shortly after load.
     await page.goto("/", { waitUntil: "load" });
     await page.waitForTimeout(1_000);
 
     const html = await page.content();
 
-    for (const host of ["googletagmanager.com", "google-analytics.com", "cloudflareinsights.com"]) {
+    // Providers this site can configure and currently does not. Unlike the
+    // host's own beacon below, nothing outside this repository can introduce
+    // them, so their absence is absolute.
+    for (const host of ["googletagmanager.com", "google-analytics.com"]) {
       expect(requested.filter((url) => url.includes(host))).toEqual([]);
       expect(html).not.toContain(host);
+    }
+
+    // The site's own Cloudflare Web Analytics integration stays off unless a
+    // token is configured, so no beacon may appear in the HTML this site
+    // produces. An injected one arrives afterwards and is covered separately.
+    expect(html).not.toContain("NEXT_PUBLIC_CF_ANALYTICS_TOKEN");
+  });
+
+  test("any analytics the host injects is disclosed on the privacy page", async ({ page }) => {
+    // Cloudflare can insert its Web Analytics beacon into responses after the
+    // Worker has produced them, and only for browser-like requests — curl and
+    // every server-side validator here receive HTML without it, so a browser
+    // is the only thing that can see it.
+    //
+    // Whether it runs is the operator's choice. What is not optional is that
+    // the page and the deployment agree, so this asserts the invariant rather
+    // than the setting: if the beacon loads, /privacy/ has to say so. It
+    // therefore passes both when the beacon is disabled and when it is
+    // disclosed, and fails only on the dishonest combination.
+    const requested: string[] = [];
+    page.on("request", (request) => requested.push(request.url()));
+
+    await page.goto("/", { waitUntil: "load" });
+    await page.waitForTimeout(1_000);
+
+    const beaconLoaded = requested.some((url) => url.includes("cloudflareinsights.com"));
+
+    await page.goto("/privacy/");
+    const privacy = (await page.textContent("main")) ?? "";
+    const disclosesBeacon = /beacon\.min\.js/.test(privacy) && /Cloudflare/.test(privacy);
+
+    expect(
+      !beaconLoaded || disclosesBeacon,
+      beaconLoaded
+        ? "Cloudflare injected an analytics beacon but /privacy/ does not disclose it."
+        : "",
+    ).toBe(true);
+
+    // And the reverse: do not describe tracking that is not happening. Only
+    // against a real deployment, because the injection happens at Cloudflare's
+    // edge — a local server has no edge, so its absence there says nothing.
+    const againstDeployment = (test.info().project.use.baseURL ?? "").startsWith("https://");
+    if (againstDeployment) {
+      expect(
+        beaconLoaded || !disclosesBeacon,
+        "/privacy/ describes an injected analytics beacon, but none loaded. If it was " +
+          "turned off, remove the disclosure.",
+      ).toBe(true);
     }
   });
 

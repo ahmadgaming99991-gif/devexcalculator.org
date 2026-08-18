@@ -113,12 +113,24 @@ export default function PrivacyPage() {
                 </p>
               </>
             ) : (
-              <Callout tone="info" title="No analytics are running on this deployment">
-                No analytics provider is configured, so no tracking script is
-                loaded and no analytics cookie is set. If that changes, this
-                section changes with it — it reads from the same configuration
-                the site uses, so it cannot fall out of step.
-              </Callout>
+              <>
+                <Callout tone="info" title="This site configures no analytics provider">
+                  No analytics provider is configured here, so this site loads no
+                  tracking script of its own and sets no analytics cookie. That
+                  statement reads from the same configuration the site uses.
+                </Callout>
+                <p className="mt-3 text-(--color-text-muted)">
+                  Our host does add one. Cloudflare inserts its Web Analytics
+                  script, <code>beacon.min.js</code>, into pages as they are
+                  served — after this site has produced them, so it is not
+                  something the configuration above controls. It measures page
+                  views and load performance. It sets no cookie, and it does not
+                  follow you to other sites. Nothing you type into a calculator
+                  is sent to it, because it never sees the page&rsquo;s contents.
+                  That processing is covered by Cloudflare&rsquo;s privacy terms
+                  rather than by this site&rsquo;s.
+                </p>
+              </>
             )}
           </Section>
 

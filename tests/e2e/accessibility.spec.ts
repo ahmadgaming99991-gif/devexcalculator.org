@@ -268,3 +268,61 @@ test.describe("dark mode", () => {
     expect(results.violations).toEqual([]);
   });
 });
+
+test.describe("theme", () => {
+  /**
+   * The palette switches on `prefers-color-scheme` *and* on an explicit
+   * `[data-theme]`, so a reader whose system setting and chosen theme disagree
+   * is a real, ordinary case — not an edge case. It used to be broken: Tailwind's
+   * built-in `dark:` variant follows the system setting alone, so choosing Light
+   * on a dark-mode machine produced near-black text on a strong blue button.
+   *
+   * Every combination is checked because only two of the six were ever wrong,
+   * and both were invisible to anyone whose two settings happened to agree.
+   */
+  const relativeLuminance = (color: string): number => {
+    const parts = (color.match(/\d+(\.\d+)?/g) ?? []).slice(0, 3).map(Number);
+    const [r, g, b] = parts.map((value) => {
+      const channel = value / 255;
+      return channel <= 0.03928 ? channel / 12.92 : ((channel + 0.055) / 1.055) ** 2.4;
+    });
+    return 0.2126 * (r ?? 0) + 0.7152 * (g ?? 0) + 0.0722 * (b ?? 0);
+  };
+
+  const contrast = (a: string, b: string): number => {
+    const [lighter, darker] = [relativeLuminance(a), relativeLuminance(b)].sort((x, y) => y - x);
+    return ((lighter ?? 0) + 0.05) / ((darker ?? 0) + 0.05);
+  };
+
+  for (const scheme of ["light", "dark"] as const) {
+    for (const chosen of [null, "light", "dark"] as const) {
+      test(`primary buttons stay legible with a ${scheme} system and ${chosen ?? "no"} choice`, async ({
+        page,
+      }) => {
+        await page.emulateMedia({ colorScheme: scheme });
+        await page.goto("/");
+
+        if (chosen) {
+          await page.evaluate(
+            (value) => document.documentElement.setAttribute("data-theme", value),
+            chosen,
+          );
+        }
+        await settle(page);
+
+        const colours = await page
+          .getByRole("button", { name: "Copy result" })
+          .evaluate((element) => {
+            const style = getComputedStyle(element);
+            return { text: style.color, background: style.backgroundColor };
+          });
+
+        const ratio = contrast(colours.text, colours.background);
+        expect(
+          ratio,
+          `${colours.text} on ${colours.background} is ${ratio.toFixed(2)}:1`,
+        ).toBeGreaterThanOrEqual(4.5);
+      });
+    }
+  }
+});

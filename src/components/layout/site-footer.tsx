@@ -12,9 +12,9 @@ export function SiteFooter() {
   return (
     <footer className="mt-16 border-t border-(--color-border) bg-(--color-surface)">
       <Container width="wide">
-        <div className="grid gap-8 py-10 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="grid gap-8 py-10 text-center sm:grid-cols-2 sm:text-left lg:grid-cols-5">
           <div className="lg:col-span-1">
-            <Link href="/" className="inline-flex items-center gap-2.5">
+            <Link href="/" className="inline-flex items-center justify-center gap-2.5 sm:justify-start">
               <Logo className="size-7" />
               <Wordmark className="text-sm" />
             </Link>
@@ -29,7 +29,7 @@ export function SiteFooter() {
               <h2 className="text-xs font-semibold uppercase tracking-wide text-(--color-text)">
                 {group.heading}
               </h2>
-              <ul className="mt-3 flex flex-col gap-2">
+              <ul className="mt-3 flex flex-col items-center gap-2 sm:items-start">
                 {group.items.map((entry) => (
                   <li key={entry.href}>
                     <Link
@@ -50,7 +50,7 @@ export function SiteFooter() {
           readable rather than shrunk into unreadable legal small print.
         */}
         <div className="border-t border-(--color-border) py-6">
-          <p className="text-sm text-(--color-text-muted)">
+          <p className="text-center text-sm text-balance text-(--color-text-muted) sm:text-left">
             <strong className="font-semibold text-(--color-text)">
               Not affiliated with Roblox Corporation.
             </strong>{" "}
@@ -61,7 +61,7 @@ export function SiteFooter() {
             whether any DevEx request will be approved.
           </p>
 
-          <div className="mt-4 flex flex-col gap-2 text-xs text-(--color-text-muted) sm:flex-row sm:items-center sm:justify-between">
+          <div className="mt-4 flex flex-col items-center gap-2 text-center text-xs text-(--color-text-muted) sm:flex-row sm:items-center sm:justify-between sm:text-left">
             <p>
               © {year} {siteConfig.name}. Every payout figure is an estimate.
             </p>

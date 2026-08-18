@@ -107,19 +107,32 @@ export function Section({
 // Buttons and links
 // ---------------------------------------------------------------------------
 
+/*
+ * Motion is applied through `motion-safe:` rather than unconditionally. The
+ * stylesheet already collapses transition durations under a reduced-motion
+ * preference, but a transform with no duration still jumps; gating the
+ * transform itself means those readers get a still button, not a snapping one.
+ */
 const buttonBase =
   "inline-flex min-h-[44px] items-center justify-center gap-2 rounded-(--radius-control) " +
-  "px-4 py-2.5 text-sm font-semibold transition-colors " +
-  "disabled:cursor-not-allowed disabled:opacity-55";
+  "px-4 py-2.5 text-sm font-semibold " +
+  "transition-[background-color,border-color,color,box-shadow,transform] duration-150 ease-out " +
+  "motion-safe:active:translate-y-0 " +
+  "disabled:cursor-not-allowed disabled:opacity-60 disabled:shadow-none " +
+  "disabled:hover:translate-y-0 disabled:hover:shadow-none";
 
 const buttonVariants = {
   primary:
-    "bg-(--color-primary) text-white hover:bg-(--color-primary-strong) " +
-    "dark:text-[#08111f]",
+    "bg-(--color-primary) text-(--color-on-primary) shadow-sm " +
+    "hover:bg-(--color-primary-strong) hover:shadow-md motion-safe:hover:-translate-y-px " +
+    "active:shadow-sm",
   secondary:
     "border border-(--color-border-strong) bg-(--color-surface) text-(--color-text) " +
-    "hover:bg-(--color-surface-subtle)",
-  ghost: "text-(--color-primary) hover:bg-(--color-primary-soft)",
+    "hover:border-(--color-primary) hover:bg-(--color-surface-subtle) hover:shadow-sm " +
+    "motion-safe:hover:-translate-y-px",
+  ghost:
+    "text-(--color-primary) hover:bg-(--color-primary-soft) " +
+    "motion-safe:hover:-translate-y-px",
 } as const;
 
 export type ButtonVariant = keyof typeof buttonVariants;

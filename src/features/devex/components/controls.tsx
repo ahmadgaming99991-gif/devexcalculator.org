@@ -227,10 +227,12 @@ export function QuickPresets({
               onClick={() => onSelect(preset)}
               aria-pressed={isActive}
               className={cx(
-                "min-h-[44px] rounded-full border px-4 text-sm font-semibold transition-colors",
+                "min-h-[44px] rounded-full border px-4 text-sm font-semibold",
+                "transition-[background-color,border-color,color,box-shadow,transform] duration-150",
+                "hover:-translate-y-px active:translate-y-0",
                 isActive
-                  ? "border-(--color-primary) bg-(--color-primary) text-white dark:text-[#08111f]"
-                  : "border-(--color-border-strong) bg-(--color-surface) text-(--color-text) hover:bg-(--color-surface-subtle)",
+                  ? "border-(--color-primary) bg-(--color-primary) text-(--color-on-primary) shadow-sm"
+                  : "border-(--color-border-strong) bg-(--color-surface) text-(--color-text) hover:border-(--color-primary) hover:bg-(--color-primary-soft) hover:shadow-sm",
               )}
             >
               {formatCompactRobux(preset)}

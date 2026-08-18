@@ -2,7 +2,7 @@
   "name": "devexcalculator-org",
   "version": "1.0.0",
   "private": true,
-  "description": "DevEx Calculator — Roblox Developer Exchange payout estimator for creators.",
+  "description": "DevEx Calculator \u2014 Roblox Developer Exchange payout estimator for creators.",
   "license": "UNLICENSED",
   "engines": {
     "node": ">=20.9.0"
@@ -29,10 +29,12 @@
     "validate:routes": "tsx scripts/quality/check-routes.ts",
     "validate:worker": "tsx scripts/quality/check-worker-size.ts",
     "validate:bundle": "tsx scripts/quality/check-bundle-budget.ts",
-    "check": "npm run lint && npm run typecheck && npm run test && npm run validate:content && npm run validate:seo && npm run build && npm run validate:routes && npm run validate:links && npm run validate:duplicates && npm run validate:bundle",
+    "check": "npm run lint && npm run typecheck && npm run test && npm run validate:content && npm run validate:seo && npm run build && npm run validate:routes && npm run validate:links && npm run validate:duplicates && npm run validate:bundle && npm run cf-build && npm run cf-populate && npm run validate:worker",
     "fx:snapshot": "tsx scripts/content/generate-fx-snapshot.ts",
     "test:visual": "playwright test --project=visual",
-    "validate:duplicates": "tsx scripts/seo/detect-near-duplicate-content.ts"
+    "validate:duplicates": "tsx scripts/seo/detect-near-duplicate-content.ts",
+    "verify:deployment": "tsx scripts/quality/verify-deployment.ts",
+    "cf-populate": "opennextjs-cloudflare populateCache local"
   },
   "dependencies": {
     "next": "16.3.1",
