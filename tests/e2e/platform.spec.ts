@@ -8,21 +8,17 @@ import { expect, test } from "@playwright/test";
  */
 
 /**
- * Requests to hosts these pages are responsible for.
+ * Any request to a host this site does not control.
  *
- * Cloudflare injects its Web Analytics beacon into responses at the edge, after
- * the Worker has replied, so it appears against every page regardless of what
- * that page contains. Whether it should be there at all is a separate question
- * with its own test in content.spec.ts; counting it here would only make these
- * assertions fail for something they do not control.
+ * There is no allowance for an edge-injected beacon: Cloudflare's Web
+ * Analytics auto-install was enabled on this zone and has been turned off, so
+ * a third-party request appearing here again means something re-enabled it and
+ * the privacy page has stopped being true.
  */
-const EDGE_INJECTED = ["static.cloudflareinsights.com"];
-
 function isThirdParty(url: string): boolean {
   const host = new URL(url).hostname;
   if (host === "localhost" || host.endsWith("127.0.0.1")) return false;
-  if (host.endsWith("devexcalculator.org")) return false;
-  return !EDGE_INJECTED.some((injected) => host.endsWith(injected));
+  return !host.endsWith("devexcalculator.org");
 }
 
 test.describe("live platform activity", () => {

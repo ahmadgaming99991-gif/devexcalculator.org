@@ -2,52 +2,6 @@
 
 ## Open
 
-### B-006 · Cloudflare injects an analytics beacon the privacy page denies
-
-**Status:** open, awaiting an account-level setting change.
-**Raised:** 2026-08-18.
-
-`/privacy/` states plainly: *"No analytics provider is configured, so no
-tracking script is loaded and no analytics cookie is set."* The deployment
-contradicts it. Cloudflare injects
-`static.cloudflareinsights.com/beacon.min.js` into HTML responses at the edge,
-after the Worker has replied.
-
-The application is not doing this. `NEXT_PUBLIC_CF_ANALYTICS_TOKEN` is unset,
-the Worker emits no beacon, and the injection is not in the bundle.
-
-**It only happens for browser-like requests.** `curl` receives HTML without the
-beacon; `curl` with a browser `User-Agent` and `Accept: text/html` receives it.
-That is why every server-side validator here — route checks, link crawl,
-duplicate detection — reports clean, and only the browser E2E suite run against
-the deployment catches it:
-
-```
-[desktop-chromium] › no analytics script loads when none is configured
-[mobile-chromium]  › no analytics script loads when none is configured
-[desktop-firefox]  › no analytics script loads when none is configured
-```
-
-**Two honest resolutions, and the choice is the owner's:**
-
-1. **Turn the injection off** — Cloudflare dashboard, Web Analytics for this
-   site, or the zone's Browser Insights setting. The privacy page then becomes
-   true again with no code change. Account-level RUM auto-install is enabled
-   for two other zones on this account but not for `devexcalculator.org`, so
-   the switch is elsewhere in the dashboard.
-2. **Keep it and disclose it.** Cloudflare Web Analytics sets no cookie and
-   does not track across sites, so it is defensible — but the privacy page must
-   then say it is running, and the claim that the section "reads from the same
-   configuration the site uses, so it cannot fall out of step" has to go,
-   because an edge injection is exactly how it falls out of step.
-
-Not resolved unilaterally: rewriting a privacy statement to match tracking the
-owner may not want is the wrong direction to reconcile the two.
-
-The failing test is left failing on purpose. It is reporting the truth.
-
----
-
 ### B-002 · No GitHub remote configured
 
 **Status:** open — the repository exists, the push needs access.
@@ -81,6 +35,19 @@ first push. Cloudflare Workers Builds can then be connected —
 ---
 
 ## Resolved
+
+### B-006 · Cloudflare injected an analytics beacon
+
+**Resolved 2026-08-18.** The zone had a Web Analytics RUM site with
+`auto_install` enabled — created automatically when the custom domain was
+attached, which is why an earlier check of the account's RUM sites did not show
+it. The zone setting `rum` was `on` and editable, so it was turned off.
+
+Verified by fetching four pages with a browser user agent: no request to any
+analytics host. The privacy page no longer discloses a beacon, because there is
+none to disclose, and the browser suite asserts the absence on every run —
+including `cloudflareinsights.com`, so a re-enable would fail the build rather
+than quietly making the privacy page untrue.
 
 ### B-001 · Production deployment
 

@@ -194,7 +194,14 @@ test.describe("disabled integrations", () => {
     // Providers this site can configure and currently does not. Unlike the
     // host's own beacon below, nothing outside this repository can introduce
     // them, so their absence is absolute.
-    for (const host of ["googletagmanager.com", "google-analytics.com"]) {
+    // cloudflareinsights.com is included again: the zone's Web Analytics
+    // auto-install was on and has been turned off, so a beacon reappearing
+    // means the privacy page has stopped being true.
+    for (const host of [
+      "googletagmanager.com",
+      "google-analytics.com",
+      "cloudflareinsights.com",
+    ]) {
       expect(requested.filter((url) => url.includes(host))).toEqual([]);
       expect(html).not.toContain(host);
     }

@@ -583,3 +583,24 @@ Roblox actually answered, so that is what the page now shows and what the
 collector records. Verified in production: a request at 22:25:30 displayed
 22:25:27, Roblox's own second-precision timestamp.
 
+---
+
+## D-032 · The injected analytics beacon is off, not disclosed
+
+**Supersedes the disclosure added earlier the same day.**
+
+Cloudflare was injecting its Web Analytics beacon into every HTML response at
+the edge. The page had been updated to disclose it, because a false privacy
+statement is worse than an unwanted script — but disclosure was the second-best
+outcome, taken only because the setting appeared unreachable.
+
+It was reachable. The zone carried a RUM site with `auto_install` enabled,
+created when the custom domain was attached, which is why an earlier look at
+the account's RUM list missed it: the list was read before the domain existed.
+The zone setting `rum` was editable and is now `off`.
+
+The privacy page is back to stating that no analytics run here, which is now
+simply true. The test that enforced the invariant did its job in both
+directions: it required the disclosure while the beacon loaded, and it now
+requires the absence of both.
+
