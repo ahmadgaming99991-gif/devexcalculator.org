@@ -143,7 +143,22 @@ export async function recordSnapshot(
    */
   const at = Date.parse(snapshot.observedAt);
   if (Number.isFinite(at)) {
-    const existing = (await readRollup(store)) ?? [];
+    /*
+     * Seeded from the snapshots already stored, whenever the rollup is missing
+     * or has fewer points than the index says exist.
+     *
+     * Without this the rollup started at a single point and reads preferred
+     * it, silently dropping every observation collected before the rollup
+     * existed — real recorded data, still sitting in `obs:` keys. It happened
+     * in production. Comparing against the index rather than only checking for
+     * absence also means a write that failed halfway repairs itself on the
+     * next run instead of leaving the chart permanently short.
+     */
+    const stored = await readRollup(store);
+    const existing =
+      stored && stored.length >= kept.length
+        ? stored
+        : mergeEntries(stored ?? [], await seedRollup(store, kept));
     const merged = [
       ...existing.filter(([stored]) => stored !== at && stored >= cutoff),
       [at, snapshot.totalPlaying] as SeriesEntry,
@@ -155,6 +170,42 @@ export async function recordSnapshot(
   }
 
   return { written: key, retained: kept.length };
+}
+
+/** Combines two sets of entries, keeping one point per instant. */
+function mergeEntries(
+  a: readonly SeriesEntry[],
+  b: readonly SeriesEntry[],
+): SeriesEntry[] {
+  const byTime = new Map<number, number>();
+  for (const [at, total] of [...a, ...b]) byTime.set(at, total);
+  return [...byTime.entries()].sort((x, y) => x[0] - y[0]);
+}
+
+/**
+ * Builds the rollup from snapshots that were stored before it existed.
+ *
+ * Every entry comes from a snapshot this site actually recorded; nothing is
+ * interpolated to fill the gaps between them. A snapshot that cannot be read
+ * is skipped rather than guessed at.
+ */
+async function seedRollup(
+  store: HistoryStore,
+  index: readonly string[],
+): Promise<SeriesEntry[]> {
+  const keys = index.slice(-MAX_SNAPSHOTS_READ);
+  const stored = await Promise.all(
+    keys.map(async (key) => {
+      const value = await store.get(key, "json");
+      if (!isSnapshot(value)) return null;
+      const at = Date.parse(value.observedAt);
+      return Number.isFinite(at) ? ([at, value.totalPlaying] as SeriesEntry) : null;
+    }),
+  );
+
+  return stored
+    .filter((entry): entry is SeriesEntry => entry !== null)
+    .sort((a, b) => a[0] - b[0]);
 }
 
 export interface HistorySeries {

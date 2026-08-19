@@ -515,7 +515,7 @@ async function ObservedHistory({
         <Card tone="subtle">
           <p className="text-(--color-text)">
             <strong>{series.points.length}</strong> observation
-            {series.points.length === 1 ? "" : "s"} fall within the last{" "}
+            {series.points.length === 1 ? " falls" : "s fall"} within the last{" "}
             {chartWindow.label}, the most recent showing{" "}
             {numberFormat.format(latest?.totalPlaying ?? 0)} players. A chart needs at
             least {MINIMUM_POINTS_FOR_CHART} points to be a line rather than a dot, so

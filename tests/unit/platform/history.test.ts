@@ -324,6 +324,52 @@ describe("the series rollup", () => {
     expect(series.points[0]?.totalPlaying).toBe(1_234);
   });
 
+  it("seeds itself from snapshots collected before it existed", async () => {
+    // The failure this guards against was live: the rollup started with one
+    // point, reads preferred it, and 42 real observations stopped being
+    // charted while still sitting in KV.
+    const earlier = [5, 4, 3, 2].map((back) =>
+      new Date(Date.now() - back * 3_600_000).toISOString(),
+    );
+    for (const iso of earlier) {
+      await recordSnapshot(store, snapshotAt(iso, 800));
+    }
+    store.data.delete("series");
+
+    const next = new Date(Date.now() - 3_600_000).toISOString();
+    await recordSnapshot(store, snapshotAt(next, 950));
+
+    const series = await readSeries(store);
+    expect(series.points.map((point) => point.at)).toEqual([...earlier, next]);
+  });
+
+  it("repairs a rollup that is shorter than the history it should cover", async () => {
+    // Exactly the production case: a first run wrote a one-point rollup, reads
+    // preferred it, and the observations behind it stopped being charted.
+    // Absence is not the only broken state, so checking for absence alone left
+    // it stuck.
+    const earlier = [6, 5, 4, 3].map((back) =>
+      new Date(Date.now() - back * 3_600_000).toISOString(),
+    );
+    for (const iso of earlier) {
+      await recordSnapshot(store, snapshotAt(iso, 800));
+    }
+    const stray = Date.now() - 2 * 3_600_000;
+    store.data.set("series", JSON.stringify([[stray, 777]]));
+
+    const next = new Date(Date.now() - 3_600_000).toISOString();
+    await recordSnapshot(store, snapshotAt(next, 950));
+
+    const series = await readSeries(store);
+    // The four recovered snapshots, the point the short rollup already held,
+    // and the new one — nothing lost, nothing duplicated.
+    expect(series.points.map((point) => point.at)).toEqual([
+      ...earlier,
+      new Date(stray).toISOString(),
+      next,
+    ]);
+  });
+
   it("still reads history stored before the rollup existed", async () => {
     // Data written by the previous version has `obs:` keys and an index but no
     // rollup. It must keep charting rather than reading as an empty history.
