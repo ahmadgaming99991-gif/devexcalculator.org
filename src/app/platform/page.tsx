@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { cache } from "react";
 import Link from "next/link";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { requireRoute } from "@/lib/content/route-registry";
@@ -72,8 +73,8 @@ export const metadata: Metadata = buildMetadata(ROUTE);
 
 /**
  * Live figures, so the page is rendered per request rather than at build time.
- * The upstream response is cached for five minutes, so this is a cache read for
- * almost every visitor rather than a call to Roblox.
+ * The upstream response is edge-cached for the collection interval, so this is a
+ * cache read for almost every visitor rather than a call to Roblox.
  */
 export const revalidate = 0;
 
@@ -125,9 +126,10 @@ export default async function PlatformPage({ searchParams }: PageProps) {
               measured the static commentary around the hole.
 
               Blocking is affordable here because the upstream response is
-              edge-cached, so all but one request in five minutes is a cache
-              read, and both calls carry their own timeout — a slow Roblox
-              produces a stated outage, not a hanging page.
+              edge-cached for the collection interval, so all but one request in
+              that window is a cache read, and every call carries its own
+              timeout — a slow Roblox produces a stated outage, not a hanging
+              page.
             */}
             <LiveExperiences
               requested={requested}
@@ -304,8 +306,7 @@ async function LiveExperiences({
   experience?: number;
 }) {
   // Both are wanted by the same section, and neither depends on the other.
-  const [result, store] = await Promise.all([fetchRankings(requested), getHistoryStore()]);
-  const history = store ? await readGameHistory(store).catch(() => null) : null;
+  const [result, history] = await Promise.all([fetchRankings(requested), loadGameHistory()]);
 
   if (!result.ok) {
     return (
@@ -432,15 +433,21 @@ async function LiveExperiences({
 /**
  * A shared, guarded read of the per-experience history.
  *
- * Three sections want it, and each states its own absence rather than throwing:
- * a missing binding or an unreadable store is a fact about this deployment, not
- * a reason for the page to fail.
+ * Three sections want it — the table's sparklines, the multi-series chart and
+ * the busiest-experience record — and each states its own absence rather than
+ * throwing: a missing binding or an unreadable store is a fact about this
+ * deployment, not a reason for the page to fail.
+ *
+ * Wrapped in `cache` so those three are one read and one parse per request
+ * rather than three. The stored value is tens of kilobytes now and grows
+ * towards a couple of hundred as observations accumulate, so reading it three
+ * times was work that would have got steadily worse.
  */
-async function loadGameHistory(): Promise<GameHistory | null> {
+const loadGameHistory = cache(async (): Promise<GameHistory | null> => {
   const store = await getHistoryStore();
   if (!store) return null;
   return readGameHistory(store).catch(() => null);
-}
+});
 
 function HistoryUnavailable({ what }: { what: string }) {
   return (

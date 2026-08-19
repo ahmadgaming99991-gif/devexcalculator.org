@@ -40,8 +40,21 @@ const GAMES_URL = "https://games.roblox.com/v1/games";
 const TIMEOUT_MS = 5_000;
 const DETAIL_TIMEOUT_MS = 3_000;
 
-/** How long a successful response is reused. Roblox's own figures move slowly. */
-export const EXPERIENCE_CACHE_SECONDS = 300;
+/**
+ * How long a successful response is reused.
+ *
+ * Matched to the collection interval rather than set shorter. At five minutes a
+ * cold cache was hit three times as often, and a cold render costs the reader
+ * around four seconds against a third of a second warm — the page waits on
+ * Roblox's explore endpoint and then on the detail calls, and the live table is
+ * awaited inline so that it exists without JavaScript.
+ *
+ * Nothing here is presented as fresher than it is: every figure is stamped with
+ * the time Roblox's own response carries, so a fifteen-minute-old reading says
+ * so. Fifteen minutes is also how often this site records an observation, so
+ * the page and the chart now describe the same cadence.
+ */
+export const EXPERIENCE_CACHE_SECONDS = 900;
 
 /**
  * How many rows the page shows from the selected ranking.
@@ -136,7 +149,15 @@ async function getJson(url: string, timeoutMs = TIMEOUT_MS): Promise<FetchResult
     const response = await fetch(url, {
       headers: { accept: "application/json" },
       signal: AbortSignal.timeout(timeoutMs),
-      cf: { cacheTtl: EXPERIENCE_CACHE_SECONDS, cacheEverything: true },
+      /*
+       * Successes only. `cacheTtl` with `cacheEverything` caches whatever comes
+       * back, so a 429 or a 5xx from Roblox would be held for the full window
+       * and turn one bad moment into fifteen minutes of stated outage.
+       */
+      cf: {
+        cacheTtlByStatus: { "200-299": EXPERIENCE_CACHE_SECONDS, "300-599": 0 },
+        cacheEverything: true,
+      },
     } as RequestInit);
 
     if (!response.ok) {
@@ -146,8 +167,8 @@ async function getJson(url: string, timeoutMs = TIMEOUT_MS): Promise<FetchResult
     /*
      * The observation time is Roblox's, not ours.
      *
-     * A successful response is cached for five minutes, so reading the clock
-     * here would stamp a four-minute-old reading as though it had just been
+     * A successful response is cached, so reading the clock here would stamp a
+     * reading taken up to a quarter of an hour ago as though it had just been
      * taken — the page would present a stale number as current, which is the
      * one thing it must not do. The upstream `date` header travels with the
      * cached response and records when Roblox actually answered.
