@@ -24,7 +24,7 @@ import {
   QuickAnswer,
   RelatedLinks,
 } from "@/components/content";
-import { Sparkline, TimeSeriesChart } from "@/components/charts";
+import { MultiSeriesChart, Sparkline, TimeSeriesChart } from "@/components/charts";
 import {
   approvalPercent,
   DISPLAY_LIMIT,
@@ -41,8 +41,10 @@ import {
   DEFAULT_CHART_WINDOW,
   describeSpan,
   MINIMUM_POINTS_FOR_CHART,
+  everyGameSeries,
   gameSeries,
   GAME_HISTORY_POINTS,
+  largestExperienceSeries,
   readGameHistory,
   readSeries,
   resolveChartWindow,
@@ -130,6 +132,22 @@ export default async function PlatformPage({ searchParams }: PageProps) {
               window={chartWindow}
               experience={Number.isFinite(experience) ? experience : undefined}
             />
+          </Section>
+
+          <Section
+            id="experiences-over-time"
+            heading="Top experiences over time"
+            description="Every experience this site is tracking, on one set of axes, from the counts recorded every 15 minutes. The eight busiest carry a colour and a name; the rest are drawn behind them so the shape of the whole ranking is visible."
+          >
+            <TopExperiencesOverTime />
+          </Section>
+
+          <Section
+            id="largest"
+            heading="The busiest single experience"
+            description="The highest player count any one experience held at each observation — the platform's peak title rather than its total, which move independently."
+          >
+            <LargestExperience />
           </Section>
 
           <Section
@@ -404,6 +422,147 @@ async function LiveExperiences({
         Roblox publishes {rankings.length} ranking
         {rankings.length === 1 ? "" : "s"}; this shows the first {DISPLAY_LIMIT} of
         whichever is selected. The order is Roblox&rsquo;s, not this site&rsquo;s.
+      </p>
+    </div>
+  );
+}
+
+/**
+ * A shared, guarded read of the per-experience history.
+ *
+ * Three sections want it, and each states its own absence rather than throwing:
+ * a missing binding or an unreadable store is a fact about this deployment, not
+ * a reason for the page to fail.
+ */
+async function loadGameHistory(): Promise<GameHistory | null> {
+  const store = await getHistoryStore();
+  if (!store) return null;
+  return readGameHistory(store).catch(() => null);
+}
+
+function HistoryUnavailable({ what }: { what: string }) {
+  return (
+    <Callout tone="info" title={`${what} is not available in this environment`}>
+      Per-experience counts are stored in a Cloudflare KV namespace bound to the
+      deployed Worker. Without that binding there is nothing recorded to draw,
+      which is why this says so rather than showing an empty axis.
+    </Callout>
+  );
+}
+
+async function TopExperiencesOverTime() {
+  const history = await loadGameHistory();
+  if (!history) return <HistoryUnavailable what="Per-experience history" />;
+
+  const tracked = everyGameSeries(history);
+  const plottable = tracked.filter((entry) => entry.series.points.length >= 2);
+
+  if (plottable.length === 0) {
+    return (
+      <Callout tone="info" title="Not enough observations yet to draw lines">
+        {tracked.length === 0
+          ? "No per-experience counts have been recorded yet."
+          : `${tracked.length} experiences have been seen once each.`}{" "}
+        A line needs at least two observations of the same experience, so the
+        chart appears after the next collection run rather than joining a single
+        point to itself.
+      </Callout>
+    );
+  }
+
+  return (
+    <div className="min-w-0">
+      <div className="grid gap-4 sm:grid-cols-3">
+        <Stat label="Experiences tracked" value={numberFormat.format(tracked.length)} />
+        <Stat
+          label="Observations held"
+          value={numberFormat.format(history.at.length)}
+          note={`Kept for the last ${(GAME_HISTORY_POINTS * COLLECTION_INTERVAL_MINUTES) / 60} hours`}
+        />
+        <Stat
+          label="Busiest tracked"
+          value={plottable[0]?.name ?? "—"}
+          note={
+            plottable[0]
+              ? `${numberFormat.format(plottable[0].latest)} players at the last observation`
+              : undefined
+          }
+        />
+      </div>
+
+      <div className="mt-6">
+        <MultiSeriesChart
+          series={plottable.map((entry) => ({
+            id: entry.id,
+            name: entry.name,
+            latest: entry.latest,
+            points: entry.series.points.map((point) => ({
+              at: point.at,
+              value: point.totalPlaying,
+            })),
+          }))}
+          caption={`The ${Math.min(plottable.length, 48)} busiest of ${numberFormat.format(tracked.length)} tracked experiences, from observations recorded every ${COLLECTION_INTERVAL_MINUTES} minutes. Each point was measured; nothing between two points is drawn as though it were. Every experience in the table above has its own trend line there, and the figures behind this picture are in that table as text.`}
+          formatValue={(value) => compact(value)}
+        />
+      </div>
+    </div>
+  );
+}
+
+async function LargestExperience() {
+  const history = await loadGameHistory();
+  if (!history) return <HistoryUnavailable what="The busiest-experience record" />;
+
+  const { series, leaders } = largestExperienceSeries(history);
+  const summary = summarise(series);
+  const latest = series.points[series.points.length - 1];
+
+  if (!series.chartable) {
+    return (
+      <Callout tone="info" title="Not enough observations yet">
+        {series.points.length} observation{series.points.length === 1 ? "" : "s"} so
+        far. A chart needs {MINIMUM_POINTS_FOR_CHART} to be a line rather than a dot.
+      </Callout>
+    );
+  }
+
+  return (
+    <div className="min-w-0">
+      <div className="grid gap-4 sm:grid-cols-3">
+        <Stat
+          label="Busiest right now"
+          value={numberFormat.format(latest?.totalPlaying ?? 0)}
+          note={latest ? leaders[latest.at] : undefined}
+        />
+        {summary ? (
+          <Stat
+            label="Highest observed"
+            value={numberFormat.format(summary.peak.totalPlaying)}
+            note={`${leaders[summary.peak.at] ?? ""} · ${formatObserved(summary.peak.at)}`}
+          />
+        ) : null}
+        {summary ? (
+          <Stat
+            label="Lowest observed"
+            value={numberFormat.format(summary.low.totalPlaying)}
+            note={`${leaders[summary.low.at] ?? ""} · ${formatObserved(summary.low.at)}`}
+          />
+        ) : null}
+      </div>
+
+      <div className="mt-6">
+        <TimeSeriesChart
+          points={series.points.map((point) => ({ at: point.at, value: point.totalPlaying }))}
+          caption={`The highest player count held by any single experience at each observation, over the ${describeSpan(series)} recorded. The leading experience changes; this line follows the count, not one title.`}
+          formatValue={(value) => compact(value)}
+        />
+      </div>
+
+      <p className="mt-4 text-sm text-(--color-text-muted)">
+        &ldquo;Highest observed&rdquo; means the highest this site saw at one of its
+        own observations. It is not an all-time record: nothing before this site
+        began watching is known to it, and it will not borrow a figure it did not
+        measure. <Badge tone="neutral">Recorded by this site</Badge>
       </p>
     </div>
   );

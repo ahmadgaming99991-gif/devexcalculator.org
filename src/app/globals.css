@@ -71,6 +71,26 @@
   --color-border-strong: #b9c6da;
   --color-focus: #a16207;
 
+  /* ---- Chart series ----
+     Eight categorical slots, assigned in this fixed order and never cycled: a
+     ninth series folds into an unnamed context line rather than borrowing a
+     hue that already means something else. Both columns were validated against
+     this site's own surfaces — lightness band, chroma floor, colour-vision
+     separation and normal-vision separation all pass in both modes.
+     Aqua, yellow and magenta sit below 3:1 on white, so any chart using them
+     carries visible labels and the same figures as text; colour is never the
+     only thing carrying identity. */
+  --color-series-1: #2a78d6;
+  --color-series-2: #eb6834;
+  --color-series-3: #1baf7a;
+  --color-series-4: #eda100;
+  --color-series-5: #e87ba4;
+  --color-series-6: #008300;
+  --color-series-7: #4a3aa7;
+  --color-series-8: #e34948;
+  /* Everything beyond the eight: present for shape, claiming no identity. */
+  --color-series-other: #94a3b8;
+
   /* ---- Type ---- */
   --font-sans:
     ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
@@ -137,6 +157,15 @@
       --color-border: #2a3651;
       --color-border-strong: #3d4d70;
       --color-focus: #fbbf24;
+      --color-series-1: #3987e5;
+      --color-series-2: #d95926;
+      --color-series-3: #199e70;
+      --color-series-4: #c98500;
+      --color-series-5: #d55181;
+      --color-series-6: #008300;
+      --color-series-7: #9085e9;
+      --color-series-8: #e66767;
+      --color-series-other: #64748b;
       --shadow-card: 0 1px 2px rgb(0 0 0 / 0.3), 0 4px 16px rgb(0 0 0 / 0.35);
       --shadow-raised: 0 2px 4px rgb(0 0 0 / 0.35), 0 12px 32px rgb(0 0 0 / 0.45);
     }
@@ -166,6 +195,15 @@
     --color-border: #2a3651;
     --color-border-strong: #3d4d70;
     --color-focus: #fbbf24;
+    --color-series-1: #3987e5;
+    --color-series-2: #d95926;
+    --color-series-3: #199e70;
+    --color-series-4: #c98500;
+    --color-series-5: #d55181;
+    --color-series-6: #008300;
+    --color-series-7: #9085e9;
+    --color-series-8: #e66767;
+    --color-series-other: #64748b;
     --shadow-card: 0 1px 2px rgb(0 0 0 / 0.3), 0 4px 16px rgb(0 0 0 / 0.35);
     --shadow-raised: 0 2px 4px rgb(0 0 0 / 0.35), 0 12px 32px rgb(0 0 0 / 0.45);
   }

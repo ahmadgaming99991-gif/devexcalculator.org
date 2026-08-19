@@ -108,6 +108,71 @@ export function gameSeries(history: GameHistory, universeId: number): HistorySer
 }
 
 /**
+ * The busiest single experience at each observation.
+ *
+ * Not a total and not an average: the highest player count any one experience
+ * held at that moment, with the name of whichever it was. Reported separately
+ * from the aggregate because a platform's peak title and its overall activity
+ * move independently, and a reader watching one is not watching the other.
+ */
+export function largestExperienceSeries(history: GameHistory): {
+  readonly series: HistorySeries;
+  readonly leaders: Readonly<Record<string, string>>;
+} {
+  const points: { at: string; totalPlaying: number }[] = [];
+  const leaders: Record<string, string> = {};
+
+  for (let i = 0; i < history.at.length; i += 1) {
+    const at = history.at[i];
+    if (at === undefined) continue;
+
+    let best = -1;
+    let bestId: string | null = null;
+    for (const [id, values] of Object.entries(history.players)) {
+      const value = values[i];
+      if (value === null || value === undefined) continue;
+      if (value > best) {
+        best = value;
+        bestId = id;
+      }
+    }
+
+    if (bestId === null) continue;
+    const iso = new Date(at).toISOString();
+    points.push({ at: iso, totalPlaying: best });
+    leaders[iso] = history.names[bestId] ?? "An experience";
+  }
+
+  return { series: toSeries(points), leaders };
+}
+
+/**
+ * Every tracked experience as its own plottable series.
+ *
+ * Ordered by current player count so a chart can give its colours to the ones
+ * a reader is most likely to be looking for, and so the ordering is a property
+ * of the data rather than of insertion order into the store.
+ */
+export function everyGameSeries(
+  history: GameHistory,
+): { id: string; name: string; series: HistorySeries; latest: number }[] {
+  const out: { id: string; name: string; series: HistorySeries; latest: number }[] = [];
+
+  for (const id of Object.keys(history.players)) {
+    const series = gameSeries(history, Number(id));
+    if (series.points.length === 0) continue;
+    out.push({
+      id,
+      name: history.names[id] ?? `Experience ${id}`,
+      series,
+      latest: series.points[series.points.length - 1]?.totalPlaying ?? 0,
+    });
+  }
+
+  return out.sort((a, b) => b.latest - a.latest);
+}
+
+/**
  * Appends one collection run to the per-experience history.
  *
  * Experiences absent from this run get a null rather than being dropped, so

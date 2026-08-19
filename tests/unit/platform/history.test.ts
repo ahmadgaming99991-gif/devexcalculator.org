@@ -5,8 +5,10 @@ import {
   DEFAULT_CHART_WINDOW,
   appendGameHistory,
   describeSpan,
+  everyGameSeries,
   GAME_HISTORY_POINTS,
   gameSeries,
+  largestExperienceSeries,
   MINIMUM_POINTS_FOR_CHART,
   readSeries,
   recordSnapshot,
@@ -554,5 +556,76 @@ describe("per-experience history", () => {
   it("has no series for an experience it never saw", () => {
     const history = appendGameHistory({ at: [], names: {}, players: {} }, 1_000, observed([[1, "A", 10]]));
     expect(gameSeries(history, 404).points).toEqual([]);
+  });
+});
+
+/**
+ * The two derived views the charts draw.
+ *
+ * Both are arithmetic over recorded observations and nothing else. The risk
+ * they carry is subtle: "the busiest experience" is a value that follows
+ * whichever title is on top, so it must never be read as one experience's line,
+ * and it must never fall back to zero when nothing was observed.
+ */
+describe("derived chart series", () => {
+  const observed = (entries: readonly [number, string, number][]) =>
+    entries.map(([universeId, name, playing]) => ({ universeId, name, playing }));
+
+  const build = (runs: readonly (readonly [number, readonly [number, string, number][]])[]) => {
+    let history: GameHistory = { at: [], names: {}, players: {} };
+    for (const [at, entries] of runs) {
+      history = appendGameHistory(history, at, observed(entries));
+    }
+    return history;
+  };
+
+  it("follows the highest count, naming whichever experience held it", () => {
+    const history = build([
+      [1_000, [[1, "A", 100], [2, "B", 300]]],
+      [2_000, [[1, "A", 500], [2, "B", 200]]],
+    ]);
+
+    const { series, leaders } = largestExperienceSeries(history);
+    expect(series.points.map((point) => point.totalPlaying)).toEqual([300, 500]);
+    // The leader changed between observations, and the labels follow it.
+    expect(leaders[new Date(1_000).toISOString()]).toBe("B");
+    expect(leaders[new Date(2_000).toISOString()]).toBe("A");
+  });
+
+  it("skips an observation where nothing was recorded rather than reporting zero", () => {
+    const history = build([
+      [1_000, [[1, "A", 100]]],
+      [2_000, []],
+      [3_000, [[1, "A", 120]]],
+    ]);
+
+    const { series } = largestExperienceSeries(history);
+    expect(series.points.map((point) => point.totalPlaying)).toEqual([100, 120]);
+  });
+
+  it("orders every series by its current count, not by insertion", () => {
+    const history = build([
+      [1_000, [[1, "Small", 10], [2, "Big", 900], [3, "Middle", 400]]],
+      [2_000, [[1, "Small", 12], [2, "Big", 950], [3, "Middle", 420]]],
+    ]);
+
+    expect(everyGameSeries(history).map((entry) => entry.name)).toEqual([
+      "Big",
+      "Middle",
+      "Small",
+    ]);
+    expect(everyGameSeries(history)[0]?.latest).toBe(950);
+  });
+
+  it("leaves out an experience with no observations left to plot", () => {
+    const history = build([[1_000, [[1, "A", 10]]]]);
+    expect(everyGameSeries(history).map((entry) => entry.id)).toEqual(["1"]);
+    expect(everyGameSeries({ at: [], names: {}, players: {} })).toEqual([]);
+  });
+
+  it("has nothing to chart from an empty history rather than a flat zero line", () => {
+    const { series } = largestExperienceSeries({ at: [], names: {}, players: {} });
+    expect(series.points).toEqual([]);
+    expect(series.chartable).toBe(false);
   });
 });

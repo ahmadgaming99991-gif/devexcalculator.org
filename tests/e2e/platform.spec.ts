@@ -290,6 +290,56 @@ ${history.slice(0, 200)}`).not.toBeNull();
     }
   });
 
+  test("charts every tracked experience on one set of axes, with a legend", async ({
+    browser,
+  }) => {
+    const context = await browser.newContext({ javaScriptEnabled: false });
+    const page = await context.newPage();
+    await page.goto("/platform/");
+
+    const section = page.locator("#experiences-over-time");
+    await expect(section).toBeVisible();
+
+    const text = await section.innerText();
+    if (!/Experiences tracked/i.test(text)) {
+      // No store bound, or not enough observations yet — both are stated.
+      expect(text).toMatch(/not available in this environment|Not enough observations yet/i);
+      await context.close();
+      return;
+    }
+
+    // Many lines on one chart, which is the whole point of this section.
+    const lines = section.locator("svg path[stroke]");
+    expect(await lines.count()).toBeGreaterThan(3);
+
+    // Identity is never carried by colour alone: each named series is listed
+    // with its name as text beside its swatch.
+    const legend = section.locator("figure ul li");
+    expect(await legend.count()).toBeGreaterThan(1);
+    expect((await legend.first().innerText()).trim().length).toBeGreaterThan(0);
+
+    await context.close();
+  });
+
+  test("tracks the busiest single experience without claiming an all-time record", async ({
+    page,
+  }) => {
+    await page.goto("/platform/");
+    const section = page.locator("#largest");
+    await expect(section).toBeVisible();
+
+    const text = await section.innerText();
+    if (!/Busiest right now/i.test(text)) {
+      expect(text).toMatch(/not available in this environment|Not enough observations yet/i);
+      return;
+    }
+
+    // The distinction that keeps this honest: a peak this site observed is not
+    // a platform record, and the page must not let the two be confused.
+    expect(text).toContain("Highest observed");
+    expect(text).toContain("It is not an all-time record");
+  });
+
   test("keeps one canonical for every ranking", async ({ page }) => {
     // The ranking is a query parameter on one page. Five canonicals would ask
     // to have five near-identical pages indexed.

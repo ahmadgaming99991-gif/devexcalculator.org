@@ -516,3 +516,228 @@ export function Sparkline({
     </svg>
   );
 }
+
+export interface NamedSeries {
+  readonly id: string;
+  readonly name: string;
+  readonly points: readonly SeriesPoint[];
+  /** Current value, used to order the legend and pick which get a colour. */
+  readonly latest: number;
+}
+
+/**
+ * How many series get a colour of their own.
+ *
+ * Eight, because that is how many the categorical palette has, and a ninth is
+ * never a generated hue. The competitor this page is measured against draws
+ * around thirty coloured lines with a thirty-entry legend, which is why its
+ * chart reads as a thicket: past a handful of hues nobody can match a line to
+ * a name. Everything beyond the eighth is drawn in one muted colour — present
+ * so the shape of the whole ranking is visible, claiming no identity.
+ */
+const NAMED_SERIES_LIMIT = 8;
+
+/**
+ * How many unnamed context lines are drawn behind the named ones.
+ *
+ * Bounded on purpose. Every tracked experience could be plotted — around 270 of
+ * them — but at a full day of observations that is 270 paths of 96 points each,
+ * built on every render inside a Worker's CPU budget and shipped in the HTML.
+ * Forty is enough for the ranking to read as a body rather than eight isolated
+ * lines, and the count is stated so nobody mistakes the picture for all of them.
+ */
+const CONTEXT_SERIES_LIMIT = 40;
+
+/**
+ * The most points any one line is drawn with.
+ *
+ * A 720-unit-wide plot cannot resolve more, so the rest is work and bytes spent
+ * on detail nobody can see. Thinning keeps the first and last points so the
+ * line still starts and ends where the data does.
+ */
+const MAX_POINTS_PER_LINE = 48;
+
+function thin(points: readonly SeriesPoint[]): readonly SeriesPoint[] {
+  if (points.length <= MAX_POINTS_PER_LINE) return points;
+  const step = Math.ceil(points.length / MAX_POINTS_PER_LINE);
+  return points.filter(
+    (_, index) => index % step === 0 || index === points.length - 1,
+  );
+}
+
+/**
+ * Several experiences on one set of axes.
+ *
+ * The point of this chart is comparison: which experience is above which, and
+ * which is climbing. That makes it a multi-line chart with a real legend rather
+ * than one aggregate line, and the legend carries the name as text beside its
+ * swatch — three of the eight light-mode hues sit below 3:1 on white, so colour
+ * is never the only thing telling two series apart. The same figures appear as
+ * text in the table below, which is the accessible view of this picture.
+ */
+export function MultiSeriesChart({
+  series,
+  caption,
+  formatValue,
+  className,
+}: {
+  series: readonly NamedSeries[];
+  caption: string;
+  formatValue: (value: number) => string;
+  className?: string;
+}) {
+  const plotted = series
+    .filter((entry) => entry.points.length >= 2)
+    .slice(0, NAMED_SERIES_LIMIT + CONTEXT_SERIES_LIMIT)
+    .map((entry) => ({ ...entry, points: thin(entry.points) }));
+  if (plotted.length === 0) return null;
+
+  const width = 720;
+  const height = 300;
+  const padding = { top: 16, right: 16, bottom: 36, left: 72 };
+  const plotWidth = width - padding.left - padding.right;
+  const plotHeight = height - padding.top - padding.bottom;
+
+  let max = -Infinity;
+  let firstTime = Infinity;
+  let lastTime = -Infinity;
+  for (const entry of plotted) {
+    for (const point of entry.points) {
+      if (point.value > max) max = point.value;
+      const time = Date.parse(point.at);
+      if (time < firstTime) firstTime = time;
+      if (time > lastTime) lastTime = time;
+    }
+  }
+
+  // The floor is zero, not the smallest value: these are player counts, and a
+  // cropped baseline would exaggerate every wobble into a cliff.
+  const ceiling = niceCeiling(max);
+  const timeSpan = lastTime - firstTime || 1;
+
+  const xFor = (time: number) => padding.left + ((time - firstTime) / timeSpan) * plotWidth;
+  const yFor = (value: number) => padding.top + plotHeight - (value / ceiling) * plotHeight;
+
+  const ticks = [0, 0.25, 0.5, 0.75, 1].map((fraction) => fraction * ceiling);
+
+  // Named series are drawn last so they sit above the context lines.
+  const named = plotted.slice(0, NAMED_SERIES_LIMIT);
+  const rest = plotted.slice(NAMED_SERIES_LIMIT);
+
+  const pathFor = (entry: NamedSeries) =>
+    entry.points
+      .map((point, index) =>
+        `${index === 0 ? "M" : "L"} ${xFor(Date.parse(point.at)).toFixed(1)} ${yFor(point.value).toFixed(1)}`,
+      )
+      .join(" ");
+
+  return (
+    <figure className={cx("m-0 min-w-0", className)}>
+      <svg
+        viewBox={`0 0 ${width} ${height}`}
+        preserveAspectRatio="xMidYMid meet"
+        role="img"
+        aria-hidden="true"
+        focusable="false"
+        className="block h-auto w-full"
+      >
+        {ticks.map((value) => (
+          <g key={value}>
+            <line
+              x1={padding.left}
+              x2={width - padding.right}
+              y1={yFor(value)}
+              y2={yFor(value)}
+              stroke="var(--color-border)"
+              strokeWidth="1"
+            />
+            <text
+              x={padding.left - 10}
+              y={yFor(value) + 4}
+              textAnchor="end"
+              fontSize="12"
+              fill="var(--color-text-muted)"
+            >
+              {formatValue(value)}
+            </text>
+          </g>
+        ))}
+
+        {rest.map((entry) => (
+          <path
+            key={entry.id}
+            d={pathFor(entry)}
+            fill="none"
+            stroke="var(--color-series-other)"
+            strokeWidth="1"
+            strokeOpacity="0.45"
+            strokeLinejoin="round"
+            strokeLinecap="round"
+            vectorEffect="non-scaling-stroke"
+          />
+        ))}
+
+        {named.map((entry, index) => (
+          <path
+            key={entry.id}
+            d={pathFor(entry)}
+            fill="none"
+            stroke={`var(--color-series-${index + 1})`}
+            strokeWidth="2"
+            strokeLinejoin="round"
+            strokeLinecap="round"
+            vectorEffect="non-scaling-stroke"
+          />
+        ))}
+
+        <text
+          x={padding.left}
+          y={height - 10}
+          fontSize="12"
+          fill="var(--color-text-muted)"
+        >
+          {shortTime(new Date(firstTime).toISOString())}
+        </text>
+        <text
+          x={width - padding.right}
+          y={height - 10}
+          textAnchor="end"
+          fontSize="12"
+          fill="var(--color-text-muted)"
+        >
+          {shortTime(new Date(lastTime).toISOString())}
+        </text>
+      </svg>
+
+      <ul className="mt-4 flex list-none flex-wrap gap-x-4 gap-y-2 p-0 text-sm">
+        {named.map((entry, index) => (
+          <li key={entry.id} className="flex min-w-0 items-center gap-2">
+            <span
+              aria-hidden="true"
+              className="inline-block size-3 shrink-0 rounded-full"
+              style={{ backgroundColor: `var(--color-series-${index + 1})` }}
+            />
+            <span className="truncate text-(--color-text)">{entry.name}</span>
+            <span className="tabular shrink-0 text-(--color-text-muted)">
+              {formatValue(entry.latest)}
+            </span>
+          </li>
+        ))}
+        {rest.length > 0 ? (
+          <li className="flex items-center gap-2">
+            <span
+              aria-hidden="true"
+              className="inline-block size-3 shrink-0 rounded-full"
+              style={{ backgroundColor: "var(--color-series-other)" }}
+            />
+            <span className="text-(--color-text-muted)">
+              {rest.length} more, unnamed
+            </span>
+          </li>
+        ) : null}
+      </ul>
+
+      <figcaption className="mt-3 text-sm text-(--color-text-muted)">{caption}</figcaption>
+    </figure>
+  );
+}
