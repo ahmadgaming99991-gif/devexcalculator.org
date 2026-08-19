@@ -334,3 +334,74 @@ describe("market data", () => {
     expect(parseFinnhub(null)).toBeNull();
   });
 });
+
+/**
+ * The last-known quote.
+ *
+ * Workers make outbound requests from shared addresses, and Finnhub's free tier
+ * limits by address, so about one request in five came back 429 while the same
+ * key answered instantly from anywhere else. The fix must not become "show an
+ * old number as if it were current" — every quote carries the time the provider
+ * gave it, and the fallback is labelled as not the latest.
+ */
+describe("falling back to the last quote received", () => {
+  function fakeStore() {
+    const data = new Map<string, string>();
+    return {
+      data,
+      async get(key: string) {
+        const raw = data.get(key);
+        return raw === undefined ? null : JSON.parse(raw);
+      },
+      async put(key: string, value: string) {
+        data.set(key, value);
+      },
+    };
+  }
+
+  const env = { STOCK_PROVIDER: "finnhub", STOCK_API_KEY: "k" };
+
+  it("stores a quote it received, and serves it when the provider refuses", async () => {
+    const store = fakeStore();
+    const original = globalThis.fetch;
+
+    globalThis.fetch = (async () =>
+      new Response(JSON.stringify({ c: 38.69, t: 1_787_169_600 }), {
+        status: 200,
+        headers: { "content-type": "application/json" },
+      })) as typeof fetch;
+    const live = await getQuote(env, store);
+    expect(live.status).toBe("ok");
+
+    globalThis.fetch = (async () => new Response("", { status: 429 })) as typeof fetch;
+    const limited = await getQuote(env, store);
+    globalThis.fetch = original;
+
+    expect(limited.status).toBe("last-known");
+    if (limited.status === "last-known") {
+      // The same figure and the same timestamp: nothing is adjusted to look
+      // current, and the reason the newer one is missing travels with it.
+      expect(limited.quote.price).toBe("38.69");
+      expect(limited.quote.asOf).toBe(new Date(1_787_169_600 * 1000).toISOString());
+      expect(limited.reason).toContain("429");
+    }
+  });
+
+  it("says nothing rather than inventing one when no quote was ever stored", async () => {
+    const original = globalThis.fetch;
+    globalThis.fetch = (async () => new Response("", { status: 429 })) as typeof fetch;
+    const state = await getQuote(env, fakeStore());
+    globalThis.fetch = original;
+
+    expect(state.status).toBe("unavailable");
+  });
+
+  it("has no fallback at all without a store, and still refuses to guess", async () => {
+    const original = globalThis.fetch;
+    globalThis.fetch = (async () => new Response("", { status: 500 })) as typeof fetch;
+    const state = await getQuote(env);
+    globalThis.fetch = original;
+
+    expect(state.status).toBe("unavailable");
+  });
+});

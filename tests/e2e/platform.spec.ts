@@ -426,17 +426,36 @@ test.describe("stock page", () => {
     expect(await page.locator("iframe").count()).toBe(0);
   });
 
-  test("states that no price is configured instead of showing a placeholder", async ({ page }) => {
+  test("never shows a price without a provider and a time behind it", async ({ page }) => {
     await page.goto("/platform/stock/");
     const quote = (await page.locator("#quote").innerText()).toLowerCase();
 
-    // Either a real attributed quote, or a plain statement that there is none.
-    // What must never appear is a number with no provider behind it.
-    if (!quote.includes("no live price is configured")) {
-      expect(quote).toMatch(/fetched server-side|did not answer/);
-    } else {
-      expect(quote).toContain("stock_provider");
+    if (quote.includes("no live price is configured")) {
+      // Unconfigured: names whichever variable is actually absent — which may
+      // be one of the two, not both — and shows no figure at all.
+      expect(quote).toMatch(/stock_provider|stock_api_key/);
       expect(quote).not.toMatch(/\$\s?\d/);
+      return;
+    }
+
+    if (quote.includes("did not answer")) {
+      // Refused with nothing stored to fall back to: still no figure.
+      expect(quote).not.toMatch(/\$\s?\d/);
+      return;
+    }
+
+    // A figure is on screen, so it must carry its provider and the time it was
+    // taken — that is what stops it being a number from nowhere.
+    expect(quote).toMatch(/\$\s?\d/);
+    expect(quote).toContain("as of");
+    expect(quote).toMatch(/via \w+/);
+    expect(quote).toContain("fetched server-side");
+
+    // Where it is the last one received rather than a fresh one, it says so
+    // instead of letting the timestamp carry that news alone.
+    if (quote.includes("not the latest")) {
+      expect(quote).toMatch(/most recent quote this site received/);
+      expect(quote).toMatch(/nothing has been adjusted to look current/);
     }
   });
 

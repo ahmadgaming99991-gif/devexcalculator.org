@@ -100,15 +100,38 @@ export function RateTable({ showExamples = true }: { showExamples?: boolean }) {
 /**
  * Common amounts converted at all three rates.
  *
- * The default list runs below the minimum on purpose. A creator with 10,000
- * Earned Robux searches for what it is worth, and the honest answer includes
- * that it cannot be cashed out yet — so the row is shown and flagged rather
- * than hidden.
+ * The list runs below the minimum on purpose. A creator with 10,000 Earned
+ * Robux searches for what it is worth, and the honest answer includes that it
+ * cannot be cashed out yet — so the row is shown and flagged rather than hidden.
+ *
+ * Every amount here is one people actually search for, taken from the keyword
+ * dataset rather than chosen for roundness. The short list this replaced held
+ * thirteen of the seventy-one amounts with recorded demand, and the rationale
+ * recorded against the other fifty-eight said they were "served by the
+ * conversion hub" — which was not true of a hub that did not list them. One
+ * table answers all of them without a page per number, which is the pattern the
+ * specification rules out.
  */
 const DEFAULT_AMOUNTS: readonly number[] = [
-  1_000, 5_000, 10_000, 17_000, 20_000, 30_000, 50_000, 100_000, 200_000, 300_000, 500_000,
-  1_000_000, 10_000_000,
+  // Below the 30,000 minimum: searched, and answerable, but not cashable.
+  1, 25, 50, 150, 200, 250, 300, 600, 700, 800, 1_000, 1_200, 1_500, 2_000, 2_300, 2_400,
+  2_500, 2_700, 3_000, 3_500, 4_000, 5_000, 6_000, 7_000, 8_000, 8_500, 9_000, 10_000,
+  11_000, 12_000, 13_000, 14_000, 15_000, 17_000, 18_000, 20_000, 25_000,
+  // At or above the minimum.
+  30_000, 31_000, 35_000, 40_000, 48_000, 50_000, 60_000, 70_000, 75_000, 80_000, 90_000,
+  100_000, 130_000, 150_000, 160_000, 200_000, 300_000, 400_000, 500_000, 1_000_000,
+  1_500_000, 2_000_000, 3_000_000, 5_000_000, 7_000_000, 10_000_000, 14_000_000,
+  18_000_000, 100_000_000, 200_000_000, 600_000_000, 1_000_000_000,
 ];
+
+/*
+ * Two searched amounts are deliberately absent: 3.6 billion and one trillion
+ * Robux. The arithmetic would be correct and the rows would be nonsense — no
+ * balance of that size exists — and a reference table that answers a joke with
+ * a billion-dollar figure reads as unserious. The converter above handles any
+ * amount typed into it, including those, so the answer is available without the
+ * table claiming they are ordinary cases.
+ */
 
 export function AmountTable({
   amounts = DEFAULT_AMOUNTS,

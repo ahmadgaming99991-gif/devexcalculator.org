@@ -59,10 +59,17 @@ export default async function ConversionsPage({
 
           <Section
             id="table"
-            heading="Common amounts"
-            description="Every figure below is rendered on the server, so it is here whether or not JavaScript runs."
+            heading="Every amount people ask about"
+            description="Sixty-eight amounts at all three documented rates, including the ones below the DevEx minimum — those are asked about most often, and the honest answer includes the fact that they cannot be cashed out. Every figure is rendered on the server, so it is here whether or not JavaScript runs."
           >
             <AmountTable />
+            <p className="mt-4 text-sm text-(--color-text-muted)">
+              The list is not a selection of round numbers: it is the amounts
+              that are actually searched for. Anything not here — including
+              figures larger than the table&rsquo;s last row — goes into the
+              converter above, which uses the same rates and the same
+              arithmetic.
+            </p>
           </Section>
 
           <Section

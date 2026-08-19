@@ -35,7 +35,45 @@ export interface Quote {
 export type QuoteState =
   | { readonly status: "unconfigured"; readonly missing: readonly string[] }
   | { readonly status: "unavailable"; readonly reason: string }
-  | { readonly status: "ok"; readonly quote: Quote };
+  | { readonly status: "ok"; readonly quote: Quote }
+  /**
+   * The last quote this site actually received, served because the provider
+   * would not answer now.
+   *
+   * This is not a stale figure presented as current: every quote is rendered
+   * with the timestamp the provider gave it, so a reader always sees when the
+   * price was taken. `reason` says why a newer one is not available, and the
+   * page states both.
+   */
+  | { readonly status: "last-known"; readonly quote: Quote; readonly reason: string };
+
+/** The minimum of a KV binding this module needs, so tests can supply a fake. */
+export interface QuoteStore {
+  get(key: string, type: "json"): Promise<unknown>;
+  put(key: string, value: string, options?: { expirationTtl?: number }): Promise<void>;
+}
+
+const LAST_QUOTE_KEY = "quote:last";
+
+/**
+ * How long a stored quote may still be offered.
+ *
+ * A day. Past that the number stops being useful even with its date attached,
+ * and saying nothing becomes the better answer.
+ */
+const LAST_QUOTE_TTL_SECONDS = 24 * 60 * 60;
+
+function isQuote(value: unknown): value is Quote {
+  if (typeof value !== "object" || value === null) return false;
+  const q = value as Record<string, unknown>;
+  return (
+    typeof q.symbol === "string" &&
+    typeof q.price === "string" &&
+    typeof q.currency === "string" &&
+    typeof q.asOf === "string" &&
+    typeof q.providerName === "string"
+  );
+}
 
 /** Set to a provider key — currently only "finnhub" is implemented. */
 const PROVIDER_VAR = "STOCK_PROVIDER";
@@ -54,7 +92,7 @@ interface ProviderEnv {
  * The environment is passed in rather than read from a global so the Worker,
  * a local run and a test all supply it the same way.
  */
-export async function getQuote(env: ProviderEnv): Promise<QuoteState> {
+export async function getQuote(env: ProviderEnv, store?: QuoteStore): Promise<QuoteState> {
   const provider = env[PROVIDER_VAR]?.trim();
   const key = env[KEY_VAR]?.trim();
 
@@ -76,22 +114,71 @@ export async function getQuote(env: ProviderEnv): Promise<QuoteState> {
       {
         headers: { accept: "application/json" },
         signal: AbortSignal.timeout(6_000),
-        cf: { cacheTtl: QUOTE_CACHE_SECONDS, cacheEverything: true },
+        /*
+         * Cache successes only. `cacheTtl` with `cacheEverything` applies to
+         * whatever comes back, so a 429 would have been held for the full
+         * fifteen minutes and turned a momentary rate limit into a quarter of
+         * an hour of outage.
+         */
+        cf: {
+          cacheTtlByStatus: { "200-299": QUOTE_CACHE_SECONDS, "300-599": 0 },
+          cacheEverything: true,
+        },
       } as RequestInit,
     );
 
     if (!response.ok) {
-      return { status: "unavailable", reason: `The provider returned HTTP ${response.status}.` };
+      /*
+       * A rate limit here is not the operator's key being wrong.
+       *
+       * Workers make outbound requests from addresses shared with every other
+       * Worker, and Finnhub's free tier limits by address, so roughly one
+       * request in five came back 429 while the same key answered instantly
+       * from anywhere else. Showing "the provider did not answer" to a fifth of
+       * readers, when a perfectly good quote was taken minutes ago and carries
+       * its own timestamp, is worse than showing that quote.
+       */
+      return fallback(store, `The provider returned HTTP ${response.status}.`);
     }
 
     const parsed = parseFinnhub(await response.json());
-    return parsed
-      ? { status: "ok", quote: parsed }
-      : { status: "unavailable", reason: "The provider's response did not contain a price." };
+    if (!parsed) {
+      return fallback(store, "The provider's response did not contain a price.");
+    }
+
+    await remember(store, parsed);
+    return { status: "ok", quote: parsed };
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
-    return { status: "unavailable", reason: `Could not reach the provider: ${message}` };
+    return fallback(store, `Could not reach the provider: ${message}`);
   }
+}
+
+/** Stores a quote so a later outage has something dated to fall back to. */
+async function remember(store: QuoteStore | undefined, quote: Quote): Promise<void> {
+  if (!store) return;
+  try {
+    await store.put(LAST_QUOTE_KEY, JSON.stringify(quote), {
+      expirationTtl: LAST_QUOTE_TTL_SECONDS,
+    });
+  } catch {
+    // A failed write costs a future fallback, never the quote in hand.
+  }
+}
+
+/** The last quote received, or a plain statement that there is none. */
+async function fallback(
+  store: QuoteStore | undefined,
+  reason: string,
+): Promise<QuoteState> {
+  if (!store) return { status: "unavailable", reason };
+  try {
+    const stored = await store.get(LAST_QUOTE_KEY, "json");
+    if (isQuote(stored)) return { status: "last-known", quote: stored, reason };
+  } catch {
+    // Fall through: an unreadable store is the same as an empty one here.
+  }
+  return { status: "unavailable", reason };
 }
 
 /**

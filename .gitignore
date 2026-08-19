@@ -59,3 +59,11 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# Operator secrets pasted into the working tree.
+# Never committed. Provider keys belong in Cloudflare secrets, not in the repo,
+# and a file dropped here must not be one `git add -A` away from being public.
+keys.txt
+keys*.txt
+*.key
+secrets.txt

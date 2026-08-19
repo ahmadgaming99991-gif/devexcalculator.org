@@ -4,6 +4,7 @@ import { requireRoute } from "@/lib/content/route-registry";
 import { JsonLd } from "@/components/seo/json-ld";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import {
+  Badge,
   Callout,
   Card,
   Container,
@@ -29,6 +30,7 @@ import {
   REQUIRED_ENVIRONMENT,
   STOCK_SYMBOL,
   type QuoteState,
+  type QuoteStore,
 } from "@/lib/platform/market-data";
 
 const ROUTE = "/platform/stock/";
@@ -136,8 +138,9 @@ export default async function StockPage() {
 }
 
 function QuoteBlock({ state }: { state: QuoteState }) {
-  if (state.status === "ok") {
+  if (state.status === "ok" || state.status === "last-known") {
     const { quote } = state;
+    const lastKnown = state.status === "last-known";
     return (
       <Card>
         <p className="text-sm text-(--color-text-muted)">{quote.symbol}</p>
@@ -150,6 +153,20 @@ function QuoteBlock({ state }: { state: QuoteState }) {
           <time dateTime={quote.asOf}>{quote.asOf.slice(0, 16).replace("T", " ")} UTC</time>{" "}
           · via {quote.providerName}, fetched server-side
         </p>
+        {lastKnown ? (
+          /*
+           * Shown, not hidden. The figure above is real and carries the time it
+           * was taken, so it is not a stale price passed off as current — but a
+           * reader is entitled to know that a newer one was asked for and
+           * refused, rather than being left to infer it from the timestamp.
+           */
+          <p className="mt-3 text-sm text-(--color-text-muted)">
+            <Badge tone="warning">Not the latest</Badge>{" "}
+            This is the most recent quote this site received. {state.reason} The
+            price above is unchanged from when it was taken; nothing has been
+            adjusted to look current.
+          </p>
+        ) : null}
       </Card>
     );
   }
@@ -191,14 +208,23 @@ function QuoteBlock({ state }: { state: QuoteState }) {
  */
 async function readQuote(): Promise<QuoteState> {
   let env: Record<string, string | undefined> = process.env;
+  let store: QuoteStore | undefined;
+
   try {
     const { getCloudflareContext } = await import("@opennextjs/cloudflare");
     const context = await getCloudflareContext({ async: true });
-    env = { ...process.env, ...(context.env as Record<string, string | undefined>) };
+    const cloudflareEnv = context.env as Record<string, unknown>;
+    env = { ...process.env, ...(cloudflareEnv as Record<string, string | undefined>) };
+    // The same namespace the platform history uses. A quote is one small key
+    // beside it rather than a second namespace to provision and forget.
+    const binding = cloudflareEnv.PLATFORM_HISTORY;
+    if (binding) store = binding as QuoteStore;
   } catch {
-    // No Cloudflare context: a local run. process.env is the whole story.
+    // No Cloudflare context: a local run. process.env is the whole story, and
+    // without a store there is no fallback — which the page states.
   }
-  return getQuote(env);
+
+  return getQuote(env, store);
 }
 
 export { REQUIRED_ENVIRONMENT };

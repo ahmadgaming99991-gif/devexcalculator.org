@@ -53,7 +53,11 @@
     "NEXT_PUBLIC_SITE_URL": "https://devexcalculator.org",
     "FX_PROVIDER": "ecb",
     "FX_CACHE_TTL_SECONDS": "43200",
-    "CONTACT_MODE": "disabled"
+    "CONTACT_MODE": "disabled",
+    // Which market-data adapter serves /platform/stock/. The matching
+    // STOCK_API_KEY is a Worker secret, set with `wrangler secret put`, and is
+    // deliberately not in this file.
+    "STOCK_PROVIDER": "finnhub"
   }
   // No KV / D1 / R2 / Durable Object / Queue bindings are declared.
   // The calculator is stateless, FX responses use the Workers Cache API via
