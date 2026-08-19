@@ -179,9 +179,36 @@ ${history.slice(0, 200)}`).not.toBeNull();
     expect(page.url()).toContain("days=1");
     await expect(
       page.locator('nav[aria-label="Chart range"] a[aria-current]'),
-    ).toHaveText("24 hours");
+    ).toContainText("24 hours");
 
     await context.close();
+  });
+
+  test("says why a range changes nothing, instead of looking broken", async ({ page }) => {
+    await page.goto("/platform/?days=14");
+    const history = page.locator("#history");
+    const text = await history.innerText();
+    if (!/Observations recorded/i.test(text)) return;
+
+    // Each button carries the count it would chart, so four buttons showing the
+    // same number explain themselves rather than reading as a dead control.
+    const tabs = page.locator('nav[aria-label="Chart range"] a');
+    for (let i = 0; i < (await tabs.count()); i += 1) {
+      expect((await tabs.nth(i).innerText()).trim()).toMatch(/\d/);
+    }
+
+    const recorded = Number(
+      (/observations recorded\s*([\d,]+)/i.exec(text)?.[1] ?? "0").replace(/,/g, ""),
+    );
+    const day = Number(
+      (await tabs.filter({ hasText: "24 hours" }).innerText()).replace(/[^\d]/g, ""),
+    );
+
+    // While the history is shorter than every range, the page must say so
+    // rather than leaving the reader to conclude the buttons do nothing.
+    if (day === recorded) {
+      expect(text).toMatch(/fits inside|wider than the history/i);
+    }
   });
 
   test("a narrower range never shows more than a wider one", async ({ page }) => {
@@ -219,7 +246,7 @@ ${history.slice(0, 200)}`).not.toBeNull();
     await expect(page.locator('nav[aria-label="Roblox rankings"] a[aria-current]')).toHaveText(
       label,
     );
-    await expect(page.locator('nav[aria-label="Chart range"] a[aria-current]')).toHaveText(
+    await expect(page.locator('nav[aria-label="Chart range"] a[aria-current]')).toContainText(
       "24 hours",
     );
 

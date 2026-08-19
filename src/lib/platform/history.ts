@@ -475,6 +475,35 @@ export async function readSeries(
   return toSeries(points);
 }
 
+/**
+ * Narrows an already-read series to a shorter window.
+ *
+ * Pure, so the page can read the whole history once and then show any range —
+ * and, more usefully, count what every range would hold without going back to
+ * the store for each one.
+ */
+export function sliceSeries(series: HistorySeries, windowDays: number): HistorySeries {
+  const cutoff = Date.now() - windowDays * 24 * 60 * 60 * 1000;
+  return toSeries(series.points.filter((point) => Date.parse(point.at) >= cutoff));
+}
+
+/**
+ * How many observations each offered range would chart.
+ *
+ * Exists because a range selector that appears to do nothing is worse than no
+ * range selector. Early on every range holds the same points — thirteen hours
+ * of history sits inside all of them — and a reader clicking through four
+ * buttons that never change a figure reasonably concludes the control is
+ * broken. Showing the count on each button makes the reason visible instead.
+ */
+export function windowCounts(series: HistorySeries): Record<number, number> {
+  const counts: Record<number, number> = {};
+  for (const option of CHART_WINDOWS) {
+    counts[option.days] = sliceSeries(series, option.days).points.length;
+  }
+  return counts;
+}
+
 /** Describes a set of points without adding anything to them. */
 function toSeries(
   points: readonly { readonly at: string; readonly totalPlaying: number }[],

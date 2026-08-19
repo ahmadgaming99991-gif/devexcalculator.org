@@ -49,7 +49,9 @@ import {
   readSeries,
   resolveChartWindow,
   RETENTION_DAYS,
+  sliceSeries,
   summarise,
+  windowCounts,
   type ChartWindow,
   type GameHistory,
   type HistorySeries,
@@ -820,9 +822,12 @@ function ExperienceRow({
 function ChartRangeTabs({
   selected,
   ranking,
+  counts,
 }: {
   selected: ChartWindow;
   ranking?: string;
+  /** Observations each range would chart, so a button that changes nothing says so. */
+  counts?: Record<number, number>;
 }) {
   return (
     <nav aria-label="Chart range" className="mb-6">
@@ -842,6 +847,22 @@ function ChartRangeTabs({
                 }
               >
                 {option.label}
+                {counts ? (
+                  <span
+                    className={
+                      current
+                        ? "ml-2 text-xs font-normal opacity-80"
+                        : "ml-2 text-xs font-normal text-(--color-text-muted)"
+                    }
+                  >
+                    {numberFormat.format(counts[option.days] ?? 0)}
+                  </span>
+                ) : null}
+                <span className="sr-only">
+                  {counts
+                    ? `, ${counts[option.days] ?? 0} observations`
+                    : ""}
+                </span>
               </Link>
             </li>
           );
@@ -870,9 +891,17 @@ async function ObservedHistory({
     );
   }
 
-  let series: HistorySeries;
+  /*
+   * Read once at the full retention window, then narrow in memory.
+   *
+   * Reading per range would be the obvious shape and would cost a store round
+   * trip per view for no gain — the rollup is a single value, so every range is
+   * already in hand. It also makes the counts below possible, which is what
+   * stops the range buttons from looking broken.
+   */
+  let full: HistorySeries;
   try {
-    series = await readSeries(store, chartWindow.days);
+    full = await readSeries(store, RETENTION_DAYS);
   } catch {
     return (
       <Callout tone="warning" title="Recorded observations could not be read">
@@ -881,10 +910,24 @@ async function ObservedHistory({
     );
   }
 
+  const counts = windowCounts(full);
+  const series = sliceSeries(full, chartWindow.days);
+
+  /*
+   * Whether the chosen range is wider than anything collected.
+   *
+   * Thirteen hours of history sits inside all four ranges, so every button
+   * charts the same points and a reader clicking through them sees no figure
+   * move. That is correct behaviour and it looked exactly like a broken
+   * control, so the page now says which it is.
+   */
+  const rangeExceedsHistory =
+    full.points.length > 0 && full.spanHours < chartWindow.days * 24;
+
   if (series.points.length === 0) {
     return (
       <div className="min-w-0">
-        <ChartRangeTabs selected={chartWindow} ranking={selectedRanking} />
+        <ChartRangeTabs selected={chartWindow} ranking={selectedRanking} counts={counts} />
         <Callout tone="info" title={`No observations recorded in the last ${chartWindow.label}`}>
           Nothing has been stored for this range. Where the scheduled job is
           running, an observation is written every {COLLECTION_INTERVAL_MINUTES}{" "}
@@ -902,7 +945,7 @@ async function ObservedHistory({
   if (!series.chartable) {
     return (
       <div className="min-w-0">
-        <ChartRangeTabs selected={chartWindow} ranking={selectedRanking} />
+        <ChartRangeTabs selected={chartWindow} ranking={selectedRanking} counts={counts} />
         <Card tone="subtle">
           <p className="text-(--color-text)">
             <strong>{series.points.length}</strong> observation
@@ -927,13 +970,30 @@ async function ObservedHistory({
 
   return (
     <div className="min-w-0">
-      <ChartRangeTabs selected={chartWindow} ranking={selectedRanking} />
+      <ChartRangeTabs selected={chartWindow} ranking={selectedRanking} counts={counts} />
 
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {rangeExceedsHistory ? (
+        <Callout
+          tone="info"
+          title={`Everything collected so far fits inside ${chartWindow.label}`}
+        >
+          This site has been observing for {describeSpan(full)}, which is less than
+          the {chartWindow.label} selected — so this range and every wider one chart
+          the same {numberFormat.format(full.points.length)} observations, and the
+          figures do not change between them. They will diverge once there is more
+          history than a range covers. Nothing is padded to fill the difference.
+        </Callout>
+      ) : null}
+
+      <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <Stat
           label="Observations recorded"
           value={numberFormat.format(series.points.length)}
-          note={`Within the last ${chartWindow.label}`}
+          note={
+            rangeExceedsHistory
+              ? "Every observation held — the range is wider than the history"
+              : `Within the last ${chartWindow.label}`
+          }
         />
         <Stat label="Period covered" value={describeSpan(series)} />
         <Stat

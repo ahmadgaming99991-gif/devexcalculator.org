@@ -14,8 +14,10 @@ import {
   recordSnapshot,
   resolveChartWindow,
   RETENTION_DAYS,
+  sliceSeries,
   summarise,
   toSnapshot,
+  windowCounts,
   type GameHistory,
   type HistorySeries,
   type HistoryStore,
@@ -627,5 +629,58 @@ describe("derived chart series", () => {
     const { series } = largestExperienceSeries({ at: [], names: {}, players: {} });
     expect(series.points).toEqual([]);
     expect(series.chartable).toBe(false);
+  });
+});
+
+/**
+ * Ranges that hold the same points.
+ *
+ * Early on every range charts everything, because the history is shorter than
+ * the narrowest range. That is correct and it reads as a broken control, so the
+ * page needs to be able to tell the two apart — which means the counts have to
+ * be computable without a store round trip per range.
+ */
+describe("range counts", () => {
+  const seriesOver = (hoursAgo: readonly number[]): HistorySeries => ({
+    points: hoursAgo
+      .map((h) => ({
+        at: new Date(Date.now() - h * 3_600_000).toISOString(),
+        totalPlaying: 100,
+      }))
+      .sort((a, b) => a.at.localeCompare(b.at)),
+    spanHours: Math.max(...hoursAgo) - Math.min(...hoursAgo),
+    firstObservedAt: null,
+    lastObservedAt: null,
+    chartable: true,
+  });
+
+  it("reports the same count for every range while the history is shorter than all of them", () => {
+    // Thirteen hours of observations: inside 24 hours, and therefore inside
+    // every wider range too.
+    const counts = windowCounts(seriesOver([13, 9, 5, 1]));
+    expect(counts[1]).toBe(4);
+    expect(counts[3]).toBe(4);
+    expect(counts[7]).toBe(4);
+    expect(counts[14]).toBe(4);
+  });
+
+  it("separates the ranges once the history outgrows them", () => {
+    const counts = windowCounts(seriesOver([13 * 24, 5 * 24, 2 * 24, 12, 1]));
+    expect(counts[1]).toBe(2);
+    expect(counts[3]).toBe(3);
+    expect(counts[7]).toBe(4);
+    expect(counts[14]).toBe(5);
+  });
+
+  it("narrows without touching the points it keeps", () => {
+    const full = seriesOver([50, 30, 2, 1]);
+    const day = sliceSeries(full, 1);
+    // 50 and 30 hours ago fall outside a day; the two inside it are unchanged.
+    expect(day.points).toEqual(full.points.slice(-2));
+  });
+
+  it("has no counts to report from an empty history", () => {
+    const empty = seriesOver([]);
+    expect(windowCounts({ ...empty, points: [] })[1]).toBe(0);
   });
 });
