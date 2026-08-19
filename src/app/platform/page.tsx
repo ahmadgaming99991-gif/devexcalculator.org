@@ -35,12 +35,16 @@ import {
   type Ranking,
 } from "@/lib/platform/roblox-api";
 import {
+  CHART_WINDOWS,
   COLLECTION_INTERVAL_MINUTES,
+  DEFAULT_CHART_WINDOW,
   describeSpan,
   MINIMUM_POINTS_FOR_CHART,
   readSeries,
+  resolveChartWindow,
   RETENTION_DAYS,
   summarise,
+  type ChartWindow,
   type HistorySeries,
   type HistoryStore,
 } from "@/lib/platform/history";
@@ -74,6 +78,8 @@ export default async function PlatformPage({ searchParams }: PageProps) {
   const record = requireRoute(ROUTE);
   const params = await searchParams;
   const requested = typeof params.ranking === "string" ? params.ranking : undefined;
+  const days = typeof params.days === "string" ? params.days : undefined;
+  const chartWindow = resolveChartWindow(days);
 
   return (
     <>
@@ -122,7 +128,7 @@ export default async function PlatformPage({ searchParams }: PageProps) {
           >
             {/* Same reasoning as above; this one is a KV read, so there was
                 little to stream in the first place. */}
-            <ObservedHistory />
+            <ObservedHistory window={chartWindow} selectedRanking={requested} />
           </Section>
 
           <Section id="how" heading="How this page gets its numbers">
@@ -403,7 +409,64 @@ function ExperienceRow({
   );
 }
 
-async function ObservedHistory() {
+/**
+ * The chart range switcher.
+ *
+ * Same technique as the ranking tabs: real links, server-rendered, no client
+ * JavaScript. Selecting a range narrows which stored observations are plotted;
+ * it never stretches a short history across a longer axis. Early on, "14 days"
+ * and "24 hours" legitimately draw the same points, and the caption says how
+ * much was actually collected so the axis cannot imply more.
+ */
+function ChartRangeTabs({
+  selected,
+  ranking,
+}: {
+  selected: ChartWindow;
+  ranking?: string;
+}) {
+  const href = (days: number): string => {
+    const query = new URLSearchParams();
+    if (ranking) query.set("ranking", ranking);
+    if (days !== DEFAULT_CHART_WINDOW.days) query.set("days", String(days));
+    const search = query.toString();
+    return search ? `${ROUTE}?${search}#history` : `${ROUTE}#history`;
+  };
+
+  return (
+    <nav aria-label="Chart range" className="mb-6">
+      <ul className="flex flex-wrap gap-2">
+        {CHART_WINDOWS.map((option) => {
+          const current = option.days === selected.days;
+          return (
+            <li key={option.days}>
+              <Link
+                href={href(option.days)}
+                scroll={false}
+                aria-current={current ? "true" : undefined}
+                className={
+                  current
+                    ? "inline-flex min-h-[44px] items-center rounded-(--radius-control) border border-(--color-primary) bg-(--color-primary) px-4 text-sm font-semibold text-(--color-on-primary)"
+                    : "inline-flex min-h-[44px] items-center rounded-(--radius-control) border border-(--color-border) bg-(--color-surface) px-4 text-sm font-semibold text-(--color-text) motion-safe:transition-colors hover:border-(--color-primary) hover:text-(--color-primary)"
+                }
+              >
+                {option.label}
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+    </nav>
+  );
+}
+
+async function ObservedHistory({
+  window: chartWindow,
+  selectedRanking,
+}: {
+  window: ChartWindow;
+  selectedRanking?: string;
+}) {
   const store = await getHistoryStore();
 
   if (!store) {
@@ -418,7 +481,7 @@ async function ObservedHistory() {
 
   let series: HistorySeries;
   try {
-    series = await readSeries(store);
+    series = await readSeries(store, chartWindow.days);
   } catch {
     return (
       <Callout tone="warning" title="Recorded observations could not be read">
@@ -429,12 +492,16 @@ async function ObservedHistory() {
 
   if (series.points.length === 0) {
     return (
-      <Callout tone="info" title="No observations recorded yet">
-        The store is reachable and empty. Where the scheduled job is running, the
-        first observation is written within {COLLECTION_INTERVAL_MINUTES} minutes and
-        the chart appears once there are {MINIMUM_POINTS_FOR_CHART} of them. Until
-        then there is nothing to draw, and drawing nothing is the honest option.
-      </Callout>
+      <div className="min-w-0">
+        <ChartRangeTabs selected={chartWindow} ranking={selectedRanking} />
+        <Callout tone="info" title={`No observations recorded in the last ${chartWindow.label}`}>
+          Nothing has been stored for this range. Where the scheduled job is
+          running, an observation is written every {COLLECTION_INTERVAL_MINUTES}{" "}
+          minutes and the chart appears once there are {MINIMUM_POINTS_FOR_CHART} of
+          them. A wider range may hold more; what it will never do is invent a point
+          to fill this one.
+        </Callout>
+      </div>
     );
   }
 
@@ -443,31 +510,39 @@ async function ObservedHistory() {
 
   if (!series.chartable) {
     return (
-      <Card tone="subtle">
-        <p className="text-(--color-text)">
-          <strong>{series.points.length}</strong> observation
-          {series.points.length === 1 ? "" : "s"} recorded so far, the most recent
-          showing {numberFormat.format(latest?.totalPlaying ?? 0)} players. A chart
-          needs at least {MINIMUM_POINTS_FOR_CHART} points to be a line rather than a
-          dot, so the figures are listed instead.
-        </p>
-        <ul className="mt-3 flex flex-col gap-1 text-sm text-(--color-text-muted)">
-          {series.points.map((point) => (
-            <li key={point.at} className="tabular">
-              {formatObserved(point.at)} — {numberFormat.format(point.totalPlaying)} players
-            </li>
-          ))}
-        </ul>
-      </Card>
+      <div className="min-w-0">
+        <ChartRangeTabs selected={chartWindow} ranking={selectedRanking} />
+        <Card tone="subtle">
+          <p className="text-(--color-text)">
+            <strong>{series.points.length}</strong> observation
+            {series.points.length === 1 ? "" : "s"} fall within the last{" "}
+            {chartWindow.label}, the most recent showing{" "}
+            {numberFormat.format(latest?.totalPlaying ?? 0)} players. A chart needs at
+            least {MINIMUM_POINTS_FOR_CHART} points to be a line rather than a dot, so
+            the figures are listed instead.
+          </p>
+          <ul className="mt-3 flex flex-col gap-1 text-sm text-(--color-text-muted)">
+            {series.points.map((point) => (
+              <li key={point.at} className="tabular">
+                {formatObserved(point.at)} — {numberFormat.format(point.totalPlaying)}{" "}
+                players
+              </li>
+            ))}
+          </ul>
+        </Card>
+      </div>
     );
   }
 
   return (
     <div className="min-w-0">
+      <ChartRangeTabs selected={chartWindow} ranking={selectedRanking} />
+
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <Stat
           label="Observations recorded"
           value={numberFormat.format(series.points.length)}
+          note={`Within the last ${chartWindow.label}`}
         />
         <Stat label="Period covered" value={describeSpan(series)} />
         <Stat

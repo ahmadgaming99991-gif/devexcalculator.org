@@ -11,10 +11,19 @@ import type { ExperienceObservation } from "./roblox-api";
  *
  *   obs:<ISO timestamp>   one snapshot, written by the cron trigger
  *   index                 an ordered list of the snapshot keys that exist
+ *   series                every observation as [epoch ms, total], one key
  *
  * The index exists so a page render is a bounded number of reads rather than a
  * `list()` over a growing namespace. Snapshots are written with an expiry, so
  * old data removes itself and retention needs no separate job.
+ *
+ * `series` was added because reading the chart from the index cost one KV read
+ * per point, which capped a render at 200 reads — about two days at a
+ * fifteen-minute interval. Offering a reader a fourteen-day chart while only
+ * ever holding two days of it would have been a lie told by the axis. The whole
+ * series is a few tens of kilobytes, so it fits in one value and a render is
+ * one read. Snapshots stay exactly as they were: `series` carries only what the
+ * chart plots, and the per-observation detail still lives in `obs:` keys.
  */
 
 /** Snapshots older than this are gone; KV expires them without a cleanup job. */
@@ -29,9 +38,43 @@ export const MINIMUM_POINTS_FOR_CHART = 3;
 
 const INDEX_KEY = "index";
 const SNAPSHOT_PREFIX = "obs:";
+const SERIES_KEY = "series";
 
-/** Caps a single render's KV reads, and the width of any chart. */
+/**
+ * Caps a single render's KV reads on the legacy path only.
+ *
+ * Reached when `series` has not been written yet — the first run after this
+ * was deployed, and any environment holding older data. The rollup path has no
+ * such cap because it is one read whatever the span.
+ */
 const MAX_SNAPSHOTS_READ = 200;
+
+/**
+ * One charted observation, stored compactly: [epoch milliseconds, total].
+ *
+ * Milliseconds rather than seconds so a stored time round-trips to exactly the
+ * ISO string it came from. Truncating to seconds moved every observation by up
+ * to 999ms, which is invisible on a chart but means the page would print a
+ * time that was not the time recorded.
+ */
+type SeriesEntry = readonly [number, number];
+
+function isSeriesEntry(value: unknown): value is SeriesEntry {
+  return (
+    Array.isArray(value) &&
+    value.length === 2 &&
+    typeof value[0] === "number" &&
+    typeof value[1] === "number" &&
+    Number.isFinite(value[0]) &&
+    Number.isFinite(value[1])
+  );
+}
+
+async function readRollup(store: HistoryStore): Promise<SeriesEntry[] | null> {
+  const raw = await store.get(SERIES_KEY, "json");
+  if (!Array.isArray(raw)) return null;
+  return raw.filter(isSeriesEntry);
+}
 
 export interface Snapshot {
   readonly observedAt: string;
@@ -90,6 +133,27 @@ export async function recordSnapshot(
 
   await store.put(INDEX_KEY, JSON.stringify(kept.slice(-MAX_SNAPSHOTS_READ)));
 
+  /*
+   * The rollup the chart reads.
+   *
+   * Appended rather than rebuilt, so the cost of a collection run does not grow
+   * with the length of the history. A repeated timestamp replaces its earlier
+   * entry instead of adding a second point at the same instant — a retried run
+   * must not put a kink in the line.
+   */
+  const at = Date.parse(snapshot.observedAt);
+  if (Number.isFinite(at)) {
+    const existing = (await readRollup(store)) ?? [];
+    const merged = [
+      ...existing.filter(([stored]) => stored !== at && stored >= cutoff),
+      [at, snapshot.totalPlaying] as SeriesEntry,
+    ].sort((a, b) => a[0] - b[0]);
+
+    await store.put(SERIES_KEY, JSON.stringify(merged), {
+      expirationTtl: RETENTION_SECONDS,
+    });
+  }
+
   return { written: key, retained: kept.length };
 }
 
@@ -123,10 +187,25 @@ export async function readSeries(
   store: HistoryStore,
   windowDays = RETENTION_DAYS,
 ): Promise<HistorySeries> {
+  const cutoff = Date.now() - windowDays * 24 * 60 * 60 * 1000;
+
+  // One read covers any span. Only when the rollup has never been written —
+  // the first collection after this shipped — does the per-snapshot path run.
+  const rollup = await readRollup(store);
+  if (rollup && rollup.length > 0) {
+    const points = rollup
+      .filter(([at]) => at >= cutoff)
+      .sort((a, b) => a[0] - b[0])
+      .map(([at, totalPlaying]) => ({
+        at: new Date(at).toISOString(),
+        totalPlaying,
+      }));
+    return toSeries(points);
+  }
+
   const index = await readIndex(store);
   if (index.length === 0) return EMPTY_SERIES;
 
-  const cutoff = Date.now() - windowDays * 24 * 60 * 60 * 1000;
   const wanted = index
     .filter((key) => {
       const at = Date.parse(key.slice(SNAPSHOT_PREFIX.length));
@@ -146,6 +225,13 @@ export async function readSeries(
     .map((snapshot) => ({ at: snapshot.observedAt, totalPlaying: snapshot.totalPlaying }))
     .sort((a, b) => a.at.localeCompare(b.at));
 
+  return toSeries(points);
+}
+
+/** Describes a set of points without adding anything to them. */
+function toSeries(
+  points: readonly { readonly at: string; readonly totalPlaying: number }[],
+): HistorySeries {
   if (points.length === 0) return EMPTY_SERIES;
 
   const first = points[0]?.at ?? null;
@@ -190,6 +276,39 @@ export function toSnapshot(
       playing: experience.playing,
     })),
   };
+}
+
+/**
+ * The windows a reader can chart.
+ *
+ * Capped at the retention window because nothing older than that exists: an
+ * option for 30 days would be an option to look at emptiness. Each is a real
+ * cut of stored observations, never a resampling or a longer axis drawn over
+ * the same points.
+ */
+export const CHART_WINDOWS = [
+  { days: 1, label: "24 hours" },
+  { days: 3, label: "3 days" },
+  { days: 7, label: "7 days" },
+  { days: RETENTION_DAYS, label: `${RETENTION_DAYS} days` },
+] as const;
+
+export type ChartWindow = (typeof CHART_WINDOWS)[number];
+
+/** The default view: everything held, which early on is everything there is. */
+export const DEFAULT_CHART_WINDOW: ChartWindow =
+  CHART_WINDOWS[CHART_WINDOWS.length - 1]!;
+
+/**
+ * Resolves a requested window to one this site actually offers.
+ *
+ * A hand-edited `?days=999` selects the widest real option rather than
+ * producing an error or an axis nobody has data for.
+ */
+export function resolveChartWindow(requested: string | undefined): ChartWindow {
+  const days = Number(requested);
+  if (!Number.isFinite(days)) return DEFAULT_CHART_WINDOW;
+  return CHART_WINDOWS.find((window) => window.days === days) ?? DEFAULT_CHART_WINDOW;
 }
 
 export interface SeriesExtremes {

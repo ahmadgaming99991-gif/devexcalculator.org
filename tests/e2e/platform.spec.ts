@@ -160,6 +160,50 @@ ${history.slice(0, 200)}`).not.toBeNull();
     await context.close();
   });
 
+  test("offers chart ranges that work without JavaScript", async ({ browser }) => {
+    const context = await browser.newContext({ javaScriptEnabled: false });
+    const page = await context.newPage();
+    await page.goto("/platform/");
+
+    const ranges = page.locator('nav[aria-label="Chart range"] a');
+    if ((await ranges.count()) === 0) {
+      // No store bound in this environment, so there is no chart to range over.
+      await expect(page.locator("#history")).toContainText(/not available|could not be read/i);
+      await context.close();
+      return;
+    }
+
+    await expect(ranges).toHaveCount(4);
+    await expect(page.locator('nav[aria-label="Chart range"] a[aria-current]')).toHaveCount(1);
+
+    await page.locator('nav[aria-label="Chart range"] a', { hasText: "24 hours" }).click();
+    await page.waitForLoadState("load");
+    expect(page.url()).toContain("days=1");
+    await expect(
+      page.locator('nav[aria-label="Chart range"] a[aria-current]'),
+    ).toHaveText("24 hours");
+
+    await context.close();
+  });
+
+  test("a narrower range never shows more than a wider one", async ({ page }) => {
+    // The invariant a range selector must not break: narrowing filters stored
+    // observations. It cannot invent points, and it cannot stretch a short
+    // history over a longer axis.
+    const countFor = async (query: string): Promise<number | null> => {
+      await page.goto(`/platform/${query}`);
+      const text = await page.locator("#history").innerText();
+      const match = /observations recorded\s*([\d,]+)/i.exec(text);
+      return match ? Number(match[1]!.replace(/,/g, "")) : null;
+    };
+
+    const day = await countFor("?days=1");
+    const fortnight = await countFor("?days=14");
+    if (day === null || fortnight === null) return; // No chart in this environment.
+
+    expect(day).toBeLessThanOrEqual(fortnight);
+  });
+
   test("keeps one canonical for every ranking", async ({ page }) => {
     // The ranking is a query parameter on one page. Five canonicals would ask
     // to have five near-identical pages indexed.

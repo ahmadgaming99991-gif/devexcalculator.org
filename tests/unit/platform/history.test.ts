@@ -1,10 +1,13 @@
 import { beforeEach, describe, expect, it } from "vitest";
 import {
+  CHART_WINDOWS,
   COLLECTION_INTERVAL_MINUTES,
+  DEFAULT_CHART_WINDOW,
   describeSpan,
   MINIMUM_POINTS_FOR_CHART,
   readSeries,
   recordSnapshot,
+  resolveChartWindow,
   RETENTION_DAYS,
   summarise,
   toSnapshot,
@@ -148,9 +151,24 @@ describe("observation history", () => {
     const at = new Date().toISOString();
     await recordSnapshot(store, snapshotAt(at, 10));
     store.data.set(`obs:${at}`, JSON.stringify({ nonsense: true }));
+    // The rollup holds the charted total independently, so this exercises the
+    // legacy per-snapshot path — the one that has to judge each stored value.
+    store.data.delete("series");
 
     const series = await readSeries(store);
     expect(series.points).toEqual([]);
+  });
+
+  it("keeps charting when only a snapshot's detail is corrupt", async () => {
+    // The chart reads the rollup, and the rollup is a stored observation in its
+    // own right. Losing the detail record should not erase a point that was
+    // genuinely collected.
+    const at = new Date().toISOString();
+    await recordSnapshot(store, snapshotAt(at, 10));
+    store.data.set(`obs:${at}`, JSON.stringify({ nonsense: true }));
+
+    const series = await readSeries(store);
+    expect(series.points).toEqual([{ at, totalPlaying: 10 }]);
   });
 
   it("totals players across experiences when building a snapshot", () => {
@@ -194,6 +212,156 @@ describe("observation history", () => {
     const writesPerDay = (24 * 60) / COLLECTION_INTERVAL_MINUTES;
     // Two writes per run: the snapshot and the index.
     expect(writesPerDay * 2).toBeLessThan(1_000);
+  });
+});
+
+/**
+ * The chart range.
+ *
+ * The point of these is that a range narrows *which stored observations are
+ * plotted* and never changes the points themselves. A range option is a filter,
+ * not a resampler and not a longer axis over the same data.
+ */
+describe("chart ranges", () => {
+  let store: ReturnType<typeof fakeStore>;
+
+  beforeEach(() => {
+    store = fakeStore();
+  });
+
+  it("offers no range longer than observations are kept", () => {
+    for (const option of CHART_WINDOWS) {
+      expect(option.days).toBeLessThanOrEqual(RETENTION_DAYS);
+    }
+    expect(DEFAULT_CHART_WINDOW.days).toBe(RETENTION_DAYS);
+  });
+
+  it("resolves a requested range, falling back rather than erroring", () => {
+    expect(resolveChartWindow("1").days).toBe(1);
+    expect(resolveChartWindow("7").days).toBe(7);
+    // Anything not offered — a hand-edited query, a missing parameter — lands
+    // on the widest real option instead of producing an axis with no data.
+    expect(resolveChartWindow("999")).toEqual(DEFAULT_CHART_WINDOW);
+    expect(resolveChartWindow("nonsense")).toEqual(DEFAULT_CHART_WINDOW);
+    expect(resolveChartWindow(undefined)).toEqual(DEFAULT_CHART_WINDOW);
+  });
+
+  it("returns only the observations inside the requested range", async () => {
+    for (const hoursAgo of [0, 12, 36, 96, 240]) {
+      await recordSnapshot(
+        store,
+        snapshotAt(new Date(Date.now() - hoursAgo * 3_600_000).toISOString(), 100 + hoursAgo),
+      );
+    }
+
+    expect((await readSeries(store, 1)).points).toHaveLength(2); // 0h, 12h
+    expect((await readSeries(store, 3)).points).toHaveLength(3); // + 36h
+    expect((await readSeries(store, 7)).points).toHaveLength(4); // + 96h
+    expect((await readSeries(store, 14)).points).toHaveLength(5); // + 240h
+  });
+
+  it("plots the same values whichever range holds them", async () => {
+    for (const hoursAgo of [0, 6, 12]) {
+      await recordSnapshot(
+        store,
+        snapshotAt(new Date(Date.now() - hoursAgo * 3_600_000).toISOString(), 500 + hoursAgo),
+      );
+    }
+
+    // A wider range must not smooth, resample or re-space the points it shares
+    // with a narrower one.
+    const narrow = await readSeries(store, 1);
+    const wide = await readSeries(store, 14);
+    expect(wide.points).toEqual(narrow.points);
+  });
+});
+
+/**
+ * The rollup exists so one render is one read. Reading the chart from the
+ * per-snapshot index cost a read per point and capped a render at 200 of them —
+ * about two days at a fifteen-minute interval — which would have made a
+ * fourteen-day range an axis the data could never fill.
+ */
+describe("the series rollup", () => {
+  let store: ReturnType<typeof fakeStore>;
+
+  beforeEach(() => {
+    store = fakeStore();
+  });
+
+  it("reads a long history in a single get", async () => {
+    for (let i = 0; i < 400; i += 1) {
+      await recordSnapshot(
+        store,
+        snapshotAt(new Date(Date.now() - i * 900_000).toISOString(), 1_000 + i),
+      );
+    }
+
+    let gets = 0;
+    const counting: HistoryStore = {
+      get: (key, type) => {
+        gets += 1;
+        return store.get(key, type);
+      },
+      put: (key, value, options) => store.put(key, value, options),
+    };
+
+    const series = await readSeries(counting, RETENTION_DAYS);
+    expect(gets).toBe(1);
+    // 400 points at 15 minutes is over four days: past the old 200 cap, and
+    // past what the per-snapshot path could ever have returned.
+    expect(series.points.length).toBe(400);
+    expect(series.spanHours).toBeGreaterThan(48);
+  });
+
+  it("replaces rather than duplicates a repeated observation time", async () => {
+    const at = new Date().toISOString();
+    await recordSnapshot(store, snapshotAt(at, 1_000));
+    await recordSnapshot(store, snapshotAt(at, 1_234));
+
+    const series = await readSeries(store);
+    expect(series.points).toHaveLength(1);
+    expect(series.points[0]?.totalPlaying).toBe(1_234);
+  });
+
+  it("still reads history stored before the rollup existed", async () => {
+    // Data written by the previous version has `obs:` keys and an index but no
+    // rollup. It must keep charting rather than reading as an empty history.
+    const at = [2, 1, 0].map((back) =>
+      new Date(Date.now() - back * 3_600_000).toISOString(),
+    );
+    for (const iso of at) {
+      await recordSnapshot(store, snapshotAt(iso, 700));
+    }
+    store.data.delete("series");
+
+    const series = await readSeries(store);
+    expect(series.points.map((point) => point.at)).toEqual(at);
+    expect(series.chartable).toBe(true);
+  });
+
+  it("drops rollup entries that are not a time and a total", async () => {
+    const good = Date.now() - 3_600_000;
+    await recordSnapshot(store, snapshotAt(new Date().toISOString(), 10));
+    store.data.set(
+      "series",
+      JSON.stringify([["nonsense"], [1, 2, 3], null, [good, 55]]),
+    );
+
+    const series = await readSeries(store);
+    expect(series.points).toEqual([
+      { at: new Date(good).toISOString(), totalPlaying: 55 },
+    ]);
+  });
+
+  it("stores a time that round-trips to the instant it was recorded", async () => {
+    // Truncating to whole seconds moved every observation by up to 999ms, so
+    // the page printed a time that was close to, but not, the time recorded.
+    const at = "2026-08-18T21:45:48.279Z";
+    await recordSnapshot(store, snapshotAt(at, 900));
+
+    const series = await readSeries(store);
+    expect(series.points[0]?.at).toBe(at);
   });
 });
 
