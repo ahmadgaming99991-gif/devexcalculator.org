@@ -46,11 +46,25 @@ export const EXPERIENCE_CACHE_SECONDS = 300;
 /**
  * How many rows the page shows from the selected ranking.
  *
- * Roblox returns around ninety per sort. Showing all of them would make the
- * page enormous for no gain, and the detail call below is a single request for
- * this many ids, so the limit is also what keeps it one request.
+ * Roblox returns around ninety per sort and all of them are shown. The cap is
+ * a guard against a sort growing unexpectedly, not a curation step.
  */
-export const DISPLAY_LIMIT = 25;
+export const DISPLAY_LIMIT = 100;
+
+/**
+ * Roblox rejects more than fifty universe ids in one detail request with
+ * "Too many universe IDs were requested", so a full ranking needs two. They do
+ * not depend on each other, so they are issued together rather than in turn.
+ */
+const DETAIL_BATCH_SIZE = 50;
+
+/**
+ * The number of experiences behind every stored total, frozen.
+ *
+ * Changing it would change what "total players" means, and the chart would
+ * join points measuring two different things.
+ */
+export const COLLECTED_EXPERIENCES = 10;
 
 export interface ExperienceObservation {
   readonly universeId: number;
@@ -86,6 +100,22 @@ export interface Ranking {
   readonly size: number;
 }
 
+/**
+ * The platform-wide figure.
+ *
+ * Roblox does not publish a live total for the whole platform, so this is the
+ * one it makes possible: every experience appearing in any of its public
+ * rankings, counted once even when several rankings list it, with the player
+ * counts Roblox gave for each. It is a floor rather than a guess — the real
+ * platform total is higher, because Roblox ranks only a fraction of what it
+ * hosts — and the page says so rather than presenting it as "players online".
+ */
+export interface PlatformTotal {
+  readonly players: number;
+  readonly experiences: number;
+  readonly rankings: number;
+}
+
 export interface RankingsPayload {
   /** Every ranking Roblox returned that actually contained experiences. */
   readonly rankings: readonly Ranking[];
@@ -93,6 +123,7 @@ export interface RankingsPayload {
   readonly experiences: readonly ExperienceObservation[];
   /** True when the detail endpoint answered and enriched the rows. */
   readonly detailsLoaded: boolean;
+  readonly platform: PlatformTotal;
 }
 
 export type FetchResult<T> =
@@ -291,6 +322,42 @@ export function mergeGameDetails(
   });
 }
 
+/**
+ * Sums the players across every experience in every ranking, once each.
+ *
+ * Deduplication is the whole point: Roblox lists popular experiences in
+ * several sorts at once, so adding the sorts together would count Brookhaven
+ * four or five times and produce a number roughly twice the truth.
+ */
+export function platformTotal(rankings: readonly ParsedRanking[]): PlatformTotal {
+  const byUniverse = new Map<number, number>();
+  for (const ranking of rankings) {
+    for (const experience of ranking.experiences) {
+      byUniverse.set(experience.universeId, experience.playing);
+    }
+  }
+
+  let players = 0;
+  for (const playing of byUniverse.values()) players += playing;
+
+  return { players, experiences: byUniverse.size, rankings: rankings.length };
+}
+
+/** Every experience across every ranking, once each. Used by the collector. */
+export function uniqueExperiences(
+  rankings: readonly ParsedRanking[],
+): ExperienceObservation[] {
+  const byUniverse = new Map<number, ExperienceObservation>();
+  for (const ranking of rankings) {
+    for (const experience of ranking.experiences) {
+      if (!byUniverse.has(experience.universeId)) {
+        byUniverse.set(experience.universeId, experience);
+      }
+    }
+  }
+  return [...byUniverse.values()];
+}
+
 /** The public Roblox URL for an experience, when there is enough to build one. */
 export function experienceUrl(experience: ExperienceObservation): string | null {
   if (experience.urlPath) return `https://www.roblox.com${experience.urlPath}`;
@@ -340,11 +407,11 @@ export async function fetchRankings(
 
   const top = selected.experiences.slice(0, limit);
 
-  // Detail comes from a second endpoint. If it fails the page still has player
-  // counts and votes, so a partial answer is shown and the missing columns are
-  // dropped rather than filled with a guess.
-  const ids = top.map((experience) => experience.universeId).join(",");
-  const details = await getJson(`${GAMES_URL}?universeIds=${ids}`, DETAIL_TIMEOUT_MS);
+  // Detail comes from a second endpoint, in batches because Roblox caps a
+  // request at fifty ids. If it fails the page still has player counts and
+  // votes, so a partial answer is shown and the missing columns are dropped
+  // rather than filled with a guess.
+  const { experiences, detailsLoaded } = await withDetails(top);
 
   const rankings: Ranking[] = parsed.map(({ id, name, subtitle, size }) => ({
     id,
@@ -364,8 +431,80 @@ export async function fetchRankings(
         subtitle: selected.subtitle,
         size: selected.size,
       },
-      experiences: details.ok ? mergeGameDetails(top, details.data) : top,
-      detailsLoaded: details.ok,
+      experiences,
+      detailsLoaded,
+      platform: platformTotal(parsed),
+    },
+  };
+}
+
+/**
+ * Adds detail to a list of experiences, in as few requests as Roblox allows.
+ *
+ * A batch that fails leaves its rows as they arrived rather than failing the
+ * lot: losing the visit count for half a table is better than losing the table.
+ */
+async function withDetails(
+  experiences: readonly ExperienceObservation[],
+): Promise<{ experiences: ExperienceObservation[]; detailsLoaded: boolean }> {
+  const batches: ExperienceObservation[][] = [];
+  for (let i = 0; i < experiences.length; i += DETAIL_BATCH_SIZE) {
+    batches.push([...experiences.slice(i, i + DETAIL_BATCH_SIZE)]);
+  }
+
+  const results = await Promise.all(
+    batches.map(async (batch) => {
+      const ids = batch.map((experience) => experience.universeId).join(",");
+      const details = await getJson(`${GAMES_URL}?universeIds=${ids}`, DETAIL_TIMEOUT_MS);
+      return details.ok
+        ? { rows: mergeGameDetails(batch, details.data), ok: true }
+        : { rows: batch, ok: false };
+    }),
+  );
+
+  return {
+    experiences: results.flatMap((result) => result.rows),
+    detailsLoaded: results.length > 0 && results.every((result) => result.ok),
+  };
+}
+
+/**
+ * Everything one collection run needs, from one call.
+ *
+ * `collected` is the frozen basis of the totals series: first ranking, ten
+ * experiences, exactly as every stored observation was taken. `everyExperience`
+ * is the union across all rankings, used for the per-experience history and for
+ * the platform figure — a wider set that must never be mistaken for the basis.
+ *
+ * No detail request is made. The collector stores only ids, names and player
+ * counts, all of which the explore payload already carries, so calling the
+ * games endpoint here fetched visit counts that were then discarded.
+ */
+export async function fetchForCollection(): Promise<
+  FetchResult<{
+    sortName: string;
+    collected: ExperienceObservation[];
+    everyExperience: ExperienceObservation[];
+    platform: PlatformTotal;
+  }>
+> {
+  const sorts = await getJson(`${EXPLORE_SORTS_URL}?sessionId=devexcalculator`);
+  if (!sorts.ok) return sorts;
+
+  const parsed = parseRankings(sorts.data);
+  const first = parsed[0];
+  if (!first) {
+    return { ok: false, reason: "Roblox's response did not contain a usable experience list." };
+  }
+
+  return {
+    ok: true,
+    observedAt: sorts.observedAt,
+    data: {
+      sortName: first.name,
+      collected: [...first.experiences].slice(0, COLLECTED_EXPERIENCES),
+      everyExperience: uniqueExperiences(parsed),
+      platform: platformTotal(parsed),
     },
   };
 }
@@ -378,7 +517,7 @@ export async function fetchRankings(
  * holds still.
  */
 export async function fetchTopExperiences(
-  limit = 10,
+  limit = COLLECTED_EXPERIENCES,
 ): Promise<FetchResult<{ sortName: string; experiences: ExperienceObservation[] }>> {
   const sorts = await getJson(`${EXPLORE_SORTS_URL}?sessionId=devexcalculator`);
   if (!sorts.ok) return sorts;

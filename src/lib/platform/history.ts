@@ -12,6 +12,7 @@ import type { ExperienceObservation } from "./roblox-api";
  *   obs:<ISO timestamp>   one snapshot, written by the cron trigger
  *   index                 an ordered list of the snapshot keys that exist
  *   series                every observation as [epoch ms, total], one key
+ *   games                 per-experience player counts, one key
  *
  * The index exists so a page render is a bounded number of reads rather than a
  * `list()` over a growing namespace. Snapshots are written with an expiry, so
@@ -39,6 +40,114 @@ export const MINIMUM_POINTS_FOR_CHART = 3;
 const INDEX_KEY = "index";
 const SNAPSHOT_PREFIX = "obs:";
 const SERIES_KEY = "series";
+const GAMES_KEY = "games";
+
+/**
+ * How many observations of each individual experience are kept.
+ *
+ * A day at the collection interval. Deliberately shorter than the totals
+ * series: this is one array per experience across a few hundred experiences,
+ * and it is parsed on every render of the platform page, so its size is a CPU
+ * budget rather than a storage one.
+ */
+export const GAME_HISTORY_POINTS = (24 * 60) / COLLECTION_INTERVAL_MINUTES;
+
+/**
+ * Per-experience history, stored with the timestamps factored out.
+ *
+ * Repeating a thirteen-digit timestamp beside every value, for every
+ * experience, tripled the size of this key for no information: every
+ * experience is sampled by the same collection run, so one shared `at` array
+ * describes them all. Each experience's array is the same length, with null
+ * wherever it was not in any ranking at that moment — a gap that is recorded
+ * as a gap rather than as zero players.
+ */
+export interface GameHistory {
+  readonly at: readonly number[];
+  readonly names: Readonly<Record<string, string>>;
+  readonly players: Readonly<Record<string, readonly (number | null)[]>>;
+}
+
+const EMPTY_GAME_HISTORY: GameHistory = { at: [], names: {}, players: {} };
+
+function isGameHistory(value: unknown): value is GameHistory {
+  if (typeof value !== "object" || value === null) return false;
+  const record = value as Record<string, unknown>;
+  return (
+    Array.isArray(record.at) &&
+    typeof record.players === "object" &&
+    record.players !== null
+  );
+}
+
+/** Reads the per-experience history, or an empty one where none is stored. */
+export async function readGameHistory(store: HistoryStore): Promise<GameHistory> {
+  const raw = await store.get(GAMES_KEY, "json");
+  return isGameHistory(raw) ? raw : EMPTY_GAME_HISTORY;
+}
+
+/**
+ * One experience's series, ready to plot.
+ *
+ * Missing observations are dropped rather than joined through: a line that
+ * bridges a gap claims a measurement nobody took.
+ */
+export function gameSeries(history: GameHistory, universeId: number): HistorySeries {
+  const values = history.players[String(universeId)];
+  if (!values) return EMPTY_SERIES;
+
+  const points: { at: string; totalPlaying: number }[] = [];
+  for (let i = 0; i < values.length; i += 1) {
+    const value = values[i];
+    const at = history.at[i];
+    if (value === null || value === undefined || at === undefined) continue;
+    points.push({ at: new Date(at).toISOString(), totalPlaying: value });
+  }
+
+  return toSeries(points);
+}
+
+/**
+ * Appends one collection run to the per-experience history.
+ *
+ * Experiences absent from this run get a null rather than being dropped, so
+ * every array stays aligned to the shared `at` array and a returning
+ * experience does not have its earlier observations shifted under a different
+ * set of times.
+ */
+export function appendGameHistory(
+  history: GameHistory,
+  observedAt: number,
+  observations: readonly { readonly universeId: number; readonly name: string; readonly playing: number }[],
+): GameHistory {
+  const at = [...history.at, observedAt].slice(-GAME_HISTORY_POINTS);
+  const dropped = history.at.length + 1 - at.length;
+
+  const seen = new Map(observations.map((entry) => [String(entry.universeId), entry]));
+  const ids = new Set([...Object.keys(history.players), ...seen.keys()]);
+
+  const players: Record<string, (number | null)[]> = {};
+  const names: Record<string, string> = {};
+
+  for (const id of ids) {
+    const previous = history.players[id] ?? [];
+    // Pad an experience first seen now, so its array lines up with `at`.
+    const padded = [
+      ...Array.from({ length: Math.max(0, history.at.length - previous.length) }, () => null),
+      ...previous,
+    ];
+    const next = [...padded, seen.get(id)?.playing ?? null].slice(dropped > 0 ? dropped : 0);
+
+    // An experience with nothing left inside the window stops being stored.
+    if (next.every((value) => value === null || value === undefined)) continue;
+
+    players[id] = next;
+    const name = seen.get(id)?.name ?? history.names[id];
+    if (name) names[id] = name;
+  }
+
+  return { at, names, players };
+}
 
 /**
  * Caps a single render's KV reads on the legacy path only.
@@ -170,6 +279,28 @@ export async function recordSnapshot(
   }
 
   return { written: key, retained: kept.length };
+}
+
+/**
+ * Records one run's per-experience counts.
+ *
+ * Written under its own key and with its own expiry, so a failure here cannot
+ * lose the totals series, which is the older and more important record.
+ */
+export async function recordGameHistory(
+  store: HistoryStore,
+  observedAt: string,
+  observations: readonly { readonly universeId: number; readonly name: string; readonly playing: number }[],
+): Promise<number> {
+  const at = Date.parse(observedAt);
+  if (!Number.isFinite(at)) return 0;
+
+  const next = appendGameHistory(await readGameHistory(store), at, observations);
+  await store.put(GAMES_KEY, JSON.stringify(next), {
+    expirationTtl: RETENTION_SECONDS,
+  });
+
+  return Object.keys(next.players).length;
 }
 
 /** Combines two sets of entries, keeping one point per instant. */

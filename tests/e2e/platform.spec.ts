@@ -45,23 +45,22 @@ test.describe("live platform activity", () => {
     const live = page.locator("#live");
     await expect(live).toBeVisible();
 
-    // Each section streams in behind a Suspense boundary, so the fallback is
-    // legitimately present first. Waiting for it to go both confirms the
-    // loading state exists and that it resolves into something.
-    await expect(live).not.toContainText("Loading live figures", { timeout: 20_000 });
+    // Both sections are rendered inline now rather than streamed, so no
+    // loading text should ever appear. Asserting its absence keeps the check
+    // meaningful if a Suspense boundary is ever reintroduced — which is what
+    // made the live table invisible without JavaScript.
+    await expect(live).not.toContainText("Loading live figures");
 
     // Either it has figures, or it says why it does not. Both are acceptable;
     // silence is not, and an outage must not be indistinguishable from zero.
     const liveText = (await live.innerText()).toLowerCase();
     expect(
-      /players in these experiences|unavailable right now|returned no experiences/.test(liveText),
+      /players in this ranking|unavailable right now|returned no experiences/.test(liveText),
       `The live section said none of the expected things:\n${liveText.slice(0, 300)}`,
     ).toBe(true);
 
     const history = page.locator("#history");
-    await expect(history).not.toContainText("Loading recorded observations", {
-      timeout: 20_000,
-    });
+    await expect(history).not.toContainText("Loading recorded observations");
     const historyText = (await history.innerText()).toLowerCase();
     expect(
       /observations recorded|no observations recorded yet|not available in this environment|could not be read|observation/.test(
@@ -74,9 +73,7 @@ test.describe("live platform activity", () => {
   test("labels the chart with the period actually collected", async ({ page }) => {
     await page.goto("/platform/");
     const section = page.locator("#history");
-    await expect(section).not.toContainText("Loading recorded observations", {
-      timeout: 20_000,
-    });
+    await expect(section).not.toContainText("Loading recorded observations");
     const history = (await section.innerText()).toLowerCase();
 
     // Nothing to check until there is a chart to label.
@@ -233,6 +230,53 @@ ${history.slice(0, 200)}`).not.toBeNull();
     );
   });
 
+  test("states the platform figure with the method beside it", async ({ page }) => {
+    await page.goto("/platform/");
+    const live = page.locator("#live");
+    const text = await live.innerText();
+
+    if (/unavailable right now/i.test(text)) return;
+
+    // The number Roblox does not publish, so it must never be presented as one
+    // Roblox published, and never as the whole platform.
+    expect(text).toContain("Players across every experience Roblox is ranking");
+    expect(text).toMatch(/Summed from [\d,]+ experiences across Roblox[’']s \d+ public rankings/);
+    expect(text).toContain("counted once each");
+    expect(text).toContain("This is a floor, not a platform total");
+  });
+
+  test("shows a full ranking rather than a handful of rows", async ({ page }) => {
+    await page.goto("/platform/");
+    const rows = page.locator("#live tbody tr");
+    if ((await rows.count()) === 0) return;
+
+    // Roblox returns around ninety per sort; the page used to show ten.
+    expect(await rows.count()).toBeGreaterThan(40);
+  });
+
+  test("charts one experience on request, and only one", async ({ browser }) => {
+    const context = await browser.newContext({ javaScriptEnabled: false });
+    const page = await context.newPage();
+    await page.goto("/platform/");
+
+    const trend = page.locator('#live tbody a[href*="experience="]').first();
+    if ((await trend.count()) === 0) {
+      // No per-experience history in this environment yet.
+      await context.close();
+      return;
+    }
+
+    const href = await trend.getAttribute("href");
+    await page.goto(href!);
+
+    const detail = page.locator("#experience");
+    await expect(detail).toBeVisible();
+    // One chart, not ninety: the expanded view is a selection, not an expansion
+    // of every row, because that is work the Worker cannot afford.
+    await expect(page.locator("#experience svg")).toHaveCount(1);
+    await context.close();
+  });
+
   test("keeps one canonical for every ranking", async ({ page }) => {
     // The ranking is a query parameter on one page. Five canonicals would ask
     // to have five near-identical pages indexed.
@@ -254,7 +298,7 @@ ${history.slice(0, 200)}`).not.toBeNull();
     const live = page.locator("#live");
     await expect(live).toBeVisible();
     const text = (await live.innerText()).toLowerCase();
-    expect(/players in these experiences|unavailable right now/.test(text)).toBe(true);
+    expect(/players in this ranking|unavailable right now/.test(text)).toBe(true);
   });
 
   test("attributes every experience and labels any sponsored placement", async ({ page }) => {

@@ -1,6 +1,11 @@
 import openNextWorker from "opennext-worker";
-import { fetchTopExperiences } from "../src/lib/platform/roblox-api";
-import { recordSnapshot, toSnapshot, type HistoryStore } from "../src/lib/platform/history";
+import { fetchForCollection } from "../src/lib/platform/roblox-api";
+import {
+  recordGameHistory,
+  recordSnapshot,
+  toSnapshot,
+  type HistoryStore,
+} from "../src/lib/platform/history";
 
 /**
  * The deployed Worker.
@@ -77,7 +82,7 @@ async function collect(env: Env): Promise<void> {
     return;
   }
 
-  const result = await fetchTopExperiences();
+  const result = await fetchForCollection();
   if (!result.ok) {
     console.warn(`Collection skipped: ${result.reason}`);
     return;
@@ -87,7 +92,7 @@ async function collect(env: Env): Promise<void> {
     const snapshot = toSnapshot(
       result.observedAt,
       result.data.sortName,
-      result.data.experiences,
+      result.data.collected,
     );
     const { retained } = await recordSnapshot(store, snapshot);
     // Written through `console.warn` rather than `log` only because the
@@ -98,5 +103,26 @@ async function collect(env: Env): Promise<void> {
     );
   } catch (error) {
     console.error("Collection failed to write:", error);
+  }
+
+  /*
+   * Per-experience history is written separately, and its failure is reported
+   * rather than allowed to look like a failure of the run. The totals series
+   * is the record the page has always drawn; this is an addition to it, and an
+   * addition must not be able to take the original down with it.
+   */
+  try {
+    const tracked = await recordGameHistory(
+      store,
+      result.observedAt,
+      result.data.everyExperience,
+    );
+    console.warn(
+      `Recorded per-experience counts for ${tracked} experiences ` +
+        `(${result.data.platform.players} players across ` +
+        `${result.data.platform.experiences} in ${result.data.platform.rankings} rankings).`,
+    );
+  } catch (error) {
+    console.error("Per-experience history failed to write:", error);
   }
 }

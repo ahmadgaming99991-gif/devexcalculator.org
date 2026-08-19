@@ -24,7 +24,7 @@ import {
   QuickAnswer,
   RelatedLinks,
 } from "@/components/content";
-import { TimeSeriesChart } from "@/components/charts";
+import { Sparkline, TimeSeriesChart } from "@/components/charts";
 import {
   approvalPercent,
   DISPLAY_LIMIT,
@@ -32,6 +32,7 @@ import {
   experienceUrl,
   fetchRankings,
   type ExperienceObservation,
+  type PlatformTotal,
   type Ranking,
 } from "@/lib/platform/roblox-api";
 import {
@@ -40,11 +41,15 @@ import {
   DEFAULT_CHART_WINDOW,
   describeSpan,
   MINIMUM_POINTS_FOR_CHART,
+  gameSeries,
+  GAME_HISTORY_POINTS,
+  readGameHistory,
   readSeries,
   resolveChartWindow,
   RETENTION_DAYS,
   summarise,
   type ChartWindow,
+  type GameHistory,
   type HistorySeries,
   type HistoryStore,
 } from "@/lib/platform/history";
@@ -80,6 +85,8 @@ export default async function PlatformPage({ searchParams }: PageProps) {
   const requested = typeof params.ranking === "string" ? params.ranking : undefined;
   const days = typeof params.days === "string" ? params.days : undefined;
   const chartWindow = resolveChartWindow(days);
+  const experience =
+    typeof params.experience === "string" ? Number(params.experience) : undefined;
 
   return (
     <>
@@ -118,7 +125,11 @@ export default async function PlatformPage({ searchParams }: PageProps) {
               read, and both calls carry their own timeout — a slow Roblox
               produces a stated outage, not a hanging page.
             */}
-            <LiveExperiences requested={requested} window={chartWindow} />
+            <LiveExperiences
+              requested={requested}
+              window={chartWindow}
+              experience={Number.isFinite(experience) ? experience : undefined}
+            />
           </Section>
 
           <Section
@@ -196,10 +207,12 @@ export default async function PlatformPage({ searchParams }: PageProps) {
 function platformHref({
   ranking,
   days,
+  experience,
   hash,
 }: {
   ranking?: string;
   days?: number;
+  experience?: number;
   hash?: string;
 }): string {
   const query = new URLSearchParams();
@@ -207,6 +220,7 @@ function platformHref({
   if (days !== undefined && days !== DEFAULT_CHART_WINDOW.days) {
     query.set("days", String(days));
   }
+  if (experience !== undefined) query.set("experience", String(experience));
   const search = query.toString();
   return `${ROUTE}${search ? `?${search}` : ""}${hash ?? ""}`;
 }
@@ -263,11 +277,15 @@ function RankingTabs({
 async function LiveExperiences({
   requested,
   window: chartWindow,
+  experience,
 }: {
   requested?: string;
   window: ChartWindow;
+  experience?: number;
 }) {
-  const result = await fetchRankings(requested);
+  // Both are wanted by the same section, and neither depends on the other.
+  const [result, store] = await Promise.all([fetchRankings(requested), getHistoryStore()]);
+  const history = store ? await readGameHistory(store).catch(() => null) : null;
 
   if (!result.ok) {
     return (
@@ -291,6 +309,7 @@ async function LiveExperiences({
     );
   }
 
+  const { platform } = result.data;
   const totalPlaying = experiences.reduce((sum, entry) => sum + entry.playing, 0);
   const hasVisits = experiences.some((entry) => entry.visits !== null);
   const hasVotes = experiences.some((entry) => approvalPercent(entry) !== null);
@@ -301,8 +320,10 @@ async function LiveExperiences({
 
   return (
     <div className="min-w-0">
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <Stat label="Players in these experiences" value={numberFormat.format(totalPlaying)} />
+      <PlatformFigure platform={platform} observedAt={result.observedAt} />
+
+      <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <Stat label="Players in this ranking" value={numberFormat.format(totalPlaying)} />
         <Stat label="Experiences shown" value={`${experiences.length} of ${selected.size}`} />
         <Stat label="Roblox ranking" value={selected.name} />
         <Stat label="Busiest right now" value={busiest.name} />
@@ -338,25 +359,38 @@ async function LiveExperiences({
               <Th>#</Th>
               <Th>Experience</Th>
               <Th>Players now</Th>
+              {history ? <Th>Last 24h</Th> : null}
               {hasVisits ? <Th>Lifetime visits</Th> : null}
               {hasVotes ? <Th>Approval</Th> : null}
               {hasGenre ? <Th>Genre</Th> : null}
             </tr>
           </thead>
           <tbody>
-            {experiences.map((experience, index) => (
+            {experiences.map((row, index) => (
               <ExperienceRow
-                key={experience.universeId}
-                experience={experience}
+                key={row.universeId}
+                experience={row}
                 rank={index + 1}
                 showVisits={hasVisits}
                 showVotes={hasVotes}
                 showGenre={hasGenre}
+                history={history}
+                ranking={requested}
+                days={chartWindow.days}
               />
             ))}
           </tbody>
         </Table>
       </TableWrapper>
+
+      {history && experience !== undefined && history.players[String(experience)] ? (
+        <ExperienceDetail
+          history={history}
+          universeId={experience}
+          ranking={requested}
+          days={chartWindow.days}
+        />
+      ) : null}
 
       {detailsLoaded ? null : (
         <p className="mt-3 text-sm text-(--color-text-muted)">
@@ -375,21 +409,154 @@ async function LiveExperiences({
   );
 }
 
+/**
+ * The platform-wide figure.
+ *
+ * The number a reader comes to a page like this for, and the one Roblox does
+ * not publish. It is stated as exactly what it is — the sum across every
+ * experience in every public Roblox ranking, each counted once — and described
+ * as a floor rather than a total, because Roblox ranks a fraction of what it
+ * hosts. Presenting it as "players online right now" would be a bigger,
+ * rounder, wrong number, and the method is printed beside it so nobody has to
+ * take this site's word for how it was reached.
+ */
+function PlatformFigure({
+  platform,
+  observedAt,
+}: {
+  platform: PlatformTotal;
+  observedAt: string;
+}) {
+  return (
+    <Card>
+      <p className="text-sm text-(--color-text-muted)">
+        Players across every experience Roblox is ranking
+      </p>
+      <p className="tabular mt-1 text-4xl font-bold break-words text-(--color-text) sm:text-5xl">
+        {numberFormat.format(platform.players)}
+      </p>
+      <p className="mt-3 text-sm text-(--color-text-muted)">
+        Summed from {numberFormat.format(platform.experiences)} experiences across
+        Roblox&rsquo;s {platform.rankings} public rankings, counted once each even
+        where a ranking lists the same experience twice, as read at{" "}
+        <time dateTime={observedAt}>{formatObserved(observedAt)}</time>.
+      </p>
+      <p className="mt-2 text-sm text-(--color-text-muted)">
+        <strong className="text-(--color-text)">This is a floor, not a platform total.</strong>{" "}
+        Roblox publishes no live figure for the whole platform and this site does
+        not estimate one. Roblox ranks a small share of the experiences it hosts,
+        so the real number of people playing is higher than this — by how much,
+        nobody outside Roblox can say.
+      </p>
+    </Card>
+  );
+}
+
+/**
+ * One experience's own chart, shown when a reader asks for it.
+ *
+ * Rendered for a single experience rather than expanding every row, because
+ * ninety full charts on one page is work the Worker does not have the budget
+ * for and nobody reads. Selecting one is a link, so it survives without
+ * JavaScript and can be shared.
+ */
+function ExperienceDetail({
+  history,
+  universeId,
+  ranking,
+  days,
+}: {
+  history: GameHistory;
+  universeId: number;
+  ranking?: string;
+  days: number;
+}) {
+  const series = gameSeries(history, universeId);
+  const name = history.names[String(universeId)] ?? "This experience";
+  const summary = summarise(series);
+
+  return (
+    <div id="experience" className="mt-6">
+    <Card>
+      <div className="flex flex-wrap items-baseline justify-between gap-3">
+        <h3 className="text-lg font-bold text-(--color-text)">{name}</h3>
+        <InlineLink href={platformHref({ ranking, days, hash: "#live" })}>
+          Close this chart
+        </InlineLink>
+      </div>
+
+      {series.chartable ? (
+        <>
+          <div className="mt-4 grid gap-4 sm:grid-cols-3">
+            <Stat
+              label="Observations"
+              value={numberFormat.format(series.points.length)}
+              note={`Over ${describeSpan(series)}`}
+            />
+            {summary ? (
+              <Stat
+                label="Observed peak"
+                value={numberFormat.format(summary.peak.totalPlaying)}
+                note={formatObserved(summary.peak.at)}
+              />
+            ) : null}
+            {summary ? (
+              <Stat
+                label="Observed low"
+                value={numberFormat.format(summary.low.totalPlaying)}
+                note={formatObserved(summary.low.at)}
+              />
+            ) : null}
+          </div>
+
+          <div className="mt-6">
+            <TimeSeriesChart
+              points={series.points.map((point) => ({
+                at: point.at,
+                value: point.totalPlaying,
+              }))}
+              caption={`Players in ${name}, over the ${describeSpan(series)} this site has observations for. Each point is one recorded observation; gaps are gaps in collection, not zeroes.`}
+              formatValue={(value) => compact(value)}
+            />
+          </div>
+        </>
+      ) : (
+        <p className="mt-3 text-(--color-text-muted)">
+          Only {series.points.length} observation
+          {series.points.length === 1 ? "" : "s"} of this experience{" "}
+          {series.points.length === 1 ? "has" : "have"} been recorded, which is not
+          enough to draw a line. Per-experience counts are kept for the last{" "}
+          {GAME_HISTORY_POINTS * COLLECTION_INTERVAL_MINUTES / 60} hours, and an
+          experience is only recorded while Roblox is ranking it.
+        </p>
+      )}
+    </Card>
+    </div>
+  );
+}
+
 function ExperienceRow({
   experience,
   rank,
   showVisits,
   showVotes,
   showGenre,
+  history,
+  ranking,
+  days,
 }: {
   experience: ExperienceObservation;
   rank: number;
   showVisits: boolean;
   showVotes: boolean;
   showGenre: boolean;
+  history: GameHistory | null;
+  ranking?: string;
+  days: number;
 }) {
   const url = experienceUrl(experience);
   const approval = approvalPercent(experience);
+  const trend = history ? gameSeries(history, experience.universeId) : null;
 
   return (
     <tr>
@@ -424,6 +591,39 @@ function ExperienceRow({
         </span>
       </Td>
       <Td className="tabular">{numberFormat.format(experience.playing)}</Td>
+      {history ? (
+        <Td>
+          {trend && trend.points.length >= 2 ? (
+            <Link
+              href={platformHref({
+                ranking,
+                days,
+                experience: experience.universeId,
+                hash: "#experience",
+              })}
+              scroll={false}
+              className="inline-flex min-h-[44px] items-center rounded-(--radius-control) px-1 motion-safe:transition-opacity hover:opacity-70"
+            >
+              <Sparkline
+                points={trend.points.map((point) => ({
+                  at: point.at,
+                  value: point.totalPlaying,
+                }))}
+              />
+              <span className="sr-only">
+                Chart the last 24 hours for {experience.name}
+              </span>
+            </Link>
+          ) : (
+            <span className="text-sm text-(--color-text-muted)">
+              not tracked yet
+              <span className="sr-only">
+                {" "}— this experience has not been observed enough times to draw a line
+              </span>
+            </span>
+          )}
+        </Td>
+      ) : null}
       {showVisits ? (
         <Td className="tabular">
           {experience.visits === null ? "—" : numberFormat.format(experience.visits)}

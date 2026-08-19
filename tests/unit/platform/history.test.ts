@@ -3,7 +3,10 @@ import {
   CHART_WINDOWS,
   COLLECTION_INTERVAL_MINUTES,
   DEFAULT_CHART_WINDOW,
+  appendGameHistory,
   describeSpan,
+  GAME_HISTORY_POINTS,
+  gameSeries,
   MINIMUM_POINTS_FOR_CHART,
   readSeries,
   recordSnapshot,
@@ -11,6 +14,7 @@ import {
   RETENTION_DAYS,
   summarise,
   toSnapshot,
+  type GameHistory,
   type HistorySeries,
   type HistoryStore,
   type Snapshot,
@@ -476,5 +480,79 @@ describe("summarising what was recorded", () => {
 
   it("returns null for an empty series instead of a zero that reads as measured", () => {
     expect(summarise(series([]))).toBeNull();
+  });
+});
+
+/**
+ * Per-experience history.
+ *
+ * The shape is unusual — one shared `at` array, one value array per experience
+ * — so the thing worth testing is alignment. An experience that appears late,
+ * or disappears for a while, must not have its earlier observations shifted
+ * under someone else's timestamps.
+ */
+describe("per-experience history", () => {
+  const observed = (entries: readonly [number, string, number][]) =>
+    entries.map(([universeId, name, playing]) => ({ universeId, name, playing }));
+
+  it("keeps every experience aligned to the shared timestamps", () => {
+    let history = appendGameHistory(
+      { at: [], names: {}, players: {} },
+      1_000,
+      observed([[1, "A", 10], [2, "B", 20]]),
+    );
+    history = appendGameHistory(history, 2_000, observed([[1, "A", 11], [2, "B", 21]]));
+
+    expect(history.at).toEqual([1_000, 2_000]);
+    expect(history.players["1"]).toEqual([10, 11]);
+    expect(history.players["2"]).toEqual([20, 21]);
+  });
+
+  it("pads an experience that appears part-way through", () => {
+    let history = appendGameHistory({ at: [], names: {}, players: {} }, 1_000, observed([[1, "A", 10]]));
+    history = appendGameHistory(history, 2_000, observed([[1, "A", 11], [9, "Late", 99]]));
+
+    // The newcomer's single observation must sit under 2_000, not 1_000.
+    expect(history.players["9"]).toEqual([null, 99]);
+    expect(gameSeries(history, 9).points).toEqual([
+      { at: new Date(2_000).toISOString(), totalPlaying: 99 },
+    ]);
+  });
+
+  it("records an absence as a gap, never as zero players", () => {
+    let history = appendGameHistory({ at: [], names: {}, players: {} }, 1_000, observed([[1, "A", 10]]));
+    history = appendGameHistory(history, 2_000, observed([]));
+    history = appendGameHistory(history, 3_000, observed([[1, "A", 12]]));
+
+    expect(history.players["1"]).toEqual([10, null, 12]);
+    // The plotted series skips the gap rather than drawing a line to zero.
+    expect(gameSeries(history, 1).points.map((point) => point.totalPlaying)).toEqual([10, 12]);
+  });
+
+  it("keeps only the most recent window, trimming every array together", () => {
+    let history: GameHistory = { at: [], names: {}, players: {} };
+    for (let i = 0; i < GAME_HISTORY_POINTS + 10; i += 1) {
+      history = appendGameHistory(history, 1_000 + i, observed([[1, "A", i]]));
+    }
+
+    expect(history.at).toHaveLength(GAME_HISTORY_POINTS);
+    expect(history.players["1"]).toHaveLength(GAME_HISTORY_POINTS);
+    // Trimming from the front keeps the newest observation last.
+    expect(history.players["1"]?.at(-1)).toBe(GAME_HISTORY_POINTS + 9);
+  });
+
+  it("forgets an experience with nothing left inside the window", () => {
+    let history = appendGameHistory({ at: [], names: {}, players: {} }, 1_000, observed([[7, "Gone", 5]]));
+    for (let i = 0; i < GAME_HISTORY_POINTS; i += 1) {
+      history = appendGameHistory(history, 2_000 + i, observed([[1, "A", i]]));
+    }
+
+    expect(history.players["7"]).toBeUndefined();
+    expect(gameSeries(history, 7).points).toEqual([]);
+  });
+
+  it("has no series for an experience it never saw", () => {
+    const history = appendGameHistory({ at: [], names: {}, players: {} }, 1_000, observed([[1, "A", 10]]));
+    expect(gameSeries(history, 404).points).toEqual([]);
   });
 });

@@ -5,6 +5,8 @@ import {
   mergeGameDetails,
   parseRankings,
   parseSorts,
+  platformTotal,
+  uniqueExperiences,
   type ExperienceObservation,
 } from "@/lib/platform/roblox-api";
 import { getQuote, parseFinnhub, REQUIRED_ENVIRONMENT } from "@/lib/platform/market-data";
@@ -243,6 +245,55 @@ describe("fields carried in the ranking payload", () => {
     })[0]?.experiences[0];
     expect(sponsored?.isSponsored).toBe(true);
     expect(row.isSponsored).toBe(false);
+  });
+});
+
+/**
+ * The platform figure.
+ *
+ * Roblox publishes no live total for the whole platform, so this is the widest
+ * honest number available: every experience in every ranking, once each. The
+ * arithmetic that matters is the deduplication — Roblox lists a popular
+ * experience in several sorts at once, and adding the sorts together would
+ * roughly double it.
+ */
+describe("platform total", () => {
+  const OVERLAPPING = {
+    sorts: [
+      {
+        sortId: "top-trending",
+        sortDisplayName: "Top Trending",
+        games: [
+          { universeId: 1, name: "Brookhaven", playerCount: 300_000 },
+          { universeId: 2, name: "Adopt Me", playerCount: 200_000 },
+        ],
+      },
+      {
+        sortId: "top-playing-now",
+        sortDisplayName: "Top Playing Now",
+        games: [
+          { universeId: 1, name: "Brookhaven", playerCount: 300_000 },
+          { universeId: 3, name: "Blox Fruits", playerCount: 100_000 },
+        ],
+      },
+    ],
+  };
+
+  it("counts an experience once however many rankings list it", () => {
+    const total = platformTotal(parseRankings(OVERLAPPING));
+    // 300k + 200k + 100k. Summing the sorts would give 900k.
+    expect(total.players).toBe(600_000);
+    expect(total.experiences).toBe(3);
+    expect(total.rankings).toBe(2);
+  });
+
+  it("collects each experience once for the collector too", () => {
+    const unique = uniqueExperiences(parseRankings(OVERLAPPING));
+    expect(unique.map((entry) => entry.universeId).sort()).toEqual([1, 2, 3]);
+  });
+
+  it("is zero across no rankings rather than undefined", () => {
+    expect(platformTotal([])).toEqual({ players: 0, experiences: 0, rankings: 0 });
   });
 });
 

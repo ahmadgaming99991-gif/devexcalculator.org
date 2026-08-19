@@ -440,3 +440,79 @@ function shortTime(iso: string): string {
     ]
   } ${String(at.getUTCHours()).padStart(2, "0")}:${String(at.getUTCMinutes()).padStart(2, "0")} UTC`;
 }
+
+/**
+ * A single-row trend line, sized to sit inside a table cell.
+ *
+ * Drawn for every row of a ranking, so it is deliberately cheap: no axes, no
+ * labels, no gradient, and the points are thinned before any coordinate is
+ * computed. Ninety of these render on one page, and the Worker's CPU budget is
+ * the constraint that shapes them.
+ *
+ * `aria-hidden`, like every other chart here. The row already carries the
+ * current figure as text, and the sparkline is a shape over data that is
+ * present either way; the accessible name for the trend is on the link beside
+ * it, which says what the line shows in words.
+ */
+export function Sparkline({
+  points,
+  className,
+}: {
+  points: readonly SeriesPoint[];
+  className?: string;
+}) {
+  if (points.length < 2) return null;
+
+  const width = 96;
+  const height = 24;
+  const pad = 2;
+
+  // Thinning keeps the shape while capping the work per row. A day of
+  // observations at fifteen minutes is 96 points; a 96-pixel-wide line cannot
+  // show more than a fraction of that anyway.
+  const maxPoints = 24;
+  const step = Math.ceil(points.length / maxPoints);
+  const sampled = points.filter(
+    (_, index) => index % step === 0 || index === points.length - 1,
+  );
+
+  let min = Infinity;
+  let max = -Infinity;
+  for (const point of sampled) {
+    if (point.value < min) min = point.value;
+    if (point.value > max) max = point.value;
+  }
+  // A flat line sits in the middle rather than dividing by zero.
+  const span = max - min || 1;
+
+  const last = sampled.length - 1;
+  const coordinates = sampled.map((point, index) => {
+    const x = pad + (index / last) * (width - pad * 2);
+    const y = height - pad - ((point.value - min) / span) * (height - pad * 2);
+    return `${x.toFixed(1)},${y.toFixed(1)}`;
+  });
+
+  const rising = (sampled[last]?.value ?? 0) >= (sampled[0]?.value ?? 0);
+
+  return (
+    <svg
+      viewBox={`0 0 ${width} ${height}`}
+      width={width}
+      height={height}
+      preserveAspectRatio="none"
+      aria-hidden="true"
+      focusable="false"
+      className={cx("block", className)}
+    >
+      <polyline
+        points={coordinates.join(" ")}
+        fill="none"
+        stroke={rising ? "var(--color-success)" : "var(--color-danger)"}
+        strokeWidth="1.5"
+        strokeLinejoin="round"
+        strokeLinecap="round"
+        vectorEffect="non-scaling-stroke"
+      />
+    </svg>
+  );
+}
