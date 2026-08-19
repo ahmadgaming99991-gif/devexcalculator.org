@@ -100,14 +100,106 @@ ${history.slice(0, 200)}`).not.toBeNull();
     ).toBe(true);
   });
 
-  test("works without JavaScript", async ({ browser }) => {
+  /**
+   * The live table itself must exist without JavaScript, not merely the prose
+   * around it.
+   *
+   * This used to check the heading and the length of `main`, and passed while
+   * the entire live section was missing: the sections were streamed behind
+   * Suspense, and React delivers streamed content in a hidden holder that an
+   * inline script moves into place. With scripting off that script never ran,
+   * so `#live table` did not exist at all — and the static commentary was long
+   * enough on its own to satisfy the old assertion.
+   */
+  test("renders the live table without JavaScript, not just the prose", async ({ browser }) => {
     const context = await browser.newContext({ javaScriptEnabled: false });
     const page = await context.newPage();
     await page.goto("/platform/");
 
     await expect(page.getByRole("heading", { level: 1 })).toContainText("Roblox platform");
-    expect((await page.locator("main").innerText()).length).toBeGreaterThan(800);
+
+    const rows = page.locator("#live tbody tr");
+    const count = await rows.count();
+    // Either real rows, or a stated reason there are none. Never silence.
+    if (count === 0) {
+      const live = (await page.locator("#live").innerText()).toLowerCase();
+      expect(/unavailable right now|returned no experiences/.test(live)).toBe(true);
+    } else {
+      expect(count).toBeGreaterThan(1);
+      await expect(rows.first()).toBeVisible();
+    }
+
     await context.close();
+  });
+
+  test("switches ranking by ordinary navigation, with no JavaScript", async ({ browser }) => {
+    const context = await browser.newContext({ javaScriptEnabled: false });
+    const page = await context.newPage();
+    await page.goto("/platform/");
+
+    const tabs = page.locator('nav[aria-label="Roblox rankings"] a');
+    if ((await tabs.count()) === 0) {
+      // Roblox returned a single ranking, or none at all; nothing to switch.
+      await context.close();
+      return;
+    }
+
+    expect(await tabs.count()).toBeGreaterThan(1);
+    // `aria-current` sits on the link itself, so this is an attribute selector
+    // on the same element rather than a descendant lookup.
+    await expect(page.locator('nav[aria-label="Roblox rankings"] a[aria-current]')).toHaveCount(1);
+
+    const other = page.locator('nav[aria-label="Roblox rankings"] a:not([aria-current])').first();
+    const label = (await other.innerText()).trim();
+    await other.click();
+    await page.waitForLoadState("load");
+
+    await expect(page.locator('nav[aria-label="Roblox rankings"] [aria-current]')).toHaveText(
+      label,
+    );
+    await context.close();
+  });
+
+  test("keeps one canonical for every ranking", async ({ page }) => {
+    // The ranking is a query parameter on one page. Five canonicals would ask
+    // to have five near-identical pages indexed.
+    for (const url of ["/platform/", "/platform/?ranking=top-playing-now"]) {
+      await page.goto(url);
+      await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
+        "href",
+        /\/platform\/$/,
+      );
+    }
+  });
+
+  test("falls back to a real ranking when the query names one that does not exist", async ({
+    page,
+  }) => {
+    const response = await page.goto("/platform/?ranking=not-a-real-ranking");
+    expect(response?.status()).toBe(200);
+
+    const live = page.locator("#live");
+    await expect(live).toBeVisible();
+    const text = (await live.innerText()).toLowerCase();
+    expect(/players in these experiences|unavailable right now/.test(text)).toBe(true);
+  });
+
+  test("attributes every experience and labels any sponsored placement", async ({ page }) => {
+    await page.goto("/platform/");
+    const rows = page.locator("#live tbody tr");
+    if ((await rows.count()) === 0) return;
+
+    // Names link to Roblox rather than sitting inert, and the link leaves the
+    // site explicitly — this page borrows Roblox's ranking and says so.
+    const links = page.locator('#live tbody a[href^="https://www.roblox.com/"]');
+    expect(await links.count()).toBeGreaterThan(0);
+
+    // Roblox marks paid placements. Wherever one appears it must be labelled,
+    // or the table reads as a ranking when part of it was bought.
+    const sponsored = page.locator("#live tbody tr", { hasText: /sponsored/i });
+    for (let i = 0; i < (await sponsored.count()); i += 1) {
+      await expect(sponsored.nth(i).getByText("Sponsored", { exact: true })).toBeVisible();
+    }
   });
 });
 

@@ -192,6 +192,70 @@ export function toSnapshot(
   };
 }
 
+export interface SeriesExtremes {
+  readonly peak: { readonly at: string; readonly totalPlaying: number };
+  readonly low: { readonly at: string; readonly totalPlaying: number };
+  /** Mean across the recorded points, rounded to a whole player. */
+  readonly mean: number;
+  /**
+   * Difference between the last two observations, or null when there is only
+   * one. Deliberately the *observed* change: with a gap in collection the two
+   * points may be further apart than the collection interval, which is why the
+   * page states the interval it actually spans rather than assuming 15 minutes.
+   */
+  readonly change: {
+    readonly absolute: number;
+    readonly percent: number | null;
+    readonly minutesApart: number;
+  } | null;
+}
+
+/**
+ * The highest, lowest and average of what was actually recorded.
+ *
+ * Every figure here is arithmetic over stored observations — no smoothing, no
+ * interpolation, and no claim about moments between two points. Null when
+ * nothing has been recorded, so a caller cannot render a zero as a measurement.
+ */
+export function summarise(series: HistorySeries): SeriesExtremes | null {
+  const points = series.points;
+  if (points.length === 0) return null;
+
+  let peak = points[0]!;
+  let low = points[0]!;
+  let total = 0;
+
+  for (const point of points) {
+    if (point.totalPlaying > peak.totalPlaying) peak = point;
+    if (point.totalPlaying < low.totalPlaying) low = point;
+    total += point.totalPlaying;
+  }
+
+  const last = points[points.length - 1]!;
+  const previous = points.length >= 2 ? points[points.length - 2]! : null;
+
+  const change = previous
+    ? {
+        absolute: last.totalPlaying - previous.totalPlaying,
+        percent:
+          previous.totalPlaying > 0
+            ? ((last.totalPlaying - previous.totalPlaying) / previous.totalPlaying) * 100
+            : null,
+        minutesApart: Math.max(
+          0,
+          Math.round((Date.parse(last.at) - Date.parse(previous.at)) / 60_000),
+        ),
+      }
+    : null;
+
+  return {
+    peak: { at: peak.at, totalPlaying: peak.totalPlaying },
+    low: { at: low.at, totalPlaying: low.totalPlaying },
+    mean: Math.round(total / points.length),
+    change,
+  };
+}
+
 /**
  * Describes the collected window in words.
  *

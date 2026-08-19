@@ -6,10 +6,13 @@ import {
   readSeries,
   recordSnapshot,
   RETENTION_DAYS,
+  summarise,
   toSnapshot,
+  type HistorySeries,
   type HistoryStore,
   type Snapshot,
 } from "@/lib/platform/history";
+import type { ExperienceObservation } from "@/lib/platform/roblox-api";
 
 /**
  * An in-memory stand-in for the KV binding.
@@ -151,9 +154,31 @@ describe("observation history", () => {
   });
 
   it("totals players across experiences when building a snapshot", () => {
+    // Only the three charted fields are read here, but the parameter type is
+    // the full observation, so the rest are filled with their absent values
+    // rather than restated at every call site.
+    const experience = (
+      fields: Pick<ExperienceObservation, "universeId" | "name" | "playing"> &
+        Partial<ExperienceObservation>,
+    ): ExperienceObservation => ({
+      rootPlaceId: null,
+      visits: null,
+      maxPlayers: null,
+      creatorName: null,
+      creatorVerified: false,
+      upVotes: null,
+      downVotes: null,
+      favourites: null,
+      genre: null,
+      maturity: null,
+      isSponsored: false,
+      urlPath: null,
+      ...fields,
+    });
+
     const snapshot = toSnapshot("2026-08-18T00:00:00.000Z", "Top Trending", [
-      { universeId: 1, name: "A", playing: 10, visits: 5, maxPlayers: 50, creatorName: null },
-      { universeId: 2, name: "B", playing: 32, visits: null, maxPlayers: null, creatorName: "X" },
+      experience({ universeId: 1, name: "A", playing: 10, visits: 5, maxPlayers: 50 }),
+      experience({ universeId: 2, name: "B", playing: 32, creatorName: "X" }),
     ]);
 
     expect(snapshot.totalPlaying).toBe(42);
@@ -169,5 +194,73 @@ describe("observation history", () => {
     const writesPerDay = (24 * 60) / COLLECTION_INTERVAL_MINUTES;
     // Two writes per run: the snapshot and the index.
     expect(writesPerDay * 2).toBeLessThan(1_000);
+  });
+});
+
+/**
+ * Peak, low and average describe the recorded points and nothing else. The
+ * danger they carry is implying a measurement between two observations, so the
+ * summary reports only values that appear in the series, and states how far
+ * apart the last two actually were rather than assuming the interval held.
+ */
+describe("summarising what was recorded", () => {
+  const at = (minutesAgo: number) =>
+    new Date(Date.UTC(2026, 7, 18, 12, 0, 0) - minutesAgo * 60_000).toISOString();
+
+  const series = (values: readonly [string, number][]): HistorySeries => ({
+    points: values.map(([iso, totalPlaying]) => ({ at: iso, totalPlaying })),
+    spanHours: 1,
+    firstObservedAt: values[0]?.[0] ?? null,
+    lastObservedAt: values[values.length - 1]?.[0] ?? null,
+    chartable: values.length >= MINIMUM_POINTS_FOR_CHART,
+  });
+
+  it("reports the highest and lowest points, with when each was observed", () => {
+    const summary = summarise(
+      series([
+        [at(45), 900],
+        [at(30), 1_500],
+        [at(15), 700],
+        [at(0), 1_100],
+      ]),
+    );
+
+    expect(summary?.peak).toEqual({ at: at(30), totalPlaying: 1_500 });
+    expect(summary?.low).toEqual({ at: at(15), totalPlaying: 700 });
+  });
+
+  it("averages only the points it holds", () => {
+    const summary = summarise(
+      series([
+        [at(30), 100],
+        [at(15), 200],
+        [at(0), 301],
+      ]),
+    );
+    expect(summary?.mean).toBe(200);
+  });
+
+  it("states the gap between the last two observations rather than assuming it", () => {
+    // A missed collection run leaves the last two points 30 minutes apart, not
+    // the 15 the schedule intends. Reporting the change as "in 15 minutes"
+    // would describe an interval that was never observed.
+    const summary = summarise(
+      series([
+        [at(60), 500],
+        [at(30), 600],
+      ]),
+    );
+
+    expect(summary?.change?.minutesApart).toBe(30);
+    expect(summary?.change?.absolute).toBe(100);
+    expect(summary?.change?.percent).toBeCloseTo(20, 5);
+  });
+
+  it("has no change to report from a single observation", () => {
+    expect(summarise(series([[at(0), 42]]))?.change).toBeNull();
+  });
+
+  it("returns null for an empty series instead of a zero that reads as measured", () => {
+    expect(summarise(series([]))).toBeNull();
   });
 });

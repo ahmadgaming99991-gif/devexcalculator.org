@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Suspense } from "react";
+import Link from "next/link";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { requireRoute } from "@/lib/content/route-registry";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -26,9 +26,13 @@ import {
 } from "@/components/content";
 import { TimeSeriesChart } from "@/components/charts";
 import {
+  approvalPercent,
+  DISPLAY_LIMIT,
   EXPERIENCE_CACHE_SECONDS,
-  fetchTopExperiences,
+  experienceUrl,
+  fetchRankings,
   type ExperienceObservation,
+  type Ranking,
 } from "@/lib/platform/roblox-api";
 import {
   COLLECTION_INTERVAL_MINUTES,
@@ -36,12 +40,21 @@ import {
   MINIMUM_POINTS_FOR_CHART,
   readSeries,
   RETENTION_DAYS,
+  summarise,
   type HistorySeries,
   type HistoryStore,
 } from "@/lib/platform/history";
 
 const ROUTE = "/platform/";
 
+/**
+ * Canonical stays `/platform/` for every ranking.
+ *
+ * The ranking is a query parameter on one page, not a page of its own: the
+ * commentary, the history and the sourcing are identical, and only the table
+ * changes. Emitting a canonical per ranking would ask search engines to index
+ * five near-identical pages.
+ */
 export const metadata: Metadata = buildMetadata(ROUTE);
 
 /**
@@ -53,8 +66,14 @@ export const revalidate = 0;
 
 const numberFormat = new Intl.NumberFormat("en-US");
 
-export default function PlatformPage() {
+interface PageProps {
+  readonly searchParams: Promise<Record<string, string | string[] | undefined>>;
+}
+
+export default async function PlatformPage({ searchParams }: PageProps) {
   const record = requireRoute(ROUTE);
+  const params = await searchParams;
+  const requested = typeof params.ranking === "string" ? params.ranking : undefined;
 
   return (
     <>
@@ -63,7 +82,7 @@ export default function PlatformPage() {
         <Breadcrumbs route={ROUTE} />
         <PageHeader
           record={record}
-          intro="Live player counts from Roblox's own public endpoints, and a record of what this site has observed since it started watching."
+          intro="Live player counts from Roblox's own public endpoints, across every ranking Roblox publishes, and a record of what this site has observed since it started watching."
         />
 
         <div className="flex flex-col gap-10">
@@ -76,11 +95,24 @@ export default function PlatformPage() {
             heading="What is being played right now"
             description="Read from Roblox's public explore and games endpoints when this page was served. No account, no third-party data provider, and nothing measured or estimated by this site."
           >
-            <Suspense fallback={<LiveSkeleton />}>
-              {/* Awaited inside a boundary so a slow upstream delays this
-                  section rather than the whole page. */}
-              <LiveExperiences />
-            </Suspense>
+            {/*
+              Awaited inline rather than streamed behind Suspense.
+
+              A Suspense boundary looked like the careful choice — a slow
+              upstream would delay one section instead of the page — but React
+              delivers streamed content in a hidden holder and moves it into
+              place with an inline script. With JavaScript off that script never
+              runs, so this table, the entire live section, simply never
+              appeared: `#live table` did not exist in the DOM. The page claimed
+              to work without JavaScript and the test that checked it only
+              measured the static commentary around the hole.
+
+              Blocking is affordable here because the upstream response is
+              edge-cached, so all but one request in five minutes is a cache
+              read, and both calls carry their own timeout — a slow Roblox
+              produces a stated outage, not a hanging page.
+            */}
+            <LiveExperiences requested={requested} />
           </Section>
 
           <Section
@@ -88,9 +120,9 @@ export default function PlatformPage() {
             heading="Observed over time"
             description="Every 15 minutes this site records the total players across the experiences Roblox is ranking, and charts what it has. The window grows as observations accumulate; nothing is back-filled."
           >
-            <Suspense fallback={<HistorySkeleton />}>
-              <ObservedHistory />
-            </Suspense>
+            {/* Same reasoning as above; this one is a KV read, so there was
+                little to stream in the first place. */}
+            <ObservedHistory />
           </Section>
 
           <Section id="how" heading="How this page gets its numbers">
@@ -115,11 +147,13 @@ export default function PlatformPage() {
             </div>
 
             <Callout tone="info" title="Ranking and counts are Roblox's, the record is ours">
-              Which experiences appear, and how many players each has, come from
-              Roblox. This site does not rank experiences, does not estimate player
-              counts, and does not publish a figure it did not either read from
-              Roblox or observe itself and label as such. For the money side of the
-              platform, see{" "}
+              Which experiences appear, how many players each has, and how each has
+              been voted on all come from Roblox. This site does not rank
+              experiences, does not estimate player counts, and does not publish a
+              figure it did not either read from Roblox or observe itself and label
+              as such. The approval share is the only arithmetic on this page, and it
+              is Roblox&rsquo;s own up and down vote counts divided. For the money
+              side of the platform, see{" "}
               <InlineLink href="/roblox-stats/">the payout statistics</InlineLink>,
               which come from Roblox&rsquo;s filings.
             </Callout>
@@ -142,24 +176,52 @@ export default function PlatformPage() {
   );
 }
 
-function LiveSkeleton() {
+/**
+ * The ranking switcher.
+ *
+ * Plain links, server-rendered. Roblox publishes several rankings in one
+ * response, so switching between them costs nothing upstream, and doing it with
+ * links rather than a client component means it works with JavaScript off, is
+ * crawlable, and adds no bytes to the bundle.
+ */
+function RankingTabs({
+  rankings,
+  selectedId,
+}: {
+  rankings: readonly Ranking[];
+  selectedId: string;
+}) {
+  if (rankings.length < 2) return null;
+
   return (
-    <Card tone="subtle">
-      <p className="text-(--color-text-muted)">Loading live figures from Roblox&hellip;</p>
-    </Card>
+    <nav aria-label="Roblox rankings" className="mt-6">
+      <ul className="flex flex-wrap gap-2">
+        {rankings.map((ranking) => {
+          const current = ranking.id === selectedId;
+          return (
+            <li key={ranking.id}>
+              <Link
+                href={current ? ROUTE : `${ROUTE}?ranking=${encodeURIComponent(ranking.id)}`}
+                scroll={false}
+                aria-current={current ? "true" : undefined}
+                className={
+                  current
+                    ? "inline-flex min-h-[44px] items-center rounded-(--radius-control) border border-(--color-primary) bg-(--color-primary) px-4 text-sm font-semibold text-(--color-on-primary)"
+                    : "inline-flex min-h-[44px] items-center rounded-(--radius-control) border border-(--color-border) bg-(--color-surface) px-4 text-sm font-semibold text-(--color-text) motion-safe:transition-colors hover:border-(--color-primary) hover:text-(--color-primary)"
+                }
+              >
+                {ranking.name}
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+    </nav>
   );
 }
 
-function HistorySkeleton() {
-  return (
-    <Card tone="subtle">
-      <p className="text-(--color-text-muted)">Loading recorded observations&hellip;</p>
-    </Card>
-  );
-}
-
-async function LiveExperiences() {
-  const result = await fetchTopExperiences(10);
+async function LiveExperiences({ requested }: { requested?: string }) {
+  const result = await fetchRankings(requested);
 
   if (!result.ok) {
     return (
@@ -172,7 +234,7 @@ async function LiveExperiences() {
     );
   }
 
-  const { sortName, experiences } = result.data;
+  const { rankings, selected, experiences, detailsLoaded } = result.data;
 
   if (experiences.length === 0) {
     return (
@@ -185,28 +247,45 @@ async function LiveExperiences() {
 
   const totalPlaying = experiences.reduce((sum, entry) => sum + entry.playing, 0);
   const hasVisits = experiences.some((entry) => entry.visits !== null);
+  const hasVotes = experiences.some((entry) => approvalPercent(entry) !== null);
+  const hasGenre = experiences.some((entry) => entry.genre !== null);
+  const busiest = experiences.reduce((best, entry) =>
+    entry.playing > best.playing ? entry : best,
+  );
 
   return (
     <div className="min-w-0">
-      <div className="grid gap-4 sm:grid-cols-3">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <Stat label="Players in these experiences" value={numberFormat.format(totalPlaying)} />
-        <Stat label="Experiences listed" value={String(experiences.length)} />
-        <Stat label="Roblox ranking" value={sortName} />
+        <Stat label="Experiences shown" value={`${experiences.length} of ${selected.size}`} />
+        <Stat label="Roblox ranking" value={selected.name} />
+        <Stat label="Busiest right now" value={busiest.name} />
       </div>
 
+      <RankingTabs rankings={rankings} selectedId={selected.id} />
+
       <p className="mt-4 text-sm text-(--color-text-muted)">
+        {selected.subtitle ? `${selected.subtitle}. ` : null}
         Observed{" "}
         <time dateTime={result.observedAt}>{formatObserved(result.observedAt)}</time>.{" "}
         Source:{" "}
         <SourceLink href="https://apis.roblox.com/explore-api/v1/get-sorts?sessionId=devexcalculator">
           Roblox explore endpoint
         </SourceLink>
+        {hasVisits ? (
+          <>
+            {" "}and{" "}
+            <SourceLink href="https://games.roblox.com/v1/games">
+              Roblox games endpoint
+            </SourceLink>
+          </>
+        ) : null}
         .
       </p>
 
-      <TableWrapper label={`Experiences in Roblox's ${sortName} ranking`}>
+      <TableWrapper label={`Experiences in Roblox's ${selected.name} ranking`}>
         <Table
-          caption={`Experiences in Roblox's ${sortName} ranking, with the players in each at the moment this page was served.`}
+          caption={`The top ${experiences.length} experiences in Roblox's ${selected.name} ranking, with the players in each at the moment this page was served.`}
         >
           <thead>
             <tr>
@@ -214,39 +293,113 @@ async function LiveExperiences() {
               <Th>Experience</Th>
               <Th>Players now</Th>
               {hasVisits ? <Th>Lifetime visits</Th> : null}
+              {hasVotes ? <Th>Approval</Th> : null}
+              {hasGenre ? <Th>Genre</Th> : null}
             </tr>
           </thead>
           <tbody>
             {experiences.map((experience, index) => (
-              <tr key={experience.universeId}>
-                <Td className="tabular">{index + 1}</Td>
-                <Td>
-                  {experience.name}
-                  {experience.creatorName ? (
-                    <span className="block text-sm text-(--color-text-muted)">
-                      by {experience.creatorName}
-                    </span>
-                  ) : null}
-                </Td>
-                <Td className="tabular">{numberFormat.format(experience.playing)}</Td>
-                {hasVisits ? (
-                  <Td className="tabular">
-                    {experience.visits === null ? "—" : numberFormat.format(experience.visits)}
-                  </Td>
-                ) : null}
-              </tr>
+              <ExperienceRow
+                key={experience.universeId}
+                experience={experience}
+                rank={index + 1}
+                showVisits={hasVisits}
+                showVotes={hasVotes}
+                showGenre={hasGenre}
+              />
             ))}
           </tbody>
         </Table>
       </TableWrapper>
 
-      {hasVisits ? null : (
+      {detailsLoaded ? null : (
         <p className="mt-3 text-sm text-(--color-text-muted)">
-          Visit counts are omitted: the endpoint that supplies them did not answer for
-          this request. Player counts above are unaffected.
+          Visit counts, favourites and creator names are omitted: the endpoint that
+          supplies them did not answer for this request. Player counts and votes above
+          come from the ranking itself and are unaffected.
         </p>
       )}
+
+      <p className="mt-3 text-sm text-(--color-text-muted)">
+        Roblox publishes {rankings.length} ranking
+        {rankings.length === 1 ? "" : "s"}; this shows the first {DISPLAY_LIMIT} of
+        whichever is selected. The order is Roblox&rsquo;s, not this site&rsquo;s.
+      </p>
     </div>
+  );
+}
+
+function ExperienceRow({
+  experience,
+  rank,
+  showVisits,
+  showVotes,
+  showGenre,
+}: {
+  experience: ExperienceObservation;
+  rank: number;
+  showVisits: boolean;
+  showVotes: boolean;
+  showGenre: boolean;
+}) {
+  const url = experienceUrl(experience);
+  const approval = approvalPercent(experience);
+
+  return (
+    <tr>
+      <Td className="tabular">{rank}</Td>
+      <Td>
+        {url ? (
+          <SourceLink href={url}>{experience.name}</SourceLink>
+        ) : (
+          experience.name
+        )}
+        {experience.isSponsored ? (
+          <>
+            {" "}
+            <Badge tone="warning">Sponsored</Badge>
+          </>
+        ) : null}
+        <span className="block text-sm text-(--color-text-muted)">
+          {experience.creatorName ? (
+            <>
+              by {experience.creatorName}
+              {experience.creatorVerified ? " (verified)" : ""}
+            </>
+          ) : null}
+          {experience.creatorName && experience.maturity ? " · " : null}
+          {experience.maturity}
+          {experience.favourites !== null ? (
+            <>
+              {experience.creatorName || experience.maturity ? " · " : null}
+              {numberFormat.format(experience.favourites)} favourites
+            </>
+          ) : null}
+        </span>
+      </Td>
+      <Td className="tabular">{numberFormat.format(experience.playing)}</Td>
+      {showVisits ? (
+        <Td className="tabular">
+          {experience.visits === null ? "—" : numberFormat.format(experience.visits)}
+        </Td>
+      ) : null}
+      {showVotes ? (
+        <Td className="tabular">
+          {approval === null ? (
+            "—"
+          ) : (
+            <>
+              {approval.toFixed(1)}%
+              <span className="block text-xs text-(--color-text-muted)">
+                {numberFormat.format((experience.upVotes ?? 0) + (experience.downVotes ?? 0))}{" "}
+                votes
+              </span>
+            </>
+          )}
+        </Td>
+      ) : null}
+      {showGenre ? <Td>{experience.genre ?? "—"}</Td> : null}
+    </tr>
   );
 }
 
@@ -286,6 +439,7 @@ async function ObservedHistory() {
   }
 
   const latest = series.points[series.points.length - 1];
+  const summary = summarise(series);
 
   if (!series.chartable) {
     return (
@@ -310,7 +464,7 @@ async function ObservedHistory() {
 
   return (
     <div className="min-w-0">
-      <div className="grid gap-4 sm:grid-cols-3">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <Stat
           label="Observations recorded"
           value={numberFormat.format(series.points.length)}
@@ -319,8 +473,35 @@ async function ObservedHistory() {
         <Stat
           label="Most recent total"
           value={numberFormat.format(latest?.totalPlaying ?? 0)}
+          note={
+            summary?.change
+              ? `${signed(summary.change.absolute)} since the previous observation ${summary.change.minutesApart} minutes earlier`
+              : undefined
+          }
         />
+        {summary ? (
+          <Stat
+            label="Observed peak"
+            value={numberFormat.format(summary.peak.totalPlaying)}
+            note={formatObserved(summary.peak.at)}
+          />
+        ) : null}
       </div>
+
+      {summary ? (
+        <div className="mt-4 grid gap-4 sm:grid-cols-2">
+          <Stat
+            label="Observed low"
+            value={numberFormat.format(summary.low.totalPlaying)}
+            note={formatObserved(summary.low.at)}
+          />
+          <Stat
+            label="Average across observations"
+            value={numberFormat.format(summary.mean)}
+            note={`Mean of ${numberFormat.format(series.points.length)} recorded points, not a platform average`}
+          />
+        </div>
+      ) : null}
 
       <div className="mt-6">
         <TimeSeriesChart
@@ -336,7 +517,9 @@ async function ObservedHistory() {
       <p className="mt-4 text-sm text-(--color-text-muted)">
         The window widens on its own as observations accumulate, up to{" "}
         {RETENTION_DAYS} days. Older observations expire rather than being deleted by
-        a job. <Badge tone="neutral">Recorded by this site</Badge>
+        a job. Peak, low and average describe these recorded points only — the total
+        may have been higher between two observations, and this site does not claim
+        otherwise. <Badge tone="neutral">Recorded by this site</Badge>
       </p>
     </div>
   );
@@ -360,13 +543,19 @@ async function getHistoryStore(): Promise<HistoryStore | null> {
   }
 }
 
-function Stat({ label, value }: { label: string; value: string }) {
+function Stat({ label, value, note }: { label: string; value: string; note?: string }) {
   return (
     <Card tone="subtle" className="min-w-0">
       <p className="text-sm text-(--color-text-muted)">{label}</p>
       <p className="tabular mt-1 text-xl font-bold break-words text-(--color-text)">{value}</p>
+      {note ? <p className="mt-1 text-xs text-(--color-text-muted)">{note}</p> : null}
     </Card>
   );
+}
+
+function signed(value: number): string {
+  const sign = value > 0 ? "+" : value < 0 ? "−" : "±";
+  return `${sign}${numberFormat.format(Math.abs(value))}`;
 }
 
 function formatObserved(iso: string): string {

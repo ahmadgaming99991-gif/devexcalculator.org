@@ -1,5 +1,12 @@
 import { describe, expect, it } from "vitest";
-import { mergeGameDetails, parseSorts } from "@/lib/platform/roblox-api";
+import {
+  approvalPercent,
+  experienceUrl,
+  mergeGameDetails,
+  parseRankings,
+  parseSorts,
+  type ExperienceObservation,
+} from "@/lib/platform/roblox-api";
 import { getQuote, parseFinnhub, REQUIRED_ENVIRONMENT } from "@/lib/platform/market-data";
 
 /**
@@ -79,9 +86,163 @@ describe("merging game details", () => {
     expect(merged[1]?.visits).toBeNull();
   });
 
+  it("takes the creator, favourites and canonical path from the detail row", () => {
+    // Explore names no creator at all, so this endpoint is the only source for
+    // it; the page attributes each experience to a name it was actually given.
+    const merged = mergeGameDetails(base, {
+      data: [
+        {
+          id: 6035872082,
+          visits: 1,
+          favoritedCount: 29_443_904,
+          canonicalUrlPath: "/games/4924922222/Brookhaven-RP",
+          creator: { name: "Brookhaven by Voldex", hasVerifiedBadge: true },
+        },
+      ],
+    });
+
+    expect(merged[0]?.creatorName).toBe("Brookhaven by Voldex");
+    expect(merged[0]?.creatorVerified).toBe(true);
+    expect(merged[0]?.favourites).toBe(29_443_904);
+    expect(merged[0]?.urlPath).toBe("/games/4924922222/Brookhaven-RP");
+  });
+
+  it("does not claim a verified badge for a creator that has none", () => {
+    const merged = mergeGameDetails(base, {
+      data: [{ id: 6035872082, creator: { name: "Someone" } }],
+    });
+    expect(merged[0]?.creatorVerified).toBe(false);
+  });
+
   it("returns the experiences unchanged when the details payload is unusable", () => {
     expect(mergeGameDetails(base, null)).toEqual(base);
     expect(mergeGameDetails(base, { data: "nonsense" })).toEqual(base);
+  });
+});
+
+/**
+ * Roblox sends several rankings in one response — Top Trending, Top Playing
+ * Now, Up-and-Coming and more, around ninety experiences each. Only the first
+ * was ever read, so the rest of a response the site had already paid for was
+ * discarded.
+ */
+describe("every published ranking", () => {
+  const MULTI = {
+    sorts: [
+      { sortId: "filters_v5", sortDisplayName: "", games: [] },
+      {
+        sortId: "top-trending",
+        sortDisplayName: "Top Trending",
+        subtitle: "Rising fast",
+        games: [{ universeId: 1, name: "A", playerCount: 10 }],
+      },
+      {
+        sortId: "top-playing-now",
+        sortDisplayName: "Top Playing Now",
+        games: [
+          { universeId: 2, name: "B", playerCount: 20 },
+          { universeId: 3, name: "C", playerCount: 30 },
+        ],
+      },
+    ],
+  };
+
+  it("returns each sort that carries experiences, skipping the filter descriptor", () => {
+    expect(parseRankings(MULTI).map((ranking) => ranking.id)).toEqual([
+      "top-trending",
+      "top-playing-now",
+    ]);
+  });
+
+  it("reports how many experiences each ranking holds", () => {
+    expect(parseRankings(MULTI).map((ranking) => ranking.size)).toEqual([1, 2]);
+  });
+
+  it("keeps Roblox's own subtitle, and null where there is none", () => {
+    const [trending, playing] = parseRankings(MULTI);
+    expect(trending?.subtitle).toBe("Rising fast");
+    expect(playing?.subtitle).toBeNull();
+  });
+
+  it("still reads the first ranking for the collector, unchanged", () => {
+    // The stored series was built from the first sort. If this ever starts
+    // returning a different one, every point before the change becomes
+    // incomparable with every point after it.
+    expect(parseSorts(MULTI)?.sortName).toBe("Top Trending");
+  });
+
+  it("returns an empty list rather than throwing on a foreign payload", () => {
+    expect(parseRankings(null)).toEqual([]);
+    expect(parseRankings({ sorts: "nonsense" })).toEqual([]);
+  });
+});
+
+describe("fields carried in the ranking payload", () => {
+  const RICH = {
+    sorts: [
+      {
+        sortId: "top-playing-now",
+        sortDisplayName: "Top Playing Now",
+        games: [
+          {
+            universeId: 1686885941,
+            rootPlaceId: 4924922222,
+            name: "Brookhaven 🏡RP",
+            playerCount: 339303,
+            totalUpVotes: 8443519,
+            totalDownVotes: 1386866,
+            isSponsored: false,
+            ageRecommendationDisplayName: "Maturity: Minimal",
+            genreL1: "Roleplay & Avatar Sim",
+          },
+        ],
+      },
+    ],
+  };
+
+  const row = parseRankings(RICH)[0]?.experiences[0] as ExperienceObservation;
+
+  it("reads votes, genre, maturity and the place id Roblox already sent", () => {
+    expect(row.upVotes).toBe(8_443_519);
+    expect(row.downVotes).toBe(1_386_866);
+    expect(row.genre).toBe("Roleplay & Avatar Sim");
+    expect(row.maturity).toBe("Maturity: Minimal");
+    expect(row.rootPlaceId).toBe(4_924_922_222);
+  });
+
+  it("derives approval from Roblox's two counts and nothing else", () => {
+    // 8443519 / (8443519 + 1386866)
+    expect(approvalPercent(row)).toBeCloseTo(85.89, 1);
+  });
+
+  it("has no approval to report when nobody has voted", () => {
+    expect(approvalPercent({ ...row, upVotes: 0, downVotes: 0 })).toBeNull();
+    expect(approvalPercent({ ...row, upVotes: null })).toBeNull();
+  });
+
+  it("links to the experience, preferring Roblox's canonical path", () => {
+    expect(experienceUrl(row)).toBe("https://www.roblox.com/games/4924922222");
+    expect(experienceUrl({ ...row, urlPath: "/games/49/Brookhaven-RP" })).toBe(
+      "https://www.roblox.com/games/49/Brookhaven-RP",
+    );
+  });
+
+  it("has no link rather than a broken one when Roblox omits the place", () => {
+    expect(experienceUrl({ ...row, rootPlaceId: null })).toBeNull();
+  });
+
+  it("marks a sponsored placement so a paid slot is not read as a ranking", () => {
+    const sponsored = parseRankings({
+      sorts: [
+        {
+          sortId: "s",
+          sortDisplayName: "S",
+          games: [{ universeId: 1, name: "Ad", playerCount: 1, isSponsored: true }],
+        },
+      ],
+    })[0]?.experiences[0];
+    expect(sponsored?.isSponsored).toBe(true);
+    expect(row.isSponsored).toBe(false);
   });
 });
 
