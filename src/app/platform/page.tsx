@@ -118,7 +118,7 @@ export default async function PlatformPage({ searchParams }: PageProps) {
               read, and both calls carry their own timeout — a slow Roblox
               produces a stated outage, not a hanging page.
             */}
-            <LiveExperiences requested={requested} />
+            <LiveExperiences requested={requested} window={chartWindow} />
           </Section>
 
           <Section
@@ -183,6 +183,35 @@ export default async function PlatformPage({ searchParams }: PageProps) {
 }
 
 /**
+ * A link to this page with one selection changed and the rest kept.
+ *
+ * Both switchers go through here. They used to build their own URLs, and the
+ * ranking tabs quietly dropped `days`: choosing a 24-hour chart and then a
+ * different ranking reset the range to fourteen days. A parameter that only
+ * one control remembers is a parameter that will be forgotten.
+ *
+ * Defaults are omitted rather than written out, so the plain `/platform/` URL
+ * stays the canonical one instead of collecting redundant query strings.
+ */
+function platformHref({
+  ranking,
+  days,
+  hash,
+}: {
+  ranking?: string;
+  days?: number;
+  hash?: string;
+}): string {
+  const query = new URLSearchParams();
+  if (ranking) query.set("ranking", ranking);
+  if (days !== undefined && days !== DEFAULT_CHART_WINDOW.days) {
+    query.set("days", String(days));
+  }
+  const search = query.toString();
+  return `${ROUTE}${search ? `?${search}` : ""}${hash ?? ""}`;
+}
+
+/**
  * The ranking switcher.
  *
  * Plain links, server-rendered. Roblox publishes several rankings in one
@@ -193,9 +222,11 @@ export default async function PlatformPage({ searchParams }: PageProps) {
 function RankingTabs({
   rankings,
   selectedId,
+  days,
 }: {
   rankings: readonly Ranking[];
   selectedId: string;
+  days: number;
 }) {
   if (rankings.length < 2) return null;
 
@@ -207,7 +238,10 @@ function RankingTabs({
           return (
             <li key={ranking.id}>
               <Link
-                href={current ? ROUTE : `${ROUTE}?ranking=${encodeURIComponent(ranking.id)}`}
+                href={platformHref({
+                  ranking: current ? undefined : ranking.id,
+                  days,
+                })}
                 scroll={false}
                 aria-current={current ? "true" : undefined}
                 className={
@@ -226,7 +260,13 @@ function RankingTabs({
   );
 }
 
-async function LiveExperiences({ requested }: { requested?: string }) {
+async function LiveExperiences({
+  requested,
+  window: chartWindow,
+}: {
+  requested?: string;
+  window: ChartWindow;
+}) {
   const result = await fetchRankings(requested);
 
   if (!result.ok) {
@@ -268,7 +308,7 @@ async function LiveExperiences({ requested }: { requested?: string }) {
         <Stat label="Busiest right now" value={busiest.name} />
       </div>
 
-      <RankingTabs rankings={rankings} selectedId={selected.id} />
+      <RankingTabs rankings={rankings} selectedId={selected.id} days={chartWindow.days} />
 
       <p className="mt-4 text-sm text-(--color-text-muted)">
         {selected.subtitle ? `${selected.subtitle}. ` : null}
@@ -425,14 +465,6 @@ function ChartRangeTabs({
   selected: ChartWindow;
   ranking?: string;
 }) {
-  const href = (days: number): string => {
-    const query = new URLSearchParams();
-    if (ranking) query.set("ranking", ranking);
-    if (days !== DEFAULT_CHART_WINDOW.days) query.set("days", String(days));
-    const search = query.toString();
-    return search ? `${ROUTE}?${search}#history` : `${ROUTE}#history`;
-  };
-
   return (
     <nav aria-label="Chart range" className="mb-6">
       <ul className="flex flex-wrap gap-2">
@@ -441,7 +473,7 @@ function ChartRangeTabs({
           return (
             <li key={option.days}>
               <Link
-                href={href(option.days)}
+                href={platformHref({ ranking, days: option.days, hash: "#history" })}
                 scroll={false}
                 aria-current={current ? "true" : undefined}
                 className={

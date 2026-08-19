@@ -204,6 +204,35 @@ ${history.slice(0, 200)}`).not.toBeNull();
     expect(day).toBeLessThanOrEqual(fortnight);
   });
 
+  test("keeps both selections when either one is changed", async ({ page }) => {
+    // The ranking tabs used to build their own URLs and drop `days`, so
+    // choosing a 24-hour chart and then another ranking silently reset the
+    // range to fourteen days.
+    await page.goto("/platform/?days=1");
+
+    const ranking = page.locator('nav[aria-label="Roblox rankings"] a:not([aria-current])').first();
+    if ((await page.locator('nav[aria-label="Chart range"] a').count()) === 0) return;
+    if ((await ranking.count()) === 0) return;
+
+    const label = (await ranking.innerText()).trim();
+    await ranking.click();
+    await page.waitForLoadState("load");
+
+    await expect(page.locator('nav[aria-label="Roblox rankings"] a[aria-current]')).toHaveText(
+      label,
+    );
+    await expect(page.locator('nav[aria-label="Chart range"] a[aria-current]')).toHaveText(
+      "24 hours",
+    );
+
+    // And the other direction: changing the range keeps the ranking.
+    await page.locator('nav[aria-label="Chart range"] a', { hasText: "7 days" }).click();
+    await page.waitForLoadState("load");
+    await expect(page.locator('nav[aria-label="Roblox rankings"] a[aria-current]')).toHaveText(
+      label,
+    );
+  });
+
   test("keeps one canonical for every ranking", async ({ page }) => {
     // The ranking is a query parameter on one page. Five canonicals would ask
     // to have five near-identical pages indexed.
