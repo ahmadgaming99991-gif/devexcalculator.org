@@ -14,8 +14,15 @@ export function SiteFooter() {
       <Container width="wide">
         <div className="grid gap-8 py-10 text-center sm:grid-cols-2 sm:text-left lg:grid-cols-5">
           <div className="lg:col-span-1">
-            <Link href="/" className="inline-flex items-center justify-center gap-2.5 sm:justify-start">
-              <Logo className="size-7" />
+            <Link
+              href="/"
+              className="group inline-flex items-center justify-center gap-2.5 sm:justify-start"
+            >
+              <Logo
+                interactive
+                instance="footer"
+                className="size-7 motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-out group-hover:motion-safe:scale-105"
+              />
               <Wordmark className="text-sm" />
             </Link>
             <p className="mt-3 text-sm text-(--color-text-muted)">

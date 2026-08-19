@@ -1,8 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="DevEx Calculator">
   <title>DevEx Calculator</title>
-  <rect width="512" height="512" rx="128" fill="#2563eb"/>
-  <circle cx="256" cy="160" r="32" fill="#ffffff"/>
-  <rect x="128" y="240" width="256" height="32" rx="16" fill="#ffffff"/>
-  <circle cx="256" cy="352" r="32" fill="#ffffff"/>
-  <path d="M376 392 L432 336" stroke="#67e8f9" stroke-width="32" stroke-linecap="round"/>
+  <defs>
+    <linearGradient id="tile" x1="0" y1="0" x2="512" y2="512" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2563eb"/>
+      <stop offset="1" stop-color="#7c3aed"/>
+    </linearGradient>
+    <linearGradient id="sheen" x1="0" y1="0" x2="0" y2="512" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.28"/>
+      <stop offset="0.55" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="144" fill="url(#tile)"/>
+  <rect width="512" height="512" rx="144" fill="url(#sheen)"/>
+  <g fill="none" stroke="#ffffff" stroke-width="42" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M144 344 L224 264 L288 304 L376 168"/>
+    <path d="M298 168 L376 168 L376 246"/>
+  </g>
+  <circle cx="144" cy="344" r="43" fill="#ffffff"/>
 </svg>

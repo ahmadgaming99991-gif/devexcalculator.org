@@ -322,6 +322,16 @@ test.describe("theme", () => {
             return { text: style.color, background: style.backgroundColor };
           });
 
+        // The button paints a gradient over a solid colour. Only the solid one
+        // is measurable here, which is exactly why it must stay: without it
+        // this reads `rgba(0, 0, 0, 0)` and the check silently stops meaning
+        // anything. The solid stop is the worse of the two for contrast, so
+        // measuring it measures the worst case.
+        expect(
+          colours.background,
+          "The primary button has no solid background colour under its gradient, so its contrast cannot be verified.",
+        ).not.toBe("rgba(0, 0, 0, 0)");
+
         const ratio = contrast(colours.text, colours.background);
         expect(
           ratio,

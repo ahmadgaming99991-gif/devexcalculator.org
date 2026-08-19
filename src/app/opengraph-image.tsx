@@ -46,18 +46,26 @@ export default async function OpengraphImage() {
             style={{
               width: 72,
               height: 72,
-              borderRadius: 18,
-              background: "#2563eb",
+              borderRadius: 20,
+              background: "linear-gradient(135deg, #2563eb 0%, #7c3aed 100%)",
               display: "flex",
-              flexDirection: "column",
               alignItems: "center",
               justifyContent: "center",
-              gap: 7,
             }}
           >
-            <div style={{ width: 10, height: 10, borderRadius: 5, background: "#ffffff" }} />
-            <div style={{ width: 38, height: 5, borderRadius: 3, background: "#ffffff" }} />
-            <div style={{ width: 10, height: 10, borderRadius: 5, background: "#ffffff" }} />
+            <svg width="72" height="72" viewBox="0 0 32 32">
+              <g
+                fill="none"
+                stroke="#ffffff"
+                strokeWidth="2.6"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M9 21.5 L14 16.5 L18 19 L23.5 10.5" />
+                <path d="M18.6 10.5 L23.5 10.5 L23.5 15.4" />
+              </g>
+              <circle cx="9" cy="21.5" r="2.7" fill="#ffffff" />
+            </svg>
           </div>
           <div style={{ display: "flex", fontSize: 34, fontWeight: 700, color: "#0b1220" }}>
             DevEx

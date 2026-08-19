@@ -108,38 +108,93 @@ export function Section({
 // ---------------------------------------------------------------------------
 
 /*
- * Motion is applied through `motion-safe:` rather than unconditionally. The
- * stylesheet already collapses transition durations under a reduced-motion
- * preference, but a transform with no duration still jumps; gating the
- * transform itself means those readers get a still button, not a snapping one.
+ * Shared button shape and motion.
+ *
+ * `relative` and `overflow-hidden` exist so a variant can lay a sheen over
+ * itself without it spilling past the rounded corners. The timing is 200ms on
+ * the way in and rests at 150ms, which is enough for the lift to register as a
+ * response rather than a twitch, and short enough not to lag a fast pointer.
+ *
+ * Every motion property is behind `motion-safe:`. The stylesheet already
+ * collapses transition durations under a reduced-motion preference, but a
+ * transform with no duration still jumps, so the transform itself is gated:
+ * those readers get a still button, not a snapping one. They keep the colour
+ * and shadow change, so the control is no less legible.
+ *
+ * `isolate` pairs with the sheen below. An absolutely positioned pseudo-element
+ * paints above non-positioned content — including the label — so without a
+ * stacking context and an explicit order the sweep would wash the text it is
+ * meant to pass behind.
  */
 const buttonBase =
-  "inline-flex min-h-[44px] items-center justify-center gap-2 rounded-(--radius-control) " +
-  "px-4 py-2.5 text-sm font-semibold " +
-  "transition-[background-color,border-color,color,box-shadow,transform] duration-150 ease-out " +
-  "motion-safe:active:translate-y-0 " +
+  "relative isolate inline-flex min-h-[44px] items-center justify-center gap-2 overflow-hidden " +
+  "rounded-(--radius-control) px-4 py-2.5 text-sm font-semibold " +
+  "transition-[background-color,border-color,color,box-shadow,transform] duration-200 " +
+  "ease-[cubic-bezier(0.2,0.8,0.2,1)] " +
+  "motion-safe:active:translate-y-0 motion-safe:active:duration-75 " +
   "disabled:cursor-not-allowed disabled:opacity-60 disabled:shadow-none " +
   "disabled:hover:translate-y-0 disabled:hover:shadow-none";
 
+/*
+ * The primary button carries a gradient and a light sweep on hover.
+ *
+ * The sweep is a pseudo-element translated across the face, not an opacity
+ * fade, so it reads as light moving over a surface rather than the button
+ * changing colour. It is decorative and skipped entirely under reduced motion;
+ * the contrast of the label never depends on it, which is why the text colour
+ * stays on its own token throughout.
+ */
 const buttonVariants = {
   primary:
-    "bg-(--color-primary) text-(--color-on-primary) shadow-sm " +
-    "hover:bg-(--color-primary-strong) hover:shadow-md motion-safe:hover:-translate-y-px " +
-    "active:shadow-sm",
+    /*
+     * The solid colour under the gradient is not decoration.
+     *
+     * It is the fallback wherever the gradient does not paint — forced colours,
+     * a printed page, an older renderer — and it is deliberately the stop with
+     * the *worse* contrast against the label in each mode, so measuring the
+     * button's background colour measures the worst case rather than flattering
+     * it. In light mode that is the lighter stop under white text; in dark mode
+     * the darker stop under dark text. Removing it would leave the label over
+     * transparency and quietly disable the contrast test that guards it.
+     */
+    "bg-(--color-primary) " +
+    "bg-linear-to-br from-(--color-primary) to-(--color-primary-strong) " +
+    "text-(--color-on-primary) shadow-sm " +
+    "hover:shadow-lg " +
+    "motion-safe:hover:-translate-y-0.5 active:shadow-sm " +
+    "motion-safe:before:absolute motion-safe:before:inset-0 motion-safe:before:-z-10 " +
+    "motion-safe:before:-translate-x-full motion-safe:before:bg-linear-to-r " +
+    "motion-safe:before:from-transparent motion-safe:before:via-white/25 " +
+    "motion-safe:before:to-transparent " +
+    "motion-safe:before:transition-transform motion-safe:before:duration-700 " +
+    "motion-safe:hover:before:translate-x-full",
   secondary:
     "border border-(--color-border-strong) bg-(--color-surface) text-(--color-text) " +
-    "hover:border-(--color-primary) hover:bg-(--color-surface-subtle) hover:shadow-sm " +
-    "motion-safe:hover:-translate-y-px",
+    "hover:border-(--color-primary) hover:bg-(--color-surface-subtle) " +
+    "hover:text-(--color-primary) hover:shadow-md " +
+    "motion-safe:hover:-translate-y-0.5",
   ghost:
     "text-(--color-primary) hover:bg-(--color-primary-soft) " +
-    "motion-safe:hover:-translate-y-px",
+    "motion-safe:hover:-translate-y-0.5",
 } as const;
 
 export type ButtonVariant = keyof typeof buttonVariants;
 
+/**
+ * Lifts the label above the primary variant's sweep.
+ *
+ * Cheap enough to apply to every variant rather than making the caller know
+ * which one needs it, and it keeps the accessible name unchanged — a span
+ * inside a button contributes its text exactly as a bare string does.
+ */
+function ButtonLabel({ children }: { children: ReactNode }) {
+  return <span className="relative z-10 inline-flex items-center gap-2">{children}</span>;
+}
+
 export function Button({
   variant = "primary",
   className,
+  children,
   ...props
 }: ComponentPropsWithoutRef<"button"> & { variant?: ButtonVariant }) {
   return (
@@ -147,7 +202,9 @@ export function Button({
       type="button"
       className={cx(buttonBase, buttonVariants[variant], className)}
       {...props}
-    />
+    >
+      <ButtonLabel>{children}</ButtonLabel>
+    </button>
   );
 }
 
@@ -168,13 +225,13 @@ export function ButtonLink({
   if (external) {
     return (
       <a href={href} className={classes} target="_blank" rel="noopener noreferrer">
-        {children}
+        <ButtonLabel>{children}</ButtonLabel>
       </a>
     );
   }
   return (
     <Link href={href} className={classes}>
-      {children}
+      <ButtonLabel>{children}</ButtonLabel>
     </Link>
   );
 }

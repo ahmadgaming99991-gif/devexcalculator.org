@@ -18,11 +18,17 @@ export function SiteHeader() {
     <header className="sticky top-0 z-30 border-b border-(--color-border) bg-(--color-surface)/95 backdrop-blur supports-[backdrop-filter]:bg-(--color-surface)/80">
       <Container width="wide">
         <div className="flex h-16 items-center justify-between gap-3">
+          {/* `group` so the mark can respond to a hover anywhere on the lockup,
+              rather than only when the pointer is over the 32px tile itself. */}
           <Link
             href="/"
-            className="flex shrink-0 items-center gap-2.5 rounded-(--radius-control) py-1"
+            className="group flex shrink-0 items-center gap-2.5 rounded-(--radius-control) py-1"
           >
-            <Logo className="size-8 shrink-0" />
+            <Logo
+              interactive
+              instance="header"
+              className="size-8 shrink-0 motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-out group-hover:motion-safe:scale-105"
+            />
             <Wordmark className="text-base sm:text-lg" />
             <span className="sr-only">— home</span>
           </Link>
