@@ -23,10 +23,32 @@ export async function measureOverflow(page: Page): Promise<OverflowReport> {
     const root = document.documentElement;
     const viewport = root.clientWidth;
 
+    /*
+     * Whether a scroller actually contains this element.
+     *
+     * Finding a scrollable ancestor is not enough. `overflow` does not make an
+     * element the containing block for absolutely positioned descendants, so an
+     * absolutely positioned element inside an unpositioned scroller is laid out
+     * against something further up and escapes it. That is not hypothetical:
+     * sixteen `.sr-only` labels inside a wide table pushed the platform page
+     * 56px sideways while the table scrolled correctly, and this function —
+     * checking only for a scrollable ancestor — reported no offenders at all.
+     */
     const isScrollable = (element: Element): boolean => {
+      let escapes = getComputedStyle(element).position === "absolute";
+
       for (let node: Element | null = element; node; node = node.parentElement) {
-        const overflowX = getComputedStyle(node).overflowX;
-        if (overflowX === "auto" || overflowX === "scroll") return true;
+        const style = getComputedStyle(node);
+
+        // A positioned ancestor, a transform or a containment context becomes
+        // the containing block, so the element is anchored from here down.
+        if (node !== element && (style.position !== "static" || style.transform !== "none")) {
+          escapes = false;
+        }
+
+        if (style.overflowX === "auto" || style.overflowX === "scroll") {
+          return !escapes;
+        }
       }
       return false;
     };

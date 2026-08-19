@@ -334,7 +334,17 @@ export function TableWrapper({
         // content — so a wide table inside one pushes the whole page sideways
         // instead of scrolling within this container. Without it the tax
         // calculator overflowed by 227px at 320px wide.
-        "min-w-0 max-w-full overflow-x-auto rounded-(--radius-control) border border-(--color-border)",
+        //
+        // `relative` is load-bearing for a subtler reason. `overflow` does not
+        // make an element the containing block for absolutely positioned
+        // descendants, and `.sr-only` is absolutely positioned — so a
+        // screen-reader-only label inside a cell beyond the fold was laid out
+        // against the initial containing block and escaped this scroller
+        // entirely. Sixteen of them in the platform table pushed the page 56px
+        // sideways at 320px while the table itself scrolled correctly, which is
+        // why the usual overflow diagnosis pointed at nothing: the offenders
+        // were invisible and the visible element was properly contained.
+        "relative min-w-0 max-w-full overflow-x-auto rounded-(--radius-control) border border-(--color-border)",
         className,
       )}
       tabIndex={0}

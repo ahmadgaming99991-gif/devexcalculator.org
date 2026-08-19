@@ -1,4 +1,5 @@
 import { expect, test } from "@playwright/test";
+import { describeOverflow, measureOverflow } from "../support/overflow";
 
 /**
  * The platform pages make two promises the rest of the suite does not cover:
@@ -275,6 +276,18 @@ ${history.slice(0, 200)}`).not.toBeNull();
     // of every row, because that is work the Worker cannot afford.
     await expect(page.locator("#experience svg")).toHaveCount(1);
     await context.close();
+  });
+
+  test("does not scroll sideways at 320px with a full ranking", async ({ page }) => {
+    // The widest table on the site, now around ninety rows with a sparkline
+    // column. It scrolls inside its own box; the page must not.
+    await page.setViewportSize({ width: 320, height: 640 });
+
+    for (const url of ["/platform/", "/platform/?ranking=top-playing-now"]) {
+      await page.goto(url, { waitUntil: "load" });
+      const report = await measureOverflow(page);
+      expect(report.overflow, describeOverflow(url, report)).toBeLessThanOrEqual(0);
+    }
   });
 
   test("keeps one canonical for every ranking", async ({ page }) => {
