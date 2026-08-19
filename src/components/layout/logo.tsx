@@ -74,12 +74,11 @@ export function Logo({
         size flattens into a smudge, while the corners survive being drawn 16
         pixels wide.
       */}
+      {/* No transition on this path. It carried one for `stroke-dashoffset`
+          while nothing ever set a dash array, so it animated nothing — the
+          motion in this mark is the tile scaling and the balance dot growing,
+          both of which are real. */}
       <path
-        className={
-          interactive
-            ? "motion-safe:transition-[stroke-dashoffset] motion-safe:duration-700 motion-safe:ease-out"
-            : undefined
-        }
         d="M9 21.5 L14 16.5 L18 19 L23.5 10.5"
         stroke="#ffffff"
         strokeWidth="2.6"
