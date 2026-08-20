@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
   calculateComparison,
+  calculateGroupSplit,
   calculateQuick,
   calculateSplit,
   calculateTarget,
@@ -358,5 +359,103 @@ describe("local currency conversion", () => {
   it("returns the same value for a rate of 1", () => {
     const value = Rational.fromDecimalString("380");
     expect(usd(convertUsd(value, Rational.ONE))).toBe("380.00");
+  });
+});
+
+/**
+ * Group revenue split.
+ *
+ * The arithmetic is easy; the honesty is not. Each of these guards a specific
+ * way a split calculator can mislead the people using it to divide real money.
+ */
+describe("group revenue split", () => {
+  const shares = (...pairs: [string, string][]) =>
+    pairs.map(([name, percent]) => ({ name, percent }));
+
+  it("divides a balance by the stated percentages", () => {
+    const result = calculateGroupSplit(
+      100_000n,
+      shares(["Ana", "60"], ["Ben", "25"], ["Cass", "15"]),
+      standardRateId,
+    );
+
+    expect(result.members.map((m) => m.robux)).toEqual([60_000n, 25_000n, 15_000n]);
+    expect(result.unallocatedRobux).toBe(0n);
+    expect(result.percentagesUnbalanced).toBe(false);
+  });
+
+  it("floors each share and reports the remainder instead of hiding it", () => {
+    // 10 Robux three ways is 3.33 each. Rounding any of them up would pay out
+    // Robux the group does not have; handing the spare to the first member
+    // would be a silent decision nobody made.
+    const result = calculateGroupSplit(
+      10n,
+      shares(["A", "33.3333"], ["B", "33.3333"], ["C", "33.3334"]),
+      standardRateId,
+    );
+
+    expect(result.members.map((m) => m.robux)).toEqual([3n, 3n, 3n]);
+    expect(result.unallocatedRobux).toBe(1n);
+  });
+
+  it("refuses to normalise percentages that do not reach 100", () => {
+    // Three people at 30% is a mistake in the arrangement. Scaling them to
+    // 33.3% each would produce numbers nobody agreed to.
+    const result = calculateGroupSplit(
+      90_000n,
+      shares(["A", "30"], ["B", "30"], ["C", "30"]),
+      standardRateId,
+    );
+
+    expect(result.percentagesUnbalanced).toBe(true);
+    expect(result.members.map((m) => m.robux)).toEqual([27_000n, 27_000n, 27_000n]);
+    expect(result.unallocatedRobux).toBe(9_000n);
+  });
+
+  it("applies the DevEx minimum to each member, never to the group total", () => {
+    const met = (result: ReturnType<typeof calculateGroupSplit>) =>
+      result.members.map((m) => m.threshold.shortfallRobux === 0n);
+
+    /*
+     * 90,000 clears the 30,000 minimum three times over, and a 34/33/33 split
+     * leaves two of the three members unable to submit anything: 33% of 90,000
+     * is 29,700. This is the whole reason the threshold is evaluated per
+     * member. A calculator that checked the group total would have told all
+     * three they were fine.
+     */
+    const uneven = calculateGroupSplit(90_000n, shares(["A", "34"], ["B", "33"], ["C", "33"]), standardRateId);
+    expect(uneven.totalRobux).toBeGreaterThan(BigInt(minimumEarnedRobux) * 2n);
+    expect(met(uneven)).toEqual([true, false, false]);
+
+    const clears = calculateGroupSplit(120_000n, shares(["A", "34"], ["B", "33"], ["C", "33"]), standardRateId);
+    expect(met(clears)).toEqual([true, true, true]);
+
+    // The group total clears the minimum twice over and neither member does.
+    const neither = calculateGroupSplit(45_000n, shares(["A", "50"], ["B", "50"]), standardRateId);
+    expect(neither.totalRobux).toBeGreaterThan(BigInt(minimumEarnedRobux));
+    expect(met(neither)).toEqual([false, false]);
+  });
+
+  it("treats an unreadable or negative percentage as zero rather than throwing", () => {
+    const result = calculateGroupSplit(
+      1_000n,
+      shares(["A", "50"], ["B", "nonsense"], ["C", "-20"]),
+      standardRateId,
+    );
+    expect(result.members.map((m) => m.robux)).toEqual([500n, 0n, 0n]);
+  });
+
+  it("returns zero for a negative balance instead of a negative payout", () => {
+    const result = calculateGroupSplit(-5_000n, shares(["A", "100"]), standardRateId);
+    expect(result.totalRobux).toBe(0n);
+    expect(result.members[0]?.robux).toBe(0n);
+  });
+
+  it("values each share through the same engine as every other figure", () => {
+    const result = calculateGroupSplit(100_000n, shares(["A", "100"]), standardRateId);
+    const direct = calculateQuick({ robux: 100_000n, rateId: standardRateId });
+    expect(result.members[0]?.grossUsd.toFixed(2, "half-up")).toBe(
+      direct.grossUsd.toFixed(2, "half-up"),
+    );
   });
 });

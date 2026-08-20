@@ -741,6 +741,7 @@ const staticRoutes: readonly RouteRecord[] = [
       { id: "checklist", heading: "Prepare before you apply" },
       { id: "timing", heading: "How long it takes" },
       { id: "safety", heading: "Avoid unofficial services" },
+      { id: "group", heading: "When a group earned it" },
       { id: "after", heading: "After the payout" },
       { id: "faqs", heading: "Questions about cashing out" },
     ],

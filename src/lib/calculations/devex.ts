@@ -382,3 +382,106 @@ export { minimumEarnedRobux, rateRegistry };
 export const standardRateId = SPLIT_RATE_IDS.standard;
 export const legacyRateId = SPLIT_RATE_IDS.legacy;
 export const us18RateId = SPLIT_RATE_IDS.us18;
+
+// ---------------------------------------------------------------------------
+// Group revenue split
+// ---------------------------------------------------------------------------
+
+export interface GroupShare {
+  /** How the person is labelled. Never used in arithmetic. */
+  readonly name: string;
+  /** Percentage of the group's Earned Robux, as typed. */
+  readonly percent: string;
+}
+
+export interface GroupMemberResult {
+  readonly name: string;
+  readonly percent: Rational;
+  /** Whole Robux. Roblox does not divide a Robux. */
+  readonly robux: bigint;
+  readonly grossUsd: Rational;
+  /** Whether this person's own share clears the DevEx minimum. */
+  readonly threshold: ThresholdStatus;
+}
+
+export interface GroupSplitResult {
+  readonly members: readonly GroupMemberResult[];
+  readonly totalRobux: bigint;
+  /** Robux left over after whole-number division, held back rather than hidden. */
+  readonly unallocatedRobux: bigint;
+  readonly allocatedPercent: Rational;
+  readonly rate: RateRecord;
+  /** True when the percentages do not add up to exactly 100. */
+  readonly percentagesUnbalanced: boolean;
+}
+
+/**
+ * Divides a group's Earned Robux between its members.
+ *
+ * Three things this deliberately does not do, because each would be a lie of a
+ * different kind.
+ *
+ * It does not round a member's share up to reach the total. Robux are whole,
+ * `floor` is the only honest direction when dividing them, and the remainder is
+ * reported as unallocated rather than quietly given to whoever is listed first.
+ *
+ * It does not normalise percentages that fail to reach 100. If three people are
+ * given 30% each, the missing 10% is a mistake in the arrangement, and scaling
+ * the numbers up to hide it would produce figures nobody agreed to.
+ *
+ * And it evaluates the DevEx minimum per member, not on the group total. The
+ * threshold applies to the balance a person submits, so a group earning 90,000
+ * Robux split three ways leaves nobody able to cash out.
+ */
+export function calculateGroupSplit(
+  totalRobux: bigint,
+  shares: readonly GroupShare[],
+  rateId: string,
+): GroupSplitResult {
+  const rate = getRate(rateId);
+  const rateValue = Rational.fromDecimalString(rate.usdPerRobux);
+  const total = totalRobux < 0n ? 0n : totalRobux;
+
+  const hundred = Rational.fromInt(100);
+  let allocatedPercent = Rational.ZERO;
+  let allocatedRobux = 0n;
+
+  const members = shares.map((share) => {
+    const percent = parsePercent(share.percent);
+    allocatedPercent = allocatedPercent.add(percent);
+
+    // floor(total × percent ÷ 100), computed on integers throughout.
+    const scaled = Rational.of(total, 1n).mul(percent).div(hundred);
+    const robux = scaled.floorToBigInt();
+    allocatedRobux += robux;
+
+    return {
+      name: share.name,
+      percent,
+      robux,
+      grossUsd: Rational.of(robux, 1n).mul(rateValue),
+      threshold: evaluateThreshold(robux),
+    };
+  });
+
+  return {
+    members,
+    totalRobux: total,
+    unallocatedRobux: total - allocatedRobux,
+    allocatedPercent,
+    rate,
+    percentagesUnbalanced: !allocatedPercent.eq(hundred),
+  };
+}
+
+/** Reads a percentage as typed, treating anything unreadable as zero. */
+function parsePercent(input: string): Rational {
+  const trimmed = input.trim();
+  if (trimmed === "") return Rational.ZERO;
+  try {
+    const value = Rational.fromDecimalString(trimmed);
+    return value.lt(Rational.ZERO) ? Rational.ZERO : value;
+  } catch {
+    return Rational.ZERO;
+  }
+}

@@ -4,6 +4,7 @@ import { requireRoute } from "@/lib/content/route-registry";
 import { JsonLd } from "@/components/seo/json-ld";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { ButtonLink, Callout, Container, InlineLink, Section, SourceLink } from "@/components/ui";
+import { GroupSplit } from "@/features/devex/group-split";
 import {
   EstimateDisclaimer,
   FAQAccordion,
@@ -155,6 +156,24 @@ export default function HowToCashOutPage() {
                 a scam or a survey farm.
               </li>
             </ul>
+          </Section>
+
+          <Section
+            id="group"
+            heading="When a group earned it"
+            description="A DevEx request is submitted by one account and paid to that account. Roblox does not divide a payout between collaborators, so a revenue share is an arrangement between the people in the group — and the minimum applies to each of them separately."
+          >
+            <p className="text-(--color-text-muted)">
+              This catches groups out more often than the rate does. A team can
+              earn several times the minimum together and still have nobody able
+              to submit a request, because the threshold is measured against the
+              balance one person holds. Work out what each agreed share comes to,
+              and whether it clears on its own:
+            </p>
+
+            <div className="mt-6">
+              <GroupSplit />
+            </div>
           </Section>
 
           <Section

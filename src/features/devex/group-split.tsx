@@ -1,0 +1,252 @@
+"use client";
+
+import { useId, useState } from "react";
+import { calculateGroupSplit, standardRateId } from "@/lib/calculations/devex";
+import { parseRobuxAmount } from "@/lib/calculations/parse-amount";
+import { formatCurrency, formatRobux } from "@/lib/calculations/format";
+import { maxRobuxInput, minimumEarnedRobux } from "@/lib/calculations/rate-registry";
+import { Badge, Button, Callout, Card, Table, TableWrapper, Td, Th } from "@/components/ui";
+
+/**
+ * Splitting a group's Earned Robux between collaborators.
+ *
+ * Deliberately a separate component rather than a fourth mode in the main
+ * calculator. The question is not "what is this worth" but "who gets what and
+ * can they cash it out", the answer turns on a fact about DevEx that the
+ * calculator has no reason to know, and weaving it through seven hundred lines
+ * of shared state to reach the same place would have put the site's most-tested
+ * feature at risk for it.
+ *
+ * The fact that makes this worth building: the DevEx minimum applies to the
+ * balance one person submits, not to what a group earned. A group can clear the
+ * minimum several times over and leave every member below it.
+ *
+ * All arithmetic goes through the same engine as the rest of the site. Nothing
+ * here computes money.
+ */
+
+interface Row {
+  readonly id: number;
+  readonly name: string;
+  readonly percent: string;
+}
+
+const STARTING_ROWS: readonly Row[] = [
+  { id: 1, name: "Member 1", percent: "50" },
+  { id: 2, name: "Member 2", percent: "30" },
+  { id: 3, name: "Member 3", percent: "20" },
+];
+
+/** Enough for a real collaboration, and short of a table nobody can read. */
+const MAX_MEMBERS = 12;
+
+export function GroupSplit() {
+  const fieldId = useId();
+  const [total, setTotal] = useState("300,000");
+  const [rows, setRows] = useState<readonly Row[]>(STARTING_ROWS);
+
+  // Same parser and same ceiling as every other amount field on the site, so
+  // "1.5m" and "300,000" behave here exactly as they do in the calculator.
+  const parsed = parseRobuxAmount(total, maxRobuxInput);
+  const totalRobux = parsed.ok ? parsed.value.robux : 0n;
+
+  const result = calculateGroupSplit(
+    totalRobux,
+    rows.map((row) => ({ name: row.name.trim() || "Unnamed", percent: row.percent })),
+    standardRateId,
+  );
+
+  const update = (id: number, patch: Partial<Row>) =>
+    setRows((current) => current.map((row) => (row.id === id ? { ...row, ...patch } : row)));
+
+  const add = () =>
+    setRows((current) =>
+      current.length >= MAX_MEMBERS
+        ? current
+        : [
+            ...current,
+            {
+              id: Math.max(0, ...current.map((row) => row.id)) + 1,
+              name: `Member ${current.length + 1}`,
+              percent: "0",
+            },
+          ],
+    );
+
+  const remove = (id: number) =>
+    setRows((current) => (current.length <= 1 ? current : current.filter((row) => row.id !== id)));
+
+  const below = result.members.filter((member) => member.threshold.shortfallRobux > 0n);
+
+  return (
+    <div className="min-w-0">
+      <Card>
+        <div className="grid gap-4 sm:grid-cols-2">
+          <div>
+            <label
+              htmlFor={`${fieldId}-total`}
+              className="block text-sm font-semibold text-(--color-text)"
+            >
+              The group&rsquo;s eligible Earned Robux
+            </label>
+            <input
+              id={`${fieldId}-total`}
+              inputMode="numeric"
+              value={total}
+              onChange={(event) => setTotal(event.target.value)}
+              aria-invalid={total.trim() !== "" && !parsed.ok}
+              aria-describedby={`${fieldId}-total-hint`}
+              className="tabular mt-2 w-full rounded-(--radius-control) border border-(--color-border-strong) bg-(--color-surface) px-3 py-2.5 text-(--color-text)"
+            />
+            <p id={`${fieldId}-total-hint`} className="mt-2 text-sm text-(--color-text-muted)">
+              {total.trim() !== "" && !parsed.ok
+                ? parsed.message
+                : "Only Earned Robux can be exchanged. Purchased and gifted Robux cannot."}
+            </p>
+          </div>
+
+          <div className="self-end">
+            <p className="text-sm text-(--color-text-muted)">Valued at</p>
+            <p className="mt-1 font-semibold text-(--color-text)">{result.rate.label}</p>
+            <p className="text-sm text-(--color-text-muted)">
+              ${result.rate.usdPerRobux} per eligible Earned Robux
+            </p>
+          </div>
+        </div>
+
+        <TableWrapper label="Each member's share of the group balance" className="mt-6">
+          <Table caption="Each member's percentage of the group's Earned Robux, the Robux that represents, and the payout at the standard DevEx rate.">
+            <thead>
+              <tr>
+                <Th>Member</Th>
+                <Th>Share</Th>
+                <Th numeric>Earned Robux</Th>
+                <Th numeric>Estimated payout</Th>
+                <Th>Can they cash out?</Th>
+                <Th>
+                  <span className="sr-only">Remove</span>
+                </Th>
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((row, index) => {
+                const member = result.members[index];
+                const short = member ? member.threshold.shortfallRobux : 0n;
+                return (
+                  <tr key={row.id}>
+                    <Td>
+                      <label className="sr-only" htmlFor={`${fieldId}-name-${row.id}`}>
+                        Name for member {index + 1}
+                      </label>
+                      <input
+                        id={`${fieldId}-name-${row.id}`}
+                        value={row.name}
+                        onChange={(event) => update(row.id, { name: event.target.value })}
+                        className="w-full min-w-[7rem] rounded-(--radius-control) border border-(--color-border) bg-(--color-surface) px-2 py-1.5 text-sm text-(--color-text)"
+                      />
+                    </Td>
+                    <Td>
+                      <label className="sr-only" htmlFor={`${fieldId}-pct-${row.id}`}>
+                        Percentage for {row.name || `member ${index + 1}`}
+                      </label>
+                      <div className="flex items-center gap-1">
+                        <input
+                          id={`${fieldId}-pct-${row.id}`}
+                          inputMode="decimal"
+                          value={row.percent}
+                          onChange={(event) => update(row.id, { percent: event.target.value })}
+                          className="tabular w-16 rounded-(--radius-control) border border-(--color-border) bg-(--color-surface) px-2 py-1.5 text-sm text-(--color-text)"
+                        />
+                        <span aria-hidden="true" className="text-sm text-(--color-text-muted)">
+                          %
+                        </span>
+                      </div>
+                    </Td>
+                    <Td numeric className="tabular">
+                      {member ? formatRobux(member.robux) : "0"}
+                    </Td>
+                    <Td numeric className="tabular font-semibold">
+                      {member ? formatCurrency(member.grossUsd, "USD") : "$0.00"}
+                    </Td>
+                    <Td>
+                      {short === 0n ? (
+                        <Badge tone="success">Meets the minimum</Badge>
+                      ) : (
+                        <Badge tone="warning">
+                          {formatRobux(short)} short
+                        </Badge>
+                      )}
+                    </Td>
+                    <Td>
+                      <Button
+                        variant="ghost"
+                        onClick={() => remove(row.id)}
+                        disabled={rows.length <= 1}
+                        className="px-2 text-sm"
+                      >
+                        Remove
+                        <span className="sr-only"> {row.name || `member ${index + 1}`}</span>
+                      </Button>
+                    </Td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </Table>
+        </TableWrapper>
+
+        <div className="mt-4 flex flex-wrap items-center gap-3">
+          <Button variant="secondary" onClick={add} disabled={rows.length >= MAX_MEMBERS}>
+            Add a member
+          </Button>
+          <p className="text-sm text-(--color-text-muted)">
+            Shares total {result.allocatedPercent.toFixed(2, "half-up")}%
+            {result.unallocatedRobux > 0n ? (
+              <> · {formatRobux(result.unallocatedRobux)} Robux unallocated</>
+            ) : null}
+          </p>
+        </div>
+      </Card>
+
+      {result.percentagesUnbalanced ? (
+        <Callout tone="warning" title="The shares do not add up to 100%" className="mt-4">
+          They total {result.allocatedPercent.toFixed(2, "half-up")}%, leaving{" "}
+          {formatRobux(result.unallocatedRobux)} Robux unassigned. Nothing here has
+          been scaled to make the numbers meet: adjusting them for you would produce
+          figures nobody agreed to. Fix the percentages, or accept that a remainder
+          stays with whoever holds the group funds.
+        </Callout>
+      ) : result.unallocatedRobux > 0n ? (
+        <Callout tone="info" title="A remainder is left over" className="mt-4">
+          {formatRobux(result.unallocatedRobux)} Robux cannot be divided evenly at
+          these percentages. Robux are whole, so each share is rounded down and the
+          remainder is shown rather than handed to whoever happens to be listed
+          first.
+        </Callout>
+      ) : null}
+
+      {below.length > 0 ? (
+        <Callout
+          tone="warning"
+          title={`${below.length} of ${result.members.length} cannot submit a DevEx request`}
+          className="mt-4"
+        >
+          The {formatRobux(BigInt(minimumEarnedRobux))} minimum applies to the
+          balance one person submits, not to what the group earned. This group holds{" "}
+          {formatRobux(result.totalRobux)} Earned Robux, and{" "}
+          {below.map((member) => member.name).join(", ")}{" "}
+          {below.length === 1 ? "is" : "are"} still below the minimum individually.
+        </Callout>
+      ) : null}
+
+      <Callout tone="info" title="Roblox pays one person, not a split" className="mt-4">
+        A DevEx request is submitted by an individual account and paid to that
+        account. Roblox does not divide a payout between collaborators, and a
+        revenue-share arrangement inside a group is between the people in it. What
+        this works out is what each person&rsquo;s agreed share comes to — not
+        something Roblox will do on their behalf, and not a figure Roblox has
+        agreed to.
+      </Callout>
+    </div>
+  );
+}

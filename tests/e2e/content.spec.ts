@@ -1,4 +1,5 @@
 import { expect, test } from "@playwright/test";
+import { describeOverflow, measureOverflow } from "../support/overflow";
 
 /**
  * Content, crawlability and honesty checks.
@@ -603,5 +604,65 @@ test.describe("change feeds", () => {
     // lists. The longer, anchored allow wins for /api/ alone.
     expect(robots).toContain("Allow: /api/$");
     expect(robots).toContain("Disallow: /api/");
+  });
+});
+
+/**
+ * Group revenue split.
+ *
+ * The arithmetic is trivial. What this exists to say is that the DevEx minimum
+ * applies to the balance one person submits, so a group can clear it several
+ * times over and leave members unable to cash out — and that Roblox pays one
+ * account, not a split.
+ */
+test.describe("group split", () => {
+  test("divides a balance and values each share", async ({ page }) => {
+    await page.goto("/how-to-cash-out-robux/#group");
+    const section = page.locator("#group");
+    await expect(section).toBeVisible();
+
+    const rows = section.locator("tbody tr");
+    await expect(rows).toHaveCount(3);
+    // 300,000 at 50/30/20 with the standard rate.
+    await expect(rows.nth(0)).toContainText("150,000");
+    await expect(rows.nth(0)).toContainText("$570.00");
+  });
+
+  test("checks the minimum per member, not against the group total", async ({ page }) => {
+    await page.goto("/how-to-cash-out-robux/#group");
+    const section = page.locator("#group");
+
+    // 90,000 clears the 30,000 minimum three times over; at 50/30/20 two of the
+    // three members are below it individually.
+    await section.locator('input[inputmode="numeric"]').fill("90,000");
+    await expect(section.locator("tbody tr").nth(1)).toContainText("short");
+    await expect(section.getByText(/cannot submit a DevEx request/i)).toBeVisible();
+    await expect(section.getByText(/applies to the balance one person submits/i)).toBeVisible();
+  });
+
+  test("refuses to normalise shares that do not reach 100%", async ({ page }) => {
+    await page.goto("/how-to-cash-out-robux/#group");
+    const section = page.locator("#group");
+
+    const percents = section.locator('input[inputmode="decimal"]');
+    for (let i = 0; i < 3; i += 1) await percents.nth(i).fill("30");
+
+    await expect(section.getByText(/do not add up to 100/i)).toBeVisible();
+    // Scaling them to fit would produce figures nobody agreed to.
+    await expect(section.getByText(/Nothing here has been scaled/i)).toBeVisible();
+  });
+
+  test("says plainly that Roblox pays one account", async ({ page }) => {
+    await page.goto("/how-to-cash-out-robux/#group");
+    await expect(page.locator("#group")).toContainText(
+      /Roblox does not divide a payout between collaborators/i,
+    );
+  });
+
+  test("works at 320px without pushing the page sideways", async ({ page }) => {
+    await page.setViewportSize({ width: 320, height: 640 });
+    await page.goto("/how-to-cash-out-robux/");
+    const report = await measureOverflow(page);
+    expect(report.overflow, describeOverflow("The cash-out page", report)).toBeLessThanOrEqual(0);
   });
 });
