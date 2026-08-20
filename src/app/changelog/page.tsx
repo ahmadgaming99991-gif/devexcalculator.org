@@ -3,10 +3,11 @@ import { buildMetadata } from "@/lib/seo/metadata";
 import { requireRoute } from "@/lib/content/route-registry";
 import { JsonLd } from "@/components/seo/json-ld";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
-import { Badge, Container, InlineLink, Section, SourceLink } from "@/components/ui";
+import { Badge, Callout, Container, InlineLink, Section, SourceLink } from "@/components/ui";
 import { PageHeader, QuickAnswer, RelatedLinks } from "@/components/content";
 import { formatDate } from "@/lib/calculations/format";
 import { rateRegistry } from "@/lib/calculations/rate-registry";
+import { changelogEntries, type ChangeEntry } from "@/lib/content/changelog";
 
 const ROUTE = "/changelog/";
 
@@ -19,51 +20,6 @@ export const metadata: Metadata = buildMetadata(ROUTE);
  * inventing a back-history — an empty-looking changelog on a new site is
  * honest, and a fabricated one would undermine everything else on the page.
  */
-interface ChangeEntry {
-  readonly date: string;
-  readonly kind: "rate" | "content" | "site";
-  readonly title: string;
-  readonly detail: string;
-  readonly sourceUrl?: string;
-  readonly sourceLabel?: string;
-}
-
-const ENTRIES: readonly ChangeEntry[] = [
-  {
-    date: "2026-08-17T00:00:00Z",
-    kind: "rate",
-    title: "Rate registry established and verified",
-    detail:
-      "Standard rate recorded at 0.0038 USD per eligible Earned Robux (114 USD per 30,000), the legacy rate at 0.0035 for balances earned before 5 September 2025 at 10:00 PT, and the conditional U.S. 18+ rate at 0.0054. The 30,000 Earned Robux minimum and the full eligibility list were verified at the same time. All checked directly against the Roblox Creator Hub DevEx documentation.",
-    sourceUrl: "https://create.roblox.com/docs/production/monetization/developer-exchange",
-    sourceLabel: "Roblox Creator Hub — Developer Exchange",
-  },
-  {
-    date: "2026-08-17T00:00:00Z",
-    kind: "rate",
-    title: "Marketplace commission rates recorded",
-    detail:
-      "In-experience purchases recorded at 70% to the creator and 30% to Roblox. Marketplace avatar item sales recorded with the progressive revenue share table from 30% at the price floor to 70% at six times the floor. Avatar items sold inside an experience recorded as 30% creator, 40% experience owner, 30% Roblox.",
-    sourceUrl: "https://create.roblox.com/docs/marketplace/marketplace-fees-and-commissions",
-    sourceLabel: "Roblox Creator Hub — Marketplace fees and commissions",
-  },
-  {
-    date: "2026-08-17T00:00:00Z",
-    kind: "site",
-    title: "Bulgarian lev removed from supported currencies",
-    detail:
-      "The European Central Bank stopped publishing a BGN reference rate after 31 December 2025. Rather than continue showing a rate frozen at that date, BGN was removed from the currency selector. Listing a currency the configured provider no longer supplies would misrepresent how current the figure is.",
-    sourceUrl: "https://data-api.ecb.europa.eu/",
-    sourceLabel: "ECB Data Portal — Exchange Rates",
-  },
-  {
-    date: "2026-08-17T00:00:00Z",
-    kind: "site",
-    title: "Site launched",
-    detail:
-      "Initial release: DevEx calculator with quick, split and target modes; Robux to USD and payout target pages; marketplace fee calculator; conversion hub with eight curated amount pages; and the full guide and trust set. Every rate-sensitive page carries a source citation and verification date from launch.",
-  },
-];
 
 const KIND_LABELS: Record<ChangeEntry["kind"], { label: string; tone: "warning" | "info" | "neutral" }> = {
   rate: { label: "Rate data", tone: "warning" },
@@ -94,8 +50,23 @@ export default function ChangelogPage() {
             heading="Change history"
             description={`Rate registry version ${rateRegistry.registryVersion}, last verified ${formatDate(rateRegistry.lastVerifiedAt)}.`}
           >
-            <ol className="flex flex-col gap-4">
-              {ENTRIES.map((entry, index) => {
+            {/*
+              A rate change is the one event on this site worth being told
+              about rather than checking for, and until now the only way to
+              learn of one was to come back and read this page.
+            */}
+            <Callout tone="info" title="Subscribe instead of checking back">
+              Every entry here is published as a feed:{" "}
+              <SourceLink href="/feed.xml">Atom</SourceLink> for a feed reader,
+              or <SourceLink href="/feed.json">JSON Feed</SourceLink> for
+              anything that would rather not parse XML. Both carry the same
+              entries and the same source links. If you depend on these figures,{" "}
+              <InlineLink href="/api/">the rates API</InlineLink> publishes the
+              current values with their verification date attached.
+            </Callout>
+
+            <ol className="mt-6 flex flex-col gap-4">
+              {changelogEntries.map((entry, index) => {
                 const kind = KIND_LABELS[entry.kind];
                 return (
                   <li

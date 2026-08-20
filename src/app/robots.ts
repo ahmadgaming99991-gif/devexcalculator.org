@@ -18,7 +18,17 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       {
         userAgent: "*",
-        allow: "/",
+        /*
+         * `/api/` is the page documenting the endpoints; everything beneath it
+         * is JSON. The blanket disallow predates that page and blocked it —
+         * indexable, in the sitemap, and forbidden to the crawler that would
+         * fetch it.
+         *
+         * The `$` anchors the allow to the path itself. Both Google and Bing
+         * resolve a conflict by the longer rule, and `/api/$` is longer than
+         * `/api/`, so the page is crawlable and the endpoints stay out.
+         */
+        allow: ["/", "/api/$"],
         disallow: ["/api/"],
       },
     ],

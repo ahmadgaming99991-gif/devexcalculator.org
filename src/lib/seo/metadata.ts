@@ -36,7 +36,22 @@ export function metadataFromRecord(record: RouteRecord): Metadata {
   return {
     title,
     description: record.metaDescription,
-    alternates: { canonical },
+    alternates: {
+      canonical,
+      /*
+       * Advertised on every page, not only the changelog. A feed reader looks
+       * for this on whatever URL it was handed, and the thing worth
+       * subscribing to here — a rate changing — affects every page equally.
+       */
+      types: {
+        "application/atom+xml": [
+          { url: absoluteUrl("/feed.xml"), title: "Rate and data changes" },
+        ],
+        "application/feed+json": [
+          { url: absoluteUrl("/feed.json"), title: "Rate and data changes" },
+        ],
+      },
+    },
     robots: indexable
       ? {
           index: true,

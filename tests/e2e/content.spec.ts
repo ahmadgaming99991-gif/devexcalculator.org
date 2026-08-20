@@ -539,3 +539,69 @@ test.describe("public API", () => {
     expect(body.data.sources.length, "figures without sources are not checkable").toBeGreaterThan(0);
   });
 });
+
+/**
+ * Change feeds.
+ *
+ * The site's proposition is that every figure carries the date it was verified.
+ * A rate change is the event that invalidates a cached figure, and until these
+ * existed the only way to learn of one was to revisit the changelog by hand.
+ */
+test.describe("change feeds", () => {
+  test("publishes the changelog as Atom and as JSON Feed", async ({ request }) => {
+    const atom = await request.get("/feed.xml");
+    expect(atom.status()).toBe(200);
+    expect(atom.headers()["content-type"]).toContain("atom+xml");
+
+    const xml = await atom.text();
+    expect(xml.startsWith("<?xml")).toBe(true);
+    expect(xml).toContain("<feed xmlns=\"http://www.w3.org/2005/Atom\">");
+
+    const json = await request.get("/feed.json");
+    expect(json.status()).toBe(200);
+    const feed = await json.json();
+    expect(feed.version).toContain("jsonfeed.org");
+    expect(feed.items.length).toBeGreaterThan(0);
+  });
+
+  test("carries the same entries in both formats", async ({ request }) => {
+    // One source, two renderings. If these ever diverge, one of them is lying
+    // about what the site changed.
+    const xml = await (await request.get("/feed.xml")).text();
+    const feed = await (await request.get("/feed.json")).json();
+
+    const atomTitles = [...xml.matchAll(/<entry>[\s\S]*?<title>([^<]*)<\/title>/g)].map(
+      (match) => match[1],
+    );
+    const jsonTitles = feed.items.map((item: { title: string }) => item.title);
+
+    expect(atomTitles.length).toBe(jsonTitles.length);
+    expect(new Set(atomTitles)).toEqual(new Set(jsonTitles));
+  });
+
+  test("gives every entry a stable, unique id", async ({ request }) => {
+    // A feed reader shows an item twice if the id moves between fetches.
+    const feed = await (await request.get("/feed.json")).json();
+    const ids = feed.items.map((item: { id: string }) => item.id);
+    expect(new Set(ids).size).toBe(ids.length);
+    for (const id of ids) expect(id).toMatch(/^tag:devexcalculator\.org,\d{4}-\d{2}-\d{2}:/);
+  });
+
+  test("advertises itself on every page, not only the changelog", async ({ page }) => {
+    for (const route of ["/", "/devex-rates/", "/changelog/"]) {
+      await page.goto(route);
+      await expect(
+        page.locator('link[rel="alternate"][type="application/atom+xml"]'),
+        route,
+      ).toHaveCount(1);
+    }
+  });
+
+  test("lets a crawler reach the API page while keeping the endpoints out", async ({ request }) => {
+    const robots = await (await request.get("/robots.txt")).text();
+    // The blanket disallow would otherwise forbid the very page the sitemap
+    // lists. The longer, anchored allow wins for /api/ alone.
+    expect(robots).toContain("Allow: /api/$");
+    expect(robots).toContain("Disallow: /api/");
+  });
+});
