@@ -3,6 +3,7 @@ import { fetchEcbRates, FxProviderError, getFallbackRates } from "@/features/fx/
 import { fxConfig } from "@/config/site";
 import type { FxResponse } from "@/features/fx/types";
 import { requestId } from "@/lib/security/request-id";
+import { corsPreflight, publicApiCors } from "@/lib/api/public-headers";
 
 /**
  * Public reference-rate endpoint.
@@ -29,6 +30,7 @@ export async function GET(): Promise<NextResponse<FxResponse>> {
         // and revalidate in the background for a day afterwards.
         "cache-control": `public, max-age=300, s-maxage=${fxConfig.cacheTtlSeconds}, stale-while-revalidate=86400`,
         "x-request-id": id,
+        ...publicApiCors,
       },
     });
   } catch (error) {
@@ -44,6 +46,7 @@ export async function GET(): Promise<NextResponse<FxResponse>> {
           // Short cache: the provider may recover at any moment.
           "cache-control": "public, max-age=60, s-maxage=300",
           "x-request-id": id,
+          ...publicApiCors,
         },
       });
     } catch {
@@ -57,8 +60,19 @@ export async function GET(): Promise<NextResponse<FxResponse>> {
       };
       return NextResponse.json(body, {
         status: 503,
-        headers: { "cache-control": "no-store", "x-request-id": id },
+        /*
+         * The failure needs the same headers as a success. Without them a
+         * browser reports an opaque CORS error and the caller never sees the
+         * message explaining that the USD calculator still works — the one
+         * thing this response exists to say.
+         */
+        headers: { "cache-control": "no-store", "x-request-id": id, ...publicApiCors },
       });
     }
   }
+}
+
+/** Answers the preflight a browser sends before a cross-origin read. */
+export function OPTIONS(): Response {
+  return corsPreflight();
 }

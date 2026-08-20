@@ -296,7 +296,9 @@ test.describe("crawl infrastructure", () => {
     for (const url of urls) {
       expect(url).toMatch(/^https:\/\/devexcalculator\.org\//);
       expect(url, "sitemap must not contain query states").not.toContain("?");
-      expect(url, "sitemap must not contain API routes").not.toContain("/api/");
+      // `/api/` is the documentation page and belongs here; the endpoints
+      // beneath it are data, are marked noindex, and do not.
+      expect(url, "sitemap must not contain API endpoints").not.toMatch(/\/api\/.+/);
     }
   });
 
@@ -467,5 +469,73 @@ test.describe("structured data", () => {
 
     expect(breadcrumb).toBeDefined();
     expect(breadcrumb?.itemListElement?.[0]?.name).toBe("Home");
+  });
+});
+
+/**
+ * The public endpoints.
+ *
+ * The rate registry has been served as JSON since launch and was, in practice,
+ * unusable: no page mentioned it, it was absent from the sitemap, and it sent no
+ * CORS header, so a browser on any other origin could not read it at all.
+ */
+test.describe("public API", () => {
+  test("documents the endpoints at a findable URL", async ({ page }) => {
+    const response = await page.goto("/api/");
+    expect(response?.status()).toBe(200);
+
+    await expect(page.getByRole("heading", { level: 1 })).toContainText("Rates API");
+    // Canonical is the documented path, not the file the page happens to live in.
+    await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", /\/api\/$/);
+
+    // Both endpoints are linked, so a reader can see the JSON in one click.
+    const links = await page.locator('main a[href*="/api/"]').evaluateAll((nodes) =>
+      nodes.map((node) => (node as HTMLAnchorElement).getAttribute("href") ?? ""),
+    );
+    expect(links.some((href) => href.includes("/api/rates"))).toBe(true);
+    expect(links.some((href) => href.includes("/api/fx/latest"))).toBe(true);
+  });
+
+  test("is reachable from every page rather than only the sitemap", async ({ page }) => {
+    await page.goto("/");
+    await expect(page.locator('footer a[href="/api/"]')).toHaveCount(1);
+  });
+
+  test("lets a browser on another origin read the reference endpoints", async ({ request }) => {
+    for (const path of ["/api/rates/", "/api/fx/latest/"]) {
+      const response = await request.get(path, { headers: { origin: "https://example.com" } });
+      expect(response.status(), path).toBe(200);
+      expect(response.headers()["access-control-allow-origin"], path).toBe("*");
+    }
+  });
+
+  test("answers the preflight a cross-origin call sends first", async ({ request }) => {
+    const response = await request.fetch("/api/rates/", {
+      method: "OPTIONS",
+      headers: { origin: "https://example.com", "access-control-request-method": "GET" },
+    });
+    expect(response.status()).toBe(204);
+    expect(response.headers()["access-control-allow-methods"]).toContain("GET");
+  });
+
+  test("does not open the submission endpoint to other origins", async ({ request }) => {
+    // Contact accepts input and is origin-checked on purpose; health is
+    // operator infrastructure. Neither is reference data, so neither gets CORS.
+    for (const path of ["/api/contact/", "/api/health/"]) {
+      const response = await request.get(path, { headers: { origin: "https://example.com" } });
+      expect(response.headers()["access-control-allow-origin"], path).toBeUndefined();
+    }
+  });
+
+  test("publishes a version and a verification date with the rates", async ({ request }) => {
+    const body = await (await request.get("/api/rates/")).json();
+    // The two fields that make a cached copy checkable rather than a guess.
+    expect(typeof body.data.registryVersion).toBe("string");
+    expect(Date.parse(body.data.lastVerifiedAt)).not.toBeNaN();
+    expect(body.data.rates.length).toBeGreaterThan(0);
+    for (const rate of body.data.rates) {
+      expect(rate.id, "every rate needs an id callers can pin to").toBeTruthy();
+    }
+    expect(body.data.sources.length, "figures without sources are not checkable").toBeGreaterThan(0);
   });
 });

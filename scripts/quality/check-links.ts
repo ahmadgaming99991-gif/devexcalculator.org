@@ -20,6 +20,15 @@ const warn = (message: string) => warnings.push(message);
 
 /** Paths that legitimately live outside the crawlable page set. */
 const NON_PAGE_PREFIXES = ["/api/", "/_next/", "/icons/", "/images/"];
+
+/**
+ * Paths that a prefix rule would exclude but which are real, indexable pages.
+ *
+ * `/api/` itself documents the endpoints beneath it. The prefix rule predates
+ * that page and skipped it along with the route handlers, which reported it as
+ * an orphan no matter how many pages linked to it.
+ */
+const PAGES_UNDER_NON_PAGE_PREFIXES = new Set(["/api/"]);
 const NON_PAGE_EXACT = new Set([
   "/robots.txt",
   "/sitemap.xml",
@@ -78,7 +87,12 @@ async function main(): Promise<void> {
         const target = href.split("#")[0]?.split("?")[0] ?? "";
         if (target === "") continue;
         if (NON_PAGE_EXACT.has(target)) continue;
-        if (NON_PAGE_PREFIXES.some((prefix) => target.startsWith(prefix))) continue;
+        if (
+          !PAGES_UNDER_NON_PAGE_PREFIXES.has(target) &&
+          NON_PAGE_PREFIXES.some((prefix) => target.startsWith(prefix))
+        ) {
+          continue;
+        }
 
         // Internal links must not be nofollowed.
         const linkTag = html.match(

@@ -152,6 +152,21 @@ ${history.slice(0, 200)}`).not.toBeNull();
     await other.click();
     await page.waitForLoadState("load");
 
+    /*
+     * These tests run against the live Roblox endpoints, so the second load can
+     * legitimately land on an outage — the tabs come from that response and are
+     * absent when it fails. The assertion here is about navigation, not about
+     * Roblox's uptime, so a stated outage ends the test rather than failing it.
+     * Without this the run was intermittently red for a reason the site did not
+     * cause and could not fix.
+     */
+    const tabsAfter = page.locator('nav[aria-label="Roblox rankings"] a');
+    if ((await tabsAfter.count()) === 0) {
+      await expect(page.locator("#live")).toContainText(/unavailable right now|returned no experiences/i);
+      await context.close();
+      return;
+    }
+
     await expect(page.locator('nav[aria-label="Roblox rankings"] [aria-current]')).toHaveText(
       label,
     );

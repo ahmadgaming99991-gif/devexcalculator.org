@@ -1169,6 +1169,7 @@ const staticRoutes: readonly RouteRecord[] = [
     ],
     faqs: [],
     internalLinks: [
+      { route: "/api/", anchor: "the same registry as JSON", relationship: "next-step" },
       { route: "/sources/", anchor: "the source registry", relationship: "sibling" },
       { route: "/", anchor: "the calculator these formulas drive", relationship: "parent" },
       { route: "/corrections/", anchor: "how to report an error", relationship: "next-step" },
@@ -1207,6 +1208,7 @@ const staticRoutes: readonly RouteRecord[] = [
     ],
     faqs: [],
     internalLinks: [
+      { route: "/api/", anchor: "read these sources as JSON", relationship: "sibling" },
       { route: "/methodology/", anchor: "how the figures are calculated", relationship: "sibling" },
       { route: "/devex-rates/", anchor: "the rates these sources support", relationship: "next-step" },
       { route: "/corrections/", anchor: "report an out-of-date figure", relationship: "next-step" },
@@ -1291,6 +1293,47 @@ const staticRoutes: readonly RouteRecord[] = [
     inPrimaryNav: false,
     rateSensitive: false,
     ogImageAlt: "Corrections policy: how errors are reported and fixed.",
+  },
+  // -------------------------------------------------------------------------
+  // Public API
+  // -------------------------------------------------------------------------
+  {
+    route: "/api/",
+    status: "published",
+    indexation: "index",
+    pageType: "trust",
+    title: "Rates API: The DevEx Registry as JSON",
+    metaDescription:
+      "A free, versioned JSON endpoint for the current DevEx rates, the minimum and the marketplace fee, each with the source it was verified against.",
+    h1: "Rates API",
+    navLabel: "API",
+    primaryIntent: "informational-definition",
+    primaryKeyword: "devex rates api",
+    secondaryKeywords: ["roblox devex api", "robux rate json", "devex rate endpoint"],
+    entities: ["Developer Exchange Program", "standard rate", "legacy rate", "USD"],
+    sourceIds: ["roblox-devex-program"],
+    lastReviewedAt: REVIEWED,
+    dateModified: REVIEWED,
+    quickAnswer:
+      "The same rate registry this site calculates from is published as JSON at /api/rates, with the source and verification date attached to every figure. It needs no key, sets no cookie and may be called from a browser on any origin. If you are building your own calculator, read it rather than copying a number that will go out of date.",
+    sections: [
+      { id: "rates", heading: "GET /api/rates" },
+      { id: "fx", heading: "GET /api/fx/latest" },
+      { id: "using", heading: "Using it" },
+      { id: "terms", heading: "What is promised, and what is not" },
+    ],
+    faqs: [],
+    internalLinks: [
+      { route: "/methodology/", anchor: "how these figures are produced", relationship: "next-step" },
+      { route: "/sources/", anchor: "the source registry", relationship: "sibling" },
+      { route: "/changelog/", anchor: "when the data last changed", relationship: "sibling" },
+      { route: "/about/", anchor: "what this site is for", relationship: "parent" },
+    ],
+    schemaTypes: ["WebPage", "BreadcrumbList"],
+    parent: "/about/",
+    inPrimaryNav: false,
+    rateSensitive: true,
+    ogImageAlt: "Rates API: the DevEx rate registry published as JSON with its sources.",
   },
   {
     route: "/changelog/",

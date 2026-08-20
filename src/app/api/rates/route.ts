@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { rateRegistry, sources } from "@/lib/calculations/rate-registry";
+import { corsPreflight, publicApiCors } from "@/lib/api/public-headers";
 
 /**
  * Public rate registry.
@@ -38,8 +39,15 @@ export async function GET(): Promise<NextResponse> {
     {
       headers: {
         "cache-control": "public, max-age=3600, s-maxage=86400, stale-while-revalidate=86400",
+        // Not indexed as a page; it is data, and /api/ is the page about it.
         "x-robots-tag": "noindex",
+        ...publicApiCors,
       },
     },
   );
+}
+
+/** Answers the preflight a browser sends before a cross-origin read. */
+export function OPTIONS(): Response {
+  return corsPreflight();
 }

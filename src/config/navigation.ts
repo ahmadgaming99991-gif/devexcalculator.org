@@ -66,6 +66,9 @@ export const footerNavigation: readonly {
       item("/editorial-policy/", "Editorial policy"),
       item("/corrections/", "Corrections"),
       item("/changelog/", "Changelog"),
+      // The raw registry sits under Trust rather than beside the calculators:
+      // its point is that the figures can be checked, not that it is a tool.
+      item("/api/", "Rates API"),
     ],
   },
   {
