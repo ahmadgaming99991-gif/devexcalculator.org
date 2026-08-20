@@ -1,4 +1,33 @@
+import { execFileSync } from "node:child_process";
 import type { NextConfig } from "next";
+
+/**
+ * Which commit is being built.
+ *
+ * The health endpoint has always had a `commit` field and it has always been
+ * null, because nothing set the variable it read. Deployments were therefore
+ * unidentifiable: nothing served by the Worker said which source it came from.
+ *
+ * CI's own variable is preferred where there is one, and a local deploy falls
+ * back to asking git. `execFileSync` rather than `execSync` so there is no
+ * shell to quote into, and a failure is swallowed — a build from a source
+ * archive with no `.git` is a legitimate build, and it should produce a null
+ * commit rather than no site.
+ */
+function resolveCommit(): string | undefined {
+  const fromEnv =
+    process.env.BUILD_COMMIT ?? process.env.GITHUB_SHA ?? process.env.CF_PAGES_COMMIT_SHA;
+  if (fromEnv?.trim()) return fromEnv.trim();
+
+  try {
+    return execFileSync("git", ["rev-parse", "HEAD"], {
+      encoding: "utf8",
+      stdio: ["ignore", "pipe", "ignore"],
+    }).trim();
+  } catch {
+    return undefined;
+  }
+}
 
 /**
  * Security headers.
@@ -95,8 +124,25 @@ const SECURITY_HEADERS = [
   { key: "Strict-Transport-Security", value: "max-age=31536000; includeSubDomains; preload" },
 ];
 
+/** Resolved once: this runs a subprocess, and the config is evaluated per build. */
+const BUILD_COMMIT = resolveCommit();
+
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+
+  /*
+   * Build provenance, inlined at build time.
+   *
+   * Not named `NEXT_PUBLIC_*` on purpose. Only `src/lib/build-info.ts` reads
+   * them and only the health endpoint imports that, so these values reach the
+   * server bundle and never the browser's — which is what keeps a timestamp
+   * that changes every build from rewriting the hash of an unchanged client
+   * chunk.
+   */
+  env: {
+    ...(BUILD_COMMIT ? { BUILD_COMMIT } : {}),
+    BUILD_TIME: new Date().toISOString(),
+  },
 
   // Canonical URL policy: every route is served with a trailing slash
   // (see docs/seo/indexation-policy.md). Next.js issues a single 308 from the

@@ -61,11 +61,12 @@ export const siteConfig = {
     youtube: null as string | null,
   },
 
-  /** Build metadata, populated by CI when available. */
-  version: {
-    commit: readEnv("NEXT_PUBLIC_COMMIT_SHA"),
-    buildTime: readEnv("NEXT_PUBLIC_BUILD_TIME"),
-  },
+  /*
+   * Build metadata used to live here and is now in `src/lib/build-info.ts`.
+   * Everything in this object is inlined into the browser bundle, and a value
+   * that changes on every build would expire every visitor's cached JavaScript
+   * for a chunk whose code had not changed.
+   */
 
   /** Rate registry version surfaced in the footer and methodology page. */
   rateRegistryVersion: "2026-08-17.1",

@@ -349,9 +349,30 @@ test.describe("crawl infrastructure", () => {
     expect(health.status()).toBe(200);
     expect(health.headers()["x-robots-tag"]).toContain("noindex");
 
-    const body = (await health.json()) as { ok: boolean; rateRegistry: { activeRates: number } };
+    const body = (await health.json()) as {
+      ok: boolean;
+      status: string;
+      rateRegistry: { activeRates: number };
+      collector: { state: string };
+      build: { commit: string | null; builtAt: string | null };
+    };
     expect(body.ok).toBe(true);
     expect(body.rateRegistry.activeRates).toBeGreaterThan(0);
+
+    // The status code is derived from these rather than hardcoded, so the body
+    // has to agree with the 200 above.
+    expect(["fresh", "stale", "unknown"]).toContain(body.status);
+
+    // No KV binding outside the Worker, so nothing is claimed about the
+    // collector here — but the field has to exist, because an operator reading
+    // this endpoint in production is reading it for exactly that field.
+    expect(body.collector.state).toBe("unknown");
+
+    // Build provenance was a permanently-null field until the config filled it
+    // in. A build that cannot say which commit it came from is one nobody can
+    // verify is serving.
+    expect(body.build.builtAt).not.toBeNull();
+    expect(body.build.commit).toMatch(/^[0-9a-f]{40}$/);
 
     const rates = await request.get("/api/rates/");
     expect(rates.status()).toBe(200);

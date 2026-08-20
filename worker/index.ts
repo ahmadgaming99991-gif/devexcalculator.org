@@ -6,6 +6,7 @@ import {
   toSnapshot,
   type HistoryStore,
 } from "../src/lib/platform/history";
+import { recordHeartbeat, type RunReport } from "../src/lib/platform/heartbeat";
 
 /**
  * The deployed Worker.
@@ -68,12 +69,18 @@ const handler = {
 export default handler;
 
 /**
- * One collection run.
+ * One collection run, plus the record that it happened.
  *
- * A failure is logged and swallowed. A cron that throws is retried and can
- * amplify an upstream outage into a burst of requests, and a missing snapshot
- * is a gap in a chart rather than a broken site — the series is drawn from
- * whatever was actually recorded.
+ * A failure is still logged and swallowed. A cron that throws is retried and
+ * can amplify an upstream outage into a burst of requests, and a missing
+ * snapshot is a gap in a chart rather than a broken site — the series is drawn
+ * from whatever was actually recorded.
+ *
+ * What is new is that the swallowing now leaves a trace. Every run writes a
+ * heartbeat whatever its outcome, so a collector that has quietly stopped can
+ * be told apart from a platform that is quietly idle. `/api/health/` reads it
+ * and fails its status code once the newest observation is old enough to
+ * matter; without this, that endpoint had nothing to fail on.
  */
 async function collect(env: Env): Promise<void> {
   const store = env.PLATFORM_HISTORY;
@@ -82,11 +89,41 @@ async function collect(env: Env): Promise<void> {
     return;
   }
 
+  const report = await runCollection(store);
+
+  /*
+   * Written last and guarded separately. The heartbeat is a report about the
+   * run, so a failure to write it must not be able to change what the run did
+   * — and it must not be able to take down a run that otherwise succeeded.
+   */
+  try {
+    const heartbeat = await recordHeartbeat(store, report);
+    console.warn(
+      `Heartbeat: ${heartbeat.outcome}` +
+        (heartbeat.consecutiveFailures > 0
+          ? `, ${heartbeat.consecutiveFailures} consecutive run(s) without a recorded observation.`
+          : "."),
+    );
+  } catch (error) {
+    console.error("Heartbeat failed to write:", error);
+  }
+}
+
+/**
+ * Fetches and stores one observation, and says what became of it.
+ *
+ * Returns a report rather than throwing so that every path — upstream refusing,
+ * a write failing, a clean run — produces something the heartbeat can record.
+ * An early `return` here used to mean no evidence the run ever happened.
+ */
+async function runCollection(store: HistoryStore): Promise<RunReport> {
   const result = await fetchForCollection();
   if (!result.ok) {
     console.warn(`Collection skipped: ${result.reason}`);
-    return;
+    return { outcome: "skipped", detail: result.reason };
   }
+
+  let report: RunReport;
 
   try {
     const snapshot = toSnapshot(
@@ -101,8 +138,20 @@ async function collect(env: Env): Promise<void> {
       `Recorded ${snapshot.experiences.length} experiences, ` +
         `${snapshot.totalPlaying} players, ${retained} snapshots retained.`,
     );
+    report = {
+      outcome: "recorded",
+      // The upstream observation instant, not the Worker's clock: the age
+      // reported by the health check is the age of the data, not of the run.
+      observedAt: result.observedAt,
+      experiences: result.data.platform.experiences,
+      players: result.data.platform.players,
+    };
   } catch (error) {
     console.error("Collection failed to write:", error);
+    report = {
+      outcome: "failed",
+      detail: error instanceof Error ? error.message : "Snapshot write failed.",
+    };
   }
 
   /*
@@ -125,4 +174,6 @@ async function collect(env: Env): Promise<void> {
   } catch (error) {
     console.error("Per-experience history failed to write:", error);
   }
+
+  return report;
 }

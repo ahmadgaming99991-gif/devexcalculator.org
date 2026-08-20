@@ -56,8 +56,8 @@ import {
   type ChartWindow,
   type GameHistory,
   type HistorySeries,
-  type HistoryStore,
 } from "@/lib/platform/history";
+import { getHistoryStore } from "@/lib/platform/store";
 
 const ROUTE = "/platform/";
 
@@ -1056,24 +1056,6 @@ async function ObservedHistory({
       </p>
     </div>
   );
-}
-
-/**
- * The KV binding, when there is one.
- *
- * Reached through the adapter's context rather than a global, and returns null
- * anywhere it is absent — local `next dev`, `next start`, and the build — so
- * the page renders a stated absence instead of throwing.
- */
-async function getHistoryStore(): Promise<HistoryStore | null> {
-  try {
-    const { getCloudflareContext } = await import("@opennextjs/cloudflare");
-    const context = await getCloudflareContext({ async: true });
-    const binding = (context.env as Record<string, unknown>).PLATFORM_HISTORY;
-    return binding ? (binding as HistoryStore) : null;
-  } catch {
-    return null;
-  }
 }
 
 function Stat({ label, value, note }: { label: string; value: string; note?: string }) {
