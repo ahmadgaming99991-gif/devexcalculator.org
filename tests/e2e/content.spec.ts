@@ -666,3 +666,70 @@ test.describe("group split", () => {
     expect(report.overflow, describeOverflow("The cash-out page", report)).toBeLessThanOrEqual(0);
   });
 });
+
+/**
+ * Preparation checklist.
+ *
+ * The steps are done days apart — a tax form, an email verification, a balance
+ * that has to grow — so the list holds a place. The line it must not cross is
+ * the one the whole site rests on: prepared is not eligible, and not approved.
+ */
+test.describe("preparation checklist", () => {
+  const count = (page: import("@playwright/test").Page) =>
+    page.locator("#checklist").getByText(/^\d+ of \d+ prepared$/);
+
+  test("keeps progress across a reload, in the browser only", async ({ page }) => {
+    await page.goto("/devex-requirements/#checklist");
+    await expect(count(page)).toHaveText("0 of 6 prepared");
+
+    const boxes = page.locator('#checklist input[type="checkbox"]');
+    await boxes.nth(0).check();
+    await boxes.nth(2).check();
+    await expect(count(page)).toHaveText("2 of 6 prepared");
+
+    await page.reload();
+    await expect(count(page)).toHaveText("2 of 6 prepared");
+    await expect(page.locator('#checklist [role="meter"]')).toHaveAttribute("aria-valuenow", "2");
+
+    await page.getByRole("button", { name: "Clear" }).click();
+    await expect(count(page)).toHaveText("0 of 6 prepared");
+  });
+
+  test("never tells anyone they are eligible, however many boxes are ticked", async ({ page }) => {
+    await page.goto("/devex-requirements/#checklist");
+    const boxes = page.locator('#checklist input[type="checkbox"]');
+    const total = await boxes.count();
+    for (let i = 0; i < total; i += 1) await boxes.nth(i).check();
+
+    await expect(count(page)).toHaveText(`${total} of ${total} prepared`);
+
+    // Completing preparation is exactly that, and the page says so.
+    await expect(page.getByText("Prepared is not approved")).toBeVisible();
+    await expect(page.locator("#checklist")).toContainText(/It does not mean a request will be accepted/i);
+
+    const body = (await page.locator("body").innerText()).toLowerCase();
+    expect(body).not.toContain("you are eligible");
+    expect(body).not.toContain("you qualify");
+  });
+
+  test("still lists every step without JavaScript", async ({ browser }) => {
+    const context = await browser.newContext({ javaScriptEnabled: false });
+    const page = await context.newPage();
+    await page.goto("/devex-requirements/");
+
+    // The ticking is a convenience; the content is the point and must survive.
+    const text = await page.locator("#checklist").innerText();
+    expect(text).toMatch(/W-9/);
+    expect(text).toMatch(/Earned Robux/);
+    expect(text).toMatch(/good standing/);
+    await context.close();
+  });
+
+  test("labels its progress for assistive technology", async ({ page }) => {
+    await page.goto("/devex-requirements/#checklist");
+    const meter = page.locator('#checklist [role="meter"]');
+    await expect(meter).toHaveAttribute("aria-valuemin", "0");
+    await expect(meter).toHaveAttribute("aria-valuemax", "6");
+    await expect(meter).toHaveAttribute("aria-label", /preparation steps done/);
+  });
+});

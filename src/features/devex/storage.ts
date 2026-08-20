@@ -11,6 +11,7 @@
  */
 
 const PREFERENCES_KEY = "devex:preferences";
+const CHECKLIST_KEY = "devex:checklist";
 const HISTORY_KEY = "devex:history";
 const MAX_HISTORY_ENTRIES = 10;
 
@@ -117,4 +118,24 @@ export function isStorageAvailable(): boolean {
   } catch {
     return false;
   }
+}
+
+/**
+ * Which preparation steps the reader has ticked.
+ *
+ * Stored as a list of step ids rather than an array of booleans, so reordering
+ * or removing a step cannot silently shift someone's ticks onto the wrong ones.
+ *
+ * This records preparation and nothing else. It is not a claim that anybody is
+ * eligible, and no part of the site reads it as one — Roblox decides that, and
+ * a checkbox in a browser has no standing in the matter.
+ */
+export function loadChecklist(): string[] {
+  const stored = readJson<unknown>(CHECKLIST_KEY, []);
+  if (!Array.isArray(stored)) return [];
+  return stored.filter((entry): entry is string => typeof entry === "string");
+}
+
+export function saveChecklist(stepIds: readonly string[]): void {
+  writeJson(CHECKLIST_KEY, [...stepIds]);
 }

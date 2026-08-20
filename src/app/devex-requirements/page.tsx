@@ -18,6 +18,7 @@ import { minimumEarnedRobux, getRateValue } from "@/lib/calculations/rate-regist
 import { standardRateId } from "@/lib/calculations/devex";
 import { Rational } from "@/lib/calculations/rational";
 import { formatCurrency, formatRobux } from "@/lib/calculations/format";
+import { PreparationChecklist } from "@/features/devex/preparation-checklist";
 
 const ROUTE = "/devex-requirements/";
 
@@ -117,32 +118,41 @@ export default function DevexRequirementsPage() {
           <Section
             id="checklist"
             heading="Preparation checklist"
-            description="Getting these in place before you apply avoids the obvious delays."
+            description="Getting these in place before you apply avoids the obvious delays. Tick them off as you go — these steps are usually done days apart, and progress is kept in your own browser."
           >
-            <ol className="flex list-decimal flex-col gap-3 pl-5 text-(--color-text-muted)">
-              <li>
-                Confirm your balance is genuinely Earned Robux and has reached{" "}
-                {formatRobux(minimumEarnedRobux)}.
-              </li>
-              <li>Verify the email address on your Roblox account.</li>
-              <li>Create and confirm access to your DevEx portal account.</li>
-              <li>
-                Complete the correct tax form — W-9 if you are a United States
-                taxpayer, W-8 otherwise.
-              </li>
-              <li>
-                Check your account is in good standing against the Terms of Use
-                and Community Standards.
-              </li>
-              <li>
-                Decide where the money is going, and check what your bank or
-                payment provider will charge to receive it.{" "}
-                <InlineLink href="/devex-fees-and-taxes/">
-                  Fees and taxes explained
-                </InlineLink>
-                .
-              </li>
-            </ol>
+            <noscript>
+              {/*
+                The list without scripting. Identical wording to the interactive
+                version, because the content is the point and the ticking is a
+                convenience on top of it.
+              */}
+              <ol className="flex list-decimal flex-col gap-3 pl-5 text-(--color-text-muted)">
+                <li>
+                  Confirm your balance is genuinely Earned Robux and has reached{" "}
+                  {formatRobux(minimumEarnedRobux)}.
+                </li>
+                <li>Verify the email address on your Roblox account.</li>
+                <li>Create and confirm access to your DevEx portal account.</li>
+                <li>
+                  Complete the correct tax form — W-9 if you are a United States
+                  taxpayer, W-8 otherwise.
+                </li>
+                <li>
+                  Check your account is in good standing against the Terms of Use
+                  and Community Standards.
+                </li>
+                <li>
+                  Decide where the money is going, and check what your bank or
+                  payment provider will charge to receive it.{" "}
+                  <InlineLink href="/devex-fees-and-taxes/">
+                    Fees and taxes explained
+                  </InlineLink>
+                  .
+                </li>
+              </ol>
+            </noscript>
+
+            <PreparationChecklist />
           </Section>
 
           <Section
