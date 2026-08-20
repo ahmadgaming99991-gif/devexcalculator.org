@@ -121,18 +121,6 @@ const nextConfig: NextConfig = {
     return [{ source: "/:path*", headers: SECURITY_HEADERS }];
   },
 
-  /*
-   * `/api/` is documentation; `/api/rates` and the rest are route handlers.
-   *
-   * A `page.tsx` inside `src/app/api/` would sit among them and read as one, so
-   * the page lives at `src/app/api-docs/` and is served here. The rewrite is
-   * one-way and invisible: `/api-docs/` is not a second URL for the same page,
-   * because the canonical the page emits is `/api/`.
-   */
-  async rewrites() {
-    return [{ source: "/api", destination: "/api-docs" }, { source: "/api/", destination: "/api-docs" }];
-  },
-
   async redirects() {
     const fromWww = [{ type: "host", value: "www.devexcalculator.org" }] as const;
 

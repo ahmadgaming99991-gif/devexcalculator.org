@@ -24,9 +24,12 @@ export const metadata: Metadata = buildMetadata(ROUTE);
  * the promises about it — no key, no cookie, versioned, sourced — are written
  * down somewhere a caller can hold the site to.
  *
- * The route is `/api/` and the file is `api-docs` because `/api` is already a
- * directory of route handlers; a `page.tsx` beside them would be ambiguous at
- * best. A rewrite in `next.config.ts` maps one to the other.
+ * It lives at `src/app/api/page.tsx`, beside the route handlers it documents.
+ * A rewrite from a separate `api-docs` directory read more tidily and cost a
+ * full Worker render on every request: the prerendered file sat at the other
+ * path, so nothing could serve `/api/` from static assets. A page segment and a
+ * route segment only collide when they are the same folder, which these are
+ * not.
  */
 export default function ApiPage() {
   const record = requireRoute(ROUTE);

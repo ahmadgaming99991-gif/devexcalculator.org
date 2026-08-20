@@ -1,8 +1,8 @@
 {
   "datasetExportedAt": "2026-08-17T14:15:54Z",
   "datasetDigest": "10BA8579C2157BE1CD28874F99E9F448",
-  "edgeCount": 154,
-  "nodeCount": 35,
+  "edgeCount": 160,
+  "nodeCount": 36,
   "orphans": [],
   "brokenTargets": [],
   "overusedAnchors": [],
@@ -23,12 +23,13 @@
     "/calculators/": 3,
     "/guides/": 1,
     "/conversions/": 10,
-    "/about/": 4,
-    "/methodology/": 5,
-    "/sources/": 8,
+    "/about/": 5,
+    "/methodology/": 6,
+    "/sources/": 9,
     "/editorial-policy/": 2,
     "/corrections/": 5,
-    "/changelog/": 2,
+    "/api/": 2,
+    "/changelog/": 3,
     "/contact/": 3,
     "/privacy/": 2,
     "/terms/": 2,
@@ -520,6 +521,12 @@
     },
     {
       "from": "/methodology/",
+      "to": "/api/",
+      "anchor": "the same registry as JSON",
+      "relationship": "next-step"
+    },
+    {
+      "from": "/methodology/",
       "to": "/sources/",
       "anchor": "the source registry",
       "relationship": "sibling"
@@ -541,6 +548,12 @@
       "to": "/devex-rates/",
       "anchor": "the rates used",
       "relationship": "prerequisite"
+    },
+    {
+      "from": "/sources/",
+      "to": "/api/",
+      "anchor": "read these sources as JSON",
+      "relationship": "sibling"
     },
     {
       "from": "/sources/",
@@ -604,6 +617,30 @@
     },
     {
       "from": "/corrections/",
+      "to": "/about/",
+      "anchor": "what this site is for",
+      "relationship": "parent"
+    },
+    {
+      "from": "/api/",
+      "to": "/methodology/",
+      "anchor": "how these figures are produced",
+      "relationship": "next-step"
+    },
+    {
+      "from": "/api/",
+      "to": "/sources/",
+      "anchor": "where each figure was verified",
+      "relationship": "sibling"
+    },
+    {
+      "from": "/api/",
+      "to": "/changelog/",
+      "anchor": "when the data last changed",
+      "relationship": "sibling"
+    },
+    {
+      "from": "/api/",
       "to": "/about/",
       "anchor": "what this site is for",
       "relationship": "parent"

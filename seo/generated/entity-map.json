@@ -59,6 +59,7 @@
         "/about/",
         "/methodology/",
         "/sources/",
+        "/api/",
         "/changelog/",
         "/disclaimer/",
         "/conversions/30000-robux-to-usd/",
@@ -176,7 +177,8 @@
       ],
       "keywordCount": 0,
       "routes": [
-        "/devex-rate-history/"
+        "/devex-rate-history/",
+        "/api/"
       ],
       "relationship": "0.0038 USD per eligible Earned Robux, effective 5 September 2025 at 10:00 PT."
     },
@@ -191,7 +193,8 @@
       ],
       "keywordCount": 0,
       "routes": [
-        "/devex-rate-history/"
+        "/devex-rate-history/",
+        "/api/"
       ],
       "relationship": "0.0035 USD per Earned Robux, applied to balances earned before the September 2025 transition."
     },
@@ -227,6 +230,7 @@
         "/devex-fees-and-taxes/",
         "/conversions/",
         "/methodology/",
+        "/api/",
         "/conversions/30000-robux-to-usd/",
         "/conversions/50000-robux-to-usd/",
         "/conversions/100000-robux-to-usd/",

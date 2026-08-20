@@ -1325,7 +1325,7 @@ const staticRoutes: readonly RouteRecord[] = [
     faqs: [],
     internalLinks: [
       { route: "/methodology/", anchor: "how these figures are produced", relationship: "next-step" },
-      { route: "/sources/", anchor: "the source registry", relationship: "sibling" },
+      { route: "/sources/", anchor: "where each figure was verified", relationship: "sibling" },
       { route: "/changelog/", anchor: "when the data last changed", relationship: "sibling" },
       { route: "/about/", anchor: "what this site is for", relationship: "parent" },
     ],

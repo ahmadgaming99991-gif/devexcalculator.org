@@ -1,8 +1,8 @@
 {
   "datasetExportedAt": "2026-08-17T14:15:54Z",
   "datasetDigest": "10BA8579C2157BE1CD28874F99E9F448",
-  "total": 35,
-  "eligibleForSitemap": 35,
+  "total": 36,
+  "eligibleForSitemap": 36,
   "blocked": 0,
   "entries": [
     {
@@ -423,6 +423,23 @@
       "quickWinScore": 0,
       "uniqueUtilityRequirement": "Documents how the site works so a reader can judge whether to rely on it.",
       "sourceRequirement": "No time-sensitive claims; source citation optional.",
+      "contentReady": true,
+      "toolReady": true,
+      "internalLinksReady": true,
+      "schemaReady": true,
+      "indexationState": "index",
+      "manualApproval": "approved",
+      "blockers": [],
+      "eligibleForSitemap": true
+    },
+    {
+      "route": "/api/",
+      "pageType": "trust",
+      "canonicalOwnerKeywords": [],
+      "strategicPriorityScore": 0,
+      "quickWinScore": 0,
+      "uniqueUtilityRequirement": "Documents how the site works so a reader can judge whether to rely on it.",
+      "sourceRequirement": "Must cite an official source and display a last-verified date.",
       "contentReady": true,
       "toolReady": true,
       "internalLinksReady": true,
