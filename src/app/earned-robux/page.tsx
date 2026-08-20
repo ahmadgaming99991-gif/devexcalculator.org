@@ -14,6 +14,9 @@ import {
   SourceNote,
   TableOfContents,
 } from "@/components/content";
+import { EligibilityGate } from "@/components/diagrams";
+import { formatRobux } from "@/lib/calculations/format";
+import { minimumEarnedRobux } from "@/lib/calculations/rate-registry";
 
 const ROUTE = "/earned-robux/";
 
@@ -64,6 +67,44 @@ export default function EarnedRobuxPage() {
               where each part of it came from, and that internal accounting is
               what determines eligibility.
             </DefinitionBlock>
+
+            {/*
+              Categories rather than the QUALIFYING and NOT_QUALIFYING arrays
+              themselves. Those are printed in full two sections below, and
+              repeating them here would make the page say the same ten things
+              twice — the diagram exists to show that there is a sorting step at
+              all, which the two separate lists never quite do.
+            */}
+            <EligibilityGate
+              className="mt-6"
+              caption="A summary of the sorting. The full lists, and what Roblox says about each route, are in the two sections below."
+              accepted={{
+                heading: "Becomes Earned Robux",
+                items: [
+                  "Players buying passes and developer products in your experience",
+                  "Your share of private server and experience subscriptions",
+                  "Your creator share of avatar items you made",
+                ],
+              }}
+              rejected={{
+                heading: "Stays in the balance, but never qualifies",
+                items: [
+                  "Robux you bought yourself, at any price",
+                  "Gift cards and promotional codes",
+                  "Monthly membership grants",
+                  "Robux received in a trade",
+                ],
+              }}
+              outcome={
+                <>
+                  Only the left-hand side becomes{" "}
+                  <strong className="font-semibold">eligible Earned Robux</strong> — the
+                  balance DevEx converts, and the only balance that counts toward the{" "}
+                  {formatRobux(minimumEarnedRobux)} minimum. Roblox makes the final
+                  determination for any specific balance.
+                </>
+              }
+            />
 
             <Callout tone="info" title="Why your balance and your Earned Robux differ" className="mt-4">
               If you have ever bought Robux, received them from a membership, or

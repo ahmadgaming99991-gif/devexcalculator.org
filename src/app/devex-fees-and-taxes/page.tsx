@@ -16,6 +16,8 @@ import {
   SourceNote,
   TableOfContents,
 } from "@/components/content";
+import { ShareSplit, ValueFlow } from "@/components/diagrams";
+import { getMarketplaceScheme } from "@/lib/calculations/rate-registry";
 
 const ROUTE = "/devex-fees-and-taxes/";
 
@@ -28,6 +30,9 @@ export default async function FeesAndTaxesPage({
 }) {
   const record = requireRoute(ROUTE);
   const initialState = parseCalculatorState(await searchParams);
+  // Read rather than written into the diagram: the split is a published figure
+  // and belongs in the registry with the rest of them.
+  const inExperience = getMarketplaceScheme("in-experience");
 
   return (
     <>
@@ -59,6 +64,47 @@ export default async function FeesAndTaxesPage({
             heading="Three separate deductions"
             description="They apply in sequence, and confusing them is how creators end up with a number that is badly wrong."
           >
+            <ValueFlow
+              className="mb-6"
+              caption="Each stage is a different party taking a different kind of cut, in this order. Roblox sets none of them, and this site publishes a figure for none of them."
+              stages={[
+                {
+                  label: "DevEx payout",
+                  detail:
+                    "What the documented rate produces from your eligible Earned Robux. This is the figure the calculator estimates.",
+                  by: "Roblox",
+                  tone: "primary",
+                },
+                {
+                  label: "Payment-provider fee",
+                  detail:
+                    "Often a percentage plus a fixed amount, charged for delivering the money.",
+                  by: "your payment provider",
+                  tone: "warning",
+                },
+                {
+                  label: "Currency conversion",
+                  detail:
+                    "Applied only if you are paid in something other than US dollars, at their rate plus a margin.",
+                  by: "whoever converts it",
+                  tone: "warning",
+                },
+                {
+                  label: "Income tax",
+                  detail:
+                    "A payout is income. What applies, and when, depends on your country and your circumstances.",
+                  by: "your tax authority",
+                  tone: "warning",
+                },
+                {
+                  label: "What reaches you",
+                  detail:
+                    "Lower than the estimate above, by an amount only your own provider and tax position can tell you.",
+                  tone: "success",
+                },
+              ]}
+            />
+
             <div className="flex flex-col gap-3">
               <DefinitionBlock term="1. Payment-provider fees">
                 Whatever service delivers the money may charge for doing so —
@@ -149,6 +195,26 @@ export default async function FeesAndTaxesPage({
             heading="Not to be confused with the marketplace fee"
             description="The 30% platform commission is a different thing at a different point in time."
           >
+            <ShareSplit
+              className="mb-4"
+              total="100 Robux spent by a player inside your experience"
+              caption="The split happens when the player spends, long before DevEx is involved. Percentages come from the rate registry, not from this drawing."
+              parts={[
+                {
+                  label: "to you, as Earned Robux",
+                  percent: inExperience.creatorSharePercent,
+                  tone: "success",
+                  note: "This is the balance DevEx later converts.",
+                },
+                {
+                  label: "platform commission",
+                  percent: inExperience.platformSharePercent,
+                  tone: "neutral",
+                  note: "Taken once, here — not again at cash-out.",
+                },
+              ]}
+            />
+
             <p className="text-(--color-text-muted)">
               Roblox takes 30% when a player spends Robux in your experience —
               you receive 70%, and that 70% is what becomes Earned Robux. DevEx

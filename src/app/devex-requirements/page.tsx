@@ -13,6 +13,7 @@ import {
   SourceNote,
   TableOfContents,
 } from "@/components/content";
+import { ThresholdScale } from "@/components/diagrams";
 import { RequirementsList } from "@/components/content/tables";
 import { minimumEarnedRobux, getRateValue } from "@/lib/calculations/rate-registry";
 import { standardRateId } from "@/lib/calculations/devex";
@@ -77,6 +78,14 @@ export default function DevexRequirementsPage() {
             heading={`The ${formatRobux(minimumEarnedRobux)} Earned Robux minimum`}
             description="The number everybody looks up first, and the one most often quoted out of date."
           >
+            <ThresholdScale
+              className="mb-6"
+              thresholdLabel={`${formatRobux(minimumEarnedRobux)} eligible Earned Robux`}
+              below="Below the line, a DevEx request cannot be submitted at all. Being close to it counts for nothing, and the shortfall has to be earned — it cannot be bought."
+              above="At or above the line, a request can be submitted. It is then reviewed, and meeting the threshold is not the same as being approved."
+              caption="Not drawn to scale: there is no upper limit on a balance, so any width for the eligible side would be invented. The break is the only part that carries meaning."
+            />
+
             <div className="rounded-(--radius-control) border border-(--color-border) bg-(--color-surface) p-4">
               <p className="text-(--color-text-muted)">
                 {formatRobux(minimumEarnedRobux)} Earned Robux is the threshold

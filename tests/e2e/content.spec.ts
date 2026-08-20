@@ -754,3 +754,68 @@ test.describe("preparation checklist", () => {
     await expect(meter).toHaveAttribute("aria-label", /preparation steps done/);
   });
 });
+
+/**
+ * Explanatory diagrams.
+ *
+ * The site had no imagery of any kind, and these are the first. They are built
+ * from real text rather than drawn as pictures, and these tests are what hold
+ * that decision in place: an SVG-with-labels rewrite would pass a screenshot
+ * comparison and fail every assertion below.
+ */
+test.describe("diagrams", () => {
+  test("state the marketplace split using the registry's own figures", async ({ page }) => {
+    await page.goto("/devex-fees-and-taxes/#not-the-marketplace-fee");
+    const figure = page.locator("#not-the-marketplace-fee figure").first();
+
+    // The share is a published number. If the diagram ever prints one the
+    // registry does not hold, it has started inventing figures in a picture —
+    // which is exactly the thing this site refuses to do in a table.
+    await expect(figure).toContainText("70%");
+    await expect(figure).toContainText("30%");
+    await expect(figure).toContainText(/not again at cash-out/i);
+  });
+
+  test("mark the review stage as a decision, not a step", async ({ page }) => {
+    await page.goto("/how-to-cash-out-robux/#process");
+    const flow = page.locator("#process figure").first();
+    await expect(flow).toContainText(/Roblox reviews it/i);
+    // The whole reason this stage is drawn differently.
+    await expect(flow).toContainText(/can end here/i);
+  });
+
+  test("never claim the threshold means approval", async ({ page }) => {
+    await page.goto("/devex-requirements/#minimum");
+    const scale = page.locator("#minimum figure").first();
+    await expect(scale).toContainText(/not the same as being approved/i);
+    // A scale with no upper bound must not look as though it had one.
+    await expect(scale).toContainText(/Not drawn to scale/i);
+  });
+
+  test("are readable text, not pictures of text", async ({ page }) => {
+    await page.goto("/earned-robux/");
+    const gate = page.locator("#definition figure").first();
+    await expect(gate).toBeVisible();
+
+    // No raster imagery anywhere: text in an image cannot be resized,
+    // selected, translated or read aloud, and none of these diagrams needs it.
+    expect(await page.locator("img").count()).toBe(0);
+    await expect(gate).toContainText(/Gift cards and promotional codes/i);
+  });
+
+  test("stack instead of overflowing at 320px", async ({ page }) => {
+    await page.setViewportSize({ width: 320, height: 640 });
+    for (const path of [
+      "/devex-fees-and-taxes/",
+      "/earned-robux/",
+      "/devex-requirements/",
+    ]) {
+      await page.goto(path);
+      const report = await measureOverflow(page);
+      expect(
+        report.overflow,
+        describeOverflow(`${path} with diagrams`, report),
+      ).toBeLessThanOrEqual(0);
+    }
+  });
+});

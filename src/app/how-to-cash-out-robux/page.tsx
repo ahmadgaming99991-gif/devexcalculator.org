@@ -14,6 +14,7 @@ import {
   SourceNote,
   TableOfContents,
 } from "@/components/content";
+import { ValueFlow } from "@/components/diagrams";
 import { minimumEarnedRobux } from "@/lib/calculations/rate-registry";
 import { formatRobux } from "@/lib/calculations/format";
 
@@ -46,6 +47,43 @@ export default function HowToCashOutPage() {
             heading="The process Roblox documents"
             description="At a high level, and only as far as official documentation supports."
           >
+            <ValueFlow
+              className="mb-6"
+              caption="The stage drawn with a dashed edge is the one you do not control. Everything before it is preparation; nothing after it is guaranteed."
+              stages={[
+                {
+                  label: "Reach the minimum",
+                  detail: `At least ${formatRobux(minimumEarnedRobux)}, and only Earned Robux count toward it.`,
+                  tone: "primary",
+                },
+                {
+                  label: "Meet the account requirements",
+                  detail:
+                    "Verified email, minimum age of 13, a DevEx portal account, a tax form on file, good standing.",
+                  tone: "primary",
+                },
+                {
+                  label: "Submit through the portal",
+                  detail: "The official DevEx portal, and nowhere else.",
+                  tone: "primary",
+                },
+                {
+                  label: "Roblox reviews it",
+                  detail:
+                    "It decides which Robux qualify and whether to approve. This can end here, and no third party changes that.",
+                  by: "Roblox alone",
+                  tone: "warning",
+                  decision: true,
+                },
+                {
+                  label: "Payment is issued",
+                  detail:
+                    "Your provider and bank apply their own handling and fees from there.",
+                  tone: "success",
+                },
+              ]}
+            />
+
             <ol className="flex list-decimal flex-col gap-4 pl-5 text-(--color-text-muted)">
               <li>
                 <strong className="text-(--color-text)">
