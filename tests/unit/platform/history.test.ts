@@ -6,7 +6,9 @@ import {
   appendGameHistory,
   describeSpan,
   everyGameSeries,
-  GAME_HISTORY_POINTS,
+  GAME_HISTORY_DAYS,
+  GAME_HISTORY_INTERVAL_MINUTES,
+  isGameHistoryDue,
   gameSeries,
   largestExperienceSeries,
   MINIMUM_POINTS_FOR_CHART,
@@ -24,6 +26,9 @@ import {
   type Snapshot,
 } from "@/lib/platform/history";
 import type { ExperienceObservation } from "@/lib/platform/roblox-api";
+
+/** One sampling interval, in milliseconds. */
+const HOUR = GAME_HISTORY_INTERVAL_MINUTES * 60_000;
 
 /**
  * An in-memory stand-in for the KV binding.
@@ -502,53 +507,108 @@ describe("per-experience history", () => {
   it("keeps every experience aligned to the shared timestamps", () => {
     let history = appendGameHistory(
       { at: [], names: {}, players: {} },
-      1_000,
+      HOUR,
       observed([[1, "A", 10], [2, "B", 20]]),
     );
-    history = appendGameHistory(history, 2_000, observed([[1, "A", 11], [2, "B", 21]]));
+    history = appendGameHistory(history, 2 * HOUR, observed([[1, "A", 11], [2, "B", 21]]));
 
-    expect(history.at).toEqual([1_000, 2_000]);
+    expect(history.at).toEqual([HOUR, 2 * HOUR]);
     expect(history.players["1"]).toEqual([10, 11]);
     expect(history.players["2"]).toEqual([20, 21]);
   });
 
   it("pads an experience that appears part-way through", () => {
-    let history = appendGameHistory({ at: [], names: {}, players: {} }, 1_000, observed([[1, "A", 10]]));
-    history = appendGameHistory(history, 2_000, observed([[1, "A", 11], [9, "Late", 99]]));
+    let history = appendGameHistory({ at: [], names: {}, players: {} }, HOUR, observed([[1, "A", 10]]));
+    history = appendGameHistory(history, 2 * HOUR, observed([[1, "A", 11], [9, "Late", 99]]));
 
-    // The newcomer's single observation must sit under 2_000, not 1_000.
+    // The newcomer's single observation must sit under the second hour, not the first.
     expect(history.players["9"]).toEqual([null, 99]);
     expect(gameSeries(history, 9).points).toEqual([
-      { at: new Date(2_000).toISOString(), totalPlaying: 99 },
+      { at: new Date(2 * HOUR).toISOString(), totalPlaying: 99 },
     ]);
   });
 
   it("records an absence as a gap, never as zero players", () => {
-    let history = appendGameHistory({ at: [], names: {}, players: {} }, 1_000, observed([[1, "A", 10]]));
-    history = appendGameHistory(history, 2_000, observed([]));
-    history = appendGameHistory(history, 3_000, observed([[1, "A", 12]]));
+    let history = appendGameHistory({ at: [], names: {}, players: {} }, HOUR, observed([[1, "A", 10]]));
+    history = appendGameHistory(history, 2 * HOUR, observed([]));
+    history = appendGameHistory(history, 3 * HOUR, observed([[1, "A", 12]]));
 
     expect(history.players["1"]).toEqual([10, null, 12]);
     // The plotted series skips the gap rather than drawing a line to zero.
     expect(gameSeries(history, 1).points.map((point) => point.totalPlaying)).toEqual([10, 12]);
   });
 
-  it("keeps only the most recent window, trimming every array together", () => {
+  it("samples once an hour even though the collector runs four times", () => {
+    let history = appendGameHistory({ at: [], names: {}, players: {} }, HOUR, observed([[1, "A", 10]]));
+    // The three runs inside the hour are collected for the totals series and
+    // deliberately not kept here. Skipping them is what buys seven days.
+    for (const minutes of [15, 30, 45]) {
+      history = appendGameHistory(history, HOUR + minutes * 60_000, observed([[1, "A", 99]]));
+    }
+    expect(history.at).toHaveLength(1);
+
+    history = appendGameHistory(history, 2 * HOUR, observed([[1, "A", 12]]));
+    expect(history.at).toHaveLength(2);
+    // Every kept point is an observation that was actually made. Nothing is
+    // averaged across the hour and nothing stands in for the skipped runs.
+    expect(history.players["1"]).toEqual([10, 12]);
+  });
+
+  it("takes a sample slightly before the hour rather than drifting later", () => {
+    const history = appendGameHistory({ at: [], names: {}, players: {} }, HOUR, observed([[1, "A", 10]]));
+    // The cron does not fire on exact hour boundaries. Demanding a full hour
+    // would push the cadence one interval later every hour.
+    expect(isGameHistoryDue(history, HOUR + 53 * 60_000)).toBe(true);
+    expect(isGameHistoryDue(history, HOUR + 40 * 60_000)).toBe(false);
+  });
+
+  it("keeps a week by time, not by counting points", () => {
     let history: GameHistory = { at: [], names: {}, players: {} };
-    for (let i = 0; i < GAME_HISTORY_POINTS + 10; i += 1) {
-      history = appendGameHistory(history, 1_000 + i, observed([[1, "A", i]]));
+    const start = Date.UTC(2026, 0, 1);
+    // Nine days of hourly samples, so the window has to discard the first two.
+    for (let hour = 0; hour < 9 * 24; hour += 1) {
+      history = appendGameHistory(history, start + hour * HOUR, observed([[1, "A", hour]]));
     }
 
-    expect(history.at).toHaveLength(GAME_HISTORY_POINTS);
-    expect(history.players["1"]).toHaveLength(GAME_HISTORY_POINTS);
+    const span = (history.at.at(-1)! - history.at[0]!) / HOUR;
+    expect(span).toBeLessThanOrEqual(GAME_HISTORY_DAYS * 24);
+    expect(history.at).toHaveLength(history.players["1"]!.length);
     // Trimming from the front keeps the newest observation last.
-    expect(history.players["1"]?.at(-1)).toBe(GAME_HISTORY_POINTS + 9);
+    expect(history.players["1"]?.at(-1)).toBe(9 * 24 - 1);
+  });
+
+  it("keeps the denser points recorded before sampling changed", () => {
+    /*
+     * Real stored history spans the change from four samples an hour to one.
+     * Trimming by a fixed count would have measured a different number of days
+     * on either side of it and thrown away six days of new points to keep one
+     * day of old ones.
+     */
+    let history: GameHistory = { at: [], names: {}, players: {} };
+    const start = Date.UTC(2026, 0, 1);
+    for (let quarter = 0; quarter < 96; quarter += 1) {
+      history = { ...history, at: [...history.at, start + quarter * 15 * 60_000] };
+      history = {
+        ...history,
+        players: { "1": [...(history.players["1"] ?? []), quarter] },
+        names: { "1": "A" },
+      };
+    }
+    const dense = history.at.length;
+
+    history = appendGameHistory(history, start + 25 * HOUR, observed([[1, "A", 500]]));
+
+    // The old dense day survives alongside the new hourly point; nothing is
+    // discarded until it actually falls outside the week.
+    expect(history.at).toHaveLength(dense + 1);
+    expect(history.players["1"]?.at(-1)).toBe(500);
   });
 
   it("forgets an experience with nothing left inside the window", () => {
-    let history = appendGameHistory({ at: [], names: {}, players: {} }, 1_000, observed([[7, "Gone", 5]]));
-    for (let i = 0; i < GAME_HISTORY_POINTS; i += 1) {
-      history = appendGameHistory(history, 2_000 + i, observed([[1, "A", i]]));
+    const start = Date.UTC(2026, 0, 1);
+    let history = appendGameHistory({ at: [], names: {}, players: {} }, start, observed([[7, "Gone", 5]]));
+    for (let hour = 1; hour <= GAME_HISTORY_DAYS * 24 + 1; hour += 1) {
+      history = appendGameHistory(history, start + hour * HOUR, observed([[1, "A", hour]]));
     }
 
     expect(history.players["7"]).toBeUndefined();
@@ -556,7 +616,7 @@ describe("per-experience history", () => {
   });
 
   it("has no series for an experience it never saw", () => {
-    const history = appendGameHistory({ at: [], names: {}, players: {} }, 1_000, observed([[1, "A", 10]]));
+    const history = appendGameHistory({ at: [], names: {}, players: {} }, HOUR, observed([[1, "A", 10]]));
     expect(gameSeries(history, 404).points).toEqual([]);
   });
 });
@@ -583,22 +643,22 @@ describe("derived chart series", () => {
 
   it("follows the highest count, naming whichever experience held it", () => {
     const history = build([
-      [1_000, [[1, "A", 100], [2, "B", 300]]],
-      [2_000, [[1, "A", 500], [2, "B", 200]]],
+      [HOUR, [[1, "A", 100], [2, "B", 300]]],
+      [2 * HOUR, [[1, "A", 500], [2, "B", 200]]],
     ]);
 
     const { series, leaders } = largestExperienceSeries(history);
     expect(series.points.map((point) => point.totalPlaying)).toEqual([300, 500]);
     // The leader changed between observations, and the labels follow it.
-    expect(leaders[new Date(1_000).toISOString()]).toBe("B");
-    expect(leaders[new Date(2_000).toISOString()]).toBe("A");
+    expect(leaders[new Date(HOUR).toISOString()]).toBe("B");
+    expect(leaders[new Date(2 * HOUR).toISOString()]).toBe("A");
   });
 
   it("skips an observation where nothing was recorded rather than reporting zero", () => {
     const history = build([
-      [1_000, [[1, "A", 100]]],
-      [2_000, []],
-      [3_000, [[1, "A", 120]]],
+      [HOUR, [[1, "A", 100]]],
+      [2 * HOUR, []],
+      [3 * HOUR, [[1, "A", 120]]],
     ]);
 
     const { series } = largestExperienceSeries(history);
@@ -607,8 +667,8 @@ describe("derived chart series", () => {
 
   it("orders every series by its current count, not by insertion", () => {
     const history = build([
-      [1_000, [[1, "Small", 10], [2, "Big", 900], [3, "Middle", 400]]],
-      [2_000, [[1, "Small", 12], [2, "Big", 950], [3, "Middle", 420]]],
+      [HOUR, [[1, "Small", 10], [2, "Big", 900], [3, "Middle", 400]]],
+      [2 * HOUR, [[1, "Small", 12], [2, "Big", 950], [3, "Middle", 420]]],
     ]);
 
     expect(everyGameSeries(history).map((entry) => entry.name)).toEqual([

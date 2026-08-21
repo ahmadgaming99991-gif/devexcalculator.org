@@ -382,6 +382,18 @@ ${history.slice(0, 200)}`).not.toBeNull();
     expect(text).toContain("It is not an all-time record");
   });
 
+  test("states both retention rules, because they differ", async ({ page }) => {
+    await page.goto("/platform/");
+    const how = page.locator("#how");
+    // Totals and per-experience counts are kept for different spans on
+    // purpose, and a page showing two windows has to say which is which.
+    await expect(how).toContainText(/Platform totals keep every one of them for 14 days/i);
+    await expect(how).toContainText(/per-experience counts keep\s+one an hour for 7 days/i);
+    // Sampling is not smoothing, and the page must not let anyone read it as
+    // an average over the runs that were skipped.
+    await expect(how).toContainText(/nothing is averaged to fill/i);
+  });
+
   test("keeps one canonical for every ranking", async ({ page }) => {
     // The ranking is a query parameter on one page. Five canonicals would ask
     // to have five near-identical pages indexed.

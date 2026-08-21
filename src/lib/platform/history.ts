@@ -43,14 +43,61 @@ const SERIES_KEY = "series";
 const GAMES_KEY = "games";
 
 /**
- * How many observations of each individual experience are kept.
+ * How long per-experience history reaches back.
  *
- * A day at the collection interval. Deliberately shorter than the totals
- * series: this is one array per experience across a few hundred experiences,
- * and it is parsed on every render of the platform page, so its size is a CPU
- * budget rather than a storage one.
+ * This used to be a single day while the totals series went back a fortnight,
+ * which put two different spans on one page and made the shorter one look like
+ * a bug. Seven days closes most of that gap.
+ *
+ * What kept it at a day was size, not principle: this is one array per
+ * experience across a few hundred experiences, parsed on every render, so it
+ * is a CPU budget rather than a storage one. Seven days at the collection
+ * interval would have been about 1,268 KB per read. Sampling hourly instead
+ * makes it roughly 317 KB — seven times the span for under twice the cost.
  */
-export const GAME_HISTORY_POINTS = (24 * 60) / COLLECTION_INTERVAL_MINUTES;
+export const GAME_HISTORY_DAYS = 7;
+
+/**
+ * How often an experience is sampled, as against how often the collector runs.
+ *
+ * The collector still fetches every fifteen minutes and the totals series still
+ * records every one of those. Per-experience counts take one in four. That is
+ * sampling, not smoothing: each point kept is an observation that was actually
+ * made, at the moment it was made. Nothing is averaged across the hour and
+ * nothing is invented for the three runs not kept.
+ */
+export const GAME_HISTORY_INTERVAL_MINUTES = 60;
+
+/**
+ * An upper bound on stored points, not the retention rule.
+ *
+ * Retention is by time — see `GAME_HISTORY_DAYS` — because the stored history
+ * spans a change in sampling rate and a fixed count would measure a different
+ * number of days on either side of it. This only stops a pathological run of
+ * timestamps from growing the key without limit.
+ */
+export const GAME_HISTORY_POINT_CAP =
+  (GAME_HISTORY_DAYS * 24 * 60) / GAME_HISTORY_INTERVAL_MINUTES;
+
+/**
+ * How long after the last kept point another one is taken.
+ *
+ * Half a collection interval short of the sampling interval, because the cron
+ * does not fire on exact hour boundaries. Requiring a full hour to have passed
+ * would make a run arriving at 59 minutes and 40 seconds wait for the next one,
+ * and the cadence would drift an interval later every hour.
+ */
+const GAME_SAMPLE_GAP_MS =
+  (GAME_HISTORY_INTERVAL_MINUTES - COLLECTION_INTERVAL_MINUTES / 2) * 60_000;
+
+/** Whether this run's observation is due to be kept per-experience. */
+export function isGameHistoryDue(history: GameHistory, observedAt: number): boolean {
+  const last = history.at.at(-1);
+  if (last === undefined) return true;
+  // A timestamp older than the newest stored one is out of order; keeping it
+  // would leave `at` unsorted, which every reader here assumes it is not.
+  return observedAt - last >= GAME_SAMPLE_GAP_MS;
+}
 
 /**
  * Per-experience history, stored with the timestamps factored out.
@@ -185,7 +232,25 @@ export function appendGameHistory(
   observedAt: number,
   observations: readonly { readonly universeId: number; readonly name: string; readonly playing: number }[],
 ): GameHistory {
-  const at = [...history.at, observedAt].slice(-GAME_HISTORY_POINTS);
+  /*
+   * Returned by identity when this run is not due, so the caller can tell that
+   * nothing changed and skip the write. Three runs in four take this path.
+   */
+  if (!isGameHistoryDue(history, observedAt)) return history;
+
+  /*
+   * Trimmed by time rather than by count. The stored history spans the change
+   * from four samples an hour to one, so a fixed number of points would mean a
+   * different number of days depending on which side of that change it fell —
+   * and would have thrown away six days of the new, sparser points to keep one
+   * day of the old dense ones. The cap is a bound, not the rule.
+   */
+  const cutoff = observedAt - GAME_HISTORY_DAYS * 24 * 60 * 60 * 1000;
+  const kept = [...history.at, observedAt]
+    .filter((instant) => instant >= cutoff)
+    .slice(-GAME_HISTORY_POINT_CAP);
+
+  const at = kept;
   const dropped = history.at.length + 1 - at.length;
 
   const seen = new Map(observations.map((entry) => [String(entry.universeId), entry]));
@@ -360,7 +425,17 @@ export async function recordGameHistory(
   const at = Date.parse(observedAt);
   if (!Number.isFinite(at)) return 0;
 
-  const next = appendGameHistory(await readGameHistory(store), at, observations);
+  const current = await readGameHistory(store);
+  const next = appendGameHistory(current, at, observations);
+
+  /*
+   * Identity, not deep equality: `appendGameHistory` returns the same object
+   * when the run is not due to be sampled. Skipping the write matters — three
+   * runs in four now take this path, and this key is the largest thing the
+   * site stores.
+   */
+  if (next === current) return Object.keys(current.players).length;
+
   await store.put(GAMES_KEY, JSON.stringify(next), {
     expirationTtl: RETENTION_SECONDS,
   });

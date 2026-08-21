@@ -44,7 +44,8 @@ import {
   MINIMUM_POINTS_FOR_CHART,
   everyGameSeries,
   gameSeries,
-  GAME_HISTORY_POINTS,
+  GAME_HISTORY_DAYS,
+  GAME_HISTORY_INTERVAL_MINUTES,
   largestExperienceSeries,
   readGameHistory,
   readSeries,
@@ -141,9 +142,9 @@ export default async function PlatformPage({ searchParams }: PageProps) {
           <Section
             id="experiences-over-time"
             heading="Top experiences over time"
-            description="Every experience this site is tracking, on one set of axes, from the counts recorded every 15 minutes. The eight busiest carry a colour and a name; the rest are drawn behind them so the shape of the whole ranking is visible."
+            description={`Every experience this site is tracking, on one set of axes, from one count an hour kept for ${GAME_HISTORY_DAYS} days. The eight busiest carry a colour and a name; the rest are drawn behind them so the shape of the whole ranking is visible.`}
           >
-            <TopExperiencesOverTime />
+            <TopExperiencesOverTime days={chartWindow.days} />
           </Section>
 
           <Section
@@ -151,7 +152,7 @@ export default async function PlatformPage({ searchParams }: PageProps) {
             heading="The busiest single experience"
             description="The highest player count any one experience held at each observation — the platform's peak title rather than its total, which move independently."
           >
-            <LargestExperience />
+            <LargestExperience days={chartWindow.days} />
           </Section>
 
           <Section
@@ -178,9 +179,12 @@ export default async function PlatformPage({ searchParams }: PageProps) {
                 <h3 className="font-semibold text-(--color-text)">History</h3>
                 <p className="mt-2 text-sm text-(--color-text-muted)">
                   A scheduled job records one observation every{" "}
-                  {COLLECTION_INTERVAL_MINUTES} minutes. Observations are kept for{" "}
-                  {RETENTION_DAYS} days and then expire. The chart shows what was
-                  actually recorded, gaps included.
+                  {COLLECTION_INTERVAL_MINUTES} minutes. Platform totals keep every
+                  one of them for {RETENTION_DAYS} days; per-experience counts keep
+                  one an hour for {GAME_HISTORY_DAYS} days, because that is one array
+                  per experience across several hundred of them. Both charts show what
+                  was actually recorded, gaps included — nothing is averaged to fill
+                  the runs not kept.
                 </p>
               </Card>
             </div>
@@ -459,11 +463,21 @@ function HistoryUnavailable({ what }: { what: string }) {
   );
 }
 
-async function TopExperiencesOverTime() {
+async function TopExperiencesOverTime({ days }: { days: number }) {
   const history = await loadGameHistory();
   if (!history) return <HistoryUnavailable what="Per-experience history" />;
 
-  const tracked = everyGameSeries(history);
+  /*
+   * The range tabs govern these charts too. They did not need to while
+   * per-experience history was a single day and the shortest range was also a
+   * day; now that it reaches a week, a reader asking for 24 hours and being
+   * shown seven days would be reading an axis that disagrees with the control
+   * they just used.
+   */
+  const tracked = everyGameSeries(history).map((entry) => ({
+    ...entry,
+    series: sliceSeries(entry.series, days),
+  }));
   const plottable = tracked.filter((entry) => entry.series.points.length >= 2);
 
   if (plottable.length === 0) {
@@ -486,7 +500,7 @@ async function TopExperiencesOverTime() {
         <Stat
           label="Observations held"
           value={numberFormat.format(history.at.length)}
-          note={`Kept for the last ${(GAME_HISTORY_POINTS * COLLECTION_INTERVAL_MINUTES) / 60} hours`}
+          note={`One an hour, kept for ${GAME_HISTORY_DAYS} days`}
         />
         <Stat
           label="Busiest tracked"
@@ -510,7 +524,7 @@ async function TopExperiencesOverTime() {
               value: point.totalPlaying,
             })),
           }))}
-          caption={`The ${Math.min(plottable.length, 48)} busiest of ${numberFormat.format(tracked.length)} tracked experiences, from observations recorded every ${COLLECTION_INTERVAL_MINUTES} minutes. Each point was measured; nothing between two points is drawn as though it were. Every experience in the table above has its own trend line there, and the figures behind this picture are in that table as text.`}
+          caption={`The ${Math.min(plottable.length, 48)} busiest of ${numberFormat.format(tracked.length)} tracked experiences, from one observation every ${GAME_HISTORY_INTERVAL_MINUTES} minutes. Each point was measured; nothing between two points is drawn as though it were. Every experience in the table above has its own trend line there, and the figures behind this picture are in that table as text.`}
           formatValue={(value) => compact(value)}
         />
       </div>
@@ -518,11 +532,12 @@ async function TopExperiencesOverTime() {
   );
 }
 
-async function LargestExperience() {
+async function LargestExperience({ days }: { days: number }) {
   const history = await loadGameHistory();
   if (!history) return <HistoryUnavailable what="The busiest-experience record" />;
 
-  const { series, leaders } = largestExperienceSeries(history);
+  const { series: full, leaders } = largestExperienceSeries(history);
+  const series = sliceSeries(full, days);
   const summary = summarise(series);
   const latest = series.points[series.points.length - 1];
 
@@ -639,7 +654,7 @@ function ExperienceDetail({
   ranking?: string;
   days: number;
 }) {
-  const series = gameSeries(history, universeId);
+  const series = sliceSeries(gameSeries(history, universeId), days);
   const name = history.names[String(universeId)] ?? "This experience";
   const summary = summarise(series);
 
@@ -694,8 +709,8 @@ function ExperienceDetail({
           {series.points.length === 1 ? "" : "s"} of this experience{" "}
           {series.points.length === 1 ? "has" : "have"} been recorded, which is not
           enough to draw a line. Per-experience counts are kept for the last{" "}
-          {GAME_HISTORY_POINTS * COLLECTION_INTERVAL_MINUTES / 60} hours, and an
-          experience is only recorded while Roblox is ranking it.
+          {GAME_HISTORY_DAYS} days at one observation an hour, and an experience
+          is only recorded while Roblox is ranking it.
         </p>
       )}
     </Card>
@@ -779,7 +794,7 @@ function ExperienceRow({
                 }))}
               />
               <span className="sr-only">
-                Chart the last 24 hours for {experience.name}
+                Chart the last {GAME_HISTORY_DAYS} days for {experience.name}
               </span>
             </Link>
           ) : (
