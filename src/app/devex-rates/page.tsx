@@ -22,7 +22,8 @@ import { formatCurrency, formatDate, formatRobux } from "@/lib/calculations/form
 
 const ROUTE = "/devex-rates/";
 
-export const metadata: Metadata = buildMetadata(ROUTE);
+// This route has its own `opengraph-image`; the convention supplies the card.
+export const metadata: Metadata = buildMetadata(ROUTE, { inheritImage: true });
 
 const EXAMPLE_AMOUNTS = [1_000, 30_000, 100_000, 1_000_000] as const;
 

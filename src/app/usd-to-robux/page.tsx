@@ -23,7 +23,8 @@ import { formatCurrency, formatRobux } from "@/lib/calculations/format";
 
 const ROUTE = "/usd-to-robux/";
 
-export const metadata: Metadata = buildMetadata(ROUTE);
+// This route has its own `opengraph-image`; the convention supplies the card.
+export const metadata: Metadata = buildMetadata(ROUTE, { inheritImage: true });
 
 /** Worked targets, computed through the engine so the table cannot drift. */
 const TARGETS = [50, 100, 114, 250, 500, 1_000, 5_000, 10_000] as const;

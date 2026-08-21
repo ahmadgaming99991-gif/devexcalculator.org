@@ -20,7 +20,8 @@ import { formatRobux } from "@/lib/calculations/format";
 
 const ROUTE = "/how-to-cash-out-robux/";
 
-export const metadata: Metadata = buildMetadata(ROUTE);
+// This route has its own `opengraph-image`; the convention supplies the card.
+export const metadata: Metadata = buildMetadata(ROUTE, { inheritImage: true });
 
 export default function HowToCashOutPage() {
   const record = requireRoute(ROUTE);

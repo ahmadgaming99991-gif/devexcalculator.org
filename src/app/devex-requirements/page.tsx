@@ -23,7 +23,8 @@ import { PreparationChecklist } from "@/features/devex/preparation-checklist";
 
 const ROUTE = "/devex-requirements/";
 
-export const metadata: Metadata = buildMetadata(ROUTE);
+// This route has its own `opengraph-image`; the convention supplies the card.
+export const metadata: Metadata = buildMetadata(ROUTE, { inheritImage: true });
 
 const MISUNDERSTANDINGS: readonly { claim: string; reality: string }[] = [
   {

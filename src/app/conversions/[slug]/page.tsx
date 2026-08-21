@@ -54,6 +54,24 @@ export async function generateMetadata({
   const amount = parseAmountSlug(slug);
   if (amount === null) return {};
   const record = getRoute(amountPageRoute(amount));
+  /*
+   * Deliberately the site card, not one per amount.
+   *
+   * A per-amount `opengraph-image` was written, deployed and removed.
+   *
+   * A metadata image in a dynamic segment is not prerendered — it stays a
+   * route the Worker answers, even with `generateStaticParams` and
+   * `dynamicParams = false`. That is survivable on its own; what is not is
+   * that this site sets `trailingSlash: true`, so the URL Next emits was
+   * 308'd from `.../opengraph-image/card?hash` to `.../card/?hash=`, which no
+   * longer matched the route. Verified in production: 404, serving HTML to a
+   * crawler expecting a PNG.
+   *
+   * Static segments are unaffected, because their card is prerendered to a
+   * file that exists at both spellings — seven routes have one. The canonical
+   * trailing slash is load-bearing for indexation and is not being traded for
+   * eight preview cards.
+   */
   return record ? metadataFromRecord(record) : {};
 }
 

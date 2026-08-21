@@ -819,3 +819,61 @@ test.describe("diagrams", () => {
     }
   });
 });
+
+/**
+ * Per-route social cards.
+ *
+ * Every route used to preview as the same site card, so a link to the
+ * eligibility rules and a link to the fees page arrived in a chat looking
+ * identical — with the figure each page exists to state missing from both.
+ */
+test.describe("open graph cards", () => {
+  const OWN_CARD = [
+    "/devex-rates/",
+    "/devex-requirements/",
+    "/earned-robux/",
+    "/robux-to-usd/",
+    "/usd-to-robux/",
+    "/how-to-cash-out-robux/",
+    "/devex-fees-and-taxes/",
+  ];
+
+  for (const route of OWN_CARD) {
+    test(`${route} points at its own card and serves a PNG`, async ({ page, request }) => {
+      await page.goto(route);
+      const url = await page
+        .locator('meta[property="og:image"]')
+        .first()
+        .getAttribute("content");
+
+      expect(url, `${route} has no og:image`).toBeTruthy();
+      // The card has to belong to this route. Pointing at the site card is the
+      // state this replaced, and it fails silently — the tag is still valid.
+      expect(url).toContain(`${route}opengraph-image`);
+
+      /*
+       * Requested by path, not by the tag's own value.
+       *
+       * `og:image` is absolute and built from the production origin, so
+       * fetching it verbatim tests the deployed site rather than this build —
+       * which is how this assertion first "failed": it was reporting a 404
+       * from production for a card that had not been deployed yet.
+       */
+      const image = await request.get(new URL(url as string).pathname);
+      expect(image.status()).toBe(200);
+      expect(image.headers()["content-type"]).toContain("image/png");
+    });
+  }
+
+  test("routes without a card of their own keep the site card", async ({ page }) => {
+    await page.goto("/conversions/30000-robux-to-usd/");
+    const url = await page
+      .locator('meta[property="og:image"]')
+      .first()
+      .getAttribute("content");
+    // Amount pages are served from a dynamic segment, where a per-route card
+    // cannot be addressed under this site's trailing-slash policy.
+    expect(url).toContain("/opengraph-image");
+    expect(url).not.toContain("/conversions/");
+  });
+});

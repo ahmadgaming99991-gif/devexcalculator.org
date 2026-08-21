@@ -20,7 +20,8 @@ import { minimumEarnedRobux } from "@/lib/calculations/rate-registry";
 
 const ROUTE = "/earned-robux/";
 
-export const metadata: Metadata = buildMetadata(ROUTE);
+// This route has its own `opengraph-image`; the convention supplies the card.
+export const metadata: Metadata = buildMetadata(ROUTE, { inheritImage: true });
 
 const QUALIFYING: readonly string[] = [
   "Robux from players buying developer products inside an experience you own",

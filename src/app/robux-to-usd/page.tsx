@@ -19,7 +19,8 @@ import { AmountTable, FormulaBlock } from "@/components/content/tables";
 
 const ROUTE = "/robux-to-usd/";
 
-export const metadata: Metadata = buildMetadata(ROUTE);
+// This route has its own `opengraph-image`; the convention supplies the card.
+export const metadata: Metadata = buildMetadata(ROUTE, { inheritImage: true });
 
 export default async function RobuxToUsdPage({
   searchParams,

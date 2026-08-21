@@ -21,7 +21,8 @@ import { getMarketplaceScheme } from "@/lib/calculations/rate-registry";
 
 const ROUTE = "/devex-fees-and-taxes/";
 
-export const metadata: Metadata = buildMetadata(ROUTE);
+// This route has its own `opengraph-image`; the convention supplies the card.
+export const metadata: Metadata = buildMetadata(ROUTE, { inheritImage: true });
 
 export default async function FeesAndTaxesPage({
   searchParams,

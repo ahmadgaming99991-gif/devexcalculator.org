@@ -19,11 +19,28 @@ const TITLE_SUFFIX = ` | ${siteConfig.name}`;
 export const MAX_TITLE_LENGTH = 60;
 export const MAX_DESCRIPTION_LENGTH = 160;
 
-export function buildMetadata(route: string): Metadata {
-  return metadataFromRecord(requireRoute(route));
+export function buildMetadata(route: string, options?: MetadataOptions): Metadata {
+  return metadataFromRecord(requireRoute(route), options);
 }
 
-export function metadataFromRecord(record: RouteRecord): Metadata {
+export interface MetadataOptions {
+  /**
+   * Leaves the Open Graph image to Next.js's file convention.
+   *
+   * Every route pointed at `/opengraph-image` because that URL was written in
+   * here, which also meant a segment supplying its own `opengraph-image` file
+   * was silently ignored — an explicit `images` in metadata wins over the
+   * convention. A route with a card of its own sets this so the convention can
+   * take over; everything else keeps the site card, and keeps the per-route
+   * alt text out of the registry with it.
+   */
+  readonly inheritImage?: boolean;
+}
+
+export function metadataFromRecord(
+  record: RouteRecord,
+  options?: MetadataOptions,
+): Metadata {
   const canonical = absoluteUrl(record.route);
   // Append the brand only when there is room, rather than truncating the task.
   const title =
@@ -72,20 +89,24 @@ export function metadataFromRecord(record: RouteRecord): Metadata {
       url: canonical,
       title: record.title,
       description: record.metaDescription,
-      images: [
-        {
-          url: absoluteUrl("/opengraph-image"),
-          width: 1200,
-          height: 630,
-          alt: record.ogImageAlt,
-        },
-      ],
+      ...(options?.inheritImage
+        ? {}
+        : {
+            images: [
+              {
+                url: absoluteUrl("/opengraph-image"),
+                width: 1200,
+                height: 630,
+                alt: record.ogImageAlt,
+              },
+            ],
+          }),
     },
     twitter: {
       card: "summary_large_image",
       title: record.title,
       description: record.metaDescription,
-      images: [absoluteUrl("/opengraph-image")],
+      ...(options?.inheritImage ? {} : { images: [absoluteUrl("/opengraph-image")] }),
     },
     other: record.rateSensitive
       ? { "article:modified_time": record.dateModified }
