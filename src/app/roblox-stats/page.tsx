@@ -29,7 +29,9 @@ import {
   companyContext,
   devExFeesByQuarter,
   devExFeesByYear,
+  engagement,
   formatUsdMagnitude,
+  hoursPerDauPerDay,
   percentChange,
   platformMetrics,
 } from "@/lib/platform/metrics";
@@ -284,6 +286,67 @@ export default function RobloxStatsPage() {
                 </Table>
               </TableWrapper>
             </ChartWithTable>
+          </Section>
+
+          <Section
+            id="engagement"
+            heading="How many people use Roblox, and for how long"
+            description={engagement.description}
+          >
+            <div className="grid gap-4 sm:grid-cols-3">
+              {engagement.figures.map((figure) => (
+                <Card key={figure.id} tone="subtle" className="min-w-0">
+                  <p className="text-sm text-(--color-text-muted)">{figure.label}</p>
+                  <p className="tabular mt-1 text-2xl font-bold break-words text-(--color-text)">
+                    {figure.value}
+                  </p>
+                  <p className="mt-1 text-sm text-(--color-text-muted)">{figure.change}</p>
+                  <p className="mt-2 text-xs text-(--color-text-muted)">{figure.note}</p>
+                </Card>
+              ))}
+
+              {/*
+                The only arithmetic in this section, marked as such. Roblox
+                reports the two figures above; this is the one step between
+                them, and it is computed rather than written down so it cannot
+                describe a quarter that has been replaced.
+              */}
+              <Card tone="subtle" className="min-w-0">
+                <p className="text-sm text-(--color-text-muted)">
+                  Hours per active user, per day
+                </p>
+                <p className="tabular mt-1 text-2xl font-bold break-words text-(--color-text)">
+                  about {hoursPerDauPerDay()}
+                </p>
+                <p className="mt-1 text-sm text-(--color-text-muted)">
+                  <Badge tone="neutral">Derived here</Badge>
+                </p>
+                <p className="mt-2 text-xs text-(--color-text-muted)">
+                  {engagement.reported.hoursBillions} billion Hours ÷{" "}
+                  {engagement.reported.dauMillions} million DAUs ÷ {engagement.periodDays}{" "}
+                  days. Both inputs are rounded in the release, so this is approximate.
+                </p>
+              </Card>
+            </div>
+
+            <p className="mt-4 text-(--color-text-muted)">
+              Every figure above except the last is quoted from{" "}
+              <SourceLink href={getSource(engagement.sourceId).url}>
+                {getSource(engagement.sourceId).title}
+              </SourceLink>
+              , for the three months ended 30 June 2026.
+            </p>
+
+            <Callout tone="info" title="Two figures other trackers show, and this page does not">
+              <ul className="mt-1 flex list-none flex-col gap-3 p-0">
+                {engagement.notPublished.map((entry) => (
+                  <li key={entry.id}>
+                    <span className="font-semibold text-(--color-text)">{entry.label}</span>
+                    <span className="block text-sm">{entry.reason}</span>
+                  </li>
+                ))}
+              </ul>
+            </Callout>
           </Section>
 
           <Section

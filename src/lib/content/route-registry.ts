@@ -514,6 +514,7 @@ const staticRoutes: readonly RouteRecord[] = [
       { id: "payouts", heading: "What Roblox pays creators" },
       { id: "quarterly", heading: "DevEx payouts by quarter" },
       { id: "rate-history", heading: "What one Robux has been worth" },
+      { id: "engagement", heading: "How many people use Roblox, and for how long" },
       { id: "business", heading: "Roblox as a business" },
       { id: "what-it-means", heading: "What this means for your own payout" },
       { id: "no-live-data", heading: "Why there is no live data here" },

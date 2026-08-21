@@ -1,5 +1,6 @@
 import raw from "@/data/platform-metrics.json";
 import { sources } from "@/lib/calculations/rate-registry";
+import { Rational } from "@/lib/calculations/rational";
 
 /**
  * Roblox's published platform figures.
@@ -54,6 +55,46 @@ export interface CompanyContext {
   readonly figures: readonly ContextFigure[];
 }
 
+export interface EngagementFigure {
+  readonly id: string;
+  readonly label: string;
+  /** Quoted from the release, not recomputed. */
+  readonly value: string;
+  readonly change: string;
+  readonly origin: "reported";
+  readonly note: string;
+}
+
+/** Something a reader will look for and Roblox does not publish. */
+export interface UnpublishedMetric {
+  readonly id: string;
+  readonly label: string;
+  readonly reason: string;
+}
+
+export interface Engagement {
+  readonly label: string;
+  readonly description: string;
+  readonly period: string;
+  readonly comparedWith: string;
+  /** Days in the reported quarter. Used to derive a per-day figure. */
+  readonly periodDays: number;
+  readonly sourceId: string;
+  /**
+   * The two reported magnitudes, kept as numbers as well as prose.
+   *
+   * The per-day figure below is computed from these rather than written down,
+   * so updating the quarter cannot leave a derived number describing the old
+   * one.
+   */
+  readonly reported: {
+    readonly dauMillions: string;
+    readonly hoursBillions: string;
+  };
+  readonly figures: readonly EngagementFigure[];
+  readonly notPublished: readonly UnpublishedMetric[];
+}
+
 interface Registry {
   readonly schemaVersion: number;
   readonly registryVersion: string;
@@ -63,11 +104,13 @@ interface Registry {
   readonly revenue: MetricSeries;
   readonly shareOfRevenue: MetricSeries;
   readonly companyContext: CompanyContext;
+  readonly engagement: Engagement;
 }
 
 const registry = raw as unknown as Registry;
 
 const WHOLE_NUMBER = /^\d+$/;
+const POSITIVE_NUMBER = /^\d+(\.\d+)?$/;
 const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
 
 function validate(): void {
@@ -125,6 +168,36 @@ function validate(): void {
     }
   }
 
+  const engagementBlock = registry.engagement;
+  if (!sources.sources.some((source) => source.id === engagementBlock.sourceId)) {
+    problems.push(`engagement cites unknown source "${engagementBlock.sourceId}".`);
+  }
+  /*
+   * The per-day figure is divided by these, so a zero or a non-number here
+   * would surface as a nonsense figure on the page rather than as an error.
+   */
+  for (const [key, value] of Object.entries(engagementBlock.reported)) {
+    if (!POSITIVE_NUMBER.test(value) || Number(value) <= 0) {
+      problems.push(`engagement.reported.${key} must be a positive number, got "${value}".`);
+    }
+  }
+  if (!Number.isInteger(engagementBlock.periodDays) || engagementBlock.periodDays <= 0) {
+    problems.push("engagement.periodDays must be a positive whole number of days.");
+  }
+  if (engagementBlock.figures.length === 0) problems.push("engagement has no figures.");
+  for (const figure of engagementBlock.figures) {
+    if (figure.origin !== "reported") {
+      problems.push(
+        `engagement.${figure.id} must be reported. A derived figure belongs in code, where its derivation is visible.`,
+      );
+    }
+  }
+  if (engagementBlock.notPublished.length === 0) {
+    problems.push(
+      "engagement must record what Roblox does not publish; that absence is the point of the section.",
+    );
+  }
+
   const context = registry.companyContext;
   if (!sources.sources.some((source) => source.id === context.sourceId)) {
     problems.push(`companyContext cites unknown source "${context.sourceId}".`);
@@ -161,6 +234,37 @@ export const devExFeesByYear: readonly MetricPeriod[] = registry.developerExchan
   .sort((a, b) => a.endsAt.localeCompare(b.endsAt));
 
 export const companyContext: CompanyContext = registry.companyContext;
+
+export const engagement: Engagement = registry.engagement;
+
+/**
+ * Average hours per daily active user, per day.
+ *
+ * Derived, and labelled as such wherever it appears: Roblox reports hours in
+ * aggregate and daily actives as an average, and this is the one arithmetic
+ * step between them. Total hours divided by daily actives divided by the days
+ * in the quarter.
+ *
+ * Not a session length, and it must never be presented as one. A session
+ * length needs a count of sessions, which Roblox does not publish and this
+ * site cannot observe.
+ *
+ * Computed exactly and rounded once at the end, the same rule the payout
+ * arithmetic follows. Both inputs are rounded in the release, so the result is
+ * approximate — the page says so rather than implying two decimals of
+ * precision nobody has.
+ */
+export function hoursPerDauPerDay(source: Engagement = engagement): string {
+  const hours = Rational.fromInt(Number(source.reported.hoursBillions)).mul(
+    Rational.fromInt(1_000_000_000),
+  );
+  const daus = Rational.fromInt(Number(source.reported.dauMillions)).mul(
+    Rational.fromInt(1_000_000),
+  );
+  const days = Rational.fromInt(source.periodDays);
+
+  return hours.div(daus).div(days).toFixed(1, "half-up");
+}
 
 export const platformMetrics = registry;
 

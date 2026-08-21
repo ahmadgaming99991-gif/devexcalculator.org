@@ -241,5 +241,47 @@
         "note": "Up 66% year on year, as stated in the release."
       }
     ]
+  },
+  "engagement": {
+    "label": "Users and engagement",
+    "description": "How many people use Roblox and how long they spend there, as Roblox reports it to the SEC.",
+    "period": "Q2 2026",
+    "comparedWith": "Q2 2025",
+    "periodDays": 91,
+    "sourceId": "roblox-q2-2026-earnings",
+    "reported": {
+      "dauMillions": "123",
+      "hoursBillions": "29"
+    },
+    "figures": [
+      {
+        "id": "daus",
+        "label": "Daily active users",
+        "value": "123 million",
+        "change": "Up 10% year on year",
+        "origin": "reported",
+        "note": "An average of daily actives across the quarter, not a count of accounts that exist."
+      },
+      {
+        "id": "hours",
+        "label": "Hours engaged in the quarter",
+        "value": "29 billion",
+        "change": "Up 5% year on year",
+        "origin": "reported",
+        "note": "Total across every user for the three months ended 30 June 2026."
+      }
+    ],
+    "notPublished": [
+      {
+        "id": "registrations",
+        "label": "Total registered accounts",
+        "reason": "Roblox reports daily and monthly actives, never a cumulative registration count. Any total circulating for it is someone's estimate, and this site does not publish estimates of other people's numbers."
+      },
+      {
+        "id": "session-length",
+        "label": "Average session length",
+        "reason": "Roblox publishes hours in aggregate, not sessions. Dividing hours by users gives time per user per day, which is on this page; turning that into a session length would require a session count nobody outside Roblox has."
+      }
+    ]
   }
 }

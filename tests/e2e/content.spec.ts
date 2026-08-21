@@ -877,3 +877,47 @@ test.describe("open graph cards", () => {
     expect(url).not.toContain("/conversions/");
   });
 });
+
+/**
+ * Users and engagement.
+ *
+ * The competitor this page is measured against shows a total registration
+ * count and an estimated global session length. Roblox publishes neither, so
+ * this section publishes what it does report and says plainly what is missing
+ * — the alternative was to fill two panels with numbers nobody can source.
+ */
+test.describe("engagement figures", () => {
+  test("reports Roblox's own users and hours, and marks the one derived figure", async ({
+    page,
+  }) => {
+    await page.goto("/roblox-stats/#engagement");
+    const section = page.locator("#engagement");
+
+    await expect(section).toContainText("123 million");
+    await expect(section).toContainText("29 billion");
+
+    // The per-day figure is arithmetic on the two above, and has to be
+    // distinguishable from the figures Roblox printed.
+    await expect(section).toContainText("about 2.6");
+    await expect(section).toContainText("Derived here");
+    await expect(section).toContainText(/29 billion Hours ÷ 123 million DAUs ÷ 91 days/);
+  });
+
+  test("says what Roblox does not publish rather than estimating it", async ({ page }) => {
+    await page.goto("/roblox-stats/#engagement");
+    const section = page.locator("#engagement");
+
+    await expect(section).toContainText("Total registered accounts");
+    await expect(section).toContainText("Average session length");
+    // The distinction the whole section rests on: hours per user is not a
+    // session length, and nothing here may imply it is.
+    await expect(section).toContainText(/would require a session count nobody outside Roblox has/i);
+  });
+
+  test("never presents the derived figure as a session length", async ({ page }) => {
+    await page.goto("/roblox-stats/");
+    const body = await page.locator("main").innerText();
+    expect(body).not.toMatch(/average session length (is|of) /i);
+    expect(body).not.toMatch(/estimated (total )?registrations/i);
+  });
+});
