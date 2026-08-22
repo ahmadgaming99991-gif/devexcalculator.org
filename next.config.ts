@@ -20,10 +20,26 @@ function resolveCommit(): string | undefined {
   if (fromEnv?.trim()) return fromEnv.trim();
 
   try {
-    return execFileSync("git", ["rev-parse", "HEAD"], {
+    const head = execFileSync("git", ["rev-parse", "HEAD"], {
       encoding: "utf8",
       stdio: ["ignore", "pipe", "ignore"],
     }).trim();
+
+    /*
+     * A build from a tree with uncommitted changes says so.
+     *
+     * This is not cosmetic. A deployment built before its commit reported the
+     * previous SHA while serving code that was not in it — which makes the
+     * one field whose entire purpose is "which build is running" answer with
+     * something that was never deployed. It happened once; the marker means
+     * it cannot happen silently again.
+     */
+    const dirty = execFileSync("git", ["status", "--porcelain"], {
+      encoding: "utf8",
+      stdio: ["ignore", "pipe", "ignore"],
+    }).trim();
+
+    return dirty === "" ? head : `${head}-dirty`;
   } catch {
     return undefined;
   }
