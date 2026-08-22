@@ -707,3 +707,49 @@ route registry, which is the thing it was always asking about.
 **`inPrimaryNav` was read by nothing.** See D-033: a registry field and a
 derived export that no code consumed, drifted to nine routes while the header
 rendered eight, and no build could notice. Both directions are now asserted.
+
+---
+
+## D-036 · Search Console, Bing and IndexNow, all off by default
+
+Three additions that share one rule: **an unconfigured integration must be
+absent, not empty.**
+
+**Ownership tags.** `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` and
+`NEXT_PUBLIC_BING_SITE_VERIFICATION` emit a meta tag only for a value that
+could plausibly be a real token. A pasted `<meta>` element, anything under
+sixteen characters, anything containing whitespace and anything
+placeholder-shaped are all rejected, because a verification tag reading
+`YOUR_TOKEN_HERE` looks configured, proves nothing, and can sit unread in a
+`<head>` for a year. Both are public identifiers rather than secrets — every
+site verifying this way publishes them — but they belong to whoever owns the
+console property, so they are read from the environment. DNS verification is
+documented first, since it puts no token in the HTML at all.
+
+**IndexNow.** `/indexnow.txt` serves `INDEXNOW_KEY` from a Worker secret and
+**404s when it is unset**, which is the state of every local build. The key is
+deliberately not committed: a key in a public repository lets anyone submit
+URLs on this site's behalf. Serving it from a route rather than from `public/`
+is what makes that possible, and using the spec's `keyLocation` option is what
+lets the file have a fixed name instead of a dynamic route able to answer to
+anything.
+
+The submission script enforces three things the endpoint will not: URLs come
+from the route registry so an API endpoint or a query state cannot be
+submitted; the default is only the routes carrying the newest `dateModified`,
+with anything over a quarter of the site requiring `--all`; and an unset key
+exits cleanly rather than failing a pipeline. It says plainly that **Google
+does not participate in IndexNow**, because the commonest thing written about
+this protocol is that it does.
+
+None of it runs in CI. Verifying ownership and submitting URLs are actions with
+an outside effect, tied to accounts this repository does not own.
+
+**The dry run found a real defect immediately.** It reported `/robux-to-usd/`
+as the changed page when the planner had changed `/usd-to-robux/` — an earlier
+edit had matched the route string inside another record's `internalLinks` and
+bumped the wrong record's `dateModified`. The sitemap test could not have
+caught it, because it derives its accepted dates from the registry and the
+registry was self-consistently wrong. `npm run seo:indexnow -- --dry-run` now
+answers "which pages does this release claim to have changed", which is worth
+running before a deploy whether or not anything is ever submitted.

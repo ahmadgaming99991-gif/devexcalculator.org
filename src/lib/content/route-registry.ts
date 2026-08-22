@@ -144,7 +144,7 @@ const staticRoutes: readonly RouteRecord[] = [
     entities: ["Robux", "USD", "Roblox", "Developer Exchange Program"],
     sourceIds: ["roblox-devex-program"],
     lastReviewedAt: REVIEWED,
-    dateModified: REVIEWED_PLANNER,
+    dateModified: REVIEWED,
     quickAnswer:
       "\"Robux to USD\" has two honest answers depending on who is asking. A creator cashing out eligible Earned Robux receives 0.0038 USD per Robux through DevEx, so 100,000 Robux is about 380 dollars. A player buying Robux pays a retail price set by Roblox, which is a different transaction entirely. This page keeps the two apart.",
     sections: [
@@ -220,7 +220,7 @@ const staticRoutes: readonly RouteRecord[] = [
     entities: ["Robux", "Earned Robux", "USD", "Developer Exchange Program"],
     sourceIds: ["roblox-devex-program"],
     lastReviewedAt: REVIEWED,
-    dateModified: REVIEWED,
+    dateModified: REVIEWED_PLANNER,
     quickAnswer:
       "To reach a 1,000 US dollar DevEx payout at the current rate you need 263,158 eligible Earned Robux. The figure always rounds up, because a fraction of a Robux does not exist and rounding down would leave you short of your target. Below 30,000 Earned Robux no payout is possible regardless of the goal.",
     sections: [

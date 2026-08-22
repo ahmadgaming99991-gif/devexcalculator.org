@@ -77,6 +77,19 @@ export const siteConfig = {
    * for a chunk whose code had not changed.
    */
 
+  /**
+   * Search Console and Bing Webmaster ownership tokens.
+   *
+   * Public identifiers rather than secrets — every site that verifies this way
+   * publishes them in its HTML — but still read from the environment, because
+   * they belong to whoever owns the console property. Absent by default, and a
+   * placeholder is treated as absent: see `src/lib/seo/verification.ts`.
+   */
+  verification: {
+    google: readEnv("NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION"),
+    bing: readEnv("NEXT_PUBLIC_BING_SITE_VERIFICATION"),
+  },
+
   /** Rate registry version surfaced in the footer and methodology page. */
   rateRegistryVersion: "2026-08-17.1",
   contentReviewedAt: "2026-08-17T00:00:00Z",

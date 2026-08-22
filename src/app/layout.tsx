@@ -4,6 +4,7 @@ import { requiresAnalyticsConsent, siteConfig } from "@/config/site";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { themeInitScript } from "@/components/layout/theme-toggle";
+import { buildVerification } from "@/lib/seo/verification";
 import { Analytics } from "@/components/seo/analytics";
 import { AnalyticsConsent } from "@/components/seo/analytics-consent";
 
@@ -17,6 +18,9 @@ export const metadata: Metadata = {
   applicationName: siteConfig.name,
   referrer: "strict-origin-when-cross-origin",
   formatDetection: { telephone: false, address: false, email: false },
+  // Emitted only for a token that could plausibly be real; a placeholder or a
+  // blank produces no tag at all rather than one that verifies nothing.
+  verification: buildVerification(),
   // No `keywords` field: the meta keywords tag has been ignored for two
   // decades and the specification forbids it explicitly.
 };

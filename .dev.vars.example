@@ -43,3 +43,13 @@ FX_CACHE_TTL_SECONDS=
 # Supported provider: finnhub
 STOCK_PROVIDER=
 STOCK_API_KEY=
+
+# IndexNow key. When set, /indexnow.txt serves it so participating search
+# engines can verify a submission; when unset that route 404s and
+# `npm run seo:indexnow` refuses to send anything. Generate any random
+# 8–128 character hex string. Kept out of the repository deliberately: a
+# committed key lets anyone submit URLs on this site's behalf.
+#
+# IndexNow reaches Bing, Yandex, Seznam and Naver. Google does not
+# participate in it.
+INDEXNOW_KEY=

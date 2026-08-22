@@ -179,6 +179,45 @@ test.describe("honesty", () => {
 });
 
 test.describe("disabled integrations", () => {
+  test("the IndexNow key file does not exist without a key", async ({ request }) => {
+    const response = await request.get("/indexnow.txt");
+
+    // 404, not an empty 200. A key file that exists and is blank would let a
+    // submission look verifiable when it is not, and the route is the only
+    // thing standing between an unset secret and that.
+    expect(response.status()).toBe(404);
+    expect(await response.text()).not.toContain("INDEXNOW");
+  });
+
+  test("no ownership verification tag is emitted for an unconfigured property", async ({
+    page,
+  }) => {
+    await page.goto("/");
+    const html = await page.content();
+
+    /*
+     * Neither token is configured here, so neither tag may appear. The failure
+     * this guards against is not a missing tag but a present, meaningless one:
+     * a verification meta carrying a placeholder looks configured, verifies
+     * nothing, and can sit in a `<head>` unread for a year.
+     */
+    expect(html).not.toContain("google-site-verification");
+    expect(html).not.toContain("msvalidate.01");
+
+    // And no meta tag may carry a placeholder value. Scoped to meta content
+    // rather than to the whole document: uppercasing the page turns every
+    // input's `placeholder=` attribute into a false positive, which is how
+    // this assertion failed the first time it ran.
+    const metaValues = await page.$$eval("head meta[content]", (nodes) =>
+      nodes.map((node) => node.getAttribute("content") ?? ""),
+    );
+    for (const value of metaValues) {
+      expect(value, `a meta tag carries a placeholder: ${value}`).not.toMatch(
+        /(?:^|[^a-z])(your_|placeholder|changeme|todo_)/i,
+      );
+    }
+  });
+
   test("this site loads no analytics of its own", async ({ page }) => {
     const requested: string[] = [];
     page.on("request", (request) => requested.push(request.url()));
@@ -380,7 +419,11 @@ test.describe("crawl infrastructure", () => {
     // in. A build that cannot say which commit it came from is one nobody can
     // verify is serving.
     expect(body.build.builtAt).not.toBeNull();
-    expect(body.build.commit).toMatch(/^[0-9a-f]{40}$/);
+    // A local or CI build made from a tree with uncommitted changes carries a
+    // `-dirty` marker, which is the point of it: the SHA alone would name a
+    // commit whose code is not what is running. Both forms are valid here;
+    // only a production deploy is expected to be clean.
+    expect(body.build.commit).toMatch(/^[0-9a-f]{40}(-dirty)?$/);
 
     const rates = await request.get("/api/rates/");
     expect(rates.status()).toBe(200);
