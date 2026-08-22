@@ -385,6 +385,7 @@ const staticRoutes: readonly RouteRecord[] = [
       { id: "live", heading: "What is being played right now" },
       { id: "history", heading: "Observed over time" },
       { id: "how", heading: "How this page gets its numbers" },
+      { id: "data", heading: "Download these observations" },
       { id: "faqs", heading: "Questions about these figures" },
     ],
     faqs: [
@@ -519,6 +520,7 @@ const staticRoutes: readonly RouteRecord[] = [
       { id: "rate-history", heading: "What one Robux has been worth" },
       { id: "engagement", heading: "How many people use Roblox, and for how long" },
       { id: "business", heading: "Roblox as a business" },
+      { id: "data", heading: "Download these figures" },
       { id: "what-it-means", heading: "What this means for your own payout" },
       { id: "no-live-data", heading: "Why there is no live data here" },
       { id: "faqs", heading: "Questions about these figures" },
@@ -1324,6 +1326,8 @@ const staticRoutes: readonly RouteRecord[] = [
     sections: [
       { id: "rates", heading: "GET /api/rates" },
       { id: "fx", heading: "GET /api/fx/latest" },
+      { id: "stats", heading: "GET /api/stats" },
+      { id: "platform", heading: "GET /api/platform" },
       { id: "using", heading: "Using it" },
       { id: "terms", heading: "What is promised, and what is not" },
     ],

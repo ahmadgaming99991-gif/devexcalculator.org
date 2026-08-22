@@ -93,6 +93,73 @@ export default function ApiPage() {
             </p>
           </Section>
 
+          <Section
+            id="stats"
+            heading="GET /api/stats"
+            description="Roblox's reported creator payouts and engagement, as rows, with every figure labelled reported or derived."
+          >
+            <Endpoint url={`${base}/api/stats`} />
+
+            <p className="mt-4 text-(--color-text-muted)">
+              The figures charted on{" "}
+              <InlineLink href="/roblox-stats/">the statistics page</InlineLink>,
+              published as data so a chart can be checked rather than believed.
+              Add <Code>?format=csv</Code> for a spreadsheet. Every row names its
+              filing and links to it, and every row says whether Roblox reported
+              the figure or this site derived it — a distinction that disappears
+              the moment two numbers sit in the same column without it.
+            </p>
+
+            <div className="mt-4 grid gap-4 sm:grid-cols-2">
+              <Field name="rows[]" note="metric, period, value, unit, origin, source and the URL of the filing" />
+              <Field name="notPublished[]" note="Metrics Roblox does not publish, with the reason each is absent" />
+              <Field name="?format=csv" note="The same rows as a downloadable CSV" />
+              <Field name="?format=csv-unpublished" note="The absences as their own CSV" />
+            </div>
+
+            <p className="mt-4 text-(--color-text-muted)">
+              Money is an exact decimal string, never a floating-point number.
+              A figure read from a filing is reproduced as written.
+            </p>
+          </Section>
+
+          <Section
+            id="platform"
+            heading="GET /api/platform"
+            description="The player-count observations this site has collected, exactly as collected."
+          >
+            <Endpoint url={`${base}/api/platform`} />
+
+            <p className="mt-4 text-(--color-text-muted)">
+              What{" "}
+              <InlineLink href="/platform/">the platform page</InlineLink> charts.
+              Add <Code>?format=csv</Code> for a spreadsheet, or{" "}
+              <Code>?series=experiences</Code> for per-experience rows rather than
+              totals. Reading it makes no request to Roblox: the collector does
+              that on its own schedule, and an export that triggered an upstream
+              fetch would let anyone raise this site&rsquo;s request rate against
+              Roblox by reloading a URL.
+            </p>
+
+            <p className="mt-4 text-(--color-text-muted)">
+              <strong className="font-semibold text-(--color-text)">
+                Nothing is filled in.
+              </strong>{" "}
+              A gap means the collector did not run at that moment, and the gap
+              is left in — no interpolation, no carry-forward, no back-fill. When
+              no observations can be read at all the endpoint answers{" "}
+              <Code>503</Code> rather than an empty list, because an empty file
+              is indistinguishable from a period with no players.
+            </p>
+
+            <div className="mt-4 grid gap-4 sm:grid-cols-2">
+              <Field name="rows[]" note="observed_at, the count, and the origin and source of each observation" />
+              <Field name="meta.notes[]" note="Retention, resolution and coverage limits, in the response itself" />
+              <Field name="?series=experiences" note="Per-experience rows, sampled hourly and kept seven days" />
+              <Field name="?format=csv" note="Either series as a downloadable CSV" />
+            </div>
+          </Section>
+
           <Section id="using" heading="Using it">
             <div className="grid gap-4 sm:grid-cols-2">
               <Card tone="subtle">

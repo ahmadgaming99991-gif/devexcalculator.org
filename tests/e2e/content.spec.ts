@@ -1,6 +1,7 @@
 import { expect, test } from "@playwright/test";
 import { describeOverflow, measureOverflow } from "../support/overflow";
 import { indexableRoutes } from "../../src/lib/content/route-registry";
+import { parseCsv } from "../../src/lib/seo/csv";
 
 /**
  * Content, crawlability and honesty checks.
@@ -620,6 +621,70 @@ test.describe("public API", () => {
  * A rate change is the event that invalidates a cached figure, and until these
  * existed the only way to learn of one was to revisit the changelog by hand.
  */
+test.describe("data exports", () => {
+  test("the statistics export carries provenance on every row", async ({ request }) => {
+    const response = await request.get("/api/stats/?format=csv");
+    expect(response.status()).toBe(200);
+    expect(response.headers()["content-type"]).toContain("text/csv");
+    // Saved as a file, not rendered in a tab.
+    expect(response.headers()["content-disposition"]).toContain("attachment");
+    // Data, not a page.
+    expect(response.headers()["x-robots-tag"]).toContain("noindex");
+
+    // Parsed rather than split on commas. The `note` column holds sentences
+    // with commas in them, and a naive split silently reads the wrong column
+    // — which is how this assertion failed the first time it ran.
+    const parsed = parseCsv(await response.text());
+    for (const column of ["origin", "source_id", "source_url", "value"]) {
+      expect(parsed.headers).toContain(column);
+    }
+    expect(parsed.rows.length).toBeGreaterThan(10);
+
+    const originIndex = parsed.headers.indexOf("origin");
+    const sourceIndex = parsed.headers.indexOf("source_url");
+    for (const row of parsed.rows) {
+      expect(["reported", "derived"]).toContain(row[originIndex]);
+      expect(row[sourceIndex]).toContain("https://");
+    }
+  });
+
+  test("the absences are exported too, with their reasons", async ({ request }) => {
+    const body = await (await request.get("/api/stats/?format=csv-unpublished")).text();
+    // A file of only what Roblox publishes would read as the complete picture.
+    expect(body).toContain("not published by Roblox");
+    expect(body).toContain("Total registered accounts");
+  });
+
+  test("the platform export never fills a gap or invents a total", async ({ request }) => {
+    const response = await request.get("/api/platform/");
+    // 503 is a legitimate answer here: no observations is not an empty list.
+    expect([200, 503]).toContain(response.status());
+
+    const body = await response.json();
+    if (!body.ok) {
+      expect(body.error).toBe("no-observations");
+      return;
+    }
+
+    const notes = (body.meta.notes as string[]).join(" ").toLowerCase();
+    expect(notes).toContain("nothing is interpolated");
+    expect(notes).toContain("not all of roblox");
+
+    for (const row of body.data.rows as { observed_at: string; origin: string }[]) {
+      expect(row.observed_at).toMatch(/^\d{4}-\d{2}-\d{2}T/);
+      expect(row.origin).toContain("observed");
+    }
+  });
+
+  test("both data pages link to their own downloads", async ({ page }) => {
+    await page.goto("/roblox-stats/");
+    await expect(page.locator('a[href="/api/stats/?format=csv"]')).toBeVisible();
+
+    await page.goto("/platform/");
+    await expect(page.locator('a[href="/api/platform/?format=csv"]')).toBeVisible();
+  });
+});
+
 test.describe("change feeds", () => {
   test("publishes the changelog as Atom and as JSON Feed", async ({ request }) => {
     const atom = await request.get("/feed.xml");

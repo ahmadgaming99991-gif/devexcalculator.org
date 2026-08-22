@@ -3,6 +3,7 @@ import { buildMetadata } from "@/lib/seo/metadata";
 import { requireRoute } from "@/lib/content/route-registry";
 import { JsonLd } from "@/components/seo/json-ld";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
+import { DataDownload } from "@/components/content/data-download";
 import {
   Badge,
   Callout,
@@ -396,6 +397,28 @@ export default function RobloxStatsPage() {
               ultimately reacts to. None of this is investment advice, and a quarterly
               result says nothing about what any individual will be paid.
             </Callout>
+          </Section>
+
+          <Section
+            id="data"
+            heading="Download these figures"
+            description="The rows behind the charts, with every figure labelled reported or derived."
+          >
+            <DataDownload
+              heading="Roblox creator payout statistics"
+              description="Everything charted on this page, plus the metrics Roblox does not publish, as a spreadsheet or as JSON."
+              formats={[
+                { label: "CSV — payout figures", href: "/api/stats/?format=csv" },
+                { label: "CSV — metrics Roblox does not publish", href: "/api/stats/?format=csv-unpublished" },
+                { label: "JSON — everything", href: "/api/stats/" },
+              ]}
+              limitations={[
+                "Every row states whether Roblox reported the figure or this site derived it from reported ones. The derivations are described on the methodology page.",
+                "Money is carried as an exact decimal string, never as a floating-point number, and never rounded on the way out.",
+                "Each row names the filing it came from and links to it, so any figure can be checked against the original document.",
+                "The metrics Roblox does not publish are included as absences with reasons, not omitted — a file without them would look like the complete picture.",
+              ]}
+            />
           </Section>
 
           <Section id="what-it-means" heading="What this means for your own payout">

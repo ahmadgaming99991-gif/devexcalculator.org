@@ -753,3 +753,48 @@ caught it, because it derives its accepted dates from the registry and the
 registry was self-consistently wrong. `npm run seo:indexnow -- --dry-run` now
 answers "which pages does this release claim to have changed", which is worth
 running before a deploy whether or not anything is ever submitted.
+
+---
+
+## D-037 · The data behind the charts is published as data
+
+`/roblox-stats/` and `/platform/` render charts and tables that cannot be
+checked without retyping them. A chart is an argument; the rows behind it are
+the evidence.
+
+`/api/stats` and `/api/platform` publish both, as JSON or as CSV, with visible
+download links on the pages themselves rather than only in the API
+documentation — the difference between data that is published and data that is
+technically available.
+
+**Provenance is a column, not a preamble.** Every row carries where its value
+came from: whether Roblox reported it or this site derived it, which filing or
+endpoint, and when it was observed. A comment block at the top of a CSV is not
+part of the format — spreadsheets read it as a broken first row — and a note in
+an HTTP header is invisible to anyone who already has the file. Repeating a
+short string a few hundred times costs a few kilobytes and means a row pasted
+into a document still says what it is.
+
+**The absences are exported too.** The metrics Roblox does not publish ship as
+rows with reasons. A file containing only what Roblox publishes reads as the
+complete picture, and someone would fill the gap with an estimate — the exact
+thing the page refuses to do.
+
+**No gap is ever filled.** The observed export contains exactly the
+observations collected; a collector outage leaves a hole. When no observations
+can be read at all the endpoint answers 503 rather than an empty list, because
+an empty file is indistinguishable from a period with no players.
+
+**The export makes no request to Roblox.** It reads Workers KV only. An export
+that triggered an upstream fetch would let anyone raise this site's request
+rate against Roblox by reloading a URL.
+
+Money crosses the boundary as an exact decimal string, never a float — the CSV
+writer never sees a `number` for a monetary value.
+
+Two of my own defects, both caught by running the thing rather than by reading
+it. A row marked `derived` was carrying the note "Reported to the nearest
+million", which says two different things about where a figure came from. And
+the first version of the export test split rows on commas, which reads the
+wrong column the moment the `note` field contains a sentence — it now parses
+with the same RFC 4180 reader the keyword pipeline uses.

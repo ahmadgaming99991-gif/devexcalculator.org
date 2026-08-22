@@ -5,6 +5,7 @@ import { buildMetadata } from "@/lib/seo/metadata";
 import { requireRoute } from "@/lib/content/route-registry";
 import { JsonLd } from "@/components/seo/json-ld";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
+import { DataDownload } from "@/components/content/data-download";
 import {
   Badge,
   Callout,
@@ -200,6 +201,28 @@ export default async function PlatformPage({ searchParams }: PageProps) {
               <InlineLink href="/roblox-stats/">the payout statistics</InlineLink>,
               which come from Roblox&rsquo;s filings.
             </Callout>
+          </Section>
+
+          <Section
+            id="data"
+            heading="Download these observations"
+            description="Exactly what was collected, with the gaps left in."
+          >
+            <DataDownload
+              heading="Observed player counts"
+              description="The observations behind the chart above, as a spreadsheet or as JSON. Read from storage; downloading makes no request to Roblox."
+              formats={[
+                { label: "CSV — platform totals", href: "/api/platform/?format=csv" },
+                { label: "CSV — per experience", href: "/api/platform/?series=experiences&format=csv" },
+                { label: "JSON — platform totals", href: "/api/platform/" },
+              ]}
+              limitations={[
+                "Observations only. Nothing is interpolated and no missing observation is filled in — a gap means the collector did not run, and it is left visible rather than smoothed over.",
+                "Collected every 15 minutes. Platform totals are kept 14 days; per-experience series are sampled hourly and kept 7 days, so the two files have different resolutions and different spans.",
+                "Covers only the experiences Roblox was ranking at the moment of each observation. This is not all of Roblox, and no share of the platform can be worked out from it.",
+                "Every row carries its own observation time and origin, so a row copied elsewhere still says what it is.",
+              ]}
+            />
           </Section>
 
           <Section id="faqs" heading="Questions about these figures">
