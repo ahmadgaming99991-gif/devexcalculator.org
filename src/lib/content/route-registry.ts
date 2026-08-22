@@ -13,6 +13,8 @@ import { formatRobux } from "@/lib/calculations/format";
  */
 
 const REVIEWED = "2026-08-17T00:00:00Z";
+/** Content genuinely changed after the launch review, for sitemap `lastmod`. */
+const REVIEWED_PLANNER = "2026-08-23T00:00:00Z";
 
 const staticRoutes: readonly RouteRecord[] = [
   // -------------------------------------------------------------------------
@@ -142,7 +144,7 @@ const staticRoutes: readonly RouteRecord[] = [
     entities: ["Robux", "USD", "Roblox", "Developer Exchange Program"],
     sourceIds: ["roblox-devex-program"],
     lastReviewedAt: REVIEWED,
-    dateModified: REVIEWED,
+    dateModified: REVIEWED_PLANNER,
     quickAnswer:
       "\"Robux to USD\" has two honest answers depending on who is asking. A creator cashing out eligible Earned Robux receives 0.0038 USD per Robux through DevEx, so 100,000 Robux is about 380 dollars. A player buying Robux pays a retail price set by Roblox, which is a different transaction entirely. This page keeps the two apart.",
     sections: [
@@ -225,6 +227,7 @@ const staticRoutes: readonly RouteRecord[] = [
       { id: "target-calculator", heading: "Earned Robux needed for your target" },
       { id: "rounding", heading: "Why the answer rounds up" },
       { id: "minimum", heading: "The minimum still applies" },
+      { id: "planner", heading: "How long it takes at your pace" },
       { id: "examples", heading: "Common payout targets" },
       { id: "buying-robux", heading: "This is not about buying Robux" },
       { id: "faqs", heading: "Questions about payout targets" },

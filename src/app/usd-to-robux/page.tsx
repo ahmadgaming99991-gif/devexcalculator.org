@@ -4,6 +4,7 @@ import { requireRoute } from "@/lib/content/route-registry";
 import { JsonLd } from "@/components/seo/json-ld";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { Calculator } from "@/features/devex/calculator";
+import { Planner } from "@/features/devex/planner";
 import { parseCalculatorState } from "@/features/devex/url-state";
 import { Callout, Container, InlineLink, Section, Table, TableWrapper, Td, Th } from "@/components/ui";
 import {
@@ -37,6 +38,14 @@ export default async function UsdToRobuxPage({
   const record = requireRoute(ROUTE);
   const initialState = parseCalculatorState(await searchParams);
   const rate = getRateValue(standardRateId);
+
+  /*
+   * The day this page was rendered, handed to the planner as its starting
+   * point. This route is server-rendered per request, so it is today; the
+   * planner replaces it with the reader's own day during hydration either
+   * way, which is what keeps a prerendered date from going stale.
+   */
+  const today = new Date().toISOString().slice(0, 10);
 
   const rows = TARGETS.map((target) => {
     const targetUsd = Rational.fromInt(target);
@@ -108,6 +117,38 @@ export default async function UsdToRobuxPage({
               rather than your original target.{" "}
               <a href="/devex-requirements/">See the full requirements</a>.
             </Callout>
+          </Section>
+
+          <Section
+            id="planner"
+            heading="How long it takes at your pace"
+            description="The target tells you how much. This works out when — or, from a date, what you would have to earn to get there."
+          >
+            {/*
+              Server-rendered first, so the section explains itself to a reader
+              with no JavaScript and to a crawler. The planner below is an
+              island; this paragraph is not, and is the reason the page is not
+              blank here without it.
+            */}
+            <p className="text-(--color-text-muted)">
+              A payout target is a distance. Turning it into a date needs one
+              more fact — how fast you earn — and turning a date into a plan
+              needs the same fact in reverse. Both are the same division:{" "}
+              {/*
+                Allowed to wrap. Held on one line it measured 488px, which
+                pushed the whole page 187px sideways at 320px — the exact
+                class of defect the overflow check exists to catch.
+              */}
+              <span className="numeric-display">
+                days = remaining Earned Robux ÷ Earned Robux per day
+              </span>
+              , rounded up, because a part day earns nothing and a part Robux
+              does not exist. Nothing here assumes your earnings grow, and
+              nothing here is a date Roblox will pay on — Roblox publishes no
+              DevEx processing time, so none is added.
+            </p>
+
+            <Planner today={today} />
           </Section>
 
           <Section

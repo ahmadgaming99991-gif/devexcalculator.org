@@ -1,0 +1,698 @@
+"use client";
+
+import { useId, useMemo, useState } from "react";
+import {
+  PACE_PERIOD_DAYS,
+  planEarnings,
+  planScenarios,
+  type PacePeriod,
+  type PlanHorizon,
+} from "@/lib/calculations/planner";
+import { Rational } from "@/lib/calculations/rational";
+import { allRates, maxRobuxInput, maxUsdTargetInput } from "@/lib/calculations/rate-registry";
+import { standardRateId } from "@/lib/calculations/devex";
+import {
+  parseCurrencyAmount,
+  parsePercent,
+  parseRobuxAmount,
+} from "@/lib/calculations/parse-amount";
+import { formatCurrency, formatRobux } from "@/lib/calculations/format";
+import { useClientValue } from "@/lib/utilities/use-client-value";
+import {
+  Badge,
+  Callout,
+  Card,
+  Disclosure,
+  Table,
+  TableWrapper,
+  Td,
+  Th,
+  cx,
+} from "@/components/ui";
+
+/**
+ * The earnings goal planner.
+ *
+ * The target calculator answers "how much Earned Robux does $500 need". This
+ * answers the question that follows it — *when* — in whichever direction the
+ * reader is actually asking:
+ *
+ *   - "I earn about this much a week." → the date that reaches the target.
+ *   - "I need it by this date." → what has to be earned each day to get there.
+ *
+ * Both run through `planEarnings`, which is exact-arithmetic and pure; nothing
+ * in this file computes money or dates itself.
+ *
+ * A separate module rather than a fourth mode in the main calculator, for the
+ * same reason the group split is separate: the shared calculator is this
+ * site's most-tested component, and threading a second time dimension through
+ * its state to arrive at the same place would put that at risk for nothing.
+ *
+ * Three rules the copy here follows without exception, because the arithmetic
+ * cannot enforce them:
+ *
+ *   - A date is a projection at a pace the reader supplied, never a date
+ *     Roblox will pay on.
+ *   - Reaching the minimum is not approval, and is never worded as though it
+ *     were.
+ *   - Tax is zero until the reader types a number. This site does not know
+ *     their country and will not guess at one.
+ */
+
+/**
+ * Today on the reader's own calendar, as `YYYY-MM-DD`.
+ *
+ * Deliberately local rather than UTC. `<input type="date">` hands back a local
+ * calendar date, so anchoring the plan to a UTC day puts the two out of step
+ * for anyone east or west of Greenwich — at 02:00 in Karachi the UTC day is
+ * still yesterday, and a deadline of "tomorrow" would be counted as two days
+ * away. Both ends are then treated as plain calendar dates, which is what a
+ * plan measured in days actually is.
+ */
+function localDay(now: Date): string {
+  const month = `${now.getMonth() + 1}`.padStart(2, "0");
+  const day = `${now.getDate()}`.padStart(2, "0");
+  return `${now.getFullYear()}-${month}-${day}`;
+}
+
+const PERIOD_LABELS: Record<PacePeriod, string> = {
+  day: "a day",
+  week: "a week",
+  month: "a month (30 days)",
+};
+
+export function Planner({ today }: { today: string }) {
+  const fieldId = useId();
+
+  /*
+   * The plan starts from the reader's own day, not the build's.
+   *
+   * Every page here is prerendered, so a date computed at build time would be
+   * weeks stale by the time anyone read it — and reading the clock during
+   * render is neither pure nor safe to hydrate. The server's day renders
+   * first and the browser's replaces it in the same commit.
+   */
+  const startIso = useClientValue(() => localDay(new Date()), today);
+  const startDate = useMemo(() => new Date(`${startIso}T00:00:00Z`), [startIso]);
+
+  const [targetUsd, setTargetUsd] = useState("500");
+  const [rateId, setRateId] = useState<string>(standardRateId);
+  const [currentRobux, setCurrentRobux] = useState("0");
+  const [mode, setMode] = useState<"pace" | "deadline">("pace");
+  const [paceAmount, setPaceAmount] = useState("5,000");
+  const [pacePeriod, setPacePeriod] = useState<PacePeriod>("week");
+  const [deadline, setDeadline] = useState("");
+  const [feePercent, setFeePercent] = useState("");
+  const [flatFee, setFlatFee] = useState("");
+  const [taxPercent, setTaxPercent] = useState("");
+
+  const parsedTarget = parseCurrencyAmount(targetUsd, maxUsdTargetInput, 2);
+  const parsedCurrent = parseRobuxAmount(currentRobux || "0", maxRobuxInput);
+  const parsedPace = parseRobuxAmount(paceAmount || "0", maxRobuxInput);
+  const parsedFee = parsePercent(feePercent);
+  const parsedFlat = parseCurrencyAmount(flatFee || "0", 10_000, 2);
+  const parsedTax = parsePercent(taxPercent);
+
+  const horizon: PlanHorizon | null =
+    mode === "pace"
+      ? { kind: "pace", amountRobux: parsedPace.ok ? parsedPace.value.robux : 0n, period: pacePeriod }
+      : deadline.trim() === ""
+        ? null
+        : { kind: "deadline", date: deadline };
+
+  const input = {
+    targetUsd: parsedTarget.ok ? parsedTarget.value : Rational.ZERO,
+    rateId,
+    currentRobux: parsedCurrent.ok ? parsedCurrent.value.robux : 0n,
+    horizon,
+    fees: {
+      feePercent: parsedFee.ok ? parsedFee.value : Rational.ZERO,
+      flatFeeUsd: parsedFlat.ok ? parsedFlat.value : Rational.ZERO,
+      taxPercent: parsedTax.ok ? parsedTax.value : Rational.ZERO,
+    },
+    startDate,
+  };
+
+  const plan = planEarnings(input);
+  const scenarios = planScenarios(input);
+  const { requirement, payout } = plan;
+
+  const targetInvalid = targetUsd.trim() !== "" && !parsedTarget.ok;
+
+  return (
+    <div className="min-w-0">
+      <Card>
+        <div className="grid gap-5 sm:grid-cols-2">
+          <Field
+            id={`${fieldId}-target`}
+            label="Payout you are aiming for"
+            suffix="USD"
+            value={targetUsd}
+            onChange={setTargetUsd}
+            invalid={targetInvalid}
+            hint={
+              targetInvalid
+                ? parsedTarget.message
+                : "Before any payment-provider fee or tax."
+            }
+          />
+
+          <div>
+            <label
+              htmlFor={`${fieldId}-rate`}
+              className="block text-sm font-semibold text-(--color-text)"
+            >
+              Rate to plan against
+            </label>
+            <select
+              id={`${fieldId}-rate`}
+              value={rateId}
+              onChange={(event) => setRateId(event.target.value)}
+              className="mt-2 min-h-[44px] w-full rounded-(--radius-control) border border-(--color-border-strong) bg-(--color-surface) px-3 py-2.5 text-(--color-text)"
+            >
+              {allRates
+                .filter((rate) => rate.status !== "retired")
+                .map((rate) => (
+                  <option key={rate.id} value={rate.id}>
+                    {rate.label} — ${rate.usdPerRobux} per Robux
+                  </option>
+                ))}
+            </select>
+            <p className="mt-2 text-sm text-(--color-text-muted)">
+              Roblox decides which rate applies to a balance. This plans against
+              the one you pick.
+            </p>
+          </div>
+
+          <Field
+            id={`${fieldId}-current`}
+            label="Eligible Earned Robux you already have"
+            suffix="R$"
+            value={currentRobux}
+            onChange={setCurrentRobux}
+            invalid={currentRobux.trim() !== "" && !parsedCurrent.ok}
+            hint={
+              currentRobux.trim() !== "" && !parsedCurrent.ok
+                ? parsedCurrent.message
+                : "Only Earned Robux count. Purchased and gifted Robux cannot be exchanged."
+            }
+          />
+
+          <fieldset className="min-w-0">
+            <legend className="text-sm font-semibold text-(--color-text)">
+              What do you know?
+            </legend>
+            <div className="mt-2 flex flex-wrap gap-2">
+              <ModeButton
+                selected={mode === "pace"}
+                onClick={() => setMode("pace")}
+                label="How much I earn"
+              />
+              <ModeButton
+                selected={mode === "deadline"}
+                onClick={() => setMode("deadline")}
+                label="When I need it"
+              />
+            </div>
+            <p className="mt-2 text-sm text-(--color-text-muted)">
+              {mode === "pace"
+                ? "The plan works out the date."
+                : "The plan works out the pace."}
+            </p>
+          </fieldset>
+
+          {mode === "pace" ? (
+            <>
+              <Field
+                id={`${fieldId}-pace`}
+                label="Earned Robux you expect to earn"
+                suffix="R$"
+                value={paceAmount}
+                onChange={setPaceAmount}
+                invalid={paceAmount.trim() !== "" && !parsedPace.ok}
+                hint={
+                  paceAmount.trim() !== "" && !parsedPace.ok
+                    ? parsedPace.message
+                    : "What you earn now. The projection does not assume it grows."
+                }
+              />
+              <div>
+                <label
+                  htmlFor={`${fieldId}-period`}
+                  className="block text-sm font-semibold text-(--color-text)"
+                >
+                  Per
+                </label>
+                <select
+                  id={`${fieldId}-period`}
+                  value={pacePeriod}
+                  onChange={(event) => setPacePeriod(event.target.value as PacePeriod)}
+                  className="mt-2 min-h-[44px] w-full rounded-(--radius-control) border border-(--color-border-strong) bg-(--color-surface) px-3 py-2.5 text-(--color-text)"
+                >
+                  {(Object.keys(PACE_PERIOD_DAYS) as PacePeriod[]).map((period) => (
+                    <option key={period} value={period}>
+                      {PERIOD_LABELS[period]}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </>
+          ) : (
+            <div className="sm:col-span-2">
+              <label
+                htmlFor={`${fieldId}-deadline`}
+                className="block text-sm font-semibold text-(--color-text)"
+              >
+                Date you want the payout by
+              </label>
+              <input
+                id={`${fieldId}-deadline`}
+                type="date"
+                value={deadline}
+                min={startIso}
+                onChange={(event) => setDeadline(event.target.value)}
+                className="tabular mt-2 min-h-[44px] w-full rounded-(--radius-control) border border-(--color-border-strong) bg-(--color-surface) px-3 py-2.5 text-(--color-text) sm:w-64"
+              />
+              <p className="mt-2 text-sm text-(--color-text-muted)">
+                This is the date you want to reach the balance. Roblox does not
+                publish how long a DevEx request takes to process, so no
+                processing time is added.
+              </p>
+            </div>
+          )}
+        </div>
+
+        <Disclosure summary="Fees and tax (optional)" className="mt-5">
+          <div className="grid gap-4 sm:grid-cols-3">
+            <Field
+              id={`${fieldId}-fee`}
+              label="Payment provider fee"
+              suffix="%"
+              value={feePercent}
+              onChange={setFeePercent}
+              placeholder="0"
+              invalid={!parsedFee.ok}
+              hint={parsedFee.ok ? undefined : parsedFee.message}
+              compact
+            />
+            <Field
+              id={`${fieldId}-flat`}
+              label="Flat fee per payout"
+              suffix="USD"
+              value={flatFee}
+              onChange={setFlatFee}
+              placeholder="0"
+              invalid={flatFee.trim() !== "" && !parsedFlat.ok}
+              hint={flatFee.trim() === "" || parsedFlat.ok ? undefined : parsedFlat.message}
+              compact
+            />
+            <Field
+              id={`${fieldId}-tax`}
+              label="Your own tax estimate"
+              suffix="%"
+              value={taxPercent}
+              onChange={setTaxPercent}
+              placeholder="0"
+              invalid={!parsedTax.ok}
+              hint={parsedTax.ok ? undefined : parsedTax.message}
+              compact
+            />
+          </div>
+          <p className="mt-3">
+            All three are yours to supply. This site publishes no default fee
+            and no tax rate: it does not know your country, your provider or
+            your circumstances, and a number filled in here on your behalf
+            would be advice rather than arithmetic.
+          </p>
+        </Disclosure>
+      </Card>
+
+      {/* ------------------------------------------------------------------ */}
+
+      <Card className="mt-6">
+        <h3 className="text-sm font-semibold tracking-wide text-(--color-text-muted) uppercase">
+          The plan
+        </h3>
+
+        <div className="mt-4 grid gap-5 sm:grid-cols-3">
+          <Figure
+            label="Earned Robux needed in total"
+            value={`${formatRobux(requirement.effectiveRobuxNeeded)} R$`}
+            note={
+              requirement.requirementIsBelowMinimum
+                ? `Your target needs only ${formatRobux(requirement.requiredRobux)}, but DevEx cannot be requested below ${formatRobux(BigInt(requirement.minimumRobux))}.`
+                : undefined
+            }
+          />
+          <Figure
+            label="Still to earn"
+            value={`${formatRobux(requirement.remainingRobux)} R$`}
+            note={
+              requirement.alreadyReached
+                ? "You already hold enough for this target."
+                : `${requirement.progressPercent}% of the way there.`
+            }
+          />
+          <Figure
+            label="Estimated payout"
+            value={formatCurrency(payout.grossUsd, "USD")}
+            note={`At ${requirement.rate.label}, before fees and tax.`}
+          />
+        </div>
+
+        {/* The answer the planner exists to give. */}
+        <div className="mt-6 rounded-(--radius-card) bg-(--color-surface-subtle) p-5">
+          {mode === "pace" ? <PaceOutcome plan={plan} /> : <DeadlineOutcome plan={plan} />}
+        </div>
+
+        {(payout.feesApplied || payout.taxApplied) && (
+          <TableWrapper label="What the payout is reduced by" className="mt-6">
+            <Table caption="The estimated payout, the fees and tax you entered, and what is left.">
+              <thead>
+                <tr>
+                  <Th>Stage</Th>
+                  <Th numeric>Amount</Th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <Td>Estimated gross payout</Td>
+                  <Td numeric className="tabular">
+                    {formatCurrency(payout.grossUsd, "USD")}
+                  </Td>
+                </tr>
+                {payout.feesApplied && (
+                  <>
+                    <tr>
+                      <Td>Percentage fee you entered</Td>
+                      <Td numeric className="tabular">
+                        −{formatCurrency(payout.percentageFeeUsd, "USD")}
+                      </Td>
+                    </tr>
+                    <tr>
+                      <Td>Flat fee you entered</Td>
+                      <Td numeric className="tabular">
+                        −{formatCurrency(payout.flatFeeUsd, "USD")}
+                      </Td>
+                    </tr>
+                  </>
+                )}
+                {payout.taxApplied && (
+                  <tr>
+                    <Td>Your own tax estimate, on what is left after fees</Td>
+                    <Td numeric className="tabular">
+                      −{formatCurrency(payout.estimatedTaxUsd, "USD")}
+                    </Td>
+                  </tr>
+                )}
+                <tr>
+                  <Td>
+                    <strong className="font-semibold text-(--color-text)">
+                      Estimated amount you keep
+                    </strong>
+                  </Td>
+                  <Td numeric className="tabular font-semibold">
+                    {formatCurrency(payout.netAfterEstimateUsd, "USD")}
+                  </Td>
+                </tr>
+              </tbody>
+            </Table>
+          </TableWrapper>
+        )}
+
+        <TableWrapper label="The same plan under each documented rate" className="mt-6">
+          <Table caption="What the same target would need, and when it would be reached, under each rate Roblox currently documents.">
+            <thead>
+              <tr>
+                <Th>Rate</Th>
+                <Th numeric>Earned Robux needed</Th>
+                <Th numeric>Still to earn</Th>
+                <Th>{mode === "pace" ? "Reached in" : "Needed each day"}</Th>
+              </tr>
+            </thead>
+            <tbody>
+              {scenarios.map((row) => (
+                <tr key={row.rate.id}>
+                  <Td>
+                    {row.rate.label}
+                    {row.isBaseline ? (
+                      <>
+                        {" "}
+                        <Badge tone="info">Planning against this</Badge>
+                      </>
+                    ) : null}
+                  </Td>
+                  <Td numeric className="tabular">
+                    {formatRobux(row.effectiveRobuxNeeded)}
+                  </Td>
+                  <Td numeric className="tabular">
+                    {formatRobux(row.remainingRobux)}
+                  </Td>
+                  <Td className="tabular">
+                    {mode === "pace"
+                      ? row.projected === null
+                        ? "Not at this pace"
+                        : row.projected.days === 0
+                          ? "Already reached"
+                          : `${row.projected.days} days`
+                      : row.requiredPace === null
+                        ? "Pick a future date"
+                        : row.remainingRobux === 0n
+                          ? "Already reached"
+                          : `${formatRobux(row.requiredPace.perDayRobux)} R$`}
+                  </Td>
+                </tr>
+              ))}
+            </tbody>
+          </Table>
+        </TableWrapper>
+
+        <Callout tone="warning" title="What this plan is not" className="mt-6">
+          <p>
+            Every figure here is an estimate produced from what you entered.
+            Reaching {formatRobux(BigInt(requirement.minimumRobux))} Earned
+            Robux lets you submit a DevEx request; it does not mean the request
+            will be approved. Roblox reviews eligibility, account standing and
+            compliance, and decides on every request itself. Rates can change,
+            and a projection assumes you keep earning at the pace you gave.
+          </p>
+        </Callout>
+      </Card>
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+
+function PaceOutcome({ plan }: { plan: ReturnType<typeof planEarnings> }) {
+  const { projected, requirement, suppliedPerDayRobux } = plan;
+
+  if (requirement.alreadyReached) {
+    return (
+      <Outcome
+        headline="You already hold enough for this target."
+        detail={`Your balance of ${formatRobux(requirement.currentRobux)} Earned Robux covers the ${formatRobux(requirement.effectiveRobuxNeeded)} this plan needs. Meeting the minimum is not approval — Roblox decides that.`}
+      />
+    );
+  }
+
+  if (projected === null) {
+    return (
+      <Outcome
+        headline="No date, at this pace."
+        detail="Earning nothing per period never reaches the target. Enter what you expect to earn and the plan will work out the date."
+        muted
+      />
+    );
+  }
+
+  return (
+    <Outcome
+      headline={`About ${projected.days} ${projected.days === 1 ? "day" : "days"} away — around ${formatPlanDate(projected.date)}.`}
+      detail={`At ${formatRobux(suppliedPerDayRobux ?? 0n)} Earned Robux a day, kept up steadily: roughly ${projected.weeks} ${projected.weeks === 1 ? "week" : "weeks"}, or ${projected.months} ${projected.months === 1 ? "month" : "months"}. This is a projection at the pace you entered, not a date Roblox will pay on.`}
+    />
+  );
+}
+
+function DeadlineOutcome({ plan }: { plan: ReturnType<typeof planEarnings> }) {
+  const { required, requirement, deadlineHasPassed } = plan;
+
+  if (requirement.alreadyReached) {
+    return (
+      <Outcome
+        headline="You already hold enough for this target."
+        detail="Nothing more needs to be earned before the date you gave. Meeting the minimum is not approval — Roblox decides that."
+      />
+    );
+  }
+
+  if (deadlineHasPassed) {
+    return (
+      <Outcome
+        headline="That date has already arrived."
+        detail="Pick a date in the future and the plan will work out what has to be earned each day to reach it."
+        muted
+      />
+    );
+  }
+
+  if (required === null) {
+    return (
+      <Outcome
+        headline="Pick a date."
+        detail="With a date, the plan works out what has to be earned each day, week and month to reach the target by then."
+        muted
+      />
+    );
+  }
+
+  return (
+    <Outcome
+      headline={`${formatRobux(required.perDayRobux)} Earned Robux a day.`}
+      detail={`That is ${formatRobux(required.perWeekRobux)} a week, or ${formatRobux(required.perMonthRobux)} over 30 days. Each figure is rounded up: earning the rounded-down amount would miss the date.`}
+    />
+  );
+}
+
+function Outcome({
+  headline,
+  detail,
+  muted = false,
+}: {
+  headline: string;
+  detail: string;
+  muted?: boolean;
+}) {
+  return (
+    <>
+      {/*
+        Announced as one settled result rather than on every keystroke. The
+        region is polite and holds a whole sentence, so a screen reader hears
+        the answer, not a running commentary on the digits being typed.
+      */}
+      <p
+        aria-live="polite"
+        className={cx(
+          "text-xl font-bold text-balance",
+          muted ? "text-(--color-text-muted)" : "text-(--color-text)",
+        )}
+      >
+        {headline}
+      </p>
+      <p className="mt-2 text-sm text-(--color-text-muted)">{detail}</p>
+    </>
+  );
+}
+
+function Figure({
+  label,
+  value,
+  note,
+}: {
+  label: string;
+  value: string;
+  note?: string;
+}) {
+  return (
+    <div className="min-w-0">
+      <p className="text-xs font-medium tracking-wide text-(--color-text-muted) uppercase">
+        {label}
+      </p>
+      <p className="tabular mt-1 text-lg font-bold text-(--color-text)">{value}</p>
+      {note ? <p className="mt-1 text-sm text-(--color-text-muted)">{note}</p> : null}
+    </div>
+  );
+}
+
+function ModeButton({
+  selected,
+  onClick,
+  label,
+}: {
+  selected: boolean;
+  onClick: () => void;
+  label: string;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-pressed={selected}
+      className={cx(
+        "min-h-[44px] rounded-(--radius-control) border px-4 text-sm font-semibold",
+        selected
+          ? "border-(--color-primary) bg-(--color-primary) text-(--color-on-primary)"
+          : "border-(--color-border-strong) bg-(--color-surface) text-(--color-text)",
+      )}
+    >
+      {label}
+    </button>
+  );
+}
+
+function Field({
+  id,
+  label,
+  suffix,
+  value,
+  onChange,
+  hint,
+  invalid = false,
+  placeholder,
+  compact = false,
+}: {
+  id: string;
+  label: string;
+  suffix: string;
+  value: string;
+  onChange: (value: string) => void;
+  hint?: string;
+  invalid?: boolean;
+  placeholder?: string;
+  compact?: boolean;
+}) {
+  const hintId = `${id}-hint`;
+  return (
+    <div className="min-w-0">
+      <label
+        htmlFor={id}
+        className={cx(
+          "block font-semibold text-(--color-text)",
+          compact ? "text-sm" : "text-sm",
+        )}
+      >
+        {label}
+      </label>
+      <div className="mt-2 flex items-center gap-2">
+        <input
+          id={id}
+          inputMode="decimal"
+          value={value}
+          placeholder={placeholder}
+          onChange={(event) => onChange(event.target.value)}
+          aria-invalid={invalid}
+          aria-describedby={hint ? hintId : undefined}
+          className="tabular min-h-[44px] w-full min-w-0 rounded-(--radius-control) border border-(--color-border-strong) bg-(--color-surface) px-3 py-2.5 text-(--color-text)"
+        />
+        <span aria-hidden="true" className="shrink-0 text-sm text-(--color-text-muted)">
+          {suffix}
+        </span>
+      </div>
+      {hint ? (
+        <p id={hintId} className="mt-2 text-sm text-(--color-text-muted)">
+          {hint}
+        </p>
+      ) : null}
+    </div>
+  );
+}
+
+/** A plan date, written the way the rest of the site writes dates. */
+function formatPlanDate(date: Date): string {
+  return date.toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    timeZone: "UTC",
+  });
+}

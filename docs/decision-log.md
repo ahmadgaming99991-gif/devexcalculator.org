@@ -642,3 +642,68 @@ and no build could notice. The flags now describe the twenty-one routes the
 header carries, and a test asserts the two sets are equal in both directions.
 
 Cost: 0.5 kB gzipped of application JavaScript, against a 125 kB budget.
+
+---
+
+## D-034 · The earnings planner is a module on `/usd-to-robux/`, not a route
+
+The target calculator answers "how much Earned Robux does $500 need". The
+question a creator asks immediately afterwards is *when*, and nothing on the
+site answered it.
+
+**No new route.** The keyword corpus — 444 rows across two competitor exports —
+contains no goal, timeline, "how long", "per day" or "save up" query at all.
+The publication gate requires real demand before a route is created, and
+inventing one for a feature would be exactly the mass-generation this project
+refuses. The planner is therefore a section on `/usd-to-robux/`, the page that
+already owns the payout-target intent, and it will only become a route if
+Search Console later shows the cluster exists.
+
+**It runs in both directions**, because both are the same division:
+
+- a pace produces a date — `days = ceil(remaining ÷ per day)`
+- a date produces a pace — `per day = ceil(remaining ÷ days available)`
+
+Every rounding direction is chosen so the answer cannot flatter the reader. A
+weekly pace is floored into a daily one, so a projection never assumes a
+fraction that was not earned; days are ceiled, because a part day earns
+nothing; and a required pace is ceiled in every period, because earning the
+rounded-down amount would miss the date.
+
+**Four refusals are built into the engine rather than into the copy.** There is
+no default tax rate and no default fee. There is no growth model — a creator
+entering "5,000 a week" is describing now, not a curve. A pace of zero returns
+*no date at all* rather than a number derived from a division by zero. And a
+plan is either paced or dated, never both, so the two can never disagree.
+
+**A real defect the local/UTC distinction caused.** The plan was first anchored
+to the UTC day. `<input type="date">` returns a *local* calendar date, so at
+02:00 in Karachi the two were a day apart and "tomorrow" was counted as two
+days away. The start day is now the reader's own calendar day, and both ends
+are treated as plain calendar dates.
+
+The requirement itself is not recomputed here: `planEarnings` calls
+`calculateTarget`, so the planner and the calculator above it can never
+disagree about the same question.
+
+Cost: 5.2 kB gzipped of application JavaScript, taking the total to 108.5 kB
+against a 125 kB budget.
+
+---
+
+## D-035 · Two checks that had stopped being able to fail
+
+Found while shipping the above, and worth recording together because they are
+the same mistake in different clothes.
+
+**The sitemap's `lastmod` test compared against one hardcoded date.** Its own
+purpose was to prove the build time had not leaked into `lastmod` — but the
+comparison set was the literal string `2026-08-17`, so the first page to
+genuinely change its content failed a test about build times. The obvious fix
+would have been to add today's date to the list, which is how a check like
+this quietly stops meaning anything. It now derives the accepted set from the
+route registry, which is the thing it was always asking about.
+
+**`inPrimaryNav` was read by nothing.** See D-033: a registry field and a
+derived export that no code consumed, drifted to nine routes while the header
+rendered eight, and no build could notice. Both directions are now asserted.

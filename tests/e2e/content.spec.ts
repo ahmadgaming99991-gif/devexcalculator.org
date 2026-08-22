@@ -1,5 +1,6 @@
 import { expect, test } from "@playwright/test";
 import { describeOverflow, measureOverflow } from "../support/overflow";
+import { indexableRoutes } from "../../src/lib/content/route-registry";
 
 /**
  * Content, crawlability and honesty checks.
@@ -311,12 +312,19 @@ test.describe("crawl infrastructure", () => {
 
     /*
      * Every entry must carry a date the content manifest actually declares.
-     * At launch all pages legitimately share one review date, so "not all the
-     * same" would be the wrong assertion — what matters is that the value comes
-     * from `dateModified` and not from `new Date()` at build time. Any date the
-     * manifest does not contain means the build time leaked in.
+     * What matters is that the value comes from `dateModified` and not from
+     * `new Date()` at build time; any date the manifest does not contain means
+     * the build time leaked in.
+     *
+     * Read from the registry rather than written down here. The set was a
+     * single hardcoded launch date, which meant the first page to genuinely
+     * change its content failed a test about build times — and the obvious fix
+     * would have been to add today's date to a list, which is how a check
+     * like this stops meaning anything.
      */
-    const declaredDates = new Set(["2026-08-17"]);
+    const declaredDates = new Set(
+      indexableRoutes.map((record) => record.dateModified.slice(0, 10)),
+    );
     for (const value of lastmods) {
       const date = value.slice(0, 10);
       expect(declaredDates.has(date), `lastmod ${value} is not a declared content date`).toBe(

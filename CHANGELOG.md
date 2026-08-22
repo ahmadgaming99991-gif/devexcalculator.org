@@ -160,6 +160,15 @@ Recorded because each was a real bug that shipped-looking code contained:
   so they stay correct without a rebuild — while the verification date itself
   never advances on its own.
 
+- Grouped header navigation. Four menus carry twenty-one destinations where a
+  flat row carried eight, built on native `<details>` so they open with
+  JavaScript disabled and every link is in the delivered HTML.
+- An earnings goal planner on `/usd-to-robux/`. Enter a payout target and
+  either what you earn or when you need it, and it works out the other: a
+  projected date, or the Earned Robux a day required to reach the date. No
+  default tax rate, no default fee, no growth model, and no date presented as
+  one Roblox has committed to.
+
 ### Deliberately not included
 
 - No universal Robux purchase price — Roblox prices by package, region and
