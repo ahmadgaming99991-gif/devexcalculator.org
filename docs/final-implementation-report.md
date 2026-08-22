@@ -7,8 +7,8 @@ DevExCalculator.org · 2026-08-17 · commit `f8fdbe9` plus the documentation com
 ## 1. Executive summary
 
 A complete Roblox DevEx calculator and reference site, built from an empty
-directory to a deployable Cloudflare Workers application with 32 indexable
-routes, 377 unit tests, 248 end-to-end tests and full documentation.
+directory to a deployable Cloudflare Workers application with 36 indexable
+routes, 574 unit tests, 565 end-to-end tests and full documentation.
 
 Every applicable acceptance gate passes. **Production deployment is the one
 outstanding item**, blocked by this environment's permission policy on
@@ -33,7 +33,7 @@ Next.js 16.3.1 App Router · React 19.2.8 · TypeScript 5.9.3 strict · Tailwind
 4.3.3 · `@opennextjs/cloudflare` 1.20.2 · Wrangler 4.123.0.
 
 Server Components throughout; one substantial client island (the calculator)
-plus three small ones. 24 of 32 routes prerendered and served from the assets
+plus three small ones. 24 of 36 routes prerendered and served from the assets
 binding without invoking the Worker. Three runtime dependencies.
 
 No database, no session, no KV/D1/R2/Durable Object/Queue binding — the
@@ -41,7 +41,7 @@ calculator is stateless and the reasoning is recorded as decision D-011.
 
 ## 4. Route inventory
 
-**32 indexable routes, 0 orphans, all returning 200.**
+**36 indexable routes, 0 orphans, all returning 200.**
 
 Calculators (4): `/` · `/robux-to-usd/` · `/usd-to-robux/` ·
 `/robux-tax-calculator/`
@@ -164,7 +164,7 @@ unconfigured. No secret in the client or in Git; CI scans for both.
 | Unit and integration | **377 passing** |
 | Content validation | 0 errors, 0 warnings |
 | SEO validation | Passed, 444/444 rows |
-| Build | 32 routes |
+| Build | 36 routes |
 | Route checks | Passed |
 | Link crawl | 32 pages, 1,755 links, 0 failures |
 | Bundle budget | 127.7 kB of 130 kB |

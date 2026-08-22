@@ -60,8 +60,8 @@ npm run dev              # development server
 npm run build            # production build
 npm run lint             # ESLint
 npm run typecheck        # tsc --noEmit
-npm run test             # Vitest — 377 unit and integration tests
-npm run test:e2e         # Playwright — 248 tests, three browsers
+npm run test             # Vitest — 574 unit and integration tests
+npm run test:e2e         # Playwright — 565 tests, three browsers
 npm run test:a11y        # accessibility suite only
 npm run test:visual      # capture 134 screenshots for review
 
@@ -183,7 +183,7 @@ schemas/          JSON Schemas for the shipped data files
 | Lighthouse mobile | 98 / 100 / 100 / 100 |
 | Worker bundle | 1.99 MB gzipped, 66% of limit |
 | Client JavaScript | 127.7 kB gzipped |
-| Routes | 32 indexable, 0 orphans |
+| Routes | 36 indexable, 0 orphans |
 | Keyword rows accounted for | 444 of 444 |
 
 **Not yet deployed.** See [blockers](docs/blockers.md) — deployment and the

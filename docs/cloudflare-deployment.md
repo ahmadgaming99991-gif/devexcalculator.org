@@ -145,7 +145,7 @@ Then confirm by hand:
 - [ ] `https://devexcalculator.org/` returns 200 over HTTPS
 - [ ] `https://www.devexcalculator.org/devex-rates/?x=1` redirects **once** to the apex, preserving path and query
 - [ ] The calculator produces $114.00 for 30,000 and $380.00 for 100,000
-- [ ] All 32 routes in the sitemap return 200
+- [ ] All 36 routes in the sitemap return 200
 - [ ] A missing path returns a real 404, not a redirect
 - [ ] `/robots.txt`, `/sitemap.xml`, `/llms.txt` serve correctly
 - [ ] `/_next/static/*` carries `immutable` caching
@@ -213,7 +213,7 @@ rebuild from this repository reproduces it.
 
 | Check | Result |
 |---|---|
-| 32 indexable routes, metadata, structured data | pass |
+| 36 indexable routes, metadata, structured data | pass |
 | Internal link crawl | 1,947 links, 0 failures |
 | Near-duplicate detection | pass, 0 warnings |
 | Browser E2E, 3 browsers | 245 of 249, see below |

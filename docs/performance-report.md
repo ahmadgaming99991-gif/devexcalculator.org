@@ -111,7 +111,7 @@ toward the script limit.
 | `robots.txt`, `llms.txt`, `sitemap.xml` | `max-age=3600` |
 | `/api/health`, `/api/contact` | `no-store` |
 
-24 of 32 routes are prerendered and served from the assets binding without
+24 of 36 routes are prerendered and served from the assets binding without
 invoking the Worker at all.
 
 ## After deployment

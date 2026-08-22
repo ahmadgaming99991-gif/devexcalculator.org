@@ -50,7 +50,7 @@ Legend: **PASS** · **BLOCKED** (needs an operator) · **DEFERRED** (with reason
 
 | Item | Status | Evidence |
 |---|---|---|
-| P0/P1 routes complete | PASS | 32 routes |
+| P0/P1 routes complete | PASS | 36 routes |
 | No thin indexable route | PASS | Every route renders 800+ characters without JavaScript |
 | No doorway pattern | PASS | 8 amount pages of 63 candidates, each manually approved |
 | No mass low-value amount pages | PASS | Cap 12, published 8; bidirectional drift check |

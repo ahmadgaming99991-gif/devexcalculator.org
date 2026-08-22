@@ -45,7 +45,7 @@ Working tree clean apart from the documentation commit in progress.
 | `npm run test` | 363 passing |
 | `npm run validate:content` | 0 errors, 0 warnings |
 | `npm run validate:seo` | Passed, 444 of 444 rows accounted for |
-| `npm run build` | Succeeds, 32 routes |
+| `npm run build` | Succeeds, 36 routes |
 | `npm run validate:routes` | Passed |
 | `npm run validate:links` | 32 pages, 1,755 links, 0 failures |
 | `npm run validate:bundle` | 127.7 kB of 130 kB |

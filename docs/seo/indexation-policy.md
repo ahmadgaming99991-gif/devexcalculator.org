@@ -14,8 +14,8 @@
 
 ## What is indexable
 
-All 32 routes: the four calculators, the two directories, the conversion hub,
-eight amount pages, six guides, and the trust and legal set.
+All 36 routes: the four calculators, the two directories, the conversion hub,
+eight amount pages, nine guides and data pages, and the trust and legal set.
 
 Each is `status: published` and `indexation: index` in the content manifest, and
 each self-canonicalises to an absolute HTTPS URL.

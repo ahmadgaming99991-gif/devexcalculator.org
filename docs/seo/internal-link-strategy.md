@@ -1,7 +1,7 @@
 # Internal link strategy
 
 Generated from the content manifest into `seo/generated/internal-link-map.json`.
-143 contextual edges across 32 routes, 0 orphans, 0 broken targets.
+160 contextual edges across 36 routes, 0 orphans, 0 broken targets.
 
 ## Principles
 

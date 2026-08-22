@@ -6,10 +6,14 @@ something to say beyond a substituted number.
 
 ## Shipped at launch
 
-32 routes: 4 calculators, 2 directories, 1 conversion hub, 8 amount pages, 6
-guides, 11 trust and legal pages.
+32 routes at launch: 4 calculators, 2 directories, 1 conversion hub, 8 amount
+pages, 6 guides, 11 trust and legal pages. That covered every P0 and P1 cluster
+in the keyword data.
 
-That covers every P0 and P1 cluster in the keyword data.
+**36 routes now.** `/roblox-stats/`, `/platform/` and `/platform/stock/` were
+added after launch as data pages rather than keyword pages, and `/api/` became
+an indexable document rather than a bare endpoint. None of them came from the
+keyword data, and none of them is an amount page: the held set is still held.
 
 ## Days 1–30 — measure before building
 

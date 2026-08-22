@@ -859,3 +859,35 @@ folded down only when it is absent. And the cannibalisation grouping used
 `normalizeKeyword`, which tidies Unicode but leaves case alone — so "Robux To
 USD" and "robux to usd" counted as two queries with one page each, which is the
 opposite of the finding.
+
+---
+
+## D-040 · `llms.txt` is generated, because the written one had stopped being true
+
+The file was hand-maintained in `public/`, and it did what a hand-maintained
+index does. By the time it was replaced it knew nothing about `/platform/`,
+`/platform/stock/`, `/roblox-stats/`, the earnings planner, the data exports or
+the API description — five additions it had silently missed, while continuing
+to present itself as an account of the site.
+
+It is now generated from the route registry and the API contract, and a test
+asserts every indexable route appears exactly once and no noindex route appears
+at all. The prose stays hand-written: "what this site is" and "how to cite it"
+are not derivable from a registry and should not read as though they were.
+
+Two rules the generated file keeps. **No endpoint is presented as canonical
+content** — the JSON and CSV endpoints sit under a heading that says they are
+data, never mixed in with pages. And **no claim that publishing it does
+anything**: llms.txt is a transparency convention, not a ranking factor, and
+the file says so.
+
+`/api/` and `/contact/` are excluded from their type's listing because both
+already have their own heading further down. Listing either twice would suggest
+two different things exist — which is what the first version did.
+
+**Documentation counts were stale in the same way.** The implementation report
+claimed 32 indexable routes and 377 unit tests against a real 36 and 574; the
+internal-link strategy claimed 143 edges against 160. All corrected against
+measured values. Two remaining mentions of "32 routes" are left alone on
+purpose: both are historical records of what a phase delivered, and a ledger
+that edits its own history is not a record.

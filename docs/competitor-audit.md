@@ -83,6 +83,30 @@ strength and validates building the same. But with no source, no date and no
 Earned Robux distinction, a reader has no way to tell whether the figure is
 current — and no warning that a purchased balance cannot be converted at all.
 
+**Re-checked 2026-08-23 against the delivered HTML.** Every observation above
+still holds: the rate line still reads `1,000 Robux = $3.80 USD`, still with no
+source and no date, and the minimum is still absent — so a reader with 5,000
+Robux is told it is worth $19 with nothing to indicate they cannot cash out at
+all. Five further findings, all read from the markup rather than inferred:
+
+| Finding | Detail |
+|---|---|
+| No `h1` | The visible title sits in a `span`; the document has no heading element at all |
+| Page cannot scroll | `html { overflow: hidden }`, with the hero, the fields and the rate line all `position: fixed`. There is no content below the fold because there is no below the fold |
+| Inputs have no label | "Enter Robux Amount" is a `p`, not a `label`; the inputs carry no `id`/`for` pairing and no `aria-label`, so a screen reader announces an unnamed text box |
+| No canonical | No `link rel="canonical"` is emitted; `og:url` names the `www` host |
+| `type="text"` for numbers | No `inputmode`, so a phone offers a letter keyboard for a numeric field |
+
+It ships fourteen script chunks and a large emotion stylesheet for a two-field
+converter, and part of the tree carries `BAILOUT_TO_CLIENT_SIDE_RENDERING`.
+
+**What this changes for this site: nothing, and that is the finding.** The one
+idea worth having — a rate always visible without scrolling — this site already
+does in the footer, with the figure read from the registry, linked to its
+source and carrying the date it was checked. There is nothing here to adopt,
+and the absence of a minimum, a source and a date is the gap this site exists
+in.
+
 ### RBXCalc — `https://rbxcalc.com/robux-devex-calculator`
 
 | Field | Observation |
