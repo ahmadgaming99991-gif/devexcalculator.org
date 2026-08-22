@@ -1,6 +1,6 @@
 # Progress ledger
 
-Chronological record of the build, 2026-08-17.
+Chronological record of the build and the days after it, 2026-08-17 to 2026-08-22.
 
 ## Phase 0 — Repository, environment and safety audit
 
@@ -126,16 +126,54 @@ runtime, 134 screenshots, Lighthouse 100/100/100/100 desktop.
 CI, Lighthouse, security and Dependabot workflows committed. Documentation
 written.
 
-**Blocked at deployment.** `wrangler deploy` was refused by this environment's
-permission policy — a sandbox restriction on outward-facing actions, not a
-technical failure. No GitHub remote exists because the specification forbids
-inventing an owner.
+**Blocked at deployment on the day.** `wrangler deploy` was refused by this
+environment's permission policy — a sandbox restriction on outward-facing
+actions, not a technical failure. No GitHub remote existed, because the
+specification forbids inventing an owner.
 
-Both blockers are documented with exact commands in `docs/blockers.md`.
+**Both were cleared the next day**, once the owner supplied a Cloudflare API
+token and authenticated the GitHub CLI. See Phase 11; `docs/blockers.md` holds
+the full record. This paragraph is kept as it was written rather than deleted,
+because a ledger that quietly edits out the days it was stuck is not a record.
+
+## Phase 11 — Production, and everything after
+
+2026-08-18 to 2026-08-22. The site went live and then kept being corrected by
+what production revealed, which is the part a pre-launch ledger cannot contain.
+
+**Launch, and the three defects only production could find.** The first deploy
+served `error code: 1102` on every rendered page — each request was running a
+full Next.js render inside the Worker, including for pages whose HTML was fixed
+at build time. Static-asset cache interception fixed it. The `www` redirect was
+emitting the literal token `:path*` at the root. And a Cloudflare Web Analytics
+RUM site had been auto-installed when the custom domain was attached, injecting
+a beacon the privacy page did not disclose; the zone's `rum` setting was turned
+off and the browser suite now asserts the beacon's absence on every run.
+
+**Data pages.** `/roblox-stats/` charts creator payouts from SEC filings.
+`/platform/` and `/platform/stock/` followed, with live Roblox rankings,
+collected history behind a Cron trigger and KV, per-experience trends, and a
+stock page that states plainly that no live quote is configured rather than
+printing an unattributed price.
+
+**The recurring lesson of this phase was checks that could not fail.** The
+health endpoint returned a hardcoded `ok: true`. The route bundle budget
+iterated a manifest that holds only `/_app` under the App Router. A contrast
+assertion read `backgroundColor` on an element whose colour came from a
+gradient, so it passed on `rgba(0, 0, 0, 0)`. Each was fixed by making the
+failure reachable and then asserting the measurement itself is live.
+
+**Also delivered:** the rates API documented and served from `/api/` itself,
+Atom and JSON feeds, split-mode Earned Robux for collaborators, four
+hand-authored diagrams, per-route Open Graph cards carrying each page's own
+figure, seven-day per-experience history by sampling rather than by storing
+more, Roblox's own published engagement figures alongside a named list of what
+it never publishes, brand-coloured social profiles, and a footer that carries
+the rate, the minimum and the verification date instead of only links.
 
 ## Defects found and fixed
 
-Eighteen, listed in `CHANGELOG.md`. The pattern worth noting: **most were found
+Nineteen, listed in `CHANGELOG.md`. The pattern worth noting: **most were found
 by a layer of testing that did not exist yet when the code was written.** Unit
 tests caught arithmetic; the pipeline audit caught data loss; validators caught
 SEO problems; axe caught the CSS; the Workers runtime caught adapter

@@ -1,17 +1,19 @@
 import Link from "next/link";
-import { primaryNavigation } from "@/config/navigation";
+import { navigationGroups, primaryDestination } from "@/config/navigation";
 import { features } from "@/config/site";
 import { Container } from "@/components/ui";
 import { Logo, Wordmark } from "./logo";
+import { DesktopNavigation } from "./desktop-navigation";
 import { MobileNavigation } from "./mobile-navigation";
 import { ThemeToggle } from "./theme-toggle";
 
 /**
  * Site header.
  *
- * A Server Component: the desktop navigation is plain server-rendered links so
- * it is crawlable and works with JavaScript disabled. Only the mobile
- * disclosure and the theme toggle hydrate.
+ * A Server Component. The desktop menus are native disclosures rendered on the
+ * server, so every destination is crawlable and the navigation opens with
+ * JavaScript disabled; only the mobile drawer, the theme toggle and a small
+ * behavioural enhancement for the menus hydrate.
  */
 export function SiteHeader() {
   return (
@@ -33,49 +35,52 @@ export function SiteHeader() {
             <span className="sr-only">— home</span>
           </Link>
 
-          <nav aria-label="Main" className="hidden lg:block">
-            <ul className="flex items-center gap-1">
-              {primaryNavigation.map((entry) => (
-                <li key={entry.href}>
-                  <Link
-                    href={entry.href}
-                    className="inline-flex min-h-[44px] items-center rounded-(--radius-control) px-3 text-sm font-medium text-(--color-text-muted) hover:bg-(--color-surface-subtle) hover:text-(--color-text)"
-                  >
-                    {entry.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
+          <DesktopNavigation />
 
           <div className="flex items-center gap-2">
             {features.darkMode ? <ThemeToggle /> : null}
-            <MobileNavigation items={primaryNavigation} />
+            <MobileNavigation primary={primaryDestination} groups={navigationGroups} />
           </div>
         </div>
 
         {/*
           Without JavaScript the mobile menu button cannot open, and the
-          desktop navigation is hidden below the `md` breakpoint — which left
+          desktop navigation is hidden below the `lg` breakpoint — which left
           a small-screen no-script reader with no header navigation at all.
-          This renders only when scripting is off, and only below `md`, so it
+          This renders only when scripting is off, and only below `lg`, so it
           never duplicates the navigation for anyone else.
+
+          Grouped rather than flat: twenty-one links in one wrapping row would
+          push the page's own content most of a screen down.
         */}
         <noscript>
-          <nav aria-label="Site sections" className="border-t border-(--color-border) py-2 lg:hidden">
-            <ul className="flex flex-wrap gap-x-4 gap-y-1">
-              {primaryNavigation.map((entry) => (
-                <li key={entry.href}>
-                  <Link
-                    href={entry.href}
-                    className="inline-flex min-h-[44px] items-center text-sm font-medium text-(--color-primary) underline underline-offset-2"
-                  >
-                    {entry.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
+          <div className="border-t border-(--color-border) py-2 lg:hidden">
+            <Link
+              href={primaryDestination.href}
+              className="inline-flex min-h-[44px] items-center text-sm font-semibold text-(--color-primary) underline underline-offset-2"
+            >
+              {primaryDestination.label}
+            </Link>
+            {navigationGroups.map((group) => (
+              <nav key={group.id} aria-label={group.heading} className="mt-1">
+                <h2 className="text-xs font-semibold tracking-wide text-(--color-text-muted) uppercase">
+                  {group.heading}
+                </h2>
+                <ul className="flex list-none flex-wrap gap-x-4 gap-y-1 p-0">
+                  {group.items.map((entry) => (
+                    <li key={entry.href}>
+                      <Link
+                        href={entry.href}
+                        className="inline-flex min-h-[44px] items-center text-sm font-medium text-(--color-primary) underline underline-offset-2"
+                      >
+                        {entry.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            ))}
+          </div>
         </noscript>
       </Container>
     </header>

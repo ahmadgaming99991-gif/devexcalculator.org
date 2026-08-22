@@ -387,3 +387,106 @@ test.describe("theme", () => {
     }
   }
 });
+
+test.describe("desktop navigation", () => {
+  test.use({ viewport: { width: 1280, height: 900 } });
+
+  /*
+   * The header's menus are native `<details>` elements, so most of what a
+   * dropdown needs — opening, keyboard activation, expanded state — is the
+   * browser's job rather than this site's. What is this site's job is the
+   * three behaviours a bare disclosure does not have, and the promise that
+   * none of it is required for the links to work at all.
+   *
+   * Everything here is scoped to the first `Main` navigation. The mobile
+   * drawer is the second, and it is in the DOM at every width — an unscoped
+   * locator matches both and passes on the wrong one.
+   */
+  const desktopNav = (page: import("@playwright/test").Page) =>
+    page.getByRole("navigation", { name: "Main" }).first();
+
+  test("a group opens and its destinations become reachable", async ({ page }) => {
+    await page.goto("/");
+    const nav = desktopNav(page);
+    const stock = nav.locator('a[href="/platform/stock/"]');
+
+    await expect(stock).toBeHidden();
+    await nav.getByText("Roblox Data", { exact: true }).click();
+    await expect(stock).toBeVisible();
+  });
+
+  test("Escape closes the open group and returns focus to its trigger", async ({ page }) => {
+    await page.goto("/");
+    const nav = desktopNav(page);
+    const summary = nav.getByText("DevEx Guide", { exact: true });
+    const history = nav.locator('a[href="/devex-rate-history/"]');
+
+    await summary.click();
+    await expect(history).toBeVisible();
+
+    await page.keyboard.press("Escape");
+    await expect(history).toBeHidden();
+    await expect(summary).toBeFocused();
+  });
+
+  test("opening one group closes another", async ({ page }) => {
+    await page.goto("/");
+    const nav = desktopNav(page);
+    const tax = nav.locator('a[href="/robux-tax-calculator/"]');
+    const methodology = nav.locator('a[href="/methodology/"]');
+
+    await nav.getByText("Tools", { exact: true }).click();
+    await expect(tax).toBeVisible();
+
+    await nav.getByText("Resources", { exact: true }).click();
+    await expect(methodology).toBeVisible();
+    await expect(tax).toBeHidden();
+  });
+
+  test("a press outside closes the open group", async ({ page }) => {
+    await page.goto("/");
+    const nav = desktopNav(page);
+    const tax = nav.locator('a[href="/robux-tax-calculator/"]');
+
+    await nav.getByText("Tools", { exact: true }).click();
+    await expect(tax).toBeVisible();
+
+    // A point well clear of the open panel. Clicking a page element instead
+    // fails on the panel itself, which hangs over the content — the panel
+    // intercepting that click is the layout working, not the menu failing.
+    await page.mouse.click(1200, 700);
+    await expect(tax).toBeHidden();
+  });
+
+  test("every destination is in the HTML, and opens, without JavaScript", async ({ browser }) => {
+    const context = await browser.newContext({
+      javaScriptEnabled: false,
+      viewport: { width: 1280, height: 900 },
+    });
+    const page = await context.newPage();
+    await page.goto("/");
+    const nav = desktopNav(page);
+
+    // Present in the delivered HTML whether a panel is open or not, which is
+    // what a crawler sees. Matched by href rather than by role, because a
+    // closed `<details>` keeps its contents out of the accessibility tree —
+    // which is correct, and would make a role query silently find nothing.
+    for (const href of [
+      "/robux-tax-calculator/",
+      "/devex-rate-history/",
+      "/platform/stock/",
+      "/api/",
+    ]) {
+      await expect(nav.locator(`a[href="${href}"]`)).toHaveCount(1);
+    }
+
+    // And still operable: this is the reason the menus are `<details>` rather
+    // than a button and a state hook.
+    const stock = nav.locator('a[href="/platform/stock/"]');
+    await expect(stock).toBeHidden();
+    await nav.getByText("Roblox Data", { exact: true }).click();
+    await expect(stock).toBeVisible();
+
+    await context.close();
+  });
+});

@@ -130,6 +130,35 @@ Recorded because each was a real bug that shipped-looking code contained:
   `STOCK_PROVIDER` and `STOCK_API_KEY`.
 - A Cloudflare Cron Trigger every 15 minutes recording observations into Workers
   KV, retained 14 days by key expiry. Reverses decision D-011; see D-027.
+- `/roblox-stats/` — Roblox's reported creator payouts charted from its SEC
+  filings, with reported and derived figures kept in separate fields, plus the
+  engagement figures Roblox does publish and a named list of the ones it never
+  does rather than estimates standing in for them.
+- `/api/` documents the public endpoints and is served from that route itself
+  rather than through a rewrite, and is no longer blocked in `robots.txt`.
+- Atom and JSON feeds of rate changes, now linked visibly in the footer rather
+  than only in `<link rel>`.
+- Split mode divides a group's Earned Robux between collaborators, and the
+  cash-out guide's preparation checklist keeps a reader's place.
+- Four hand-authored diagrams for what the guides could previously only
+  describe, drawn in CSS and SVG with no charting dependency.
+- A per-route Open Graph card for seven pages, each carrying that page's own
+  figure from the rate registry instead of the shared site card.
+- Seven days of per-experience history, reached by sampling hourly rather than
+  by storing more points.
+- A collector heartbeat, and a health endpoint that can actually fail: it
+  reports 503 once the collector is critically stale.
+- The build's commit SHA and time, read from `git` at build and reported by the
+  health endpoint — kept out of the client bundle so a per-build value cannot
+  churn cached JavaScript.
+- The site's own social profiles in the footer, in each network's colours,
+  drawn in CSS with no third-party badge or script, and asserted for contrast
+  in both themes.
+- The footer now carries the standard rate, the minimum and the verification
+  date, each read from the registry and linking to the page that explains it.
+  The date's age and the copyright year are computed in the reader's browser,
+  so they stay correct without a rebuild — while the verification date itself
+  never advances on its own.
 
 ### Deliberately not included
 

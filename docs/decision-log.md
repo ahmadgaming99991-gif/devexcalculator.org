@@ -604,3 +604,41 @@ simply true. The test that enforced the invariant did its job in both
 directions: it required the disclosure while the beacon loaded, and it now
 requires the absence of both.
 
+
+---
+
+## D-033 · The header groups its destinations, and the menus are `<details>`
+
+The header carried a flat row of eight links. That was already the most a
+1280px row could hold beside the lockup and the theme control, and it left
+thirteen real destinations — the guides, the marketplace calculator, the API,
+the rate history, the stock page, the sources — reachable only from the footer.
+A reader who landed on a guide from search could not see that the rest existed
+without scrolling to the bottom of the page.
+
+Four groups now hold twenty-one destinations, with the calculator kept outside
+them as a direct link: the site is a calculator first, and putting its own link
+behind a disclosure would cost a returning reader an extra interaction for the
+thing they came for.
+
+**The menus are native `<details>` elements, not a button and a state hook.**
+The native element already is a disclosure — it opens on click, on Enter and on
+Space, and reports its expanded state to assistive technology — and, deciding
+it, **it works with JavaScript disabled**. A hand-built dropdown does not, and
+this site's own history includes shipping a header that had no navigation at
+all on a phone with scripts off. A small client island adds Escape,
+outside-click and mutual exclusion on top; none of those are needed for a
+destination to be reachable.
+
+Deliberately not an ARIA menu. `role="menu"` commits to arrow-key roving focus
+and to treating these as commands rather than links; a partial implementation
+of that pattern reads worse to a screen reader than the plain
+disclosure-of-links this actually is.
+
+**A dead field became a checked one.** The route registry has always carried
+`inPrimaryNav`, and `primaryNavRoutes` derived from it — but nothing read
+either, so the flag had drifted to nine routes while the header rendered eight,
+and no build could notice. The flags now describe the twenty-one routes the
+header carries, and a test asserts the two sets are equal in both directions.
+
+Cost: 0.5 kB gzipped of application JavaScript, against a 125 kB budget.
