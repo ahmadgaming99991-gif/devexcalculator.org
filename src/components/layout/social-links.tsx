@@ -154,7 +154,7 @@ export function SocialLinks({ className }: { className?: string }) {
       <h2 className="text-xs font-semibold tracking-wide text-(--color-text) uppercase">
         Follow
       </h2>
-      <ul className="mt-3 flex list-none flex-wrap items-center justify-center gap-3 p-0 sm:justify-start">
+      <ul className="mt-3 flex list-none flex-wrap items-center justify-center gap-3 p-0">
         {items.map((network) => (
           <li key={network.id}>
             <a

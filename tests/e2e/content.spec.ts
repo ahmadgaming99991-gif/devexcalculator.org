@@ -987,3 +987,93 @@ test.describe("social profiles", () => {
     }
   });
 });
+
+/**
+ * The footer's figures.
+ *
+ * The footer used to be five columns of links and a legal notice — navigation
+ * and a disclaimer, nothing a reader could use. These three figures are what
+ * the site turns on, so they are on every page, and they are read from the
+ * registry rather than written into the markup.
+ */
+test.describe("footer figures", () => {
+  test("show the registry's own rate and minimum, not a copy of them", async ({
+    page,
+    request,
+  }) => {
+    const api = await request.get("/api/rates/");
+    expect(api.status()).toBe(200);
+    const body = (await api.json()) as {
+      data: {
+        minimum: { eligibleEarnedRobux: number };
+        rates: { id: string; usdPerRobux: string }[];
+      };
+    };
+
+    const standard = body.data.rates.find((rate) => rate.id === "standard-current");
+    expect(standard, "no standard rate in the registry").toBeTruthy();
+
+    await page.goto("/privacy/");
+    const footer = page.locator("footer");
+
+    // Compared against the API rather than a literal, so a rate change moves
+    // both together or fails here. A hardcoded figure in the footer would pass
+    // its own test forever while contradicting every calculator on the site.
+    await expect(footer).toContainText(`$${standard?.usdPerRobux}`);
+    await expect(footer).toContainText(
+      body.data.minimum.eligibleEarnedRobux.toLocaleString("en-US"),
+    );
+  });
+
+  test("offer the change feeds where a reader can see them", async ({ page }) => {
+    await page.goto("/");
+    const footer = page.locator("footer");
+    // Advertised in the head on every page already; a link-rel is invisible to
+    // anyone not using a feed reader that looks for it.
+    await expect(footer.locator('a[href="/feed.xml"]')).toBeVisible();
+    await expect(footer.locator('a[href="/feed.json"]')).toBeVisible();
+  });
+});
+
+/**
+ * The footer's dates.
+ *
+ * Two dates that look alike and are not. The verification date is a fact about
+ * the past and must never advance on its own; its age is a live figure and was
+ * frozen at build time, which is what made the line look stale.
+ */
+test.describe("footer dates", () => {
+  test("keeps the verification date fixed and its age live", async ({ page }) => {
+    await page.goto("/");
+    const status = page.locator("footer").getByText(/verified/i).first();
+    await expect(status).toBeVisible();
+
+    const line = await page.locator("footer p.tabular").first().innerText();
+
+    // The recorded date, unchanged.
+    expect(line).toMatch(/verified \d{1,2} \w+ \d{4}/);
+    // And an age computed against the reader's own clock.
+    expect(line).toMatch(/verified \d{1,2} \w+ \d{4} · (today|yesterday|\d+ days ago)/);
+  });
+
+  test("never claims it was verified today", async ({ page }) => {
+    await page.goto("/");
+    const line = await page.locator("footer p.tabular").first().innerText();
+
+    const today = new Date();
+    const formatted = `${today.getUTCDate()} ${today.toLocaleString("en-GB", {
+      month: "long",
+      timeZone: "UTC",
+    })} ${today.getUTCFullYear()}`;
+
+    // The whole point. A footer printing today's date beside "verified" would
+    // be claiming a check nobody performed.
+    expect(line).not.toContain(`verified ${formatted}`);
+  });
+
+  test("shows the current year, not the year the content was reviewed", async ({ page }) => {
+    await page.goto("/");
+    const footer = await page.locator("footer").innerText();
+    expect(footer).toContain(`© ${new Date().getUTCFullYear()}`);
+  });
+});
