@@ -921,3 +921,69 @@ test.describe("engagement figures", () => {
     expect(body).not.toMatch(/estimated (total )?registrations/i);
   });
 });
+
+/**
+ * Social profiles.
+ *
+ * These are the site's own accounts, and the same list feeds the footer and
+ * the structured data's `sameAs`. A profile linked in one and absent from the
+ * other is a worse claim than one made nowhere, which is why both are asserted
+ * against the same set here.
+ */
+test.describe("social profiles", () => {
+  const PROFILES = [
+    { name: /YouTube/i, href: "https://www.youtube.com/@DevExCalculator" },
+    { name: /on X/i, href: "https://x.com/DevExCalculator" },
+    { name: /Instagram/i, href: "https://www.instagram.com/devexcalculator/" },
+    { name: /Pinterest/i, href: "https://www.pinterest.com/devexcalculator/" },
+  ];
+
+  test("links every profile from the footer, safely", async ({ page }) => {
+    await page.goto("/");
+    const row = page.locator('nav[aria-label="Social profiles"]');
+    await expect(row).toBeVisible();
+
+    for (const profile of PROFILES) {
+      const link = row.getByRole("link", { name: profile.name });
+      await expect(link).toHaveAttribute("href", profile.href);
+      // `noopener` is not optional on a target of _blank, and `me` is what
+      // says these accounts belong to this site rather than merely being
+      // mentioned by it.
+      const rel = (await link.getAttribute("rel")) ?? "";
+      expect(rel).toContain("noopener");
+      expect(rel).toContain("me");
+      // The tile is a coloured square; the words are what a screen reader has.
+      await expect(link).toContainText(/opens in a new tab/i);
+    }
+  });
+
+  test("claims the same profiles in structured data", async ({ page }) => {
+    await page.goto("/");
+    const blocks = await page.locator('script[type="application/ld+json"]').allTextContents();
+    const graph = blocks.join(" ");
+
+    for (const profile of PROFILES) {
+      expect(graph, `${profile.href} is linked but not claimed in sameAs`).toContain(
+        profile.href,
+      );
+    }
+  });
+
+  test("keeps four tiles on one line at 320px without pushing the page sideways", async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 320, height: 640 });
+    await page.goto("/");
+
+    const report = await measureOverflow(page);
+    expect(report.overflow, describeOverflow("The footer at 320px", report)).toBeLessThanOrEqual(0);
+
+    // Every tile has to stay a real touch target at the narrowest width.
+    const tiles = page.locator('nav[aria-label="Social profiles"] a');
+    for (let index = 0; index < (await tiles.count()); index += 1) {
+      const box = await tiles.nth(index).boundingBox();
+      expect(box?.width ?? 0).toBeGreaterThanOrEqual(44);
+      expect(box?.height ?? 0).toBeGreaterThanOrEqual(44);
+    }
+  });
+});

@@ -91,6 +91,35 @@
   /* Everything beyond the eight: present for shape, claiming no identity. */
   --color-series-other: #94a3b8;
 
+  /* ---- Social brand colours ----
+   *
+   * Each network's own colour, used only on its own tile, which is what makes
+   * a row of these readable at a glance — a reader recognises YouTube red
+   * before they read the label.
+   *
+   * Every glyph on these tiles is white, and every base below was checked to
+   * clear 3:1 against white. That is the WCAG 2.2 requirement for a graphic
+   * that carries meaning, and it is why the X tile is not pure black in dark
+   * mode and why Instagram's gradient is anchored on its darker stops rather
+   * than the yellow end everyone reaches for first.
+   */
+  --brand-youtube: #d90000;
+  --brand-youtube-deep: #9c0000;
+  --brand-youtube-glow: 217 0 0;
+
+  --brand-pinterest: #d0011b;
+  --brand-pinterest-deep: #8c0012;
+  --brand-pinterest-glow: 208 1 27;
+
+  --brand-instagram-from: #7638b8;
+  --brand-instagram-via: #c31a63;
+  --brand-instagram-to: #b34700;
+  --brand-instagram-glow: 195 26 99;
+
+  --brand-x: #16181c;
+  --brand-x-deep: #000000;
+  --brand-x-glow: 60 64 72;
+
   /* ---- Type ---- */
   --font-sans:
     ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
@@ -166,6 +195,20 @@
       --color-series-7: #9085e9;
       --color-series-8: #e66767;
       --color-series-other: #64748b;
+    --brand-x: #2b2f36;
+    --brand-x-deep: #0f1114;
+    --brand-youtube: #e01414;
+    --brand-youtube-deep: #a80d0d;
+    --brand-pinterest: #de1c33;
+    --brand-pinterest-deep: #96101f;
+      /* On a dark surface a pure-black X tile disappears; these lift each
+         base just enough to read as a tile while staying the brand's colour. */
+      --brand-x: #2b2f36;
+      --brand-x-deep: #0f1114;
+      --brand-youtube: #e01414;
+      --brand-youtube-deep: #a80d0d;
+      --brand-pinterest: #de1c33;
+      --brand-pinterest-deep: #96101f;
       --shadow-card: 0 1px 2px rgb(0 0 0 / 0.3), 0 4px 16px rgb(0 0 0 / 0.35);
       --shadow-raised: 0 2px 4px rgb(0 0 0 / 0.35), 0 12px 32px rgb(0 0 0 / 0.45);
     }

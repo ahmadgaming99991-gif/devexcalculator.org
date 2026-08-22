@@ -5,6 +5,7 @@ import { rateRegistry } from "@/lib/calculations/rate-registry";
 import { formatDate } from "@/lib/calculations/format";
 import { Container } from "@/components/ui";
 import { Logo, Wordmark } from "./logo";
+import { SocialLinks } from "./social-links";
 
 export function SiteFooter() {
   const year = new Date(siteConfig.contentReviewedAt).getUTCFullYear();
@@ -29,6 +30,7 @@ export function SiteFooter() {
               Independent DevEx payout estimates for Roblox creators, with every
               figure traced to an official source.
             </p>
+
           </div>
 
           {footerNavigation.map((group) => (
@@ -68,7 +70,15 @@ export function SiteFooter() {
             whether any DevEx request will be approved.
           </p>
 
-          <div className="mt-4 flex flex-col items-center gap-2 text-center text-xs text-(--color-text-muted) sm:flex-row sm:items-center sm:justify-between sm:text-left">
+          {/*
+            The social row sits here rather than in the brand column, where the
+            fourth tile wrapped onto a line of its own and read as a mistake.
+            Full width also suits what it is: these are the site's accounts, not
+            a detail of the blurb above.
+          */}
+          <SocialLinks className="mt-6" />
+
+          <div className="mt-6 flex flex-col items-center gap-2 border-t border-(--color-border) pt-6 text-center text-xs text-(--color-text-muted) sm:flex-row sm:items-center sm:justify-between sm:text-left">
             <p>
               © {year} {siteConfig.name}. Every payout figure is an estimate.
             </p>

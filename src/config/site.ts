@@ -54,11 +54,20 @@ export const siteConfig = {
   organizationName: readEnv("NEXT_PUBLIC_ORGANIZATION_NAME"),
   contactEmail: readEnv("NEXT_PUBLIC_CONTACT_EMAIL"),
 
-  /** Social profiles. None are claimed until real accounts exist. */
+  /**
+   * Social profiles this site actually operates.
+   *
+   * Listed here rather than in the footer markup because they are also the
+   * `sameAs` claims in the structured data, and a profile asserted in one place
+   * and not the other is worse than one asserted nowhere. Anything not run by
+   * this site stays null.
+   */
   social: {
-    x: null as string | null,
+    youtube: "https://www.youtube.com/@DevExCalculator" as string | null,
+    x: "https://x.com/DevExCalculator" as string | null,
+    instagram: "https://www.instagram.com/devexcalculator/" as string | null,
+    pinterest: "https://www.pinterest.com/devexcalculator/" as string | null,
     github: null as string | null,
-    youtube: null as string | null,
   },
 
   /*

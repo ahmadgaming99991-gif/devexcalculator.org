@@ -299,6 +299,52 @@ test.describe("theme", () => {
     return ((lighter ?? 0) + 0.05) / ((darker ?? 0) + 0.05);
   };
 
+  /*
+   * The social tiles carry each network's own colour, which means the palette
+   * is chosen by someone else and cannot simply be adjusted if it fails. Every
+   * glyph on them is white, so each base has to clear the 3:1 that WCAG 2.2
+   * asks of a graphic carrying meaning — checked in both schemes because two
+   * of the bases differ between them.
+   */
+  for (const scheme of ["light", "dark"] as const) {
+    test(`social tiles keep their glyphs legible in ${scheme}`, async ({ page }) => {
+      await page.emulateMedia({ colorScheme: scheme });
+      await page.goto("/");
+      await settle(page);
+
+      const tiles = page.locator('nav[aria-label="Social profiles"] a');
+      const count = await tiles.count();
+      expect(count).toBeGreaterThan(0);
+
+      for (let index = 0; index < count; index += 1) {
+        const tile = tiles.nth(index);
+        const measured = await tile.evaluate((element) => {
+          const style = getComputedStyle(element);
+          return {
+            label: element.textContent ?? "",
+            text: style.color,
+            background: style.backgroundColor,
+          };
+        });
+
+        // A gradient alone reports a transparent background, and this check
+        // would then pass on nothing. The solid stop underneath is the worse
+        // of the two for a white glyph, so it is both measurable and the
+        // worst case.
+        expect(
+          measured.background,
+          `${measured.label} has no solid colour under its gradient, so its contrast cannot be verified.`,
+        ).not.toBe("rgba(0, 0, 0, 0)");
+
+        const ratio = contrast(measured.text, measured.background);
+        expect(
+          ratio,
+          `${measured.label}: ${measured.text} on ${measured.background} is ${ratio.toFixed(2)}:1`,
+        ).toBeGreaterThanOrEqual(3);
+      }
+    });
+  }
+
   for (const scheme of ["light", "dark"] as const) {
     for (const chosen of [null, "light", "dark"] as const) {
       test(`primary buttons stay legible with a ${scheme} system and ${chosen ?? "no"} choice`, async ({

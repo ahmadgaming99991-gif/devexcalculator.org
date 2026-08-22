@@ -25,7 +25,24 @@ interface JsonObject {
 const WEBSITE_ID = `${siteConfig.url}/#website`;
 const PUBLISHER_ID = `${siteConfig.url}/#publisher`;
 
+/**
+ * Profiles this site operates, for `sameAs`.
+ *
+ * Read from the same configuration the footer renders from, so a profile
+ * cannot be linked in one place and denied in the other. Placed on the WebSite
+ * node rather than a publisher: `organizationName` is still null, so no
+ * Organization is emitted, and claiming these under an entity that does not
+ * exist would be worse than not claiming them.
+ */
+function profileUrls(): string[] {
+  return Object.values(siteConfig.social).filter(
+    (url): url is string => typeof url === "string" && url.length > 0,
+  );
+}
+
 function websiteNode(): JsonObject {
+  const sameAs = profileUrls();
+
   return {
     "@type": "WebSite",
     "@id": WEBSITE_ID,
@@ -33,6 +50,7 @@ function websiteNode(): JsonObject {
     name: siteConfig.name,
     description: siteConfig.description,
     inLanguage: siteConfig.locale,
+    ...(sameAs.length > 0 ? { sameAs } : {}),
     ...(siteConfig.organizationName ? { publisher: { "@id": PUBLISHER_ID } } : {}),
   };
 }
