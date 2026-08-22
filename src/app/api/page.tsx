@@ -161,23 +161,40 @@ export default function ApiPage() {
           </Section>
 
           <Section id="using" heading="Using it">
-            <div className="grid gap-4 sm:grid-cols-2">
+            <Callout tone="info" title="A machine-readable description">
+              <p>
+                <a href="/api/openapi.json">
+                  <Code>/api/openapi.json</Code>
+                </a>{" "}
+                describes every endpoint here as OpenAPI 3.1 — parameters,
+                status codes, content types and the exact{" "}
+                <Code>Cache-Control</Code> each one sends. It is generated from
+                the same declaration this page reads, and a test compares that
+                declaration against the route handlers that actually exist, so
+                an endpoint cannot be added without appearing in it or described
+                after it has gone.
+              </p>
+            </Callout>
+
+            <div className="mt-6 grid gap-4 sm:grid-cols-2">
               <Card tone="subtle">
                 <h3 className="font-semibold text-(--color-text)">No key, no sign-up</h3>
                 <p className="mt-2 text-sm text-(--color-text-muted)">
                   There is nothing to register for and no token to keep secret.
-                  Both endpoints are plain GETs, set no cookie, and answer
-                  identically for every caller.
+                  Every reference endpoint is a plain GET, sets no cookie, and
+                  answers identically for every caller.
                 </p>
               </Card>
               <Card tone="subtle">
                 <h3 className="font-semibold text-(--color-text)">Callable from a browser</h3>
                 <p className="mt-2 text-sm text-(--color-text-muted)">
-                  Both send{" "}
+                  Every reference endpoint sends{" "}
                   <Code>Access-Control-Allow-Origin: *</Code>, so a page on any
-                  origin can <Code>fetch</Code> them directly. That was not true
+                  origin can <Code>fetch</Code> it directly. That was not true
                   until recently, and it made the endpoints useless to exactly
-                  the people they were published for.
+                  the people they were published for. The two that do not are
+                  deliberate: health is infrastructure for an operator, and
+                  contact accepts submissions and is origin-checked.
                 </p>
               </Card>
               <Card tone="subtle">

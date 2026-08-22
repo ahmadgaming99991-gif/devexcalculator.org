@@ -67,3 +67,10 @@ keys.txt
 keys*.txt
 *.key
 secrets.txt
+
+# private analytics exports
+#
+# Search Console performance data is the owner's data about their own
+# property. Committing it would publish a list of every query this site is
+# seen for, which is not something a public repository should carry.
+/private/

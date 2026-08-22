@@ -798,3 +798,64 @@ million", which says two different things about where a figure came from. And
 the first version of the export test split rows on commas, which reads the
 wrong column the moment the `note` field contains a sentence — it now parses
 with the same RFC 4180 reader the keyword pipeline uses.
+
+---
+
+## D-038 · An OpenAPI document generated from one declaration
+
+The risk with publishing OpenAPI is not being wrong on the day it is written;
+it is becoming a second contract, maintained by hand, that drifts from the
+service until it is worse than nothing — and nothing about publishing it makes
+that visible.
+
+`src/lib/api/contract.ts` is the single declaration. `/api/openapi.json` is
+generated from it, the documentation page reads it, and a test compares it
+against the route handlers that actually exist in `src/app/api`. An endpoint
+added without being described fails the build; so does a description of an
+endpoint that has been removed.
+
+Deliberately not a runtime validation layer. The handlers already return what
+they construct, and asserting that with a second implementation of the same
+shapes would be the drift problem again in another form. This describes the
+service; it does not re-specify it.
+
+The document states the exact `Cache-Control` each endpoint sends, and a test
+asserts the declared value matches — a caller planning around caching is
+relying on it, and it is the field most likely to change without anyone
+thinking of the contract.
+
+---
+
+## D-039 · Search Console exports are read, and never acted on automatically
+
+Sixty-three amount pages have been held since launch because the corpus this
+site was built from is two competitor exports. A competitor's rankings are a
+record of what they rank for, not of what anyone searched.
+
+`npm run seo:search-console` reads a real export and reports four things:
+positions in the 5–20 band where a change plausibly moves something, pages
+shown often and clicked rarely, queries answered by more than one page, and
+amount queries with demand and no page.
+
+**Every finding is a proposal.** Nothing writes a route, edits the registry or
+unblocks a held page. The gate asks for distinct search behaviour, unique
+worked examples and an intent no existing route serves — none of which a volume
+figure can answer.
+
+**The export never enters the repository.** `private/` is git-ignored, and so
+is the report. A performance export is the owner's data about their own
+property; committing it would publish a list of every query this site is seen
+for.
+
+**The output is deterministic** — same export, byte-identical report — because
+a report that reorders itself cannot be diffed, and a diff is how you see what
+changed since last month.
+
+Two of my own defects, both found by running it against a synthetic export
+rather than by reading the code. Concatenating the query-level and page-level
+files listed one query three times and counted its impressions twice; the
+query-level export is now authoritative where it exists, and the page export is
+folded down only when it is absent. And the cannibalisation grouping used
+`normalizeKeyword`, which tidies Unicode but leaves case alone — so "Robux To
+USD" and "robux to usd" counted as two queries with one page each, which is the
+opposite of the finding.

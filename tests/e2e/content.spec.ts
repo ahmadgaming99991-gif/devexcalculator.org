@@ -621,6 +621,33 @@ test.describe("public API", () => {
  * A rate change is the event that invalidates a cached figure, and until these
  * existed the only way to learn of one was to revisit the changelog by hand.
  */
+test.describe("API description", () => {
+  test("serves an OpenAPI 3.1 document describing the live endpoints", async ({ request }) => {
+    const response = await request.get("/api/openapi.json");
+    expect(response.status()).toBe(200);
+    expect(response.headers()["content-type"]).toContain("openapi+json");
+    expect(response.headers()["x-robots-tag"]).toContain("noindex");
+
+    const document = await response.json();
+    expect(document.openapi).toBe("3.1.0");
+
+    // Every path it names must actually answer. A description of endpoints
+    // that are not there is worse than no description.
+    for (const path of Object.keys(document.paths)) {
+      if (path === "/api/contact/") continue; // POST only, and origin-checked.
+      const endpoint = await request.get(path);
+      expect([200, 503], `${path} is described but answered ${endpoint.status()}`).toContain(
+        endpoint.status(),
+      );
+    }
+  });
+
+  test("the API page links to the description", async ({ page }) => {
+    await page.goto("/api/");
+    await expect(page.locator('a[href="/api/openapi.json"]')).toBeVisible();
+  });
+});
+
 test.describe("data exports", () => {
   test("the statistics export carries provenance on every row", async ({ request }) => {
     const response = await request.get("/api/stats/?format=csv");

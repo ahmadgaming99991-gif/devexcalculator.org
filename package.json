@@ -24,6 +24,7 @@
     "test:a11y": "playwright test tests/e2e/accessibility.spec.ts",
     "seo:analyze": "tsx scripts/seo/analyze-keywords.ts",
     "seo:indexnow": "tsx scripts/seo/indexnow.ts",
+    "seo:search-console": "tsx scripts/seo/analyze-search-console.ts",
     "validate:content": "tsx scripts/content/validate-content.ts",
     "validate:seo": "tsx scripts/seo/generate-seo-report.ts --check",
     "validate:links": "tsx scripts/quality/check-links.ts",

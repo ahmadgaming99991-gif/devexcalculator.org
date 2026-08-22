@@ -131,6 +131,43 @@ actions with an outside effect, and both are tied to accounts this repository
 does not own. They are commands an operator runs, having decided to.
 
 **No new page is ever published from search data.** The Search Console workflow
-in `docs/seo/content-roadmap.md` can propose amount pages; the publication gate
-in `docs/seo/indexation-policy.md` still decides, and it asks for more than
-query volume.
+in section 5 can propose amount pages; the publication gate in
+`docs/seo/indexation-policy.md` still decides, and it asks for more than query
+volume.
+
+---
+
+## 5. Reading a Search Console export
+
+Search Console is the only source of what people actually type. This site was
+built from two competitor exports — a record of what competitors rank for, not
+of demand — which is why sixty-three amount pages have been held since launch.
+
+```
+1. Search Console → Performance → Search results
+2. Set the date range → Export → Download CSV (arrives as a zip)
+3. Unzip into private/search-console/
+4. npm run seo:search-console
+```
+
+`private/` is git-ignored, and so is the report it writes there. A performance
+export is the owner's data about their own property; committing it would
+publish a list of every query this site is seen for.
+
+The report contains four sections:
+
+| Section | What it means |
+|---|---|
+| Positions worth moving | Queries at positions 5–20, where the page is already understood to be relevant and is not being clicked |
+| Shown often, clicked rarely | Pages under 2% click-through — usually a title or a snippet, not the content |
+| Queries answered by more than one page | Possible cannibalisation. Sometimes it is two genuine intents sharing a phrase; only reading both pages tells you which |
+| Amount queries with no page | The evidence the held amount pages have been waiting for |
+
+**Every finding is a proposal.** Nothing in the report publishes a page, edits
+the route registry or unblocks a held amount. The gate in
+`docs/seo/indexation-policy.md` asks for distinct search behaviour, unique
+worked examples and an intent no existing route already serves — none of which
+a volume figure can answer on its own.
+
+The output is deterministic: the same export produces a byte-identical report,
+so two months can be diffed.
