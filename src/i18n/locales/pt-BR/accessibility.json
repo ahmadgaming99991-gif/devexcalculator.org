@@ -1,0 +1,36 @@
+{
+  "$comment": "Machine-drafted. Not yet read by a native speaker. Every string here is somebody's only way of knowing what a control does, so none of it may be abbreviated.",
+  "skipToContent": "Pular para o conteúdo",
+  "opensInNewTab": "(abre em uma nova aba)",
+  "required": "(obrigatório)",
+  "homeSuffix": "— início",
+  "landmarks": {
+    "main": "Principal",
+    "breadcrumb": "Trilha de navegação",
+    "socialProfiles": "Perfis nas redes sociais",
+    "advertisement": "Anúncio"
+  },
+  "controls": {
+    "calculatorMode": "Modo da calculadora",
+    "chartRange": "Intervalo do gráfico",
+    "robloxRankings": "Rankings do Roblox",
+    "payoutProgress": "Progresso rumo à sua meta de pagamento",
+    "openMenu": "Abrir menu",
+    "closeMenu": "Fechar menu",
+    "toggleTheme": "Alternar entre tema claro e escuro",
+    "removeRow": "Remover"
+  },
+  "calculators": {
+    "devexPayout": "Calculadora de pagamento do DevEx",
+    "marketplaceFee": "Calculadora de taxa do marketplace"
+  },
+  "tables": {
+    "currentRates": "Taxas atuais do DevEx com datas de vigência",
+    "currentRatesCaption": "Taxas do DevEx documentadas pelo Roblox, com datas de vigência e exemplos calculados",
+    "commonAmounts": "Quantias comuns de Earned Robux convertidas em dólares americanos",
+    "commonAmountsCaption": "Quantias de Earned Robux avaliadas pelas taxas padrão, antiga e condicional dos EUA 18+ do DevEx"
+  },
+  "statement": {
+    "machineDraftedNotice": "Esta página é uma tradução automática aguardando revisão por um falante nativo."
+  }
+}

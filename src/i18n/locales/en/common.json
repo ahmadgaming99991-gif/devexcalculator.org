@@ -1,0 +1,96 @@
+{
+  "$comment": "The shell every page renders: footer facts, trademark notice, byline, badges, shared UI labels. English is the source; these are the exact words the site shipped before extraction.",
+  "brand": {
+    "tagline": "Independent DevEx payout estimates for Roblox creators, with every figure traced to an official source.",
+    "shortName": "DevEx Calculator"
+  },
+  "relativeDay": {
+    "today": "today",
+    "yesterday": "yesterday",
+    "daysAgo": "{days} days ago"
+  },
+  "footer": {
+    "facts": {
+      "standardRate": "Standard DevEx rate",
+      "minimumToCashOut": "Minimum to cash out",
+      "ratesVerified": "Rates verified"
+    },
+    "perEligibleNote": "Per eligible Earned Robux, before any payment-provider fee or tax.",
+    "changelogLink": "Every change to these figures",
+    "feedLine": "{atom} or {json} feed",
+    "feedAtom": "Atom",
+    "feedJson": "JSON",
+    "notAffiliatedHeading": "Not affiliated with Roblox Corporation.",
+    "trademarkNotice": "DevExCalculator.org is an independent tool. Roblox, Robux and Developer Exchange are trademarks of Roblox Corporation, used here only to describe the subject of these calculations. This site is not endorsed, sponsored or operated by Roblox Corporation, and it cannot determine whether any DevEx request will be approved.",
+    "followHeading": "Follow",
+    "socialProfiles": "Social profiles",
+    "socialDescription": "{brand} on {network}",
+    "copyright": "© {year} {siteName}. Every payout figure is an estimate.",
+    "rateDataLabel": "Rate data",
+    "verifiedOn": "verified {date}",
+    "dueForReview": ", due for review",
+    "registryVersion": "registry {version}"
+  },
+  "sourceCheck": {
+    "changedHeading": "Roblox’s page no longer matches these figures.",
+    "changedBody": "Found by the automatic check on {checked}. The figures above stand until a person has read what changed.",
+    "unreadableBody": "Roblox’s page could not be read on {checked}, so these figures are the ones from the last review rather than a fresh comparison.",
+    "unchangedPrefix": "Checked against",
+    "unchangedLinkLabel": "Roblox’s own DevEx page",
+    "unchangedSuffix": "on {checked} — unchanged.",
+    "sourceUpdatedAt": "Roblox last updated that page on {date}.",
+    "badgeChanged": "source changed, under review",
+    "badgeUnreachable": "source unreachable {when}",
+    "badgeChecked": "source checked {when}"
+  },
+  "byline": {
+    "maintainedBy": "Maintained by",
+    "reviewedBy": "Reviewed by",
+    "ratesVerified": "Rates verified {date}",
+    "methodology": "Methodology"
+  },
+  "badges": {
+    "officialSourcesCited": "Official Roblox sources cited",
+    "estimatesOnly": "Estimates only",
+    "current": "Current",
+    "conditional": "Conditional",
+    "legacy": "Legacy",
+    "meetsMinimum": "Meets minimum",
+    "belowMinimum": "Below minimum"
+  },
+  "callouts": {
+    "estimateTitle": "This is an estimate, not a decision",
+    "estimateReadDisclaimer": "Read the full disclaimer",
+    "earnedRobuxOnlyTitle": "DevEx applies to Earned Robux only",
+    "earnedRobuxOnlyLink": "What counts as Earned Robux",
+    "readMethodology": "Read the full methodology",
+    "notCoveredHeading": "What this does not cover"
+  },
+  "sections": {
+    "sourcesHeading": "Sources",
+    "seeEverySource": "See every source and its review cadence",
+    "reportOutOfDate": "report something that is out of date",
+    "faqHeading": "Questions creators ask",
+    "jumpLabel": "See the detail",
+    "theCalculation": "The calculation"
+  },
+  "actions": {
+    "tryAgain": "Try again",
+    "remove": "Remove",
+    "copy": "Copy",
+    "copied": "Copied",
+    "reset": "Reset"
+  },
+  "units": {
+    "robux": "Robux",
+    "perRobux": "Per Robux",
+    "perThousand": "Per 1,000",
+    "perThirtyThousand": "Per 30,000",
+    "appliesTo": "Applies to",
+    "earnedRobux": "Earned Robux",
+    "standard": "Standard",
+    "legacyRate": "Legacy",
+    "usEighteenPlus": "U.S. 18+",
+    "minimum": "Minimum"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "$comment": "Everything shown when something is wrong: the 404 page, the route error boundary, and the messages the calculators show for input they cannot use. Input messages say what to do, never only that something failed.",
+  "notFound": {
+    "eyebrow": "Error 404",
+    "title": "That page does not exist",
+    "metaTitle": "Page not found",
+    "metaDescription": "That page does not exist on DevExCalculator.org.",
+    "body": "The address may have changed, or the link that brought you here may be wrong. Nothing has been deleted — this site has never had a page at this address.",
+    "goToCalculator": "Go to the DevEx calculator",
+    "currentRates": "Current rates",
+    "popularHeading": "What people usually want",
+    "popular": {
+      "robuxToUsd": "Convert Robux to US dollars",
+      "usdToRobux": "Work out the Earned Robux needed for a payout target",
+      "requirements": "Check the DevEx minimum and requirements",
+      "conversions": "Look up a specific amount",
+      "guides": "Browse every guide"
+    }
+  },
+  "boundary": {
+    "title": "Something went wrong on this page",
+    "body": "The calculator itself is unaffected — calculations run in your browser and do not depend on this page loading. Try again, or go straight to the calculator.",
+    "tryAgain": "Try again",
+    "goToCalculator": "Go to the calculator",
+    "reference": "If you report this, quote reference {digest}."
+  },
+  "input": {
+    "empty": "Enter an amount.",
+    "notANumber": "That is not a number this calculator can read.",
+    "ambiguous": "Write this with a decimal separator this language uses, so {value} cannot be read two ways.",
+    "tooManyDecimals": "Use at most {max} decimal places.",
+    "negative": "Enter an amount of zero or more.",
+    "tooLarge": "That amount is larger than this calculator will accept.",
+    "robuxMustBeWhole": "Robux come in whole units — enter a whole number.",
+    "belowMinimum": "That is below the {minimum} Earned Robux minimum, so it cannot be exchanged yet.",
+    "rateUnavailable": "No verified rate applies to that combination."
+  },
+  "form": {
+    "requiredField": "This field is required.",
+    "invalidEmail": "Enter an email address that can receive a reply.",
+    "messageTooShort": "Add a little more detail so this can be looked into.",
+    "sendFailed": "The message could not be sent. Nothing was saved — try again, or email directly.",
+    "rateLimited": "Too many messages from this address. Try again later."
+  },
+  "data": {
+    "unavailable": "This data could not be loaded.",
+    "stale": "This data is older than it should be, and is shown with the time it was collected rather than as current.",
+    "noObservations": "No observations have been recorded yet, so there is nothing to show here."
+  }
+}

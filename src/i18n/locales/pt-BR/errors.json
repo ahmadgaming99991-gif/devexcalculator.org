@@ -1,0 +1,50 @@
+{
+  "$comment": "Machine-drafted. Not yet read by a native speaker. Input messages must say what to do, never only that something failed.",
+  "notFound": {
+    "eyebrow": "Erro 404",
+    "title": "Essa página não existe",
+    "metaTitle": "Página não encontrada",
+    "metaDescription": "Essa página não existe no DevExCalculator.org.",
+    "body": "O endereço pode ter mudado, ou o link que trouxe você até aqui pode estar errado. Nada foi excluído — este site nunca teve uma página neste endereço.",
+    "goToCalculator": "Ir para a calculadora do DevEx",
+    "currentRates": "Taxas atuais",
+    "popularHeading": "O que as pessoas costumam procurar",
+    "popular": {
+      "robuxToUsd": "Converter Robux em dólares americanos",
+      "usdToRobux": "Descobrir quantos Earned Robux são necessários para uma meta de pagamento",
+      "requirements": "Conferir o mínimo e os requisitos do DevEx",
+      "conversions": "Consultar uma quantia específica",
+      "guides": "Ver todos os guias"
+    }
+  },
+  "boundary": {
+    "title": "Algo deu errado nesta página",
+    "body": "A calculadora em si não foi afetada — os cálculos rodam no seu navegador e não dependem do carregamento desta página. Tente de novo ou vá direto para a calculadora.",
+    "tryAgain": "Tentar de novo",
+    "goToCalculator": "Ir para a calculadora",
+    "reference": "Se for relatar isto, cite a referência {digest}."
+  },
+  "input": {
+    "empty": "Informe uma quantia.",
+    "notANumber": "Este não é um número que esta calculadora consiga ler.",
+    "ambiguous": "Escreva isto com o separador decimal usado neste idioma, para que {value} não possa ser lido de duas maneiras.",
+    "tooManyDecimals": "Use no máximo {max} casas decimais.",
+    "negative": "Informe uma quantia de zero ou mais.",
+    "tooLarge": "Essa quantia é maior do que esta calculadora aceita.",
+    "robuxMustBeWhole": "Robux vêm em unidades inteiras — informe um número inteiro.",
+    "belowMinimum": "Isso está abaixo do mínimo de {minimum} Earned Robux, portanto ainda não pode ser trocado.",
+    "rateUnavailable": "Nenhuma taxa verificada se aplica a essa combinação."
+  },
+  "form": {
+    "requiredField": "Este campo é obrigatório.",
+    "invalidEmail": "Informe um endereço de e-mail que possa receber uma resposta.",
+    "messageTooShort": "Acrescente um pouco mais de detalhe para que isso possa ser analisado.",
+    "sendFailed": "Não foi possível enviar a mensagem. Nada foi salvo — tente de novo ou envie um e-mail diretamente.",
+    "rateLimited": "Mensagens demais deste endereço. Tente novamente mais tarde."
+  },
+  "data": {
+    "unavailable": "Não foi possível carregar estes dados.",
+    "stale": "Estes dados estão mais antigos do que deveriam e são exibidos com o horário em que foram coletados, e não como atuais.",
+    "noObservations": "Nenhuma observação foi registrada ainda, portanto não há nada para mostrar aqui."
+  }
+}

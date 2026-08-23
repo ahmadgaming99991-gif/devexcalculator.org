@@ -1,0 +1,50 @@
+{
+  "$comment": "Machine-drafted. Not yet read by a native speaker. Input messages must say what to do, never only that something failed.",
+  "notFound": {
+    "eyebrow": "Hata 404",
+    "title": "Böyle bir sayfa yok",
+    "metaTitle": "Sayfa bulunamadı",
+    "metaDescription": "Böyle bir sayfa DevExCalculator.org üzerinde yok.",
+    "body": "Adres değişmiş olabilir ya da sizi buraya getiren bağlantı yanlış olabilir. Hiçbir şey silinmedi — bu sitede bu adreste hiçbir zaman bir sayfa olmadı.",
+    "goToCalculator": "DevEx hesaplayıcısına git",
+    "currentRates": "Güncel kurlar",
+    "popularHeading": "İnsanların genelde aradığı şeyler",
+    "popular": {
+      "robuxToUsd": "Robux'u ABD dolarına çevirmek",
+      "usdToRobux": "Bir ödeme hedefi için gereken Earned Robux miktarını hesaplamak",
+      "requirements": "DevEx alt sınırını ve koşullarını görmek",
+      "conversions": "Belirli bir tutarı aramak",
+      "guides": "Tüm rehberlere göz atmak"
+    }
+  },
+  "boundary": {
+    "title": "Bu sayfada bir şeyler ters gitti",
+    "body": "Hesaplayıcının kendisi bundan etkilenmez — hesaplamalar tarayıcınızda çalışır ve bu sayfanın yüklenmesine bağlı değildir. Yeniden deneyin ya da doğrudan hesaplayıcıya gidin.",
+    "tryAgain": "Yeniden dene",
+    "goToCalculator": "Hesaplayıcıya git",
+    "reference": "Bunu bildirirken {digest} referansını belirtin."
+  },
+  "input": {
+    "empty": "Bir tutar girin.",
+    "notANumber": "Bu, hesaplayıcının okuyabileceği bir sayı değil.",
+    "ambiguous": "Bunu bu dilin kullandığı ondalık ayırıcıyla yazın; böylece {value} iki farklı biçimde okunamaz.",
+    "tooManyDecimals": "En fazla {max} ondalık basamak kullanın.",
+    "negative": "Sıfır veya daha büyük bir tutar girin.",
+    "tooLarge": "Bu tutar, hesaplayıcının kabul ettiğinden büyük.",
+    "robuxMustBeWhole": "Robux tam birimler hâlindedir — tam sayı girin.",
+    "belowMinimum": "Bu, {minimum} Earned Robux alt sınırının altında; dolayısıyla henüz takas edilemez.",
+    "rateUnavailable": "Bu bileşim için doğrulanmış bir kur yok."
+  },
+  "form": {
+    "requiredField": "Bu alan zorunludur.",
+    "invalidEmail": "Yanıt alabilecek bir e-posta adresi girin.",
+    "messageTooShort": "İncelenebilmesi için biraz daha ayrıntı ekleyin.",
+    "sendFailed": "Mesaj gönderilemedi. Hiçbir şey kaydedilmedi — yeniden deneyin ya da doğrudan e-posta gönderin.",
+    "rateLimited": "Bu adresten çok fazla mesaj geldi. Daha sonra yeniden deneyin."
+  },
+  "data": {
+    "unavailable": "Bu veri yüklenemedi.",
+    "stale": "Bu veri olması gerekenden eski; güncel gibi değil, toplandığı zamanla birlikte gösteriliyor.",
+    "noObservations": "Henüz hiçbir gözlem kaydedilmedi, dolayısıyla burada gösterilecek bir şey yok."
+  }
+}

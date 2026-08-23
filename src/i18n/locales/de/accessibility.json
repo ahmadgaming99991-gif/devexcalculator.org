@@ -1,0 +1,36 @@
+{
+  "$comment": "Machine-drafted. Not yet read by a native speaker. Every string here is somebody's only way of knowing what a control does, so none of it may be abbreviated.",
+  "skipToContent": "Zum Inhalt springen",
+  "opensInNewTab": "(öffnet in einem neuen Tab)",
+  "required": "(erforderlich)",
+  "homeSuffix": "— Startseite",
+  "landmarks": {
+    "main": "Hauptbereich",
+    "breadcrumb": "Brotkrümelnavigation",
+    "socialProfiles": "Social-Media-Profile",
+    "advertisement": "Werbung"
+  },
+  "controls": {
+    "calculatorMode": "Rechnermodus",
+    "chartRange": "Diagrammzeitraum",
+    "robloxRankings": "Roblox-Ranglisten",
+    "payoutProgress": "Fortschritt zu deinem Auszahlungsziel",
+    "openMenu": "Menü öffnen",
+    "closeMenu": "Menü schließen",
+    "toggleTheme": "Zwischen hellem und dunklem Design wechseln",
+    "removeRow": "Entfernen"
+  },
+  "calculators": {
+    "devexPayout": "DevEx-Auszahlungsrechner",
+    "marketplaceFee": "Marketplace-Gebührenrechner"
+  },
+  "tables": {
+    "currentRates": "Aktuelle DevEx-Kurse mit Gültigkeitsdaten",
+    "currentRatesCaption": "Von Roblox dokumentierte DevEx-Kurse mit Gültigkeitsdaten und Rechenbeispielen",
+    "commonAmounts": "Übliche Earned-Robux-Beträge, umgerechnet in US-Dollar",
+    "commonAmountsCaption": "Earned-Robux-Beträge, bewertet zum Standard-, Alt- und bedingten USA-18+-DevEx-Kurs"
+  },
+  "statement": {
+    "machineDraftedNotice": "Diese Seite ist eine maschinelle Übersetzung, die noch von einem Muttersprachler geprüft werden muss."
+  }
+}

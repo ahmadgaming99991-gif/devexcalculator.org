@@ -1,0 +1,104 @@
+{
+  "$comment": "Machine-drafted. Not yet read by a native speaker. Protected names (Roblox, Robux, DevEx, Earned Robux) are never translated.",
+  "$identical": [
+    "badges.estimatesOnly",
+    "footer.feedAtom",
+    "footer.feedJson",
+    "units.minimum",
+    "units.perRobux",
+    "units.standard"
+  ],
+  "brand": {
+    "tagline": "Perkiraan pembayaran DevEx yang independen untuk kreator Roblox, dengan setiap angka dilacak ke sumber resmi.",
+    "shortName": "Kalkulator DevEx"
+  },
+  "relativeDay": {
+    "today": "hari ini",
+    "yesterday": "kemarin",
+    "daysAgo": "{days} hari lalu"
+  },
+  "footer": {
+    "facts": {
+      "standardRate": "Kurs DevEx standar",
+      "minimumToCashOut": "Minimum untuk pencairan",
+      "ratesVerified": "Kurs diverifikasi"
+    },
+    "perEligibleNote": "Per Earned Robux yang memenuhi syarat, sebelum biaya penyedia pembayaran atau pajak apa pun.",
+    "changelogLink": "Setiap perubahan pada angka-angka ini",
+    "feedLine": "umpan {atom} atau {json}",
+    "feedAtom": "Atom",
+    "feedJson": "JSON",
+    "notAffiliatedHeading": "Tidak berafiliasi dengan Roblox Corporation.",
+    "trademarkNotice": "DevExCalculator.org adalah alat independen. Roblox, Robux, dan Developer Exchange adalah merek dagang Roblox Corporation, yang digunakan di sini hanya untuk menjelaskan pokok perhitungan ini. Situs ini tidak didukung, disponsori, atau dioperasikan oleh Roblox Corporation, dan tidak dapat menentukan apakah suatu permohonan DevEx akan disetujui.",
+    "followHeading": "Ikuti",
+    "socialProfiles": "Profil media sosial",
+    "socialDescription": "{brand} di {network}",
+    "copyright": "© {year} {siteName}. Setiap angka pembayaran adalah perkiraan.",
+    "rateDataLabel": "Data kurs",
+    "verifiedOn": "diverifikasi {date}",
+    "dueForReview": ", sudah waktunya ditinjau",
+    "registryVersion": "registri {version}"
+  },
+  "sourceCheck": {
+    "changedHeading": "Halaman Roblox tidak lagi cocok dengan angka-angka ini.",
+    "changedBody": "Ditemukan oleh pemeriksaan otomatis pada {checked}. Angka di atas tetap berlaku sampai seseorang membaca apa yang berubah.",
+    "unreadableBody": "Halaman Roblox tidak dapat dibaca pada {checked}, sehingga angka-angka ini berasal dari tinjauan terakhir, bukan dari perbandingan terbaru.",
+    "unchangedPrefix": "Diperiksa terhadap",
+    "unchangedLinkLabel": "halaman DevEx resmi milik Roblox",
+    "unchangedSuffix": "pada {checked} — tidak berubah.",
+    "sourceUpdatedAt": "Roblox terakhir memperbarui halaman itu pada {date}.",
+    "badgeChanged": "sumber berubah, sedang ditinjau",
+    "badgeUnreachable": "sumber tidak terjangkau {when}",
+    "badgeChecked": "sumber diperiksa {when}"
+  },
+  "byline": {
+    "maintainedBy": "Dikelola oleh",
+    "reviewedBy": "Ditinjau oleh",
+    "ratesVerified": "Kurs diverifikasi {date}",
+    "methodology": "Metodologi"
+  },
+  "badges": {
+    "officialSourcesCited": "Sumber resmi Roblox dikutip",
+    "estimatesOnly": "Estimasi saja",
+    "current": "Saat ini",
+    "conditional": "Bersyarat",
+    "legacy": "Lama",
+    "meetsMinimum": "Memenuhi minimum",
+    "belowMinimum": "Di bawah minimum"
+  },
+  "callouts": {
+    "estimateTitle": "Ini perkiraan, bukan keputusan",
+    "estimateReadDisclaimer": "Baca penafian selengkapnya",
+    "earnedRobuxOnlyTitle": "DevEx hanya berlaku untuk Earned Robux",
+    "earnedRobuxOnlyLink": "Apa yang dihitung sebagai Earned Robux",
+    "readMethodology": "Baca metodologi selengkapnya",
+    "notCoveredHeading": "Apa yang tidak dicakup di sini"
+  },
+  "sections": {
+    "sourcesHeading": "Sumber",
+    "seeEverySource": "Lihat setiap sumber dan jadwal peninjauannya",
+    "reportOutOfDate": "laporkan sesuatu yang sudah usang",
+    "faqHeading": "Pertanyaan yang ditanyakan kreator",
+    "jumpLabel": "Lihat detailnya",
+    "theCalculation": "Perhitungannya"
+  },
+  "actions": {
+    "tryAgain": "Coba lagi",
+    "remove": "Hapus",
+    "copy": "Salin",
+    "copied": "Tersalin",
+    "reset": "Atur ulang"
+  },
+  "units": {
+    "robux": "Robux",
+    "perRobux": "Per Robux",
+    "perThousand": "Per 1.000",
+    "perThirtyThousand": "Per 30.000",
+    "appliesTo": "Berlaku untuk",
+    "earnedRobux": "Earned Robux",
+    "standard": "Standard",
+    "legacyRate": "Lama",
+    "usEighteenPlus": "AS 18+",
+    "minimum": "Minimum"
+  }
+}

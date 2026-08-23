@@ -1,0 +1,97 @@
+{
+  "$comment": "Machine-drafted. Not yet read by a native speaker. Protected names (Roblox, Robux, DevEx, Earned Robux) are never translated.",
+  "$identical": ["footer.feedAtom", "footer.feedJson", "units.standard"],
+  "brand": {
+    "tagline": "Estimativas independentes de pagamento do DevEx para criadores do Roblox, com cada número rastreado até uma fonte oficial.",
+    "shortName": "Calculadora DevEx"
+  },
+  "relativeDay": {
+    "today": "hoje",
+    "yesterday": "ontem",
+    "daysAgo": "há {days} dias"
+  },
+  "footer": {
+    "facts": {
+      "standardRate": "Taxa padrão do DevEx",
+      "minimumToCashOut": "Mínimo para sacar",
+      "ratesVerified": "Taxas verificadas"
+    },
+    "perEligibleNote": "Por Earned Robux elegível, antes de qualquer taxa do provedor de pagamento ou imposto.",
+    "changelogLink": "Todas as alterações nesses números",
+    "feedLine": "feed {atom} ou {json}",
+    "feedAtom": "Atom",
+    "feedJson": "JSON",
+    "notAffiliatedHeading": "Sem afiliação com a Roblox Corporation.",
+    "trademarkNotice": "O DevExCalculator.org é uma ferramenta independente. Roblox, Robux e Developer Exchange são marcas registradas da Roblox Corporation, usadas aqui apenas para descrever o objeto destes cálculos. Este site não é endossado, patrocinado nem operado pela Roblox Corporation, e não tem como determinar se algum pedido de DevEx será aprovado.",
+    "followHeading": "Siga",
+    "socialProfiles": "Perfis nas redes sociais",
+    "socialDescription": "{brand} no {network}",
+    "copyright": "© {year} {siteName}. Todo valor de pagamento é uma estimativa.",
+    "rateDataLabel": "Dados de taxa",
+    "verifiedOn": "verificados em {date}",
+    "dueForReview": ", revisão pendente",
+    "registryVersion": "registro {version}"
+  },
+  "sourceCheck": {
+    "changedHeading": "A página do Roblox não corresponde mais a esses números.",
+    "changedBody": "Detectado pela verificação automática em {checked}. Os números acima permanecem até que uma pessoa leia o que mudou.",
+    "unreadableBody": "Não foi possível ler a página do Roblox em {checked}, portanto esses números são os da última revisão e não de uma comparação recente.",
+    "unchangedPrefix": "Verificado com a",
+    "unchangedLinkLabel": "própria página do DevEx no Roblox",
+    "unchangedSuffix": "em {checked} — sem alterações.",
+    "sourceUpdatedAt": "O Roblox atualizou essa página pela última vez em {date}.",
+    "badgeChanged": "fonte alterada, em revisão",
+    "badgeUnreachable": "fonte inacessível {when}",
+    "badgeChecked": "fonte verificada {when}"
+  },
+  "byline": {
+    "maintainedBy": "Mantido por",
+    "reviewedBy": "Revisado por",
+    "ratesVerified": "Taxas verificadas em {date}",
+    "methodology": "Metodologia"
+  },
+  "badges": {
+    "officialSourcesCited": "Fontes oficiais do Roblox citadas",
+    "estimatesOnly": "Apenas estimativas",
+    "current": "Atual",
+    "conditional": "Condicional",
+    "legacy": "Antiga",
+    "meetsMinimum": "Atinge o mínimo",
+    "belowMinimum": "Abaixo do mínimo"
+  },
+  "callouts": {
+    "estimateTitle": "Isto é uma estimativa, não uma decisão",
+    "estimateReadDisclaimer": "Leia o aviso legal completo",
+    "earnedRobuxOnlyTitle": "O DevEx vale apenas para Earned Robux",
+    "earnedRobuxOnlyLink": "O que conta como Earned Robux",
+    "readMethodology": "Leia a metodologia completa",
+    "notCoveredHeading": "O que isto não cobre"
+  },
+  "sections": {
+    "sourcesHeading": "Fontes",
+    "seeEverySource": "Veja todas as fontes e a frequência de revisão de cada uma",
+    "reportOutOfDate": "avise sobre algo desatualizado",
+    "faqHeading": "Perguntas que os criadores fazem",
+    "jumpLabel": "Ver os detalhes",
+    "theCalculation": "O cálculo"
+  },
+  "actions": {
+    "tryAgain": "Tentar de novo",
+    "remove": "Remover",
+    "copy": "Copiar",
+    "copied": "Copiado",
+    "reset": "Redefinir"
+  },
+  "units": {
+    "robux": "Robux",
+    "perRobux": "Por Robux",
+    "perThousand": "Por 1.000",
+    "perThirtyThousand": "Por 30.000",
+    "appliesTo": "Aplica-se a",
+    "earnedRobux": "Earned Robux",
+    "standard": "Standard",
+    "legacyRate": "Antiga",
+    "usEighteenPlus": "EUA 18+",
+    "minimum": "Mínimo"
+  }
+}

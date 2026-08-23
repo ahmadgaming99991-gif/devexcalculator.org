@@ -1,0 +1,97 @@
+{
+  "$comment": "Machine-drafted. Not yet read by a native speaker. Protected names (Roblox, Robux, DevEx, Earned Robux) are never translated.",
+  "$identical": ["footer.feedAtom", "footer.feedJson", "units.standard", "units.minimum"],
+  "brand": {
+    "tagline": "Roblox içerik üreticileri için bağımsız DevEx ödeme tahminleri; her rakam resmî bir kaynağa dayandırılır.",
+    "shortName": "DevEx Hesaplayıcı"
+  },
+  "relativeDay": {
+    "today": "bugün",
+    "yesterday": "dün",
+    "daysAgo": "{days} gün önce"
+  },
+  "footer": {
+    "facts": {
+      "standardRate": "Standart DevEx kuru",
+      "minimumToCashOut": "Nakde çevirme alt sınırı",
+      "ratesVerified": "Kurlar doğrulandı"
+    },
+    "perEligibleNote": "Uygun her Earned Robux için; ödeme sağlayıcı ücreti ve vergiler düşülmeden önce.",
+    "changelogLink": "Bu rakamlardaki her değişiklik",
+    "feedLine": "{atom} veya {json} akışı",
+    "feedAtom": "Atom",
+    "feedJson": "JSON",
+    "notAffiliatedHeading": "Roblox Corporation ile bağlantılı değildir.",
+    "trademarkNotice": "DevExCalculator.org bağımsız bir araçtır. Roblox, Robux ve Developer Exchange, Roblox Corporation'ın ticari markalarıdır ve burada yalnızca bu hesaplamaların konusunu tanımlamak için kullanılır. Bu site Roblox Corporation tarafından onaylanmamış, desteklenmemiş veya işletilmemektedir ve herhangi bir DevEx talebinin onaylanıp onaylanmayacağını belirleyemez.",
+    "followHeading": "Takip et",
+    "socialProfiles": "Sosyal medya hesapları",
+    "socialDescription": "{network} üzerinde {brand}",
+    "copyright": "© {year} {siteName}. Her ödeme rakamı bir tahmindir.",
+    "rateDataLabel": "Kur verisi",
+    "verifiedOn": "{date} tarihinde doğrulandı",
+    "dueForReview": ", gözden geçirme zamanı geldi",
+    "registryVersion": "kayıt {version}"
+  },
+  "sourceCheck": {
+    "changedHeading": "Roblox'un sayfası artık bu rakamlarla örtüşmüyor.",
+    "changedBody": "{checked} tarihindeki otomatik denetimde saptandı. Bir kişi neyin değiştiğini okuyana kadar yukarıdaki rakamlar geçerli kalır.",
+    "unreadableBody": "Roblox'un sayfası {checked} tarihinde okunamadı; bu nedenle buradaki rakamlar güncel bir karşılaştırmadan değil, son incelemeden geliyor.",
+    "unchangedPrefix": "Şununla karşılaştırıldı:",
+    "unchangedLinkLabel": "Roblox'un kendi DevEx sayfası",
+    "unchangedSuffix": "{checked} tarihinde — değişiklik yok.",
+    "sourceUpdatedAt": "Roblox bu sayfayı en son {date} tarihinde güncelledi.",
+    "badgeChanged": "kaynak değişti, inceleniyor",
+    "badgeUnreachable": "kaynağa erişilemedi {when}",
+    "badgeChecked": "kaynak denetlendi {when}"
+  },
+  "byline": {
+    "maintainedBy": "Yürüten:",
+    "reviewedBy": "Denetleyen:",
+    "ratesVerified": "Kurlar {date} tarihinde doğrulandı",
+    "methodology": "Yöntem"
+  },
+  "badges": {
+    "officialSourcesCited": "Resmî Roblox kaynakları belirtildi",
+    "estimatesOnly": "Yalnızca tahmin",
+    "current": "Güncel",
+    "conditional": "Koşullu",
+    "legacy": "Eski",
+    "meetsMinimum": "Alt sınırı karşılıyor",
+    "belowMinimum": "Alt sınırın altında"
+  },
+  "callouts": {
+    "estimateTitle": "Bu bir tahmindir, bir karar değil",
+    "estimateReadDisclaimer": "Sorumluluk reddi metninin tamamını oku",
+    "earnedRobuxOnlyTitle": "DevEx yalnızca Earned Robux için geçerlidir",
+    "earnedRobuxOnlyLink": "Neler Earned Robux sayılır",
+    "readMethodology": "Yöntemin tamamını oku",
+    "notCoveredHeading": "Bunun kapsamadıkları"
+  },
+  "sections": {
+    "sourcesHeading": "Kaynaklar",
+    "seeEverySource": "Tüm kaynakları ve gözden geçirme sıklıklarını gör",
+    "reportOutOfDate": "güncelliğini yitirmiş bir şeyi bildir",
+    "faqHeading": "İçerik üreticilerinin sorduğu sorular",
+    "jumpLabel": "Ayrıntıyı gör",
+    "theCalculation": "Hesaplama"
+  },
+  "actions": {
+    "tryAgain": "Yeniden dene",
+    "remove": "Kaldır",
+    "copy": "Kopyala",
+    "copied": "Kopyalandı",
+    "reset": "Sıfırla"
+  },
+  "units": {
+    "robux": "Robux",
+    "perRobux": "Robux başına",
+    "perThousand": "1.000 başına",
+    "perThirtyThousand": "30.000 başına",
+    "appliesTo": "Şunlar için geçerli:",
+    "earnedRobux": "Earned Robux",
+    "standard": "Standard",
+    "legacyRate": "Eski",
+    "usEighteenPlus": "ABD 18+",
+    "minimum": "Minimum"
+  }
+}

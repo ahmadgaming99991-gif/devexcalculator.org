@@ -1,0 +1,50 @@
+{
+  "$comment": "Machine-drafted. Not yet read by a native speaker. Input messages must say what to do, never only that something failed.",
+  "notFound": {
+    "eyebrow": "Fehler 404",
+    "title": "Diese Seite gibt es nicht",
+    "metaTitle": "Seite nicht gefunden",
+    "metaDescription": "Diese Seite gibt es auf DevExCalculator.org nicht.",
+    "body": "Die Adresse hat sich vielleicht geändert, oder der Link, der dich hierher gebracht hat, ist falsch. Es wurde nichts gelöscht — unter dieser Adresse hatte diese Website noch nie eine Seite.",
+    "goToCalculator": "Zum DevEx-Rechner",
+    "currentRates": "Aktuelle Kurse",
+    "popularHeading": "Was die meisten suchen",
+    "popular": {
+      "robuxToUsd": "Robux in US-Dollar umrechnen",
+      "usdToRobux": "Ausrechnen, wie viele Earned Robux für ein Auszahlungsziel nötig sind",
+      "requirements": "Das DevEx-Minimum und die Voraussetzungen prüfen",
+      "conversions": "Einen bestimmten Betrag nachschlagen",
+      "guides": "Alle Leitfäden durchsehen"
+    }
+  },
+  "boundary": {
+    "title": "Auf dieser Seite ist etwas schiefgelaufen",
+    "body": "Der Rechner selbst ist davon nicht betroffen — die Berechnungen laufen in deinem Browser und hängen nicht davon ab, dass diese Seite lädt. Versuche es erneut, oder gehe direkt zum Rechner.",
+    "tryAgain": "Erneut versuchen",
+    "goToCalculator": "Zum Rechner",
+    "reference": "Wenn du das meldest, gib die Referenz {digest} an."
+  },
+  "input": {
+    "empty": "Gib einen Betrag ein.",
+    "notANumber": "Das ist keine Zahl, die dieser Rechner lesen kann.",
+    "ambiguous": "Schreibe die Zahl mit dem Dezimaltrennzeichen dieser Sprache, damit {value} nicht auf zwei Arten gelesen werden kann.",
+    "tooManyDecimals": "Verwende höchstens {max} Nachkommastellen.",
+    "negative": "Gib einen Betrag von null oder mehr ein.",
+    "tooLarge": "Dieser Betrag ist größer, als dieser Rechner annimmt.",
+    "robuxMustBeWhole": "Robux gibt es nur in ganzen Einheiten — gib eine ganze Zahl ein.",
+    "belowMinimum": "Das liegt unter dem Minimum von {minimum} Earned Robux und kann daher noch nicht getauscht werden.",
+    "rateUnavailable": "Für diese Kombination gilt kein geprüfter Kurs."
+  },
+  "form": {
+    "requiredField": "Dieses Feld ist erforderlich.",
+    "invalidEmail": "Gib eine E-Mail-Adresse an, die eine Antwort empfangen kann.",
+    "messageTooShort": "Ergänze etwas mehr Detail, damit der Fall geprüft werden kann.",
+    "sendFailed": "Die Nachricht konnte nicht gesendet werden. Es wurde nichts gespeichert — versuche es erneut, oder schreibe direkt eine E-Mail.",
+    "rateLimited": "Zu viele Nachrichten von dieser Adresse. Versuche es später erneut."
+  },
+  "data": {
+    "unavailable": "Diese Daten konnten nicht geladen werden.",
+    "stale": "Diese Daten sind älter, als sie sein sollten, und werden mit ihrem Erhebungszeitpunkt gezeigt statt als aktuelle Werte.",
+    "noObservations": "Es wurden noch keine Messwerte erfasst, daher gibt es hier nichts zu zeigen."
+  }
+}

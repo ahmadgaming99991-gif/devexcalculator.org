@@ -1,0 +1,50 @@
+{
+  "$comment": "Machine-drafted. Not yet read by a native speaker. Input messages must say what to do, never only that something failed.",
+  "notFound": {
+    "eyebrow": "Galat 404",
+    "title": "Halaman itu tidak ada",
+    "metaTitle": "Halaman tidak ditemukan",
+    "metaDescription": "Halaman itu tidak ada di DevExCalculator.org.",
+    "body": "Alamatnya mungkin sudah berubah, atau tautan yang membawa Anda ke sini mungkin salah. Tidak ada yang dihapus — situs ini tidak pernah punya halaman di alamat ini.",
+    "goToCalculator": "Buka kalkulator DevEx",
+    "currentRates": "Kurs saat ini",
+    "popularHeading": "Yang biasanya dicari orang",
+    "popular": {
+      "robuxToUsd": "Mengonversi Robux ke dolar AS",
+      "usdToRobux": "Menghitung Earned Robux yang dibutuhkan untuk target pembayaran",
+      "requirements": "Memeriksa batas minimum dan syarat DevEx",
+      "conversions": "Mencari jumlah tertentu",
+      "guides": "Menelusuri semua panduan"
+    }
+  },
+  "boundary": {
+    "title": "Ada yang salah di halaman ini",
+    "body": "Kalkulatornya sendiri tidak terpengaruh — perhitungan berjalan di peramban Anda dan tidak bergantung pada halaman ini. Coba lagi, atau langsung buka kalkulatornya.",
+    "tryAgain": "Coba lagi",
+    "goToCalculator": "Buka kalkulator",
+    "reference": "Jika Anda melaporkan ini, sebutkan rujukan {digest}."
+  },
+  "input": {
+    "empty": "Masukkan jumlahnya.",
+    "notANumber": "Itu bukan angka yang bisa dibaca kalkulator ini.",
+    "ambiguous": "Tulis ini dengan pemisah desimal yang dipakai bahasa ini, agar {value} tidak bisa dibaca dengan dua cara.",
+    "tooManyDecimals": "Gunakan paling banyak {max} angka desimal.",
+    "negative": "Masukkan jumlah nol atau lebih.",
+    "tooLarge": "Jumlah itu lebih besar daripada yang bisa diterima kalkulator ini.",
+    "robuxMustBeWhole": "Robux berupa satuan utuh — masukkan bilangan bulat.",
+    "belowMinimum": "Itu di bawah batas minimum {minimum} Earned Robux, jadi belum bisa ditukarkan.",
+    "rateUnavailable": "Tidak ada kurs terverifikasi yang berlaku untuk kombinasi itu."
+  },
+  "form": {
+    "requiredField": "Kolom ini wajib diisi.",
+    "invalidEmail": "Masukkan alamat surel yang bisa menerima balasan.",
+    "messageTooShort": "Tambahkan sedikit rincian lagi agar ini bisa ditelusuri.",
+    "sendFailed": "Pesan tidak dapat dikirim. Tidak ada yang tersimpan — coba lagi, atau kirim surel langsung.",
+    "rateLimited": "Terlalu banyak pesan dari alamat ini. Coba lagi nanti."
+  },
+  "data": {
+    "unavailable": "Data ini tidak dapat dimuat.",
+    "stale": "Data ini lebih lama daripada seharusnya dan ditampilkan beserta waktu pengambilannya, bukan sebagai data terkini.",
+    "noObservations": "Belum ada pengamatan yang tercatat, jadi tidak ada yang bisa ditampilkan di sini."
+  }
+}

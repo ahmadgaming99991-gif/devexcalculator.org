@@ -1,0 +1,36 @@
+{
+  "$comment": "Text that exists only for assistive technology, plus the labels on controls whose visible name is an icon. Nothing here is decorative: every string is somebody's only way of knowing what a control does.",
+  "skipToContent": "Skip to content",
+  "opensInNewTab": "(opens in a new tab)",
+  "required": "(required)",
+  "homeSuffix": "— home",
+  "landmarks": {
+    "main": "Main",
+    "breadcrumb": "Breadcrumb",
+    "socialProfiles": "Social profiles",
+    "advertisement": "Advertisement"
+  },
+  "controls": {
+    "calculatorMode": "Calculator mode",
+    "chartRange": "Chart range",
+    "robloxRankings": "Roblox rankings",
+    "payoutProgress": "Progress toward your payout target",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "toggleTheme": "Switch between light and dark",
+    "removeRow": "Remove"
+  },
+  "calculators": {
+    "devexPayout": "DevEx payout calculator",
+    "marketplaceFee": "Marketplace fee calculator"
+  },
+  "tables": {
+    "currentRates": "Current DevEx rates with effective dates",
+    "currentRatesCaption": "DevEx rates documented by Roblox, with effective dates and worked examples",
+    "commonAmounts": "Common Earned Robux amounts converted to US dollars",
+    "commonAmountsCaption": "Earned Robux amounts valued at the standard, legacy and conditional U.S. 18+ DevEx rates"
+  },
+  "statement": {
+    "machineDraftedNotice": "This page is a machine-drafted translation awaiting review by a native speaker."
+  }
+}
