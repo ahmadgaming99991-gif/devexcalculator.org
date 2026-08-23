@@ -41,8 +41,23 @@ export const CACHEABLE_DYNAMIC_ROUTES: readonly string[] = [
   "/conversions/",
   "/devex-fees-and-taxes/",
   "/robux-to-usd/",
-  "/usd-to-robux/",
 ];
+
+/**
+ * `/usd-to-robux/` was on this list and came off it.
+ *
+ * It renders today's calendar date into the HTML five times — the planner's
+ * pre-hydration fallback, so a reader with scripts blocked still sees a real
+ * date rather than an empty field. Cached, that becomes yesterday's date served
+ * as today's, on the one page that counts days to a deadline. A reader with
+ * JavaScript never sees it, because the client replaces the value on mount;
+ * a reader without JavaScript would be told the wrong number of days.
+ *
+ * Found by fetching the page twice and diffing the delivered HTML, which is
+ * also the check to run before adding anything here: two requests, and the
+ * bodies must be identical for reasons that hold tomorrow as well as today.
+ */
+export const EXCLUDED_FOR_RENDERING_A_DATE: readonly string[] = ["/usd-to-robux/"];
 
 /**
  * Ten minutes at the edge, a day of serving stale while it refreshes.
@@ -57,6 +72,9 @@ export const CACHEABLE_DYNAMIC_ROUTES: readonly string[] = [
  */
 export const EDGE_POLICY =
   "public, max-age=0, s-maxage=600, stale-while-revalidate=86400, must-revalidate";
+
+/** Methods whose response may be relaxed. Never a mutation. */
+const SAFE_METHODS: readonly string[] = ["GET", "HEAD"];
 
 /** What Next sends for a dynamically rendered page. */
 function isUncachedByDefault(value: string | null): boolean {
@@ -74,7 +92,16 @@ export function edgeCachePolicy(
   request: { method: string; url: string },
   response: { status: number; headers: { get(name: string): string | null } },
 ): string | null {
-  if (request.method !== "GET") return null;
+  /*
+   * HEAD as well as GET. This read `!== "GET"`, which was meant to exclude
+   * mutations and caught HEAD by accident — so a HEAD request answered
+   * `no-store` on a route whose GET answered with the cached policy.
+   *
+   * RFC 9110 is explicit that a HEAD response should carry the same headers
+   * the GET would. Two answers that disagree is a debugging trap: it is what
+   * made `curl -I` report this whole feature as broken when it was working.
+   */
+  if (!SAFE_METHODS.includes(request.method)) return null;
   if (response.status !== 200) return null;
 
   const contentType = response.headers.get("content-type");

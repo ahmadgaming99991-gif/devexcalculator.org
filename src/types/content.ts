@@ -89,4 +89,20 @@ export interface RouteRecord {
   readonly rateSensitive: boolean;
   /** Alt text for the Open Graph image. */
   readonly ogImageAlt: string;
+
+  /**
+   * Who reviewed this page's published figures, as a slug from
+   * `src/lib/content/authors.ts`, and when.
+   *
+   * Both optional, and both required together — a reviewer with no date is a
+   * claim with nothing behind it. Set only on pages a review actually happened
+   * on. The byline renders the reviewer segment, and the page emits
+   * `reviewedBy` in its structured data, ONLY when both are present. There is
+   * deliberately no site-wide default and no fallback: a reviewer's name on a
+   * page nobody reviewed is a fabricated trust signal, and a fabricated trust
+   * signal is worse than no reviewer at all.
+   */
+  readonly reviewedBy?: string;
+  /** ISO date of that review. Meaningless without `reviewedBy`, and vice versa. */
+  readonly reviewedAt?: string;
 }

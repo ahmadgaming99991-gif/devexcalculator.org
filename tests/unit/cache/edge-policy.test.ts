@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import {
   CACHEABLE_DYNAMIC_ROUTES,
   EDGE_POLICY,
+  EXCLUDED_FOR_RENDERING_A_DATE,
   edgeCachePolicy,
 } from "../../../src/lib/cache/edge-policy";
 
@@ -58,6 +59,24 @@ describe("what it refuses to touch", () => {
     ).toBeNull();
   });
 
+  it("leaves a page that renders today's date rendering per request", () => {
+    // /usd-to-robux/ bakes the calendar date into the HTML as the planner's
+    // no-JavaScript fallback. Cached, that is yesterday served as today on the
+    // page that counts days to a deadline.
+    for (const route of EXCLUDED_FOR_RENDERING_A_DATE) {
+      expect(
+        edgeCachePolicy({ method: "GET", url: `https://devexcalculator.org${route}` }, htmlPage()),
+        `${route} was cached`,
+      ).toBeNull();
+    }
+  });
+
+  it("keeps the two lists from ever overlapping", () => {
+    for (const route of EXCLUDED_FOR_RENDERING_A_DATE) {
+      expect(CACHEABLE_DYNAMIC_ROUTES).not.toContain(route);
+    }
+  });
+
   it("leaves the collector-backed pages rendering per request", () => {
     // A cached chart is a chart that has stopped moving, which is the failure
     // the collector's heartbeat exists to make visible.
@@ -87,12 +106,34 @@ describe("what it refuses to touch", () => {
     }
   });
 
-  it("never touches anything but a GET", () => {
-    for (const method of ["POST", "OPTIONS", "HEAD", "PUT"]) {
+  it("never touches a mutation", () => {
+    for (const method of ["POST", "PUT", "PATCH", "DELETE", "OPTIONS"]) {
       expect(
         edgeCachePolicy({ method, url: "https://devexcalculator.org/" }, htmlPage()),
         `${method} was cached`,
       ).toBeNull();
+    }
+  });
+
+  it("answers HEAD exactly as it answers GET", () => {
+    /*
+     * RFC 9110: a HEAD response carries the headers the GET would. Two answers
+     * that disagree is a debugging trap — this exact divergence made `curl -I`
+     * report the whole feature as broken while it was working correctly.
+     */
+    const cases = [
+      ...CACHEABLE_DYNAMIC_ROUTES,
+      ...EXCLUDED_FOR_RENDERING_A_DATE,
+      "/platform/",
+      "/?robux=250000",
+      "/some-new-page/",
+    ];
+    for (const route of cases) {
+      const url = `https://devexcalculator.org${route}`;
+      expect(
+        edgeCachePolicy({ method: "HEAD", url }, htmlPage()),
+        `HEAD and GET disagree on ${route}`,
+      ).toBe(edgeCachePolicy({ method: "GET", url }, htmlPage()));
     }
   });
 
