@@ -1009,6 +1009,7 @@ test.describe("diagrams", () => {
     const sources = await page.locator("img").evaluateAll((nodes) =>
       nodes.map((node) => ({
         src: (node as HTMLImageElement).getAttribute("src") ?? "",
+        srcset: (node as HTMLImageElement).getAttribute("srcset") ?? "",
         alt: (node as HTMLImageElement).getAttribute("alt"),
       })),
     );
@@ -1017,7 +1018,12 @@ test.describe("diagrams", () => {
     // shipping pixels, which is worth noticing rather than discovering later.
     expect(sources).toHaveLength(2);
     for (const image of sources) {
-      expect(image.src).toBe("/brand/devex-mark.png");
+      // Versioned path, because the files are served immutable for a year.
+      expect(image.src).toMatch(/^\/brand\/v\d+\/mark-40\.png$/);
+      // Three densities offered, so a 1x screen does not fetch the 3x file.
+      expect(image.srcset).toMatch(/mark-40\.png 1x/);
+      expect(image.srcset).toMatch(/mark-80\.png 2x/);
+      expect(image.srcset).toMatch(/mark-120\.png 3x/);
       /*
        * Decorative, and it has to be. The wordmark beside it is real text and
        * is the link's accessible name; alt text here would announce the site's
@@ -1269,6 +1275,42 @@ test.describe("footer figures", () => {
  * the past and must never advance on its own; its age is a live figure and was
  * frozen at build time, which is what made the line look stale.
  */
+test.describe("header without JavaScript", () => {
+  test("does not pin a screen-high menu over the page on a phone", async ({ browser }) => {
+    // With scripting off there is no menu to open, so the whole grouped
+    // navigation renders inline inside the header. Sticky, on a phone, that is
+    // a header taller than the viewport pinned over the content for the entire
+    // scroll — the reader sees the navigation and nothing else, forever.
+    const context = await browser.newContext({
+      javaScriptEnabled: false,
+      viewport: { width: 360, height: 800 },
+    });
+    const page = await context.newPage();
+    await page.goto("/platform/");
+
+    const header = page.locator("header").first();
+    const position = await header.evaluate((node) => getComputedStyle(node).position);
+    expect(position, "the header is still sticky with scripting off").toBe("static");
+
+    // And the reason it matters: it really is taller than the screen.
+    const height = await header.evaluate((node) => node.getBoundingClientRect().height);
+    expect(height).toBeGreaterThan(400);
+
+    await context.close();
+  });
+
+  test("keeps the sticky header for everyone else", async ({ page }) => {
+    // The fix must not cost the behaviour it is protecting.
+    await page.setViewportSize({ width: 360, height: 800 });
+    await page.goto("/platform/");
+    const position = await page
+      .locator("header")
+      .first()
+      .evaluate((node) => getComputedStyle(node).position);
+    expect(position).toBe("sticky");
+  });
+});
+
 test.describe("automatic source check", () => {
   test("publishes the result of the last comparison", async ({ request }) => {
     const response = await request.get("/api/rate-check/");

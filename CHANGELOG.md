@@ -189,6 +189,22 @@ Recorded because each was a real bug that shipped-looking code contained:
   size; they keep the hexagon and the dollar sign instead. 7 kB, decorative,
   with a 3D lift on hover for pointer and keyboard alike.
 
+### Fixed
+
+- **A screen-high header for anyone browsing without JavaScript.** With
+  scripting off the whole grouped navigation renders inline in the header, and
+  the header is sticky — on a phone that pinned about eleven hundred pixels of
+  menu over the page for the entire scroll. Found by a no-JavaScript test that
+  had been returning early, and passing, in every environment it had ever run
+  in.
+- **The homepage could not be cached anywhere.** It renders per request to read
+  shared-calculation links, so Next marked it `no-store`; the root document took
+  1,030 ms and the page was disqualified from the browser's back/forward cache.
+  Query-free requests to five pure routes are now cacheable at the edge.
+- **The brand mark shipped 88% more image than it displayed.** Three densities
+  now ship instead of one; 2.3 kB on an ordinary screen, immutable for a year
+  behind a versioned path.
+
 ### Deliberately not included
 
 - No universal Robux purchase price — Roblox prices by package, region and

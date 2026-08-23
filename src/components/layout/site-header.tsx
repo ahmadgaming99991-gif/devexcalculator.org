@@ -17,7 +17,7 @@ import { ThemeToggle } from "./theme-toggle";
  */
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-30 border-b border-(--color-border) bg-(--color-surface)/95 backdrop-blur supports-[backdrop-filter]:bg-(--color-surface)/80">
+    <header className="site-header sticky top-0 z-30 border-b border-(--color-border) bg-(--color-surface)/95 backdrop-blur supports-[backdrop-filter]:bg-(--color-surface)/80">
       <Container width="wide">
         <div className="flex h-16 items-center justify-between gap-3">
           {/* `group` so the mark can respond to a hover anywhere on the lockup,
@@ -50,6 +50,26 @@ export function SiteHeader() {
           push the page's own content most of a screen down.
         */}
         <noscript>
+          {/*
+            Stop the header sticking while this block is open.
+
+            With scripting off there is no menu to open, so the whole grouped
+            navigation renders inline — twenty-one links, around eleven hundred
+            pixels of it. Inside a `position: sticky` header on a phone that is
+            not a tall header, it is a header taller than the screen, pinned
+            over the page for the entire scroll: the reader can see the site's
+            navigation and nothing else, forever.
+
+            A `<style>` inside `<noscript>` is the one way CSS gets to know
+            whether scripting is on. The rule applies only when this block
+            renders, and only where the block itself applies, so a reader with
+            JavaScript keeps the sticky header exactly as it was.
+
+            Found by a no-JavaScript end-to-end test that had been passing for
+            the wrong reason — it returned early whenever storage was unbound,
+            which is every environment it had ever run in.
+          */}
+          <style>{"@media (max-width: 1023.98px){.site-header{position:static}}"}</style>
           <div className="border-t border-(--color-border) py-2 lg:hidden">
             <Link
               href={primaryDestination.href}

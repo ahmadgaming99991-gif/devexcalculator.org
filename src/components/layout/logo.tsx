@@ -21,14 +21,22 @@
  * downscaled: it keeps the hexagon and the dollar sign and drops everything
  * that dies at sixteen pixels.
  *
- * **Cost.** 7 kB, once, for every page — the artwork cropped to the mark and
- * quantised to a palette, which is visually identical to the full-colour
- * version at a quarter of the bytes. Width and height are set so it reserves
- * its own space and cannot shift the header as it loads.
+ * **Cost.** 2.3 kB on an ordinary screen. Lighthouse caught the first version
+ * shipping the 3x file to everyone — 88% of those bytes were thrown away by a
+ * 35x40 slot — so there are now three sizes and the browser picks by pixel
+ * density. Width and height are set so the mark reserves its own space and
+ * cannot shift the header as it loads.
+ *
+ * The path carries a version because the files are served immutable for a
+ * year. A stable filename with a year-long cache would leave a revised logo
+ * sitting in a returning reader's browser until 2027; bumping `v1` is how a
+ * new mark actually reaches them.
  */
 
-/** Intrinsic size of `/brand/devex-mark.png`, 3x the largest rendered size. */
-const INTRINSIC = { width: 104, height: 120 } as const;
+/** Intrinsic size of the 1x file. The others are exact 2x and 3x multiples. */
+const INTRINSIC = { width: 35, height: 40 } as const;
+
+const BASE = "/brand/v1";
 
 export function Logo({
   className = "h-10",
@@ -53,7 +61,8 @@ export function Logo({
           brand asset in a Server Component. next/image would add a client
           runtime and a loader for one 7 kB PNG that never needs resizing. */}
       <img
-        src="/brand/devex-mark.png"
+        src={`${BASE}/mark-40.png`}
+        srcSet={`${BASE}/mark-40.png 1x, ${BASE}/mark-80.png 2x, ${BASE}/mark-120.png 3x`}
         width={INTRINSIC.width}
         height={INTRINSIC.height}
         /*

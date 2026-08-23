@@ -8,6 +8,7 @@ import {
 } from "../src/lib/platform/history";
 import { recordHeartbeat, type RunReport } from "../src/lib/platform/heartbeat";
 import { checkRateSource } from "../src/lib/rates/source-check";
+import { edgeCachePolicy } from "../src/lib/cache/edge-policy";
 
 /**
  * The deployed Worker.
@@ -56,10 +57,30 @@ function upgradeToHttps(request: Request): Response | null {
 }
 
 const handler = {
-  fetch(request: Request, env: unknown, ctx: ExecutionContext): Promise<Response> {
+  async fetch(request: Request, env: unknown, ctx: ExecutionContext): Promise<Response> {
     const upgrade = upgradeToHttps(request);
-    if (upgrade) return Promise.resolve(upgrade);
-    return openNextWorker.fetch(request, env, ctx);
+    if (upgrade) return upgrade;
+
+    const response = await openNextWorker.fetch(request, env, ctx);
+
+    /*
+     * Next marks every dynamically rendered page `no-store`, which is right by
+     * default and wrong for the handful of pages here that render from the URL
+     * and the rate registry alone. `edgeCachePolicy` owns that judgement and
+     * returns null for everything else, so this is a narrow relaxation rather
+     * than a caching layer. See src/lib/cache/edge-policy.ts.
+     */
+    const policy = edgeCachePolicy(request, response);
+    if (!policy) return response;
+
+    // Headers on a returned Response are immutable, so this is a copy.
+    const headers = new Headers(response.headers);
+    headers.set("cache-control", policy);
+    return new Response(response.body, {
+      status: response.status,
+      statusText: response.statusText,
+      headers,
+    });
   },
 
   async scheduled(event: ScheduledEvent, env: Env, ctx: ExecutionContext): Promise<void> {

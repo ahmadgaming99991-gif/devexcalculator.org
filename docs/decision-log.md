@@ -1054,3 +1054,76 @@ and chart on the site, and the brand's greens are too bright to pass contrast
 as text on white — it would mean a dark forest green that is not the logo's
 green either. That is a design decision with an accessibility cost attached,
 and it belongs to the owner, not to a commit about adding a logo.
+
+## D-044 · What Google's own audit found, and the one thing it was wrong about
+
+**Observed in repository / Verified through official source.**
+
+The question was which colours the site should use. The answer came from
+measuring rather than taste, and then from running Google's own tool instead of
+guessing what it would say.
+
+**The interface stays blue, and the reason is arithmetic.** Every green in the
+supplied logo was measured against this site's surfaces:
+
+| Colour | On white | AA text (4.5:1) |
+|---|---|---|
+| `#8bf60c` logo lime | 1.37:1 | fails |
+| `#3fd40d` logo green | 1.97:1 | fails |
+| `#15980a` logo deep green | 3.80:1 | fails |
+| `#16a34a` | 3.30:1 | fails |
+| `#15803d` | 5.02:1 | passes |
+| `#2563eb` current | 5.17:1 | passes |
+
+No green in the logo can carry text. The lightest one that can is `#15803d` —
+which is already `--color-success` on this site, where green means *eligible*:
+the balance meets the minimum, the Robux qualify. Making links the same green
+would take the one colour that carries a meaning on a site about eligibility
+and spend it on "this is a link". The brand green is therefore decorative — the
+mark, and the icons — and the semantic palette is left alone.
+
+**Then the audit.** Lighthouse 12.8.2, desktop, against production:
+accessibility **100**, best practices **100**, performance 93, SEO 92. Four
+findings were real and three are fixed here.
+
+*The brand mark was 88% waste.* One 104×120 file was served into a 35×40 slot.
+Three densities now ship and the browser chooses: 2.3 kB on an ordinary screen
+instead of 7 kB. The path gained a version so the files can be immutable for a
+year — a stable filename with a year-long cache would strand a revised logo in
+a returning reader's browser, which is why the first attempt used a week and
+was correctly flagged as an inefficient policy.
+
+*The homepage could not be cached, anywhere.* Seven routes render per request
+because they read the query string, and Next marks every such response
+`no-store`. That is the right default and the wrong one here: the root document
+took **1,030 ms**, and `no-store` also disqualifies a page from the browser's
+back/forward cache, so returning from a click reloads instead of restoring.
+`edgeCachePolicy` relaxes it for an allowlist of five routes whose HTML is a
+function of the URL and the registry alone — never with a query string, since a
+shared calculation carries somebody's balance; never for `/platform/`, whose
+chart would quietly stop moving; and only over a response that was already
+`no-store`, so it can never override a policy set on purpose.
+
+*`robots.txt` carries an unknown directive.* Not ours: Cloudflare is prepending
+a managed block to the file this site serves, and it contains
+`Content-Signal: search=yes,ai-train=no,use=reference`. See the note below.
+
+**A bug the audit did not find, and a test that had been passing for the wrong
+reason.** A no-JavaScript end-to-end test returned early whenever storage was
+unbound — which was every environment it had ever run in, CI included. Once
+local Worker state existed it ran for the first time and failed immediately:
+with scripting off there is no menu to open, so the entire grouped navigation
+renders inline inside a `position: sticky` header. On a phone that is roughly
+eleven hundred pixels of header pinned over the page for the whole scroll. A
+`<style>` inside the `<noscript>` block now unsticks the header exactly where
+that content renders, and two tests assert both halves: static without
+scripting, sticky with it.
+
+**Left for the owner: Cloudflare's managed robots.txt.** It is currently
+blocking `GPTBot`, `ClaudeBot`, `CCBot`, `Google-Extended`, `Bytespider`,
+`meta-externalagent`, `Amazonbot` and `Applebot-Extended` from the whole site.
+That is a real editorial decision and it contradicts something this site built
+on purpose — `llms.txt`, a documented API, and a body of sourced figures whose
+value is partly in being citable. It also costs the SEO score through the
+unknown directive. Not changed here, because deciding who may read the site is
+not a performance fix.
