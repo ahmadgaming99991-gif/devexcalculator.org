@@ -109,3 +109,65 @@ export interface LocaleMeta {
    */
   readonly sourceContentVersion: string;
 }
+
+// ---------------------------------------------------------------------------
+// Dictionaries
+// ---------------------------------------------------------------------------
+
+/**
+ * The namespaces a page may ask for.
+ *
+ * Split by what a page actually renders rather than by which file the strings
+ * came from, so a rate page loads rates and the shell — not the legal pages,
+ * the platform charts and the contact form as well. A closed union, because
+ * the value reaches a module import and an open `string` there would be a
+ * path-traversal primitive.
+ */
+export type DictionaryNamespace =
+  | "common"
+  | "navigation"
+  | "calculator"
+  | "rates"
+  | "marketplace"
+  | "platform"
+  | "guides"
+  | "legal"
+  | "contact"
+  | "errors"
+  | "accessibility"
+  | "seo"
+  | "schema"
+  | "routes";
+
+/**
+ * A namespace's contents.
+ *
+ * Deliberately a nested record of strings rather than `any`. Values may nest
+ * for grouping and may be arrays for lists — an FAQ, a set of steps, a table
+ * of rows — but a leaf is always a string. Raw HTML is not permitted in a
+ * value: rich text is expressed as structured objects with typed link
+ * placeholders, so a translation file can never inject markup.
+ */
+export type DictionaryValue = string | readonly DictionaryValue[] | { readonly [k: string]: DictionaryValue };
+
+export type DictionaryNamespaceContent = Readonly<Record<string, DictionaryValue>>;
+
+export type Dictionary = Readonly<Record<DictionaryNamespace, DictionaryNamespaceContent>>;
+
+/** Every namespace, as a runtime value, for validators and extraction. */
+export const DICTIONARY_NAMESPACES: readonly DictionaryNamespace[] = [
+  "common",
+  "navigation",
+  "calculator",
+  "rates",
+  "marketplace",
+  "platform",
+  "guides",
+  "legal",
+  "contact",
+  "errors",
+  "accessibility",
+  "seo",
+  "schema",
+  "routes",
+];
