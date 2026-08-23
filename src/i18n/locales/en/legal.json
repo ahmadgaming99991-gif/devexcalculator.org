@@ -1,0 +1,165 @@
+{
+  "$comment": "Privacy, terms, disclaimer and the accessibility statement. These describe this deployment specifically, not a generic template, so a translation must not generalise them back into boilerplate.",
+  "privacy": {
+    "intro": "What this site stores, what it does not, and which third parties are involved — describing this deployment specifically rather than a generic template.",
+    "calculationsHeading": "Your calculations",
+    "localStorageHeading": "Local storage",
+    "analyticsHeading": "Analytics",
+    "noAnalyticsTitle": "No analytics are running on this deployment",
+    "contactHeading": "Contact submissions",
+    "noContactFormTitle": "No contact form is active on this deployment",
+    "infrastructureHeading": "Hosting and server logs",
+    "externalHeading": "External links",
+    "rightsHeading": "Your choices",
+    "stored": {
+      "currency": "Your preferred display currency",
+      "theme": "Your colour theme choice, if you change it",
+      "feeControls": "Whether you had the fee and tax controls open",
+      "savedCalculations": "Calculations you explicitly chose to save, up to ten"
+    },
+    "clearHistory": "Clear history",
+    "cloudflareAnalytics": "Cloudflare Web Analytics",
+    "googleAnalytics": "Google Analytics 4",
+    "declineNote": "Decline analytics cookies when prompted, or clear site data to be asked again.",
+    "contactPageLink": "contact page",
+    "body": {
+      "calculations": {
+        "p1": "Every calculation runs in your browser. The amounts you type, the rate you select and the results are never transmitted to a server, because the arithmetic does not need a server to happen.",
+        "p2": "One consequence worth understanding: when you use the share button, your figures are placed in the URL. That link is safe to share — it contains an amount and a rate, nothing about you — but it is still a link containing your numbers, so treat it the way you would treat any link you send someone."
+      },
+      "localStorage": {
+        "p1": "None of it leaves your device. There is no account, nothing is synced, and clearing your browser data removes all of it. The calculator also has a",
+        "p2": "button that removes saved calculations immediately. If local storage is unavailable — private browsing, or storage blocked — everything still works, it simply forgets between visits."
+      },
+      "analytics": {
+        "p1": "This deployment has analytics enabled:",
+        "p2": "— cookieless, and records page views rather than individuals. No consent prompt is shown because no cookie is set.",
+        "p3": "— sets cookies, so it loads only after you accept the prompt. It starts in a denied state and stays there unless you choose otherwise."
+      },
+      "contact": {
+        "p1": "The form is protected by Cloudflare Turnstile, which checks that a submission comes from a person rather than a script. Turnstile is provided by Cloudflare and processes a token along with your IP address for that check.",
+        "p2": "No submission provider is configured, so there is no form to submit and no message data is collected or stored."
+      },
+      "infrastructure": {
+        "p1": "This site does not operate a database. There is nowhere for personal data to accumulate because no such store exists."
+      },
+      "external": {
+        "p1": "Pages here link to official Roblox documentation, to the European Central Bank, and to other sources listed in the"
+      },
+      "rights": {
+        "p1": "Clear saved calculations at any time with the Clear history button in the calculator.",
+        "p2": "Clear every preference by clearing site data for",
+        "p3": "in your browser settings.",
+        "p4": "Use the site with local storage blocked entirely — everything works, nothing is remembered.",
+        "p5": "Contact us about anything in this policy through the"
+      }
+    }
+  },
+  "terms": {
+    "intro": "The terms covering use of this site. Short, because there is not much to it — you use a calculator, and it gives you an estimate.",
+    "useHeading": "Using this site",
+    "estimatesHeading": "Estimates, not advice",
+    "affiliationHeading": "No affiliation with Roblox",
+    "liabilityHeading": "Limitation of liability",
+    "changesHeading": "Changes to these terms",
+    "body": {
+      "use": {
+        "p1": "You are welcome to use",
+        "p2": "freely to estimate DevEx payouts, for yourself or as part of your work as a creator. No account is needed and nothing is charged.",
+        "p3": "What is asked in return: do not attempt to disrupt the site or the infrastructure it runs on, do not scrape it in a way that degrades it for others, and if you republish figures from it, cite the source and include the verification date. A rate quoted without its date becomes wrong without warning, and that misleads whoever reads it next."
+      },
+      "estimates": {
+        "p1": "Every figure on this site is an estimate produced by applying publicly documented rates to numbers you entered. None of it is financial advice, tax advice, legal advice, or a professional opinion of any kind.",
+        "p2": "Considerable care goes into accuracy — every rate is sourced, dated and covered by tests — but rates change, documentation moves, and errors are possible. Check anything you are relying on against the official Roblox documentation linked from the",
+        "p3": "before making a decision that matters."
+      },
+      "affiliation": {
+        "p1": "This site is independent. It is not affiliated with, endorsed by, sponsored by or operated by Roblox Corporation. Roblox, Robux and Developer Exchange are trademarks of Roblox Corporation, referenced here descriptively to identify what these calculations concern.",
+        "p2": "This site cannot influence, expedite, predict or guarantee the outcome of a DevEx request, and has no access to any Roblox account or balance."
+      },
+      "liability": {
+        "p1": "This site is provided as it is, without warranty of any kind. To the fullest extent the law allows, no liability is accepted for loss or damage arising from use of it — including decisions made on the basis of an estimate shown here, a figure that has since changed, or the site being unavailable.",
+        "p2": "Nothing in these terms limits liability that cannot lawfully be limited."
+      },
+      "changes": {
+        "p1": "These terms may be updated. The review date at the top of this page reflects the most recent change, and material changes are recorded in the",
+        "p2": "alongside everything else that changes here."
+      }
+    }
+  },
+  "disclaimer": {
+    "intro": "The honest boundary of what this site can tell you — worth reading once before you plan around a number here.",
+    "estimatesHeading": "Everything here is an estimate",
+    "cannotDetermineHeading": "What this site cannot determine",
+    "noCalculatorTitle": "No calculator can answer these",
+    "trademarksHeading": "Trademarks",
+    "accuracyHeading": "Accuracy and currency of information",
+    "cannot": {
+      "approval": "Whether a DevEx request will be approved.",
+      "timing": "How long a request will take, or when payment will arrive.",
+      "providerCharges": "What your payment provider will charge you.",
+      "tax": "What you will owe in tax, or when.",
+      "futureRate": "What the DevEx rate will be in future."
+    },
+    "correctionsProcessLink": "corrections process",
+    "body": {
+      "estimates": {
+        "p1": "Both assumptions are yours to make. Neither can be verified from outside Roblox."
+      },
+      "cannotDetermine": {
+        "p1": "How your balance splits between the standard, legacy and conditional rates.",
+        "p2": "This is not a limitation of this particular site. Any tool claiming to know whether your Robux qualify, or promising a specific payout, is claiming knowledge it does not have. Roblox is the only party who can answer these questions."
+      },
+      "trademarks": {
+        "p1": "Roblox, Robux and Developer Exchange are trademarks of Roblox Corporation. They appear on this site only to describe what these calculations concern, which is ordinary descriptive use. This site is not affiliated with, endorsed by, sponsored by or operated by Roblox Corporation, and the branding, artwork and wording here are its own."
+      },
+      "accuracy": {
+        "p1": "Rate data on this site was last verified against official documentation on",
+        "p2": ", and that date is displayed on every rate-sensitive page rather than hidden here. Rates change: the standard rate moved in September 2025, and it could move again.",
+        "p3": "If a figure here has fallen behind, the",
+        "p4": "links directly to the official page it came from, so you can check the current value yourself in a few seconds. Reporting it through the",
+        "p5": "gets it fixed for everyone else too."
+      }
+    }
+  },
+  "accessibility": {
+    "intro": "What this site targets, what has actually been tested, and what is still imperfect.",
+    "standardHeading": "The standard targeted",
+    "testedHeading": "What has been tested",
+    "featuresHeading": "Accessibility features",
+    "limitationsHeading": "Known limitations",
+    "feedbackHeading": "Reporting a problem",
+    "features": {
+      "keyboard": "Keyboard operable throughout",
+      "focus": "Visible focus everywhere",
+      "announced": "Results are announced",
+      "errorsTied": "Errors are tied to their fields",
+      "notColourAlone": "Nothing depends on colour alone",
+      "targets": "Targets are at least 44 pixels",
+      "targetsDetail": "Buttons, preset chips, links in navigation and form controls all meet that minimum.",
+      "mobileMenu": "The mobile menu behaves",
+      "tablesScroll": "Wide tables scroll accessibly",
+      "zoom": "Zoom is never blocked",
+      "zoomDetail": "The viewport sets no maximum scale, so pinch-zoom works everywhere.",
+      "noJs": "Works without JavaScript"
+    },
+    "aboutPageLink": "about page",
+    "body": {
+      "standard": {
+        "p1": "This site aims to meet"
+      },
+      "tested": {
+        "p1": "Automated checks catch a minority of real accessibility problems, so the keyboard walkthrough and the manual layout checks matter more than the axe results do."
+      },
+      "limitations": {
+        "p1": "No testing has been done with a live screen reader by someone who uses one daily. Semantics have been built and inspected carefully, but that is not the same thing, and reports from actual users are genuinely wanted.",
+        "p2": "Very long numbers in a result wrap rather than shrink. At 320 pixels with 200% zoom a ten-figure payout can occupy three lines. Wrapping was chosen over truncating, since a truncated money figure is worse than a tall one.",
+        "p3": "The rate comparison and breakdown tables scroll horizontally on narrow screens. The scroll container is keyboard reachable and labelled, but a table is still harder to read that way than a wider viewport allows."
+      },
+      "feedback": {
+        "p1": "If something here blocks you, telling us is the fastest way to get it fixed. Include the page, what you were trying to do, and the browser and assistive technology you were using if that is relevant. Accessibility reports are treated with the same priority as a wrong rate — both make the site fail at its job.",
+        "p2": "For how the site is built more generally, see the"
+      }
+    }
+  }
+}

@@ -5,7 +5,6 @@
     "title": "That page does not exist",
     "metaTitle": "Page not found",
     "metaDescription": "That page does not exist on DevExCalculator.org.",
-    "body": "The address may have changed, or the link that brought you here may be wrong. Nothing has been deleted — this site has never had a page at this address.",
     "goToCalculator": "Go to the DevEx calculator",
     "currentRates": "Current rates",
     "popularHeading": "What people usually want",
@@ -15,14 +14,25 @@
       "requirements": "Check the DevEx minimum and requirements",
       "conversions": "Look up a specific amount",
       "guides": "Browse every guide"
+    },
+    "body_": {
+      "intro": {
+        "p1": "title: \"Page not found\", description: \"That page does not exist on DevExCalculator.org.\", robots:",
+        "p2": "The address may have changed, or the link that brought you here may be wrong. Nothing has been deleted — this site has never had a page at this address."
+      }
     }
   },
   "boundary": {
     "title": "Something went wrong on this page",
-    "body": "The calculator itself is unaffected — calculations run in your browser and do not depend on this page loading. Try again, or go straight to the calculator.",
     "tryAgain": "Try again",
     "goToCalculator": "Go to the calculator",
-    "reference": "If you report this, quote reference {digest}."
+    "reference": "If you report this, quote reference {digest}.",
+    "body_": {
+      "intro": {
+        "p1": "The calculator itself is unaffected — calculations run in your browser and do not depend on this page loading. Try again, or go straight to the calculator.",
+        "p2": "If you report this, quote reference ."
+      }
+    }
   },
   "input": {
     "empty": "Enter an amount.",

@@ -1,0 +1,45 @@
+{
+  "$comment": "The marketplace fee calculator: what a sale leaves the creator after Roblox's commission, and what to charge to clear a target. Separate from the DevEx calculator because it answers a different question about a different kind of Robux.",
+  "srHeading": "Marketplace fee calculator",
+  "modes": {
+    "after": {
+      "label": "What I keep",
+      "description": "From a sale price"
+    },
+    "before": {
+      "label": "What to charge",
+      "description": "To clear a target"
+    }
+  },
+  "inputs": {
+    "salePrice": "Sale price",
+    "salePriceHint": "What the buyer pays.",
+    "amountToKeep": "Robux you want to keep",
+    "amountToKeepHint": "What you want left after the commission."
+  },
+  "results": {
+    "robuxYouKeep": "Robux you keep",
+    "priceToCharge": "Price to charge",
+    "tableLabel": "Breakdown of the sale",
+    "tableCaption": "How the Robux from this sale are divided",
+    "columnGoesTo": "Goes to",
+    "columnRobux": "Robux",
+    "columnShare": "Share",
+    "experienceOwner": "Experience owner",
+    "roblox": "Roblox",
+    "total": "Total",
+    "chargeTheBuyer": "Charge the buyer",
+    "youActuallyKeep": "You actually keep",
+    "copyResult": "Copy result",
+    "copySummary": "Copy summary",
+    "estimateFrom": "Estimate from devexcalculator.org"
+  },
+  "body": {
+    "intro": {
+      "p1": "What are you selling?",
+      "p2": "Price as a multiple of the price floor",
+      "p3": "Price floors differ by item category, so this asks for the multiple rather than assuming one universal floor. An item priced at six times its floor or above reaches the top tier.",
+      "p4": "This commission is taken when the Robux are earned. Converting the Robux you keep into cash through DevEx is a separate step with its own rate — the 30% is not applied twice."
+    }
+  }
+}

@@ -2,7 +2,7 @@
   "name": "devexcalculator-org",
   "version": "1.0.0",
   "private": true,
-  "description": "DevEx Calculator \u2014 Roblox Developer Exchange payout estimator for creators.",
+  "description": "DevEx Calculator — Roblox Developer Exchange payout estimator for creators.",
   "license": "UNLICENSED",
   "engines": {
     "node": ">=20.9.0"
@@ -38,7 +38,11 @@
     "verify:deployment": "tsx scripts/quality/verify-deployment.ts",
     "cf-populate": "opennextjs-cloudflare populateCache local",
     "validate:i18n": "tsx scripts/i18n/validate-dictionaries.ts",
-    "i18n:inventory": "tsx scripts/i18n/inventory-english.ts"
+    "i18n:inventory": "tsx scripts/i18n/inventory-english.ts",
+    "i18n:extract-routes": "tsx scripts/i18n/extract-routes.ts",
+    "i18n:dictionaries": "tsx scripts/i18n/inventory-dictionaries.ts",
+    "i18n:hardcoded": "tsx scripts/i18n/detect-hardcoded.ts",
+    "i18n:extract-prose": "tsx scripts/i18n/extract-page-prose.ts"
   },
   "dependencies": {
     "next": "16.3.1",

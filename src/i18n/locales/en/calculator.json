@@ -1,0 +1,264 @@
+{
+  "$comment": "The DevEx calculator: its modes, inputs, results, deduction breakdown, group split, preparation checklist and currency notes. Every sentence that states what a figure means lives here, because a mistranslated 'eligible' or 'minimum' can tell somebody they may cash out when they may not.",
+  "srHeading": "DevEx payout calculator",
+  "modes": {
+    "label": "Calculator mode",
+    "quick": {
+      "label": "Quick",
+      "description": "One amount, one rate"
+    },
+    "advanced": {
+      "label": "Split",
+      "description": "Mixed balance across rate buckets"
+    },
+    "target": {
+      "label": "Target",
+      "description": "Work back from a payout goal"
+    }
+  },
+  "inputs": {
+    "eligibleEarnedRobux": {
+      "label": "Eligible Earned Robux",
+      "hint": "Type or paste an amount. 100,000, 100k and 1.5m all work."
+    },
+    "bucketSuffix": "{rate} bucket",
+    "standardBucketHint": "Earned after 5 September 2025.",
+    "legacyBucketHint": "Earned before the September 2025 transition.",
+    "us18BucketHint": "Only the portion Roblox has qualified at this rate.",
+    "payoutTarget": {
+      "label": "Payout target",
+      "hint": "How much you want to receive, before fees and tax.",
+      "placeholder": "1,000"
+    },
+    "currentBalance": {
+      "label": "Your current balance (optional)",
+      "hint": "Add this to see how far along you are.",
+      "placeholder": "0"
+    },
+    "rateToApply": {
+      "label": "Rate to apply",
+      "hint": "Roblox decides which rate applies to your balance."
+    }
+  },
+  "deductions": {
+    "summary": "Optional: payment fees and your own tax estimate",
+    "percentageFeeLabel": "Payment provider fee",
+    "percentageFeePlaceholder": "2.9",
+    "flatFeeLabel": "Flat fee per payout",
+    "flatFeePlaceholder": "0.30",
+    "taxLabel": "Your own tax estimate",
+    "taxHint": "Whatever rate applies to you. Check with a qualified adviser.",
+    "taxPlaceholder": "20",
+    "heading": "Your estimated deductions",
+    "grossPayout": "Gross payout",
+    "percentageFee": "Percentage fee",
+    "flatFee": "Flat fee",
+    "taxEstimate": "Your tax estimate",
+    "estimatedNet": "Estimated net",
+    "yourFiguresNote": "These are your figures, not amounts Roblox or any provider has quoted. This site gives no tax advice."
+  },
+  "results": {
+    "estimatedPayout": "Estimated DevEx payout",
+    "robuxNeeded": "Eligible Earned Robux needed",
+    "meetsMinimum": "Meets the stated minimum",
+    "belowMinimum": "Below the stated minimum",
+    "minimumProgressLabel": "Progress toward the {minimum} Earned Robux minimum",
+    "comparisonTableLabel": "What each DevEx rate would pay for this amount",
+    "columnPerRobux": "Per Robux",
+    "columnPayout": "Payout",
+    "columnVsStandard": "vs standard",
+    "bucketTableLabel": "Payout broken down by rate bucket",
+    "bucketTableCaption": "DevEx payout by rate bucket",
+    "columnBucket": "Bucket",
+    "columnEarnedRobux": "Earned Robux",
+    "columnSubtotal": "Subtotal",
+    "columnShare": "Share",
+    "total": "Total",
+    "blendedRate": "Blended effective rate",
+    "ifAllStandard": "If it were all standard rate",
+    "copyResult": "Copy result",
+    "copySummary": "Copy summary",
+    "summaryTitle": "DevEx payout estimate",
+    "saved": "Calculation saved to this browser.",
+    "savedCleared": "Saved calculations cleared.",
+    "nothingSaved": "Nothing saved yet.",
+    "columnRate": "Rate",
+    "body": {
+      "intro": {
+        "p1": "Earned Robux to submit a request. Reaching that number is a requirement, not an approval — Roblox reviews every request and decides which Robux qualify.",
+        "p2": "These are the figures you entered, not amounts Roblox or any provider has quoted. This site gives no tax advice.",
+        "p3": ", rounded up to",
+        "p4": "whole Earned Robux. That pays",
+        "p5": ", which is the first whole-Robux amount that reaches your target rather than falling just short.",
+        "p6": "Earned Robux would reach your target arithmetically, but Roblox requires",
+        "p7": "before a request can be submitted. You would need",
+        "p8": "% of the way there"
+      }
+    }
+  },
+  "target": {
+    "explanation": "{target} ÷ ${rate} per Robux = {exact}, rounded up to {required} whole Earned Robux. That pays {payout}, which is the first whole-Robux amount that reaches your target rather than falling just short.",
+    "minimumAppliesFirstTitle": "The minimum applies first",
+    "minimumAppliesFirstBody": "{required} Earned Robux would reach your target arithmetically, but Roblox requires {minimum} before a request can be submitted. You would need {effective} in practice.",
+    "progress": "{percent}% of the way there",
+    "targetReached": "Target reached",
+    "toGo": "{remaining} to go",
+    "progressLabel": "Progress toward your payout target"
+  },
+  "groupSplit": {
+    "memberName": "Member {number}",
+    "unnamed": "Unnamed",
+    "earnedOnlyNote": "Only Earned Robux can be exchanged. Purchased and gifted Robux cannot.",
+    "valuedAt": "Valued at",
+    "tableLabel": "Each member’s share of the group balance",
+    "tableCaption": "Each member’s percentage of the group’s Earned Robux, the Robux that represents, and the payout at the standard DevEx rate.",
+    "columnMember": "Member",
+    "columnShare": "Share",
+    "columnEarnedRobux": "Earned Robux",
+    "columnEstimatedPayout": "Estimated payout",
+    "columnCanCashOut": "Can they cash out?",
+    "removeMember": "Remove",
+    "meetsMinimum": "Meets the minimum",
+    "sharesDoNotAddUpTitle": "The shares do not add up to 100%",
+    "remainderTitle": "A remainder is left over",
+    "cannotSubmitTitle": "{below} of {total} cannot submit a DevEx request",
+    "onePersonPaidTitle": "Roblox pays one person, not a split",
+    "body": {
+      "intro": {
+        "p1": "per eligible Earned Robux",
+        "p2": "Robux unassigned. Nothing here has been scaled to make the numbers meet: adjusting them for you would produce figures nobody agreed to. Fix the percentages, or accept that a remainder stays with whoever holds the group funds.",
+        "p3": "Robux cannot be divided evenly at these percentages. Robux are whole, so each share is rounded down and the remainder is shown rather than handed to whoever happens to be listed first.",
+        "p4": "minimum applies to the balance one person submits, not to what the group earned. This group holds",
+        "p5": "still below the minimum individually."
+      }
+    }
+  },
+  "preparation": {
+    "earnedRobuxLink": "What counts as Earned Robux",
+    "verifyEmail": "Verify the email address on the Roblox account.",
+    "portalAccount": "Create and confirm access to the DevEx portal account.",
+    "feesLink": "Fees and taxes explained",
+    "progressLabel": "{completed} of {total} preparation steps done",
+    "preparedNotApprovedTitle": "Prepared is not approved",
+    "robloxDecides": "Roblox decides",
+    "body": {
+      "intro": {
+        "p1": "Confirm the balance is genuinely Earned Robux and has reached",
+        "p2": "Complete the correct tax form — W-9 for a United States taxpayer, W-8 otherwise.",
+        "p3": "Check the account is in good standing against the Terms of Use and Community Standards.",
+        "p4": "Decide where the money is going, and check what the bank or payment provider will charge to receive it.",
+        "p5": "Ticks are kept in this browser only — not sent anywhere, and not an account. Clearing site data removes them.",
+        "p6": "Every step on this list is done, which means the obvious delays are out of the way. It does not mean a request will be accepted.",
+        "p7": "Roblox reviews each request against its own criteria after it is submitted, and it does not publish what would cause one to be refused. A checklist in a browser has no standing in that review.",
+        "p8": "What the submission process involves"
+      }
+    }
+  },
+  "currency": {
+    "loading": "Loading reference rates…",
+    "unavailable": "Local-currency estimates are temporarily unavailable.",
+    "usdUnaffected": "The USD figure above is calculated locally and is unaffected.",
+    "staleHeading": "Stale rates.",
+    "provenance": "{currency} figures use {provider} reference rates observed {date}. These are reference rates, not bank quotes — your payment provider will apply its own rate and may add a fee."
+  },
+  "home": {
+    "formulaOpen": "Nothing here is hidden. The formula is one multiplication, and you can check it.",
+    "threeRates": "Three rates are documented. Roblox decides which applies to which part of a balance.",
+    "earnedRobuxMatters": "This is the single most common misunderstanding about DevEx, and it decides whether a payout is possible at all.",
+    "generallyQualifies": "Generally qualifies",
+    "qualifies": {
+      "developerProducts": "Robux from players buying developer products in your experience",
+      "passesAndServers": "Robux from pass and private server purchases",
+      "avatarItems": "Your share of avatar items you created and sold"
+    },
+    "generallyDoesNot": "Generally does not",
+    "doesNot": {
+      "purchased": "Robux you bought yourself, at any price",
+      "giftCards": "Gift card credit and promotional grants",
+      "trades": "Robux received through trades or from other players"
+    },
+    "everyFigureNote": "Every figure below is calculated at the three documented rates. Amounts under the minimum are shown for reference and marked.",
+    "meetingAllNote": "Meeting all of these lets you submit a request. It does not guarantee one will be approved.",
+    "relatedCalculators": "Related calculators",
+    "relatedGuides": "Related guides",
+    "commonAmountsHeading": "Common amounts",
+    "commonAmountsDescription": "Every figure below is calculated at the three documented rates. Amounts under the minimum are shown for reference and marked as such.",
+    "body": {
+      "howItWorks": {
+        "p1": "Why the arithmetic is done exactly",
+        "p2": "A rate like 0.0038 cannot be represented exactly in binary floating point, so a naive calculation drifts: 17,000 Robux at the U.S. 18+ rate comes out as 91.80000000000001 rather than 91.80. Every figure on this site is computed as an exact fraction and rounded once, at the moment it is displayed."
+      },
+      "currentRates": {
+        "p1": "Full detail on each rate, with effective dates and worked examples",
+        "p2": "see how the rate changed in September 2025"
+      },
+      "earnedRobux": {
+        "p1": "Roblox makes the final determination for any specific balance.",
+        "p2": "Read the full explanation of Earned Robux"
+      },
+      "popularAmounts": {
+        "p1": "See the full conversion hub, or convert any amount you like"
+      },
+      "requirements": {
+        "p1": "Full requirements, with the official source for each"
+      },
+      "relatedGuides": {
+        "p1": "Something out of date?",
+        "p2": "Tell us and it gets fixed"
+      }
+    }
+  },
+  "planner": {
+    "targetLabel": "Payout you are aiming for",
+    "currentBalanceLabel": "Eligible Earned Robux you already have",
+    "modeEarn": "How much I earn",
+    "modeDate": "When I need it",
+    "expectedEarningsLabel": "Earned Robux you expect to earn",
+    "feesAndTax": "Fees and tax (optional)",
+    "totalNeeded": "Earned Robux needed in total",
+    "stillToEarn": "Still to earn",
+    "reductionHeading": "What the payout is reduced by",
+    "reductionDescription": "The estimated payout, the fees and tax you entered, and what is left.",
+    "columnStage": "Stage",
+    "columnAmount": "Amount",
+    "grossPayout": "Estimated gross payout",
+    "percentageFeeEntered": "Percentage fee you entered",
+    "flatFeeEntered": "Flat fee you entered",
+    "taxEntered": "Your own tax estimate, on what is left after fees",
+    "underEachRateHeading": "The same plan under each documented rate",
+    "underEachRateDescription": "What the same target would need, and when it would be reached, under each rate Roblox currently documents.",
+    "columnRate": "Rate",
+    "columnRobuxNeeded": "Earned Robux needed",
+    "columnStillToEarn": "Still to earn",
+    "planningAgainst": "Planning against this",
+    "whatThisIsNot": "What this plan is not",
+    "zeroEarnings": "Earning nothing per period never reaches the target. Enter what you expect to earn and the plan will work out the date.",
+    "alreadyThere": "Nothing more needs to be earned before the date you gave. Meeting the minimum is not approval — Roblox decides that.",
+    "pickFutureDate": "Pick a date in the future and the plan will work out what has to be earned each day to reach it.",
+    "withADate": "With a date, the plan works out what has to be earned each day, week and month to reach the target by then.",
+    "whatDoYouKnow": "What do you know?",
+    "earnedOnlyNote": "Only Earned Robux count. Purchased and gifted Robux cannot be exchanged.",
+    "body": {
+      "intro": {
+        "p1": "Rate to plan against",
+        "p2": "Roblox decides which rate applies to a balance. This plans against the one you pick.",
+        "p3": "Date you want the payout by",
+        "p4": "This is the date you want to reach the balance. Roblox does not publish how long a DevEx request takes to process, so no processing time is added.",
+        "p5": "All three are yours to supply. This site publishes no default fee and no tax rate: it does not know your country, your provider or your circumstances, and a number filled in here on your behalf would be advice rather than arithmetic.",
+        "p6": "Estimated amount you keep",
+        "p7": "Every figure here is an estimate produced from what you entered. Reaching"
+      }
+    }
+  },
+  "body": {
+    "intro": {
+      "p1": "Enter each part of your balance separately. Nothing is counted twice — every Robux belongs to exactly one bucket, and you are the one who decides which. Roblox makes the real split.",
+      "p2": ", rounded up to whole Robux",
+      "p3": "gross, before fees and tax, from",
+      "p4": "Roblox decides which rate applies to which part of your balance. This is not a choice you can make.",
+      "p5": "Estimates use the rates Roblox currently documents. The",
+      "p6": "Earned Robux minimum is a requirement to submit a request, not an approval. Roblox decides which Robux qualify and whether any request succeeds.",
+      "p7": "Saved only in this browser. Nothing is uploaded, and clearing your browser data removes them."
+    }
+  }
+}

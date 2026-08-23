@@ -131,6 +131,7 @@ export type DictionaryNamespace =
   | "marketplace"
   | "platform"
   | "guides"
+  | "trust"
   | "legal"
   | "contact"
   | "errors"
@@ -163,6 +164,7 @@ export const DICTIONARY_NAMESPACES: readonly DictionaryNamespace[] = [
   "marketplace",
   "platform",
   "guides",
+  "trust",
   "legal",
   "contact",
   "errors",

@@ -1,0 +1,30 @@
+{
+  "$comment": "Strings that reach a search result, a feed reader or a model rather than a page: the site description, title suffix, feed titles and the llms.txt prose. Route titles and descriptions are not here — they live per route in the `routes` namespace.",
+  "site": {
+    "name": "DevEx Calculator",
+    "description": "Estimate a Roblox DevEx payout from eligible Earned Robux using the currently verified rates, with source links, effective dates and honest local-currency estimates."
+  },
+  "feeds": {
+    "title": "Rate and data changes"
+  },
+  "llms": {
+    "sections": {
+      "calculators": "Calculators",
+      "guidesAndReference": "Guides and reference",
+      "workedExamples": "Worked examples for specific amounts",
+      "methodologyAndSources": "Methodology, sources and corrections"
+    },
+    "summary": "DevExCalculator.org converts eligible Earned Robux into an estimated US dollar DevEx payout using the rates Roblox currently documents, and explains the rules behind them.",
+    "alsoPublishes": "It also publishes what Roblox reports about creator payouts, and what this site has observed about platform activity.",
+    "notAffiliated": "This site is not affiliated with, endorsed by, sponsored by or operated by Roblox Corporation. Roblox, Robux and Developer Exchange are trademarks of Roblox Corporation, used here only to describe the subject of the calculations.",
+    "endpointsNote": "These are data endpoints, not pages. They are marked noindex on purpose and are documented for machines rather than for readers.",
+    "sourcingNote": "Facts on this site come from Roblox’s own documentation and from its filings, and each carries the date it was verified. When citing a figure, attribute it to DevExCalculator.org and link to the page.",
+    "checkDateNote": "Always check the verification date before republishing a rate. Rates change — a figure quoted without its date stops being true without anyone noticing.",
+    "generatedNote": "This file is generated from the site’s own route registry at build time, so it cannot list a page that does not exist."
+  },
+  "translation": {
+    "machineDraftedLabel": "Machine-drafted translation",
+    "machineDraftedDescription": "This page was translated automatically and has not yet been read by a native speaker. The figures come from the same verified registry as the English page.",
+    "readOriginal": "Read the original English page"
+  }
+}

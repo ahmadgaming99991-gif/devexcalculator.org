@@ -41,7 +41,16 @@
     "sourceUpdatedAt": "Roblox last updated that page on {date}.",
     "badgeChanged": "source changed, under review",
     "badgeUnreachable": "source unreachable {when}",
-    "badgeChecked": "source checked {when}"
+    "badgeChecked": "source checked {when}",
+    "unreadableReason": "The document does not read as Roblox’s DevEx page.",
+    "noCheckYet": "No check has run yet.",
+    "body": {
+      "intro": {
+        "p1": "Found by the automatic check on",
+        "p2": ", so these figures are the ones from the last review rather than a fresh comparison.",
+        "p3": "Roblox last updated that page on"
+      }
+    }
   },
   "byline": {
     "maintainedBy": "Maintained by",
@@ -91,6 +100,53 @@
     "standard": "Standard",
     "legacyRate": "Legacy",
     "usEighteenPlus": "U.S. 18+",
-    "minimum": "Minimum"
+    "minimum": "Minimum",
+    "rate": "Rate"
+  },
+  "social": {
+    "youtube": "DevEx Calculator on YouTube",
+    "x": "DevEx Calculator on X",
+    "instagram": "DevEx Calculator on Instagram",
+    "pinterest": "DevEx Calculator on Pinterest",
+    "instagramName": "Instagram",
+    "pinterestName": "Pinterest"
+  },
+  "consent": {
+    "accept": "Accept",
+    "body": {
+      "consentHeading": {
+        "p1": "We would like to measure which pages get used, which needs a cookie. The calculator works identically either way, and your calculations are never sent anywhere."
+      }
+    }
+  },
+  "ranges": {
+    "day": "24 hours",
+    "threeDays": "3 days",
+    "sevenDays": "7 days"
+  },
+  "shell": {
+    "body": {
+      "intro": {
+        "p1": "Skip to main content"
+      }
+    }
+  },
+  "content": {
+    "body": {
+      "intro": {
+        "p1": "Rates and requirements change.",
+        "p2": "Figures here use the rates Roblox currently documents. Roblox alone decides which of your Robux count as Earned Robux, which rate applies to which part of your balance, and whether a DevEx request is approved. Payment-provider fees and your own tax obligations are not included unless you add them.",
+        "p3": "Robux you bought, received as a gift, or acquired outside creator earnings are not Earned Robux and cannot be cashed out. Retail Robux pricing is a separate thing entirely and is never mixed into these figures."
+      }
+    }
+  },
+  "tables": {
+    "body": {
+      "intro": {
+        "p1": "Working backwards divides instead, and always rounds up: a target of",
+        "p2": "would fall a fraction short.",
+        "p3": "export const DEVEX_REQUIREMENTS: readonly"
+      }
+    }
   }
 }

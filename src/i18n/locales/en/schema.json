@@ -1,0 +1,24 @@
+{
+  "$comment": "Text that reaches structured data rather than the page: entity relationship descriptions, publisher strings and the labels a rich result may show. Entity names themselves are invariant — a knowledge-graph identifier is not a word to translate — but the sentence describing each relationship is read by people in search results, so it is.",
+  "entities": {
+    "robloxCorporation": "Operates the Roblox platform and the Developer Exchange programme. Not affiliated with this site.",
+    "developerExchangeProgram": "The official Roblox programme that converts eligible Earned Robux into currency.",
+    "robux": "The Roblox virtual currency. Only the earned portion of a balance is eligible for DevEx.",
+    "earnedRobux": "Robux accumulated through creator activity, and the only category DevEx converts.",
+    "creatorHub": "Publishes the official DevEx documentation this site cites.",
+    "devexPortal": "Where a DevEx request is submitted. A valid portal account is a documented requirement.",
+    "usd": "The currency the DevEx rate is denominated in and the base of every calculation here.",
+    "europeanCentralBank": "Publishes the euro reference rates used to derive local-currency estimates.",
+    "marketplaceFee": "The commission Roblox retains when Robux are spent, applied before DevEx and never twice.",
+    "ageVerification": "Part of the DevEx eligibility requirements and of the U.S. 18+ rate conditions.",
+    "taxForm": "An IRS form W-9 or W-8 must be on file before a DevEx request can proceed."
+  },
+  "labels": {
+    "breadcrumbHome": "Home",
+    "author": "Author",
+    "reviewedBy": "Reviewed by",
+    "datePublished": "Published",
+    "dateModified": "Last updated",
+    "inLanguage": "Language"
+  }
+}

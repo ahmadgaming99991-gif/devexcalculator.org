@@ -1,0 +1,261 @@
+{
+  "$comment": "The live Roblox activity page and the stock page. Every sentence here draws a line between what Roblox published, what this site observed, and what nobody knows — so none of them may be shortened into a claim the data does not support.",
+  "live": {
+    "intro": "Live player counts from Roblox’s own public endpoints, across every ranking Roblox publishes, and a record of what this site has observed since it started watching.",
+    "jumpLabel": "See the live figures",
+    "rankingsLabel": "Roblox rankings",
+    "nowHeading": "What is being played right now",
+    "nowDescription": "Read from Roblox’s public explore and games endpoints when this page was served. No account, no third-party data provider, and nothing measured or estimated by this site.",
+    "unavailableTitle": "Roblox’s live figures are unavailable right now",
+    "calculatorStillWorks": "payout calculator",
+    "noExperiencesTitle": "Roblox returned no experiences",
+    "stats": {
+      "playersInRanking": "Players in this ranking",
+      "experiencesShown": "Experiences shown",
+      "experiencesShownValue": "{shown} of {total}",
+      "robloxRanking": "Roblox ranking",
+      "busiestRightNow": "Busiest right now"
+    },
+    "table": {
+      "experience": "Experience",
+      "playersNow": "Players now",
+      "last24h": "Last 24h",
+      "lifetimeVisits": "Lifetime visits",
+      "approval": "Approval",
+      "sponsored": "Sponsored",
+      "genre": "Genre"
+    },
+    "body": {
+      "how": {
+        "p1": "Fetched server-side from Roblox when the page is served and cached for",
+        "p2": "minutes. Your browser makes no request to Roblox, and no script from Roblox runs on this page.",
+        "p3": "A scheduled job records one observation every",
+        "p4": "minutes. Platform totals keep every one of them for",
+        "p5": "days, because that is one array per experience across several hundred of them. Both charts show what was actually recorded, gaps included — nothing is averaged to fill the runs not kept."
+      },
+      "related": {
+        "p1": "Nothing is shown in their place, because a stale or invented number would be worse than none. The rest of this site does not depend on this endpoint — the",
+        "p2": "The endpoint answered, but its ranking was empty. That is unusual and probably temporary.",
+        "p3": "Visit counts, favourites and creator names are omitted: the endpoint that supplies them did not answer for this request. Player counts and votes above come from the ranking itself and are unaffected.",
+        "p4": "Per-experience counts are stored in a Cloudflare KV namespace bound to the deployed Worker. Without that binding there is nothing recorded to draw, which is why this says so rather than showing an empty axis.",
+        "p5": "A line needs at least two observations of the same experience, so the chart appears after the next collection run rather than joining a single point to itself.",
+        "p6": "so far. A chart needs",
+        "p7": "to be a line rather than a dot.",
+        "p8": "public rankings, counted once each even where a ranking lists the same experience twice, as read at"
+      },
+      "experience": {
+        "p1": "been recorded, which is not enough to draw a line. Per-experience counts are kept for the last",
+        "p2": "days at one observation an hour, and an experience is only recorded while Roblox is ranking it.",
+        "p3": "— this experience has not been observed enough times to draw a line",
+        "p4": "Observations are stored in a Cloudflare KV namespace that is bound to the deployed Worker. Running locally without that binding, there is nothing to chart — which is why this says so rather than drawing an empty axis.",
+        "p5": "The store did not answer. Live figures above are unaffected.",
+        "p6": "Nothing has been stored for this range. Where the scheduled job is running, an observation is written every",
+        "p7": "minutes and the chart appears once there are",
+        "p8": ", the most recent showing",
+        "p9": "players. A chart needs at least",
+        "p10": "points to be a line rather than a dot, so the figures are listed instead.",
+        "p11": "This site has been observing for",
+        "p12": ", which is less than the",
+        "p13": "selected — so this range and every wider one chart the same",
+        "p14": "observations, and the figures do not change between them. They will diverge once there is more history than a range covers. Nothing is padded to fill the difference.",
+        "p15": "The window widens on its own as observations accumulate, up to",
+        "p16": "days. Older observations expire rather than being deleted by a job. Peak, low and average describe these recorded points only — the total may have been higher between two observations, and this site does not claim otherwise."
+      }
+    }
+  },
+  "platformFigure": {
+    "label": "Players across every experience Roblox is ranking",
+    "method": "Summed from {experiences} experiences across Roblox’s {rankings} public rankings, counted once each even where a ranking lists the same experience twice, as read at {observedAt}.",
+    "floorHeading": "This is a floor, not a platform total.",
+    "floorBody": "Roblox publishes no live figure for the whole platform and this site does not estimate one. Roblox ranks a small share of the experiences it hosts, so the real number of people playing is higher than this — by how much, nobody outside Roblox can say."
+  },
+  "history": {
+    "topOverTimeHeading": "Top experiences over time",
+    "busiestSingleHeading": "The busiest single experience",
+    "busiestSingleDescription": "The highest player count any one experience held at each observation — the platform’s peak title rather than its total, which move independently.",
+    "observedHeading": "Observed over time",
+    "observedDescription": "Every 15 minutes this site records the total players across the experiences Roblox is ranking, and charts what it has. The window grows as observations accumulate; nothing is back-filled.",
+    "notEnoughLinesTitle": "Not enough observations yet to draw lines",
+    "noPerExperienceCounts": "No per-experience counts have been recorded yet.",
+    "notEnoughYetTitle": "Not enough observations yet",
+    "unavailableInEnvironmentTitle": "History is not available in this environment",
+    "unreadableTitle": "Recorded observations could not be read",
+    "perExperienceHistory": "Per-experience history",
+    "busiestExperienceRecord": "The busiest-experience record",
+    "thisExperience": "This experience",
+    "rangeLabel": "Chart range",
+    "rangeExceedsTitle": "Everything collected so far fits inside {window}",
+    "rangeExceedsBody": "This site has been observing for {span}, which is less than the {window} selected — so this range and every wider one chart the same {points} observations, and the figures do not change between them. They will diverge once there is more history than a range covers. Nothing is padded to fill the difference.",
+    "stats": {
+      "experiencesTracked": "Experiences tracked",
+      "observationsHeld": "Observations held",
+      "busiestTracked": "Busiest tracked",
+      "observations": "Observations",
+      "observedPeak": "Observed peak",
+      "observedLow": "Observed low",
+      "observationsRecorded": "Observations recorded",
+      "everyObservationHeld": "Every observation held — the range is wider than the history",
+      "withinTheLast": "Within the last {window}",
+      "periodCovered": "Period covered",
+      "mostRecentTotal": "Most recent total",
+      "changeSincePrevious": "{change} since the previous observation {minutes} minutes earlier",
+      "averageAcrossObservations": "Average across observations",
+      "meanNote": "Mean of {points} recorded points, not a platform average",
+      "highestObserved": "Highest observed",
+      "lowestObserved": "Lowest observed"
+    },
+    "charts": {
+      "busiestCaption": "The highest player count held by any single experience at each observation, over the {span} recorded. The leading experience changes; this line follows the count, not one title.",
+      "totalCaption": "Total players across the ranked experiences. This site has been observing for {span}. Each point is one recorded observation; gaps are gaps in collection, not zeroes."
+    },
+    "highestObservedNote": "“Highest observed” means the highest this site saw at one of its own observations. It is not an all-time record: nothing before this site began watching is known to it, and it will not borrow a figure it did not measure.",
+    "windowNote": "The window widens on its own as observations accumulate, up to {days} days. Older observations expire rather than being deleted by a job. Peak, low and average describe these recorded points only — the total may have been higher between two observations, and this site does not claim otherwise.",
+    "recordedByThisSite": "Recorded by this site"
+  },
+  "method": {
+    "heading": "How this page gets its numbers",
+    "liveHeading": "Live figures",
+    "liveBody": "Fetched server-side from Roblox when the page is served and cached for {minutes} minutes. Your browser makes no request to Roblox, and no script from Roblox runs on this page.",
+    "historyHeading": "History",
+    "historyBody": "A scheduled job records one observation every {interval} minutes. Platform totals keep every one of them for {retention} days; per-experience counts keep one an hour for {gameDays} days, because that is one array per experience across several hundred of them. Both charts show what was actually recorded, gaps included — nothing is averaged to fill the runs not kept.",
+    "provenanceTitle": "Ranking and counts are Roblox’s, the record is ours",
+    "provenanceBody": "Which experiences appear, how many players each has, and how each has been voted on all come from Roblox. This site does not rank experiences, does not estimate player counts, and does not publish a figure it did not either read from Roblox or observe itself and label as such. The approval share is the only arithmetic on this page, and it is Roblox’s own up and down vote counts divided. For the money side of the platform, see {payoutStatisticsLink}, which come from Roblox’s filings.",
+    "payoutStatisticsLink": "the payout statistics"
+  },
+  "download": {
+    "heading": "Download these observations",
+    "description": "Exactly what was collected, with the gaps left in.",
+    "innerHeading": "Observed player counts",
+    "innerDescription": "The observations behind the chart above, as a spreadsheet or as JSON. Read from storage; downloading makes no request to Roblox.",
+    "formats": {
+      "csvTotals": "CSV — platform totals",
+      "csvPerExperience": "CSV — per experience",
+      "jsonTotals": "JSON — platform totals"
+    },
+    "limitations": {
+      "noInterpolation": "Observations only. Nothing is interpolated and no missing observation is filled in — a gap means the collector did not run, and it is left visible rather than smoothed over.",
+      "cadence": "Collected every 15 minutes. Platform totals are kept 14 days; per-experience series are sampled hourly and kept 7 days, so the two files have different resolutions and different spans.",
+      "coverage": "Covers only the experiences Roblox was ranking at the moment of each observation. This is not all of Roblox, and no share of the platform can be worked out from it.",
+      "rowProvenance": "Every row carries its own observation time and origin, so a row copied elsewhere still says what it is."
+    }
+  },
+  "faqsHeading": "Questions about these figures",
+  "relatedHeading": "Related pages",
+  "stock": {
+    "intro": "Roblox’s reported results, and an honest account of why there is no live share price here yet.",
+    "jumpLabel": "See what is shown",
+    "respondsToHeading": "What the price responds to",
+    "reportedResultsLabel": "Roblox reported results",
+    "reportedResultsCaption": "Roblox’s reported results for the most recent quarter, against the same quarter a year earlier.",
+    "columnMeasure": "Measure",
+    "quotedFrom": "Quoted from {source}, not recomputed here. A fuller breakdown, including what Roblox pays creators each quarter, is on {payoutStatisticsLink}.",
+    "payoutStatisticsLink": "the payout statistics page",
+    "noChartHeading": "Why there is no embedded chart",
+    "noChartBody": "Sites that show a live Roblox chart are almost always embedding one from a market data vendor, which means that vendor’s script runs in your browser and can see your visit. This site loads no third-party scripts on any page, and adding one here would quietly undo that for everyone.",
+    "whenConnected": "When a provider is connected it will be read server-side and rendered as plain HTML, so the price arrives the same way every other figure on this site does: fetched by the server, attributed, and dated.",
+    "notAdviceTitle": "Not investment advice",
+    "notAdviceBody": "Nothing on this page is a recommendation to buy or sell anything. A company’s results say nothing about what any individual creator will be paid, and the DevEx rate is set by Roblox independently of its share price.",
+    "questionsHeading": "Questions",
+    "notLatestBadge": "Not the latest",
+    "notLatestBody": "This is the most recent quote this site received. {reason} The price above is unchanged from when it was taken; nothing has been adjusted to look current.",
+    "providerSilentTitle": "The price provider did not answer",
+    "providerSilentBody": "{reason} No figure is shown in its place. A stale price presented as current would be worse than none.",
+    "noPriceConfiguredTitle": "No live price is configured",
+    "noPriceConfiguredBody": "This site will not print a share price it cannot fetch and attribute, and it will not embed a third-party widget to borrow one.",
+    "configurationMissing": "The page is already wired for a provider. What is missing is only configuration: {names}. The reported results below are what a share price responds to, and they are published either way.",
+    "body": {
+      "results": {
+        "p1": ", not recomputed here. A fuller breakdown, including what Roblox pays creators each quarter, is on"
+      },
+      "related": {
+        "p1": "This is the most recent quote this site received.",
+        "p2": "No figure is shown in its place. A stale price presented as current would be worse than none.",
+        "p3": "The page is already wired for a provider. What is missing is only configuration:"
+      }
+    }
+  },
+  "stats": {
+    "intro": "What Roblox actually pays creators, taken from its own filings with the SEC. Every figure below links to the document it came from.",
+    "jumpLabel": "See the payout figures",
+    "payoutsHeading": "What Roblox pays creators",
+    "payoutsDescription": "Developer exchange fees are a line on Roblox’s income statement: the money it paid out through DevEx. It is the closest thing to a measure of what the creator economy earns.",
+    "paidIn2025": "Paid to creators in 2025",
+    "paidIn2025Note": "Developer exchange fees, full year",
+    "paidIn2024": "Paid in 2024",
+    "paidIn2024Note": "The year before",
+    "yearOnYearChange": "Year-on-year change",
+    "quarterNote": "Three months ended 30 June 2026",
+    "byYearChartCaption": "Developer exchange fees by financial year, as reported by Roblox.",
+    "byYearTableLabel": "Developer exchange fees by year",
+    "byYearTableCaption": "Roblox developer exchange fees by financial year, with the filing each figure comes from.",
+    "columnPaidToCreators": "Paid to creators",
+    "byQuarterHeading": "DevEx payouts by quarter",
+    "byQuarterDescription": "Roblox reports quarterly, so this is the finest resolution that exists. Two quarters are marked as derived: they are a six-month total minus the quarter Roblox printed, which is exact arithmetic but not a figure Roblox published on its own.",
+    "byQuarterChartCaption": "Developer exchange fees by quarter. Hollow bars are derived by subtraction rather than reported directly.",
+    "byQuarterTableLabel": "Developer exchange fees by quarter",
+    "byQuarterTableCaption": "Roblox developer exchange fees by quarter, showing which figures were reported and which were derived.",
+    "columnHowWeKnow": "How we know",
+    "rateTimelineHeading": "What one Robux has been worth",
+    "rateTableLabel": "DevEx rates and what they pay",
+    "rateTableCaption": "Each documented DevEx rate and the payout it produces for 100,000 eligible Earned Robux.",
+    "rateBefore": "Before 5 Sep 2025",
+    "rateFrom": "From 5 Sep 2025",
+    "rateConditional": "Conditional U.S. 18+",
+    "usageHeading": "How many people use Roblox, and for how long",
+    "derivedHere": "Derived here",
+    "twoFiguresTitle": "Two figures other trackers show, and this page does not",
+    "businessHeading": "Roblox as a business",
+    "noSharePriceTitle": "There is no share price on this page, on purpose",
+    "downloadHeading": "Download these figures",
+    "downloadDescription": "The rows behind the charts, with every figure labelled reported or derived.",
+    "downloadInnerHeading": "Roblox creator payout statistics",
+    "downloadInnerDescription": "Everything charted on this page, plus the metrics Roblox does not publish, as a spreadsheet or as JSON.",
+    "limitations": {
+      "reportedOrDerived": "Every row states whether Roblox reported the figure or this site derived it from reported ones. The derivations are described on the methodology page.",
+      "exactDecimal": "Money is carried as an exact decimal string, never as a floating-point number, and never rounded on the way out.",
+      "filingLinked": "Each row names the filing it came from and links to it, so any figure can be checked against the original document.",
+      "absencesIncluded": "The metrics Roblox does not publish are included as absences with reasons, not omitted — a file without them would look like the complete picture."
+    },
+    "whatItMeansHeading": "What this means for your own payout",
+    "calculatorLink": "the calculator",
+    "noLiveDataHeading": "Why there is no live data here",
+    "quarterlyNotLiveTitle": "Quarterly figures, not a live feed",
+    "methodologyLink": "the methodology",
+    "faqsHeading": "Questions about these figures",
+    "columnYear": "Year",
+    "columnRevenue": "Revenue",
+    "columnSource": "Source",
+    "columnQuarter": "Quarter",
+    "columnRate": "Rate",
+    "columnNote": "Note",
+    "reported": "Reported",
+    "derived": "Derived",
+    "payoutTotalNote": "A payout total says how much creators cashed out, not what each Robux was worth. That is a separate, documented figure, and it has changed once.",
+    "rateTimelineCaption": "USD per eligible Earned Robux over time. A step, not a slope: a published rate holds until it is changed. The conditional U.S. 18+ rate is not shown here because it runs alongside the standard rate rather than replacing it — it is in the table below.",
+    "downloadFormats": {
+      "csvPayouts": "CSV — payout figures",
+      "csvAbsences": "CSV — metrics Roblox does not publish",
+      "jsonEverything": "JSON — everything"
+    },
+    "body": {
+      "engagement": {
+        "p1": "Hours per active user, per day",
+        "p2": "days. Both inputs are rounded in the release, so this is approximate.",
+        "p3": "Every figure above except the last is quoted from",
+        "p4": ", for the three months ended 30 June 2026."
+      },
+      "business": {
+        "p1": "rather than recomputed here.",
+        "p2": "A live RBLX quote would need a paid market-data feed and a third-party script running in your browser. This site loads no third-party scripts, and a number it cannot trace to a document is a number it will not publish. The figures above come from the filing itself, which is the same source a share price ultimately reacts to. None of this is investment advice, and a quarterly result says nothing about what any individual will be paid."
+      },
+      "whatItMeans": {
+        "p1": "Very little, directly — and that is worth saying plainly. The totals on this page describe the whole platform. They do not change what your own balance converts to, they are not a forecast, and a rising total does not mean a rising rate. What decides your payout is the rate applied to your eligible Earned Robux, which you can work out on",
+        "p2": "The one thing these figures do show is scale: DevEx is a programme through which Roblox paid out",
+        "p3": "in a single year, which is context worth having before deciding whether the 30,000 Robux minimum is worth working towards."
+      },
+      "noLiveData": {
+        "p1": "Roblox publishes these numbers once a quarter, in a filing. That is the finest resolution that exists, so a chart claiming to show them changing by the minute would be showing something invented. This site runs no data collection, samples nothing and estimates nothing — it reads the filings and links to them."
+      }
+    }
+  }
+}

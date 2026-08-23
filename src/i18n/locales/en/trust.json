@@ -1,0 +1,340 @@
+{
+  "$comment": "The pages that exist so a reader can check this site rather than believe it: about, methodology, sources, editorial policy, corrections, changelog and the public API. A translation that softens 'this site cannot determine' into 'this site does not usually determine' changes a limit into a habit.",
+  "about": {
+    "intro": "What this site is for, how it is built, and the things it deliberately refuses to do.",
+    "purposeHeading": "What this site is for",
+    "principlesHeading": "How it is built",
+    "limitsHeading": "What it will not do",
+    "affiliationHeading": "Affiliation",
+    "independentTitle": "Independent, and not connected to Roblox",
+    "principles": {
+      "rateHasSource": "Every rate has a source and a date.",
+      "exactArithmetic": "The arithmetic is exact.",
+      "methodologyExplains": "The methodology explains why",
+      "worksWithoutJs": "The page works without JavaScript.",
+      "nothingCollected": "Nothing is collected.",
+      "privacyIsSpecific": "The privacy policy is specific about this",
+      "correctionsPublished": "Corrections are published."
+    },
+    "body": {
+      "purpose": {
+        "p1": "A creator with a Robux balance wants to know one thing: what is this actually worth. The answer is arithmetic, but getting it right needs current rates, an understanding of which Robux qualify, and honesty about what the number does and does not mean.",
+        "p2": "Most calculators handle the arithmetic and stop there. Several that rank well are still quoting a rate that changed in September 2025, or a minimum that has not been correct for years. A creator planning around those numbers plans around fiction.",
+        "p3": "This site exists to be the version that is correct, says where each figure came from, and admits what it cannot tell you."
+      },
+      "principles": {
+        "p1": "Money is calculated as exact fractions rather than floating-point numbers, and rounded once, at the moment it is displayed.",
+        "p2": "Rates, formulas, examples and explanations are all server rendered. Only live recalculation needs scripts.",
+        "p3": "Calculations run in your browser and are never sent anywhere.",
+        "p4": "When a figure here turns out to be wrong, the fix is recorded with a date in the",
+        "p5": "rather than quietly edited."
+      },
+      "limits": {
+        "p1": "Tell you whether your DevEx request will be approved. Roblox decides that, and no third party can predict it.",
+        "p2": "Give tax advice, or state a tax rate for your country.",
+        "p3": "Ask for your Roblox credentials, for any reason. No legitimate tool needs them.",
+        "p4": "Publish a page for every number just because people search for it. Amount pages exist only where there is something specific to say.",
+        "p5": "Invent review counts, user numbers, testimonials or an author biography to look more established than it is."
+      },
+      "affiliation": {
+        "p1": "DevExCalculator.org is not affiliated with, endorsed by, sponsored by or operated by Roblox Corporation. Roblox, Robux and Developer Exchange are trademarks of Roblox Corporation, used here only to describe what these calculations are about. For anything about your account, your balance or your DevEx request, Roblox is the only party who can help."
+      }
+    }
+  },
+  "methodology": {
+    "intro": "Every formula this site uses, how the arithmetic is done, and where precision is deliberately dropped.",
+    "jumpLabel": "See the formulas",
+    "formulasHeading": "The formulas",
+    "formulasDescription": "These are the complete set. Nothing on the site calculates a money figure any other way.",
+    "exactHeading": "Why exact arithmetic matters",
+    "exactDescription": "This is not pedantry — it is the difference between a figure you can rely on and one that is nearly right.",
+    "roundingHeading": "Rounding policy",
+    "roundingDescription": "Precision is dropped exactly once, and the direction is chosen deliberately in each case.",
+    "currencyHeading": "Local-currency estimates",
+    "currencyDescription": "Secondary to the USD figure, and labelled as what they are.",
+    "cannotHeading": "What this cannot tell you",
+    "cannotDescription": "The honest boundary of what arithmetic can establish.",
+    "formulas": {
+      "payoutTerm": "Payout from a balance",
+      "payoutDetail": "One multiplication. The rate comes from the validated registry, never from a hardcoded literal in a component.",
+      "mixedTerm": "Mixed balance",
+      "mixedDetail": "Each bucket is a separate input, so no Robux can be counted under two rates.",
+      "blendedTerm": "Blended rate",
+      "blendedDetail": "The weighted average across whatever buckets you entered.",
+      "feesTerm": "Optional fees",
+      "feesDetail": "Applied only when you enter your own figures. Clamped so it can never go below zero.",
+      "taxTerm": "Optional tax estimate",
+      "taxDetail": "Tax is applied after fees, using whatever percentage you supply. This site states no tax rate.",
+      "reverseTerm": "Reverse target",
+      "reverseDetail": "Always rounds up. Rounding down would leave the payout fractionally short of the target.",
+      "currencyTerm": "Local currency",
+      "currencyDetail": "The ECB publishes euro-based rates, so USD cross rates are derived. The division direction is pinned by tests.",
+      "marketplaceTerm": "Marketplace fee",
+      "marketplaceDetail": "Rounds down, so a figure shown is never more than you would actually receive."
+    },
+    "rounding": {
+      "moneyHalfUp": "Money rounds half-up",
+      "robuxUp": "Required Robux round up.",
+      "sharesDown": "Marketplace shares round down.",
+      "intermediateNever": "Intermediate values are never rounded."
+    },
+    "cannot": {
+      "approvalOrTiming": "Whether a request will be approved, or when it will be paid.",
+      "providerCharges": "What your bank or payment provider will charge.",
+      "taxOwed": "What you owe in tax."
+    },
+    "body": {
+      "arithmetic": {
+        "p1": "Every money value on this site is held as an exact fraction — a pair of arbitrary-precision integers — from the moment a rate is read until the moment a figure is printed. Addition, multiplication and division are exact throughout. Nothing is rounded partway, so a total always equals the sum of the parts shown above it.",
+        "p2": "The same approach handles very large balances. Robux counts are stored as arbitrary-precision integers rather than as double-precision numbers, so a ten-figure balance stays exact rather than losing its last digits."
+      },
+      "rounding": {
+        "p1": "Rounding to nearest would sometimes return a figure that falls short of the target you asked for.",
+        "p2": "Better to under-promise what you keep than to show a figure a Robux above what arrives.",
+        "p3": "Rounding a subtotal and then using it would let a displayed total disagree with its own breakdown."
+      },
+      "currency": {
+        "p1": "The DevEx rate is denominated in US dollars, so every calculation is performed in USD and converted afterwards. Conversion uses European Central Bank euro reference rates, published once each working day at around 16:00 CET.",
+        "p2": "Because those rates are euro-based, a USD cross rate is derived: the euro rate for the target currency divided by the euro rate for the dollar. Every converted figure displays the provider and the date the rates were observed.",
+        "p3": "These are reference rates. No bank trades at them. Your payment provider will apply its own rate with a margin, so treat a converted figure as an indication of scale rather than a prediction.",
+        "p4": "More on currency conversion and fees",
+        "p5": "If the provider is unreachable, a stored snapshot is shown and explicitly labelled stale. A stale rate is never presented as current, and the USD calculation never depends on the provider being available."
+      }
+    }
+  },
+  "sources": {
+    "intro": "Every official source behind the figures on this site, what each one establishes, and when it was last checked.",
+    "jumpLabel": "See the registry",
+    "registryHeading": "Source registry",
+    "registryDescription": "Generated from the same registry the calculator reads, so this page cannot drift out of step with the figures it documents.",
+    "cadenceHeading": "Review cadence",
+    "cadenceDescription": "How often these are rechecked, and what happens when one changes.",
+    "lastChecked": "Last checked:",
+    "effectiveFrom": "Effective from:",
+    "reviewCadenceLabel": "Review cadence:",
+    "registryVersionLabel": "Rate registry version",
+    "ratesLastVerified": "Rates last verified",
+    "reviewDueAfter": "Review due after",
+    "escalatesAfter": "Escalates to critical after",
+    "body": {
+      "registry": {
+        "p1": "Facts this source establishes"
+      },
+      "cadence": {
+        "p1": "Rate data is never updated automatically from a scraped page. A change to a published rate requires the source to be verified by hand, the registry updated, the unit tests updated to the new expected values, the affected pages reviewed, an entry added to the changelog, and a redeploy. That sequence is deliberately slow — a wrong rate published quickly is worse than a right one published a day later."
+      }
+    }
+  },
+  "editorialPolicy": {
+    "intro": "The rules this site writes under, stated so you can hold it to them.",
+    "sourcingHeading": "Sourcing standard",
+    "labellingHeading": "How claims are labelled",
+    "labellingDescription": "Every research conclusion in this project’s documentation carries one of these labels. An inference is never quietly promoted to a fact.",
+    "neverHeading": "What this site never publishes",
+    "reviewHeading": "Review cadence",
+    "labels": {
+      "verified": "Verified through official source",
+      "derived": "Derived from supplied CSV",
+      "observed": "Observed on public competitor page",
+      "inference": "Reasonable inference",
+      "decision": "New implementation decision"
+    },
+    "never": {
+      "testimonials": "Invented testimonials, ratings, review counts or user numbers.",
+      "fakeAuthor": "An author biography or credential that does not correspond to a real person.",
+      "unsourcedRate": "A rate without a source and a verification date.",
+      "snapshotAsLive": "An exchange rate presented as live when it came from a stored snapshot.",
+      "countryTax": "A tax figure for your country.",
+      "approvalClaim": "A claim that a DevEx request will be approved."
+    },
+    "changedSoFar": "What has changed so far",
+    "body": {
+      "sourcing": {
+        "p1": "Every time-sensitive claim — a rate, a minimum, a fee percentage, an eligibility rule — is tied to an official source and carries the date it was last checked.",
+        "p2": "Where an official source is silent, this site is silent too. Processing times are the clearest example: Roblox publishes no guaranteed timeline, so none is stated here, even though a number would be more satisfying to read.",
+        "p3": "Competitor pages are research, not sources. Nothing is repeated because another site says it.",
+        "p4": "Numerical examples are recomputed from the rate registry rather than copied from anywhere."
+      },
+      "never": {
+        "p1": "A page created only because a keyword exists. A page has to answer something the rest of the site does not.",
+        "p2": "Structured data describing something the page does not visibly contain."
+      },
+      "review": {
+        "p1": "Rate-sensitive content is reviewed every",
+        "p2": "days, and escalates to a required manual review after",
+        "p3": "A figure is never left online because it performs well in search after it stops being accurate. If it is wrong, it changes, and the change is recorded."
+      }
+    }
+  },
+  "corrections": {
+    "intro": "Rates change and documentation moves. If something here is out of date, telling us is genuinely the most useful thing you can do.",
+    "reportHeading": "Reporting an error",
+    "cannotHelpTitle": "What this site cannot help with",
+    "nextHeading": "What happens next",
+    "nextDescription": "A correction to a rate, minimum or fee follows a fixed sequence. It is deliberately not a quick edit.",
+    "recordHeading": "Where corrections are recorded",
+    "reportButton": "Report a correction",
+    "steps": {
+      "verify": "Verify against the official source.",
+      "updateRegistry": "Update the rate registry.",
+      "updateTests": "Update the tests.",
+      "reviewPages": "Review the affected pages.",
+      "recordChangelog": "Record it in the changelog.",
+      "updateDate": "Update the verification date."
+    },
+    "body": {
+      "report": {
+        "p1": "The most useful report includes the page you were on, the figure you think is wrong, and — if you have it — a link to the official Roblox page that says otherwise. That last part turns a report into something that can be acted on immediately rather than investigated from scratch.",
+        "p2": "Anything about your own account, your balance, or a DevEx request you have submitted. This site has no access to any of that and no relationship with Roblox — only Roblox support can look into it."
+      },
+      "process": {
+        "p1": "Rates live in one validated data file. Changing them there changes every page, table and calculator at once — there is no second copy to forget.",
+        "p2": "The unit tests assert specific expected values. A rate change means those expectations change too, which is what stops a figure being updated in one place and not another.",
+        "p3": "Any prose that states the old figure in words is rewritten, not just the tables.",
+        "p4": "With the date, what changed, and the source that justified it.",
+        "p5": "The badge shown on every rate-sensitive page reflects the new check.",
+        "p6": "The full test suite has to pass first."
+      },
+      "record": {
+        "p1": "Rate changes made by Roblox are also reflected in the",
+        "p2": ", which is a separate record: the changelog tracks what this site did, the rate history tracks what Roblox did."
+      }
+    }
+  },
+  "changelog": {
+    "intro": "What changed on this site, when, and which source justified it.",
+    "jumpLabel": "See the entries",
+    "historyHeading": "Change history",
+    "subscribeTitle": "Subscribe instead of checking back",
+    "recordedHeading": "What gets recorded here",
+    "recordedDescription": "This changelog tracks what this site did. What Roblox did is tracked separately.",
+    "filterContent": "Content",
+    "filterSite": "Site",
+    "jsonFeed": "JSON Feed",
+    "ratesApiLink": "the rates API",
+    "correctionsPolicyLink": "see the corrections policy",
+    "entries": {
+      "registryEstablished": "Rate registry established and verified",
+      "marketplaceRecorded": "Marketplace commission rates recorded",
+      "levRemoved": "Bulgarian lev removed from supported currencies",
+      "siteLaunched": "Site launched"
+    },
+    "body": {
+      "entries": {
+        "p1": "Every entry here is published as a feed:",
+        "p2": "for a feed reader, or",
+        "p3": "for anything that would rather not parse XML. Both carry the same entries and the same source links. If you depend on these figures,",
+        "p4": "publishes the current values with their verification date attached."
+      },
+      "scope": {
+        "p1": "Any change to a published rate, minimum or fee percentage appears here with its date and source. So does any correction to a figure that turned out to be wrong — those are not quietly edited away. Routine content edits and typo fixes are not listed, because a changelog that records everything records nothing useful.",
+        "p2": "For the history of the DevEx rate itself, including the September 2025 change,",
+        "p3": "see the rate history page"
+      }
+    }
+  },
+  "api": {
+    "intro": "The rate registry this site calculates from, published as JSON with every source and verification date attached.",
+    "jumpLabel": "See the endpoint",
+    "ratesHeading": "GET /api/rates",
+    "ratesDescription": "The current DevEx rates, the minimum, the marketplace fee, and the sources each was verified against.",
+    "fxHeading": "GET /api/fx/latest",
+    "fxDescription": "European Central Bank reference rates, for showing a payout in a currency other than US dollars.",
+    "statsHeading": "GET /api/stats",
+    "statsDescription": "Roblox’s reported creator payouts and engagement, as rows, with every figure labelled reported or derived.",
+    "platformHeading": "GET /api/platform",
+    "platformDescription": "The player-count observations this site has collected, exactly as collected.",
+    "usingHeading": "Using it",
+    "machineReadableTitle": "A machine-readable description",
+    "termsHeading": "What is promised, and what is not",
+    "robloxFiguresTitle": "These are Roblox’s figures, not this site’s",
+    "fields": {
+      "rates": "id, label, value per Robux, status and the source it came from",
+      "minimum": "The Earned Robux balance Roblox requires before a request can be submitted",
+      "marketplaceFee": "The marketplace fee percentage, for sale-side calculations",
+      "sources": "Publisher, title, URL and the date each was last checked",
+      "statsRows": "metric, period, value, unit, origin, source and the URL of the filing",
+      "statsAbsences": "Metrics Roblox does not publish, with the reason each is absent",
+      "statsCsv": "The same rows as a downloadable CSV",
+      "absencesCsv": "The absences as their own CSV",
+      "platformRows": "observed_at, the count, and the origin and source of each observation",
+      "platformLimits": "Retention, resolution and coverage limits, in the response itself",
+      "platformExperiences": "Per-experience rows, sampled hourly and kept seven days",
+      "platformCsv": "Either series as a downloadable CSV"
+    },
+    "statisticsPageLink": "the statistics page",
+    "platformPageLink": "the platform page",
+    "changelogLink": "the changelog",
+    "terms": {
+      "noKey": "No key, no sign-up",
+      "callableFromBrowser": "Callable from a browser",
+      "cacheIt": "Cache it",
+      "attribution": "Attribution",
+      "promised": "Promised:",
+      "notPromised": "Not promised:"
+    },
+    "endpointColumn": "Endpoint",
+    "contract": {
+      "ratesSummary": "Current DevEx rates and the submission minimum",
+      "ratesResponse": "The rate registry.",
+      "rateCheckSummary": "Whether Roblox’s page still states the published rates",
+      "rateCheckResponse": "The result of the last automatic check.",
+      "fxSummary": "European Central Bank reference rates",
+      "fxResponse": "Reference rates, live or explicitly marked as a fallback.",
+      "statsSummary": "Roblox creator payout and engagement figures",
+      "statsJson": "The figures, as JSON.",
+      "statsCsv": "The figures, as CSV.",
+      "platformSummary": "Observed Roblox player counts",
+      "platformSeriesParam": "`totals` (default) for platform-wide counts, `experiences` for per-experience rows.",
+      "platformFormatParam": "Omit for JSON, or `csv` for a spreadsheet.",
+      "platformJson": "The collected observations.",
+      "platformCsv": "The collected observations, as CSV.",
+      "healthSummary": "Service and data freshness",
+      "healthOk": "Healthy, or stale but not critical.",
+      "healthCritical": "A critical staleness that needs action.",
+      "contactSummary": "Contact submission",
+      "contactRejected": "The submission was rejected by validation.",
+      "contactNotConfigured": "No contact provider is configured.",
+      "asSent": "As sent by this endpoint.",
+      "corsNote": "Readable from any origin; these responses carry no credentials.",
+      "description": "Reference data for Roblox DevEx payouts, published so it can be checked."
+    },
+    "healthNoBinding": "No history binding in this environment, so nothing is collected here.",
+    "body": {
+      "stats": {
+        "p1": "The figures charted on",
+        "p2": ", published as data so a chart can be checked rather than believed. Add for a spreadsheet. Every row names its filing and links to it, and every row says whether Roblox reported the figure or this site derived it — a distinction that disappears the moment two numbers sit in the same column without it.",
+        "p3": "Money is an exact decimal string, never a floating-point number. A figure read from a filing is reproduced as written."
+      },
+      "platform": {
+        "p1": "Nothing is filled in.",
+        "p2": "A gap means the collector did not run at that moment, and the gap is left in — no interpolation, no carry-forward, no back-fill. When no observations can be read at all the endpoint answers rather than an empty list, because an empty file is indistinguishable from a period with no players."
+      },
+      "using": {
+        "p1": "describes every endpoint here as OpenAPI 3.1 — parameters, status codes, content types and the exact each one sends. It is generated from the same declaration this page reads, and a test compares that declaration against the route handlers that actually exist, so an endpoint cannot be added without appearing in it or described after it has gone.",
+        "p2": "There is nothing to register for and no token to keep secret. Every reference endpoint is a plain GET, sets no cookie, and answers identically for every caller.",
+        "p3": "Every reference endpoint sends , so a page on any origin can it directly. That was not true until recently, and it made the endpoints useless to exactly the people they were published for. The two that do not are deliberate: health is infrastructure for an operator, and contact accepts submissions and is origin-checked."
+      },
+      "terms": {
+        "p1": "the shape of the response will not change without the changing, every figure will carry the source it was verified against, and a rate will never be updated from a scraped page without a person checking it first. Changes are recorded in",
+        "p2": "an uptime figure, a support commitment, or that this endpoint exists forever. It is a free convenience served from the same deployment as the site, not a product with a contract behind it. If you are building something that must not break, cache the response and fail back to your own copy.",
+        "p3": "Every rate here is what Roblox currently documents, recorded on the verification date shown. Roblox decides which rate applies to which balance and whether any DevEx request is approved. Read",
+        "p4": "for how each figure gets from their documentation into this response."
+      },
+      "related": {
+        "p1": "Reading the standard rate"
+      }
+    }
+  },
+  "authors": {
+    "heading": "Who writes this site",
+    "maintainerRole": "Founder & Maintainer",
+    "reviewerRole": "Content Reviewer & Fact-Checker",
+    "contactLabel": "Contact",
+    "profilesLabel": "Profiles",
+    "pagesReviewed": "Pages reviewed",
+    "noPagesReviewed": "No page currently carries a review credit.",
+    "ahmadRazaPhotoAlt": "Ahmad Raza, founder and maintainer of DevExCalculator.org"
+  },
+  "relatedHeading": "Related pages"
+}
