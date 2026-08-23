@@ -85,11 +85,7 @@ export function SiteFooter() {
         <div className="grid gap-8 py-10 text-center sm:grid-cols-2 lg:grid-cols-5">
           <div className="flex flex-col items-center lg:col-span-1">
             <Link href="/" className="group inline-flex items-center justify-center gap-2.5">
-              <Logo
-                interactive
-                instance="footer"
-                className="size-7 motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-out group-hover:motion-safe:scale-105"
-              />
+              <Logo interactive className="h-9" />
               <Wordmark className="text-sm" />
             </Link>
             <p className="mt-3 text-sm text-balance text-(--color-text-muted)">

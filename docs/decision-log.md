@@ -1000,3 +1000,57 @@ wearing a new label, so an end-to-end test asserts the footer makes no such
 claim in a build with no storage.
 
 Cost: 0.9 kB gzipped, taking application JavaScript to 110.3 kB against 125 kB.
+
+## D-043 · The supplied logo, minus the half of it that could not be read
+
+**New implementation decision.**
+
+A real brand mark arrived — a hexagon circled by two exchange arrows, holding a
+calculator whose screen shows a dollar sign — replacing the geometric
+placeholder that had stood in for one. Three things about adopting it were
+decisions rather than mechanics.
+
+**The wordmark inside the artwork is not used.** The supplied file is a full
+lockup: the mark, "DevEx" in green, then "Calculator" in white at low opacity.
+That last word is invisible on this site's light theme and faint on the dark
+one, so shipping the lockup would have meant shipping a brand name half the
+readers cannot see. Text baked into a bitmap also cannot be selected,
+translated, resized or read aloud. So the mark is cropped out and the name
+beside it stays real text, following the theme.
+
+The background needed no removal — the supplied PNG was already transparent.
+Flood-filling it would have been work done against a problem that did not
+exist, and worse: the artwork's own white calculator keys would have been the
+first thing a naive white-to-transparent pass destroyed.
+
+**Every icon smaller than about 40px is drawn, not downscaled.** The mark holds
+six calculator keys and two arrows; at 32px they merge, and at 16px it is a
+green blob. So `icon.svg`, the maskable icon, the Apple touch icon and the
+social-card mark all keep the two features that survive — the hexagon
+silhouette and the dollar sign — in the brand's own greens. That is why the
+header uses 40px rather than the 32px the placeholder used: 40 is where the
+drawing holds together. The Apple icon drops the hexagon as well, because iOS
+masks the corners and would clip the points that make it recognisable.
+
+**The mark is decorative, and the test says so.** `alt=""`, because `Wordmark`
+beside it is the link's accessible name — the old SVG carried an `aria-label`
+and made a screen reader announce "DevEx Calculator" twice for one link.
+
+**A check that had stopped asking its own question.** An end-to-end test
+asserted zero `<img>` elements on the page, to keep the hand-built diagrams
+from becoming pictures of text. A brand mark in the header broke it, and the
+tempting fix — delete the assertion — would have removed the only thing
+protecting the diagrams. It now asserts no image inside any `figure`, and a
+second test holds the brand mark to exactly two instances, one source, and
+empty alt text. Both can still fail.
+
+Cost: 7 kB once, cached for a week rather than the year `/icons/*` uses —
+immutable is wrong for a filename that stays stable while the artwork behind it
+might not.
+
+**Deliberately not done: the palette.** The mark is green; the interface is
+still blue. Turning `--color-primary` green would recolour every link, button
+and chart on the site, and the brand's greens are too bright to pass contrast
+as text on white — it would mean a dark forest green that is not the logo's
+green either. That is a design decision with an accessibility cost attached,
+and it belongs to the owner, not to a commit about adding a logo.

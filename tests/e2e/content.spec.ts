@@ -994,10 +994,40 @@ test.describe("diagrams", () => {
     const gate = page.locator("#definition figure").first();
     await expect(gate).toBeVisible();
 
-    // No raster imagery anywhere: text in an image cannot be resized,
-    // selected, translated or read aloud, and none of these diagrams needs it.
-    expect(await page.locator("img").count()).toBe(0);
+    // Text in an image cannot be resized, selected, translated or read aloud,
+    // and none of these diagrams needs it. This used to assert zero images on
+    // the whole page, which stopped being the right question once the header
+    // and footer carried a brand mark — so it now asserts the thing it was
+    // actually protecting: no diagram is a picture.
+    expect(await page.locator("figure img").count()).toBe(0);
     await expect(gate).toContainText(/Gift cards and promotional codes/i);
+  });
+
+  test("leave the brand mark as the only raster image, carrying no text", async ({ page }) => {
+    await page.goto("/earned-robux/");
+
+    const sources = await page.locator("img").evaluateAll((nodes) =>
+      nodes.map((node) => ({
+        src: (node as HTMLImageElement).getAttribute("src") ?? "",
+        alt: (node as HTMLImageElement).getAttribute("alt"),
+      })),
+    );
+
+    // Two: header and footer. A third would mean something new started
+    // shipping pixels, which is worth noticing rather than discovering later.
+    expect(sources).toHaveLength(2);
+    for (const image of sources) {
+      expect(image.src).toBe("/brand/devex-mark.png");
+      /*
+       * Decorative, and it has to be. The wordmark beside it is real text and
+       * is the link's accessible name; alt text here would announce the site's
+       * name twice. It also means no word of the brand is trapped in a bitmap.
+       */
+      expect(image.alt).toBe("");
+    }
+
+    // The name itself is text, at both ends of the page.
+    await expect(page.locator("header").getByText("DevEx", { exact: false }).first()).toBeVisible();
   });
 
   test("stack instead of overflowing at 320px", async ({ page }) => {

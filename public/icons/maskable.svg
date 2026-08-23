@@ -1,22 +1,21 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="DevEx Calculator">
   <title>DevEx Calculator</title>
   <!--
-    Maskable variant. The mark is scaled to sit inside the 80% safe zone so a
-    platform applying a circular or squircle mask cannot clip it, and the tile
-    fills the full square because the mask supplies the corner shape.
+    Maskable variant. The tile fills the full square because the platform's
+    mask supplies the corner shape, and the mark is scaled into the 80% safe
+    zone so a circular mask cannot clip the hexagon's points.
   -->
   <defs>
     <linearGradient id="mtile" x1="0" y1="0" x2="512" y2="512" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#2563eb"/>
-      <stop offset="1" stop-color="#7c3aed"/>
+      <stop offset="0" stop-color="#8bf60c"/>
+      <stop offset="0.55" stop-color="#3fd40d"/>
+      <stop offset="1" stop-color="#15980a"/>
     </linearGradient>
   </defs>
   <rect width="512" height="512" fill="url(#mtile)"/>
-  <g transform="translate(256 256) scale(0.62) translate(-256 -256)">
-    <g fill="none" stroke="#ffffff" stroke-width="42" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M144 344 L224 264 L288 304 L376 168"/>
-      <path d="M298 168 L376 168 L376 246"/>
-    </g>
-    <circle cx="144" cy="344" r="43" fill="#ffffff"/>
+  <g transform="translate(256 256) scale(0.6) translate(-256 -256)"
+     stroke="#0d1717" stroke-width="49.6" stroke-linecap="round" fill="none">
+    <path d="M256 121.6 V390.4"/>
+    <path d="M323.2 193.6 C323.2 160 292.8 145.6 256 145.6 C219.2 145.6 188.8 161.6 188.8 193.6 C188.8 256 323.2 238.4 323.2 302.4 C323.2 337.6 292.8 366.4 256 366.4 C219.2 366.4 188.8 347.2 188.8 316.8"/>
   </g>
 </svg>

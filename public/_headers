@@ -24,6 +24,13 @@
 /images/*
   Cache-Control: public, max-age=31536000, immutable
 
+# The brand mark. A week rather than a year, and deliberately not immutable:
+# the filename is stable, so a revised logo would otherwise sit in a returning
+# reader's cache until 2027. A week is long enough that almost nobody fetches
+# it twice and short enough that a correction actually lands.
+/brand/*
+  Cache-Control: public, max-age=604800
+
 # Small text files that should refresh promptly when the site is redeployed.
 /robots.txt
   Cache-Control: public, max-age=3600

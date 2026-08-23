@@ -1,28 +1,38 @@
 /**
  * Brand mark.
  *
- * A payout line: a balance at the origin, a path that dips and then climbs, and
- * a head at the top right. It says the one thing this site does — a figure is
- * converted and it ends up somewhere — and it is legible as a shape at 16px,
- * which a more literal drawing of coins or a calculator would not be.
+ * This is the supplied logo — a hexagon circled by two exchange arrows, holding
+ * a calculator whose screen shows a dollar sign — rather than the geometric
+ * placeholder that stood here while no real mark existed.
  *
- * Two earlier attempts are worth recording so they are not tried again. The
- * first was a division sign in a blue square: generic, because nothing in it
- * belonged to this site rather than to any calculator. The second crossed two
- * strokes into an X for "exchange" — at small sizes it read as a close button,
- * which is the last thing a brand mark should say.
+ * **Why the image and not the wordmark in it.** The supplied artwork is a full
+ * lockup: the mark, then "DevEx" in green, then "Calculator" in white. That
+ * last word is white at low opacity, so on this site's light theme it is
+ * invisible and on the dark theme it is faint. Shipping the lockup would mean
+ * shipping a brand name that half the readers cannot see, and text baked into a
+ * picture cannot be selected, translated, or read by a screen reader. So the
+ * mark is cropped out of the artwork and the name beside it stays real text in
+ * `Wordmark`, which follows the theme and stays legible at every size.
  *
- * Deliberately geometric and unrelated to Roblox trade dress — no blocky
- * avatar, no orange-and-black, nothing that could be read as an official mark.
+ * **Why 40px and not 32.** The mark holds a calculator with six keys. Rendered
+ * at the 32px the old placeholder used, the keys merge and it reads as a green
+ * blob. Forty is where the drawing survives. The tab icon has the same problem
+ * and cannot be made bigger, which is why `icon.svg` is drawn rather than
+ * downscaled: it keeps the hexagon and the dollar sign and drops everything
+ * that dies at sixteen pixels.
  *
- * The gradient is defined with instance-unique ids. Two marks appear on every
- * page (header and footer) and duplicate SVG ids make the second one reference
- * the first's definitions, which breaks the moment either is removed.
+ * **Cost.** 7 kB, once, for every page — the artwork cropped to the mark and
+ * quantised to a palette, which is visually identical to the full-colour
+ * version at a quarter of the bytes. Width and height are set so it reserves
+ * its own space and cannot shift the header as it loads.
  */
+
+/** Intrinsic size of `/brand/devex-mark.png`, 3x the largest rendered size. */
+const INTRINSIC = { width: 104, height: 120 } as const;
+
 export function Logo({
-  className = "size-8",
+  className = "h-10",
   interactive = false,
-  instance = "logo",
 }: {
   className?: string;
   /**
@@ -31,82 +41,55 @@ export function Logo({
    * that has nothing to do with it.
    */
   interactive?: boolean;
-  /**
-   * Distinguishes this mark's gradient ids from any other on the page.
-   *
-   * Every caller rendering a second mark must pass a different value. Deriving
-   * it from `interactive` was not enough the moment both the header and the
-   * footer became interactive: they collided on one id, and the footer's
-   * gradient silently resolved to the header's definition. `useId` would solve
-   * it generically but would make this a Client Component for the sake of two
-   * call sites.
-   */
-  instance?: string;
 }) {
-  const id = `logo-${instance}`;
-
   return (
-    <svg
-      className={className}
-      viewBox="0 0 32 32"
-      fill="none"
-      role="img"
-      aria-label="DevEx Calculator"
-    >
-      <defs>
-        <linearGradient id={`${id}-tile`} x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
-          <stop offset="0" stopColor="var(--color-primary)" />
-          <stop offset="1" stopColor="var(--color-secondary)" />
-        </linearGradient>
-        {/* A soft top-left highlight, which is what stops a flat fill from
-            reading as a placeholder rectangle at small sizes. */}
-        <linearGradient id={`${id}-sheen`} x1="0" y1="0" x2="0" y2="32" gradientUnits="userSpaceOnUse">
-          <stop offset="0" stopColor="#ffffff" stopOpacity="0.28" />
-          <stop offset="0.55" stopColor="#ffffff" stopOpacity="0" />
-        </linearGradient>
-      </defs>
-
-      <rect width="32" height="32" rx="9" fill={`url(#${id}-tile)`} />
-      <rect width="32" height="32" rx="9" fill={`url(#${id}-sheen)`} />
-
-      {/*
-        The line itself. Four points rather than a smooth curve: a curve at this
-        size flattens into a smudge, while the corners survive being drawn 16
-        pixels wide.
-      */}
-      {/* No transition on this path. It carried one for `stroke-dashoffset`
-          while nothing ever set a dash array, so it animated nothing — the
-          motion in this mark is the tile scaling and the balance dot growing,
-          both of which are real. */}
-      <path
-        d="M9 21.5 L14 16.5 L18 19 L23.5 10.5"
-        stroke="#ffffff"
-        strokeWidth="2.6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      {/* The head, drawn as two strokes so it keeps the same weight and cap as
-          the line rather than reading as a solid wedge stuck on the end. */}
-      <path
-        d="M18.6 10.5 L23.5 10.5 L23.5 15.4"
-        stroke="#ffffff"
-        strokeWidth="2.6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      {/* The balance, before it becomes anything. */}
-      <circle
-        className={
+    /*
+     * The perspective lives on a wrapper rather than the image, because a
+     * perspective set on the transformed element itself is applied after the
+     * rotation and produces a flat skew instead of a tilt.
+     */
+    <span className={`inline-block shrink-0 ${interactive ? "perspective-normal" : ""}`}>
+      {/* eslint-disable-next-line @next/next/no-img-element -- A fixed-size
+          brand asset in a Server Component. next/image would add a client
+          runtime and a loader for one 7 kB PNG that never needs resizing. */}
+      <img
+        src="/brand/devex-mark.png"
+        width={INTRINSIC.width}
+        height={INTRINSIC.height}
+        /*
+         * Decorative. `Wordmark` beside it already carries the site's name, so
+         * alt text here would make a screen reader announce "DevEx Calculator"
+         * twice for one link. The old mark did exactly that.
+         */
+        alt=""
+        /* Above the fold in the header, and the only image in it. */
+        fetchPriority={interactive ? "high" : "low"}
+        decoding="async"
+        className={[
+          "block w-auto origin-center",
+          // A resting shadow so the mark sits on the page rather than being
+          // pasted onto it. Tinted to the brand green rather than black.
+          "[filter:drop-shadow(0_1px_2px_rgba(21,152,10,0.35))]",
           interactive
-            ? "origin-center motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-out group-hover:motion-safe:scale-125"
-            : undefined
-        }
-        cx="9"
-        cy="21.5"
-        r="2.7"
-        fill="#ffffff"
+            ? [
+                "transform-3d",
+                "motion-safe:transition-[transform,filter] motion-safe:duration-300 motion-safe:ease-out",
+                // The lift: it turns towards the reader, tips back a little,
+                // and the shadow grows to match. Small on purpose — this is a
+                // link in a header, not a product shot.
+                "group-hover:motion-safe:-rotate-y-12 group-hover:motion-safe:rotate-x-6",
+                "group-hover:motion-safe:scale-108",
+                "group-hover:motion-safe:[filter:drop-shadow(0_6px_10px_rgba(21,152,10,0.45))]",
+                // Keyboard users get the same feedback as pointer users.
+                "group-focus-visible:motion-safe:-rotate-y-12 group-focus-visible:motion-safe:scale-108",
+              ].join(" ")
+            : "",
+          className,
+        ]
+          .filter(Boolean)
+          .join(" ")}
       />
-    </svg>
+    </span>
   );
 }
 
@@ -117,6 +100,9 @@ export function Logo({
  * "Calculator" is set lighter so the lockup has a hierarchy rather than being
  * one undifferentiated string. The two are a single word visually, so there is
  * no space between them and the tracking is tightened to match.
+ *
+ * This is the accessible name of the link the mark sits in, which is why the
+ * mark itself is marked decorative.
  */
 export function Wordmark({ className }: { className?: string }) {
   return (

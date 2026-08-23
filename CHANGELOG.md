@@ -180,6 +180,15 @@ Recorded because each was a real bug that shipped-looking code contained:
   document it cannot recognise is reported as unreadable rather than as a rate
   that has been withdrawn. Published at `/api/rate-check/`.
 
+- The real brand mark, in the header and footer, on social cards and as every
+  app and browser icon. Only the mark is taken from the supplied artwork: its
+  "Calculator" wordmark is white at low opacity and would be invisible on the
+  light theme, so the name beside the mark stays real text that follows the
+  theme and can be read aloud. Icons below about 40px are drawn rather than
+  downscaled, because the calculator keys and the circling arrows merge at that
+  size; they keep the hexagon and the dollar sign instead. 7 kB, decorative,
+  with a 3D lift on hover for pointer and keyboard alike.
+
 ### Deliberately not included
 
 - No universal Robux purchase price — Roblox prices by package, region and

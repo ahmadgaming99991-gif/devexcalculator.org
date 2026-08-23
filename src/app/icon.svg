@@ -1,14 +1,25 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!--
+    Tab icon, drawn rather than downscaled.
+
+    The full brand mark is a hexagon holding a calculator, and below about 40px
+    the keys and the two circling arrows collapse into a smudge. So the favicon
+    keeps only the two things that survive 16 pixels — the hexagon silhouette
+    and the dollar sign from the calculator's screen — in the brand's own
+    green. It reads as the same mark without pretending to be a copy of it.
+  -->
   <defs>
-    <linearGradient id="t" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#2563eb"/>
-      <stop offset="1" stop-color="#7c3aed"/>
+    <linearGradient id="hex" x1="4" y1="2" x2="28" y2="30" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#8bf60c"/>
+      <stop offset="0.55" stop-color="#3fd40d"/>
+      <stop offset="1" stop-color="#15980a"/>
     </linearGradient>
   </defs>
-  <rect width="32" height="32" rx="9" fill="url(#t)"/>
-  <g fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M9 21.5 L14 16.5 L18 19 L23.5 10.5"/>
-    <path d="M18.6 10.5 L23.5 10.5 L23.5 15.4"/>
+  <!-- Stroked in its own fill so the six corners round without a second path. -->
+  <path d="M30 16 L23 28.1 L9 28.1 L2 16 L9 3.9 L23 3.9 Z"
+        fill="url(#hex)" stroke="url(#hex)" stroke-width="3.2" stroke-linejoin="round"/>
+  <g stroke="#0d1717" stroke-width="3.1" stroke-linecap="round" fill="none">
+    <path d="M16 7.6 V24.4"/>
+    <path d="M20.2 12.1 C20.2 10 18.3 9.1 16 9.1 C13.7 9.1 11.8 10.1 11.8 12.1 C11.8 16 20.2 14.9 20.2 18.9 C20.2 21.1 18.3 22.9 16 22.9 C13.7 22.9 11.8 21.7 11.8 19.8"/>
   </g>
-  <circle cx="9" cy="21.5" r="2.7" fill="#ffffff"/>
 </svg>

@@ -44,31 +44,32 @@ export interface OgCard {
 function Mark() {
   return (
     <div style={{ display: "flex", alignItems: "center", gap: "20px" }}>
-      <div
-        style={{
-          width: 72,
-          height: 72,
-          borderRadius: 20,
-          background: "linear-gradient(135deg, #2563eb 0%, #7c3aed 100%)",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <svg width="72" height="72" viewBox="0 0 32 32">
-          <g
-            fill="none"
-            stroke="#ffffff"
-            strokeWidth="2.6"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M9 21.5 L14 16.5 L18 19 L23.5 10.5" />
-            <path d="M18.6 10.5 L23.5 10.5 L23.5 15.4" />
-          </g>
-          <circle cx="9" cy="21.5" r="2.7" fill="#ffffff" />
-        </svg>
-      </div>
+      {/*
+        The hexagon and the dollar sign from the brand mark, at the size a
+        social card actually renders them. The full artwork holds a calculator
+        with six keys, which at 72px merges into a green shape — the same
+        reason `icon.svg` is drawn rather than downscaled.
+      */}
+      <svg width="76" height="76" viewBox="0 0 32 32">
+        <defs>
+          <linearGradient id="og-hex" x1="4" y1="2" x2="28" y2="30" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stopColor="#8bf60c" />
+            <stop offset="0.55" stopColor="#3fd40d" />
+            <stop offset="1" stopColor="#15980a" />
+          </linearGradient>
+        </defs>
+        <path
+          d="M30 16 L23 28.1 L9 28.1 L2 16 L9 3.9 L23 3.9 Z"
+          fill="url(#og-hex)"
+          stroke="url(#og-hex)"
+          strokeWidth="3.2"
+          strokeLinejoin="round"
+        />
+        <g stroke="#0d1717" strokeWidth="3.1" strokeLinecap="round" fill="none">
+          <path d="M16 7.6 V24.4" />
+          <path d="M20.2 12.1 C20.2 10 18.3 9.1 16 9.1 C13.7 9.1 11.8 10.1 11.8 12.1 C11.8 16 20.2 14.9 20.2 18.9 C20.2 21.1 18.3 22.9 16 22.9 C13.7 22.9 11.8 21.7 11.8 19.8" />
+        </g>
+      </svg>
       <div style={{ display: "flex", fontSize: 34, fontWeight: 700, color: "#0b1220" }}>
         DevEx
         <span style={{ fontWeight: 500, color: "#526174" }}>Calculator</span>
