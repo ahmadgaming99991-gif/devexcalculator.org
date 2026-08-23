@@ -171,6 +171,35 @@ more, Roblox's own published engagement figures alongside a named list of what
 it never publishes, brand-coloured social profiles, and a footer that carries
 the rate, the minimum and the verification date instead of only links.
 
+## Phase 12 — Two dates, and the difference between them
+
+2026-08-23. The footer printed "Rates verified 17 August 2026" and that date was
+deliberately frozen: it records a person reading Roblox's documentation. The
+obvious way to make a site look current — advance it — would have been a claim
+that nobody checked.
+
+The fix was to make the check real rather than to move the date. Roblox
+publishes its DevEx page as markdown, linked from the page and carrying its own
+`last_updated` field, so a scheduled job now re-reads it four times a day and
+compares the rates and the minimum to what this site publishes. That produces a
+second, separately-labelled date — "checked" — which does move every day and is
+true. The job may confirm and may never rewrite: a changed figure raises a flag
+for a person, because a rate is not a number to be copied.
+
+The same lesson as Phase 11, in a new place. Two failures were designed out
+rather than tested for afterwards: an unrecognisable document is reported as
+unreadable instead of as three rates that have been withdrawn, and a status of
+`unknown` renders no footer line at all rather than a reassuring one. The unit
+suite compares the committed fixture — the real document, unmodified — against
+`rates.json` itself, so a rate edited without the source having changed fails
+the build.
+
+**Also delivered:** the grouped header navigation, the earnings goal planner,
+CSV and JSON data exports with their absences included, an OpenAPI document
+generated from one declaration, IndexNow submission and Search Console
+analysis, a generated `llms.txt`, `Dataset` structured data, and an analytics
+layer whose allowlist makes it unable to carry an amount.
+
 ## Defects found and fixed
 
 Nineteen, listed in `CHANGELOG.md`. The pattern worth noting: **most were found
