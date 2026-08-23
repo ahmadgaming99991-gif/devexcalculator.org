@@ -12,6 +12,7 @@ import { Container } from "@/components/ui";
 import { Logo, Wordmark } from "./logo";
 import { SocialLinks } from "./social-links";
 import { FooterStatus } from "./footer-status";
+import { RateSourceCheck } from "./rate-source-check";
 
 /**
  * One fact from the rate registry, shown on every page.
@@ -156,6 +157,13 @@ export function SiteFooter() {
             </a>{" "}
             feed
           </p>
+          {/*
+            The other date. "Rates verified" above is the day a person read
+            Roblox's documentation and it does not move on its own; this is the
+            day the scheduled job last re-read that same document and found the
+            figures unchanged. Renders nothing until a check has run.
+          */}
+          <RateSourceCheck className="mt-1 text-center text-xs text-balance text-(--color-text-muted)" />
         </div>
 
         {/*

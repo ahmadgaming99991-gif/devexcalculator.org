@@ -4,6 +4,7 @@ import { requireRoute } from "@/lib/content/route-registry";
 import { JsonLd } from "@/components/seo/json-ld";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { Badge, Container, Section, SourceLink } from "@/components/ui";
+import { RateSourceCheck } from "@/components/layout/rate-source-check";
 import { PageHeader, QuickAnswer, RelatedLinks } from "@/components/content";
 import { rateRegistry, registryFreshness, sources } from "@/lib/calculations/rate-registry";
 import { formatDate } from "@/lib/calculations/format";
@@ -114,6 +115,29 @@ export default function SourcesPage() {
                 </div>
               </dl>
             </div>
+
+            {/*
+              The automatic half of the cadence, and the reason the figures
+              above can be trusted between reviews. Renders nothing until a
+              check has run, so it cannot reassure on the strength of a check
+              that did not happen.
+            */}
+            <RateSourceCheck className="mt-4 rounded-(--radius-control) border border-(--color-border) bg-(--color-surface) p-4 text-sm text-(--color-text-muted)" />
+
+            <p className="mt-4 text-(--color-text-muted)">
+              Between reviews, a scheduled job re-reads the markdown Roblox
+              publishes for its DevEx page four times a day and compares the
+              rates and the minimum to the ones published here. It can confirm
+              that nothing has moved; it cannot change a figure. A difference
+              raises a flag for a person to read, and a document it cannot
+              recognise — an outage, or a redesign — is reported as unreadable
+              rather than treated as a rate that has been withdrawn. The result
+              is published at{" "}
+              <a href="/api/rate-check/" className="underline hover:text-(--color-primary)">
+                /api/rate-check/
+              </a>
+              .
+            </p>
 
             <p className="mt-4 text-(--color-text-muted)">
               Rate data is never updated automatically from a scraped page. A

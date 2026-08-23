@@ -7,6 +7,7 @@ import {
   type HistoryStore,
 } from "../src/lib/platform/history";
 import { recordHeartbeat, type RunReport } from "../src/lib/platform/heartbeat";
+import { checkRateSource } from "../src/lib/rates/source-check";
 
 /**
  * The deployed Worker.
@@ -63,10 +64,46 @@ const handler = {
 
   async scheduled(event: ScheduledEvent, env: Env, ctx: ExecutionContext): Promise<void> {
     ctx.waitUntil(collect(env));
+    ctx.waitUntil(checkSource(env));
   },
 };
 
 export default handler;
+
+/**
+ * Re-reading Roblox's own document, so the site can say when it last looked.
+ *
+ * Started as its own `waitUntil` rather than tacked onto `collect`, because
+ * they watch different things on different clocks: the collector runs every
+ * fifteen minutes because player counts move that fast, and this runs four
+ * times a day because a rate does not. `checkRateSource` owns that interval
+ * and returns null on the runs in between, so nearly every cron tick reaches
+ * one KV read and stops.
+ *
+ * Failures are swallowed for the same reason the collector's are — a throwing
+ * cron is retried, and retrying into an upstream outage turns one bad quarter
+ * hour into a burst of requests. The difference is that this one cannot
+ * disappear quietly: an unreachable source is itself written down, so a check
+ * that has stopped working is visible as a date that stopped moving rather
+ * than as silence.
+ */
+async function checkSource(env: Env): Promise<void> {
+  const store = env.PLATFORM_HISTORY;
+  if (!store) return;
+
+  try {
+    const observation = await checkRateSource(store);
+    if (!observation) return;
+    console.warn(
+      `Rate source ${observation.status}: ` +
+        (observation.status === "read"
+          ? `${observation.rates.join(", ")} (Roblox updated ${observation.sourceUpdatedAt ?? "unknown"}).`
+          : (observation.detail ?? "no detail.")),
+    );
+  } catch (error) {
+    console.error("Rate source check failed:", error);
+  }
+}
 
 /**
  * One collection run, plus the record that it happened.

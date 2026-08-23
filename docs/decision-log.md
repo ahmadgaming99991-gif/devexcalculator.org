@@ -936,3 +936,67 @@ opening a navigation group. All three are dormant: no provider is configured,
 and the browser suite asserts no analytics request is made.
 
 Cost: 0.9 kB gzipped, taking application JavaScript to 109.4 kB against 125 kB.
+
+## D-042 · The verification date is frozen; a second, automatic date is not
+
+**Observed in repository / New implementation decision.**
+
+The footer printed one date — "Rates verified 17 August 2026" — and it was
+right to be frozen. It records the day a person read Roblox's documentation and
+confirmed every figure in the registry. A footer that advanced it on its own
+would be claiming a check nobody performed, which is the failure this site is
+built to avoid.
+
+But "nobody checked today" was never the goal; it was only the truth. Someone
+reading the site a fortnight after that review has no way to tell whether the
+rate still holds, and the honest fix is not to move the date — it is to make
+the check real, automatic, and its own separately-labelled fact.
+
+**What is read.** Roblox publishes its DevEx page as markdown alongside the
+HTML, linked from the page itself, at
+`…/production/monetization/developer-exchange.md`. Thirteen kilobytes, with a
+`last_updated` field that is Roblox's own statement of when the page changed.
+That is what the check reads — not a rendered layout that will be redesigned.
+`robots.txt` on `create.roblox.com` disallows only `/dashboard/` and
+`/talent/`.
+
+**Four checks a day, not ninety-six.** The cron fires every fifteen minutes for
+the player-count collector. `checkRateSource` owns its own six-hour interval
+and returns null in between, so nearly every tick costs one KV read. Six hours
+is far finer than a figure that changes a few times a year.
+
+**It may confirm; it may never rewrite.** A changed figure raises `changed` and
+stops. Nothing copies a number into the registry, because a rate is not a
+number to be copied — it needs a person to read what changed, what balance it
+applies to, and from when. The automatic date is a statement that the source
+was re-read, never that the site re-published itself.
+
+**An unreadable document is not a change.** Anchor phrases must be present
+before any figure is believed. Without that guard, an outage, a challenge page
+or an empty body would contain none of the expected rates and would read as
+"Roblox has withdrawn the DevEx rate" — the loudest possible false alarm from
+the quietest possible failure. A test feeds it a challenge page, an empty body
+and a 404 and asserts none of them is ever judged `changed`.
+
+**The comparison is not done by the job.** The scheduled run records only what
+the document said; `/api/rate-check/` compares that record against the registry
+at read time. So a registry edit re-evaluates the stored observation
+immediately rather than leaving a verdict computed against figures the site no
+longer shows — and the module stays free of imports so it can run inside the
+Worker.
+
+**The check that cannot fail, avoided.** The unit suite compares the committed
+fixture — the real document, fetched unmodified — against `rates.json` itself
+rather than a copy of its figures. Editing a rate without the source having
+changed fails the suite, which is exactly the review this feature exists to
+force. An end-to-end test asserts `/api/rate-check/` reports the same figures
+`/api/rates/` publishes, so the two cannot drift into comparing different
+numbers.
+
+**Absence renders nothing.** Before the first run, or with storage unbound,
+`status` is `unknown` and the footer shows no line at all. A reassuring
+sentence rendered when no check had happened would be the original failure
+wearing a new label, so an end-to-end test asserts the footer makes no such
+claim in a build with no storage.
+
+Cost: 0.9 kB gzipped, taking application JavaScript to 110.3 kB against 125 kB.

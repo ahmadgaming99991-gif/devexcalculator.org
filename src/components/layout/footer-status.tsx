@@ -3,11 +3,13 @@
 import Link from "next/link";
 import { useClientValue } from "@/lib/utilities/use-client-value";
 import { formatDate } from "@/lib/calculations/format";
+import { ageInDays, describeAge } from "@/lib/utilities/relative-day";
+import { RateSourceCheckBadge } from "./rate-source-check";
 
 /**
  * The footer's status line, kept true on the day it is read.
  *
- * Two dates sit here and they are not the same kind of thing, which is the
+ * Three dates sit here and they are not the same kind of thing, which is the
  * whole reason this component exists.
  *
  * The verification date is a fact about the past: the day someone checked
@@ -26,22 +28,13 @@ import { formatDate } from "@/lib/calculations/format";
  * Both render the build-time value first and swap to the live one during
  * hydration, so a reader with no JavaScript sees a correct date and a slightly
  * stale age rather than nothing at all.
+ *
+ * The third is `RateSourceCheckBadge`, and it is the one that legitimately
+ * moves every day: the last time the scheduled job re-read Roblox's own
+ * document and found these figures unchanged. It is labelled "checked" rather
+ * than "verified" precisely because it is not the same claim, and it renders
+ * nothing at all until a check has actually run.
  */
-
-const DAY_MS = 24 * 60 * 60 * 1000;
-
-function ageInDays(iso: string, now: number): number {
-  const verified = Date.parse(iso);
-  if (!Number.isFinite(verified)) return 0;
-  return Math.max(0, Math.floor((now - verified) / DAY_MS));
-}
-
-/** Plain words for a small number of days; a figure once it stops being one. */
-function describeAge(days: number): string {
-  if (days <= 0) return "today";
-  if (days === 1) return "yesterday";
-  return `${days} days ago`;
-}
 
 export function FooterStatus({
   siteName,
@@ -87,6 +80,7 @@ export function FooterStatus({
           line that exists to carry dates.
         */}
         · registry {registryVersion}
+        <RateSourceCheckBadge />
       </p>
     </div>
   );

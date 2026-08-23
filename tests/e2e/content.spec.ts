@@ -411,10 +411,14 @@ test.describe("crawl infrastructure", () => {
     // has to agree with the 200 above.
     expect(["fresh", "stale", "unknown"]).toContain(body.status);
 
-    // No KV binding outside the Worker, so nothing is claimed about the
-    // collector here — but the field has to exist, because an operator reading
-    // this endpoint in production is reading it for exactly that field.
-    expect(body.collector.state).toBe("unknown");
+    // Whether storage is reachable from this build depends on where it runs:
+    // in CI there is no local Worker state and the answer is `unknown`, while a
+    // developer who has run the Worker locally has real observations sitting in
+    // `.wrangler/state`. Asserting one of those made the test a report on the
+    // machine rather than on the endpoint, so what is held here is that the
+    // field exists and carries a state the health logic actually defines —
+    // which is what an operator reads this endpoint for.
+    expect(["fresh", "stale", "critical", "unknown"]).toContain(body.collector.state);
 
     // Build provenance was a permanently-null field until the config filled it
     // in. A build that cannot say which commit it came from is one nobody can
@@ -1235,6 +1239,62 @@ test.describe("footer figures", () => {
  * the past and must never advance on its own; its age is a live figure and was
  * frozen at build time, which is what made the line look stale.
  */
+test.describe("automatic source check", () => {
+  test("publishes the result of the last comparison", async ({ request }) => {
+    const response = await request.get("/api/rate-check/");
+    expect(response.status()).toBe(200);
+
+    const body = await response.json();
+    expect(["unchanged", "changed", "unreadable", "unknown"]).toContain(body.data.status);
+    expect(body.data.source.document).toContain("developer-exchange.md");
+  });
+
+  test("compares against the rates the site actually publishes", async ({ request }) => {
+    // The figures it checks are read from the registry, not written down a
+    // second time. A rate change that moved one and not the other would make
+    // the check quietly compare against a number nobody is being shown.
+    const check = await (await request.get("/api/rate-check/")).json();
+    const rates = await (await request.get("/api/rates/")).json();
+
+    const published = rates.data.rates.map((rate: { usdPerRobux: string }) => rate.usdPerRobux);
+    expect(check.data.published.rates).toEqual(published);
+    expect(check.data.published.minimum).toBe(rates.data.minimum.eligibleEarnedRobux);
+  });
+
+  test("labels the automatic check as a different claim from the review", async ({
+    page,
+    request,
+  }) => {
+    const body = await (await request.get("/api/rate-check/")).json();
+    test.skip(body.data.status === "unknown", "No check has been recorded here.");
+
+    await page.goto("/");
+    const footer = page.locator("footer");
+
+    // Both dates are shown, and they are not the same word. "verified" is the
+    // day a person read the documentation; "checked" is the day the job last
+    // re-read it. Collapsing them would be the fabrication this avoids.
+    await expect(footer).toContainText(/verified \d{1,2} \w+ \d{4}/);
+    await expect(footer.getByText(/Checked against/)).toBeVisible();
+
+    // A check cannot have happened after now.
+    expect(Date.parse(body.data.checkedAt)).toBeLessThanOrEqual(Date.now());
+  });
+
+  test("claims no check when none has run", async ({ page, request }) => {
+    // This build has no storage bound, so no check has been recorded. The
+    // footer must say nothing rather than reassure — an absent check that
+    // rendered a friendly line would be the failure this whole feature exists
+    // to avoid.
+    const body = await (await request.get("/api/rate-check/")).json();
+    test.skip(body.data.status !== "unknown", "A check has been recorded here.");
+
+    await page.goto("/");
+    await expect(page.locator("footer")).not.toContainText("Checked against");
+    await expect(page.locator("footer")).not.toContainText("source checked");
+  });
+});
+
 test.describe("footer dates", () => {
   test("keeps the verification date fixed and its age live", async ({ page }) => {
     await page.goto("/");

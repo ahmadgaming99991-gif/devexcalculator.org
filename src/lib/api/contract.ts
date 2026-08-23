@@ -65,6 +65,21 @@ export const apiEndpoints: readonly ApiEndpoint[] = [
     provenanceFields: ["data.registryVersion", "data.lastVerifiedAt", "data.sources[].url"],
   },
   {
+    path: "/api/rate-check/",
+    handler: "rate-check",
+    methods: ["GET", "OPTIONS"],
+    summary: "Whether Roblox's page still states the published rates",
+    description:
+      "Four times a day a scheduled job re-reads the markdown Roblox publishes for its DevEx page and compares the figures to the ones this site shows. `status` is `unchanged`, `changed`, `unreadable` or `unknown`; `checkedAt` is when that comparison last ran, which is a different fact from `lastVerifiedAt` — the day a person read the documentation. The check never edits a rate: a change raises a flag rather than copying a number.",
+    parameters: [],
+    responses: [
+      { status: 200, description: "The result of the last automatic check.", contentType: "application/json" },
+    ],
+    cacheControl: "public, max-age=300, s-maxage=900, stale-while-revalidate=3600",
+    cors: true,
+    provenanceFields: ["data.checkedAt", "data.sourceUpdatedAt", "data.source.document"],
+  },
+  {
     path: "/api/fx/latest/",
     handler: "fx/latest",
     methods: ["GET", "OPTIONS"],

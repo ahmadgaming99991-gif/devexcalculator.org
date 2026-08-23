@@ -169,6 +169,17 @@ Recorded because each was a real bug that shipped-looking code contained:
   default tax rate, no default fee, no growth model, and no date presented as
   one Roblox has committed to.
 
+- An automatic check against Roblox's own DevEx document, four times a day.
+  Roblox publishes that page as markdown with its own `last_updated` field; a
+  scheduled job re-reads it and compares the rates and the minimum to the ones
+  this site publishes. The footer gains a second, separately-labelled date —
+  "checked", which moves every day — beside the "verified" date, which still
+  records the day a person read the documentation and still never advances on
+  its own. The check may confirm and may never rewrite: a changed figure raises
+  a flag for a person rather than copying a number into the registry, and a
+  document it cannot recognise is reported as unreadable rather than as a rate
+  that has been withdrawn. Published at `/api/rate-check/`.
+
 ### Deliberately not included
 
 - No universal Robux purchase price — Roblox prices by package, region and
