@@ -1,0 +1,222 @@
+import { describe, expect, it } from "vitest";
+import {
+  DEFAULT_LOCALE,
+  LAUNCH_LOCALES,
+  getDirection,
+  getLocaleMeta,
+  isPublishedLocale,
+  isRtl,
+  isSupportedLocale,
+  localeRegistry,
+  publishedLocales,
+} from "../../../src/i18n/config";
+import {
+  getLocaleFromPath,
+  localizedPath,
+  parseLocaleSegment,
+  stripLocalePrefix,
+  switchLocalePath,
+} from "../../../src/i18n/locale-path";
+
+/**
+ * These functions are the first thing a hostile URL reaches, and the last
+ * thing between a half-finished translation and production HTML. Most of the
+ * tests below assert a refusal.
+ */
+
+describe("the registry", () => {
+  it("keeps every locale code, prefix and hreflang unique", () => {
+    for (const field of ["locale", "prefix", "hreflang"] as const) {
+      const values = localeRegistry.map((meta) => meta[field]).filter((v) => v !== "");
+      expect(new Set(values).size, `duplicate ${field}`).toBe(values.length);
+    }
+  });
+
+  it("gives English no prefix, and nothing else an empty one", () => {
+    // `/en/` would be a second indexable copy of the site competing with the
+    // original — the most common way a multilingual rollout does damage.
+    expect(getLocaleMeta("en").prefix).toBe("");
+    for (const meta of localeRegistry) {
+      if (meta.locale === "en") continue;
+      expect(meta.prefix, `${meta.locale} has no prefix`).not.toBe("");
+      expect(meta.prefix.startsWith("/"), `${meta.locale} prefix needs a leading slash`).toBe(true);
+      expect(meta.prefix.endsWith("/"), `${meta.locale} prefix must not end in a slash`).toBe(false);
+      expect(meta.prefix).toBe(meta.prefix.toLowerCase());
+    }
+  });
+
+  it("publishes only English so far, and says so honestly", () => {
+    // The other six are being written. Until each is complete this must stay
+    // at one, and this assertion is what stops a locale going public early.
+    expect(publishedLocales().map((m) => m.locale)).toEqual(["en"]);
+    expect(isPublishedLocale("pt-BR")).toBe(false);
+    expect(isPublishedLocale("ar")).toBe(false);
+  });
+
+  it("never claims a review that has not happened", () => {
+    // `status` and `qualityReview` are separate fields on purpose. Claiming a
+    // native reviewer who does not exist is the same class of fabrication as
+    // a verification date nobody earned.
+    for (const meta of localeRegistry) {
+      if (meta.qualityReview !== "native-reviewed") continue;
+      throw new Error(
+        `${meta.locale} claims native review; no native reviewer is recorded in docs/i18n/`,
+      );
+    }
+    expect(getLocaleMeta("en").qualityReview).toBe("source");
+  });
+
+  it("declares a direction for every locale, including the RTL one it has not built yet", () => {
+    for (const meta of localeRegistry) {
+      expect(["ltr", "rtl"]).toContain(meta.direction);
+    }
+    // Arabic is listed while unpublished precisely so the logical-property and
+    // `dir` work is designed against a real record rather than a hypothetical.
+    expect(isRtl("ar")).toBe(true);
+    expect(getDirection("en")).toBe("ltr");
+  });
+
+  it("gives Spanish and Arabic no search region", () => {
+    // A language is not a country. Attaching one to Spanish would invite a
+    // currency or tax assumption this site must never make.
+    expect(getLocaleMeta("es").searchRegion).toBeNull();
+    expect(getLocaleMeta("ar").searchRegion).toBeNull();
+  });
+
+  it("uses the separator Intl actually emits for French", () => {
+    // U+202F, a narrow no-break space. A plain space here would make the
+    // locale-aware parser reject a number the site itself formatted.
+    const french = getLocaleMeta("fr");
+    expect(french.groupSeparator).toBe(" ");
+    const formatted = new Intl.NumberFormat("fr-FR").format(1000);
+    expect(formatted).toContain(french.groupSeparator);
+  });
+
+  it("recognises only declared locales", () => {
+    expect(isSupportedLocale("pt-BR")).toBe(true);
+    expect(isSupportedLocale("pt")).toBe(false);
+    expect(isSupportedLocale("EN")).toBe(false);
+    expect(isSupportedLocale("")).toBe(false);
+    expect(isSupportedLocale("../../etc/passwd")).toBe(false);
+  });
+
+  it("has a record for every launch locale", () => {
+    for (const locale of LAUNCH_LOCALES) {
+      expect(isSupportedLocale(locale), `${locale} is not in the registry`).toBe(true);
+    }
+    expect(LAUNCH_LOCALES).toHaveLength(7);
+    expect(LAUNCH_LOCALES[0]).toBe(DEFAULT_LOCALE);
+  });
+});
+
+describe("reading a locale out of a path", () => {
+  it("finds the prefixed ones", () => {
+    expect(getLocaleFromPath("/pt-br/devex-rates/")).toBe("pt-BR");
+    expect(getLocaleFromPath("/es/")).toBe("es");
+    expect(getLocaleFromPath("/zh-hans/devex-rates/")).toBe("zh-Hans");
+  });
+
+  it("treats an unprefixed path as English", () => {
+    expect(getLocaleFromPath("/")).toBe("en");
+    expect(getLocaleFromPath("/devex-rates/")).toBe("en");
+  });
+
+  it("does not mistake a route that merely starts with a locale's letters", () => {
+    // `/id/` is Indonesian; `/identity/` is not.
+    expect(getLocaleFromPath("/identity/")).toBe("en");
+    expect(getLocaleFromPath("/estimates/")).toBe("en");
+    expect(getLocaleFromPath("/deutschland/")).toBe("en");
+  });
+
+  it("prefers the longer prefix", () => {
+    expect(getLocaleFromPath("/zh-hant/")).toBe("zh-Hant");
+  });
+});
+
+describe("stripping and rebuilding", () => {
+  it("round-trips every locale through its own path", () => {
+    for (const meta of localeRegistry) {
+      for (const route of ["/", "/devex-rates/", "/conversions/30000-robux-to-usd/"]) {
+        const localized = localizedPath(meta.locale, route);
+        expect(stripLocalePrefix(localized), `${meta.locale} ${route}`).toBe(route);
+        expect(getLocaleFromPath(localized)).toBe(meta.locale);
+      }
+    }
+  });
+
+  it("never produces /en/", () => {
+    expect(localizedPath("en", "/devex-rates/")).toBe("/devex-rates/");
+    expect(localizedPath("en", "/")).toBe("/");
+    // Even when handed an already-localized path.
+    expect(localizedPath("en", "/es/devex-rates/")).toBe("/devex-rates/");
+  });
+
+  it("always ends in a slash", () => {
+    // The site's canonical policy. A helper that sometimes omits it puts a
+    // redirect inside an hreflang cluster, which invalidates the cluster.
+    for (const meta of localeRegistry) {
+      for (const route of ["/", "/devex-rates", "/devex-rates/"]) {
+        expect(localizedPath(meta.locale, route).endsWith("/")).toBe(true);
+      }
+    }
+  });
+
+  it("re-points a path that already carries a different prefix", () => {
+    expect(localizedPath("de", "/es/conversions/100000-robux-to-usd/")).toBe(
+      "/de/conversions/100000-robux-to-usd/",
+    );
+  });
+});
+
+describe("switching language", () => {
+  it("keeps the query string, because a shared calculation lives in it", () => {
+    expect(switchLocalePath("id", "/", "?robux=100000&mode=split")).toBe(
+      "/id/?robux=100000&mode=split",
+    );
+    expect(switchLocalePath("de", "/es/conversions/100000-robux-to-usd/")).toBe(
+      "/de/conversions/100000-robux-to-usd/",
+    );
+  });
+
+  it("drops a hash the target route does not have", () => {
+    // A fragment that does not exist on the destination scrolls nowhere and
+    // reads as broken, so the caller has to confirm it before it is kept.
+    expect(switchLocalePath("fr", "/devex-rates/", "", "#history", false)).toBe("/fr/devex-rates/");
+    expect(switchLocalePath("fr", "/devex-rates/", "", "#history", true)).toBe(
+      "/fr/devex-rates/#history",
+    );
+  });
+
+  it("tolerates a query string with or without its question mark", () => {
+    expect(switchLocalePath("tr", "/", "robux=5000")).toBe("/tr/?robux=5000");
+    expect(switchLocalePath("tr", "/", "?robux=5000")).toBe("/tr/?robux=5000");
+    expect(switchLocalePath("tr", "/", "?")).toBe("/tr/");
+  });
+});
+
+describe("parsing a raw route segment", () => {
+  it("accepts a known locale and refuses everything else", () => {
+    expect(parseLocaleSegment("es")).toBe("es");
+    expect(parseLocaleSegment("pt-BR")).toBe("pt-BR");
+  });
+
+  it("refuses anything that is not exactly a declared locale", () => {
+    // This value comes from the URL. It decides a dynamic import path, so a
+    // near-miss must be a 404 rather than a lookup.
+    for (const hostile of [
+      "EN",
+      "pt-br",
+      "..",
+      "../en",
+      "../../etc/passwd",
+      "en/../../secrets",
+      "%2e%2e",
+      "",
+      " ",
+      "en ",
+      "és",
+    ]) {
+      expect(parseLocaleSegment(hostile), `accepted "${hostile}"`).toBeNull();
+    }
+  });
+});
