@@ -85,4 +85,27 @@ export interface LocaleMeta {
    * Spanish and Arabic in particular span many of both.
    */
   readonly searchRegion: string | null;
+
+  /**
+   * The named human who read this translation, and when.
+   *
+   * Both null until someone actually does it. `qualityReview` alone was not
+   * enough: a string field can be edited to `native-reviewed` in one keystroke
+   * and nothing about the change records who or when. These two make the claim
+   * expensive — you have to name a person and a date — and `assertRegistry`
+   * fails the build when the claim is made without them.
+   */
+  readonly reviewerName: string | null;
+  readonly reviewedAt: string | null;
+
+  /**
+   * The English content this translation was made from.
+   *
+   * English is the source, and it moves: a rate changes, a paragraph is
+   * corrected, a page is rewritten. Without a version stamp a translation
+   * drifts out of date invisibly — the words are still fluent, they just
+   * describe a page that no longer exists. The coverage report compares this
+   * against the current English content hash and lists what has changed since.
+   */
+  readonly sourceContentVersion: string;
 }

@@ -30,6 +30,16 @@ import type { Locale, LocaleMeta, LocaleStatus } from "./types";
  *  visible words per language across 36 indexable routes. */
 export const MEASURED_WORDS_PER_LOCALE = 30_883;
 
+/**
+ * The English content every translation was drafted from.
+ *
+ * Bumped by hand when English prose changes materially. The coverage report
+ * compares each locale's stamp against this and lists what has moved since —
+ * a translation that still reads fluently while describing a page that no
+ * longer exists is the failure mode nobody notices.
+ */
+export const SOURCE_CONTENT_VERSION = "2026-08-24.1";
+
 export const DEFAULT_LOCALE: Locale = "en";
 
 export const localeRegistry: readonly LocaleMeta[] = [
@@ -49,6 +59,9 @@ export const localeRegistry: readonly LocaleMeta[] = [
     groupSeparator: ",",
     /** Research hint only. Never used to choose a currency or redirect anyone. */
     searchRegion: "US",
+    reviewerName: null,
+    reviewedAt: null,
+    sourceContentVersion: SOURCE_CONTENT_VERSION,
   },
   {
     locale: "pt-BR",
@@ -60,11 +73,14 @@ export const localeRegistry: readonly LocaleMeta[] = [
     englishName: "Brazilian Portuguese",
     nativeName: "Português (Brasil)",
     direction: "ltr",
-    status: "planned",
-    qualityReview: "none",
+    status: "review",
+    qualityReview: "machine-drafted",
     decimalSeparator: ",",
     groupSeparator: ".",
     searchRegion: "BR",
+    reviewerName: null,
+    reviewedAt: null,
+    sourceContentVersion: SOURCE_CONTENT_VERSION,
   },
   {
     locale: "es",
@@ -76,13 +92,16 @@ export const localeRegistry: readonly LocaleMeta[] = [
     englishName: "Spanish",
     nativeName: "Español",
     direction: "ltr",
-    status: "planned",
-    qualityReview: "none",
+    status: "review",
+    qualityReview: "machine-drafted",
     decimalSeparator: ",",
     groupSeparator: ".",
     // Deliberately not a country. Spanish is spoken across many currencies and
     // tax regimes, and this site never infers either from a language.
     searchRegion: null,
+    reviewerName: null,
+    reviewedAt: null,
+    sourceContentVersion: SOURCE_CONTENT_VERSION,
   },
   {
     locale: "id",
@@ -94,11 +113,14 @@ export const localeRegistry: readonly LocaleMeta[] = [
     englishName: "Indonesian",
     nativeName: "Bahasa Indonesia",
     direction: "ltr",
-    status: "planned",
-    qualityReview: "none",
+    status: "review",
+    qualityReview: "machine-drafted",
     decimalSeparator: ",",
     groupSeparator: ".",
     searchRegion: "ID",
+    reviewerName: null,
+    reviewedAt: null,
+    sourceContentVersion: SOURCE_CONTENT_VERSION,
   },
   {
     locale: "fr",
@@ -110,13 +132,16 @@ export const localeRegistry: readonly LocaleMeta[] = [
     englishName: "French",
     nativeName: "Français",
     direction: "ltr",
-    status: "planned",
-    qualityReview: "none",
+    status: "review",
+    qualityReview: "machine-drafted",
     decimalSeparator: ",",
     // A narrow no-break space, which is what `Intl` actually emits for French.
     // Writing a plain space here would make the parser reject its own output.
     groupSeparator: " ",
     searchRegion: "FR",
+    reviewerName: null,
+    reviewedAt: null,
+    sourceContentVersion: SOURCE_CONTENT_VERSION,
   },
   {
     locale: "de",
@@ -128,11 +153,14 @@ export const localeRegistry: readonly LocaleMeta[] = [
     englishName: "German",
     nativeName: "Deutsch",
     direction: "ltr",
-    status: "planned",
-    qualityReview: "none",
+    status: "review",
+    qualityReview: "machine-drafted",
     decimalSeparator: ",",
     groupSeparator: ".",
     searchRegion: "DE",
+    reviewerName: null,
+    reviewedAt: null,
+    sourceContentVersion: SOURCE_CONTENT_VERSION,
   },
   {
     locale: "tr",
@@ -144,11 +172,14 @@ export const localeRegistry: readonly LocaleMeta[] = [
     englishName: "Turkish",
     nativeName: "Türkçe",
     direction: "ltr",
-    status: "planned",
-    qualityReview: "none",
+    status: "review",
+    qualityReview: "machine-drafted",
     decimalSeparator: ",",
     groupSeparator: ".",
     searchRegion: "TR",
+    reviewerName: null,
+    reviewedAt: null,
+    sourceContentVersion: SOURCE_CONTENT_VERSION,
   },
 
   /*
@@ -158,15 +189,15 @@ export const localeRegistry: readonly LocaleMeta[] = [
    * listed here so that logical CSS properties and `dir` handling are designed
    * against a real record rather than a hypothetical one.
    */
-  { locale: "pl", prefix: "/pl", bcp47: "pl", hreflang: "pl", htmlLang: "pl", ogLocale: "pl_PL", englishName: "Polish", nativeName: "Polski", direction: "ltr", status: "planned", qualityReview: "none", decimalSeparator: ",", groupSeparator: " ", searchRegion: "PL" },
-  { locale: "it", prefix: "/it", bcp47: "it", hreflang: "it", htmlLang: "it", ogLocale: "it_IT", englishName: "Italian", nativeName: "Italiano", direction: "ltr", status: "planned", qualityReview: "none", decimalSeparator: ",", groupSeparator: ".", searchRegion: "IT" },
-  { locale: "vi", prefix: "/vi", bcp47: "vi", hreflang: "vi", htmlLang: "vi", ogLocale: "vi_VN", englishName: "Vietnamese", nativeName: "Tiếng Việt", direction: "ltr", status: "planned", qualityReview: "none", decimalSeparator: ",", groupSeparator: ".", searchRegion: "VN" },
-  { locale: "th", prefix: "/th", bcp47: "th", hreflang: "th", htmlLang: "th", ogLocale: "th_TH", englishName: "Thai", nativeName: "ไทย", direction: "ltr", status: "planned", qualityReview: "none", decimalSeparator: ".", groupSeparator: ",", searchRegion: "TH" },
-  { locale: "ja", prefix: "/ja", bcp47: "ja", hreflang: "ja", htmlLang: "ja", ogLocale: "ja_JP", englishName: "Japanese", nativeName: "日本語", direction: "ltr", status: "planned", qualityReview: "none", decimalSeparator: ".", groupSeparator: ",", searchRegion: "JP" },
-  { locale: "ko", prefix: "/ko", bcp47: "ko", hreflang: "ko", htmlLang: "ko", ogLocale: "ko_KR", englishName: "Korean", nativeName: "한국어", direction: "ltr", status: "planned", qualityReview: "none", decimalSeparator: ".", groupSeparator: ",", searchRegion: "KR" },
-  { locale: "ar", prefix: "/ar", bcp47: "ar", hreflang: "ar", htmlLang: "ar", ogLocale: "ar_AR", englishName: "Arabic", nativeName: "العربية", direction: "rtl", status: "planned", qualityReview: "none", decimalSeparator: ".", groupSeparator: ",", searchRegion: null },
-  { locale: "zh-Hans", prefix: "/zh-hans", bcp47: "zh-Hans", hreflang: "zh-Hans", htmlLang: "zh-Hans", ogLocale: "zh_CN", englishName: "Simplified Chinese", nativeName: "简体中文", direction: "ltr", status: "planned", qualityReview: "none", decimalSeparator: ".", groupSeparator: ",", searchRegion: null },
-  { locale: "zh-Hant", prefix: "/zh-hant", bcp47: "zh-Hant", hreflang: "zh-Hant", htmlLang: "zh-Hant", ogLocale: "zh_TW", englishName: "Traditional Chinese", nativeName: "繁體中文", direction: "ltr", status: "planned", qualityReview: "none", decimalSeparator: ".", groupSeparator: ",", searchRegion: null },
+  { locale: "pl", prefix: "/pl", bcp47: "pl", hreflang: "pl", htmlLang: "pl", ogLocale: "pl_PL", englishName: "Polish", nativeName: "Polski", direction: "ltr", status: "planned", qualityReview: "none", decimalSeparator: ",", groupSeparator: " ", searchRegion: "PL", reviewerName: null, reviewedAt: null, sourceContentVersion: SOURCE_CONTENT_VERSION },
+  { locale: "it", prefix: "/it", bcp47: "it", hreflang: "it", htmlLang: "it", ogLocale: "it_IT", englishName: "Italian", nativeName: "Italiano", direction: "ltr", status: "planned", qualityReview: "none", decimalSeparator: ",", groupSeparator: ".", searchRegion: "IT", reviewerName: null, reviewedAt: null, sourceContentVersion: SOURCE_CONTENT_VERSION },
+  { locale: "vi", prefix: "/vi", bcp47: "vi", hreflang: "vi", htmlLang: "vi", ogLocale: "vi_VN", englishName: "Vietnamese", nativeName: "Tiếng Việt", direction: "ltr", status: "planned", qualityReview: "none", decimalSeparator: ",", groupSeparator: ".", searchRegion: "VN", reviewerName: null, reviewedAt: null, sourceContentVersion: SOURCE_CONTENT_VERSION },
+  { locale: "th", prefix: "/th", bcp47: "th", hreflang: "th", htmlLang: "th", ogLocale: "th_TH", englishName: "Thai", nativeName: "ไทย", direction: "ltr", status: "planned", qualityReview: "none", decimalSeparator: ".", groupSeparator: ",", searchRegion: "TH", reviewerName: null, reviewedAt: null, sourceContentVersion: SOURCE_CONTENT_VERSION },
+  { locale: "ja", prefix: "/ja", bcp47: "ja", hreflang: "ja", htmlLang: "ja", ogLocale: "ja_JP", englishName: "Japanese", nativeName: "日本語", direction: "ltr", status: "planned", qualityReview: "none", decimalSeparator: ".", groupSeparator: ",", searchRegion: "JP", reviewerName: null, reviewedAt: null, sourceContentVersion: SOURCE_CONTENT_VERSION },
+  { locale: "ko", prefix: "/ko", bcp47: "ko", hreflang: "ko", htmlLang: "ko", ogLocale: "ko_KR", englishName: "Korean", nativeName: "한국어", direction: "ltr", status: "planned", qualityReview: "none", decimalSeparator: ".", groupSeparator: ",", searchRegion: "KR", reviewerName: null, reviewedAt: null, sourceContentVersion: SOURCE_CONTENT_VERSION },
+  { locale: "ar", prefix: "/ar", bcp47: "ar", hreflang: "ar", htmlLang: "ar", ogLocale: "ar_AR", englishName: "Arabic", nativeName: "العربية", direction: "rtl", status: "planned", qualityReview: "none", decimalSeparator: ".", groupSeparator: ",", searchRegion: null, reviewerName: null, reviewedAt: null, sourceContentVersion: SOURCE_CONTENT_VERSION },
+  { locale: "zh-Hans", prefix: "/zh-hans", bcp47: "zh-Hans", hreflang: "zh-Hans", htmlLang: "zh-Hans", ogLocale: "zh_CN", englishName: "Simplified Chinese", nativeName: "简体中文", direction: "ltr", status: "planned", qualityReview: "none", decimalSeparator: ".", groupSeparator: ",", searchRegion: null, reviewerName: null, reviewedAt: null, sourceContentVersion: SOURCE_CONTENT_VERSION },
+  { locale: "zh-Hant", prefix: "/zh-hant", bcp47: "zh-Hant", hreflang: "zh-Hant", htmlLang: "zh-Hant", ogLocale: "zh_TW", englishName: "Traditional Chinese", nativeName: "繁體中文", direction: "ltr", status: "planned", qualityReview: "none", decimalSeparator: ".", groupSeparator: ",", searchRegion: null, reviewerName: null, reviewedAt: null, sourceContentVersion: SOURCE_CONTENT_VERSION },
 ];
 
 /**
