@@ -155,6 +155,86 @@ function pageNode(record: RouteRecord): JsonObject {
   };
 }
 
+/**
+ * The downloads a data page actually offers.
+ *
+ * Keyed by route rather than derived, because a `Dataset` node is a claim that
+ * files exist at these URLs. It is emitted only for the two pages that publish
+ * downloads, and every distribution named here is a real endpoint that a test
+ * fetches — a `DataDownload` pointing at nothing is a broken link wearing
+ * structured data.
+ */
+const DATASETS: Readonly<
+  Record<
+    string,
+    {
+      readonly name: string;
+      readonly description: string;
+      readonly temporalCoverage: string;
+      readonly measurementTechnique: string;
+      readonly distributions: readonly { readonly format: string; readonly path: string }[];
+    }
+  >
+> = {
+  "/roblox-stats/": {
+    name: "Roblox creator payout and engagement figures",
+    description:
+      "Developer exchange fees, revenue and engagement as Roblox reports them in its SEC filings, with each row labelled reported or derived and linked to the filing it came from. Includes the metrics Roblox does not publish, as absences with reasons.",
+    temporalCoverage: "2024-01-01/..",
+    measurementTechnique:
+      "Transcribed from Roblox Corporation SEC filings and shareholder letters. Derived figures are computed in code from reported ones and labelled as such.",
+    distributions: [
+      { format: "text/csv", path: "/api/stats/?format=csv" },
+      { format: "text/csv", path: "/api/stats/?format=csv-unpublished" },
+      { format: "application/json", path: "/api/stats/" },
+    ],
+  },
+  "/platform/": {
+    name: "Observed Roblox player counts",
+    description:
+      "Player counts observed every fifteen minutes from Roblox's own public endpoints, for the experiences Roblox was ranking at the time. Nothing is interpolated and no missing observation is filled in; a gap means the collector did not run. This covers only ranked experiences and is not all of Roblox.",
+    temporalCoverage: "..",
+    measurementTechnique:
+      "Recorded server-side from Roblox public games endpoints on a fifteen-minute schedule. Platform totals are retained fourteen days; per-experience series are sampled hourly and retained seven days.",
+    distributions: [
+      { format: "text/csv", path: "/api/platform/?format=csv" },
+      { format: "text/csv", path: "/api/platform/?series=experiences&format=csv" },
+      { format: "application/json", path: "/api/platform/" },
+    ],
+  },
+};
+
+function datasetNode(record: RouteRecord): JsonObject | null {
+  const dataset = DATASETS[record.route];
+  if (!dataset) return null;
+
+  return {
+    "@type": "Dataset",
+    "@id": `${absoluteUrl(record.route)}#dataset`,
+    name: dataset.name,
+    description: dataset.description,
+    url: absoluteUrl(record.route),
+    isAccessibleForFree: true,
+    inLanguage: siteConfig.locale,
+    temporalCoverage: dataset.temporalCoverage,
+    measurementTechnique: dataset.measurementTechnique,
+    // The date the underlying figures last changed, not the build date.
+    dateModified: record.dateModified,
+    /*
+     * No `creator` node. `Organization` is not emitted anywhere on this site
+     * while `organizationName` is unset, and inventing a legal entity to
+     * satisfy a schema property would be exactly the fabrication the rest of
+     * the site refuses.
+     */
+    license: "https://creativecommons.org/licenses/by/4.0/",
+    distribution: dataset.distributions.map((distribution) => ({
+      "@type": "DataDownload",
+      encodingFormat: distribution.format,
+      contentUrl: absoluteUrl(distribution.path),
+    })),
+  };
+}
+
 /** Builds the JSON-LD graph for one route. */
 export function buildGraph(record: RouteRecord): JsonObject {
   const nodes: JsonObject[] = [];
@@ -174,6 +254,11 @@ export function buildGraph(record: RouteRecord): JsonObject {
   if (record.schemaTypes.includes("ItemList")) {
     const list = itemListNode(record);
     if (list) nodes.push(list);
+  }
+
+  if (record.schemaTypes.includes("Dataset")) {
+    const dataset = datasetNode(record);
+    if (dataset) nodes.push(dataset);
   }
 
   return { "@context": "https://schema.org", "@graph": nodes };

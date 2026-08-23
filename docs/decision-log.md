@@ -891,3 +891,48 @@ internal-link strategy claimed 143 edges against 160. All corrected against
 measured values. Two remaining mentions of "32 routes" are left alone on
 purpose: both are historical records of what a phase delivered, and a ledger
 that edits its own history is not a record.
+
+---
+
+## D-041 · `Dataset` only where files exist, and an analytics allowlist
+
+**`Dataset` and `DataDownload` became legitimate the moment the exports did.**
+Before `/api/stats` and `/api/platform` existed, emitting `Dataset` would have
+described a distribution that did not — a broken link wearing structured data.
+It is now declared on exactly the two routes that publish downloads, and an
+end-to-end test fetches every `contentUrl` the markup names, so a distribution
+that stops answering fails the build.
+
+No `creator` property. `Organization` is not emitted anywhere on this site
+while the real registered name is unknown, and a schema property is not a
+reason to invent one.
+
+**Analytics events are an allowlist, because the alternative fails quietly.**
+Every value typed into this site is a fact about someone's income — a balance,
+a target, a tax estimate — and the natural way to write an event is to attach
+the number that just changed. `sanitiseEvent` therefore drops any property not
+explicitly declared rather than passing it through, refuses a number arriving
+where a category belongs (the exact shape a leaked balance takes), and caps
+value length so a balance cannot ride in a field meant for a currency code. A
+test feeds it a realistic payload full of amounts and asserts only the category
+survives.
+
+`minimum_state` is the closest this gets to describing a balance, and it is one
+bit: below the documented minimum, or not. That is enough to learn "most
+visitors are under the threshold" without learning anyone's balance.
+
+`sanitisePath` strips the query string, because a shared calculation URL
+carries the amount in it — sending the full path would defeat every other rule.
+
+Every event names a committed action, never a value changing, and a test
+rejects any event name ending in `_entered`, `_typed`, `_changed` or `_input`.
+Nothing fires without a configured provider, and nothing fires without consent:
+GA4 is loaded behind the consent prompt, so `window.gtag` simply does not exist
+until then, which is the gate itself rather than a second copy of it that could
+disagree.
+
+Wired to three committed actions — copying a result, creating a share link, and
+opening a navigation group. All three are dormant: no provider is configured,
+and the browser suite asserts no analytics request is made.
+
+Cost: 0.9 kB gzipped, taking application JavaScript to 109.4 kB against 125 kB.

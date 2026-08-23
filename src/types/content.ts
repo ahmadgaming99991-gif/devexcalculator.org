@@ -23,7 +23,13 @@ export type SchemaType =
   | "ItemList"
   | "AboutPage"
   | "ContactPage"
-  | "BreadcrumbList";
+  | "BreadcrumbList"
+  /**
+   * Only for a page whose data is genuinely downloadable. Emitting `Dataset`
+   * for a page that merely shows figures would be describing a distribution
+   * that does not exist, which is the schema equivalent of a broken link.
+   */
+  | "Dataset";
 
 export interface FaqEntry {
   readonly question: string;

@@ -18,6 +18,7 @@ import {
 } from "@/lib/calculations/parse-amount";
 import { formatCurrency, formatRobux } from "@/lib/calculations/format";
 import { useClientValue } from "@/lib/utilities/use-client-value";
+import { track } from "@/lib/analytics/track";
 import {
   Badge,
   Callout,
@@ -205,12 +206,18 @@ export function Planner({ today }: { today: string }) {
             <div className="mt-2 flex flex-wrap gap-2">
               <ModeButton
                 selected={mode === "pace"}
-                onClick={() => setMode("pace")}
+                onClick={() => {
+                  setMode("pace");
+                  track("planner_mode_selected", { planner_mode: "pace" });
+                }}
                 label="How much I earn"
               />
               <ModeButton
                 selected={mode === "deadline"}
-                onClick={() => setMode("deadline")}
+                onClick={() => {
+                  setMode("deadline");
+                  track("planner_mode_selected", { planner_mode: "deadline" });
+                }}
                 label="When I need it"
               />
             </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { track } from "@/lib/analytics/track";
 
 /**
  * Keyboard and pointer behaviour for the header's menus.
@@ -51,7 +52,13 @@ export function NavDisclosures({
     function onToggle(event: Event) {
       const target = event.target;
       if (!(target instanceof HTMLDetailsElement)) return;
-      if (target.open) closeAll(target);
+      if (!target.open) return;
+      closeAll(target);
+      // Which groups readers open is the one thing that says whether this
+      // grouping matches how they think about the site.
+      track("navigation_group_opened", {
+        nav_group: target.querySelector("summary")?.textContent?.trim(),
+      });
     }
 
     function onKeyDown(event: KeyboardEvent) {

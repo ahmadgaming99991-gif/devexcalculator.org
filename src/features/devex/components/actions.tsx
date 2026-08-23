@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui";
+import { track } from "@/lib/analytics/track";
 import { useClientValue } from "@/lib/utilities/use-client-value";
 
 /**
@@ -68,6 +69,9 @@ export function CopyButton({
   const handle = useCallback(async () => {
     const succeeded = await copyText(text);
     setState(succeeded ? "copied" : "failed");
+    // A committed action, and no part of what was copied. `track` is a no-op
+    // unless a provider is configured and consent has been given.
+    track("result_copied", { outcome: succeeded ? "success" : "failure" });
     onAnnounce(succeeded ? `${label} copied to the clipboard.` : `${label} could not be copied.`);
     if (timer.current) clearTimeout(timer.current);
     timer.current = setTimeout(() => setState("idle"), 2_500);
@@ -100,6 +104,7 @@ export function ShareButton({
     if (canShare) {
       try {
         await navigator.share({ title, url });
+        track("share_link_created", { outcome: "success", destination: "web-share" });
         return;
       } catch (error) {
         // A cancelled share is a normal outcome, not a failure worth reporting.
@@ -107,6 +112,12 @@ export function ShareButton({
       }
     }
     const succeeded = await copyText(url);
+    // The URL itself carries the calculation in its query string and is never
+    // sent — only whether the fallback worked.
+    track("share_link_created", {
+      outcome: succeeded ? "success" : "failure",
+      destination: "clipboard",
+    });
     onAnnounce(succeeded ? "Share link copied to the clipboard." : "The link could not be copied.");
   }, [canShare, title, url, onAnnounce]);
 

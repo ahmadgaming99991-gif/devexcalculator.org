@@ -621,6 +621,56 @@ test.describe("public API", () => {
  * A rate change is the event that invalidates a cached figure, and until these
  * existed the only way to learn of one was to revisit the changelog by hand.
  */
+test.describe("dataset structured data", () => {
+  /*
+   * `Dataset` is a claim that files exist. It is emitted on exactly the two
+   * pages that publish downloads, and every distribution it names is fetched
+   * here — a DataDownload pointing at nothing is a broken link wearing
+   * structured data.
+   */
+  for (const route of ["/roblox-stats/", "/platform/"]) {
+    test(`${route} describes its downloads, and every one of them answers`, async ({
+      page,
+      request,
+    }) => {
+      await page.goto(route);
+      const raw = await page.locator('script[type="application/ld+json"]').first().textContent();
+      const graph = JSON.parse(raw ?? "{}");
+
+      const dataset = (graph["@graph"] as Record<string, unknown>[]).find(
+        (node) => node["@type"] === "Dataset",
+      );
+      expect(dataset, `${route} declares Dataset but emits none`).toBeDefined();
+
+      const distributions = dataset!.distribution as { contentUrl: string }[];
+      expect(distributions.length).toBeGreaterThan(1);
+
+      for (const distribution of distributions) {
+        const response = await request.get(new URL(distribution.contentUrl).pathname + new URL(distribution.contentUrl).search);
+        expect(
+          [200, 503],
+          `${distribution.contentUrl} answered ${response.status()}`,
+        ).toContain(response.status());
+      }
+
+      // The limitations must travel with the claim.
+      expect(String(dataset!.description).length).toBeGreaterThan(120);
+      expect(dataset!.isAccessibleForFree).toBe(true);
+      // No invented publisher: Organization is not emitted anywhere while the
+      // real name is unknown, and a schema property is not a reason to guess.
+      expect(dataset).not.toHaveProperty("creator");
+    });
+  }
+
+  test("no other page claims to be a dataset", async ({ page }) => {
+    for (const route of ["/", "/devex-rates/", "/conversions/"]) {
+      await page.goto(route);
+      const raw = await page.locator('script[type="application/ld+json"]').first().textContent();
+      expect(raw ?? "", `${route} claims Dataset without downloads`).not.toContain('"Dataset"');
+    }
+  });
+});
+
 test.describe("API description", () => {
   test("serves an OpenAPI 3.1 document describing the live endpoints", async ({ request }) => {
     const response = await request.get("/api/openapi.json");
