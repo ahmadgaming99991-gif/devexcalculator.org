@@ -68,7 +68,8 @@
     "conditional": "Conditionnel",
     "legacy": "Ancien",
     "meetsMinimum": "Atteint le minimum",
-    "belowMinimum": "En dessous du minimum"
+    "belowMinimum": "En dessous du minimum",
+    "ratesVerified": "Taux vérifiés le {lastVerifiedAt}"
   },
   "callouts": {
     "estimateTitle": "Ceci est une estimation, pas une décision",
@@ -76,7 +77,10 @@
     "earnedRobuxOnlyTitle": "DevEx ne s’applique qu’aux Earned Robux",
     "earnedRobuxOnlyLink": "Ce qui compte comme Earned Robux",
     "readMethodology": "Lire la méthodologie complète",
-    "notCoveredHeading": "Ce que ceci ne couvre pas"
+    "notCoveredHeading": "Ce que ceci ne couvre pas",
+    "estimateBody": "Les chiffres présentés ici utilisent les taux que Roblox documente actuellement. Roblox seul décide lesquels de vos Robux comptent comme Earned Robux, quel taux s’applique à quelle partie de votre solde, et si une demande DevEx est acceptée. Les frais du prestataire de paiement et vos propres obligations fiscales ne sont pas inclus, sauf si vous les ajoutez.",
+    "earnedRobuxOnlyBody": "Les Robux que vous avez achetés, reçus en cadeau ou obtenus en dehors de vos revenus de créateur ne sont pas des Earned Robux et ne peuvent pas être encaissés. Le prix de vente au détail des Robux est une tout autre chose, et il n’est jamais mêlé à ces chiffres.",
+    "methodologyBody": "Les calculs utilisent une arithmétique décimale exacte et n'arrondissent qu'au moment de l'affichage ; les montants de Robux requis sont toujours arrondis à l'unité supérieure."
   },
   "sections": {
     "sourcesHeading": "Sources",
@@ -84,7 +88,13 @@
     "reportOutOfDate": "signaler un élément obsolète",
     "faqHeading": "Questions que posent les créateurs",
     "jumpLabel": "Voir le détail",
-    "theCalculation": "Le calcul"
+    "theCalculation": "Le calcul",
+    "ratesChange": "Les taux et les conditions changent.",
+    "onThisPage": "Sur cette page",
+    "sourceLine": "— {publisher}. Vérifié le {checked}.",
+    "sourcesFooter": "{ratesChange} {seeEverySource}, ou {reportOutOfDate}.",
+    "inShort": "En bref",
+    "sourcePrefix": "Source :"
   },
   "actions": {
     "tryAgain": "Réessayer",
@@ -122,7 +132,8 @@
         "p1": "Cookies de mesure d’audience",
         "p2": "Nous aimerions mesurer quelles pages sont consultées, ce qui nécessite un cookie. La calculatrice fonctionne exactement pareil dans les deux cas, et vos calculs ne sont jamais envoyés nulle part."
       }
-    }
+    },
+    "heading": "Cookies de mesure d'audience"
   },
   "ranges": {
     "day": "24 heures",
@@ -132,27 +143,14 @@
   "shell": {
     "skipToContent": "Aller au contenu principal"
   },
-  "content": {
-    "body": {
-      "intro": {
-        "p1": "Les taux et les conditions changent.",
-        "p2": "Les chiffres présentés ici utilisent les taux que Roblox documente actuellement. Roblox seul décide lesquels de vos Robux comptent comme Earned Robux, quel taux s’applique à quelle partie de votre solde, et si une demande DevEx est acceptée. Les frais du prestataire de paiement et vos propres obligations fiscales ne sont pas inclus, sauf si vous les ajoutez.",
-        "p3": "Les Robux que vous avez achetés, reçus en cadeau ou obtenus en dehors de vos revenus de créateur ne sont pas des Earned Robux et ne peuvent pas être encaissés. Le prix de vente au détail des Robux est une tout autre chose, et il n’est jamais mêlé à ces chiffres.",
-        "p4": "Taux vérifiés le {lastVerifiedAt}"
-      },
-      "tocHeading": {
-        "p1": "Sur cette page"
-      }
-    }
-  },
   "tables": {
     "body": {
       "intro": {
-        "p1": "Soldes acquis avant le {effectiveTo}.",
         "p2": "Le sens inverse divise, et arrondit toujours vers le haut : un objectif de",
         "p3": "serait inférieur d’une fraction."
       }
-    }
+    },
+    "legacyAppliesTo": "Soldes acquis avant le {effectiveTo}."
   },
   "charts": {
     "body": {
@@ -167,5 +165,9 @@
         "p1": "Appliqué par {by}"
       }
     }
+  },
+  "ui": {
+    "opensInNewTab": "(ouvre un nouvel onglet)",
+    "advertisement": "Publicité"
   }
 }

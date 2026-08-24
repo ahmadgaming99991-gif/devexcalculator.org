@@ -46,6 +46,29 @@ function faqKey(index: number): string {
   return `q${String(index + 1).padStart(2, "0")}`;
 }
 
+/**
+ * The short label each route goes by, in one language, for any route.
+ *
+ * The navigation dictionary holds labels only for the destinations that are
+ * actually in a menu, which is most routes and not all of them — the eight
+ * amount pages are linked from within the content and appear in a breadcrumb
+ * trail without ever being in the header. `routes.json` covers all 36.
+ *
+ * Returns a lookup rather than a single label so a component with a trail of
+ * four crumbs loads the namespace once.
+ */
+export async function routeLabels(locale: Locale): Promise<(route: string) => string> {
+  const routes = await getNamespace<Record<string, RouteStrings>>(locale, "routes");
+  return (route) => {
+    const key = routeKey(route);
+    const label = routes[key]?.navLabel;
+    if (label === undefined) {
+      throw new Error(`No "routes.${key}.navLabel" for ${route} in locale "${locale}".`);
+    }
+    return label;
+  };
+}
+
 export async function localizedRoute(locale: Locale, route: string): Promise<RouteRecord> {
   const record = requireRoute(route);
   const routes = await getNamespace<Record<string, RouteStrings>>(locale, "routes");

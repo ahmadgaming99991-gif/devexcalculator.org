@@ -1,6 +1,5 @@
-import type { Metadata } from "next";
-import { buildMetadata } from "@/lib/seo/metadata";
-import { requireRoute } from "@/lib/content/route-registry";
+import { localizedRoute } from "@/i18n/localized-route";
+import type { Locale } from "@/i18n/types";
 import { JsonLd } from "@/components/seo/json-ld";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { Callout, Card, Container, InlineLink, Section } from "@/components/ui";
@@ -10,7 +9,6 @@ import { siteConfig } from "@/config/site";
 
 const ROUTE = "/api/";
 
-export const metadata: Metadata = buildMetadata(ROUTE);
 
 /**
  * Documentation for the public endpoints.
@@ -31,22 +29,22 @@ export const metadata: Metadata = buildMetadata(ROUTE);
  * route segment only collide when they are the same folder, which these are
  * not.
  */
-export default function ApiPage() {
-  const record = requireRoute(ROUTE);
+export async function ApiView({ locale }: { readonly locale: Locale }) {
+  const record = await localizedRoute(locale, ROUTE);
   const base = `https://${siteConfig.host}`;
 
   return (
     <>
       <JsonLd route={ROUTE} />
       <Container width="prose">
-        <Breadcrumbs route={ROUTE} />
-        <PageHeader
+        <Breadcrumbs locale={locale} route={ROUTE} />
+        <PageHeader locale={locale}
           record={record}
           intro="The rate registry this site calculates from, published as JSON with every source and verification date attached."
         />
 
         <div className="flex flex-col gap-10">
-          <QuickAnswer jumpTo="rates" jumpLabel="See the endpoint">
+          <QuickAnswer locale={locale} jumpTo="rates" jumpLabel="See the endpoint">
             {record.quickAnswer}
           </QuickAnswer>
 
@@ -251,7 +249,7 @@ export default function ApiPage() {
             </Callout>
           </Section>
 
-          <RelatedLinks
+          <RelatedLinks locale={locale}
             record={record}
             relationships={["sibling", "next-step", "parent"]}
             heading="Related pages"

@@ -57,7 +57,8 @@
     "conditional": "Conditional",
     "legacy": "Legacy",
     "meetsMinimum": "Meets minimum",
-    "belowMinimum": "Below minimum"
+    "belowMinimum": "Below minimum",
+    "ratesVerified": "Rates verified {lastVerifiedAt}"
   },
   "callouts": {
     "estimateTitle": "This is an estimate, not a decision",
@@ -65,7 +66,10 @@
     "earnedRobuxOnlyTitle": "DevEx applies to Earned Robux only",
     "earnedRobuxOnlyLink": "What counts as Earned Robux",
     "readMethodology": "Read the full methodology",
-    "notCoveredHeading": "What this does not cover"
+    "notCoveredHeading": "What this does not cover",
+    "estimateBody": "Figures here use the rates Roblox currently documents. Roblox alone decides which of your Robux count as Earned Robux, which rate applies to which part of your balance, and whether a DevEx request is approved. Payment-provider fees and your own tax obligations are not included unless you add them.",
+    "earnedRobuxOnlyBody": "Robux you bought, received as a gift, or acquired outside creator earnings are not Earned Robux and cannot be cashed out. Retail Robux pricing is a separate thing entirely and is never mixed into these figures.",
+    "methodologyBody": "Calculations use exact decimal arithmetic and round only at the point of display; required-Robux figures always round up."
   },
   "sections": {
     "sourcesHeading": "Sources",
@@ -73,7 +77,13 @@
     "reportOutOfDate": "report something that is out of date",
     "faqHeading": "Questions creators ask",
     "jumpLabel": "See the detail",
-    "theCalculation": "The calculation"
+    "theCalculation": "The calculation",
+    "ratesChange": "Rates and requirements change.",
+    "onThisPage": "On this page",
+    "sourceLine": "— {publisher}. Checked {checked}.",
+    "sourcesFooter": "{ratesChange} {seeEverySource}, or {reportOutOfDate}.",
+    "inShort": "In short",
+    "sourcePrefix": "Source:"
   },
   "actions": {
     "tryAgain": "Try again",
@@ -111,7 +121,8 @@
         "p1": "Analytics cookies",
         "p2": "We would like to measure which pages get used, which needs a cookie. The calculator works identically either way, and your calculations are never sent anywhere."
       }
-    }
+    },
+    "heading": "Analytics cookies"
   },
   "ranges": {
     "day": "24 hours",
@@ -121,27 +132,14 @@
   "shell": {
     "skipToContent": "Skip to main content"
   },
-  "content": {
-    "body": {
-      "intro": {
-        "p1": "Rates and requirements change.",
-        "p2": "Figures here use the rates Roblox currently documents. Roblox alone decides which of your Robux count as Earned Robux, which rate applies to which part of your balance, and whether a DevEx request is approved. Payment-provider fees and your own tax obligations are not included unless you add them.",
-        "p3": "Robux you bought, received as a gift, or acquired outside creator earnings are not Earned Robux and cannot be cashed out. Retail Robux pricing is a separate thing entirely and is never mixed into these figures.",
-        "p4": "Rates verified {lastVerifiedAt}"
-      },
-      "tocHeading": {
-        "p1": "On this page"
-      }
-    }
-  },
   "tables": {
     "body": {
       "intro": {
-        "p1": "Balances earned before {effectiveTo}.",
         "p2": "Working backwards divides instead, and always rounds up: a target of",
         "p3": "would fall a fraction short."
       }
-    }
+    },
+    "legacyAppliesTo": "Balances earned before {effectiveTo}."
   },
   "charts": {
     "body": {
@@ -161,5 +159,8 @@
   "logo": {},
   "header": {},
   "analytics": {},
-  "ui": {}
+  "ui": {
+    "opensInNewTab": "(opens in a new tab)",
+    "advertisement": "Advertisement"
+  }
 }

@@ -13,6 +13,8 @@ const render = (node: React.ReactNode) => renderToStaticMarkup(<>{node}</>);
 
 describe("rich", () => {
   it("puts the element where the translation puts it", () => {
+    // A fixture, not a page: what is under test is where `rich` puts the node.
+    // eslint-disable-next-line @next/next/no-html-link-for-pages
     const link = <a href="/sources/">Quellenverzeichnis</a>;
     const english = render(rich("linked from the {sources} before deciding", { sources: link }));
     const german = render(rich("bevor Sie entscheiden, im {sources} nachsehen", { sources: link }));

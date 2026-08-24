@@ -65,7 +65,8 @@
     "conditional": "Koşullu",
     "legacy": "Eski",
     "meetsMinimum": "Alt sınırı karşılıyor",
-    "belowMinimum": "Alt sınırın altında"
+    "belowMinimum": "Alt sınırın altında",
+    "ratesVerified": "Oranlar {lastVerifiedAt} tarihinde doğrulandı"
   },
   "callouts": {
     "estimateTitle": "Bu bir tahmindir, bir karar değil",
@@ -73,7 +74,10 @@
     "earnedRobuxOnlyTitle": "DevEx yalnızca Earned Robux için geçerlidir",
     "earnedRobuxOnlyLink": "Neler Earned Robux sayılır",
     "readMethodology": "Yöntemin tamamını oku",
-    "notCoveredHeading": "Bunun kapsamadıkları"
+    "notCoveredHeading": "Bunun kapsamadıkları",
+    "estimateBody": "Buradaki rakamlar Roblox'un şu anda belgelediği kurları kullanır. Robux'unuzun hangisinin Earned Robux sayılacağına, bakiyenizin hangi bölümüne hangi kurun uygulanacağına ve bir DevEx talebinin onaylanıp onaylanmayacağına yalnızca Roblox karar verir. Ödeme sağlayıcı ücretleri ve kendi vergi yükümlülükleriniz, siz eklemedikçe dahil değildir.",
+    "earnedRobuxOnlyBody": "Satın aldığınız, hediye olarak aldığınız ya da içerik üreticisi kazancınız dışında edindiğiniz Robux, Earned Robux değildir ve nakde çevrilemez. Robux'un perakende fiyatı bambaşka bir şeydir ve bu rakamlara hiçbir zaman karıştırılmaz.",
+    "methodologyBody": "Hesaplamalar tam ondalık aritmetik kullanır ve yalnızca gösterim anında yuvarlar; gereken Robux rakamları her zaman yukarı yuvarlanır."
   },
   "sections": {
     "sourcesHeading": "Kaynaklar",
@@ -81,7 +85,13 @@
     "reportOutOfDate": "güncelliğini yitirmiş bir şeyi bildir",
     "faqHeading": "İçerik üreticilerinin sorduğu sorular",
     "jumpLabel": "Ayrıntıyı gör",
-    "theCalculation": "Hesaplama"
+    "theCalculation": "Hesaplama",
+    "ratesChange": "Kurlar ve koşullar değişir.",
+    "onThisPage": "Bu sayfada",
+    "sourceLine": "— {publisher}. {checked} tarihinde kontrol edildi.",
+    "sourcesFooter": "{ratesChange} {seeEverySource} ya da {reportOutOfDate}.",
+    "inShort": "Kısaca",
+    "sourcePrefix": "Kaynak:"
   },
   "actions": {
     "tryAgain": "Yeniden dene",
@@ -119,7 +129,8 @@
         "p1": "Analitik çerezleri",
         "p2": "Hangi sayfaların kullanıldığını ölçmek istiyoruz; bunun için bir çerez gerekiyor. Hesaplayıcı her iki durumda da aynı şekilde çalışır ve hesaplarınız hiçbir yere gönderilmez."
       }
-    }
+    },
+    "heading": "Analiz çerezleri"
   },
   "ranges": {
     "day": "24 saat",
@@ -129,27 +140,14 @@
   "shell": {
     "skipToContent": "Ana içeriğe geç"
   },
-  "content": {
-    "body": {
-      "intro": {
-        "p1": "Kurlar ve koşullar değişir.",
-        "p2": "Buradaki rakamlar Roblox'un şu anda belgelediği kurları kullanır. Robux'unuzun hangisinin Earned Robux sayılacağına, bakiyenizin hangi bölümüne hangi kurun uygulanacağına ve bir DevEx talebinin onaylanıp onaylanmayacağına yalnızca Roblox karar verir. Ödeme sağlayıcı ücretleri ve kendi vergi yükümlülükleriniz, siz eklemedikçe dahil değildir.",
-        "p3": "Satın aldığınız, hediye olarak aldığınız ya da içerik üreticisi kazancınız dışında edindiğiniz Robux, Earned Robux değildir ve nakde çevrilemez. Robux'un perakende fiyatı bambaşka bir şeydir ve bu rakamlara hiçbir zaman karıştırılmaz.",
-        "p4": "Oranlar {lastVerifiedAt} tarihinde doğrulandı"
-      },
-      "tocHeading": {
-        "p1": "Bu sayfada"
-      }
-    }
-  },
   "tables": {
     "body": {
       "intro": {
-        "p1": "{effectiveTo} tarihinden önce kazanılan bakiyeler.",
         "p2": "Ters yön bölme yapar ve her zaman yukarı yuvarlar: şu tutarda bir hedef:",
         "p3": "kıl payı yetersiz kalırdı."
       }
-    }
+    },
+    "legacyAppliesTo": "{effectiveTo} tarihinden önce kazanılan bakiyeler."
   },
   "charts": {
     "body": {
@@ -164,5 +162,9 @@
         "p1": "{by} tarafından uygulanır"
       }
     }
+  },
+  "ui": {
+    "opensInNewTab": "(yeni sekmede açılır)",
+    "advertisement": "Reklam"
   }
 }

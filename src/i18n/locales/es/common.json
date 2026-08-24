@@ -64,7 +64,8 @@
     "conditional": "Condicional",
     "legacy": "Antigua",
     "meetsMinimum": "Alcanza el mínimo",
-    "belowMinimum": "Por debajo del mínimo"
+    "belowMinimum": "Por debajo del mínimo",
+    "ratesVerified": "Tasas verificadas el {lastVerifiedAt}"
   },
   "callouts": {
     "estimateTitle": "Esto es una estimación, no una decisión",
@@ -72,7 +73,10 @@
     "earnedRobuxOnlyTitle": "DevEx se aplica solo a Earned Robux",
     "earnedRobuxOnlyLink": "Qué cuenta como Earned Robux",
     "readMethodology": "Lee la metodología completa",
-    "notCoveredHeading": "Qué no cubre esto"
+    "notCoveredHeading": "Qué no cubre esto",
+    "estimateBody": "Las cifras de aquí usan las tasas que Roblox documenta actualmente. Solo Roblox decide cuáles de tus Robux cuentan como Earned Robux, qué tasa se aplica a cada parte de tu saldo y si se aprueba una solicitud de DevEx. Las comisiones del proveedor de pagos y tus propias obligaciones fiscales no están incluidas salvo que las añadas.",
+    "earnedRobuxOnlyBody": "Los Robux que compraste, recibiste como regalo u obtuviste fuera de las ganancias como creador no son Earned Robux y no pueden cobrarse. El precio de venta al público de los Robux es algo completamente distinto y nunca se mezcla con estas cifras.",
+    "methodologyBody": "Los cálculos usan aritmética decimal exacta y solo redondean en el momento de mostrarlos; las cifras de Robux necesarios siempre se redondean al alza."
   },
   "sections": {
     "sourcesHeading": "Fuentes",
@@ -80,7 +84,13 @@
     "reportOutOfDate": "informa de algo desactualizado",
     "faqHeading": "Preguntas que hacen los creadores",
     "jumpLabel": "Ver el detalle",
-    "theCalculation": "El cálculo"
+    "theCalculation": "El cálculo",
+    "ratesChange": "Las tasas y los requisitos cambian.",
+    "onThisPage": "En esta página",
+    "sourceLine": "— {publisher}. Comprobado el {checked}.",
+    "sourcesFooter": "{ratesChange} {seeEverySource}, o {reportOutOfDate}.",
+    "inShort": "En resumen",
+    "sourcePrefix": "Fuente:"
   },
   "actions": {
     "tryAgain": "Intentar de nuevo",
@@ -118,7 +128,8 @@
         "p1": "Cookies de analítica",
         "p2": "Nos gustaría medir qué páginas se usan, y para eso hace falta una cookie. La calculadora funciona igual en cualquier caso, y tus cálculos nunca se envían a ninguna parte."
       }
-    }
+    },
+    "heading": "Cookies de análisis"
   },
   "ranges": {
     "day": "24 horas",
@@ -128,27 +139,14 @@
   "shell": {
     "skipToContent": "Saltar al contenido principal"
   },
-  "content": {
-    "body": {
-      "intro": {
-        "p1": "Las tasas y los requisitos cambian.",
-        "p2": "Las cifras de aquí usan las tasas que Roblox documenta actualmente. Solo Roblox decide cuáles de tus Robux cuentan como Earned Robux, qué tasa se aplica a cada parte de tu saldo y si se aprueba una solicitud de DevEx. Las comisiones del proveedor de pagos y tus propias obligaciones fiscales no están incluidas salvo que las añadas.",
-        "p3": "Los Robux que compraste, recibiste como regalo u obtuviste fuera de las ganancias como creador no son Earned Robux y no pueden cobrarse. El precio de venta al público de los Robux es algo completamente distinto y nunca se mezcla con estas cifras.",
-        "p4": "Tasas verificadas el {lastVerifiedAt}"
-      },
-      "tocHeading": {
-        "p1": "En esta página"
-      }
-    }
-  },
   "tables": {
     "body": {
       "intro": {
-        "p1": "Saldos obtenidos antes del {effectiveTo}.",
         "p2": "El camino inverso divide, y siempre redondea hacia arriba: un objetivo de",
         "p3": "se quedaría corto por una fracción."
       }
-    }
+    },
+    "legacyAppliesTo": "Saldos obtenidos antes del {effectiveTo}."
   },
   "charts": {
     "body": {
@@ -163,5 +161,9 @@
         "p1": "Aplicado por {by}"
       }
     }
+  },
+  "ui": {
+    "opensInNewTab": "(se abre en una pestaña nueva)",
+    "advertisement": "Publicidad"
   }
 }
