@@ -1,3 +1,4 @@
+import { getTranslator, type Translate } from "@/i18n/get-dictionary";
 import { localizedRoute } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -39,6 +40,7 @@ const ROUTE = "/platform/stock/";
 export const revalidate = 0;
 
 export async function StockView({ locale }: { readonly locale: Locale }) {
+  const t = await getTranslator(locale, ["platform"]);
   const record = await localizedRoute(locale, ROUTE);
   const quote = await readQuote();
 
@@ -58,16 +60,16 @@ export async function StockView({ locale }: { readonly locale: Locale }) {
           </QuickAnswer>
 
           <Section id="quote" heading={`${STOCK_SYMBOL} share price`}>
-            <QuoteBlock state={quote} />
+            <QuoteBlock t={t} state={quote} />
           </Section>
 
           <Section
             id="results"
-            heading="What the price responds to"
+            heading={t("platform.stock.respondsToHeading")}
             description={companyContext.description}
           >
-            <TableWrapper label="Roblox reported results">
-              <Table caption="Roblox's reported results for the most recent quarter, against the same quarter a year earlier.">
+            <TableWrapper label={t("platform.stock.reportedResultsLabel")}>
+              <Table caption={t("platform.stock.reportedResultsCaption")}>
                 <thead>
                   <tr>
                     <Th>Measure</Th>
@@ -89,28 +91,24 @@ export async function StockView({ locale }: { readonly locale: Locale }) {
 
             <p className="mt-4 text-(--color-text-muted)">
               Quoted from{" "}
-              <SourceLink href={getSource(companyContext.sourceId).url}>
+              <SourceLink t={t} href={getSource(companyContext.sourceId).url}>
                 {getSource(companyContext.sourceId).title}
               </SourceLink>
               , not recomputed here. A fuller breakdown, including what Roblox pays
               creators each quarter, is on{" "}
-              <InlineLink href="/roblox-stats/">the payout statistics page</InlineLink>.
+              <InlineLink href="/roblox-stats/">{t("platform.stock.payoutStatisticsLink")}</InlineLink>.
             </p>
           </Section>
 
-          <Section id="why" heading="Why there is no embedded chart">
+          <Section id="why" heading={t("platform.stock.noChartHeading")}>
             <p className="text-(--color-text-muted)">
               Sites that show a live Roblox chart are almost always embedding one from a
               market data vendor, which means that vendor&rsquo;s script runs in your
               browser and can see your visit. This site loads no third-party scripts on
               any page, and adding one here would quietly undo that for everyone.
             </p>
-            <p className="mt-3 text-(--color-text-muted)">
-              When a provider is connected it will be read server-side and rendered as
-              plain HTML, so the price arrives the same way every other figure on this
-              site does: fetched by the server, attributed, and dated.
-            </p>
-            <Callout tone="warning" title="Not investment advice">
+            <p className="mt-3 text-(--color-text-muted)">{t("platform.stock.whenConnected")}</p>
+            <Callout tone="warning" title={t("platform.stock.notAdviceTitle")}>
               Nothing on this page is a recommendation to buy or sell anything. A
               company&rsquo;s results say nothing about what any individual creator will
               be paid, and the DevEx rate is set by Roblox independently of its share
@@ -118,7 +116,7 @@ export async function StockView({ locale }: { readonly locale: Locale }) {
             </Callout>
           </Section>
 
-          <Section id="faqs" heading="Questions">
+          <Section id="faqs" heading={t("platform.stock.questionsHeading")}>
             <FAQAccordion locale={locale} faqs={record.faqs} />
           </Section>
 
@@ -135,7 +133,11 @@ export async function StockView({ locale }: { readonly locale: Locale }) {
   );
 }
 
-function QuoteBlock({ state }: { state: QuoteState }) {
+function QuoteBlock({ state,
+  t,
+}: { state: QuoteState;
+  readonly t: Translate;
+}) {
   if (state.status === "ok" || state.status === "last-known") {
     const { quote } = state;
     const lastKnown = state.status === "last-known";
@@ -159,7 +161,7 @@ function QuoteBlock({ state }: { state: QuoteState }) {
            * refused, rather than being left to infer it from the timestamp.
            */
           <p className="mt-3 text-sm text-(--color-text-muted)">
-            <Badge tone="warning">Not the latest</Badge>{" "}
+            <Badge tone="warning">{t("platform.stock.notLatestBadge")}</Badge>{" "}
             This is the most recent quote this site received. {state.reason} The
             price above is unchanged from when it was taken; nothing has been
             adjusted to look current.
@@ -171,7 +173,7 @@ function QuoteBlock({ state }: { state: QuoteState }) {
 
   if (state.status === "unavailable") {
     return (
-      <Callout tone="warning" title="The price provider did not answer">
+      <Callout tone="warning" title={t("platform.stock.providerSilentTitle")}>
         {state.reason} No figure is shown in its place. A stale price presented as
         current would be worse than none.
       </Callout>
@@ -179,11 +181,8 @@ function QuoteBlock({ state }: { state: QuoteState }) {
   }
 
   return (
-    <Callout tone="info" title="No live price is configured">
-      <p>
-        This site will not print a share price it cannot fetch and attribute, and it
-        will not embed a third-party widget to borrow one.
-      </p>
+    <Callout tone="info" title={t("platform.stock.noPriceConfiguredTitle")}>
+      <p>{t("platform.stock.noPriceConfiguredBody")}</p>
       <p className="mt-2">
         The page is already wired for a provider. What is missing is only
         configuration:{" "}

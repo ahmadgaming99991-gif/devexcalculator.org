@@ -1,5 +1,7 @@
 "use client";
 
+import { translatorFor, type LocaleWords } from "@/i18n/client-words";
+import type { Translate } from "@/i18n/get-dictionary";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   calculateComparison,
@@ -97,6 +99,7 @@ export interface CalculatorProps {
   /** Hides the mode tabs when a page only needs one mode. */
   readonly lockedMode?: CalculatorMode;
   readonly showHistory?: boolean;
+  readonly words: LocaleWords;
 }
 
 export function Calculator({
@@ -104,7 +107,9 @@ export function Calculator({
   pathname,
   lockedMode,
   showHistory = true,
+  words,
 }: CalculatorProps) {
+  const t = useMemo(() => translatorFor(words), [words]);
   const [state, setState] = useState<CalculatorState>(initialState);
   const [announcement, setAnnouncement] = useState("");
 
@@ -402,7 +407,7 @@ export function Calculator({
 
   return (
     <Card className="scroll-mt-24" as="section">
-      <h2 className="sr-only">DevEx payout calculator</h2>
+      <h2 className="sr-only">{t("calculator.srHeading")}</h2>
 
       {!lockedMode ? (
         <ModeTabs
@@ -424,14 +429,14 @@ export function Calculator({
           {mode === "quick" ? (
             <>
               <AmountInput
-                label="Eligible Earned Robux"
+                label={t("calculator.inputs.eligibleEarnedRobux.label")}
                 value={state.robux}
                 onChange={(value) => update({ robux: value })}
                 error={errorOf(quickParse)}
                 hint="Type or paste an amount. 100,000, 100k and 1.5m all work."
                 autoFocus={false}
               />
-              <QuickPresets
+              <QuickPresets t={t}
                 activeValue={quickParse?.ok ? quickParse.value.robux.toString() : ""}
                 onSelect={(value) => update({ robux: value.toString() })}
               />
@@ -447,11 +452,7 @@ export function Calculator({
 
           {mode === "advanced" ? (
             <>
-              <p className="text-sm text-(--color-text-muted)">
-                Enter each part of your balance separately. Nothing is counted
-                twice — every Robux belongs to exactly one bucket, and you are
-                the one who decides which. Roblox makes the real split.
-              </p>
+              <p className="text-sm text-(--color-text-muted)">{t("calculator.body.intro.p1")}</p>
               <AmountInput
                 label={`${getRate(standardRateId).label} bucket`}
                 value={state.standardRobux}
@@ -479,7 +480,7 @@ export function Calculator({
           {mode === "target" ? (
             <>
               <AmountInput
-                label="Payout target"
+                label={t("calculator.inputs.payoutTarget.label")}
                 value={state.targetUsd}
                 onChange={(value) => update({ targetUsd: value })}
                 error={targetParse && !targetParse.ok ? targetParse.message : null}
@@ -492,7 +493,7 @@ export function Calculator({
                 onChange={(value) => update({ rateId: value })}
               />
               <AmountInput
-                label="Your current balance (optional)"
+                label={t("calculator.inputs.currentBalance.label")}
                 value={state.currentRobux}
                 onChange={(value) => update({ currentRobux: value })}
                 error={errorOf(currentParse)}
@@ -502,20 +503,17 @@ export function Calculator({
             </>
           ) : null}
 
-          <CurrencySelector value={currency} onChange={selectCurrency} />
+          <CurrencySelector t={t} value={currency} onChange={selectCurrency} />
 
           <Disclosure
-            summary="Optional: payment fees and your own tax estimate"
+            summary={t("calculator.deductions.summary")}
             defaultOpen={advancedOpen}
           >
             <div className="flex flex-col gap-4">
-              <p>
-                These are your figures, not amounts Roblox or any provider has
-                quoted. This site gives no tax advice.
-              </p>
+              <p>{t("calculator.deductions.yourFiguresNote")}</p>
               <div className="grid gap-3 sm:grid-cols-2">
                 <PercentInput
-                  label="Payment provider fee"
+                  label={t("calculator.deductions.percentageFeeLabel")}
                   value={state.feePercent}
                   onChange={(value) => {
                     update({ feePercent: value });
@@ -526,7 +524,7 @@ export function Calculator({
                   placeholder="2.9"
                 />
                 <PercentInput
-                  label="Flat fee per payout"
+                  label={t("calculator.deductions.flatFeeLabel")}
                   value={state.flatFeeUsd}
                   onChange={(value) => update({ flatFeeUsd: value })}
                   error={flatFeeParse.ok ? null : flatFeeParse.message}
@@ -535,7 +533,7 @@ export function Calculator({
                 />
               </div>
               <PercentInput
-                label="Your own tax estimate"
+                label={t("calculator.deductions.taxLabel")}
                 value={state.taxPercent}
                 onChange={(value) => update({ taxPercent: value })}
                 error={taxParse.ok ? null : taxParse.message}
@@ -570,31 +568,31 @@ export function Calculator({
           >
             <div className="flex flex-col gap-4">
               {mode === "target" ? (
-                <TargetBreakdown result={targetResult} />
+                <TargetBreakdown t={t} result={targetResult} />
               ) : (
                 <ThresholdMeter
                   threshold={mode === "advanced" ? splitResult.threshold : quickResult.threshold}
                 />
               )}
-              <FxNote rates={fx.rates} currency={currency} status={fx.status} error={fx.error} />
+              <FxNote t={t} rates={fx.rates} currency={currency} status={fx.status} error={fx.error} />
             </div>
           </ResultSummary>
 
           {mode === "advanced" && splitResult.totalRobux > 0n ? (
-            <ResultBreakdown result={splitResult} />
+            <ResultBreakdown t={t} result={splitResult} />
           ) : null}
 
           <div className="flex flex-wrap gap-2">
             <CopyButton
-              label="Copy result"
+              label={t("calculator.results.copyResult")}
               text={primaryValueText}
               variant="primary"
               onAnnounce={setAnnouncement}
             />
-            <CopyButton label="Copy summary" text={summaryText} onAnnounce={setAnnouncement} />
+            <CopyButton label={t("calculator.results.copySummary")} text={summaryText} onAnnounce={setAnnouncement} />
             <ShareButton
               url={shareUrl}
-              title="DevEx payout estimate"
+              title={t("calculator.results.summaryTitle")}
               onAnnounce={setAnnouncement}
             />
             <ResetButton
@@ -605,7 +603,7 @@ export function Calculator({
           </div>
 
           {showHistory ? (
-            <HistoryPanel
+            <HistoryPanel t={t}
               history={history}
               canSave={summaryText !== ""}
               onSave={saveToHistory}
@@ -628,14 +626,9 @@ export function Calculator({
       */}
       {mode !== "target" && comparisonAmount > 0n ? (
         <div className="mt-6 min-w-0 border-t border-(--color-border) pt-5">
-          <h3 className="text-sm font-semibold text-(--color-text)">
-            What each rate would pay
-          </h3>
-          <p className="mb-3 mt-1 text-xs text-(--color-text-muted)">
-            Roblox decides which rate applies to which part of your balance. This
-            is not a choice you can make.
-          </p>
-          <ScenarioComparison comparison={comparison} />
+          <h3 className="text-sm font-semibold text-(--color-text)">{t("routes.home.sections.rate-comparison")}</h3>
+          <p className="mb-3 mt-1 text-xs text-(--color-text-muted)">{t("calculator.body.intro.p2")}</p>
+          <ScenarioComparison t={t} comparison={comparison} />
         </div>
       ) : null}
 
@@ -657,20 +650,19 @@ function HistoryPanel({
   onSave,
   onClear,
   pathname,
+  t,
 }: {
   history: readonly HistoryEntry[];
   canSave: boolean;
   onSave: () => void;
   onClear: () => void;
   pathname: string;
+  readonly t: Translate;
 }) {
   return (
     <Disclosure summary={`Saved calculations (${history.length})`}>
       <div className="flex flex-col gap-3">
-        <p className="text-xs">
-          Saved only in this browser. Nothing is uploaded, and clearing your
-          browser data removes them.
-        </p>
+        <p className="text-xs">{t("calculator.body.intro.p5")}</p>
         {history.length > 0 ? (
           <ul className="flex flex-col gap-1.5">
             {history.map((entry) => (
@@ -686,7 +678,7 @@ function HistoryPanel({
             ))}
           </ul>
         ) : (
-          <p className="text-xs italic">Nothing saved yet.</p>
+          <p className="text-xs italic">{t("calculator.results.nothingSaved")}</p>
         )}
         <div className="flex flex-wrap gap-2">
           <button

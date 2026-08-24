@@ -1,3 +1,4 @@
+import { getTranslator, type Translate } from "@/i18n/get-dictionary";
 import { localizedRoute } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -30,6 +31,7 @@ const ROUTE = "/api/";
  * not.
  */
 export async function ApiView({ locale }: { readonly locale: Locale }) {
+  const t = await getTranslator(locale, ["platform", "trust"]);
   const record = await localizedRoute(locale, ROUTE);
   const base = `https://${siteConfig.host}`;
 
@@ -50,7 +52,7 @@ export async function ApiView({ locale }: { readonly locale: Locale }) {
 
           <Section
             id="rates"
-            heading="GET /api/rates"
+            heading={t("trust.api.ratesHeading")}
             description="The current DevEx rates, the minimum, the marketplace fee, and the sources each was verified against."
           >
             <Endpoint url={`${base}/api/rates`} />
@@ -76,7 +78,7 @@ export async function ApiView({ locale }: { readonly locale: Locale }) {
 
           <Section
             id="fx"
-            heading="GET /api/fx/latest"
+            heading={t("trust.api.fxHeading")}
             description="European Central Bank reference rates, for showing a payout in a currency other than US dollars."
           >
             <Endpoint url={`${base}/api/fx/latest`} />
@@ -93,14 +95,14 @@ export async function ApiView({ locale }: { readonly locale: Locale }) {
 
           <Section
             id="stats"
-            heading="GET /api/stats"
+            heading={t("trust.api.statsHeading")}
             description="Roblox's reported creator payouts and engagement, as rows, with every figure labelled reported or derived."
           >
             <Endpoint url={`${base}/api/stats`} />
 
             <p className="mt-4 text-(--color-text-muted)">
               The figures charted on{" "}
-              <InlineLink href="/roblox-stats/">the statistics page</InlineLink>,
+              <InlineLink href="/roblox-stats/">{t("trust.api.statisticsPageLink")}</InlineLink>,
               published as data so a chart can be checked rather than believed.
               Add <Code>?format=csv</Code> for a spreadsheet. Every row names its
               filing and links to it, and every row says whether Roblox reported
@@ -115,22 +117,19 @@ export async function ApiView({ locale }: { readonly locale: Locale }) {
               <Field name="?format=csv-unpublished" note="The absences as their own CSV" />
             </div>
 
-            <p className="mt-4 text-(--color-text-muted)">
-              Money is an exact decimal string, never a floating-point number.
-              A figure read from a filing is reproduced as written.
-            </p>
+            <p className="mt-4 text-(--color-text-muted)">{t("trust.api.body.stats.p2")}</p>
           </Section>
 
           <Section
             id="platform"
-            heading="GET /api/platform"
+            heading={t("trust.api.platformHeading")}
             description="The player-count observations this site has collected, exactly as collected."
           >
             <Endpoint url={`${base}/api/platform`} />
 
             <p className="mt-4 text-(--color-text-muted)">
               What{" "}
-              <InlineLink href="/platform/">the platform page</InlineLink> charts.
+              <InlineLink href="/platform/">{t("trust.api.platformPageLink")}</InlineLink> charts.
               Add <Code>?format=csv</Code> for a spreadsheet, or{" "}
               <Code>?series=experiences</Code> for per-experience rows rather than
               totals. Reading it makes no request to Roblox: the collector does
@@ -140,9 +139,7 @@ export async function ApiView({ locale }: { readonly locale: Locale }) {
             </p>
 
             <p className="mt-4 text-(--color-text-muted)">
-              <strong className="font-semibold text-(--color-text)">
-                Nothing is filled in.
-              </strong>{" "}
+              <strong className="font-semibold text-(--color-text)">{t("trust.api.body.platform.p1")}</strong>{" "}
               A gap means the collector did not run at that moment, and the gap
               is left in — no interpolation, no carry-forward, no back-fill. When
               no observations can be read at all the endpoint answers{" "}
@@ -158,8 +155,8 @@ export async function ApiView({ locale }: { readonly locale: Locale }) {
             </div>
           </Section>
 
-          <Section id="using" heading="Using it">
-            <Callout tone="info" title="A machine-readable description">
+          <Section id="using" heading={t("trust.api.usingHeading")}>
+            <Callout tone="info" title={t("trust.api.machineReadableTitle")}>
               <p>
                 <a href="/api/openapi.json">
                   <Code>/api/openapi.json</Code>
@@ -177,14 +174,10 @@ export async function ApiView({ locale }: { readonly locale: Locale }) {
             <div className="mt-6 grid gap-4 sm:grid-cols-2">
               <Card tone="subtle">
                 <h3 className="font-semibold text-(--color-text)">No key, no sign-up</h3>
-                <p className="mt-2 text-sm text-(--color-text-muted)">
-                  There is nothing to register for and no token to keep secret.
-                  Every reference endpoint is a plain GET, sets no cookie, and
-                  answers identically for every caller.
-                </p>
+                <p className="mt-2 text-sm text-(--color-text-muted)">{t("trust.api.body.using.p2")}</p>
               </Card>
               <Card tone="subtle">
-                <h3 className="font-semibold text-(--color-text)">Callable from a browser</h3>
+                <h3 className="font-semibold text-(--color-text)">{t("trust.api.terms.callableFromBrowser")}</h3>
                 <p className="mt-2 text-sm text-(--color-text-muted)">
                   Every reference endpoint sends{" "}
                   <Code>Access-Control-Allow-Origin: *</Code>, so a page on any
@@ -196,7 +189,7 @@ export async function ApiView({ locale }: { readonly locale: Locale }) {
                 </p>
               </Card>
               <Card tone="subtle">
-                <h3 className="font-semibold text-(--color-text)">Cache it</h3>
+                <h3 className="font-semibold text-(--color-text)">{t("trust.api.terms.cacheIt")}</h3>
                 <p className="mt-2 text-sm text-(--color-text-muted)">
                   Rates change rarely — twice in the programme&rsquo;s history at
                   the time of writing. The responses carry{" "}
@@ -217,11 +210,11 @@ export async function ApiView({ locale }: { readonly locale: Locale }) {
             </div>
 
             <div className="mt-6">
-              <Example base={base} />
+              <Example t={t} base={base} />
             </div>
           </Section>
 
-          <Section id="terms" heading="What is promised, and what is not">
+          <Section id="terms" heading={t("trust.api.termsHeading")}>
             <p className="text-(--color-text-muted)">
               <strong className="text-(--color-text)">Promised:</strong> the
               shape of the response will not change without the{" "}
@@ -229,24 +222,16 @@ export async function ApiView({ locale }: { readonly locale: Locale }) {
               source it was verified against, and a rate will never be updated
               from a scraped page without a person checking it first. Changes are
               recorded in{" "}
-              <InlineLink href="/changelog/">the changelog</InlineLink>.
+              <InlineLink href="/changelog/">{t("trust.api.changelogLink")}</InlineLink>.
             </p>
             <p className="mt-3 text-(--color-text-muted)">
-              <strong className="text-(--color-text)">Not promised:</strong> an
-              uptime figure, a support commitment, or that this endpoint exists
-              forever. It is a free convenience served from the same deployment
-              as the site, not a product with a contract behind it. If you are
-              building something that must not break, cache the response and fail
-              back to your own copy.
-            </p>
+              <strong className="text-(--color-text)">Not promised:</strong>{t("trust.api.body.terms.p2")}</p>
 
-            <Callout tone="info" title="These are Roblox's figures, not this site's">
+            <Callout tone="info" title={t("trust.api.robloxFiguresTitle")}>
               Every rate here is what Roblox currently documents, recorded on the
               verification date shown. Roblox decides which rate applies to which
               balance and whether any DevEx request is approved. Read{" "}
-              <InlineLink href="/methodology/">the methodology</InlineLink> for
-              how each figure gets from their documentation into this response.
-            </Callout>
+              <InlineLink href="/methodology/">{t("platform.stats.methodologyLink")}</InlineLink>{t("trust.api.body.terms.p4")}</Callout>
           </Section>
 
           <RelatedLinks locale={locale}
@@ -306,7 +291,11 @@ function Field({ name, note }: { name: string; note: string }) {
  * Rendered as static text rather than a copy button: this page ships no client
  * JavaScript, and a reader can select four lines perfectly well themselves.
  */
-function Example({ base }: { base: string }) {
+function Example({ base,
+  t,
+}: { base: string;
+  readonly t: Translate;
+}) {
   const snippet = `const response = await fetch("${base}/api/rates");
 const { data } = await response.json();
 
@@ -315,9 +304,7 @@ console.log(standard.value, data.registryVersion, data.lastVerifiedAt);`;
 
   return (
     <figure className="m-0">
-      <figcaption className="mb-2 text-sm font-semibold text-(--color-text)">
-        Reading the standard rate
-      </figcaption>
+      <figcaption className="mb-2 text-sm font-semibold text-(--color-text)">{t("trust.api.body.related.p1")}</figcaption>
       <pre className="overflow-x-auto rounded-(--radius-control) border border-(--color-border) bg-(--color-surface-subtle) p-4 text-sm">
         <code>{snippet}</code>
       </pre>

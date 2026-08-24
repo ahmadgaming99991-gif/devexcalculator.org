@@ -1,3 +1,4 @@
+import { getTranslator } from "@/i18n/get-dictionary";
 import { localizedRoute } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -11,6 +12,7 @@ const ROUTE = "/disclaimer/";
 
 
 export async function DisclaimerView({ locale }: { readonly locale: Locale }) {
+  const t = await getTranslator(locale, ["legal"]);
   const record = await localizedRoute(locale, ROUTE);
 
   return (
@@ -26,7 +28,7 @@ export async function DisclaimerView({ locale }: { readonly locale: Locale }) {
         <div className="flex flex-col gap-10">
           <QuickAnswer locale={locale}>{record.quickAnswer}</QuickAnswer>
 
-          <Section id="estimates" heading="Everything here is an estimate">
+          <Section id="estimates" heading={t("legal.disclaimer.estimatesHeading")}>
             <p className="text-(--color-text-muted)">
               The calculator multiplies the Robux figure you enter by a rate taken
               from Roblox&rsquo;s published documentation. That arithmetic is exact and
@@ -35,49 +37,31 @@ export async function DisclaimerView({ locale }: { readonly locale: Locale }) {
               Earned Robux, and that the rate you selected is the one Roblox will
               apply to them.
             </p>
-            <p className="mt-3 text-(--color-text-muted)">
-              Both assumptions are yours to make. Neither can be verified from
-              outside Roblox.
-            </p>
+            <p className="mt-3 text-(--color-text-muted)">{t("legal.disclaimer.body.estimates.p1")}</p>
           </Section>
 
-          <Section id="cannot-determine" heading="What this site cannot determine">
+          <Section id="cannot-determine" heading={t("legal.disclaimer.cannotDetermineHeading")}>
             <ul className="flex list-disc flex-col gap-2 pl-5 text-(--color-text-muted)">
               <li>
                 Whether your Robux count as Earned Robux. Roblox tracks where each
                 Robux came from; that record is not visible here.
               </li>
-              <li>
-                How your balance splits between the standard, legacy and
-                conditional rates.
-              </li>
-              <li>Whether a DevEx request will be approved.</li>
-              <li>How long a request will take, or when payment will arrive.</li>
-              <li>What your payment provider will charge you.</li>
-              <li>What you will owe in tax, or when.</li>
-              <li>What the DevEx rate will be in future.</li>
+              <li>{t("legal.disclaimer.body.cannotDetermine.p1")}</li>
+              <li>{t("legal.disclaimer.cannot.approval")}</li>
+              <li>{t("legal.disclaimer.cannot.timing")}</li>
+              <li>{t("legal.disclaimer.cannot.providerCharges")}</li>
+              <li>{t("legal.disclaimer.cannot.tax")}</li>
+              <li>{t("legal.disclaimer.cannot.futureRate")}</li>
             </ul>
 
-            <Callout tone="warning" title="No calculator can answer these" className="mt-4">
-              This is not a limitation of this particular site. Any tool claiming
-              to know whether your Robux qualify, or promising a specific payout,
-              is claiming knowledge it does not have. Roblox is the only party
-              who can answer these questions.
-            </Callout>
+            <Callout tone="warning" title={t("legal.disclaimer.noCalculatorTitle")} className="mt-4">{t("legal.disclaimer.body.cannotDetermine.p2")}</Callout>
           </Section>
 
-          <Section id="trademarks" heading="Trademarks">
-            <p className="text-(--color-text-muted)">
-              Roblox, Robux and Developer Exchange are trademarks of Roblox
-              Corporation. They appear on this site only to describe what these
-              calculations concern, which is ordinary descriptive use. This site
-              is not affiliated with, endorsed by, sponsored by or operated by
-              Roblox Corporation, and the branding, artwork and wording here are
-              its own.
-            </p>
+          <Section id="trademarks" heading={t("legal.disclaimer.trademarksHeading")}>
+            <p className="text-(--color-text-muted)">{t("legal.disclaimer.body.trademarks.p1")}</p>
           </Section>
 
-          <Section id="accuracy" heading="Accuracy and currency of information">
+          <Section id="accuracy" heading={t("legal.disclaimer.accuracyHeading")}>
             <p className="text-(--color-text-muted)">
               Rate data on this site was last verified against official
               documentation on {formatDate(rateRegistry.lastVerifiedAt)}, and that
@@ -90,7 +74,7 @@ export async function DisclaimerView({ locale }: { readonly locale: Locale }) {
               <InlineLink href="/sources/">source registry</InlineLink> links
               directly to the official page it came from, so you can check the
               current value yourself in a few seconds. Reporting it through the{" "}
-              <InlineLink href="/corrections/">corrections process</InlineLink>{" "}
+              <InlineLink href="/corrections/">{t("legal.disclaimer.correctionsProcessLink")}{" "}</InlineLink>{" "}
               gets it fixed for everyone else too.
             </p>
           </Section>

@@ -1,3 +1,4 @@
+import { getTranslator } from "@/i18n/get-dictionary";
 import Link from "next/link";
 import { localizedRoute } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
@@ -38,6 +39,7 @@ const NOT_QUALIFYING: readonly string[] = [
 ];
 
 export async function EarnedRobuxView({ locale }: { readonly locale: Locale }) {
+  const t = await getTranslator(locale, ["rates"]);
   const record = await localizedRoute(locale, ROUTE);
 
   return (
@@ -57,15 +59,8 @@ export async function EarnedRobuxView({ locale }: { readonly locale: Locale }) {
 
           <TableOfContents locale={locale} sections={record.sections} />
 
-          <Section id="definition" heading="What Earned Robux means">
-            <DefinitionBlock term="Earned Robux">
-              The portion of your Robux balance that came from creator activity —
-              other people spending Robux on something you made — rather than
-              from Robux you acquired any other way. DevEx converts Earned Robux
-              only. Your account shows a single Robux number, but Roblox tracks
-              where each part of it came from, and that internal accounting is
-              what determines eligibility.
-            </DefinitionBlock>
+          <Section id="definition" heading={t("rates.earnedRobux.definitionHeading")}>
+            <DefinitionBlock term="Earned Robux">{t("rates.earnedRobux.body.definition.p1")}</DefinitionBlock>
 
             {/*
               Categories rather than the QUALIFYING and NOT_QUALIFYING arrays
@@ -76,7 +71,7 @@ export async function EarnedRobuxView({ locale }: { readonly locale: Locale }) {
             */}
             <EligibilityGate
               className="mt-6"
-              caption="A summary of the sorting. The full lists, and what Roblox says about each route, are in the two sections below."
+              caption={t("rates.earnedRobux.sortingCaption")}
               accepted={{
                 heading: "Becomes Earned Robux",
                 items: [
@@ -105,18 +100,18 @@ export async function EarnedRobuxView({ locale }: { readonly locale: Locale }) {
               }
             />
 
-            <Callout tone="info" title="Why your balance and your Earned Robux differ" className="mt-4">
+            <Callout tone="info" title={t("rates.earnedRobux.balanceDiffersTitle")} className="mt-4">
               If you have ever bought Robux, received them from a membership, or
               redeemed a gift card, part of your balance is not earned. That part
               cannot be cashed out, and it does not count toward the 30,000
               minimum either.{" "}
-              <Link href="/devex-requirements/">See the full requirements</Link>.
+              <Link href="/devex-requirements/">{t("rates.earnedRobux.seeRequirementsLink")}{" "}</Link>.
             </Callout>
           </Section>
 
           <Section
             id="qualifying"
-            heading="What generally counts"
+            heading={t("rates.earnedRobux.countsHeading")}
             description="These are the routes by which Robux normally become Earned Robux. Roblox makes the final determination for any specific balance."
           >
             <ul className="flex list-disc flex-col gap-2 pl-5 text-(--color-text-muted)">
@@ -128,16 +123,14 @@ export async function EarnedRobuxView({ locale }: { readonly locale: Locale }) {
               In each case Roblox has already taken its platform commission
               before the Robux reach you — creators receive 70% of what a player
               spends on an in-experience purchase.{" "}
-              <InlineLink href="/robux-tax-calculator/">
-                Work out what you keep on a sale
-              </InlineLink>
+              <InlineLink href="/robux-tax-calculator/">{t("rates.earnedRobux.body.qualifying.p2")}</InlineLink>
               .
             </p>
           </Section>
 
           <Section
             id="not-qualifying"
-            heading="What generally does not"
+            heading={t("rates.earnedRobux.doesNotCountHeading")}
             description="Robux acquired these ways sit in the same balance but are treated differently."
           >
             <ul className="flex list-disc flex-col gap-2 pl-5 text-(--color-text-muted)">
@@ -149,32 +142,22 @@ export async function EarnedRobuxView({ locale }: { readonly locale: Locale }) {
               This is also why the retail price of Robux and the DevEx rate are
               unrelated numbers. Buying Robux is a purchase; DevEx is Roblox
               paying a creator.{" "}
-              <InlineLink href="/robux-to-usd/">
-                The two are compared side by side here
-              </InlineLink>
+              <InlineLink href="/robux-to-usd/">{t("rates.earnedRobux.body.notQualifying.p1")}</InlineLink>
               .
             </p>
           </Section>
 
           <Section
             id="pending"
-            heading="Pending and available balances"
+            heading={t("rates.earnedRobux.pendingHeading")}
             description="Newly earned Robux are not immediately available, which surprises creators watching a balance climb."
           >
-            <p className="text-(--color-text-muted)">
-              Robux from a recent purchase typically spend a period as pending
-              before becoming available, which protects against reversed
-              transactions. Pending Robux are not yet part of the balance you can
-              act on. Roblox documents the current holding behaviour in the
-              Creator Hub, and because that behaviour has changed over time this
-              page does not state a specific number of days — check the official
-              documentation for the figure that applies now.
-            </p>
+            <p className="text-(--color-text-muted)">{t("rates.earnedRobux.body.pending.p1")}</p>
           </Section>
 
           <Section
             id="groups"
-            heading="Group funds"
+            heading={t("rates.earnedRobux.groupFundsHeading")}
             description="Robux held by a group are not the same as Robux held by you."
           >
             <p className="text-(--color-text-muted)">
@@ -189,7 +172,7 @@ export async function EarnedRobuxView({ locale }: { readonly locale: Locale }) {
             </p>
           </Section>
 
-          <FAQAccordion locale={locale} faqs={record.faqs} heading="Questions about Earned Robux" />
+          <FAQAccordion locale={locale} faqs={record.faqs} heading={t("rates.earnedRobux.faqsHeading")} />
 
           <RelatedLinks locale={locale}
             record={record}

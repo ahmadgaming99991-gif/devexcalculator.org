@@ -118,11 +118,12 @@
     "accept": "Accept",
     "body": {
       "consentHeading": {
-        "p1": "Analytics cookies",
-        "p2": "We would like to measure which pages get used, which needs a cookie. The calculator works identically either way, and your calculations are never sent anywhere."
+        "p1": "Analytics cookies"
       }
     },
-    "heading": "Analytics cookies"
+    "heading": "Analytics cookies",
+    "explanation": "We would like to measure which pages get used, which needs a cookie. The calculator works identically either way, and your calculations are never sent anywhere.",
+    "decline": "Decline"
   },
   "ranges": {
     "day": "24 hours",

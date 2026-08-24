@@ -1,8 +1,11 @@
+import { loadWords } from "@/i18n/client-words";
+import { getTranslator } from "@/i18n/get-dictionary";
 import { localizedRoute } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
 import { JsonLd } from "@/components/seo/json-ld";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { Calculator } from "@/features/devex/calculator";
+import { CALCULATOR_WORDS } from "@/features/devex/calculator.words";
 import { parseCalculatorState } from "@/features/devex/url-state";
 import { ButtonLink, Callout, Container, InlineLink, Section } from "@/components/ui";
 import {
@@ -28,6 +31,7 @@ export async function FeesAndTaxesView({
   readonly locale: Locale;
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
+  const t = await getTranslator(locale, ["rates"]);
   const record = await localizedRoute(locale, ROUTE);
   const initialState = parseCalculatorState(await searchParams);
   // Read rather than written into the diagram: the split is a published figure
@@ -49,24 +53,18 @@ export async function FeesAndTaxesView({
             {record.quickAnswer}
           </QuickAnswer>
 
-          <Callout tone="warning" title="This page is not tax advice">
-            Nothing here tells you what you owe. Tax depends on where you live,
-            your circumstances and your total income, and this site has no way of
-            knowing any of that. The estimator below uses whatever percentage you
-            enter so you can model your own situation. For an actual answer,
-            speak to a qualified adviser in your country.
-          </Callout>
+          <Callout tone="warning" title={t("rates.feesAndTaxes.notTaxAdviceTitle")}>{t("rates.feesAndTaxes.body.intro.p1")}</Callout>
 
           <TableOfContents locale={locale} sections={record.sections} />
 
           <Section
             id="three-layers"
-            heading="Three separate deductions"
+            heading={t("rates.feesAndTaxes.threeDeductionsHeading")}
             description="They apply in sequence, and confusing them is how creators end up with a number that is badly wrong."
           >
             <ValueFlow
               className="mb-6"
-              caption="Each stage is a different party taking a different kind of cut, in this order. Roblox sets none of them, and this site publishes a figure for none of them."
+              caption={t("rates.feesAndTaxes.sequenceCaption")}
               stages={[
                 {
                   label: "DevEx payout",
@@ -118,17 +116,13 @@ export async function FeesAndTaxesView({
                 rate plus a margin. That margin is why your bank&rsquo;s figure will
                 not match a reference rate.
               </DefinitionBlock>
-              <DefinitionBlock term="3. Income tax">
-                A DevEx payout is income. How much tax applies, and when, depends
-                entirely on your country and your circumstances. Roblox requires a
-                W-9 or W-8 precisely because this is taxable.
-              </DefinitionBlock>
+              <DefinitionBlock term="3. Income tax">{t("rates.feesAndTaxes.body.threeLayers.p1")}</DefinitionBlock>
             </div>
           </Section>
 
           <Section
             id="fees"
-            heading="Payment-provider fees"
+            heading={t("rates.feesAndTaxes.providerFeesHeading")}
             description="The one deduction you can find out in advance, and probably should."
           >
             <p className="text-(--color-text-muted)">
@@ -144,7 +138,7 @@ export async function FeesAndTaxesView({
 
           <Section
             id="currency"
-            heading="Currency conversion"
+            heading={t("rates.feesAndTaxes.conversionHeading")}
             description="Why the figure on this site and the figure in your account differ."
           >
             <p className="text-(--color-text-muted)">
@@ -154,51 +148,37 @@ export async function FeesAndTaxesView({
               rate, usually with a margin built in, so treat a converted figure
               here as an indication of scale rather than a prediction of what
               lands in your account.{" "}
-              <InlineLink href="/methodology/">
-                How the conversion is calculated
-              </InlineLink>
+              <InlineLink href="/methodology/">{t("rates.feesAndTaxes.body.currency.p2")}</InlineLink>
               .
             </p>
           </Section>
 
           <Section
             id="tax"
-            heading="Income tax"
+            heading={t("rates.feesAndTaxes.incomeTaxHeading")}
             description="The part this site deliberately will not answer for you."
           >
-            <p className="text-(--color-text-muted)">
-              There is no universal percentage, and publishing one would be
-              actively harmful — a creator in one country could plan around a
-              figure that is wrong for them by a factor of two. What this site
-              does instead is let you enter your own estimate and see it applied
-              to the real payout figure, so the arithmetic is done for you even
-              though the rate is yours.
-            </p>
-            <p className="mt-3 text-(--color-text-muted)">
-              A practical note that is not advice: the tax is generally owed on
-              the income, not on what is left after fees, and it is usually owed
-              in the year the payout is received rather than the year the Robux
-              were earned. Confirm both with someone qualified.
-            </p>
+            <p className="text-(--color-text-muted)">{t("rates.feesAndTaxes.body.tax.p1")}</p>
+            <p className="mt-3 text-(--color-text-muted)">{t("rates.feesAndTaxes.body.tax.p2")}</p>
           </Section>
 
           <Section
             id="estimator"
-            heading="Model your own figures"
+            heading={t("rates.feesAndTaxes.modelHeading")}
             description="Open the fee and tax controls below the currency selector and enter your own percentages."
           >
-            <Calculator initialState={initialState} pathname={ROUTE} lockedMode="quick" showHistory={false} />
+            <Calculator words={await loadWords(locale, CALCULATOR_WORDS)} initialState={initialState} pathname={ROUTE} lockedMode="quick" showHistory={false} />
           </Section>
 
           <Section
             id="not-the-marketplace-fee"
-            heading="Not to be confused with the marketplace fee"
+            heading={t("rates.feesAndTaxes.notMarketplaceHeading")}
             description="The 30% platform commission is a different thing at a different point in time."
           >
             <ShareSplit
               className="mb-4"
               total="100 Robux spent by a player inside your experience"
-              caption="The split happens when the player spends, long before DevEx is involved. Percentages come from the rate registry, not from this drawing."
+              caption={t("rates.feesAndTaxes.marketplaceDiagramCaption")}
               parts={[
                 {
                   label: "to you, as Earned Robux",
@@ -221,19 +201,15 @@ export async function FeesAndTaxesView({
               then converts those Earned Robux. The commission is not applied a
               second time at cash-out, and any calculator that subtracts 30%
               from a DevEx payout is double-counting it.{" "}
-              <InlineLink href="/robux-tax-calculator/">
-                Work out the marketplace fee separately
-              </InlineLink>
+              <InlineLink href="/robux-tax-calculator/">{t("rates.feesAndTaxes.body.notTheMarketplaceFee.p2")}</InlineLink>
               .
             </p>
             <div className="mt-4">
-              <ButtonLink href="/robux-tax-calculator/" variant="secondary">
-                Open the marketplace fee calculator
-              </ButtonLink>
+              <ButtonLink href="/robux-tax-calculator/" variant="secondary">{t("rates.feesAndTaxes.body.notTheMarketplaceFee.p3")}</ButtonLink>
             </div>
           </Section>
 
-          <FAQAccordion locale={locale} faqs={record.faqs} heading="Questions about fees and tax" />
+          <FAQAccordion locale={locale} faqs={record.faqs} heading={t("rates.feesAndTaxes.faqsHeading")} />
 
           <RelatedLinks locale={locale}
             record={record}

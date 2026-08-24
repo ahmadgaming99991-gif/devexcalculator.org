@@ -1,8 +1,11 @@
+import { loadWords } from "@/i18n/client-words";
+import { getTranslator } from "@/i18n/get-dictionary";
 import { localizedRoute } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
 import { JsonLd } from "@/components/seo/json-ld";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { MarketplaceCalculator } from "@/features/marketplace/calculator";
+import { MARKETPLACE_WORDS } from "@/features/marketplace/calculator.words";
 import { Callout, Container, InlineLink, Section, Table, TableWrapper, Td, Th } from "@/components/ui";
 import {
   EstimateDisclaimer,
@@ -20,6 +23,7 @@ const ROUTE = "/robux-tax-calculator/";
 
 
 export async function RobuxTaxView({ locale }: { readonly locale: Locale }) {
+  const t = await getTranslator(locale, ["marketplace", "rates"]);
   const record = await localizedRoute(locale, ROUTE);
   const progressive = getMarketplaceScheme("marketplace-avatar-item");
 
@@ -38,32 +42,28 @@ export async function RobuxTaxView({ locale }: { readonly locale: Locale }) {
             {record.quickAnswer}
           </QuickAnswer>
 
-          <MarketplaceCalculator />
+          <MarketplaceCalculator words={await loadWords(locale, MARKETPLACE_WORDS)} />
 
           <TableOfContents locale={locale} sections={record.sections} />
 
           <Section
             id="schemes"
-            heading="Which commission applies"
+            heading={t("rates.robuxTax.schemesHeading")}
             description="Roblox uses different splits depending on what was sold and where it was bought."
           >
-            <TableWrapper label="Roblox commission by sale type">
-              <Table caption="How Robux from a sale are divided, by sale type">
+            <TableWrapper label={t("rates.robuxTax.schemesLabel")}>
+              <Table caption={t("rates.robuxTax.schemesCaption")}>
                 <thead>
                   <tr>
-                    <Th>Sale type</Th>
+                    <Th>{t("rates.robuxTax.columnSaleType")}</Th>
                     <Th numeric>Creator</Th>
-                    <Th numeric>Experience owner</Th>
+                    <Th numeric>{t("marketplace.results.experienceOwner")}</Th>
                     <Th numeric>Roblox</Th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <Th scope="row">
-                      In-experience purchase
-                      <span className="mt-1 block text-xs font-normal text-(--color-text-muted)">
-                        Developer products, passes, private servers
-                      </span>
+                    <Th scope="row">{t("rates.robuxTax.body.schemes.p1")}<span className="mt-1 block text-xs font-normal text-(--color-text-muted)">{t("rates.robuxTax.body.schemes.p2")}</span>
                     </Th>
                     <Td numeric className="font-semibold">
                       70%
@@ -72,11 +72,7 @@ export async function RobuxTaxView({ locale }: { readonly locale: Locale }) {
                     <Td numeric>30%</Td>
                   </tr>
                   <tr>
-                    <Th scope="row">
-                      Marketplace avatar item
-                      <span className="mt-1 block text-xs font-normal text-(--color-text-muted)">
-                        Progressive by price — see below
-                      </span>
+                    <Th scope="row">{t("rates.robuxTax.body.schemes.p3")}<span className="mt-1 block text-xs font-normal text-(--color-text-muted)">{t("rates.robuxTax.body.schemes.p4")}</span>
                     </Th>
                     <Td numeric className="font-semibold">
                       30–70%
@@ -85,11 +81,7 @@ export async function RobuxTaxView({ locale }: { readonly locale: Locale }) {
                     <Td numeric>30–70%</Td>
                   </tr>
                   <tr>
-                    <Th scope="row">
-                      Avatar item bought inside an experience
-                      <span className="mt-1 block text-xs font-normal text-(--color-text-muted)">
-                        Item creator and experience owner are paid separately
-                      </span>
+                    <Th scope="row">{t("rates.robuxTax.body.schemes.p5")}<span className="mt-1 block text-xs font-normal text-(--color-text-muted)">{t("rates.robuxTax.body.schemes.p6")}</span>
                     </Th>
                     <Td numeric className="font-semibold">
                       30%
@@ -100,25 +92,21 @@ export async function RobuxTaxView({ locale }: { readonly locale: Locale }) {
                 </tbody>
               </Table>
             </TableWrapper>
-            <p className="mt-3 text-sm text-(--color-text-muted)">
-              If you sell your own item inside your own experience you receive
-              both the creator share and the experience owner share, which comes
-              to 70%.
-            </p>
+            <p className="mt-3 text-sm text-(--color-text-muted)">{t("rates.robuxTax.body.schemes.p7")}</p>
           </Section>
 
           <Section
             id="progressive"
-            heading="The progressive Marketplace share"
+            heading={t("rates.robuxTax.progressiveHeading")}
             description="For avatar items sold through the Marketplace, the creator share rises with the item's price relative to its category price floor."
           >
-            <TableWrapper label="Progressive Marketplace revenue share tiers">
-              <Table caption="Creator revenue share by price as a multiple of the price floor">
+            <TableWrapper label={t("rates.robuxTax.progressiveLabel")}>
+              <Table caption={t("rates.robuxTax.progressiveCaption")}>
                 <thead>
                   <tr>
-                    <Th>Price ÷ price floor</Th>
-                    <Th numeric>Creator share</Th>
-                    <Th numeric>Roblox share</Th>
+                    <Th>{t("rates.robuxTax.columnPriceOverFloor")}</Th>
+                    <Th numeric>{t("rates.robuxTax.columnCreatorShare")}</Th>
+                    <Th numeric>{t("rates.robuxTax.columnRobloxShare")}</Th>
                   </tr>
                 </thead>
                 <tbody>
@@ -138,7 +126,7 @@ export async function RobuxTaxView({ locale }: { readonly locale: Locale }) {
               </Table>
             </TableWrapper>
 
-            <Callout tone="info" title="Why the calculator asks for a multiple" className="mt-4">
+            <Callout tone="info" title={t("rates.robuxTax.multipleTitle")} className="mt-4">
               Price floors differ by item category and Roblox has adjusted them
               over time, so hardcoding one universal floor would produce wrong
               answers for most items. Entering the multiple keeps the result
@@ -148,7 +136,7 @@ export async function RobuxTaxView({ locale }: { readonly locale: Locale }) {
 
           <Section
             id="scope"
-            heading="Scope and exclusions"
+            heading={t("rates.robuxTax.scopeHeading")}
             description="What this calculator does and does not cover."
           >
             <LimitationsNote locale={locale}
@@ -164,28 +152,18 @@ export async function RobuxTaxView({ locale }: { readonly locale: Locale }) {
 
           <Section
             id="not-devex"
-            heading="This is not the DevEx rate"
+            heading={t("rates.robuxTax.notDevExHeading")}
             description="The two calculations happen at different times and must not be chained."
           >
-            <p className="text-(--color-text-muted)">
-              The commission on this page applies at the moment a player spends
-              Robux. What you keep becomes Earned Robux. DevEx then converts those
-              Earned Robux to cash at its own rate, on a balance that has already
-              had the commission taken. Subtracting 30% from a DevEx payout
-              applies the same fee twice and understates what a creator receives.
-            </p>
+            <p className="text-(--color-text-muted)">{t("rates.robuxTax.body.notDevex.p1")}</p>
             <p className="mt-3 text-(--color-text-muted)">
-              <InlineLink href="/">
-                Convert your Earned Robux to a payout estimate
-              </InlineLink>{" "}
+              <InlineLink href="/">{t("rates.robuxTax.body.notDevex.p2")}</InlineLink>{" "}
               ·{" "}
-              <InlineLink href="/devex-fees-and-taxes/">
-                What actually comes off a DevEx payout
-              </InlineLink>
+              <InlineLink href="/devex-fees-and-taxes/">{t("rates.robuxTax.body.notDevex.p3")}</InlineLink>
             </p>
           </Section>
 
-          <FAQAccordion locale={locale} faqs={record.faqs} heading="Questions about the Roblox fee" />
+          <FAQAccordion locale={locale} faqs={record.faqs} heading={t("rates.robuxTax.faqsHeading")} />
 
           <RelatedLinks locale={locale}
             record={record}

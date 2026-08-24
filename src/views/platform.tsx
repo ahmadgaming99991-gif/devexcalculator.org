@@ -1,3 +1,4 @@
+import { getTranslator, type Translate } from "@/i18n/get-dictionary";
 import { localizedRoute } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
 import { cache } from "react";
@@ -86,6 +87,7 @@ interface PageProps {
 }
 
 export async function PlatformView({ locale, searchParams }: PageProps) {
+  const t = await getTranslator(locale, ["platform"]);
   const record = await localizedRoute(locale, ROUTE);
   const params = await searchParams;
   const requested = typeof params.ranking === "string" ? params.ranking : undefined;
@@ -111,7 +113,7 @@ export async function PlatformView({ locale, searchParams }: PageProps) {
 
           <Section
             id="live"
-            heading="What is being played right now"
+            heading={t("platform.live.nowHeading")}
             description="Read from Roblox's public explore and games endpoints when this page was served. No account, no third-party data provider, and nothing measured or estimated by this site."
           >
             {/*
@@ -132,7 +134,7 @@ export async function PlatformView({ locale, searchParams }: PageProps) {
               timeout — a slow Roblox produces a stated outage, not a hanging
               page.
             */}
-            <LiveExperiences
+            <LiveExperiences t={t}
               requested={requested}
               window={chartWindow}
               experience={Number.isFinite(experience) ? experience : undefined}
@@ -141,18 +143,18 @@ export async function PlatformView({ locale, searchParams }: PageProps) {
 
           <Section
             id="experiences-over-time"
-            heading="Top experiences over time"
+            heading={t("platform.history.topOverTimeHeading")}
             description={`Every experience this site is tracking, on one set of axes, from one count an hour kept for ${GAME_HISTORY_DAYS} days. The eight busiest carry a colour and a name; the rest are drawn behind them so the shape of the whole ranking is visible.`}
           >
-            <TopExperiencesOverTime days={chartWindow.days} />
+            <TopExperiencesOverTime t={t} days={chartWindow.days} />
           </Section>
 
           <Section
             id="largest"
-            heading="The busiest single experience"
+            heading={t("platform.history.busiestSingleHeading")}
             description="The highest player count any one experience held at each observation — the platform's peak title rather than its total, which move independently."
           >
-            <LargestExperience days={chartWindow.days} />
+            <LargestExperience t={t} days={chartWindow.days} />
           </Section>
 
           <Section
@@ -162,13 +164,13 @@ export async function PlatformView({ locale, searchParams }: PageProps) {
           >
             {/* Same reasoning as above; this one is a KV read, so there was
                 little to stream in the first place. */}
-            <ObservedHistory window={chartWindow} selectedRanking={requested} />
+            <ObservedHistory t={t} window={chartWindow} selectedRanking={requested} />
           </Section>
 
           <Section id="how" heading="How this page gets its numbers">
             <div className="grid gap-4 sm:grid-cols-2">
               <Card tone="subtle">
-                <h3 className="font-semibold text-(--color-text)">Live figures</h3>
+                <h3 className="font-semibold text-(--color-text)">{t("platform.method.liveHeading")}{" "}</h3>
                 <p className="mt-2 text-sm text-(--color-text-muted)">
                   Fetched server-side from Roblox when the page is served and cached
                   for {EXPERIENCE_CACHE_SECONDS / 60} minutes. Your browser makes no
@@ -189,7 +191,7 @@ export async function PlatformView({ locale, searchParams }: PageProps) {
               </Card>
             </div>
 
-            <Callout tone="info" title="Ranking and counts are Roblox's, the record is ours">
+            <Callout tone="info" title={t("platform.method.provenanceTitle")}>
               Which experiences appear, how many players each has, and how each has
               been voted on all come from Roblox. This site does not rank
               experiences, does not estimate player counts, and does not publish a
@@ -197,7 +199,7 @@ export async function PlatformView({ locale, searchParams }: PageProps) {
               as such. The approval share is the only arithmetic on this page, and it
               is Roblox&rsquo;s own up and down vote counts divided. For the money
               side of the platform, see{" "}
-              <InlineLink href="/roblox-stats/">the payout statistics</InlineLink>,
+              <InlineLink href="/roblox-stats/">{t("platform.method.payoutStatisticsLink")}{" "}</InlineLink>,
               which come from Roblox&rsquo;s filings.
             </Callout>
           </Section>
@@ -208,7 +210,7 @@ export async function PlatformView({ locale, searchParams }: PageProps) {
             description="Exactly what was collected, with the gaps left in."
           >
             <DataDownload
-              heading="Observed player counts"
+              heading={t("platform.download.innerHeading")}
               description="The observations behind the chart above, as a spreadsheet or as JSON. Read from storage; downloading makes no request to Roblox."
               formats={[
                 { label: "CSV — platform totals", href: "/api/platform/?format=csv" },
@@ -285,15 +287,17 @@ function RankingTabs({
   rankings,
   selectedId,
   days,
+  t,
 }: {
   rankings: readonly Ranking[];
   selectedId: string;
   days: number;
+  readonly t: Translate;
 }) {
   if (rankings.length < 2) return null;
 
   return (
-    <nav aria-label="Roblox rankings" className="mt-6">
+    <nav aria-label={t("platform.live.rankingsLabel")} className="mt-6">
       <ul className="flex flex-wrap gap-2">
         {rankings.map((ranking) => {
           const current = ranking.id === selectedId;
@@ -326,22 +330,23 @@ async function LiveExperiences({
   requested,
   window: chartWindow,
   experience,
+  t,
 }: {
   requested?: string;
   window: ChartWindow;
   experience?: number;
+  readonly t: Translate;
 }) {
   // Both are wanted by the same section, and neither depends on the other.
   const [result, history] = await Promise.all([fetchRankings(requested), loadGameHistory()]);
 
   if (!result.ok) {
     return (
-      <Callout tone="warning" title="Roblox's live figures are unavailable right now">
+      <Callout tone="warning" title={t("platform.live.unavailableTitle")}>
         {result.reason} Nothing is shown in their place, because a stale or invented
         number would be worse than none. The rest of this site does not depend on
         this endpoint — the{" "}
-        <InlineLink href="/">payout calculator</InlineLink> works regardless.
-      </Callout>
+        <InlineLink href="/">{t("platform.live.calculatorStillWorks")}</InlineLink>{t("platform.live.body.related.p2")}</Callout>
     );
   }
 
@@ -349,10 +354,7 @@ async function LiveExperiences({
 
   if (experiences.length === 0) {
     return (
-      <Callout tone="info" title="Roblox returned no experiences">
-        The endpoint answered, but its ranking was empty. That is unusual and
-        probably temporary.
-      </Callout>
+      <Callout tone="info" title={t("platform.live.noExperiencesTitle")}>{t("platform.live.body.related.p3")}</Callout>
     );
   }
 
@@ -367,31 +369,27 @@ async function LiveExperiences({
 
   return (
     <div className="min-w-0">
-      <PlatformFigure platform={platform} observedAt={result.observedAt} />
+      <PlatformFigure t={t} platform={platform} observedAt={result.observedAt} />
 
       <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <Stat label="Players in this ranking" value={numberFormat.format(totalPlaying)} />
-        <Stat label="Experiences shown" value={`${experiences.length} of ${selected.size}`} />
-        <Stat label="Roblox ranking" value={selected.name} />
-        <Stat label="Busiest right now" value={busiest.name} />
+        <Stat label={t("platform.live.stats.playersInRanking")} value={numberFormat.format(totalPlaying)} />
+        <Stat label={t("platform.live.stats.experiencesShown")} value={`${experiences.length} of ${selected.size}`} />
+        <Stat label={t("platform.live.stats.robloxRanking")} value={selected.name} />
+        <Stat label={t("platform.live.stats.busiestRightNow")} value={busiest.name} />
       </div>
 
-      <RankingTabs rankings={rankings} selectedId={selected.id} days={chartWindow.days} />
+      <RankingTabs t={t} rankings={rankings} selectedId={selected.id} days={chartWindow.days} />
 
       <p className="mt-4 text-sm text-(--color-text-muted)">
         {selected.subtitle ? `${selected.subtitle}. ` : null}
         Observed{" "}
         <time dateTime={result.observedAt}>{formatObserved(result.observedAt)}</time>.{" "}
         Source:{" "}
-        <SourceLink href="https://apis.roblox.com/explore-api/v1/get-sorts?sessionId=devexcalculator">
-          Roblox explore endpoint
-        </SourceLink>
+        <SourceLink t={t} href="https://apis.roblox.com/explore-api/v1/get-sorts?sessionId=devexcalculator">{t("platform.live.body.related.p4")}</SourceLink>
         {hasVisits ? (
           <>
             {" "}and{" "}
-            <SourceLink href="https://games.roblox.com/v1/games">
-              Roblox games endpoint
-            </SourceLink>
+            <SourceLink t={t} href="https://games.roblox.com/v1/games">{t("platform.live.body.related.p5")}</SourceLink>
           </>
         ) : null}
         .
@@ -405,16 +403,16 @@ async function LiveExperiences({
             <tr>
               <Th>#</Th>
               <Th>Experience</Th>
-              <Th>Players now</Th>
+              <Th>{t("platform.live.table.playersNow")}</Th>
               {history ? <Th>Last 24h</Th> : null}
-              {hasVisits ? <Th>Lifetime visits</Th> : null}
+              {hasVisits ? <Th>{t("platform.live.table.lifetimeVisits")}{" "}</Th> : null}
               {hasVotes ? <Th>Approval</Th> : null}
               {hasGenre ? <Th>Genre</Th> : null}
             </tr>
           </thead>
           <tbody>
             {experiences.map((row, index) => (
-              <ExperienceRow
+              <ExperienceRow t={t}
                 key={row.universeId}
                 experience={row}
                 rank={index + 1}
@@ -431,7 +429,7 @@ async function LiveExperiences({
       </TableWrapper>
 
       {history && experience !== undefined && history.players[String(experience)] ? (
-        <ExperienceDetail
+        <ExperienceDetail t={t}
           history={history}
           universeId={experience}
           ranking={requested}
@@ -440,11 +438,7 @@ async function LiveExperiences({
       ) : null}
 
       {detailsLoaded ? null : (
-        <p className="mt-3 text-sm text-(--color-text-muted)">
-          Visit counts, favourites and creator names are omitted: the endpoint that
-          supplies them did not answer for this request. Player counts and votes above
-          come from the ranking itself and are unaffected.
-        </p>
+        <p className="mt-3 text-sm text-(--color-text-muted)">{t("platform.live.body.related.p6")}</p>
       )}
 
       <p className="mt-3 text-sm text-(--color-text-muted)">
@@ -475,19 +469,23 @@ const loadGameHistory = cache(async (): Promise<GameHistory | null> => {
   return readGameHistory(store).catch(() => null);
 });
 
-function HistoryUnavailable({ what }: { what: string }) {
+function HistoryUnavailable({ what,
+  t,
+}: { what: string;
+  readonly t: Translate;
+}) {
   return (
-    <Callout tone="info" title={`${what} is not available in this environment`}>
-      Per-experience counts are stored in a Cloudflare KV namespace bound to the
-      deployed Worker. Without that binding there is nothing recorded to draw,
-      which is why this says so rather than showing an empty axis.
-    </Callout>
+    <Callout tone="info" title={`${what} is not available in this environment`}>{t("platform.live.body.related.p8")}</Callout>
   );
 }
 
-async function TopExperiencesOverTime({ days }: { days: number }) {
+async function TopExperiencesOverTime({ days,
+  t,
+}: { days: number;
+  readonly t: Translate;
+}) {
   const history = await loadGameHistory();
-  if (!history) return <HistoryUnavailable what="Per-experience history" />;
+  if (!history) return <HistoryUnavailable t={t} what="Per-experience history" />;
 
   /*
    * The range tabs govern these charts too. They did not need to while
@@ -504,7 +502,7 @@ async function TopExperiencesOverTime({ days }: { days: number }) {
 
   if (plottable.length === 0) {
     return (
-      <Callout tone="info" title="Not enough observations yet to draw lines">
+      <Callout tone="info" title={t("platform.history.notEnoughLinesTitle")}>
         {tracked.length === 0
           ? "No per-experience counts have been recorded yet."
           : `${tracked.length} experiences have been seen once each.`}{" "}
@@ -518,14 +516,14 @@ async function TopExperiencesOverTime({ days }: { days: number }) {
   return (
     <div className="min-w-0">
       <div className="grid gap-4 sm:grid-cols-3">
-        <Stat label="Experiences tracked" value={numberFormat.format(tracked.length)} />
+        <Stat label={t("platform.history.stats.experiencesTracked")} value={numberFormat.format(tracked.length)} />
         <Stat
-          label="Observations held"
+          label={t("platform.history.stats.observationsHeld")}
           value={numberFormat.format(history.at.length)}
           note={`One an hour, kept for ${GAME_HISTORY_DAYS} days`}
         />
         <Stat
-          label="Busiest tracked"
+          label={t("platform.history.stats.busiestTracked")}
           value={plottable[0]?.name ?? "—"}
           note={
             plottable[0]
@@ -554,9 +552,13 @@ async function TopExperiencesOverTime({ days }: { days: number }) {
   );
 }
 
-async function LargestExperience({ days }: { days: number }) {
+async function LargestExperience({ days,
+  t,
+}: { days: number;
+  readonly t: Translate;
+}) {
   const history = await loadGameHistory();
-  if (!history) return <HistoryUnavailable what="The busiest-experience record" />;
+  if (!history) return <HistoryUnavailable t={t} what="The busiest-experience record" />;
 
   const { series: full, leaders } = largestExperienceSeries(history);
   const series = sliceSeries(full, days);
@@ -565,7 +567,7 @@ async function LargestExperience({ days }: { days: number }) {
 
   if (!series.chartable) {
     return (
-      <Callout tone="info" title="Not enough observations yet">
+      <Callout tone="info" title={t("platform.history.notEnoughYetTitle")}>
         {series.points.length} observation{series.points.length === 1 ? "" : "s"} so
         far. A chart needs {MINIMUM_POINTS_FOR_CHART} to be a line rather than a dot.
       </Callout>
@@ -576,20 +578,20 @@ async function LargestExperience({ days }: { days: number }) {
     <div className="min-w-0">
       <div className="grid gap-4 sm:grid-cols-3">
         <Stat
-          label="Busiest right now"
+          label={t("platform.live.stats.busiestRightNow")}
           value={numberFormat.format(latest?.totalPlaying ?? 0)}
           note={latest ? leaders[latest.at] : undefined}
         />
         {summary ? (
           <Stat
-            label="Highest observed"
+            label={t("platform.history.stats.highestObserved")}
             value={numberFormat.format(summary.peak.totalPlaying)}
             note={`${leaders[summary.peak.at] ?? ""} · ${formatObserved(summary.peak.at)}`}
           />
         ) : null}
         {summary ? (
           <Stat
-            label="Lowest observed"
+            label={t("platform.history.stats.lowestObserved")}
             value={numberFormat.format(summary.low.totalPlaying)}
             note={`${leaders[summary.low.at] ?? ""} · ${formatObserved(summary.low.at)}`}
           />
@@ -608,7 +610,7 @@ async function LargestExperience({ days }: { days: number }) {
         &ldquo;Highest observed&rdquo; means the highest this site saw at one of its
         own observations. It is not an all-time record: nothing before this site
         began watching is known to it, and it will not borrow a figure it did not
-        measure. <Badge tone="neutral">Recorded by this site</Badge>
+        measure. <Badge tone="neutral">{t("platform.history.recordedByThisSite")}</Badge>
       </p>
     </div>
   );
@@ -628,15 +630,15 @@ async function LargestExperience({ days }: { days: number }) {
 function PlatformFigure({
   platform,
   observedAt,
+  t,
 }: {
   platform: PlatformTotal;
   observedAt: string;
+  readonly t: Translate;
 }) {
   return (
     <Card>
-      <p className="text-sm text-(--color-text-muted)">
-        Players across every experience Roblox is ranking
-      </p>
+      <p className="text-sm text-(--color-text-muted)">{t("platform.platformFigure.label")}</p>
       <p className="tabular mt-1 text-4xl font-bold break-words text-(--color-text) sm:text-5xl">
         {numberFormat.format(platform.players)}
       </p>
@@ -647,7 +649,7 @@ function PlatformFigure({
         <time dateTime={observedAt}>{formatObserved(observedAt)}</time>.
       </p>
       <p className="mt-2 text-sm text-(--color-text-muted)">
-        <strong className="text-(--color-text)">This is a floor, not a platform total.</strong>{" "}
+        <strong className="text-(--color-text)">{t("platform.platformFigure.floorHeading")}</strong>{" "}
         Roblox publishes no live figure for the whole platform and this site does
         not estimate one. Roblox ranks a small share of the experiences it hosts,
         so the real number of people playing is higher than this — by how much,
@@ -670,11 +672,13 @@ function ExperienceDetail({
   universeId,
   ranking,
   days,
+  t,
 }: {
   history: GameHistory;
   universeId: number;
   ranking?: string;
   days: number;
+  readonly t: Translate;
 }) {
   const series = sliceSeries(gameSeries(history, universeId), days);
   const name = history.names[String(universeId)] ?? "This experience";
@@ -685,29 +689,27 @@ function ExperienceDetail({
     <Card>
       <div className="flex flex-wrap items-baseline justify-between gap-3">
         <h3 className="text-lg font-bold text-(--color-text)">{name}</h3>
-        <InlineLink href={platformHref({ ranking, days, hash: "#live" })}>
-          Close this chart
-        </InlineLink>
+        <InlineLink href={platformHref({ ranking, days, hash: "#live" })}>{t("platform.live.body.experience.p1")}</InlineLink>
       </div>
 
       {series.chartable ? (
         <>
           <div className="mt-4 grid gap-4 sm:grid-cols-3">
             <Stat
-              label="Observations"
+              label={t("platform.history.stats.observations")}
               value={numberFormat.format(series.points.length)}
               note={`Over ${describeSpan(series)}`}
             />
             {summary ? (
               <Stat
-                label="Observed peak"
+                label={t("platform.history.stats.observedPeak")}
                 value={numberFormat.format(summary.peak.totalPlaying)}
                 note={formatObserved(summary.peak.at)}
               />
             ) : null}
             {summary ? (
               <Stat
-                label="Observed low"
+                label={t("platform.history.stats.observedLow")}
                 value={numberFormat.format(summary.low.totalPlaying)}
                 note={formatObserved(summary.low.at)}
               />
@@ -749,6 +751,7 @@ function ExperienceRow({
   history,
   ranking,
   days,
+  t,
 }: {
   experience: ExperienceObservation;
   rank: number;
@@ -758,6 +761,7 @@ function ExperienceRow({
   history: GameHistory | null;
   ranking?: string;
   days: number;
+  readonly t: Translate;
 }) {
   const url = experienceUrl(experience);
   const approval = approvalPercent(experience);
@@ -768,7 +772,7 @@ function ExperienceRow({
       <Td className="tabular">{rank}</Td>
       <Td>
         {url ? (
-          <SourceLink href={url}>{experience.name}</SourceLink>
+          <SourceLink t={t} href={url}>{experience.name}</SourceLink>
         ) : (
           experience.name
         )}
@@ -820,9 +824,7 @@ function ExperienceRow({
               </span>
             </Link>
           ) : (
-            <span className="text-sm text-(--color-text-muted)">
-              not tracked yet
-              <span className="sr-only">
+            <span className="text-sm text-(--color-text-muted)">{t("platform.live.body.experience.p7")}<span className="sr-only">
                 {" "}— this experience has not been observed enough times to draw a line
               </span>
             </span>
@@ -919,19 +921,17 @@ function ChartRangeTabs({
 async function ObservedHistory({
   window: chartWindow,
   selectedRanking,
+  t,
 }: {
   window: ChartWindow;
   selectedRanking?: string;
+  readonly t: Translate;
 }) {
   const store = await getHistoryStore();
 
   if (!store) {
     return (
-      <Callout tone="info" title="History is not available in this environment">
-        Observations are stored in a Cloudflare KV namespace that is bound to the
-        deployed Worker. Running locally without that binding, there is nothing to
-        chart — which is why this says so rather than drawing an empty axis.
-      </Callout>
+      <Callout tone="info" title={t("platform.history.unavailableInEnvironmentTitle")}>{t("platform.live.body.experience.p9")}</Callout>
     );
   }
 
@@ -948,9 +948,7 @@ async function ObservedHistory({
     full = await readSeries(store, RETENTION_DAYS);
   } catch {
     return (
-      <Callout tone="warning" title="Recorded observations could not be read">
-        The store did not answer. Live figures above are unaffected.
-      </Callout>
+      <Callout tone="warning" title={t("platform.history.unreadableTitle")}>{t("platform.live.body.experience.p10")}</Callout>
     );
   }
 
@@ -1031,7 +1029,7 @@ async function ObservedHistory({
 
       <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <Stat
-          label="Observations recorded"
+          label={t("platform.history.stats.observationsRecorded")}
           value={numberFormat.format(series.points.length)}
           note={
             rangeExceedsHistory
@@ -1039,9 +1037,9 @@ async function ObservedHistory({
               : `Within the last ${chartWindow.label}`
           }
         />
-        <Stat label="Period covered" value={describeSpan(series)} />
+        <Stat label={t("platform.history.stats.periodCovered")} value={describeSpan(series)} />
         <Stat
-          label="Most recent total"
+          label={t("platform.history.stats.mostRecentTotal")}
           value={numberFormat.format(latest?.totalPlaying ?? 0)}
           note={
             summary?.change
@@ -1051,7 +1049,7 @@ async function ObservedHistory({
         />
         {summary ? (
           <Stat
-            label="Observed peak"
+            label={t("platform.history.stats.observedPeak")}
             value={numberFormat.format(summary.peak.totalPlaying)}
             note={formatObserved(summary.peak.at)}
           />
@@ -1061,12 +1059,12 @@ async function ObservedHistory({
       {summary ? (
         <div className="mt-4 grid gap-4 sm:grid-cols-2">
           <Stat
-            label="Observed low"
+            label={t("platform.history.stats.observedLow")}
             value={numberFormat.format(summary.low.totalPlaying)}
             note={formatObserved(summary.low.at)}
           />
           <Stat
-            label="Average across observations"
+            label={t("platform.history.stats.averageAcrossObservations")}
             value={numberFormat.format(summary.mean)}
             note={`Mean of ${numberFormat.format(series.points.length)} recorded points, not a platform average`}
           />
@@ -1089,7 +1087,7 @@ async function ObservedHistory({
         {RETENTION_DAYS} days. Older observations expire rather than being deleted by
         a job. Peak, low and average describe these recorded points only — the total
         may have been higher between two observations, and this site does not claim
-        otherwise. <Badge tone="neutral">Recorded by this site</Badge>
+        otherwise. <Badge tone="neutral">{t("platform.history.recordedByThisSite")}</Badge>
       </p>
     </div>
   );

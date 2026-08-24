@@ -1,3 +1,4 @@
+import { getTranslator } from "@/i18n/get-dictionary";
 import { localizedRoute } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
 import Link from "next/link";
@@ -45,6 +46,7 @@ const TOOLS: readonly { route: string; answers: string; useWhen: string }[] = [
 ];
 
 export async function CalculatorsView({ locale }: { readonly locale: Locale }) {
+  const t = await getTranslator(locale, ["guides", "routes"]);
   const record = await localizedRoute(locale, ROUTE);
 
   return (
@@ -60,7 +62,7 @@ export async function CalculatorsView({ locale }: { readonly locale: Locale }) {
         <div className="flex flex-col gap-10">
           <QuickAnswer locale={locale}>{record.quickAnswer}</QuickAnswer>
 
-          <Section id="tools" heading="Available calculators">
+          <Section id="tools" heading={t("guides.calculators.availableHeading")}>
             <ul className="grid gap-4 sm:grid-cols-2">
               {TOOLS.map((tool) => {
                 const target = getRoute(tool.route);
@@ -89,7 +91,7 @@ export async function CalculatorsView({ locale }: { readonly locale: Locale }) {
 
           <Section
             id="conversions"
-            heading="Looking up one specific amount?"
+            heading={t("guides.calculators.lookingUpHeading")}
             description="The conversion hub has a server-rendered table of common amounts across all three rates."
           >
             <Link
@@ -97,20 +99,15 @@ export async function CalculatorsView({ locale }: { readonly locale: Locale }) {
               className="inline-flex rounded-(--radius-card) border border-(--color-border) bg-(--color-surface) p-5 hover:border-(--color-primary)"
             >
               <span>
-                <span className="block text-lg font-semibold text-(--color-text)">
-                  Robux to USD conversions
-                </span>
-                <span className="mt-1 block text-sm text-(--color-text-muted)">
-                  Common amounts from 1,000 to 10 million, with detailed pages for
-                  the ones creators ask about most.
-                </span>
+                <span className="block text-lg font-semibold text-(--color-text)">{t("routes.conversions.h1")}</span>
+                <span className="mt-1 block text-sm text-(--color-text-muted)">{t("guides.calculators.body.conversions.p1")}</span>
               </span>
             </Link>
           </Section>
 
           <Section
             id="guides"
-            heading="Want to understand rather than calculate?"
+            heading={t("guides.calculators.understandHeading")}
             description="The guides explain the rules behind these numbers."
           >
             <Link
@@ -121,10 +118,7 @@ export async function CalculatorsView({ locale }: { readonly locale: Locale }) {
                 <span className="block text-lg font-semibold text-(--color-text)">
                   DevEx guides
                 </span>
-                <span className="mt-1 block text-sm text-(--color-text-muted)">
-                  Rates, requirements, what counts as Earned Robux, and how the
-                  cash-out process works.
-                </span>
+                <span className="mt-1 block text-sm text-(--color-text-muted)">{t("guides.calculators.body.guides.p1")}</span>
               </span>
             </Link>
           </Section>

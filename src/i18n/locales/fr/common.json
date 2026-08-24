@@ -129,11 +129,12 @@
     "accept": "Accepter",
     "body": {
       "consentHeading": {
-        "p1": "Cookies de mesure d’audience",
-        "p2": "Nous aimerions mesurer quelles pages sont consultées, ce qui nécessite un cookie. La calculatrice fonctionne exactement pareil dans les deux cas, et vos calculs ne sont jamais envoyés nulle part."
+        "p1": "Cookies de mesure d’audience"
       }
     },
-    "heading": "Cookies de mesure d'audience"
+    "heading": "Cookies de mesure d'audience",
+    "explanation": "Nous aimerions mesurer quelles pages sont consultées, ce qui nécessite un cookie. La calculatrice fonctionne exactement pareil dans les deux cas, et vos calculs ne sont jamais envoyés nulle part.",
+    "decline": "Refuser"
   },
   "ranges": {
     "day": "24 heures",

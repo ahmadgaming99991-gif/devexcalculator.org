@@ -1,9 +1,12 @@
+import { loadWords } from "@/i18n/client-words";
+import { getTranslator } from "@/i18n/get-dictionary";
 import { localizedRoute } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
 import Link from "next/link";
 import { JsonLd } from "@/components/seo/json-ld";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { Calculator } from "@/features/devex/calculator";
+import { CALCULATOR_WORDS } from "@/features/devex/calculator.words";
 import { parseCalculatorState } from "@/features/devex/url-state";
 import { Container, InlineLink, Section } from "@/components/ui";
 import {
@@ -26,6 +29,7 @@ export async function ConversionsView({
   readonly locale: Locale;
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
+  const t = await getTranslator(locale, ["rates"]);
   const record = await localizedRoute(locale, ROUTE);
   const initialState = parseCalculatorState(await searchParams);
 
@@ -46,10 +50,10 @@ export async function ConversionsView({
 
           <Section
             id="converter"
-            heading="Convert any amount"
+            heading={t("rates.conversions.convertAnyHeading")}
             description="Not every amount needs its own page. Enter yours here and share the resulting link."
           >
-            <Calculator
+            <Calculator words={await loadWords(locale, CALCULATOR_WORDS)}
               initialState={initialState}
               pathname={ROUTE}
               lockedMode="quick"
@@ -59,10 +63,10 @@ export async function ConversionsView({
 
           <Section
             id="table"
-            heading="Every amount people ask about"
+            heading={t("rates.conversions.everyAmountHeading")}
             description="Sixty-eight amounts at all three documented rates, including the ones below the DevEx minimum — those are asked about most often, and the honest answer includes the fact that they cannot be cashed out. Every figure is rendered on the server, so it is here whether or not JavaScript runs."
           >
-            <AmountTable />
+            <AmountTable t={t} />
             <p className="mt-4 text-sm text-(--color-text-muted)">
               The list is not a selection of round numbers: it is the amounts
               that are actually searched for. Anything not here — including
@@ -74,7 +78,7 @@ export async function ConversionsView({
 
           <Section
             id="detailed"
-            heading="Amounts with a full breakdown"
+            heading={t("rates.conversions.fullBreakdownHeading")}
             description="These amounts have enough demand and enough to say about them to justify a page of their own. The rest are served by the table above and by the calculator."
           >
             <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -107,16 +111,14 @@ export async function ConversionsView({
               page that says nothing new, which is both unhelpful and against
               search-quality guidance. Amounts are added only when they clear a
               demand threshold and there is something specific to say about them.{" "}
-              <InlineLink href="/editorial-policy/">
-                See the publication policy
-              </InlineLink>
+              <InlineLink href="/editorial-policy/">{t("rates.conversions.body.detailed.p2")}</InlineLink>
               .
             </p>
           </Section>
 
           <Section
             id="rounding"
-            heading="How these figures are rounded"
+            heading={t("rates.conversions.roundingHeading")}
             description="Displayed to the cent, calculated with more precision than that."
           >
             <p className="text-(--color-text-muted)">
@@ -124,7 +126,7 @@ export async function ConversionsView({
               fraction throughout and rounded to the cent only when it is
               printed. Nothing is rounded partway through, so a total never
               disagrees with the sum of its parts.{" "}
-              <InlineLink href="/methodology/">Full methodology</InlineLink>.
+              <InlineLink href="/methodology/">{t("rates.conversions.fullMethodologyLink")}</InlineLink>.
             </p>
           </Section>
 

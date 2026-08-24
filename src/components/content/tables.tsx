@@ -1,3 +1,4 @@
+import type { Translate } from "@/i18n/get-dictionary";
 import Link from "next/link";
 import { allRates, getRateValue, minimumEarnedRobux } from "@/lib/calculations/rate-registry";
 import { legacyRateId, standardRateId, us18RateId } from "@/lib/calculations/devex";
@@ -22,17 +23,21 @@ import { Badge, Table, TableWrapper, Td, Th } from "@/components/ui";
 // Rate table
 // ---------------------------------------------------------------------------
 
-export function RateTable({ showExamples = true }: { showExamples?: boolean }) {
+export function RateTable({ showExamples = true,
+  t,
+}: { showExamples?: boolean;
+  readonly t: Translate;
+}) {
   return (
-    <TableWrapper label="Current DevEx rates with effective dates">
-      <Table caption="DevEx rates documented by Roblox, with effective dates and worked examples">
+    <TableWrapper label={t("accessibility.tables.currentRates")}>
+      <Table caption={t("accessibility.tables.currentRatesCaption")}>
         <thead>
           <tr>
             <Th>Rate</Th>
             <Th numeric>Per Robux</Th>
             <Th numeric>Per 1,000</Th>
             {showExamples ? <Th numeric>Per 30,000</Th> : null}
-            <Th>Applies to</Th>
+            <Th>{t("common.units.appliesTo")}</Th>
           </tr>
         </thead>
         <tbody>
@@ -136,17 +141,19 @@ const DEFAULT_AMOUNTS: readonly number[] = [
 export function AmountTable({
   amounts = DEFAULT_AMOUNTS,
   linkApproved = true,
+  t,
 }: {
   amounts?: readonly number[];
   linkApproved?: boolean;
+  readonly t: Translate;
 }) {
   const standard = getRateValue(standardRateId);
   const legacy = getRateValue(legacyRateId);
   const us18 = getRateValue(us18RateId);
 
   return (
-    <TableWrapper label="Common Earned Robux amounts converted to US dollars">
-      <Table caption="Earned Robux amounts valued at the standard, legacy and conditional U.S. 18+ DevEx rates">
+    <TableWrapper label={t("accessibility.tables.commonAmounts")}>
+      <Table caption={t("accessibility.tables.commonAmountsCaption")}>
         <thead>
           <tr>
             <Th>Earned Robux</Th>
@@ -189,9 +196,9 @@ export function AmountTable({
                 </Td>
                 <Td>
                   {meetsMinimum ? (
-                    <Badge tone="success">Meets minimum</Badge>
+                    <Badge tone="success">{t("common.badges.meetsMinimum")}</Badge>
                   ) : (
-                    <Badge tone="warning">Below minimum</Badge>
+                    <Badge tone="warning">{t("common.badges.belowMinimum")}</Badge>
                   )}
                 </Td>
               </tr>

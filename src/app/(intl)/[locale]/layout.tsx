@@ -5,6 +5,7 @@ import { SiteDocument } from "@/components/layout/site-document";
 import { rootMetadata, rootViewport } from "@/lib/seo/root-metadata";
 import { getTranslator } from "@/i18n/get-dictionary";
 import { renderableLocales, resolveRenderableLocale } from "@/i18n/visibility";
+import { localeSegment } from "@/i18n/locale-path";
 
 /**
  * Every language except English, under its own prefix.
@@ -35,7 +36,7 @@ export const dynamicParams = false;
 export function generateStaticParams(): { locale: string }[] {
   return renderableLocales()
     .filter((meta) => meta.prefix !== "")
-    .map((meta) => ({ locale: meta.locale }));
+    .map((meta) => ({ locale: localeSegment(meta.locale) }));
 }
 
 export async function generateMetadata({
@@ -59,7 +60,7 @@ export default async function LocalizedRootLayout({
   const locale = resolveRenderableLocale((await params).locale);
   if (!locale) notFound();
 
-  const t = await getTranslator(locale, ["common"]);
+  const t = await getTranslator(locale, ["routes", "seo"]);
   return (
     <SiteDocument locale={locale} skipToContent={t("common.shell.skipToContent")}>
       {children}

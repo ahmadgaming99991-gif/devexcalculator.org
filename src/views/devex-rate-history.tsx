@@ -1,3 +1,4 @@
+import { getTranslator } from "@/i18n/get-dictionary";
 import { localizedRoute } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -22,6 +23,7 @@ const ROUTE = "/devex-rate-history/";
 const COMPARISON_AMOUNTS = [30_000, 100_000, 500_000, 1_000_000] as const;
 
 export async function RateHistoryView({ locale }: { readonly locale: Locale }) {
+  const t = await getTranslator(locale, ["rates"]);
   const record = await localizedRoute(locale, ROUTE);
   const standard = getRateValue(standardRateId);
   const legacy = getRateValue(legacyRateId);
@@ -43,7 +45,7 @@ export async function RateHistoryView({ locale }: { readonly locale: Locale }) {
 
           <Section
             id="timeline"
-            heading="Verified timeline"
+            heading={t("rates.rateHistory.timelineHeading")}
             description="Each entry records what changed, when it took effect, and which source establishes it."
           >
             <ol className="flex flex-col gap-4">
@@ -54,14 +56,8 @@ export async function RateHistoryView({ locale }: { readonly locale: Locale }) {
                     {formatDate("2025-09-05T10:00:00-07:00")}, 10:00 PT
                   </span>
                 </div>
-                <p className="mt-2 font-semibold text-(--color-text)">
-                  Standard rate increased to 0.0038 USD per Earned Robux
-                </p>
-                <p className="mt-1 text-sm text-(--color-text-muted)">
-                  Roblox states this as 114 USD for 30,000 Earned Robux, up from
-                  105. Balances earned before this moment continue to convert at
-                  the previous rate and are cashed out first.
-                </p>
+                <p className="mt-2 font-semibold text-(--color-text)">{t("rates.rateHistory.body.timeline.p1")}</p>
+                <p className="mt-1 text-sm text-(--color-text-muted)">{t("rates.rateHistory.body.timeline.p2")}</p>
               </li>
 
               <li className="rounded-(--radius-control) border border-(--color-border) border-l-4 border-l-(--color-border-strong) bg-(--color-surface) p-4">
@@ -71,43 +67,28 @@ export async function RateHistoryView({ locale }: { readonly locale: Locale }) {
                     Until {formatDate("2025-09-05T10:00:00-07:00")}
                   </span>
                 </div>
-                <p className="mt-2 font-semibold text-(--color-text)">
-                  Standard rate of 0.0035 USD per Earned Robux
-                </p>
-                <p className="mt-1 text-sm text-(--color-text-muted)">
-                  105 USD for 30,000 Earned Robux. Still applied to the portion of
-                  any balance earned before the transition.
-                </p>
+                <p className="mt-2 font-semibold text-(--color-text)">{t("rates.rateHistory.body.timeline.p3")}</p>
+                <p className="mt-1 text-sm text-(--color-text-muted)">{t("rates.rateHistory.body.timeline.p4")}</p>
               </li>
 
               <li className="rounded-(--radius-control) border border-(--color-border) border-l-4 border-l-(--color-accent) bg-(--color-surface) p-4">
                 <div className="flex flex-wrap items-center gap-2">
                   <Badge tone="info">Conditional</Badge>
-                  <span className="text-sm font-semibold text-(--color-text)">
-                    Effective date not published
-                  </span>
+                  <span className="text-sm font-semibold text-(--color-text)">{t("rates.rateHistory.body.timeline.p5")}</span>
                 </div>
-                <p className="mt-2 font-semibold text-(--color-text)">
-                  Higher 0.0054 rate for qualifying U.S. 18+ spending
-                </p>
-                <p className="mt-1 text-sm text-(--color-text-muted)">
-                  Roblox documents this rate for certain Earned Robux from
-                  purchases by United States players who have verified they are at
-                  least 18. The documentation this site checked does not state an
-                  effective date, so none is recorded here rather than one being
-                  inferred.
-                </p>
+                <p className="mt-2 font-semibold text-(--color-text)">{t("rates.rateHistory.body.timeline.p6")}</p>
+                <p className="mt-1 text-sm text-(--color-text-muted)">{t("rates.rateHistory.body.timeline.p7")}</p>
               </li>
             </ol>
           </Section>
 
           <Section
             id="comparison"
-            heading="What the change was worth"
+            heading={t("rates.rateHistory.worthHeading")}
             description="The same balances valued before and after the September 2025 increase."
           >
-            <TableWrapper label="Payout before and after the September 2025 rate change">
-              <Table caption="Comparison of payouts at the legacy 0.0035 rate and the current 0.0038 rate">
+            <TableWrapper label={t("rates.rateHistory.comparisonLabel")}>
+              <Table caption={t("rates.rateHistory.comparisonCaption")}>
                 <thead>
                   <tr>
                     <Th>Earned Robux</Th>
@@ -139,15 +120,12 @@ export async function RateHistoryView({ locale }: { readonly locale: Locale }) {
                 </tbody>
               </Table>
             </TableWrapper>
-            <p className="mt-3 text-sm text-(--color-text-muted)">
-              The increase is about 8.6% across the board, since it is a change to
-              a single multiplier.
-            </p>
+            <p className="mt-3 text-sm text-(--color-text-muted)">{t("rates.rateHistory.body.comparison.p1")}</p>
           </Section>
 
           <Section
             id="legacy-balances"
-            heading="How legacy balances are handled"
+            heading={t("rates.rateHistory.legacyHeading")}
             description="One balance can span both rates, and you do not choose the split."
           >
             <p className="text-(--color-text-muted)">
@@ -155,9 +133,7 @@ export async function RateHistoryView({ locale }: { readonly locale: Locale }) {
               first, then the rest at 0.0038. The split is Roblox&rsquo;s own
               accounting of when each Robux was earned — it is not something a
               creator selects or can adjust.{" "}
-              <InlineLink href="/">
-                The split calculator lets you model a mixed balance
-              </InlineLink>{" "}
+              <InlineLink href="/">{t("rates.rateHistory.body.legacyBalances.p1")}</InlineLink>{" "}
               if you know roughly how yours divides, but treat the result as an
               estimate built on your own assumption about the split.
             </p>
@@ -165,7 +141,7 @@ export async function RateHistoryView({ locale }: { readonly locale: Locale }) {
 
           <Section
             id="no-forecast"
-            heading="Why there is no forecast here"
+            heading={t("rates.rateHistory.noForecastHeading")}
             description="A page that guesses at future rates would be worse than no page."
           >
             <p className="text-(--color-text-muted)">
@@ -174,12 +150,12 @@ export async function RateHistoryView({ locale }: { readonly locale: Locale }) {
               analysis would be a guess with a confident tone. This page records
               only changes that official documentation confirms, each with its
               effective date. When a change happens it appears here and in the{" "}
-              <InlineLink href="/changelog/">public changelog</InlineLink>, along
+              <InlineLink href="/changelog/">{t("rates.rateHistory.publicChangelogLink")}</InlineLink>, along
               with the date it was verified.
             </p>
           </Section>
 
-          <FAQAccordion locale={locale} faqs={record.faqs} heading="Questions about past rates" />
+          <FAQAccordion locale={locale} faqs={record.faqs} heading={t("rates.rateHistory.faqsHeading")} />
 
           <RelatedLinks locale={locale}
             record={record}

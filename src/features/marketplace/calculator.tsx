@@ -1,5 +1,6 @@
 "use client";
 
+import { translatorFor, type LocaleWords } from "@/i18n/client-words";
 import { useId, useMemo, useState } from "react";
 import {
   calculateAfterFee,
@@ -32,7 +33,8 @@ const MODES: readonly ModeOption[] = [
   { id: "before", label: "What to charge", description: "To clear a target" },
 ];
 
-export function MarketplaceCalculator() {
+export function MarketplaceCalculator({ words }: { readonly words: LocaleWords }) {
+  const t = useMemo(() => translatorFor(words), [words]);
   const [mode, setMode] = useState<"after" | "before">("after");
   const [schemeId, setSchemeId] = useState<string>(defaultSchemeId);
   const [amount, setAmount] = useState("1000");
@@ -106,7 +108,7 @@ export function MarketplaceCalculator() {
 
   return (
     <Card as="section">
-      <h2 className="sr-only">Marketplace fee calculator</h2>
+      <h2 className="sr-only">{t("marketplace.srHeading")}</h2>
 
       <ModeTabs options={MODES} value={mode} onChange={(next) => setMode(next as "after" | "before")} />
 
@@ -119,9 +121,7 @@ export function MarketplaceCalculator() {
       >
         <div className="flex min-w-0 flex-col gap-5">
           <div>
-            <label htmlFor={schemeSelectId} className="block text-sm font-semibold text-(--color-text)">
-              What are you selling?
-            </label>
+            <label htmlFor={schemeSelectId} className="block text-sm font-semibold text-(--color-text)">{t("marketplace.body.intro.p1")}</label>
             <select
               id={schemeSelectId}
               value={schemeId}
@@ -154,9 +154,7 @@ export function MarketplaceCalculator() {
 
           {isProgressive ? (
             <div>
-              <label htmlFor={multipleId} className="block text-sm font-semibold text-(--color-text)">
-                Price as a multiple of the price floor
-              </label>
+              <label htmlFor={multipleId} className="block text-sm font-semibold text-(--color-text)">{t("marketplace.body.intro.p2")}</label>
               <input
                 id={multipleId}
                 type="text"
@@ -166,11 +164,7 @@ export function MarketplaceCalculator() {
                 aria-describedby={`${multipleId}-note`}
                 className="control numeric-display mt-1.5 min-h-[52px] w-full rounded-(--radius-control) border border-(--color-border-strong) bg-(--color-surface) px-3 py-2.5 text-(--color-text)"
               />
-              <p id={`${multipleId}-note`} className="mt-1.5 text-xs text-(--color-text-muted)">
-                Price floors differ by item category, so this asks for the
-                multiple rather than assuming one universal floor. An item priced
-                at six times its floor or above reaches the top tier.
-              </p>
+              <p id={`${multipleId}-note`} className="mt-1.5 text-xs text-(--color-text-muted)">{t("marketplace.body.intro.p3")}</p>
             </div>
           ) : null}
         </div>
@@ -198,11 +192,11 @@ export function MarketplaceCalculator() {
           />
 
           {robux > 0n ? (
-            <TableWrapper label="Breakdown of the sale">
-              <Table caption="How the Robux from this sale are divided">
+            <TableWrapper label={t("marketplace.results.tableLabel")}>
+              <Table caption={t("marketplace.results.tableCaption")}>
                 <thead>
                   <tr>
-                    <Th>Goes to</Th>
+                    <Th>{t("marketplace.results.columnGoesTo")}</Th>
                     <Th numeric>Robux</Th>
                     <Th numeric>Share</Th>
                   </tr>
@@ -219,7 +213,7 @@ export function MarketplaceCalculator() {
                       </tr>
                       {afterFee.experienceOwnerRobux !== null ? (
                         <tr>
-                          <Th scope="row">Experience owner</Th>
+                          <Th scope="row">{t("marketplace.results.experienceOwner")}</Th>
                           <Td numeric>{formatRobux(afterFee.experienceOwnerRobux)}</Td>
                           <Td numeric>
                             {formatPercent(
@@ -258,14 +252,14 @@ export function MarketplaceCalculator() {
                   ) : (
                     <>
                       <tr>
-                        <Th scope="row">Charge the buyer</Th>
+                        <Th scope="row">{t("marketplace.results.chargeTheBuyer")}</Th>
                         <Td numeric className="font-semibold">
                           {formatRobux(beforeFee.requiredGrossRobux)}
                         </Td>
                         <Td numeric>100%</Td>
                       </tr>
                       <tr>
-                        <Th scope="row">You actually keep</Th>
+                        <Th scope="row">{t("marketplace.results.youActuallyKeep")}</Th>
                         <Td numeric>{formatRobux(beforeFee.actualNetRobux)}</Td>
                         <Td numeric>{formatPercent(beforeFee.creatorSharePercent, 0)}</Td>
                       </tr>
@@ -290,12 +284,12 @@ export function MarketplaceCalculator() {
 
           <div className="flex flex-wrap gap-2">
             <CopyButton
-              label="Copy result"
+              label={t("marketplace.results.copyResult")}
               text={primaryValue}
               variant="primary"
               onAnnounce={setAnnouncement}
             />
-            <CopyButton label="Copy summary" text={summaryText} onAnnounce={setAnnouncement} />
+            <CopyButton label={t("marketplace.results.copySummary")} text={summaryText} onAnnounce={setAnnouncement} />
           </div>
         </div>
       </div>

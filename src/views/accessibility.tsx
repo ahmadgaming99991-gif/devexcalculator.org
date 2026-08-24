@@ -1,3 +1,4 @@
+import { getTranslator } from "@/i18n/get-dictionary";
 import { localizedRoute } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -71,6 +72,7 @@ const FEATURES: readonly { title: string; detail: string }[] = [
 ];
 
 export async function AccessibilityView({ locale }: { readonly locale: Locale }) {
+  const t = await getTranslator(locale, ["legal", "routes"]);
   const record = await localizedRoute(locale, ROUTE);
 
   return (
@@ -90,7 +92,7 @@ export async function AccessibilityView({ locale }: { readonly locale: Locale })
             Last reviewed {formatDate(record.lastReviewedAt)}.
           </p>
 
-          <Section id="standard" heading="The standard targeted">
+          <Section id="standard" heading={t("legal.accessibility.standardHeading")}>
             <p className="text-(--color-text-muted)">
               This site aims to meet{" "}
               <a
@@ -107,20 +109,16 @@ export async function AccessibilityView({ locale }: { readonly locale: Locale })
             </p>
           </Section>
 
-          <Section id="tested" heading="What has been tested">
+          <Section id="tested" heading={t("legal.accessibility.testedHeading")}>
             <ul className="flex list-disc flex-col gap-2 pl-5 text-(--color-text-muted)">
               {TESTED.map((item) => (
                 <li key={item}>{item}</li>
               ))}
             </ul>
-            <p className="mt-3 text-(--color-text-muted)">
-              Automated checks catch a minority of real accessibility problems, so
-              the keyboard walkthrough and the manual layout checks matter more
-              than the axe results do.
-            </p>
+            <p className="mt-3 text-(--color-text-muted)">{t("legal.accessibility.body.tested.p1")}</p>
           </Section>
 
-          <Section id="features" heading="Accessibility features">
+          <Section id="features" heading={t("legal.accessibility.featuresHeading")}>
             <dl className="flex flex-col gap-3">
               {FEATURES.map((feature) => (
                 <div
@@ -134,26 +132,11 @@ export async function AccessibilityView({ locale }: { readonly locale: Locale })
             </dl>
           </Section>
 
-          <Section id="limitations" heading="Known limitations">
+          <Section id="limitations" heading={t("legal.accessibility.limitationsHeading")}>
             <ul className="flex list-disc flex-col gap-2 pl-5 text-(--color-text-muted)">
-              <li>
-                No testing has been done with a live screen reader by someone who
-                uses one daily. Semantics have been built and inspected carefully,
-                but that is not the same thing, and reports from actual users are
-                genuinely wanted.
-              </li>
-              <li>
-                Very long numbers in a result wrap rather than shrink. At 320
-                pixels with 200% zoom a ten-figure payout can occupy three lines.
-                Wrapping was chosen over truncating, since a truncated money
-                figure is worse than a tall one.
-              </li>
-              <li>
-                The rate comparison and breakdown tables scroll horizontally on
-                narrow screens. The scroll container is keyboard reachable and
-                labelled, but a table is still harder to read that way than a
-                wider viewport allows.
-              </li>
+              <li>{t("legal.accessibility.body.limitations.p1")}</li>
+              <li>{t("legal.accessibility.body.limitations.p2")}</li>
+              <li>{t("legal.accessibility.body.limitations.p3")}</li>
               <li>
                 Cloudflare Turnstile, where a deployment enables it on the
                 contact form, is a third-party widget whose internal
@@ -162,20 +145,14 @@ export async function AccessibilityView({ locale }: { readonly locale: Locale })
             </ul>
           </Section>
 
-          <Section id="feedback" heading="Reporting a problem">
-            <p className="text-(--color-text-muted)">
-              If something here blocks you, telling us is the fastest way to get
-              it fixed. Include the page, what you were trying to do, and the
-              browser and assistive technology you were using if that is
-              relevant. Accessibility reports are treated with the same priority
-              as a wrong rate — both make the site fail at its job.
-            </p>
+          <Section id="feedback" heading={t("legal.accessibility.feedbackHeading")}>
+            <p className="text-(--color-text-muted)">{t("legal.accessibility.body.feedback.p1")}</p>
             <div className="mt-4">
-              <ButtonLink href="/contact/">Report an accessibility problem</ButtonLink>
+              <ButtonLink href="/contact/">{t("routes.accessibility.links.contact")}</ButtonLink>
             </div>
             <p className="mt-4 text-sm text-(--color-text-muted)">
               For how the site is built more generally, see the{" "}
-              <InlineLink href="/about/">about page</InlineLink>.
+              <InlineLink href="/about/">{t("legal.accessibility.aboutPageLink")}</InlineLink>.
             </p>
           </Section>
 

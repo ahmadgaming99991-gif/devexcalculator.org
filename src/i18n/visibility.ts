@@ -1,4 +1,5 @@
-import { localeRegistry, getLocaleMeta, isSupportedLocale } from "./config";
+import { localeRegistry, getLocaleMeta } from "./config";
+import { parseLocaleSegment } from "./locale-path";
 import type { Locale, LocaleMeta } from "./types";
 
 /**
@@ -82,8 +83,9 @@ export function reviewLocales(): readonly LocaleMeta[] {
  * a real 404 rather than a page in the wrong language.
  */
 export function resolveRenderableLocale(segment: string): Locale | null {
-  if (!isSupportedLocale(segment)) return null;
-  return isRenderable(segment) ? segment : null;
+  const locale = parseLocaleSegment(segment);
+  if (!locale) return null;
+  return isRenderable(locale) ? locale : null;
 }
 
 /**

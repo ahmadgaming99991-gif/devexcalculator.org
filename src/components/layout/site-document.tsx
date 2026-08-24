@@ -6,6 +6,7 @@ import { themeInitScript } from "@/components/layout/theme-toggle";
 import { Analytics } from "@/components/seo/analytics";
 import { AnalyticsConsent } from "@/components/seo/analytics-consent";
 import { getLocaleMeta } from "@/i18n/config";
+import { getTranslator } from "@/i18n/get-dictionary";
 import type { Locale } from "@/i18n/types";
 
 /**
@@ -30,8 +31,9 @@ export interface SiteDocumentProps {
   readonly children: ReactNode;
 }
 
-export function SiteDocument({ locale, skipToContent, children }: SiteDocumentProps) {
+export async function SiteDocument({ locale, skipToContent, children }: SiteDocumentProps) {
   const { htmlLang, direction } = getLocaleMeta(locale);
+  const t = await getTranslator(locale, ["common"]);
 
   return (
     <html lang={htmlLang} dir={direction} suppressHydrationWarning>
@@ -67,7 +69,16 @@ export function SiteDocument({ locale, skipToContent, children }: SiteDocumentPr
         <SiteFooter locale={locale} />
 
         <Analytics />
-        {requiresAnalyticsConsent ? <AnalyticsConsent /> : null}
+        {requiresAnalyticsConsent ? (
+          <AnalyticsConsent
+            words={{
+              heading: t("common.consent.heading"),
+              explanation: t("common.consent.explanation"),
+              accept: t("common.consent.accept"),
+              decline: t("common.consent.decline"),
+            }}
+          />
+        ) : null}
       </body>
     </html>
   );

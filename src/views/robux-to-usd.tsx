@@ -1,8 +1,11 @@
+import { loadWords } from "@/i18n/client-words";
+import { getTranslator } from "@/i18n/get-dictionary";
 import { localizedRoute } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
 import { JsonLd } from "@/components/seo/json-ld";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { Calculator } from "@/features/devex/calculator";
+import { CALCULATOR_WORDS } from "@/features/devex/calculator.words";
 import { parseCalculatorState } from "@/features/devex/url-state";
 import { Callout, Container, InlineLink, Section, SourceLink, Table, TableWrapper, Td, Th } from "@/components/ui";
 import {
@@ -26,6 +29,7 @@ export async function RobuxToUsdView({
   readonly locale: Locale;
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
+  const t = await getTranslator(locale, ["rates"]);
   const record = await localizedRoute(locale, ROUTE);
   const initialState = parseCalculatorState(await searchParams);
 
@@ -44,7 +48,7 @@ export async function RobuxToUsdView({
             {record.quickAnswer}
           </QuickAnswer>
 
-          <Calculator initialState={initialState} pathname={ROUTE} lockedMode="quick" />
+          <Calculator words={await loadWords(locale, CALCULATOR_WORDS)} initialState={initialState} pathname={ROUTE} lockedMode="quick" />
 
           <TableOfContents locale={locale} sections={record.sections} />
 
@@ -55,85 +59,68 @@ export async function RobuxToUsdView({
           >
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="rounded-(--radius-control) border border-(--color-border) border-l-4 border-l-(--color-primary) bg-(--color-surface) p-4">
-                <p className="font-semibold text-(--color-text)">
-                  Money coming out — creator payout
-                </p>
-                <p className="mt-2 text-sm text-(--color-text-muted)">
-                  You earned Robux from players spending in your experience, and
-                  you want to convert them to cash. That goes through DevEx at a
-                  documented rate, and it is what the calculator above
-                  estimates. It applies only to eligible Earned Robux, and only
-                  from 30,000 upward.
-                </p>
+                <p className="font-semibold text-(--color-text)">{t("rates.robuxToUsd.body.twoAnswers.p1")}</p>
+                <p className="mt-2 text-sm text-(--color-text-muted)">{t("rates.robuxToUsd.body.twoAnswers.p2")}</p>
               </div>
               <div className="rounded-(--radius-control) border border-(--color-border) border-l-4 border-l-(--color-secondary) bg-(--color-surface) p-4">
-                <p className="font-semibold text-(--color-text)">
-                  Money going in — purchase price
-                </p>
-                <p className="mt-2 text-sm text-(--color-text-muted)">
-                  You want to know what a Robux package costs. Roblox sets that
-                  price by package, region, platform and any promotion running at
-                  the time. It is a retail price, not an exchange rate, and it
-                  moves independently of what DevEx pays.
-                </p>
+                <p className="font-semibold text-(--color-text)">{t("rates.robuxToUsd.body.twoAnswers.p3")}</p>
+                <p className="mt-2 text-sm text-(--color-text-muted)">{t("rates.robuxToUsd.body.twoAnswers.p4")}</p>
               </div>
             </div>
 
-            <Callout tone="warning" title="Why this site publishes no universal purchase rate" className="mt-4">
+            <Callout tone="warning" title={t("rates.robuxToUsd.noUniversalRateTitle")} className="mt-4">
               There is no single number that is true for every package, country
               and platform, so quoting one would be inventing a figure. Check the
               current prices on{" "}
-              <SourceLink href="https://www.roblox.com/upgrades/robux">
-                the official Roblox Robux page
-              </SourceLink>{" "}
+              <SourceLink t={t} href="https://www.roblox.com/upgrades/robux">{t("rates.robuxToUsd.body.twoAnswers.p6")}</SourceLink>{" "}
               for what you would actually pay.
             </Callout>
           </Section>
 
           <Section
             id="comparison"
-            heading="Creator payout compared with purchase price"
+            heading={t("rates.robuxToUsd.payoutVsPriceHeading")}
             description="The two numbers are different by design, and the gap is not a fee anyone is charging you."
           >
-            <TableWrapper label="How creator payout and purchase price differ">
-              <Table caption="Differences between a DevEx creator payout and a Robux retail purchase">
+            <TableWrapper label={t("rates.robuxToUsd.differencesLabel")}>
+              <Table caption={t("rates.robuxToUsd.differencesCaption")}>
                 <thead>
                   <tr>
                     <Th>&nbsp;</Th>
-                    <Th>Creator payout (DevEx)</Th>
+                    <Th>{t("rates.robuxToUsd.comparison.creatorPayout")}</Th>
                     <Th>Buying Robux</Th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <Th scope="row">Direction</Th>
-                    <Td>Roblox pays you</Td>
+                    <Td>{t("rates.robuxToUsd.comparison.directionPayout")}</Td>
                     <Td>You pay Roblox</Td>
                   </tr>
                   <tr>
                     <Th scope="row">Rate</Th>
-                    <Td>Documented and fixed at 0.0038 USD per eligible Earned Robux</Td>
-                    <Td>Varies by package, region, platform and promotion</Td>
+                    <Td>{t("rates.robuxToUsd.comparison.ratePayout")}</Td>
+                    <Td>{t("rates.robuxToUsd.comparison.ratePurchase")}</Td>
                   </tr>
                   <tr>
                     <Th scope="row">Which Robux</Th>
-                    <Td>Eligible Earned Robux only</Td>
-                    <Td>Any purchase, no eligibility involved</Td>
+                    <Td>{t("rates.robuxToUsd.comparison.whichRobuxPayout")}</Td>
+                    <Td>{t("rates.robuxToUsd.comparison.whichRobuxPurchase")}</Td>
                   </tr>
                   <tr>
                     <Th scope="row">Minimum</Th>
                     <Td>30,000 Earned Robux</Td>
-                    <Td>None beyond the smallest package</Td>
+                    <Td>{t("rates.robuxToUsd.comparison.minimumPurchase")}</Td>
                   </tr>
                   <tr>
                     <Th scope="row">Approval</Th>
-                    <Td>Roblox reviews each request</Td>
+                    <Td>{t("rates.robuxToUsd.comparison.speedPayout")}</Td>
                     <Td>Instant</Td>
                   </tr>
                   <tr>
                     <Th scope="row">Reversible</Th>
-                    <Td>One way — you cannot un-cash-out</Td>
-                    <Td>One way — purchased Robux cannot be sold back</Td>
+                    <Td>{t("rates.robuxToUsd.comparison.reversiblePayout")}</Td>
+                    <Td>{t("rates.robuxToUsd.comparison.reversiblePurchase")}</Td>
                   </tr>
                 </tbody>
               </Table>
@@ -143,16 +130,14 @@ export async function RobuxToUsdView({
               The gap between the two exists because Roblox operates a platform,
               handles payment processing, and has already taken its 30% share at
               the point the Robux were spent.{" "}
-              <InlineLink href="/robux-tax-calculator/">
-                That earlier 30% is the marketplace fee
-              </InlineLink>
+              <InlineLink href="/robux-tax-calculator/">{t("rates.robuxToUsd.body.comparison.p2")}</InlineLink>
               , and it is not charged again at cash-out.
             </p>
           </Section>
 
           <Section
             id="formula"
-            heading="The conversion formula"
+            heading={t("rates.robuxToUsd.formulaHeading")}
             description="One multiplication, stated openly so you can check it."
           >
             <FormulaBlock />
@@ -160,19 +145,17 @@ export async function RobuxToUsdView({
 
           <Section
             id="amounts"
-            heading="Common amounts"
+            heading={t("rates.robuxToUsd.commonAmountsHeading")}
             description="Calculated at all three documented rates. Amounts below the minimum are marked."
           >
-            <AmountTable />
+            <AmountTable t={t} />
             <p className="mt-3 text-sm text-(--color-text-muted)">
-              <InlineLink href="/conversions/">
-                Browse the full conversion hub
-              </InlineLink>{" "}
+              <InlineLink href="/conversions/">{t("rates.robuxToUsd.body.amounts.p1")}</InlineLink>{" "}
               for more amounts and detail.
             </p>
           </Section>
 
-          <FAQAccordion locale={locale} faqs={record.faqs} heading="Questions about converting Robux" />
+          <FAQAccordion locale={locale} faqs={record.faqs} heading={t("rates.robuxToUsd.faqsHeading")} />
 
           <RelatedLinks locale={locale}
             record={record}

@@ -125,11 +125,12 @@
     "accept": "Aceitar",
     "body": {
       "consentHeading": {
-        "p1": "Cookies de análise",
-        "p2": "Gostaríamos de medir quais páginas são usadas, e isso precisa de um cookie. A calculadora funciona igual de qualquer forma, e seus cálculos nunca são enviados a lugar nenhum."
+        "p1": "Cookies de análise"
       }
     },
-    "heading": "Cookies de análise"
+    "heading": "Cookies de análise",
+    "explanation": "Gostaríamos de medir quais páginas são usadas, e isso precisa de um cookie. A calculadora funciona igual de qualquer forma, e seus cálculos nunca são enviados a lugar nenhum.",
+    "decline": "Recusar"
   },
   "ranges": {
     "day": "24 horas",

@@ -1,6 +1,7 @@
 "use client";
 
-import { useId, useState } from "react";
+import { translatorFor, type LocaleWords } from "@/i18n/client-words";
+import { useId, useState, useMemo } from "react";
 import { calculateGroupSplit, standardRateId } from "@/lib/calculations/devex";
 import { parseRobuxAmount } from "@/lib/calculations/parse-amount";
 import { formatCurrency, formatRobux } from "@/lib/calculations/format";
@@ -40,7 +41,8 @@ const STARTING_ROWS: readonly Row[] = [
 /** Enough for a real collaboration, and short of a table nobody can read. */
 const MAX_MEMBERS = 12;
 
-export function GroupSplit() {
+export function GroupSplit({ words }: { readonly words: LocaleWords }) {
+  const t = useMemo(() => translatorFor(words), [words]);
   const fieldId = useId();
   const [total, setTotal] = useState("300,000");
   const [rows, setRows] = useState<readonly Row[]>(STARTING_ROWS);
@@ -106,7 +108,7 @@ export function GroupSplit() {
           </div>
 
           <div className="self-end">
-            <p className="text-sm text-(--color-text-muted)">Valued at</p>
+            <p className="text-sm text-(--color-text-muted)">{t("calculator.groupSplit.valuedAt")}</p>
             <p className="mt-1 font-semibold text-(--color-text)">{result.rate.label}</p>
             <p className="text-sm text-(--color-text-muted)">
               ${result.rate.usdPerRobux} per eligible Earned Robux
@@ -114,15 +116,15 @@ export function GroupSplit() {
           </div>
         </div>
 
-        <TableWrapper label="Each member's share of the group balance" className="mt-6">
-          <Table caption="Each member's percentage of the group's Earned Robux, the Robux that represents, and the payout at the standard DevEx rate.">
+        <TableWrapper label={t("calculator.groupSplit.tableLabel")} className="mt-6">
+          <Table caption={t("calculator.groupSplit.tableCaption")}>
             <thead>
               <tr>
                 <Th>Member</Th>
                 <Th>Share</Th>
                 <Th numeric>Earned Robux</Th>
-                <Th numeric>Estimated payout</Th>
-                <Th>Can they cash out?</Th>
+                <Th numeric>{t("calculator.groupSplit.columnEstimatedPayout")}</Th>
+                <Th>{t("calculator.groupSplit.columnCanCashOut")}</Th>
                 <Th>
                   <span className="sr-only">Remove</span>
                 </Th>
@@ -170,7 +172,7 @@ export function GroupSplit() {
                     </Td>
                     <Td>
                       {short === 0n ? (
-                        <Badge tone="success">Meets the minimum</Badge>
+                        <Badge tone="success">{t("calculator.groupSplit.meetsMinimum")}</Badge>
                       ) : (
                         <Badge tone="warning">
                           {formatRobux(short)} short
@@ -209,7 +211,7 @@ export function GroupSplit() {
       </Card>
 
       {result.percentagesUnbalanced ? (
-        <Callout tone="warning" title="The shares do not add up to 100%" className="mt-4">
+        <Callout tone="warning" title={t("calculator.groupSplit.sharesDoNotAddUpTitle")} className="mt-4">
           They total {result.allocatedPercent.toFixed(2, "half-up")}%, leaving{" "}
           {formatRobux(result.unallocatedRobux)} Robux unassigned. Nothing here has
           been scaled to make the numbers meet: adjusting them for you would produce
@@ -217,7 +219,7 @@ export function GroupSplit() {
           stays with whoever holds the group funds.
         </Callout>
       ) : result.unallocatedRobux > 0n ? (
-        <Callout tone="info" title="A remainder is left over" className="mt-4">
+        <Callout tone="info" title={t("calculator.groupSplit.remainderTitle")} className="mt-4">
           {formatRobux(result.unallocatedRobux)} Robux cannot be divided evenly at
           these percentages. Robux are whole, so each share is rounded down and the
           remainder is shown rather than handed to whoever happens to be listed
@@ -239,7 +241,7 @@ export function GroupSplit() {
         </Callout>
       ) : null}
 
-      <Callout tone="info" title="Roblox pays one person, not a split" className="mt-4">
+      <Callout tone="info" title={t("calculator.groupSplit.onePersonPaidTitle")} className="mt-4">
         A DevEx request is submitted by an individual account and paid to that
         account. Roblox does not divide a payout between collaborators, and a
         revenue-share arrangement inside a group is between the people in it. What

@@ -195,9 +195,14 @@ describe("switching language", () => {
 });
 
 describe("parsing a raw route segment", () => {
-  it("accepts a known locale and refuses everything else", () => {
+  it("reads the URL segment, which is the prefix and not the locale tag", () => {
     expect(parseLocaleSegment("es")).toBe("es");
-    expect(parseLocaleSegment("pt-BR")).toBe("pt-BR");
+    // Portuguese is `pt-BR` as a tag and `/pt-br/` as a URL. Accepting the
+    // tag as well would give every Portuguese page two addresses, which is
+    // what happened: the build prerendered `/pt-BR/…` while every link on
+    // those pages pointed at `/pt-br/…`.
+    expect(parseLocaleSegment("pt-br")).toBe("pt-BR");
+    expect(parseLocaleSegment("pt-BR")).toBeNull();
   });
 
   it("refuses anything that is not exactly a declared locale", () => {
@@ -205,7 +210,7 @@ describe("parsing a raw route segment", () => {
     // near-miss must be a 404 rather than a lookup.
     for (const hostile of [
       "EN",
-      "pt-br",
+      "PT-BR",
       "..",
       "../en",
       "../../etc/passwd",

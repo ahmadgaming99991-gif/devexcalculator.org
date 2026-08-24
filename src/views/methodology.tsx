@@ -1,3 +1,4 @@
+import { getTranslator } from "@/i18n/get-dictionary";
 import { localizedRoute } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -59,6 +60,7 @@ const FORMULAS: readonly { label: string; formula: string; note: string }[] = [
 ];
 
 export async function MethodologyView({ locale }: { readonly locale: Locale }) {
+  const t = await getTranslator(locale, ["trust"]);
   const record = await localizedRoute(locale, ROUTE);
 
   return (
@@ -80,7 +82,7 @@ export async function MethodologyView({ locale }: { readonly locale: Locale }) {
 
           <Section
             id="formulas"
-            heading="The formulas"
+            heading={t("trust.methodology.formulasHeading")}
             description="These are the complete set. Nothing on the site calculates a money figure any other way."
           >
             <div className="flex flex-col gap-3">
@@ -101,7 +103,7 @@ export async function MethodologyView({ locale }: { readonly locale: Locale }) {
 
           <Section
             id="arithmetic"
-            heading="Why exact arithmetic matters"
+            heading={t("trust.methodology.exactHeading")}
             description="This is not pedantry — it is the difference between a figure you can rely on and one that is nearly right."
           >
             <div className="flex flex-col gap-3 text-(--color-text-muted)">
@@ -113,46 +115,34 @@ export async function MethodologyView({ locale }: { readonly locale: Locale }) {
                 behind rounding; across a large balance, or a chain of fee and tax
                 calculations, the drift compounds.
               </p>
-              <p>
-                Every money value on this site is held as an exact fraction — a
-                pair of arbitrary-precision integers — from the moment a rate is
-                read until the moment a figure is printed. Addition,
-                multiplication and division are exact throughout. Nothing is
-                rounded partway, so a total always equals the sum of the parts
-                shown above it.
-              </p>
-              <p>
-                The same approach handles very large balances. Robux counts are
-                stored as arbitrary-precision integers rather than as
-                double-precision numbers, so a ten-figure balance stays exact
-                rather than losing its last digits.
-              </p>
+              <p>{t("trust.methodology.body.arithmetic.p1")}</p>
+              <p>{t("trust.methodology.body.arithmetic.p2")}</p>
             </div>
           </Section>
 
           <Section
             id="rounding"
-            heading="Rounding policy"
+            heading={t("trust.methodology.roundingHeading")}
             description="Precision is dropped exactly once, and the direction is chosen deliberately in each case."
           >
             <ul className="flex flex-col gap-3 text-(--color-text-muted)">
               <li>
-                <strong className="text-(--color-text)">Money rounds half-up</strong> to the
+                <strong className="text-(--color-text)">{t("trust.methodology.rounding.moneyHalfUp")}</strong> to the
                 currency&rsquo;s own minor units — two decimal places for dollars, none
                 for yen or won.
               </li>
               <li>
-                <strong className="text-(--color-text)">Required Robux round up.</strong>{" "}
+                <strong className="text-(--color-text)">{t("trust.methodology.rounding.robuxUp")}</strong>{" "}
                 Rounding to nearest would sometimes return a figure that falls
                 short of the target you asked for.
               </li>
               <li>
-                <strong className="text-(--color-text)">Marketplace shares round down.</strong>{" "}
+                <strong className="text-(--color-text)">{t("trust.methodology.rounding.sharesDown")}</strong>{" "}
                 Better to under-promise what you keep than to show a figure a
                 Robux above what arrives.
               </li>
               <li>
-                <strong className="text-(--color-text)">Intermediate values are never rounded.</strong>{" "}
+                <strong className="text-(--color-text)">{t("trust.methodology.rounding.intermediateNever")}</strong>{" "}
                 Rounding a subtotal and then using it would let a displayed total
                 disagree with its own breakdown.
               </li>
@@ -161,44 +151,27 @@ export async function MethodologyView({ locale }: { readonly locale: Locale }) {
 
           <Section
             id="currency"
-            heading="Local-currency estimates"
+            heading={t("trust.methodology.currencyHeading")}
             description="Secondary to the USD figure, and labelled as what they are."
           >
             <div className="flex flex-col gap-3 text-(--color-text-muted)">
-              <p>
-                The DevEx rate is denominated in US dollars, so every calculation
-                is performed in USD and converted afterwards. Conversion uses
-                European Central Bank euro reference rates, published once each
-                working day at around 16:00 CET.
-              </p>
-              <p>
-                Because those rates are euro-based, a USD cross rate is derived:
-                the euro rate for the target currency divided by the euro rate for
-                the dollar. Every converted figure displays the provider and the
-                date the rates were observed.
-              </p>
+              <p>{t("trust.methodology.body.currency.p1")}</p>
+              <p>{t("trust.methodology.body.currency.p2")}</p>
               <p>
                 These are reference rates. No bank trades at them. Your payment
                 provider will apply its own rate with a margin, so treat a
                 converted figure as an indication of scale rather than a
                 prediction.{" "}
-                <InlineLink href="/devex-fees-and-taxes/">
-                  More on currency conversion and fees
-                </InlineLink>
+                <InlineLink href="/devex-fees-and-taxes/">{t("trust.methodology.body.currency.p4")}</InlineLink>
                 .
               </p>
-              <p>
-                If the provider is unreachable, a stored snapshot is shown and
-                explicitly labelled stale. A stale rate is never presented as
-                current, and the USD calculation never depends on the provider
-                being available.
-              </p>
+              <p>{t("trust.methodology.body.currency.p5")}</p>
             </div>
           </Section>
 
           <Section
             id="limits"
-            heading="What this cannot tell you"
+            heading={t("trust.methodology.cannotHeading")}
             description="The honest boundary of what arithmetic can establish."
           >
             <ul className="flex list-disc flex-col gap-2 pl-5 text-(--color-text-muted)">
@@ -211,9 +184,9 @@ export async function MethodologyView({ locale }: { readonly locale: Locale }) {
                 conditional rates. The split calculator models whatever division
                 you supply; it cannot discover the real one.
               </li>
-              <li>Whether a request will be approved, or when it will be paid.</li>
-              <li>What your bank or payment provider will charge.</li>
-              <li>What you owe in tax.</li>
+              <li>{t("trust.methodology.cannot.approvalOrTiming")}</li>
+              <li>{t("trust.methodology.cannot.providerCharges")}</li>
+              <li>{t("trust.methodology.cannot.taxOwed")}</li>
             </ul>
           </Section>
 

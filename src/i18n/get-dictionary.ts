@@ -173,12 +173,28 @@ export function translator(dictionary: Partial<Dictionary>): Translate {
   };
 }
 
+/**
+ * The namespaces every translator can answer for, whatever it was asked for.
+ *
+ * Shared components render strings of their own — the source link's "(opens in
+ * a new tab)", the rate table's caption, the estimate callout — and they are
+ * handed the calling page's translator rather than building one each. Without
+ * these, whether a component worked depended on which namespaces the page
+ * around it happened to need, and the failure was a prerender error naming a
+ * key the page never mentions.
+ *
+ * Two namespaces, both small, both read by components that appear on nearly
+ * every page. A third would want a better answer than this one.
+ */
+const SHARED_NAMESPACES = ["common", "accessibility"] as const;
+
 /** The namespaces a page needs, and a reader for them, in one await. */
-export async function getTranslator<K extends DictionaryNamespace>(
+export async function getTranslator(
   locale: Locale,
-  namespaces: readonly K[],
+  namespaces: readonly DictionaryNamespace[],
 ): Promise<Translate> {
-  return translator(await getDictionary(locale, namespaces));
+  const all = [...new Set([...namespaces, ...SHARED_NAMESPACES])];
+  return translator(await getDictionary(locale, all));
 }
 /** English, for the extraction scripts and for tests that need a baseline. */
 export async function getSourceNamespace<T = Record<string, unknown>>(

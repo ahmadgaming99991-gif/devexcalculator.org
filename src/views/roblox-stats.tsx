@@ -1,3 +1,4 @@
+import { getTranslator } from "@/i18n/get-dictionary";
 import { localizedRoute } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -56,6 +57,7 @@ function millionsTick(value: number): string {
 }
 
 export async function RobloxStatsView({ locale }: { readonly locale: Locale }) {
+  const t = await getTranslator(locale, ["platform"]);
   const record = await localizedRoute(locale, ROUTE);
 
   const fy2024 = devExFeesByYear.find((p) => p.id === "fy-2024");
@@ -115,22 +117,22 @@ export async function RobloxStatsView({ locale }: { readonly locale: Locale }) {
 
           <Section
             id="payouts"
-            heading="What Roblox pays creators"
+            heading={t("platform.stats.payoutsHeading")}
             description="Developer exchange fees are a line on Roblox's income statement: the money it paid out through DevEx. It is the closest thing to a measure of what the creator economy earns."
           >
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               <Stat
-                label="Paid to creators in 2025"
+                label={t("platform.stats.paidIn2025")}
                 value={formatUsdMagnitude(fy2025?.amountUsd ?? "0")}
                 note="Developer exchange fees, full year"
               />
               <Stat
-                label="Paid in 2024"
+                label={t("platform.stats.paidIn2024")}
                 value={formatUsdMagnitude(fy2024?.amountUsd ?? "0")}
                 note="The year before"
               />
               <Stat
-                label="Year-on-year change"
+                label={t("platform.stats.yearOnYearChange")}
                 value={percentChange(fy2024?.amountUsd ?? "0", fy2025?.amountUsd ?? "0")}
                 note="2024 to 2025"
               />
@@ -146,18 +148,18 @@ export async function RobloxStatsView({ locale }: { readonly locale: Locale }) {
                 chart={
                   <BarChart
                     data={yearData}
-                    caption="Developer exchange fees by financial year, as reported by Roblox."
+                    caption={t("platform.stats.byYearChartCaption")}
                     valueLabel="US dollars"
                     formatTick={millionsTick}
                   />
                 }
               >
-                <TableWrapper label="Developer exchange fees by year">
-                  <Table caption="Roblox developer exchange fees by financial year, with the filing each figure comes from.">
+                <TableWrapper label={t("platform.stats.byYearTableLabel")}>
+                  <Table caption={t("platform.stats.byYearTableCaption")}>
                     <thead>
                       <tr>
                         <Th>Year</Th>
-                        <Th>Paid to creators</Th>
+                        <Th>{t("platform.stats.columnPaidToCreators")}{" "}</Th>
                         <Th>Revenue</Th>
                         <Th>Source</Th>
                       </tr>
@@ -175,7 +177,7 @@ export async function RobloxStatsView({ locale }: { readonly locale: Locale }) {
                               {revenue ? formatUsdMagnitude(revenue.amountUsd ?? "0") : "—"}
                             </Td>
                             <Td>
-                              <SourceLink href={getSource(period.sourceId).url}>
+                              <SourceLink t={t} href={getSource(period.sourceId).url}>
                                 {getSource(period.sourceId).title}
                               </SourceLink>
                             </Td>
@@ -191,25 +193,25 @@ export async function RobloxStatsView({ locale }: { readonly locale: Locale }) {
 
           <Section
             id="quarterly"
-            heading="DevEx payouts by quarter"
+            heading={t("platform.stats.byQuarterHeading")}
             description="Roblox reports quarterly, so this is the finest resolution that exists. Two quarters are marked as derived: they are a six-month total minus the quarter Roblox printed, which is exact arithmetic but not a figure Roblox published on its own."
           >
             <ChartWithTable
               chart={
                 <BarChart
                   data={quarterData}
-                  caption="Developer exchange fees by quarter. Hollow bars are derived by subtraction rather than reported directly."
+                  caption={t("platform.stats.byQuarterChartCaption")}
                   valueLabel="US dollars"
                   formatTick={millionsTick}
                 />
               }
             >
-              <TableWrapper label="Developer exchange fees by quarter">
-                <Table caption="Roblox developer exchange fees by quarter, showing which figures were reported and which were derived.">
+              <TableWrapper label={t("platform.stats.byQuarterTableLabel")}>
+                <Table caption={t("platform.stats.byQuarterTableCaption")}>
                   <thead>
                     <tr>
                       <Th>Quarter</Th>
-                      <Th>Paid to creators</Th>
+                      <Th>{t("platform.stats.columnPaidToCreators")}{" "}</Th>
                       <Th>How we know</Th>
                       <Th>Source</Th>
                     </tr>
@@ -232,7 +234,7 @@ export async function RobloxStatsView({ locale }: { readonly locale: Locale }) {
                           )}
                         </Td>
                         <Td>
-                          <SourceLink href={getSource(period.sourceId).url}>
+                          <SourceLink t={t} href={getSource(period.sourceId).url}>
                             {getSource(period.sourceId).title}
                           </SourceLink>
                         </Td>
@@ -246,7 +248,7 @@ export async function RobloxStatsView({ locale }: { readonly locale: Locale }) {
 
           <Section
             id="rate-history"
-            heading="What one Robux has been worth"
+            heading={t("platform.stats.rateTimelineHeading")}
             description="A payout total says how much creators cashed out, not what each Robux was worth. That is a separate, documented figure, and it has changed once."
           >
             <ChartWithTable
@@ -260,12 +262,12 @@ export async function RobloxStatsView({ locale }: { readonly locale: Locale }) {
                       display: rate.display,
                       from: rate.from,
                     }))}
-                  caption="USD per eligible Earned Robux over time. A step, not a slope: a published rate holds until it is changed. The conditional U.S. 18+ rate is not shown here because it runs alongside the standard rate rather than replacing it — it is in the table below."
+                  caption={t("platform.stats.rateTimelineCaption")}
                 />
               }
             >
-              <TableWrapper label="DevEx rates and what they pay">
-                <Table caption="Each documented DevEx rate and the payout it produces for 100,000 eligible Earned Robux.">
+              <TableWrapper label={t("platform.stats.rateTableLabel")}>
+                <Table caption={t("platform.stats.rateTableCaption")}>
                   <thead>
                     <tr>
                       <Th>Rate</Th>
@@ -289,7 +291,7 @@ export async function RobloxStatsView({ locale }: { readonly locale: Locale }) {
 
           <Section
             id="engagement"
-            heading="How many people use Roblox, and for how long"
+            heading={t("platform.stats.usageHeading")}
             description={engagement.description}
           >
             <div className="grid gap-4 sm:grid-cols-3">
@@ -311,14 +313,12 @@ export async function RobloxStatsView({ locale }: { readonly locale: Locale }) {
                 describe a quarter that has been replaced.
               */}
               <Card tone="subtle" className="min-w-0">
-                <p className="text-sm text-(--color-text-muted)">
-                  Hours per active user, per day
-                </p>
+                <p className="text-sm text-(--color-text-muted)">{t("platform.stats.body.engagement.p1")}</p>
                 <p className="tabular mt-1 text-2xl font-bold break-words text-(--color-text)">
                   about {hoursPerDauPerDay()}
                 </p>
                 <p className="mt-1 text-sm text-(--color-text-muted)">
-                  <Badge tone="neutral">Derived here</Badge>
+                  <Badge tone="neutral">{t("platform.stats.derivedHere")}</Badge>
                 </p>
                 <p className="mt-2 text-xs text-(--color-text-muted)">
                   {engagement.reported.hoursBillions} billion Hours ÷{" "}
@@ -330,13 +330,13 @@ export async function RobloxStatsView({ locale }: { readonly locale: Locale }) {
 
             <p className="mt-4 text-(--color-text-muted)">
               Every figure above except the last is quoted from{" "}
-              <SourceLink href={getSource(engagement.sourceId).url}>
+              <SourceLink t={t} href={getSource(engagement.sourceId).url}>
                 {getSource(engagement.sourceId).title}
               </SourceLink>
               , for the three months ended 30 June 2026.
             </p>
 
-            <Callout tone="info" title="Two figures other trackers show, and this page does not">
+            <Callout tone="info" title={t("platform.stats.twoFiguresTitle")}>
               <ul className="mt-1 flex list-none flex-col gap-3 p-0">
                 {engagement.notPublished.map((entry) => (
                   <li key={entry.id}>
@@ -350,11 +350,11 @@ export async function RobloxStatsView({ locale }: { readonly locale: Locale }) {
 
           <Section
             id="business"
-            heading="Roblox as a business"
+            heading={t("platform.stats.businessHeading")}
             description={companyContext.description}
           >
-            <TableWrapper label="Roblox reported results">
-              <Table caption="Roblox's reported results for the most recent quarter, against the same quarter a year earlier.">
+            <TableWrapper label={t("platform.stock.reportedResultsLabel")}>
+              <Table caption={t("platform.stock.reportedResultsCaption")}>
                 <thead>
                   <tr>
                     <Th>Measure</Th>
@@ -381,29 +381,22 @@ export async function RobloxStatsView({ locale }: { readonly locale: Locale }) {
               about a quarter of Roblox&rsquo;s revenue, so a meaningful share of what the
               platform takes in leaves again as creator payouts. Every figure in this table
               is quoted from{" "}
-              <SourceLink href={getSource(companyContext.sourceId).url}>
+              <SourceLink t={t} href={getSource(companyContext.sourceId).url}>
                 {getSource(companyContext.sourceId).title}
               </SourceLink>{" "}
               rather than recomputed here.
             </p>
 
-            <Callout tone="warning" title="There is no share price on this page, on purpose">
-              A live RBLX quote would need a paid market-data feed and a third-party script
-              running in your browser. This site loads no third-party scripts, and a number
-              it cannot trace to a document is a number it will not publish. The figures
-              above come from the filing itself, which is the same source a share price
-              ultimately reacts to. None of this is investment advice, and a quarterly
-              result says nothing about what any individual will be paid.
-            </Callout>
+            <Callout tone="warning" title={t("platform.stats.noSharePriceTitle")}>{t("platform.stats.body.business.p2")}</Callout>
           </Section>
 
           <Section
             id="data"
-            heading="Download these figures"
+            heading={t("platform.stats.downloadHeading")}
             description="The rows behind the charts, with every figure labelled reported or derived."
           >
             <DataDownload
-              heading="Roblox creator payout statistics"
+              heading={t("platform.stats.downloadInnerHeading")}
               description="Everything charted on this page, plus the metrics Roblox does not publish, as a spreadsheet or as JSON."
               formats={[
                 { label: "CSV — payout figures", href: "/api/stats/?format=csv" },
@@ -419,14 +412,14 @@ export async function RobloxStatsView({ locale }: { readonly locale: Locale }) {
             />
           </Section>
 
-          <Section id="what-it-means" heading="What this means for your own payout">
+          <Section id="what-it-means" heading={t("platform.stats.whatItMeansHeading")}>
             <p className="text-(--color-text-muted)">
               Very little, directly — and that is worth saying plainly. The totals on this
               page describe the whole platform. They do not change what your own balance
               converts to, they are not a forecast, and a rising total does not mean a
               rising rate. What decides your payout is the rate applied to your eligible
               Earned Robux, which you can work out on{" "}
-              <InlineLink href="/">the calculator</InlineLink>.
+              <InlineLink href="/">{t("platform.stats.calculatorLink")}</InlineLink>.
             </p>
             <p className="mt-3 text-(--color-text-muted)">
               The one thing these figures do show is scale: DevEx is a programme through
@@ -437,25 +430,19 @@ export async function RobloxStatsView({ locale }: { readonly locale: Locale }) {
             </p>
           </Section>
 
-          <Section id="no-live-data" heading="Why there is no live data here">
-            <Callout tone="info" title="Quarterly figures, not a live feed">
-              Roblox publishes these numbers once a quarter, in a filing. That is the
-              finest resolution that exists, so a chart claiming to show them changing by
-              the minute would be showing something invented. This site runs no data
-              collection, samples nothing and estimates nothing — it reads the filings and
-              links to them.
-            </Callout>
+          <Section id="no-live-data" heading={t("platform.stats.noLiveDataHeading")}>
+            <Callout tone="info" title={t("platform.stats.quarterlyNotLiveTitle")}>{t("platform.stats.body.noLiveData.p1")}</Callout>
             <p className="mt-4 text-(--color-text-muted)">
               Figures are recorded to the precision the filing used. Where Roblox reported
               in thousands the amount is exact to the dollar; where it reported in
               millions, it is exact to the million and no further. Two quarters are marked
               as derived because they come from subtracting a reported quarter from a
               reported six-month total. Read more about how this site handles figures in{" "}
-              <InlineLink href="/methodology/">the methodology</InlineLink>.
+              <InlineLink href="/methodology/">{t("platform.stats.methodologyLink")}</InlineLink>.
             </p>
           </Section>
 
-          <Section id="faqs" heading="Questions about these figures">
+          <Section id="faqs" heading={t("platform.stats.faqsHeading")}>
             <FAQAccordion locale={locale} faqs={record.faqs} />
           </Section>
 

@@ -128,11 +128,12 @@
     "accept": "Terima",
     "body": {
       "consentHeading": {
-        "p1": "Kuki analitik",
-        "p2": "Kami ingin mengukur halaman mana yang dipakai, dan itu memerlukan kuki. Kalkulatornya bekerja sama saja dengan atau tanpa itu, dan perhitungan Anda tidak pernah dikirim ke mana pun."
+        "p1": "Kuki analitik"
       }
     },
-    "heading": "Cookie analitik"
+    "heading": "Cookie analitik",
+    "explanation": "Kami ingin mengukur halaman mana yang dipakai, dan itu memerlukan kuki. Kalkulatornya bekerja sama saja dengan atau tanpa itu, dan perhitungan Anda tidak pernah dikirim ke mana pun.",
+    "decline": "Tolak"
   },
   "ranges": {
     "day": "24 jam",

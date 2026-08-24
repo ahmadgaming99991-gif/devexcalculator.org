@@ -1,3 +1,5 @@
+import { loadWords } from "@/i18n/client-words";
+import { getTranslator } from "@/i18n/get-dictionary";
 import { localizedRoute } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -19,6 +21,7 @@ import { standardRateId } from "@/lib/calculations/devex";
 import { Rational } from "@/lib/calculations/rational";
 import { formatCurrency, formatRobux } from "@/lib/calculations/format";
 import { PreparationChecklist } from "@/features/devex/preparation-checklist";
+import { PREPARATION_WORDS } from "@/features/devex/preparation-checklist.words";
 
 const ROUTE = "/devex-requirements/";
 
@@ -47,6 +50,7 @@ const MISUNDERSTANDINGS: readonly { claim: string; reality: string }[] = [
 ];
 
 export async function RequirementsView({ locale }: { readonly locale: Locale }) {
+  const t = await getTranslator(locale, ["calculator", "rates"]);
   const record = await localizedRoute(locale, ROUTE);
   const minimumPayout = Rational.fromInt(minimumEarnedRobux).mul(getRateValue(standardRateId));
 
@@ -67,7 +71,7 @@ export async function RequirementsView({ locale }: { readonly locale: Locale }) 
 
           <TableOfContents locale={locale} sections={record.sections} />
 
-          <Section id="requirements" heading="What Roblox requires">
+          <Section id="requirements" heading={t("rates.requirements.requirementsHeading")}>
             <RequirementsList />
           </Section>
 
@@ -81,7 +85,7 @@ export async function RequirementsView({ locale }: { readonly locale: Locale }) 
               thresholdLabel={`${formatRobux(minimumEarnedRobux)} eligible Earned Robux`}
               below="Below the line, a DevEx request cannot be submitted at all. Being close to it counts for nothing, and the shortfall has to be earned — it cannot be bought."
               above="At or above the line, a request can be submitted. It is then reviewed, and meeting the threshold is not the same as being approved."
-              caption="Not drawn to scale: there is no upper limit on a balance, so any width for the eligible side would be invented. The break is the only part that carries meaning."
+              caption={t("rates.requirements.minimumDiagramCaption")}
             />
 
             <div className="rounded-(--radius-control) border border-(--color-border) bg-(--color-surface) p-4">
@@ -94,8 +98,7 @@ export async function RequirementsView({ locale }: { readonly locale: Locale }) 
                 </strong>{" "}
                 before any payment-provider fees or tax.
               </p>
-              <p className="mt-3 text-(--color-text-muted)">
-                The word that matters is <em>Earned</em>. Robux you bought do not
+              <p className="mt-3 text-(--color-text-muted)">{t("rates.requirements.body.minimum.p3")}<em>Earned</em>. Robux you bought do not
                 count toward it, and neither does gift card credit.{" "}
                 <InlineLink href="/earned-robux/">
                   What counts as Earned Robux
@@ -103,28 +106,22 @@ export async function RequirementsView({ locale }: { readonly locale: Locale }) 
                 .
               </p>
               <div className="mt-4">
-                <ButtonLink href="/">Check your balance against the minimum</ButtonLink>
+                <ButtonLink href="/">{t("rates.requirements.checkBalanceLink")}</ButtonLink>
               </div>
             </div>
           </Section>
 
           <Section
             id="not-approval"
-            heading="Meeting the threshold is not approval"
+            heading={t("rates.requirements.notApprovalHeading")}
             description="This distinction is the single most important thing on this page."
           >
-            <Callout tone="warning" title="A number cannot approve you">
-              No calculator, including this one, can tell you whether a DevEx
-              request will be approved. Roblox decides which of your Robux count
-              as Earned Robux and whether your account and request meet its
-              criteria. Anyone telling you otherwise — including any site
-              promising a guaranteed payout — is not in a position to know.
-            </Callout>
+            <Callout tone="warning" title={t("rates.requirements.numberCannotApproveTitle")}>{t("rates.requirements.body.notApproval.p1")}</Callout>
           </Section>
 
           <Section
             id="checklist"
-            heading="Preparation checklist"
+            heading={t("rates.requirements.checklistHeading")}
             description="Getting these in place before you apply avoids the obvious delays. Tick them off as you go — these steps are usually done days apart, and progress is kept in your own browser."
           >
             <noscript>
@@ -138,33 +135,25 @@ export async function RequirementsView({ locale }: { readonly locale: Locale }) 
                   Confirm your balance is genuinely Earned Robux and has reached{" "}
                   {formatRobux(minimumEarnedRobux)}.
                 </li>
-                <li>Verify the email address on your Roblox account.</li>
-                <li>Create and confirm access to your DevEx portal account.</li>
-                <li>
-                  Complete the correct tax form — W-9 if you are a United States
-                  taxpayer, W-8 otherwise.
-                </li>
-                <li>
-                  Check your account is in good standing against the Terms of Use
-                  and Community Standards.
-                </li>
+                <li>{t("rates.requirements.checklist.verifyEmail")}</li>
+                <li>{t("rates.requirements.checklist.portalAccount")}</li>
+                <li>{t("rates.requirements.body.checklist.p2")}</li>
+                <li>{t("rates.requirements.body.checklist.p3")}</li>
                 <li>
                   Decide where the money is going, and check what your bank or
                   payment provider will charge to receive it.{" "}
-                  <InlineLink href="/devex-fees-and-taxes/">
-                    Fees and taxes explained
-                  </InlineLink>
+                  <InlineLink href="/devex-fees-and-taxes/">{t("calculator.preparation.feesLink")}</InlineLink>
                   .
                 </li>
               </ol>
             </noscript>
 
-            <PreparationChecklist />
+            <PreparationChecklist words={await loadWords(locale, PREPARATION_WORDS)} />
           </Section>
 
           <Section
             id="misunderstandings"
-            heading="Common misunderstandings"
+            heading={t("rates.requirements.misunderstandingsHeading")}
             description="Each of these is something creators repeat to each other, alongside what the documentation actually says."
           >
             <div className="flex flex-col gap-3">
@@ -182,7 +171,7 @@ export async function RequirementsView({ locale }: { readonly locale: Locale }) 
             </div>
           </Section>
 
-          <FAQAccordion locale={locale} faqs={record.faqs} heading="Questions about eligibility" />
+          <FAQAccordion locale={locale} faqs={record.faqs} heading={t("rates.requirements.faqsHeading")} />
 
           <RelatedLinks locale={locale}
             record={record}

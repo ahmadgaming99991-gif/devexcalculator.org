@@ -1,5 +1,6 @@
 "use client";
 
+import type { Translate } from "@/i18n/get-dictionary";
 import { useId } from "react";
 import { selectableRates } from "@/lib/calculations/rate-registry";
 import { supportedCurrencies, formatCompactRobux, formatRate } from "@/lib/calculations/format";
@@ -150,18 +151,18 @@ export function CurrencySelector({
   value,
   onChange,
   disabled = false,
+  t,
 }: {
   value: string;
   onChange: (value: string) => void;
   disabled?: boolean;
+  readonly t: Translate;
 }) {
   const id = useId();
 
   return (
     <div>
-      <label htmlFor={id} className="block text-sm font-semibold text-(--color-text)">
-        Show result in
-      </label>
+      <label htmlFor={id} className="block text-sm font-semibold text-(--color-text)">{t("calculator.controls.body.intro.p1")}</label>
       <select
         id={id}
         value={value}
@@ -204,15 +205,15 @@ export const QUICK_PRESETS: readonly bigint[] = [
 export function QuickPresets({
   onSelect,
   activeValue,
+  t,
 }: {
   onSelect: (value: bigint) => void;
   activeValue: string;
+  readonly t: Translate;
 }) {
   return (
     <div>
-      <p id="presets-label" className="text-sm font-semibold text-(--color-text)">
-        Quick amounts
-      </p>
+      <p id="presets-label" className="text-sm font-semibold text-(--color-text)">{t("calculator.controls.body.presetsLabel.p1")}</p>
       <div
         role="group"
         aria-labelledby="presets-label"

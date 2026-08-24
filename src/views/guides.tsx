@@ -1,3 +1,4 @@
+import { getTranslator } from "@/i18n/get-dictionary";
 import { localizedRoute } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
 import Link from "next/link";
@@ -58,6 +59,7 @@ const READING_ORDER: readonly { route: string; answers: string; assumes: string 
 ];
 
 export async function GuidesView({ locale }: { readonly locale: Locale }) {
+  const t = await getTranslator(locale, ["guides"]);
   const record = await localizedRoute(locale, ROUTE);
 
   return (
@@ -75,7 +77,7 @@ export async function GuidesView({ locale }: { readonly locale: Locale }) {
 
           <Section
             id="reading-order"
-            heading="Suggested reading order"
+            heading={t("guides.index.readingOrderHeading")}
             description="Each guide states its sources and the date its facts were last checked."
           >
             <ol className="flex flex-col gap-3">
@@ -117,7 +119,7 @@ export async function GuidesView({ locale }: { readonly locale: Locale }) {
 
           <Section
             id="calculators"
-            heading="Prefer to just calculate?"
+            heading={t("guides.index.preferCalculateHeading")}
             description="Every guide links to the tool it supports, but you can go straight there."
           >
             <Link
@@ -128,9 +130,7 @@ export async function GuidesView({ locale }: { readonly locale: Locale }) {
                 <span className="block text-lg font-semibold text-(--color-text)">
                   All calculators
                 </span>
-                <span className="mt-1 block text-sm text-(--color-text-muted)">
-                  DevEx payout, Robux to USD, payout targets and marketplace fees.
-                </span>
+                <span className="mt-1 block text-sm text-(--color-text-muted)">{t("guides.index.body.calculators.p1")}</span>
               </span>
             </Link>
           </Section>

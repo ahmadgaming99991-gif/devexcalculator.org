@@ -1,5 +1,6 @@
 "use client";
 
+import { translatorFor, type LocaleWords } from "@/i18n/client-words";
 import { useId, useMemo, useState } from "react";
 import {
   PACE_PERIOD_DAYS,
@@ -82,7 +83,8 @@ const PERIOD_LABELS: Record<PacePeriod, string> = {
   month: "a month (30 days)",
 };
 
-export function Planner() {
+export function Planner({ words }: { readonly words: LocaleWords }) {
+  const t = useMemo(() => translatorFor(words), [words]);
   const fieldId = useId();
 
   /*
@@ -172,7 +174,7 @@ export function Planner() {
         <div className="grid gap-5 sm:grid-cols-2">
           <Field
             id={`${fieldId}-target`}
-            label="Payout you are aiming for"
+            label={t("calculator.planner.targetLabel")}
             suffix="USD"
             value={targetUsd}
             onChange={setTargetUsd}
@@ -205,15 +207,12 @@ export function Planner() {
                   </option>
                 ))}
             </select>
-            <p className="mt-2 text-sm text-(--color-text-muted)">
-              Roblox decides which rate applies to a balance. This plans against
-              the one you pick.
-            </p>
+            <p className="mt-2 text-sm text-(--color-text-muted)">{t("calculator.planner.body.intro.p1")}</p>
           </div>
 
           <Field
             id={`${fieldId}-current`}
-            label="Eligible Earned Robux you already have"
+            label={t("calculator.planner.currentBalanceLabel")}
             suffix="R$"
             value={currentRobux}
             onChange={setCurrentRobux}
@@ -226,9 +225,7 @@ export function Planner() {
           />
 
           <fieldset className="min-w-0">
-            <legend className="text-sm font-semibold text-(--color-text)">
-              What do you know?
-            </legend>
+            <legend className="text-sm font-semibold text-(--color-text)">{t("calculator.planner.whatDoYouKnow")}</legend>
             <div className="mt-2 flex flex-wrap gap-2">
               <ModeButton
                 selected={mode === "pace"}
@@ -236,7 +233,7 @@ export function Planner() {
                   setMode("pace");
                   track("planner_mode_selected", { planner_mode: "pace" });
                 }}
-                label="How much I earn"
+                label={t("calculator.planner.modeEarn")}
               />
               <ModeButton
                 selected={mode === "deadline"}
@@ -244,7 +241,7 @@ export function Planner() {
                   setMode("deadline");
                   track("planner_mode_selected", { planner_mode: "deadline" });
                 }}
-                label="When I need it"
+                label={t("calculator.planner.modeDate")}
               />
             </div>
             <p className="mt-2 text-sm text-(--color-text-muted)">
@@ -258,7 +255,7 @@ export function Planner() {
             <>
               <Field
                 id={`${fieldId}-pace`}
-                label="Earned Robux you expect to earn"
+                label={t("calculator.planner.expectedEarningsLabel")}
                 suffix="R$"
                 value={paceAmount}
                 onChange={setPaceAmount}
@@ -306,20 +303,16 @@ export function Planner() {
                 onChange={(event) => setDeadline(event.target.value)}
                 className="tabular mt-2 min-h-[44px] w-full rounded-(--radius-control) border border-(--color-border-strong) bg-(--color-surface) px-3 py-2.5 text-(--color-text) sm:w-64"
               />
-              <p className="mt-2 text-sm text-(--color-text-muted)">
-                This is the date you want to reach the balance. Roblox does not
-                publish how long a DevEx request takes to process, so no
-                processing time is added.
-              </p>
+              <p className="mt-2 text-sm text-(--color-text-muted)">{t("calculator.planner.body.intro.p2")}</p>
             </div>
           )}
         </div>
 
-        <Disclosure summary="Fees and tax (optional)" className="mt-5">
+        <Disclosure summary={t("calculator.planner.feesAndTax")} className="mt-5">
           <div className="grid gap-4 sm:grid-cols-3">
             <Field
               id={`${fieldId}-fee`}
-              label="Payment provider fee"
+              label={t("calculator.deductions.percentageFeeLabel")}
               suffix="%"
               value={feePercent}
               onChange={setFeePercent}
@@ -330,7 +323,7 @@ export function Planner() {
             />
             <Field
               id={`${fieldId}-flat`}
-              label="Flat fee per payout"
+              label={t("calculator.deductions.flatFeeLabel")}
               suffix="USD"
               value={flatFee}
               onChange={setFlatFee}
@@ -341,7 +334,7 @@ export function Planner() {
             />
             <Field
               id={`${fieldId}-tax`}
-              label="Your own tax estimate"
+              label={t("calculator.deductions.taxLabel")}
               suffix="%"
               value={taxPercent}
               onChange={setTaxPercent}
@@ -351,12 +344,7 @@ export function Planner() {
               compact
             />
           </div>
-          <p className="mt-3">
-            All three are yours to supply. This site publishes no default fee
-            and no tax rate: it does not know your country, your provider or
-            your circumstances, and a number filled in here on your behalf
-            would be advice rather than arithmetic.
-          </p>
+          <p className="mt-3">{t("calculator.planner.body.intro.p3")}</p>
         </Disclosure>
       </Card>
 
@@ -369,7 +357,7 @@ export function Planner() {
 
         <div className="mt-4 grid gap-5 sm:grid-cols-3">
           <Figure
-            label="Earned Robux needed in total"
+            label={t("calculator.planner.totalNeeded")}
             value={`${formatRobux(requirement.effectiveRobuxNeeded)} R$`}
             note={
               requirement.requirementIsBelowMinimum
@@ -387,7 +375,7 @@ export function Planner() {
             }
           />
           <Figure
-            label="Estimated payout"
+            label={t("calculator.groupSplit.columnEstimatedPayout")}
             value={formatCurrency(payout.grossUsd, "USD")}
             note={`At ${requirement.rate.label}, before fees and tax.`}
           />
@@ -399,8 +387,8 @@ export function Planner() {
         </div>
 
         {(payout.feesApplied || payout.taxApplied) && (
-          <TableWrapper label="What the payout is reduced by" className="mt-6">
-            <Table caption="The estimated payout, the fees and tax you entered, and what is left.">
+          <TableWrapper label={t("calculator.planner.reductionHeading")} className="mt-6">
+            <Table caption={t("calculator.planner.reductionDescription")}>
               <thead>
                 <tr>
                   <Th>Stage</Th>
@@ -409,7 +397,7 @@ export function Planner() {
               </thead>
               <tbody>
                 <tr>
-                  <Td>Estimated gross payout</Td>
+                  <Td>{t("calculator.planner.grossPayout")}</Td>
                   <Td numeric className="tabular">
                     {formatCurrency(payout.grossUsd, "USD")}
                   </Td>
@@ -417,13 +405,13 @@ export function Planner() {
                 {payout.feesApplied && (
                   <>
                     <tr>
-                      <Td>Percentage fee you entered</Td>
+                      <Td>{t("calculator.planner.percentageFeeEntered")}</Td>
                       <Td numeric className="tabular">
                         −{formatCurrency(payout.percentageFeeUsd, "USD")}
                       </Td>
                     </tr>
                     <tr>
-                      <Td>Flat fee you entered</Td>
+                      <Td>{t("calculator.planner.flatFeeEntered")}</Td>
                       <Td numeric className="tabular">
                         −{formatCurrency(payout.flatFeeUsd, "USD")}
                       </Td>
@@ -432,7 +420,7 @@ export function Planner() {
                 )}
                 {payout.taxApplied && (
                   <tr>
-                    <Td>Your own tax estimate, on what is left after fees</Td>
+                    <Td>{t("calculator.planner.taxEntered")}{" "}</Td>
                     <Td numeric className="tabular">
                       −{formatCurrency(payout.estimatedTaxUsd, "USD")}
                     </Td>
@@ -440,9 +428,7 @@ export function Planner() {
                 )}
                 <tr>
                   <Td>
-                    <strong className="font-semibold text-(--color-text)">
-                      Estimated amount you keep
-                    </strong>
+                    <strong className="font-semibold text-(--color-text)">{t("calculator.planner.body.intro.p4")}</strong>
                   </Td>
                   <Td numeric className="tabular font-semibold">
                     {formatCurrency(payout.netAfterEstimateUsd, "USD")}
@@ -453,12 +439,12 @@ export function Planner() {
           </TableWrapper>
         )}
 
-        <TableWrapper label="The same plan under each documented rate" className="mt-6">
-          <Table caption="What the same target would need, and when it would be reached, under each rate Roblox currently documents.">
+        <TableWrapper label={t("calculator.planner.underEachRateHeading")} className="mt-6">
+          <Table caption={t("calculator.planner.underEachRateDescription")}>
             <thead>
               <tr>
                 <Th>Rate</Th>
-                <Th numeric>Earned Robux needed</Th>
+                <Th numeric>{t("calculator.planner.columnRobuxNeeded")}</Th>
                 <Th numeric>Still to earn</Th>
                 <Th>{mode === "pace" ? "Reached in" : "Needed each day"}</Th>
               </tr>
@@ -471,7 +457,7 @@ export function Planner() {
                     {row.isBaseline ? (
                       <>
                         {" "}
-                        <Badge tone="info">Planning against this</Badge>
+                        <Badge tone="info">{t("calculator.planner.planningAgainst")}{" "}</Badge>
                       </>
                     ) : null}
                   </Td>
@@ -500,7 +486,7 @@ export function Planner() {
           </Table>
         </TableWrapper>
 
-        <Callout tone="warning" title="What this plan is not" className="mt-6">
+        <Callout tone="warning" title={t("calculator.planner.whatThisIsNot")} className="mt-6">
           <p>
             Every figure here is an estimate produced from what you entered.
             Reaching {formatRobux(BigInt(requirement.minimumRobux))} Earned

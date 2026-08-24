@@ -1,3 +1,4 @@
+import { getTranslator } from "@/i18n/get-dictionary";
 import { localizedRoute } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -9,6 +10,7 @@ const ROUTE = "/about/";
 
 
 export async function AboutView({ locale }: { readonly locale: Locale }) {
+  const t = await getTranslator(locale, ["trust"]);
   const record = await localizedRoute(locale, ROUTE);
 
   return (
@@ -24,99 +26,61 @@ export async function AboutView({ locale }: { readonly locale: Locale }) {
         <div className="flex flex-col gap-10">
           <QuickAnswer locale={locale}>{record.quickAnswer}</QuickAnswer>
 
-          <Section id="purpose" heading="What this site is for">
+          <Section id="purpose" heading={t("trust.about.purposeHeading")}>
             <div className="flex flex-col gap-3 text-(--color-text-muted)">
-              <p>
-                A creator with a Robux balance wants to know one thing: what is
-                this actually worth. The answer is arithmetic, but getting it
-                right needs current rates, an understanding of which Robux
-                qualify, and honesty about what the number does and does not
-                mean.
-              </p>
-              <p>
-                Most calculators handle the arithmetic and stop there. Several
-                that rank well are still quoting a rate that changed in September
-                2025, or a minimum that has not been correct for years. A creator
-                planning around those numbers plans around fiction.
-              </p>
-              <p>
-                This site exists to be the version that is correct, says where
-                each figure came from, and admits what it cannot tell you.
-              </p>
+              <p>{t("trust.about.body.purpose.p1")}</p>
+              <p>{t("trust.about.body.purpose.p2")}</p>
+              <p>{t("trust.about.body.purpose.p3")}</p>
             </div>
           </Section>
 
-          <Section id="principles" heading="How it is built">
+          <Section id="principles" heading={t("trust.about.principlesHeading")}>
             <ul className="flex flex-col gap-3 text-(--color-text-muted)">
               <li>
-                <strong className="text-(--color-text)">Every rate has a source and a date.</strong>{" "}
+                <strong className="text-(--color-text)">{t("trust.about.principles.rateHasSource")}</strong>{" "}
                 Not &ldquo;current as of recently&rdquo; — a link to the official Roblox
                 documentation and the date it was last checked, shown on the page.
               </li>
               <li>
-                <strong className="text-(--color-text)">The arithmetic is exact.</strong>{" "}
+                <strong className="text-(--color-text)">{t("trust.about.principles.exactArithmetic")}</strong>{" "}
                 Money is calculated as exact fractions rather than floating-point
                 numbers, and rounded once, at the moment it is displayed.{" "}
-                <InlineLink href="/methodology/">The methodology explains why</InlineLink>.
+                <InlineLink href="/methodology/">{t("trust.about.principles.methodologyExplains")}</InlineLink>.
               </li>
               <li>
-                <strong className="text-(--color-text)">The page works without JavaScript.</strong>{" "}
+                <strong className="text-(--color-text)">{t("trust.about.principles.worksWithoutJs")}</strong>{" "}
                 Rates, formulas, examples and explanations are all server
                 rendered. Only live recalculation needs scripts.
               </li>
               <li>
-                <strong className="text-(--color-text)">Nothing is collected.</strong>{" "}
+                <strong className="text-(--color-text)">{t("trust.about.principles.nothingCollected")}</strong>{" "}
                 Calculations run in your browser and are never sent anywhere.{" "}
-                <InlineLink href="/privacy/">The privacy policy is specific about this</InlineLink>.
+                <InlineLink href="/privacy/">{t("trust.about.principles.privacyIsSpecific")}{" "}</InlineLink>.
               </li>
               <li>
-                <strong className="text-(--color-text)">Corrections are published.</strong>{" "}
+                <strong className="text-(--color-text)">{t("trust.about.principles.correctionsPublished")}</strong>{" "}
                 When a figure here turns out to be wrong, the fix is recorded with
                 a date in the{" "}
-                <InlineLink href="/changelog/">changelog</InlineLink> rather than
-                quietly edited.
-              </li>
+                <InlineLink href="/changelog/">changelog</InlineLink>{t("trust.about.body.principles.p5")}</li>
             </ul>
           </Section>
 
-          <Section id="limits" heading="What it will not do">
+          <Section id="limits" heading={t("trust.about.limitsHeading")}>
             <ul className="flex list-disc flex-col gap-2 pl-5 text-(--color-text-muted)">
-              <li>
-                Tell you whether your DevEx request will be approved. Roblox
-                decides that, and no third party can predict it.
-              </li>
+              <li>{t("trust.about.body.limits.p1")}</li>
               <li>
                 Publish a universal Robux purchase price. There isn&rsquo;t one — it
                 varies by package, region and platform.
               </li>
-              <li>
-                Give tax advice, or state a tax rate for your country.
-              </li>
-              <li>
-                Ask for your Roblox credentials, for any reason. No legitimate
-                tool needs them.
-              </li>
-              <li>
-                Publish a page for every number just because people search for
-                it. Amount pages exist only where there is something specific to
-                say.
-              </li>
-              <li>
-                Invent review counts, user numbers, testimonials or an author
-                biography to look more established than it is.
-              </li>
+              <li>{t("trust.about.body.limits.p2")}</li>
+              <li>{t("trust.about.body.limits.p3")}</li>
+              <li>{t("trust.about.body.limits.p4")}</li>
+              <li>{t("trust.about.body.limits.p5")}</li>
             </ul>
           </Section>
 
-          <Section id="affiliation" heading="Affiliation">
-            <Callout tone="warning" title="Independent, and not connected to Roblox">
-              DevExCalculator.org is not affiliated with, endorsed by, sponsored
-              by or operated by Roblox Corporation. Roblox, Robux and Developer
-              Exchange are trademarks of Roblox Corporation, used here only to
-              describe what these calculations are about. For anything about your
-              account, your balance or your DevEx request, Roblox is the only
-              party who can help.
-            </Callout>
+          <Section id="affiliation" heading={t("trust.about.affiliationHeading")}>
+            <Callout tone="warning" title={t("trust.about.independentTitle")}>{t("trust.about.body.affiliation.p1")}</Callout>
           </Section>
 
           <RelatedLinks locale={locale}

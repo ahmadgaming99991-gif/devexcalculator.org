@@ -1,3 +1,4 @@
+import { getTranslator } from "@/i18n/get-dictionary";
 import { localizedRoute } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -36,6 +37,7 @@ const LABELS: readonly { label: string; meaning: string }[] = [
 ];
 
 export async function EditorialPolicyView({ locale }: { readonly locale: Locale }) {
+  const t = await getTranslator(locale, ["trust"]);
   const record = await localizedRoute(locale, ROUTE);
 
   return (
@@ -51,33 +53,18 @@ export async function EditorialPolicyView({ locale }: { readonly locale: Locale 
         <div className="flex flex-col gap-10">
           <QuickAnswer locale={locale}>{record.quickAnswer}</QuickAnswer>
 
-          <Section id="sourcing" heading="Sourcing standard">
+          <Section id="sourcing" heading={t("trust.editorialPolicy.sourcingHeading")}>
             <ul className="flex flex-col gap-3 text-(--color-text-muted)">
-              <li>
-                Every time-sensitive claim — a rate, a minimum, a fee percentage,
-                an eligibility rule — is tied to an official source and carries
-                the date it was last checked.
-              </li>
-              <li>
-                Where an official source is silent, this site is silent too.
-                Processing times are the clearest example: Roblox publishes no
-                guaranteed timeline, so none is stated here, even though a number
-                would be more satisfying to read.
-              </li>
-              <li>
-                Competitor pages are research, not sources. Nothing is repeated
-                because another site says it.
-              </li>
-              <li>
-                Numerical examples are recomputed from the rate registry rather
-                than copied from anywhere.
-              </li>
+              <li>{t("trust.editorialPolicy.body.sourcing.p1")}</li>
+              <li>{t("trust.editorialPolicy.body.sourcing.p2")}</li>
+              <li>{t("trust.editorialPolicy.body.sourcing.p3")}</li>
+              <li>{t("trust.editorialPolicy.body.sourcing.p4")}</li>
             </ul>
           </Section>
 
           <Section
             id="labels"
-            heading="How claims are labelled"
+            heading={t("trust.editorialPolicy.labellingHeading")}
             description="Every research conclusion in this project's documentation carries one of these labels. An inference is never quietly promoted to a fact."
           >
             <dl className="flex flex-col gap-3">
@@ -93,26 +80,20 @@ export async function EditorialPolicyView({ locale }: { readonly locale: Locale 
             </dl>
           </Section>
 
-          <Section id="never" heading="What this site never publishes">
+          <Section id="never" heading={t("trust.editorialPolicy.neverHeading")}>
             <ul className="flex list-disc flex-col gap-2 pl-5 text-(--color-text-muted)">
-              <li>Invented testimonials, ratings, review counts or user numbers.</li>
-              <li>An author biography or credential that does not correspond to a real person.</li>
-              <li>A rate without a source and a verification date.</li>
-              <li>An exchange rate presented as live when it came from a stored snapshot.</li>
-              <li>A tax figure for your country.</li>
-              <li>A claim that a DevEx request will be approved.</li>
-              <li>
-                A page created only because a keyword exists. A page has to answer
-                something the rest of the site does not.
-              </li>
-              <li>
-                Structured data describing something the page does not visibly
-                contain.
-              </li>
+              <li>{t("trust.editorialPolicy.never.testimonials")}</li>
+              <li>{t("trust.editorialPolicy.never.fakeAuthor")}</li>
+              <li>{t("trust.editorialPolicy.never.unsourcedRate")}</li>
+              <li>{t("trust.editorialPolicy.never.snapshotAsLive")}</li>
+              <li>{t("trust.editorialPolicy.never.countryTax")}</li>
+              <li>{t("trust.editorialPolicy.never.approvalClaim")}</li>
+              <li>{t("trust.editorialPolicy.body.never.p1")}</li>
+              <li>{t("trust.editorialPolicy.body.never.p2")}</li>
             </ul>
           </Section>
 
-          <Section id="review" heading="Review cadence">
+          <Section id="review" heading={t("trust.editorialPolicy.reviewHeading")}>
             <p className="text-(--color-text-muted)">
               Rate-sensitive content is reviewed every{" "}
               {rateRegistry.reviewCadenceDays} days, and escalates to a required
@@ -125,11 +106,9 @@ export async function EditorialPolicyView({ locale }: { readonly locale: Locale 
               A figure is never left online because it performs well in search
               after it stops being accurate. If it is wrong, it changes, and the
               change is recorded.{" "}
-              <InlineLink href="/corrections/">
-                How corrections work
-              </InlineLink>{" "}
+              <InlineLink href="/corrections/">{t("trust.editorialPolicy.body.review.p4")}</InlineLink>{" "}
               ·{" "}
-              <InlineLink href="/changelog/">What has changed so far</InlineLink>
+              <InlineLink href="/changelog/">{t("trust.editorialPolicy.changedSoFar")}</InlineLink>
             </p>
           </Section>
 

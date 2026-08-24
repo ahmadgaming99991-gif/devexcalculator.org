@@ -126,11 +126,12 @@
     "accept": "Kabul et",
     "body": {
       "consentHeading": {
-        "p1": "Analitik çerezleri",
-        "p2": "Hangi sayfaların kullanıldığını ölçmek istiyoruz; bunun için bir çerez gerekiyor. Hesaplayıcı her iki durumda da aynı şekilde çalışır ve hesaplarınız hiçbir yere gönderilmez."
+        "p1": "Analitik çerezleri"
       }
     },
-    "heading": "Analiz çerezleri"
+    "heading": "Analiz çerezleri",
+    "explanation": "Hangi sayfaların kullanıldığını ölçmek istiyoruz; bunun için bir çerez gerekiyor. Hesaplayıcı her iki durumda da aynı şekilde çalışır ve hesaplarınız hiçbir yere gönderilmez.",
+    "decline": "Reddet"
   },
   "ranges": {
     "day": "24 saat",

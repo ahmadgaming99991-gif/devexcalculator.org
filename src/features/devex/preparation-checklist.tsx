@@ -1,5 +1,7 @@
 "use client";
 
+import { translatorFor, type LocaleWords } from "@/i18n/client-words";
+import type { Translate } from "@/i18n/get-dictionary";
 import { useId, useMemo, useState, type ReactNode } from "react";
 import { loadChecklist, saveChecklist } from "./storage";
 import { useClientValue } from "@/lib/utilities/use-client-value";
@@ -31,7 +33,7 @@ interface Step {
   readonly label: ReactNode;
 }
 
-function steps(): readonly Step[] {
+function steps(t: Translate): readonly Step[] {
   return [
     {
       id: "balance",
@@ -39,7 +41,7 @@ function steps(): readonly Step[] {
         <>
           Confirm the balance is genuinely Earned Robux and has reached{" "}
           {formatRobux(BigInt(minimumEarnedRobux))}.{" "}
-          <InlineLink href="/earned-robux/">What counts as Earned Robux</InlineLink>
+          <InlineLink href="/earned-robux/">{t("calculator.preparation.earnedRobuxLink")}</InlineLink>
         </>
       ),
     },
@@ -69,16 +71,17 @@ function steps(): readonly Step[] {
         <>
           Decide where the money is going, and check what the bank or payment
           provider will charge to receive it.{" "}
-          <InlineLink href="/devex-fees-and-taxes/">Fees and taxes explained</InlineLink>
+          <InlineLink href="/devex-fees-and-taxes/">{t("calculator.preparation.feesLink")}</InlineLink>
         </>
       ),
     },
   ];
 }
 
-export function PreparationChecklist() {
+export function PreparationChecklist({ words }: { readonly words: LocaleWords }) {
+  const t = useMemo(() => translatorFor(words), [words]);
   const groupId = useId();
-  const items = steps();
+  const items = steps(t);
 
   /*
    * The stored value pairs with an in-session override, which is the pattern the
@@ -189,26 +192,21 @@ export function PreparationChecklist() {
           })}
         </ul>
 
-        <p className="mt-4 text-sm text-(--color-text-muted)">
-          Ticks are kept in this browser only — not sent anywhere, and not an
-          account. Clearing site data removes them.
-        </p>
+        <p className="mt-4 text-sm text-(--color-text-muted)">{t("calculator.preparation.body.intro.p1")}</p>
       </Card>
 
       {allPrepared ? (
-        <Callout tone="info" title="Prepared is not approved" className="mt-4">
+        <Callout tone="info" title={t("calculator.preparation.preparedNotApprovedTitle")} className="mt-4">
           <p>
             Every step on this list is done, which means the obvious delays are out
             of the way. It does not mean a request will be accepted.{" "}
-            <Badge tone="neutral">Roblox decides</Badge>
+            <Badge tone="neutral">{t("calculator.preparation.robloxDecides")}{" "}</Badge>
           </p>
           <p className="mt-2">
             Roblox reviews each request against its own criteria after it is
             submitted, and it does not publish what would cause one to be refused.
             A checklist in a browser has no standing in that review.{" "}
-            <InlineLink href="/how-to-cash-out-robux/">
-              What the submission process involves
-            </InlineLink>
+            <InlineLink href="/how-to-cash-out-robux/">{t("calculator.preparation.body.intro.p4")}</InlineLink>
           </p>
         </Callout>
       ) : null}

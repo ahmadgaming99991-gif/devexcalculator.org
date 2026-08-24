@@ -1,3 +1,4 @@
+import { localeSegment } from "@/i18n/locale-path";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { renderableLocales, resolveRenderableLocale } from "@/i18n/visibility";
@@ -13,7 +14,7 @@ export function generateStaticParams(): { locale: string; slug: string }[] {
     .filter((meta) => meta.prefix !== "")
     .flatMap((meta) =>
       APPROVED_AMOUNTS.map((definition) => ({
-        locale: meta.locale,
+        locale: localeSegment(meta.locale),
         slug: amountPageSlug(definition.amount),
       })),
     );

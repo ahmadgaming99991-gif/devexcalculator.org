@@ -1,3 +1,4 @@
+import type { Translate } from "@/i18n/get-dictionary";
 import Link from "next/link";
 import type { ComponentPropsWithoutRef, ReactNode } from "react";
 
@@ -244,10 +245,12 @@ export function ButtonLink({
  * would misrepresent the relationship.
  */
 export function SourceLink({
+  t,
   href,
   children,
   className,
 }: {
+  readonly t: Translate;
   href: string;
   children: ReactNode;
   className?: string;
@@ -263,7 +266,7 @@ export function SourceLink({
       )}
     >
       {children}
-      <span className="sr-only"> (opens in a new tab)</span>
+      <span className="sr-only">{t("common.ui.opensInNewTab")}</span>
     </a>
   );
 }

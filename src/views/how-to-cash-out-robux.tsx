@@ -1,9 +1,12 @@
+import { loadWords } from "@/i18n/client-words";
+import { getTranslator } from "@/i18n/get-dictionary";
 import { localizedRoute } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
 import { JsonLd } from "@/components/seo/json-ld";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { ButtonLink, Callout, Container, InlineLink, Section, SourceLink } from "@/components/ui";
 import { GroupSplit } from "@/features/devex/group-split";
+import { GROUP_SPLIT_WORDS } from "@/features/devex/group-split.words";
 import {
   EstimateDisclaimer,
   FAQAccordion,
@@ -21,6 +24,7 @@ const ROUTE = "/how-to-cash-out-robux/";
 
 
 export async function CashOutView({ locale }: { readonly locale: Locale }) {
+  const t = await getTranslator(locale, ["guides", "routes"]);
   const record = await localizedRoute(locale, ROUTE);
 
   return (
@@ -42,12 +46,12 @@ export async function CashOutView({ locale }: { readonly locale: Locale }) {
 
           <Section
             id="process"
-            heading="The process Roblox documents"
+            heading={t("guides.cashOut.processHeading")}
             description="At a high level, and only as far as official documentation supports."
           >
             <ValueFlow
               className="mb-6"
-              caption="The stage drawn with a dashed edge is the one you do not control. Everything before it is preparation; nothing after it is guaranteed."
+              caption={t("guides.cashOut.processDiagramCaption")}
               stages={[
                 {
                   label: "Reach the minimum",
@@ -88,68 +92,61 @@ export async function CashOutView({ locale }: { readonly locale: Locale }) {
                   Accumulate at least {formatRobux(minimumEarnedRobux)} Earned Robux.
                 </strong>{" "}
                 Only Earned Robux count.{" "}
-                <InlineLink href="/earned-robux/">
-                  Check which of your Robux qualify
-                </InlineLink>
+                <InlineLink href="/earned-robux/">{t("guides.cashOut.body.process.p3")}</InlineLink>
                 .
               </li>
               <li>
-                <strong className="text-(--color-text)">Meet the account requirements.</strong>{" "}
+                <strong className="text-(--color-text)">{t("guides.cashOut.list.meetRequirements")}</strong>{" "}
                 Verified email, minimum age of 13, a valid DevEx portal account,
                 a W-9 or W-8 on file, and an account in good standing.{" "}
-                <InlineLink href="/devex-requirements/">Full list</InlineLink>.
+                <InlineLink href="/devex-requirements/">{t("guides.cashOut.list.fullListLink")}</InlineLink>.
               </li>
               <li>
-                <strong className="text-(--color-text)">Submit through the DevEx portal.</strong>{" "}
+                <strong className="text-(--color-text)">{t("guides.cashOut.list.submitPortal")}</strong>{" "}
                 Requests go through the official portal linked from the{" "}
-                <SourceLink href="https://create.roblox.com/docs/production/monetization/developer-exchange">
+                <SourceLink t={t} href="https://create.roblox.com/docs/production/monetization/developer-exchange">
                   Roblox Creator Hub DevEx documentation
                 </SourceLink>
                 . Nowhere else.
               </li>
               <li>
-                <strong className="text-(--color-text)">Roblox reviews the request.</strong>{" "}
+                <strong className="text-(--color-text)">{t("guides.cashOut.list.robloxReviews")}</strong>{" "}
                 It decides which Robux qualify and whether the request is
                 approved. No third party influences this, and this site cannot
                 predict the outcome.
               </li>
               <li>
-                <strong className="text-(--color-text)">Payment is issued.</strong> Your
+                <strong className="text-(--color-text)">{t("guides.cashOut.list.paymentIssued")}</strong> Your
                 payment provider and your bank apply their own handling from
                 there.{" "}
-                <InlineLink href="/devex-fees-and-taxes/">
-                  What comes off the payout
-                </InlineLink>
+                <InlineLink href="/devex-fees-and-taxes/">{t("guides.cashOut.body.process.p8")}</InlineLink>
                 .
               </li>
             </ol>
 
             <div className="mt-6">
-              <ButtonLink href="/">Estimate what your balance would pay</ButtonLink>
+              <ButtonLink href="/">{t("routes.howToCashOutRobux.links.home")}</ButtonLink>
             </div>
           </Section>
 
           <Section
             id="checklist"
-            heading="Prepare before you apply"
+            heading={t("guides.cashOut.prepareHeading")}
             description="None of this is difficult, but chasing it after submitting is what causes delays."
           >
             <ul className="flex list-disc flex-col gap-2 pl-5 text-(--color-text-muted)">
-              <li>Your Roblox email address is verified.</li>
-              <li>You can sign in to the DevEx portal.</li>
-              <li>The correct tax form is completed and on file.</li>
-              <li>Your legal name and details match the ones on your tax form.</li>
-              <li>You know which payment method you will use and what it charges.</li>
-              <li>
-                You have set aside an estimate for tax, if it applies where you
-                live.
-              </li>
+              <li>{t("guides.cashOut.prepare.emailVerified")}</li>
+              <li>{t("guides.cashOut.prepare.portalSignIn")}</li>
+              <li>{t("guides.cashOut.prepare.taxForm")}</li>
+              <li>{t("guides.cashOut.prepare.nameMatches")}</li>
+              <li>{t("guides.cashOut.prepare.paymentMethod")}</li>
+              <li>{t("guides.cashOut.body.checklist.p1")}</li>
             </ul>
           </Section>
 
           <Section
             id="timing"
-            heading="How long it takes"
+            heading={t("guides.cashOut.howLongHeading")}
             description="Honestly: nobody outside Roblox can tell you."
           >
             <p className="text-(--color-text-muted)">
@@ -163,30 +160,18 @@ export async function CashOutView({ locale }: { readonly locale: Locale }) {
 
           <Section
             id="safety"
-            heading="Avoid unofficial services"
+            heading={t("guides.cashOut.avoidHeading")}
             description="This part matters more than the rest of the page."
           >
-            <Callout tone="danger" title="Never share your Roblox credentials">
-              No legitimate service needs your Roblox password, and this site
-              never asks for it. Services offering to buy your Robux, convert a
-              balance outside DevEx, or speed up a payout generally violate the
-              Roblox Terms of Use. The realistic outcomes are losing the Robux,
-              losing the account, or both.
-            </Callout>
+            <Callout tone="danger" title={t("guides.cashOut.neverShareTitle")}>{t("guides.cashOut.body.safety.p1")}</Callout>
 
             <ul className="mt-4 flex list-disc flex-col gap-2 pl-5 text-(--color-text-muted)">
-              <li>
-                DevEx is the only official route from Earned Robux to money.
-                There is no faster alternative.
-              </li>
+              <li>{t("guides.cashOut.body.safety.p2")}</li>
               <li>
                 A site asking you to sign in with your Roblox account to
                 &ldquo;check eligibility&rdquo; is phishing.
               </li>
-              <li>
-                Anyone guaranteeing approval is guaranteeing something they do
-                not control.
-              </li>
+              <li>{t("guides.cashOut.body.safety.p3")}</li>
               <li>
                 Robux &ldquo;generators&rdquo; do not exist. Every one of them is
                 a scam or a survey farm.
@@ -196,25 +181,19 @@ export async function CashOutView({ locale }: { readonly locale: Locale }) {
 
           <Section
             id="group"
-            heading="When a group earned it"
+            heading={t("guides.cashOut.groupHeading")}
             description="A DevEx request is submitted by one account and paid to that account. Roblox does not divide a payout between collaborators, so a revenue share is an arrangement between the people in the group — and the minimum applies to each of them separately."
           >
-            <p className="text-(--color-text-muted)">
-              This catches groups out more often than the rate does. A team can
-              earn several times the minimum together and still have nobody able
-              to submit a request, because the threshold is measured against the
-              balance one person holds. Work out what each agreed share comes to,
-              and whether it clears on its own:
-            </p>
+            <p className="text-(--color-text-muted)">{t("guides.cashOut.body.group.p1")}</p>
 
             <div className="mt-6">
-              <GroupSplit />
+              <GroupSplit words={await loadWords(locale, GROUP_SPLIT_WORDS)} />
             </div>
           </Section>
 
           <Section
             id="after"
-            heading="After the payout"
+            heading={t("guides.cashOut.afterHeading")}
             description="The DevEx rate is not the last number involved."
           >
             <p className="text-(--color-text-muted)">
@@ -222,14 +201,12 @@ export async function CashOutView({ locale }: { readonly locale: Locale }) {
               you live. Your payment provider may charge a fee, and if you are
               paid in a currency other than US dollars there will be a conversion
               spread on top.{" "}
-              <InlineLink href="/devex-fees-and-taxes/">
-                Model those deductions with your own figures
-              </InlineLink>
+              <InlineLink href="/devex-fees-and-taxes/">{t("guides.cashOut.body.after.p2")}</InlineLink>
               . This site gives no tax advice.
             </p>
           </Section>
 
-          <FAQAccordion locale={locale} faqs={record.faqs} heading="Questions about cashing out" />
+          <FAQAccordion locale={locale} faqs={record.faqs} heading={t("guides.cashOut.faqsHeading")} />
 
           <RelatedLinks locale={locale}
             record={record}

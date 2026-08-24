@@ -1,5 +1,6 @@
 "use client";
 
+import type { Translate } from "@/i18n/get-dictionary";
 import type { ReactNode } from "react";
 import type { ComparisonResult, SplitResult, TargetResult, ThresholdStatus } from "@/lib/calculations/devex";
 import { Rational } from "@/lib/calculations/rational";
@@ -134,12 +135,14 @@ export function ThresholdMeter({ threshold }: { threshold: ThresholdStatus }) {
 export function ScenarioComparison({
   comparison,
   currency = "USD",
+  t,
 }: {
   comparison: ComparisonResult;
   currency?: string;
+  readonly t: Translate;
 }) {
   return (
-    <TableWrapper label="What each DevEx rate would pay for this amount">
+    <TableWrapper label={t("calculator.results.comparisonTableLabel")}>
       <Table caption={`Comparison of DevEx rates for ${formatRobux(comparison.robux)} Earned Robux`}>
         <thead>
           <tr>
@@ -195,17 +198,19 @@ export function ScenarioComparison({
 export function ResultBreakdown({
   result,
   currency = "USD",
+  t,
 }: {
   result: SplitResult;
   currency?: string;
+  readonly t: Translate;
 }) {
   const populated = result.buckets.filter((bucket) => bucket.robux > 0n);
   if (populated.length === 0) return null;
 
   return (
     <div className="flex flex-col gap-4">
-      <TableWrapper label="Payout broken down by rate bucket">
-        <Table caption="DevEx payout by rate bucket">
+      <TableWrapper label={t("calculator.results.bucketTableLabel")}>
+        <Table caption={t("calculator.results.bucketTableCaption")}>
           <thead>
             <tr>
               <Th>Bucket</Th>
@@ -260,18 +265,18 @@ export function ResultBreakdown({
 
       {result.feesApplied || result.taxApplied ? (
         <div className="rounded-(--radius-control) border border-(--color-border) bg-(--color-surface) p-4">
-          <h3 className="text-sm font-semibold text-(--color-text)">Your estimated deductions</h3>
+          <h3 className="text-sm font-semibold text-(--color-text)">{t("calculator.deductions.heading")}{" "}</h3>
           <dl className="mt-2 flex flex-col gap-1.5 text-sm">
-            <DeductionRow label="Gross payout" value={formatCurrency(result.grossUsd, currency)} />
+            <DeductionRow label={t("calculator.deductions.grossPayout")} value={formatCurrency(result.grossUsd, currency)} />
             {result.feesApplied ? (
               <>
                 <DeductionRow
-                  label="Percentage fee"
+                  label={t("calculator.deductions.percentageFee")}
                   value={`−${formatCurrency(result.percentageFeeUsd, currency)}`}
                 />
                 {!result.flatFeeUsd.isZero() ? (
                   <DeductionRow
-                    label="Flat fee"
+                    label={t("calculator.deductions.flatFee")}
                     value={`−${formatCurrency(result.flatFeeUsd, currency)}`}
                   />
                 ) : null}
@@ -279,22 +284,19 @@ export function ResultBreakdown({
             ) : null}
             {result.taxApplied ? (
               <DeductionRow
-                label="Your tax estimate"
+                label={t("calculator.deductions.taxEstimate")}
                 value={`−${formatCurrency(result.estimatedTaxUsd, currency)}`}
               />
             ) : null}
             <div className="mt-1 border-t border-(--color-border) pt-1.5">
               <DeductionRow
-                label="Estimated net"
+                label={t("calculator.deductions.estimatedNet")}
                 value={formatCurrency(result.netAfterEstimateUsd, currency)}
                 emphasis
               />
             </div>
           </dl>
-          <p className="mt-2 text-xs text-(--color-text-muted)">
-            These are the figures you entered, not amounts Roblox or any provider
-            has quoted. This site gives no tax advice.
-          </p>
+          <p className="mt-2 text-xs text-(--color-text-muted)">{t("calculator.results.body.intro.p3")}</p>
         </div>
       ) : null}
     </div>
@@ -340,9 +342,11 @@ function DeductionRow({
 export function TargetBreakdown({
   result,
   currency = "USD",
+  t,
 }: {
   result: TargetResult;
   currency?: string;
+  readonly t: Translate;
 }) {
   return (
     <div className="flex flex-col gap-3 text-sm">
@@ -356,7 +360,7 @@ export function TargetBreakdown({
 
       {result.requirementIsBelowMinimum ? (
         <div className="rounded-(--radius-control) border border-(--color-border) border-l-4 border-l-(--color-warning) bg-(--color-surface) p-3">
-          <p className="font-semibold text-(--color-text)">The minimum applies first</p>
+          <p className="font-semibold text-(--color-text)">{t("calculator.target.minimumAppliesFirstTitle")}</p>
           <p className="mt-1 text-(--color-text-muted)">
             {formatRobux(result.requiredRobux)} Earned Robux would reach your target
             arithmetically, but Roblox requires {formatRobux(result.minimumRobux)} before a request
@@ -416,19 +420,19 @@ export function FxNote({
   currency,
   status,
   error,
+  t,
 }: {
   rates: FxRates | null;
   currency: string;
   status: string;
   error: string | null;
+  readonly t: Translate;
 }) {
   if (currency === "USD") return null;
 
   if (status === "loading") {
     return (
-      <p className="text-xs text-(--color-text-muted)" aria-live="polite">
-        Loading reference rates…
-      </p>
+      <p className="text-xs text-(--color-text-muted)" aria-live="polite">{t("calculator.currency.loading")}</p>
     );
   }
 

@@ -1,3 +1,4 @@
+import { localeSegment } from "../../../src/i18n/locale-path";
 import { afterEach, describe, expect, it } from "vitest";
 import { localeRegistry } from "../../../src/i18n/config";
 import {
@@ -59,7 +60,9 @@ describe("review mode", () => {
     for (const meta of reviewLocales()) {
       // The switch controls whether the page exists...
       expect(isRenderable(meta.locale)).toBe(true);
-      expect(resolveRenderableLocale(meta.locale)).toBe(meta.locale);
+      // Resolved from the URL segment, which is the prefix: `/pt-br/`, not
+      // the `pt-BR` tag.
+      expect(resolveRenderableLocale(localeSegment(meta.locale))).toBe(meta.locale);
       // ...never whether search engines are told about it.
       expect(isPubliclyVisible(meta.locale), `${meta.locale} became public`).toBe(false);
     }

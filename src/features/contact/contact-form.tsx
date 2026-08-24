@@ -1,5 +1,6 @@
 "use client";
 
+import { translatorFor, type LocaleWords } from "@/i18n/client-words";
 import { useId, useRef, useState } from "react";
 import Script from "next/script";
 import { LIMITS, type ValidationIssue } from "@/lib/validation/contact";
@@ -15,7 +16,12 @@ import { Button, Callout, cx } from "@/components/ui";
  * Client-side validation is a convenience for the reader. The server validates
  * everything again regardless, and the server is the authority.
  */
-export function ContactForm({ turnstileSiteKey }: { turnstileSiteKey: string | null }) {
+export function ContactForm({ turnstileSiteKey,
+  words,
+}: { turnstileSiteKey: string | null;
+  readonly words: LocaleWords;
+}) {
+  const t = translatorFor(words);
   const [status, setStatus] = useState<"idle" | "submitting" | "sent" | "error">("idle");
   const [issues, setIssues] = useState<readonly ValidationIssue[]>([]);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -71,10 +77,7 @@ export function ContactForm({ turnstileSiteKey }: { turnstileSiteKey: string | n
 
   if (status === "sent") {
     return (
-      <Callout tone="success" title="Message received">
-        Thank you. If you reported a factual correction, it will be checked
-        against the official documentation before anything is changed.
-      </Callout>
+      <Callout tone="success" title={t("contact.form.receivedTitle")}>{t("contact.form.body.intro.p1")}</Callout>
     );
   }
 
@@ -90,7 +93,7 @@ export function ContactForm({ turnstileSiteKey }: { turnstileSiteKey: string | n
       <form ref={formRef} onSubmit={handleSubmit} className="flex flex-col gap-4" noValidate>
         {errorMessage ? (
           <div role="alert">
-            <Callout tone="danger" title="Could not send">
+            <Callout tone="danger" title={t("contact.form.couldNotSendTitle")}>
               {errorMessage}
             </Callout>
           </div>
@@ -99,7 +102,7 @@ export function ContactForm({ turnstileSiteKey }: { turnstileSiteKey: string | n
         <Field
           id={`${formId}-name`}
           name="name"
-          label="Your name"
+          label={t("contact.form.name")}
           autoComplete="name"
           maxLength={LIMITS.name.max}
           error={issueFor("name")}
@@ -109,7 +112,7 @@ export function ContactForm({ turnstileSiteKey }: { turnstileSiteKey: string | n
           id={`${formId}-email`}
           name="email"
           type="email"
-          label="Email address"
+          label={t("contact.form.email")}
           autoComplete="email"
           maxLength={LIMITS.email.max}
           error={issueFor("email")}
@@ -119,7 +122,7 @@ export function ContactForm({ turnstileSiteKey }: { turnstileSiteKey: string | n
         <Field
           id={`${formId}-subject`}
           name="subject"
-          label="Subject"
+          label={t("contact.form.subject")}
           maxLength={LIMITS.subject.max}
           error={issueFor("subject")}
           required
@@ -127,7 +130,7 @@ export function ContactForm({ turnstileSiteKey }: { turnstileSiteKey: string | n
         <Field
           id={`${formId}-message`}
           name="message"
-          label="Message"
+          label={t("contact.form.message")}
           multiline
           maxLength={LIMITS.message.max}
           error={issueFor("message")}
@@ -141,7 +144,7 @@ export function ContactForm({ turnstileSiteKey }: { turnstileSiteKey: string | n
           filling every field will.
         */}
         <div aria-hidden="true" className="absolute left-[-9999px] h-px w-px overflow-hidden">
-          <label htmlFor={`${formId}-website`}>Leave this field empty</label>
+          <label htmlFor={`${formId}-website`}>{t("contact.form.honeypot")}</label>
           <input
             id={`${formId}-website`}
             name="website"

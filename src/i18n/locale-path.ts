@@ -1,4 +1,4 @@
-import { DEFAULT_LOCALE, getLocaleMeta, isSupportedLocale, localeRegistry } from "./config";
+import { DEFAULT_LOCALE, getLocaleMeta, localeRegistry } from "./config";
 import type { Locale } from "./types";
 
 /**
@@ -107,12 +107,26 @@ export function switchLocalePath(
 /**
  * Reads a locale from a raw route segment, for the localized route handler.
  *
+ * **The segment is the prefix, not the locale tag.** Portuguese is `pt-BR`
+ * as a BCP 47 tag and `/pt-br/` as a URL, and treating the two as the same
+ * string produces two addresses for every Portuguese page. That is not
+ * hypothetical: the route parameters were generated from the tag, so the
+ * build prerendered `/pt-BR/…` while every link on those pages pointed at
+ * `/pt-br/…`.
+ *
  * Case-sensitive on purpose. `/PT-BR/` is not a URL this site serves, and
- * quietly accepting it would create a second address for every page — the
+ * quietly accepting it would create that second address again — the
  * duplicate-content problem the trailing-slash policy exists to prevent.
  * Returns null rather than a default so the caller can answer 404.
  */
 export function parseLocaleSegment(segment: string): Locale | null {
-  if (!isSupportedLocale(segment)) return null;
-  return segment;
+  for (const meta of PREFIXED) {
+    if (meta.prefix === `/${segment}`) return meta.locale;
+  }
+  return null;
+}
+
+/** The URL segment a locale is served under, with no slashes. */
+export function localeSegment(locale: Locale): string {
+  return getLocaleMeta(locale).prefix.replace(/^\//, "");
 }

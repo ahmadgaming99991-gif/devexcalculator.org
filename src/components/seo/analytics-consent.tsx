@@ -16,7 +16,20 @@ import { useClientValue } from "@/lib/utilities/use-client-value";
  */
 const STORAGE_KEY = "devex:consent";
 
-export function AnalyticsConsent() {
+/**
+ * The four strings this says, handed in from the shell.
+ *
+ * A Client Component: a dictionary reached from here would be a dictionary in
+ * the browser bundle, in every language, on every page.
+ */
+export interface ConsentWords {
+  readonly heading: string;
+  readonly explanation: string;
+  readonly accept: string;
+  readonly decline: string;
+}
+
+export function AnalyticsConsent({ words }: { readonly words: ConsentWords }) {
   // A choice made in this session; before that, storage is the truth. The
   // server snapshot is "granted" so the banner renders nothing during
   // hydration rather than flashing in and out.
@@ -59,19 +72,15 @@ export function AnalyticsConsent() {
         <div className="flex flex-col gap-3 py-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <h2 id="consent-heading" className="text-sm font-semibold text-(--color-text)">
-              Analytics cookies
+              {words.heading}
             </h2>
-            <p className="mt-1 text-sm text-(--color-text-muted)">
-              We would like to measure which pages get used, which needs a cookie.
-              The calculator works identically either way, and your calculations
-              are never sent anywhere.
-            </p>
+            <p className="mt-1 text-sm text-(--color-text-muted)">{words.explanation}</p>
           </div>
           <div className="flex shrink-0 gap-2">
             <Button variant="secondary" onClick={() => record("denied")}>
-              Decline
+              {words.decline}
             </Button>
-            <Button onClick={() => record("granted")}>Accept</Button>
+            <Button onClick={() => record("granted")}>{words.accept}</Button>
           </div>
         </div>
       </Container>

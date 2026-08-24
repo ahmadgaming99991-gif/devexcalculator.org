@@ -1,3 +1,4 @@
+import { getTranslator } from "@/i18n/get-dictionary";
 import { localizedRoute } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -26,6 +27,7 @@ const KIND_LABELS: Record<ChangeEntry["kind"], { label: string; tone: "warning" 
 };
 
 export async function ChangelogView({ locale }: { readonly locale: Locale }) {
+  const t = await getTranslator(locale, ["trust"]);
   const record = await localizedRoute(locale, ROUTE);
 
   return (
@@ -45,7 +47,7 @@ export async function ChangelogView({ locale }: { readonly locale: Locale }) {
 
           <Section
             id="entries"
-            heading="Change history"
+            heading={t("trust.changelog.historyHeading")}
             description={`Rate registry version ${rateRegistry.registryVersion}, last verified ${formatDate(rateRegistry.lastVerifiedAt)}.`}
           >
             {/*
@@ -53,15 +55,12 @@ export async function ChangelogView({ locale }: { readonly locale: Locale }) {
               about rather than checking for, and until now the only way to
               learn of one was to come back and read this page.
             */}
-            <Callout tone="info" title="Subscribe instead of checking back">
+            <Callout tone="info" title={t("trust.changelog.subscribeTitle")}>
               Every entry here is published as a feed:{" "}
-              <SourceLink href="/feed.xml">Atom</SourceLink> for a feed reader,
-              or <SourceLink href="/feed.json">JSON Feed</SourceLink> for
+              <SourceLink t={t} href="/feed.xml">Atom</SourceLink>{t("trust.changelog.body.entries.p2")}<SourceLink t={t} href="/feed.json">JSON Feed</SourceLink> for
               anything that would rather not parse XML. Both carry the same
               entries and the same source links. If you depend on these figures,{" "}
-              <InlineLink href="/api/">the rates API</InlineLink> publishes the
-              current values with their verification date attached.
-            </Callout>
+              <InlineLink href="/api/">{t("trust.changelog.ratesApiLink")}</InlineLink>{t("trust.changelog.body.entries.p4")}</Callout>
 
             <ol className="mt-6 flex flex-col gap-4">
               {changelogEntries.map((entry, index) => {
@@ -86,7 +85,7 @@ export async function ChangelogView({ locale }: { readonly locale: Locale }) {
                     <p className="mt-1.5 text-sm text-(--color-text-muted)">{entry.detail}</p>
                     {entry.sourceUrl && entry.sourceLabel ? (
                       <p className="mt-2 text-sm">
-                        <SourceLink href={entry.sourceUrl}>{entry.sourceLabel}</SourceLink>
+                        <SourceLink t={t} href={entry.sourceUrl}>{entry.sourceLabel}</SourceLink>
                       </p>
                     ) : null}
                   </li>
@@ -97,24 +96,16 @@ export async function ChangelogView({ locale }: { readonly locale: Locale }) {
 
           <Section
             id="scope"
-            heading="What gets recorded here"
+            heading={t("trust.changelog.recordedHeading")}
             description="This changelog tracks what this site did. What Roblox did is tracked separately."
           >
-            <p className="text-(--color-text-muted)">
-              Any change to a published rate, minimum or fee percentage appears
-              here with its date and source. So does any correction to a figure
-              that turned out to be wrong — those are not quietly edited away.
-              Routine content edits and typo fixes are not listed, because a
-              changelog that records everything records nothing useful.
-            </p>
+            <p className="text-(--color-text-muted)">{t("trust.changelog.body.scope.p1")}</p>
             <p className="mt-3 text-(--color-text-muted)">
               For the history of the DevEx rate itself, including the September
               2025 change,{" "}
-              <InlineLink href="/devex-rate-history/">
-                see the rate history page
-              </InlineLink>
+              <InlineLink href="/devex-rate-history/">{t("trust.changelog.body.scope.p3")}</InlineLink>
               . For how corrections are handled,{" "}
-              <InlineLink href="/corrections/">see the corrections policy</InlineLink>.
+              <InlineLink href="/corrections/">{" "}{t("trust.changelog.correctionsPolicyLink")}</InlineLink>.
             </p>
           </Section>
 

@@ -1,3 +1,4 @@
+import { getTranslator } from "@/i18n/get-dictionary";
 import { localizedRoute } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -11,6 +12,7 @@ const ROUTE = "/terms/";
 
 
 export async function TermsView({ locale }: { readonly locale: Locale }) {
+  const t = await getTranslator(locale, ["legal"]);
   const record = await localizedRoute(locale, ROUTE);
 
   return (
@@ -30,75 +32,41 @@ export async function TermsView({ locale }: { readonly locale: Locale }) {
             Last reviewed {formatDate(record.lastReviewedAt)}.
           </p>
 
-          <Section id="use" heading="Using this site">
+          <Section id="use" heading={t("legal.terms.useHeading")}>
             <p className="text-(--color-text-muted)">
               You are welcome to use {siteConfig.host} freely to estimate DevEx
               payouts, for yourself or as part of your work as a creator. No
               account is needed and nothing is charged.
             </p>
-            <p className="mt-3 text-(--color-text-muted)">
-              What is asked in return: do not attempt to disrupt the site or the
-              infrastructure it runs on, do not scrape it in a way that degrades
-              it for others, and if you republish figures from it, cite the
-              source and include the verification date. A rate quoted without its
-              date becomes wrong without warning, and that misleads whoever reads
-              it next.
-            </p>
+            <p className="mt-3 text-(--color-text-muted)">{t("legal.terms.body.use.p3")}</p>
           </Section>
 
-          <Section id="estimates" heading="Estimates, not advice">
-            <p className="text-(--color-text-muted)">
-              Every figure on this site is an estimate produced by applying
-              publicly documented rates to numbers you entered. None of it is
-              financial advice, tax advice, legal advice, or a professional
-              opinion of any kind.
-            </p>
+          <Section id="estimates" heading={t("legal.terms.estimatesHeading")}>
+            <p className="text-(--color-text-muted)">{t("legal.terms.body.estimates.p1")}</p>
             <p className="mt-3 text-(--color-text-muted)">
               Considerable care goes into accuracy — every rate is sourced, dated
               and covered by tests — but rates change, documentation moves, and
               errors are possible. Check anything you are relying on against the
               official Roblox documentation linked from the{" "}
-              <InlineLink href="/sources/">source registry</InlineLink> before
-              making a decision that matters.
-            </p>
+              <InlineLink href="/sources/">source registry</InlineLink>{t("legal.terms.body.estimates.p3")}</p>
           </Section>
 
-          <Section id="affiliation" heading="No affiliation with Roblox">
-            <p className="text-(--color-text-muted)">
-              This site is independent. It is not affiliated with, endorsed by,
-              sponsored by or operated by Roblox Corporation. Roblox, Robux and
-              Developer Exchange are trademarks of Roblox Corporation, referenced
-              here descriptively to identify what these calculations concern.
-            </p>
-            <p className="mt-3 text-(--color-text-muted)">
-              This site cannot influence, expedite, predict or guarantee the
-              outcome of a DevEx request, and has no access to any Roblox account
-              or balance.
-            </p>
+          <Section id="affiliation" heading={t("legal.terms.affiliationHeading")}>
+            <p className="text-(--color-text-muted)">{t("legal.terms.body.affiliation.p1")}</p>
+            <p className="mt-3 text-(--color-text-muted)">{t("legal.terms.body.affiliation.p2")}</p>
           </Section>
 
-          <Section id="liability" heading="Limitation of liability">
-            <p className="text-(--color-text-muted)">
-              This site is provided as it is, without warranty of any kind. To the
-              fullest extent the law allows, no liability is accepted for loss or
-              damage arising from use of it — including decisions made on the
-              basis of an estimate shown here, a figure that has since changed,
-              or the site being unavailable.
-            </p>
-            <p className="mt-3 text-(--color-text-muted)">
-              Nothing in these terms limits liability that cannot lawfully be
-              limited.
-            </p>
+          <Section id="liability" heading={t("legal.terms.liabilityHeading")}>
+            <p className="text-(--color-text-muted)">{t("legal.terms.body.liability.p1")}</p>
+            <p className="mt-3 text-(--color-text-muted)">{t("legal.terms.body.liability.p2")}</p>
           </Section>
 
-          <Section id="changes" heading="Changes to these terms">
+          <Section id="changes" heading={t("legal.terms.changesHeading")}>
             <p className="text-(--color-text-muted)">
               These terms may be updated. The review date at the top of this page
               reflects the most recent change, and material changes are recorded
               in the{" "}
-              <InlineLink href="/changelog/">changelog</InlineLink> alongside
-              everything else that changes here.
-            </p>
+              <InlineLink href="/changelog/">changelog</InlineLink>{t("legal.terms.body.changes.p2")}</p>
           </Section>
 
           <RelatedLinks locale={locale}

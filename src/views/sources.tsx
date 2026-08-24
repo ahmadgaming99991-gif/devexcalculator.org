@@ -15,7 +15,7 @@ const ROUTE = "/sources/";
 
 
 export async function SourcesView({ locale }: { readonly locale: Locale }) {
-  const t = await getTranslator(DEFAULT_LOCALE, ["common"]);
+  const t = await getTranslator(DEFAULT_LOCALE, ["trust"]);
   const record = await localizedRoute(locale, ROUTE);
   const freshness = registryFreshness();
 
@@ -36,7 +36,7 @@ export async function SourcesView({ locale }: { readonly locale: Locale }) {
 
           <Section
             id="registry"
-            heading="Source registry"
+            heading={t("trust.sources.registryHeading")}
             description="Generated from the same registry the calculator reads, so this page cannot drift out of step with the figures it documents."
           >
             <div className="flex flex-col gap-4">
@@ -47,16 +47,14 @@ export async function SourcesView({ locale }: { readonly locale: Locale }) {
                 >
                   <div className="flex flex-wrap items-baseline justify-between gap-2">
                     <h3 className="text-base font-semibold text-(--color-text)">
-                      <SourceLink href={source.url}>{source.title}</SourceLink>
+                      <SourceLink t={t} href={source.url}>{source.title}</SourceLink>
                     </h3>
                     <Badge tone="neutral">{source.evidenceLabel}</Badge>
                   </div>
 
                   <p className="mt-1 text-sm text-(--color-text-muted)">{source.publisher}</p>
 
-                  <h4 className="mt-3 text-xs font-semibold uppercase tracking-wide text-(--color-text-muted)">
-                    Facts this source establishes
-                  </h4>
+                  <h4 className="mt-3 text-xs font-semibold uppercase tracking-wide text-(--color-text-muted)">{t("trust.sources.body.registry.p1")}</h4>
                   <ul className="mt-1.5 flex list-disc flex-col gap-1.5 pl-5 text-sm text-(--color-text-muted)">
                     {source.factsSupported.map((fact) => (
                       <li key={fact}>{fact}</li>
@@ -65,17 +63,17 @@ export async function SourcesView({ locale }: { readonly locale: Locale }) {
 
                   <dl className="mt-3 flex flex-wrap gap-x-6 gap-y-1 text-xs text-(--color-text-muted)">
                     <div className="flex gap-1.5">
-                      <dt className="font-semibold">Last checked:</dt>
+                      <dt className="font-semibold">{t("trust.sources.lastChecked")}</dt>
                       <dd>{formatDate(source.lastCheckedAt)}</dd>
                     </div>
                     {source.effectiveDate ? (
                       <div className="flex gap-1.5">
-                        <dt className="font-semibold">Effective from:</dt>
+                        <dt className="font-semibold">{t("trust.sources.effectiveFrom")}</dt>
                         <dd>{formatDate(source.effectiveDate)}</dd>
                       </div>
                     ) : null}
                     <div className="flex gap-1.5">
-                      <dt className="font-semibold">Review cadence:</dt>
+                      <dt className="font-semibold">{t("trust.sources.reviewCadenceLabel")}</dt>
                       <dd>every {source.reviewCadenceDays} days</dd>
                     </div>
                   </dl>
@@ -86,31 +84,31 @@ export async function SourcesView({ locale }: { readonly locale: Locale }) {
 
           <Section
             id="cadence"
-            heading="Review cadence"
+            heading={t("trust.sources.cadenceHeading")}
             description="How often these are rechecked, and what happens when one changes."
           >
             <div className="rounded-(--radius-control) border border-(--color-border) bg-(--color-surface) p-4">
               <dl className="flex flex-col gap-2 text-sm">
                 <div className="flex flex-wrap justify-between gap-2">
-                  <dt className="text-(--color-text-muted)">Rate registry version</dt>
+                  <dt className="text-(--color-text-muted)">{t("trust.sources.registryVersionLabel")}</dt>
                   <dd className="font-semibold text-(--color-text)">
                     {rateRegistry.registryVersion}
                   </dd>
                 </div>
                 <div className="flex flex-wrap justify-between gap-2">
-                  <dt className="text-(--color-text-muted)">Rates last verified</dt>
+                  <dt className="text-(--color-text-muted)">{t("trust.sources.ratesLastVerified")}</dt>
                   <dd className="font-semibold text-(--color-text)">
                     {formatDate(rateRegistry.lastVerifiedAt)} ({freshness.ageDays} days ago)
                   </dd>
                 </div>
                 <div className="flex flex-wrap justify-between gap-2">
-                  <dt className="text-(--color-text-muted)">Review due after</dt>
+                  <dt className="text-(--color-text-muted)">{t("trust.sources.reviewDueAfter")}</dt>
                   <dd className="font-semibold text-(--color-text)">
                     {rateRegistry.reviewCadenceDays} days
                   </dd>
                 </div>
                 <div className="flex flex-wrap justify-between gap-2">
-                  <dt className="text-(--color-text-muted)">Escalates to critical after</dt>
+                  <dt className="text-(--color-text-muted)">{t("trust.sources.escalatesAfter")}</dt>
                   <dd className="font-semibold text-(--color-text)">
                     {rateRegistry.criticalReviewAgeDays} days
                   </dd>
@@ -149,15 +147,7 @@ export async function SourcesView({ locale }: { readonly locale: Locale }) {
               .
             </p>
 
-            <p className="mt-4 text-(--color-text-muted)">
-              Rate data is never updated automatically from a scraped page. A
-              change to a published rate requires the source to be verified by
-              hand, the registry updated, the unit tests updated to the new
-              expected values, the affected pages reviewed, an entry added to the
-              changelog, and a redeploy. That sequence is deliberately slow —
-              a wrong rate published quickly is worse than a right one published
-              a day later.
-            </p>
+            <p className="mt-4 text-(--color-text-muted)">{t("trust.sources.body.cadence.p1")}</p>
           </Section>
 
           <RelatedLinks locale={locale}

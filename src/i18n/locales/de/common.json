@@ -126,11 +126,12 @@
     "accept": "Annehmen",
     "body": {
       "consentHeading": {
-        "p1": "Analyse-Cookies",
-        "p2": "Wir würden gern messen, welche Seiten genutzt werden, und dafür braucht es ein Cookie. Der Rechner arbeitet in beiden Fällen genau gleich, und deine Berechnungen werden nie irgendwohin gesendet."
+        "p1": "Analyse-Cookies"
       }
     },
-    "heading": "Analyse-Cookies"
+    "heading": "Analyse-Cookies",
+    "explanation": "Wir würden gern messen, welche Seiten genutzt werden, und dafür braucht es ein Cookie. Der Rechner arbeitet in beiden Fällen genau gleich, und deine Berechnungen werden nie irgendwohin gesendet.",
+    "decline": "Ablehnen"
   },
   "ranges": {
     "day": "24 Stunden",

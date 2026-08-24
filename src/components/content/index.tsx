@@ -148,7 +148,7 @@ export async function SourceNote({
       <ul className="mt-2 flex flex-col gap-2">
         {sources.map((source) => (
           <li key={source.id}>
-            <SourceLink href={source.url}>{source.title}</SourceLink>
+            <SourceLink t={t} href={source.url}>{source.title}</SourceLink>
             <span className="text-(--color-text-muted)">
               {" "}
               {t("common.sections.sourceLine", {
@@ -343,7 +343,7 @@ export async function FAQAccordion({
                 {getSources(faq.sourceIds).map((source, i) => (
                   <span key={source.id}>
                     {i > 0 ? ", " : ""}
-                    <SourceLink href={source.url}>{source.title}</SourceLink>
+                    <SourceLink t={t} href={source.url}>{source.title}</SourceLink>
                   </span>
                 ))}
               </p>

@@ -1,3 +1,4 @@
+import { getTranslator } from "@/i18n/get-dictionary";
 import { localizedRoute } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -25,6 +26,7 @@ const ROUTE = "/devex-rates/";
 const EXAMPLE_AMOUNTS = [1_000, 30_000, 100_000, 1_000_000] as const;
 
 export async function DevexRatesView({ locale }: { readonly locale: Locale }) {
+  const t = await getTranslator(locale, ["rates"]);
   const record = await localizedRoute(locale, ROUTE);
   const standard = getRateValue(standardRateId);
 
@@ -47,19 +49,19 @@ export async function DevexRatesView({ locale }: { readonly locale: Locale }) {
 
           <Section
             id="current-rates"
-            heading="The three documented rates"
+            heading={t("rates.devexRates.threeRatesHeading")}
             description="All three come from the same official Roblox documentation, checked on the date shown above."
           >
-            <RateTable />
+            <RateTable t={t} />
           </Section>
 
           <Section
             id="examples"
-            heading="What each rate pays"
+            heading={t("rates.devexRates.whatEachPaysHeading")}
             description="The same amounts valued under each rate, so the difference is concrete rather than abstract."
           >
-            <TableWrapper label="Worked examples for each DevEx rate">
-              <Table caption="Payout for common Earned Robux amounts under each documented DevEx rate">
+            <TableWrapper label={t("rates.devexRates.workedExamplesLabel")}>
+              <Table caption={t("rates.devexRates.workedExamplesCaption")}>
                 <thead>
                   <tr>
                     <Th>Earned Robux</Th>
@@ -88,14 +90,14 @@ export async function DevexRatesView({ locale }: { readonly locale: Locale }) {
               </Table>
             </TableWrapper>
             <p className="mt-3 text-sm text-(--color-text-muted)">
-              <InlineLink href="/">Use the calculator for any other amount</InlineLink>, or{" "}
-              <InlineLink href="/conversions/">browse more amounts in the conversion hub</InlineLink>.
+              <InlineLink href="/">{t("rates.devexRates.useCalculatorLink")}</InlineLink>, or{" "}
+              <InlineLink href="/conversions/">{t("rates.devexRates.browseHubLink")}</InlineLink>.
             </p>
           </Section>
 
           <Section
             id="which-applies"
-            heading="Which rate applies to your balance"
+            heading={t("rates.devexRates.whichAppliesHeading")}
             description="This is the part most explanations get wrong: it is not a choice."
           >
             <div className="flex flex-col gap-3">
@@ -114,16 +116,14 @@ export async function DevexRatesView({ locale }: { readonly locale: Locale }) {
               A single balance can span more than one rate — Robux earned before
               and after the September 2025 transition are treated separately, and
               Roblox cashes the older portion out first.{" "}
-              <InlineLink href="/">
-                The split calculator models a mixed balance
-              </InlineLink>
+              <InlineLink href="/">{t("rates.devexRates.body.whichApplies.p2")}</InlineLink>
               .
             </p>
           </Section>
 
           <Section
             id="difference"
-            heading="Compare the rates for your amount"
+            heading={t("rates.devexRates.compareHeading")}
             description="Enter any amount on the calculator to see all three side by side."
           >
             <div className="rounded-(--radius-control) border border-(--color-border) bg-(--color-surface) p-4">
@@ -140,14 +140,14 @@ export async function DevexRatesView({ locale }: { readonly locale: Locale }) {
                 standard rate on the portion of a balance that qualifies for it.
               </p>
               <p className="mt-3">
-                <InlineLink href="/">Open the calculator and compare your own amount</InlineLink>
+                <InlineLink href="/">{t("rates.devexRates.openCalculatorLink")}</InlineLink>
               </p>
             </div>
           </Section>
 
           <Section
             id="changes"
-            heading="Rates can change"
+            heading={t("rates.devexRates.canChangeHeading")}
             description="They have before, and this page records only what is currently documented."
           >
             <p className="text-(--color-text-muted)">
@@ -160,17 +160,13 @@ export async function DevexRatesView({ locale }: { readonly locale: Locale }) {
               <InlineLink href="/sources/">source registry</InlineLink>.
             </p>
             <p className="mt-3 text-(--color-text-muted)">
-              <InlineLink href="/devex-rate-history/">
-                See the dated history of rate changes
-              </InlineLink>{" "}
+              <InlineLink href="/devex-rate-history/">{t("rates.devexRates.body.changes.p2")}</InlineLink>{" "}
               ·{" "}
-              <InlineLink href="/changelog/">
-                See when this site last updated its data
-              </InlineLink>
+              <InlineLink href="/changelog/">{t("rates.devexRates.body.changes.p3")}</InlineLink>
             </p>
           </Section>
 
-          <FAQAccordion locale={locale} faqs={record.faqs} heading="Questions about DevEx rates" />
+          <FAQAccordion locale={locale} faqs={record.faqs} heading={t("rates.devexRates.faqsHeading")} />
 
           <RelatedLinks locale={locale}
             record={record}

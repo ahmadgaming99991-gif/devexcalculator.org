@@ -1,3 +1,4 @@
+import { getTranslator } from "@/i18n/get-dictionary";
 import { localizedRoute } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
 import Link from "next/link";
@@ -46,6 +47,7 @@ export async function AmountView({
   readonly locale: Locale;
   readonly slug: string;
 }) {
+  const t = await getTranslator(locale, ["rates"]);
   const amount = parseAmountSlug(slug);
   if (amount === null) notFound();
 
@@ -111,16 +113,14 @@ export async function AmountView({
                 )}
               </p>
               <p className="mt-4">
-                <InlineLink href={`/?robux=${amount}`}>
-                  Open this amount in the full calculator
-                </InlineLink>
+                <InlineLink href={`/?robux=${amount}`}>{t("rates.amountPage.body.value.p1")}</InlineLink>
               </p>
             </div>
           </Section>
 
           <Section
             id="rate-comparison"
-            heading="Across all three rates"
+            heading={t("rates.amountPage.allThreeHeading")}
             description="Roblox decides which rate applies to which part of a balance. This shows what each would pay."
           >
             <TableWrapper label={`${values.display} Robux valued at each DevEx rate`}>
@@ -171,28 +171,26 @@ export async function AmountView({
             <p className="mt-3 text-sm text-(--color-text-muted)">
               The {values.standardVsLegacyUsd} gap between the current and legacy
               rates is what the September 2025 change is worth at this amount.{" "}
-              <InlineLink href="/devex-rate-history/">
-                See the rate history
-              </InlineLink>
+              <InlineLink href="/devex-rate-history/">{t("rates.amountPage.body.rateComparison.p2")}</InlineLink>
               .
             </p>
           </Section>
 
-          <Section id="context" heading="Why this amount matters">
+          <Section id="context" heading={t("rates.amountPage.contextHeading")}>
             <p className="text-(--color-text-muted)">{definition.context}</p>
           </Section>
 
           <Section
             id="reverse"
-            heading="Reaching this amount"
+            heading={t("rates.amountPage.reachingHeading")}
             description="Working the other way: what payout targets this balance covers."
           >
-            <TableWrapper label="Payout targets and whether this amount covers them">
+            <TableWrapper label={t("rates.amountPage.reachingLabel")}>
               <Table caption={`Whether ${values.display} Earned Robux covers common payout targets`}>
                 <thead>
                   <tr>
                     <Th>Payout target</Th>
-                    <Th numeric>Earned Robux needed</Th>
+                    <Th numeric>{t("rates.amountPage.columnRobuxNeeded")}</Th>
                     <Th>Covered by {values.display}?</Th>
                   </tr>
                 </thead>
@@ -216,15 +214,13 @@ export async function AmountView({
               </Table>
             </TableWrapper>
             <p className="mt-3 text-sm text-(--color-text-muted)">
-              <InlineLink href="/usd-to-robux/">
-                Work backwards from your own target
-              </InlineLink>
+              <InlineLink href="/usd-to-robux/">{t("rates.amountPage.body.reverse.p2")}</InlineLink>
             </p>
           </Section>
 
           <Section
             id="nearby"
-            heading="Nearby amounts"
+            heading={t("rates.amountPage.nearbyHeading")}
             description="Adjacent amounts with their own detailed breakdown."
           >
             <ul className="grid gap-3 sm:grid-cols-2">
@@ -248,15 +244,11 @@ export async function AmountView({
               })}
             </ul>
             <p className="mt-4 text-sm text-(--color-text-muted)">
-              <InlineLink href="/conversions/">
-                Back to all conversions
-              </InlineLink>{" "}
+              <InlineLink href="/conversions/">{t("rates.amountPage.body.nearby.p1")}</InlineLink>{" "}
               ·{" "}
-              <InlineLink href="/robux-to-usd/">
-                Convert a different amount
-              </InlineLink>{" "}
+              <InlineLink href="/robux-to-usd/">{t("rates.amountPage.body.nearby.p2")}</InlineLink>{" "}
               ·{" "}
-              <InlineLink href="/devex-rates/">The rates used here</InlineLink>
+              <InlineLink href="/devex-rates/">{t("rates.amountPage.ratesUsedHeading")}</InlineLink>
             </p>
           </Section>
 

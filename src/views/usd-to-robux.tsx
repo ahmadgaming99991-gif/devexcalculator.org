@@ -1,10 +1,14 @@
+import { loadWords } from "@/i18n/client-words";
+import { getTranslator } from "@/i18n/get-dictionary";
 import Link from "next/link";
 import { localizedRoute } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
 import { JsonLd } from "@/components/seo/json-ld";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { Calculator } from "@/features/devex/calculator";
+import { CALCULATOR_WORDS } from "@/features/devex/calculator.words";
 import { Planner } from "@/features/devex/planner";
+import { PLANNER_WORDS } from "@/features/devex/planner.words";
 import { parseCalculatorState } from "@/features/devex/url-state";
 import { Callout, Container, InlineLink, Section, Table, TableWrapper, Td, Th } from "@/components/ui";
 import {
@@ -35,6 +39,7 @@ export async function UsdToRobuxView({
   readonly locale: Locale;
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
+  const t = await getTranslator(locale, ["rates"]);
   const record = await localizedRoute(locale, ROUTE);
   const initialState = parseCalculatorState(await searchParams);
   const rate = getRateValue(standardRateId);
@@ -69,7 +74,7 @@ export async function UsdToRobuxView({
             {record.quickAnswer}
           </QuickAnswer>
 
-          <Calculator initialState={initialState} pathname={ROUTE} lockedMode="target" />
+          <Calculator words={await loadWords(locale, CALCULATOR_WORDS)} initialState={initialState} pathname={ROUTE} lockedMode="target" />
 
           <TableOfContents locale={locale} sections={record.sections} />
 
@@ -97,23 +102,23 @@ export async function UsdToRobuxView({
 
           <Section
             id="minimum"
-            heading="The minimum still applies"
+            heading={t("rates.usdToRobux.minimumHeading")}
             description="Arithmetic and eligibility are two different constraints, and the larger one wins."
           >
-            <Callout tone="warning" title="A small target does not mean a small cash-out">
+            <Callout tone="warning" title={t("rates.usdToRobux.smallTargetTitle")}>
               Roblox requires {formatRobux(minimumEarnedRobux)} Earned Robux
               before a DevEx request can be submitted at all. If your target
               needs fewer than that, the minimum is what you actually have to
               reach — and it would pay{" "}
               {formatCurrency(Rational.fromInt(minimumEarnedRobux).mul(rate), "USD")}{" "}
               rather than your original target.{" "}
-              <Link href="/devex-requirements/">See the full requirements</Link>.
+              <Link href="/devex-requirements/">{t("rates.usdToRobux.seeRequirementsLink")}{" "}</Link>.
             </Callout>
           </Section>
 
           <Section
             id="planner"
-            heading="How long it takes at your pace"
+            heading={t("rates.usdToRobux.paceHeading")}
             description="The target tells you how much. This works out when — or, from a date, what you would have to earn to get there."
           >
             {/*
@@ -140,22 +145,22 @@ export async function UsdToRobuxView({
               DevEx processing time, so none is added.
             </p>
 
-            <Planner />
+            <Planner words={await loadWords(locale, PLANNER_WORDS)} />
           </Section>
 
           <Section
             id="examples"
-            heading="Common payout targets"
+            heading={t("rates.usdToRobux.commonTargetsHeading")}
             description="Each row is computed with the same formula the calculator uses."
           >
-            <TableWrapper label="Earned Robux required for common payout targets">
-              <Table caption="Eligible Earned Robux needed to reach common USD payout targets at the standard DevEx rate">
+            <TableWrapper label={t("rates.usdToRobux.commonTargetsLabel")}>
+              <Table caption={t("rates.usdToRobux.commonTargetsCaption")}>
                 <thead>
                   <tr>
-                    <Th>Target payout</Th>
-                    <Th numeric>Exact division</Th>
-                    <Th numeric>Earned Robux needed</Th>
-                    <Th>Minimum applies?</Th>
+                    <Th>{t("rates.usdToRobux.columnTargetPayout")}</Th>
+                    <Th numeric>{t("rates.usdToRobux.columnExactDivision")}</Th>
+                    <Th numeric>{t("rates.usdToRobux.columnRobuxNeeded")}</Th>
+                    <Th>{t("rates.usdToRobux.columnMinimumApplies")}</Th>
                   </tr>
                 </thead>
                 <tbody>
@@ -186,7 +191,7 @@ export async function UsdToRobuxView({
 
           <Section
             id="buying-robux"
-            heading="This is not about buying Robux"
+            heading={t("rates.usdToRobux.notBuyingHeading")}
             description="The reverse direction has a very different answer depending on who is asking."
           >
             <p className="text-(--color-text-muted)">
@@ -196,14 +201,12 @@ export async function UsdToRobuxView({
               packages by region, platform and promotion, and there is no single
               rate that would be true for everyone — so this site does not
               publish one.{" "}
-              <InlineLink href="/robux-to-usd/">
-                The distinction is explained in full on the Robux to USD page
-              </InlineLink>
+              <InlineLink href="/robux-to-usd/">{t("rates.usdToRobux.body.buyingRobux.p2")}</InlineLink>
               .
             </p>
           </Section>
 
-          <FAQAccordion locale={locale} faqs={record.faqs} heading="Questions about payout targets" />
+          <FAQAccordion locale={locale} faqs={record.faqs} heading={t("rates.usdToRobux.faqsHeading")} />
 
           <RelatedLinks locale={locale}
             record={record}
