@@ -162,9 +162,7 @@
   "diagrams": {
     "body": {
       "intro": {
-        "p1": "export function ValueFlow(",
-        "p2": "Applied by",
-        "p3": ": { readonly accepted:"
+        "p1": "Applied by"
       }
     }
   },

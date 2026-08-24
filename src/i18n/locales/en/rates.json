@@ -70,8 +70,7 @@
         "p2": "if you know roughly how yours divides, but treat the result as an estimate built on your own assumption about the split."
       },
       "noForecast": {
-        "p1": "Roblox has changed the rate before and may change it again. Nobody outside Roblox knows whether or when, and a prediction dressed up as analysis would be a guess with a confident tone. This page records only changes that official documentation confirms, each with its effective date. When a change happens it appears here and in the",
-        "p2": ", along with the date it was verified."
+        "p1": "Roblox has changed the rate before and may change it again. Nobody outside Roblox knows whether or when, and a prediction dressed up as analysis would be a guess with a confident tone. This page records only changes that official documentation confirms, each with its effective date. When a change happens it appears here and in the"
       }
     }
   },
@@ -263,8 +262,7 @@
       },
       "comparison": {
         "p1": "The gap between the two exists because Roblox operates a platform, handles payment processing, and has already taken its 30% share at the point the Robux were spent.",
-        "p2": "That earlier 30% is the marketplace fee",
-        "p3": ", and it is not charged again at cash-out."
+        "p2": "That earlier 30% is the marketplace fee"
       },
       "amounts": {
         "p1": "Browse the full conversion hub",
@@ -298,8 +296,7 @@
     "body": {
       "rounding": {
         "p1": "A 1,000 dollar target divided by 0.0038 gives 263,157.89. Robux come in whole units, so 263,157 would pay",
-        "p2": "— just under the target. Rounding up to 263,158 pays",
-        "p3": ", which clears it. That is why every figure on this page rounds up rather than to the nearest whole number."
+        "p2": "— just under the target. Rounding up to 263,158 pays"
       },
       "minimum": {
         "p1": "Roblox requires",
@@ -307,8 +304,7 @@
         "p3": "rather than your original target."
       },
       "planner": {
-        "p1": "A payout target is a distance. Turning it into a date needs one more fact — how fast you earn — and turning a date into a plan needs the same fact in reverse. Both are the same division:",
-        "p2": ", rounded up, because a part day earns nothing and a part Robux does not exist. Nothing here assumes your earnings grow, and nothing here is a date Roblox will pay on — Roblox publishes no DevEx processing time, so none is added."
+        "p1": "A payout target is a distance. Turning it into a date needs one more fact — how fast you earn — and turning a date into a plan needs the same fact in reverse. Both are the same division:"
       },
       "examples": {
         "p1": "Yes — you would need"

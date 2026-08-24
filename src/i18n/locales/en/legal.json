@@ -121,10 +121,9 @@
       },
       "accuracy": {
         "p1": "Rate data on this site was last verified against official documentation on",
-        "p2": ", and that date is displayed on every rate-sensitive page rather than hidden here. Rates change: the standard rate moved in September 2025, and it could move again.",
-        "p3": "If a figure here has fallen behind, the",
-        "p4": "links directly to the official page it came from, so you can check the current value yourself in a few seconds. Reporting it through the",
-        "p5": "gets it fixed for everyone else too."
+        "p2": "If a figure here has fallen behind, the",
+        "p3": "links directly to the official page it came from, so you can check the current value yourself in a few seconds. Reporting it through the",
+        "p4": "gets it fixed for everyone else too."
       }
     }
   },

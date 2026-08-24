@@ -154,6 +154,27 @@ function looksTranslatable(value: string): boolean {
   return true;
 }
 
+/**
+ * Whether a run could be a sentence at all, judged on shape alone.
+ *
+ * Deliberately structural rather than a list of keywords. `return` and `null`
+ * both appear in this site's English, and a filter naming them would delete
+ * real sentences — silently, which is the one failure direction nothing else
+ * here would catch.
+ */
+function isStructurallyProse(value: string): boolean {
+  // A brace at all means the split failed to remove an interpolation, which
+  // only happens when the brace was opened outside this span.
+  if (/[{}]/.test(value)) return false;
+  // Unbalanced parentheses: `export function ValueFlow(` opens one and stops.
+  const open = (value.match(/\(/g) ?? []).length;
+  const close = (value.match(/\)/g) ?? []).length;
+  if (open !== close) return false;
+  // A sentence does not begin with the punctuation that ended the last one.
+  if (/^[:;,.)\]?!]/.test(value)) return false;
+  return true;
+}
+
 /** Whether this line sits inside an object literal that is a build diagnostic. */
 function isDiagnosticObject(lines: readonly string[], index: number): boolean {
   for (let i = Math.max(0, index - 4); i < index; i += 1) {
@@ -307,7 +328,14 @@ function scanJsxText(
     for (const part of raw
       .replace(/\{\s*"\s*"\s*\}/g, " ")
       .split(/\{[^{}]*\}/)) {
-      const value = part.split(/\s+/).filter(Boolean).join(" ");
+      // Removing an interpolation leaves the space that sat before it, so
+      // `quote reference {digest}.` would end `reference .`. The sentence is
+      // the same one either way; this just does not write the gap down.
+      const value = part
+        .split(/\s+/)
+        .filter(Boolean)
+        .join(" ")
+        .replace(/\s+([.,;:!?])/g, "$1");
       if (!value || !looksTranslatable(value)) continue;
       /*
        * Splitting on `{...}` cannot balance a brace that opened outside the
@@ -317,6 +345,7 @@ function scanJsxText(
        * semicolon and no bare parenthesis pair.
        */
       if (/[=;`$]|=>|\(\s*\)|\)\s*[:;{}]|\[[a-z]/i.test(value)) continue;
+      if (!isStructurallyProse(value)) continue;
       // Two lowercase words in a row is the shortest thing that reads as a
       // sentence rather than as a label or a stripped expression.
       if (!/[a-z]{3}\s+[a-z]{2}/.test(value)) continue;

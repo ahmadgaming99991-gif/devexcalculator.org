@@ -121,8 +121,7 @@
         "p1": "Facts this source establishes"
       },
       "cadence": {
-        "p1": "days ago)",
-        "p2": "Rate data is never updated automatically from a scraped page. A change to a published rate requires the source to be verified by hand, the registry updated, the unit tests updated to the new expected values, the affected pages reviewed, an entry added to the changelog, and a redeploy. That sequence is deliberately slow — a wrong rate published quickly is worse than a right one published a day later."
+        "p1": "Rate data is never updated automatically from a scraped page. A change to a published rate requires the source to be verified by hand, the registry updated, the unit tests updated to the new expected values, the affected pages reviewed, an entry added to the changelog, and a redeploy. That sequence is deliberately slow — a wrong rate published quickly is worse than a right one published a day later."
       }
     }
   },
@@ -198,8 +197,7 @@
         "p6": "The full test suite has to pass first."
       },
       "record": {
-        "p1": "Rate changes made by Roblox are also reflected in the",
-        "p2": ", which is a separate record: the changelog tracks what this site did, the rate history tracks what Roblox did."
+        "p1": "Rate changes made by Roblox are also reflected in the"
       }
     }
   },
@@ -305,8 +303,7 @@
     "body": {
       "stats": {
         "p1": "The figures charted on",
-        "p2": ", published as data so a chart can be checked rather than believed. Add for a spreadsheet. Every row names its filing and links to it, and every row says whether Roblox reported the figure or this site derived it — a distinction that disappears the moment two numbers sit in the same column without it.",
-        "p3": "Money is an exact decimal string, never a floating-point number. A figure read from a filing is reproduced as written."
+        "p2": "Money is an exact decimal string, never a floating-point number. A figure read from a filing is reproduced as written."
       },
       "platform": {
         "p1": "Nothing is filled in.",
@@ -315,7 +312,7 @@
       "using": {
         "p1": "describes every endpoint here as OpenAPI 3.1 — parameters, status codes, content types and the exact each one sends. It is generated from the same declaration this page reads, and a test compares that declaration against the route handlers that actually exist, so an endpoint cannot be added without appearing in it or described after it has gone.",
         "p2": "There is nothing to register for and no token to keep secret. Every reference endpoint is a plain GET, sets no cookie, and answers identically for every caller.",
-        "p3": "Every reference endpoint sends , so a page on any origin can it directly. That was not true until recently, and it made the endpoints useless to exactly the people they were published for. The two that do not are deliberate: health is infrastructure for an operator, and contact accepts submissions and is origin-checked."
+        "p3": "Every reference endpoint sends, so a page on any origin can it directly. That was not true until recently, and it made the endpoints useless to exactly the people they were published for. The two that do not are deliberate: health is infrastructure for an operator, and contact accepts submissions and is origin-checked."
       },
       "terms": {
         "p1": "the shape of the response will not change without the changing, every figure will carry the source it was verified against, and a rate will never be updated from a scraped page without a person checking it first. Changes are recorded in",

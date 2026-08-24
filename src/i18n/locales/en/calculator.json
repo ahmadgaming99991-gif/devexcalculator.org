@@ -88,13 +88,11 @@
         "p1": "Roblox requires",
         "p2": "Earned Robux to submit a request. Reaching that number is a requirement, not an approval — Roblox reviews every request and decides which Robux qualify.",
         "p3": "These are the figures you entered, not amounts Roblox or any provider has quoted. This site gives no tax advice.",
-        "p4": ", rounded up to",
-        "p5": "whole Earned Robux. That pays",
-        "p6": ", which is the first whole-Robux amount that reaches your target rather than falling just short.",
-        "p7": "Earned Robux would reach your target arithmetically, but Roblox requires",
-        "p8": "before a request can be submitted. You would need",
-        "p9": "% of the way there",
-        "p10": "figures use"
+        "p4": "whole Earned Robux. That pays",
+        "p5": "Earned Robux would reach your target arithmetically, but Roblox requires",
+        "p6": "before a request can be submitted. You would need",
+        "p7": "% of the way there",
+        "p8": "figures use"
       }
     }
   },

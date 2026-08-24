@@ -1,51 +1,51 @@
 {
   "$comment": "Deterministic inventory of translatable English. No timestamp: a diff here should mean the content changed, not that the script ran again.",
   "totals": {
-    "strings": 1496,
-    "words": 13356,
+    "strings": 1479,
+    "words": 13103,
     "files": 66,
     "filesScanned": 151
   },
   "byCategory": {
     "attribute": 565,
-    "jsx-text": 543,
+    "jsx-text": 526,
     "registry-prose": 388
   },
   "byFile": {
     "src/lib/content/route-registry.ts": 388,
-    "src/app/platform/page.tsx": 90,
-    "src/app/roblox-stats/page.tsx": 57,
+    "src/app/platform/page.tsx": 89,
+    "src/app/roblox-stats/page.tsx": 56,
     "src/app/how-to-cash-out-robux/page.tsx": 48,
-    "src/app/api/page.tsx": 44,
     "src/app/methodology/page.tsx": 44,
+    "src/app/api/page.tsx": 43,
     "src/app/devex-fees-and-taxes/page.tsx": 35,
     "src/app/privacy/page.tsx": 35,
-    "src/app/robux-to-usd/page.tsx": 35,
+    "src/app/robux-to-usd/page.tsx": 34,
     "src/features/devex/planner.tsx": 34,
     "src/app/page.tsx": 31,
-    "src/app/usd-to-robux/page.tsx": 31,
     "src/app/robux-tax-calculator/page.tsx": 30,
+    "src/app/usd-to-robux/page.tsx": 29,
     "src/app/accessibility/page.tsx": 28,
     "src/app/editorial-policy/page.tsx": 28,
     "src/app/about/page.tsx": 27,
-    "src/app/devex-rate-history/page.tsx": 25,
     "src/app/devex-rates/page.tsx": 25,
     "src/app/devex-requirements/page.tsx": 25,
     "src/features/devex/calculator.tsx": 25,
+    "src/app/devex-rate-history/page.tsx": 24,
     "src/app/earned-robux/page.tsx": 24,
-    "src/app/corrections/page.tsx": 23,
-    "src/features/devex/components/results.tsx": 23,
     "src/lib/api/contract.ts": 23,
-    "src/app/disclaimer/page.tsx": 22,
+    "src/app/corrections/page.tsx": 22,
+    "src/app/disclaimer/page.tsx": 21,
+    "src/features/devex/components/results.tsx": 21,
     "src/app/terms/page.tsx": 20,
     "src/app/contact/page.tsx": 19,
     "src/app/conversions/[slug]/page.tsx": 19,
-    "src/app/platform/stock/page.tsx": 19,
     "src/components/content/tables.tsx": 18,
     "src/app/changelog/page.tsx": 17,
     "src/components/content/index.tsx": 17,
+    "src/app/platform/stock/page.tsx": 16,
     "src/features/marketplace/calculator.tsx": 16,
-    "src/app/sources/page.tsx": 15,
+    "src/app/sources/page.tsx": 14,
     "src/features/devex/group-split.tsx": 14,
     "src/app/conversions/page.tsx": 13,
     "src/app/not-found.tsx": 11,
@@ -60,7 +60,6 @@
     "src/app/error.tsx": 4,
     "src/features/devex/components/controls.tsx": 4,
     "src/lib/content/changelog.ts": 4,
-    "src/components/diagrams/index.tsx": 3,
     "src/components/layout/rate-source-check.tsx": 3,
     "src/lib/platform/history.ts": 3,
     "src/components/seo/analytics-consent.tsx": 2,
@@ -71,6 +70,7 @@
     "src/app/layout.tsx": 1,
     "src/app/usd-to-robux/opengraph-image.tsx": 1,
     "src/components/charts/index.tsx": 1,
+    "src/components/diagrams/index.tsx": 1,
     "src/components/layout/breadcrumbs.tsx": 1,
     "src/components/layout/desktop-navigation.tsx": 1,
     "src/components/layout/footer-status.tsx": 1,
@@ -626,14 +626,6 @@
     },
     {
       "file": "src/app/api/page.tsx",
-      "line": 105,
-      "category": "jsx-text",
-      "words": 56,
-      "hasTokens": false,
-      "text": ", published as data so a chart can be checked rather than believed. Add for a spreadsheet. Every row names its filing and links to it, and every row says whether Roblox reported the figure or this site derived it — a distinction that disappears the moment two numbers sit in the same column without it."
-    },
-    {
-      "file": "src/app/api/page.tsx",
       "line": 114,
       "category": "attribute",
       "words": 12,
@@ -788,9 +780,9 @@
       "file": "src/app/api/page.tsx",
       "line": 190,
       "category": "jsx-text",
-      "words": 54,
+      "words": 53,
       "hasTokens": false,
-      "text": "Every reference endpoint sends , so a page on any origin can it directly. That was not true until recently, and it made the endpoints useless to exactly the people they were published for. The two that do not are deliberate: health is infrastructure for an operator, and contact accepts submissions and is origin-checked."
+      "text": "Every reference endpoint sends, so a page on any origin can it directly. That was not true until recently, and it made the endpoints useless to exactly the people they were published for. The two that do not are deliberate: health is infrastructure for an operator, and contact accepts submissions and is origin-checked."
     },
     {
       "file": "src/app/api/page.tsx",
@@ -1658,14 +1650,6 @@
     },
     {
       "file": "src/app/corrections/page.tsx",
-      "line": 102,
-      "category": "jsx-text",
-      "words": 20,
-      "hasTokens": false,
-      "text": ", which is a separate record: the changelog tracks what this site did, the rate history tracks what Roblox did."
-    },
-    {
-      "file": "src/app/corrections/page.tsx",
       "line": 111,
       "category": "attribute",
       "words": 2,
@@ -2135,14 +2119,6 @@
       "words": 2,
       "hasTokens": false,
       "text": "public changelog"
-    },
-    {
-      "file": "src/app/devex-rate-history/page.tsx",
-      "line": 179,
-      "category": "jsx-text",
-      "words": 8,
-      "hasTokens": false,
-      "text": ", along with the date it was verified."
     },
     {
       "file": "src/app/devex-rate-history/page.tsx",
@@ -2682,14 +2658,6 @@
     },
     {
       "file": "src/app/disclaimer/page.tsx",
-      "line": 83,
-      "category": "jsx-text",
-      "words": 28,
-      "hasTokens": false,
-      "text": ", and that date is displayed on every rate-sensitive page rather than hidden here. Rates change: the standard rate moved in September 2025, and it could move again."
-    },
-    {
-      "file": "src/app/disclaimer/page.tsx",
       "line": 90,
       "category": "jsx-text",
       "words": 8,
@@ -3180,9 +3148,9 @@
       "file": "src/app/error.tsx",
       "line": 45,
       "category": "jsx-text",
-      "words": 7,
+      "words": 6,
       "hasTokens": false,
-      "text": "If you report this, quote reference ."
+      "text": "If you report this, quote reference."
     },
     {
       "file": "src/app/guides/page.tsx",
@@ -4940,14 +4908,6 @@
       "file": "src/app/platform/page.tsx",
       "line": 996,
       "category": "jsx-text",
-      "words": 5,
-      "hasTokens": false,
-      "text": ", the most recent showing"
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 996,
-      "category": "jsx-text",
       "words": 6,
       "hasTokens": false,
       "text": "players. A chart needs at least"
@@ -5066,14 +5026,6 @@
     },
     {
       "file": "src/app/platform/stock/page.tsx",
-      "line": 96,
-      "category": "jsx-text",
-      "words": 16,
-      "hasTokens": false,
-      "text": ", not recomputed here. A fuller breakdown, including what Roblox pays creators each quarter, is on"
-    },
-    {
-      "file": "src/app/platform/stock/page.tsx",
       "line": 99,
       "category": "jsx-text",
       "words": 4,
@@ -5122,14 +5074,6 @@
     },
     {
       "file": "src/app/platform/stock/page.tsx",
-      "line": 153,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": ", fetched server-side"
-    },
-    {
-      "file": "src/app/platform/stock/page.tsx",
       "line": 164,
       "category": "jsx-text",
       "words": 3,
@@ -5175,14 +5119,6 @@
       "words": 24,
       "hasTokens": false,
       "text": "This site will not print a share price it cannot fetch and attribute, and it will not embed a third-party widget to borrow one."
-    },
-    {
-      "file": "src/app/platform/stock/page.tsx",
-      "line": 209,
-      "category": "jsx-text",
-      "words": 4,
-      "hasTokens": false,
-      "text": "{ let env: Record"
     },
     {
       "file": "src/app/privacy/page.tsx",
@@ -5711,14 +5647,6 @@
       "words": 9,
       "hasTokens": false,
       "text": "Every figure above except the last is quoted from"
-    },
-    {
-      "file": "src/app/roblox-stats/page.tsx",
-      "line": 337,
-      "category": "jsx-text",
-      "words": 9,
-      "hasTokens": false,
-      "text": ", for the three months ended 30 June 2026."
     },
     {
       "file": "src/app/roblox-stats/page.tsx",
@@ -6370,14 +6298,6 @@
     },
     {
       "file": "src/app/robux-to-usd/page.tsx",
-      "line": 149,
-      "category": "jsx-text",
-      "words": 9,
-      "hasTokens": false,
-      "text": ", and it is not charged again at cash-out."
-    },
-    {
-      "file": "src/app/robux-to-usd/page.tsx",
       "line": 156,
       "category": "attribute",
       "words": 3,
@@ -6519,14 +6439,6 @@
       "words": 3,
       "hasTokens": false,
       "text": "Rates last verified"
-    },
-    {
-      "file": "src/app/sources/page.tsx",
-      "line": 100,
-      "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "days ago)"
     },
     {
       "file": "src/app/sources/page.tsx",
@@ -6762,14 +6674,6 @@
     },
     {
       "file": "src/app/usd-to-robux/page.tsx",
-      "line": 93,
-      "category": "jsx-text",
-      "words": 21,
-      "hasTokens": false,
-      "text": ", which clears it. That is why every figure on this page rounds up rather than to the nearest whole number."
-    },
-    {
-      "file": "src/app/usd-to-robux/page.tsx",
       "line": 108,
       "category": "attribute",
       "words": 4,
@@ -6847,14 +6751,6 @@
       "words": 39,
       "hasTokens": false,
       "text": "A payout target is a distance. Turning it into a date needs one more fact — how fast you earn — and turning a date into a plan needs the same fact in reverse. Both are the same division:"
-    },
-    {
-      "file": "src/app/usd-to-robux/page.tsx",
-      "line": 144,
-      "category": "jsx-text",
-      "words": 43,
-      "hasTokens": false,
-      "text": ", rounded up, because a part day earns nothing and a part Robux does not exist. Nothing here assumes your earnings grow, and nothing here is a date Roblox will pay on — Roblox publishes no DevEx processing time, so none is added."
     },
     {
       "file": "src/app/usd-to-robux/page.tsx",
@@ -7266,27 +7162,11 @@
     },
     {
       "file": "src/components/diagrams/index.tsx",
-      "line": 78,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "export function ValueFlow("
-    },
-    {
-      "file": "src/components/diagrams/index.tsx",
       "line": 153,
       "category": "jsx-text",
       "words": 2,
       "hasTokens": false,
       "text": "Applied by"
-    },
-    {
-      "file": "src/components/diagrams/index.tsx",
-      "line": 246,
-      "category": "jsx-text",
-      "words": 4,
-      "hasTokens": false,
-      "text": ": { readonly accepted:"
     },
     {
       "file": "src/components/layout/breadcrumbs.tsx",
@@ -7962,27 +7842,11 @@
     },
     {
       "file": "src/features/devex/components/results.tsx",
-      "line": 351,
-      "category": "jsx-text",
-      "words": 4,
-      "hasTokens": false,
-      "text": ", rounded up to"
-    },
-    {
-      "file": "src/features/devex/components/results.tsx",
       "line": 352,
       "category": "jsx-text",
       "words": 5,
       "hasTokens": false,
       "text": "whole Earned Robux. That pays"
-    },
-    {
-      "file": "src/features/devex/components/results.tsx",
-      "line": 352,
-      "category": "jsx-text",
-      "words": 16,
-      "hasTokens": false,
-      "text": ", which is the first whole-Robux amount that reaches your target rather than falling just short."
     },
     {
       "file": "src/features/devex/components/results.tsx",
