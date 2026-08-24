@@ -1,4 +1,4 @@
-import { spawn, type ChildProcess } from "node:child_process";
+import { execFileSync, spawn, type ChildProcess } from "node:child_process";
 import { REPO_ROOT } from "../seo/paths";
 
 /**
@@ -41,13 +41,45 @@ export async function startServer(): Promise<RunningServer> {
   return {
     baseUrl,
     stop: async () => {
-      child.kill();
+      stopTree(child);
       // Give the process a moment to release the port before the next check.
       await new Promise((resolve) => setTimeout(resolve, 300));
     },
   };
 }
 
+/**
+ * Ends the spawned server and everything beneath it.
+ *
+ * On Windows the child is a `cmd.exe` wrapper — `shell: true` is what makes
+ * `npx.cmd` runnable at all — and killing it leaves the `next start` under it
+ * still holding the port. The next check then cannot bind, waits out the full
+ * ninety seconds, and leaves an orphan of its own, so a single failure turns
+ * every later run into a failure too. `taskkill /T` takes the whole tree.
+ */
+function stopTree(child: ChildProcess): void {
+  if (process.platform === "win32" && child.pid !== undefined) {
+    try {
+      execFileSync("taskkill", ["/pid", String(child.pid), "/T", "/F"], { stdio: "ignore" });
+      return;
+    } catch {
+      // Already gone, or never started; fall through to the portable path.
+    }
+  }
+  child.kill();
+}
+
+/**
+ * Waits until the server answers, not until it is content.
+ *
+ * `/api/health/` returns 503 when the rate registry is due for review or the
+ * collector has stopped recording, which is true of any machine not running
+ * the cron — every developer's. That is the right answer for an uptime monitor
+ * and the wrong question here: these checks crawl routes, links and metadata,
+ * and none of them reads a collected observation. Requiring a 200 meant the
+ * crawl checks could not run locally at all, so the probe is now "did anything
+ * serve this", and a degraded status is printed rather than waited out.
+ */
 async function waitForServer(baseUrl: string): Promise<void> {
   const deadline = Date.now() + STARTUP_TIMEOUT_MS;
   while (Date.now() < deadline) {
@@ -55,13 +87,35 @@ async function waitForServer(baseUrl: string): Promise<void> {
       const response = await fetch(`${baseUrl}/api/health/`, {
         signal: AbortSignal.timeout(2_000),
       });
-      if (response.ok) return;
+      if (!response.ok) {
+        console.log(
+          `Server is up; health reports ${await describeHealth(response)}. ` +
+            `Continuing — these checks do not read collected data.`,
+        );
+      }
+      return;
     } catch {
       // Not up yet.
     }
     await new Promise((resolve) => setTimeout(resolve, 500));
   }
   throw new Error(`Server at ${baseUrl} did not become ready within ${STARTUP_TIMEOUT_MS}ms`);
+}
+
+/** Names what a degraded health response is unhappy about, for the line above. */
+async function describeHealth(response: Response): Promise<string> {
+  try {
+    const body = (await response.json()) as {
+      status?: unknown;
+      collector?: { state?: unknown };
+    };
+    const overall = typeof body.status === "string" ? body.status : String(response.status);
+    const collector =
+      typeof body.collector?.state === "string" ? body.collector.state : null;
+    return collector ? `${overall} (collector ${collector})` : overall;
+  } catch {
+    return String(response.status);
+  }
 }
 
 /** Extracts every `href` from an HTML document. */

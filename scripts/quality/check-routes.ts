@@ -170,10 +170,25 @@ async function main(): Promise<void> {
       if (!homepage.headers.get(header)) fail(`Homepage is missing the ${header} header.`);
     }
 
-    // The API surface must stay out of the index.
-    for (const path of ["/api/health/", "/api/rates/"]) {
+    /*
+     * The API surface must stay out of the index.
+     *
+     * The status check is here so a broken endpoint cannot pass the noindex
+     * check by never answering. `/api/health/` is the one route whose 503 is a
+     * designed answer rather than a fault — it reports that the rate registry
+     * is due for review or the collector has stopped recording, which is true
+     * of any machine not running the cron. Demanding a 200 from it would be
+     * demanding the opposite of what it promises, so both of its documented
+     * codes are accepted and anything else still fails. The noindex assertion,
+     * which is what this block is actually for, applies either way.
+     */
+    const API_SURFACE: ReadonlyArray<readonly [string, readonly number[]]> = [
+      ["/api/health/", [200, 503]],
+      ["/api/rates/", [200]],
+    ];
+    for (const [path, allowed] of API_SURFACE) {
       const response = await fetch(`${server.baseUrl}${path}`);
-      if (!response.ok) fail(`${path} returned ${response.status}.`);
+      if (!allowed.includes(response.status)) fail(`${path} returned ${response.status}.`);
       const tag = response.headers.get("x-robots-tag");
       if (!tag || !tag.includes("noindex")) fail(`${path} is missing an x-robots-tag: noindex.`);
     }
