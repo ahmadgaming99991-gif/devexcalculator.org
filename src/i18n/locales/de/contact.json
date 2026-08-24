@@ -1,0 +1,64 @@
+{
+  "$comment": "Machine-drafted. Not yet read by a native speaker. Server responses are shown to a reader verbatim, so they are translated too. Protected names are never translated.",
+  "page": {
+    "intro": "Korrekturen sind das Wertvollste, was du schicken kannst — besonders mit einem Link auf die offizielle Seite, die dem hier Veröffentlichten widerspricht.",
+    "formHeading": "Kontakt aufnehmen",
+    "emailIsTheWayTitle": "Per E-Mail sind wir erreichbar",
+    "notConfiguredTitle": "Der Kontakt ist auf diesem Deployment nicht eingerichtet",
+    "cannotHelpHeading": "Wobei diese Website nicht helfen kann",
+    "cannotHelpDescription": "Das ist keine Ausrede: diese Dinge liegen wirklich außerhalb dessen, was ein unabhängiger Rechner erreichen kann.",
+    "neverSendCredentialsTitle": "Schicke niemals Zugangsdaten",
+    "body": {
+      "form": {
+        "p1": "Nachrichten gehen an",
+        "p2": "Hier gibt es weder ein Nachrichtenformular noch eine veröffentlichte Adresse, und eines zu zeigen, das deine Nachricht still verwirft, wäre schlimmer, als das zu sagen. Wenn du einen sachlichen Fehler gefunden hast, ist der schnellste Weg ein Blick auf die",
+        "p3": "— sie verlinkt jede offizielle Seite, aus der diese Zahlen stammen, sodass du den aktuellen Wert direkt bestätigen kannst.",
+        "p4": "Deine Nachricht und deine E-Mail-Adresse werden nur benutzt, um zu lesen, was du geschickt hast, und darauf zu antworten.",
+        "p5": "Wie Einsendungen behandelt werden"
+      },
+      "cannotHelp": {
+        "p1": "Dein Roblox-Konto, in jeder Hinsicht. Diese Website hat keine Verbindung zu Roblox und keinen Zugriff auf irgendein Konto.",
+        "p2": "Ein DevEx-Antrag, der eingereicht, verzögert oder abgelehnt wurde. Nur der Roblox-Support kann sich das ansehen.",
+        "p3": "Robux zurückholen, einen Kauf rückgängig machen oder irgendetwas, das dein Guthaben betrifft.",
+        "p4": "Steuerberatung. Hier ist niemand dafür qualifiziert, und die Antwort hängt von deinem Land und deinen Umständen ab.",
+        "p5": "Vorherzusagen, ob ein Antrag genehmigt wird oder wie ein künftiger Kurs aussieht.",
+        "p6": "Diese Website wird dich nie nach deinem Roblox-Passwort, einem Anmeldecode oder Zugriff auf dein Konto fragen — und kein seriöses Werkzeug tut das. Bitte schicke so etwas nicht in einer Nachricht."
+      }
+    }
+  },
+  "form": {
+    "name": "Dein Name",
+    "email": "E-Mail-Adresse",
+    "emailHint": "Wird nur benutzt, um dir zu antworten.",
+    "subject": "Betreff",
+    "message": "Nachricht",
+    "honeypot": "Dieses Feld leer lassen",
+    "submit": "Nachricht senden",
+    "submitting": "Wird gesendet…",
+    "submittingAnnouncement": "Deine Nachricht wird gesendet.",
+    "receivedTitle": "Nachricht erhalten",
+    "couldNotSendTitle": "Senden nicht möglich",
+    "body": {
+      "intro": {
+        "p1": "Danke. Wenn du eine sachliche Korrektur gemeldet hast, wird sie gegen die offizielle Dokumentation geprüft, bevor irgendetwas geändert wird."
+      }
+    }
+  },
+  "responses": {
+    "sent": "Nachricht erhalten. Danke.",
+    "generic": "Die Nachricht konnte nicht gesendet werden.",
+    "networkFailed": "Die Nachricht konnte nicht gesendet werden — die Netzwerkanfrage ist fehlgeschlagen. Bitte versuche es erneut.",
+    "notConfigured": "Das Kontaktformular ist auf diesem Deployment nicht eingerichtet, es würde also nichts zugestellt.",
+    "partiallyConfigured": "Das Kontaktformular ist auf diesem Deployment nicht vollständig eingerichtet.",
+    "badOrigin": "Anfrage abgelehnt.",
+    "rateLimited": "Zu viele Nachrichten von dieser Verbindung. Versuche es später erneut.",
+    "tooLong": "Diese Nachricht ist zu lang.",
+    "malformed": "Die Einsendung war fehlerhaft aufgebaut.",
+    "spamCheckFailed": "Die Spam-Prüfung wurde nicht bestanden. Lade die Seite neu und versuche es erneut."
+  },
+  "email": {
+    "from": "Von:",
+    "subject": "Betreff:",
+    "reference": "Referenz:"
+  }
+}

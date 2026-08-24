@@ -1,0 +1,64 @@
+{
+  "$comment": "Machine-drafted. Not yet read by a native speaker. Server responses are shown to a reader verbatim, so they are translated too. Protected names are never translated.",
+  "page": {
+    "intro": "Gönderebileceğiniz en değerli şey düzeltmelerdir; özellikle burada yayımlananla çelişen resmî sayfanın bağlantısıyla birlikte.",
+    "formHeading": "Bize ulaşın",
+    "emailIsTheWayTitle": "Bize ulaşmanın yolu e-postadır",
+    "notConfiguredTitle": "Bu dağıtımda iletişim yapılandırılmamış",
+    "cannotHelpHeading": "Bu sitenin yardımcı olamayacağı şeyler",
+    "cannotHelpDescription": "Bu bir savuşturma değil — bunlar gerçekten bağımsız bir hesaplayıcının erişemeyeceği konular.",
+    "neverSendCredentialsTitle": "Asla kimlik bilgisi göndermeyin",
+    "body": {
+      "form": {
+        "p1": "Mesajlar şuraya gider:",
+        "p2": "Burada ne bir mesaj formu ne de yayımlanmış bir adres var; mesajınızı sessizce çöpe atacak bir form göstermek, bunu söylemekten daha kötü olurdu. Bir olgu hatası bulduysanız en hızlı yol şuraya bakmaktır:",
+        "p3": "— bu rakamların geldiği bütün resmî sayfalara bağlantı verir, böylece güncel değeri doğrudan doğrulayabilirsiniz.",
+        "p4": "Mesajınız ve e-posta adresiniz yalnızca gönderdiğinizi okumak ve yanıtlamak için kullanılır.",
+        "p5": "Gönderiler nasıl ele alınır"
+      },
+      "cannotHelp": {
+        "p1": "Roblox hesabınız, hiçbir açıdan. Bu sitenin Roblox ile bağlantısı ve herhangi bir hesaba erişimi yoktur.",
+        "p2": "Gönderilmiş, gecikmiş ya da reddedilmiş bir DevEx talebi. Buna yalnızca Roblox destek ekibi bakabilir.",
+        "p3": "Robux'u geri almak, bir satın almayı iptal etmek ya da bakiyenizle ilgili herhangi bir şey.",
+        "p4": "Vergi danışmanlığı. Burada bunu verecek yetkinlikte kimse yok ve yanıt ülkenize ve koşullarınıza bağlıdır.",
+        "p5": "Bir talebin onaylanıp onaylanmayacağını ya da gelecekteki kurun ne olacağını öngörmek.",
+        "p6": "Bu site sizden asla Roblox parolanızı, bir giriş kodunu ya da hesabınıza erişim istemez — meşru hiçbir araç da istemez. Lütfen bunları bir mesaja eklemeyin."
+      }
+    }
+  },
+  "form": {
+    "name": "Adınız",
+    "email": "E-posta adresi",
+    "emailHint": "Yalnızca size yanıt vermek için kullanılır.",
+    "subject": "Konu",
+    "message": "Mesaj",
+    "honeypot": "Bu alanı boş bırakın",
+    "submit": "Mesajı gönder",
+    "submitting": "Gönderiliyor…",
+    "submittingAnnouncement": "Mesajınız gönderiliyor.",
+    "receivedTitle": "Mesaj alındı",
+    "couldNotSendTitle": "Gönderilemedi",
+    "body": {
+      "intro": {
+        "p1": "Teşekkürler. Bir olgu düzeltmesi bildirdiyseniz, herhangi bir değişiklik yapılmadan önce resmî belgelerle karşılaştırılacak."
+      }
+    }
+  },
+  "responses": {
+    "sent": "Mesaj alındı. Teşekkürler.",
+    "generic": "Mesaj gönderilemedi.",
+    "networkFailed": "Mesaj gönderilemedi — ağ isteği başarısız oldu. Lütfen yeniden deneyin.",
+    "notConfigured": "Bu dağıtımda iletişim formu yapılandırılmamış; dolayısıyla hiçbir şey iletilmezdi.",
+    "partiallyConfigured": "Bu dağıtımda iletişim formu tam olarak yapılandırılmamış.",
+    "badOrigin": "İstek reddedildi.",
+    "rateLimited": "Bu bağlantıdan çok fazla mesaj geldi. Daha sonra yeniden deneyin.",
+    "tooLong": "Bu mesaj fazla uzun.",
+    "malformed": "Gönderi hatalı biçimlendirilmişti.",
+    "spamCheckFailed": "İstenmeyen posta denetimi geçilemedi. Sayfayı yenileyip yeniden deneyin."
+  },
+  "email": {
+    "from": "Kimden:",
+    "subject": "Konu:",
+    "reference": "Referans:"
+  }
+}

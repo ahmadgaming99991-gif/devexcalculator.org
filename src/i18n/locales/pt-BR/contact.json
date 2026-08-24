@@ -1,0 +1,64 @@
+{
+  "$comment": "Machine-drafted. Not yet read by a native speaker. Server responses are shown to a reader verbatim, so they are translated too. Protected names are never translated.",
+  "page": {
+    "intro": "Correções são a coisa mais valiosa que você pode enviar, principalmente com um link para a página oficial que contradiz o que está publicado aqui.",
+    "formHeading": "Fale conosco",
+    "emailIsTheWayTitle": "O e-mail é o caminho para nos alcançar",
+    "notConfiguredTitle": "O contato não está configurado nesta implantação",
+    "cannotHelpHeading": "Com o que este site não pode ajudar",
+    "cannotHelpDescription": "Não é desculpa — essas coisas estão genuinamente fora do alcance de uma calculadora independente.",
+    "neverSendCredentialsTitle": "Nunca envie credenciais",
+    "body": {
+      "form": {
+        "p1": "As mensagens vão para",
+        "p2": "Não há formulário de mensagem nem endereço publicado aqui, e mostrar um que descartasse sua mensagem em silêncio seria pior do que dizer isso. Se você encontrou um erro factual, o caminho mais rápido é conferir a",
+        "p3": "— ela traz links para todas as páginas oficiais de onde vêm estes números, então você pode confirmar o valor atual diretamente.",
+        "p4": "Sua mensagem e seu endereço de e-mail são usados apenas para ler e responder ao que você enviou.",
+        "p5": "Como os envios são tratados"
+      },
+      "cannotHelp": {
+        "p1": "Sua conta do Roblox, em qualquer aspecto. Este site não tem ligação com o Roblox nem acesso a conta alguma.",
+        "p2": "Um pedido de DevEx que foi enviado, atrasou ou foi recusado. Só o suporte do Roblox pode olhar isso.",
+        "p3": "Recuperar Robux, reverter uma compra ou qualquer coisa que envolva seu saldo.",
+        "p4": "Consultoria fiscal. Ninguém aqui é qualificado para dar, e a resposta depende do seu país e da sua situação.",
+        "p5": "Prever se um pedido será aprovado ou qual será uma taxa futura.",
+        "p6": "Este site nunca vai pedir sua senha do Roblox, um código de login ou acesso à sua conta — e nenhuma ferramenta legítima faria isso. Por favor, não inclua nada disso em uma mensagem."
+      }
+    }
+  },
+  "form": {
+    "name": "Seu nome",
+    "email": "Endereço de e-mail",
+    "emailHint": "Usado apenas para responder a você.",
+    "subject": "Assunto",
+    "message": "Mensagem",
+    "honeypot": "Deixe este campo vazio",
+    "submit": "Enviar mensagem",
+    "submitting": "Enviando…",
+    "submittingAnnouncement": "Enviando sua mensagem.",
+    "receivedTitle": "Mensagem recebida",
+    "couldNotSendTitle": "Não foi possível enviar",
+    "body": {
+      "intro": {
+        "p1": "Obrigado. Se você relatou uma correção factual, ela será conferida contra a documentação oficial antes de qualquer mudança."
+      }
+    }
+  },
+  "responses": {
+    "sent": "Mensagem recebida. Obrigado.",
+    "generic": "Não foi possível enviar a mensagem.",
+    "networkFailed": "Não foi possível enviar a mensagem — a requisição de rede falhou. Tente de novo.",
+    "notConfigured": "O formulário de contato não está configurado nesta implantação, então nada seria entregue.",
+    "partiallyConfigured": "O formulário de contato não está totalmente configurado nesta implantação.",
+    "badOrigin": "Requisição recusada.",
+    "rateLimited": "Mensagens demais desta conexão. Tente novamente mais tarde.",
+    "tooLong": "Essa mensagem é longa demais.",
+    "malformed": "O envio estava malformado.",
+    "spamCheckFailed": "A verificação antispam não passou. Recarregue a página e tente de novo."
+  },
+  "email": {
+    "from": "De:",
+    "subject": "Assunto:",
+    "reference": "Referência:"
+  }
+}

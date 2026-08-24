@@ -1,0 +1,64 @@
+{
+  "$comment": "Machine-drafted. Not yet read by a native speaker. Server responses are shown to a reader verbatim, so they are translated too. Protected names are never translated.",
+  "page": {
+    "intro": "Koreksi adalah hal paling berharga yang bisa Anda kirim, terutama disertai tautan ke halaman resmi yang bertentangan dengan apa yang diterbitkan di sini.",
+    "formHeading": "Hubungi kami",
+    "emailIsTheWayTitle": "Surel adalah cara menghubungi kami",
+    "notConfiguredTitle": "Kontak tidak dikonfigurasi pada penerapan ini",
+    "cannotHelpHeading": "Hal yang tidak bisa dibantu situs ini",
+    "cannotHelpDescription": "Ini bukan penolakan asal — hal-hal ini memang di luar jangkauan sebuah kalkulator independen.",
+    "neverSendCredentialsTitle": "Jangan pernah mengirim kredensial",
+    "body": {
+      "form": {
+        "p1": "Pesan dikirim ke",
+        "p2": "Tidak ada formulir pesan atau alamat yang diterbitkan di sini, dan menampilkan formulir yang diam-diam membuang pesan Anda akan lebih buruk daripada mengatakannya. Jika Anda menemukan kekeliruan fakta, jalur tercepat adalah memeriksa",
+        "p3": "— di sana tertaut semua halaman resmi asal angka-angka ini, jadi Anda bisa memastikan nilai terkininya langsung.",
+        "p4": "Pesan dan alamat surel Anda hanya dipakai untuk membaca dan membalas apa yang Anda kirim.",
+        "p5": "Bagaimana kiriman ditangani"
+      },
+      "cannotHelp": {
+        "p1": "Akun Roblox Anda, dalam hal apa pun. Situs ini tidak punya hubungan dengan Roblox dan tidak punya akses ke akun mana pun.",
+        "p2": "Permohonan DevEx yang sudah diajukan, tertunda, atau ditolak. Hanya dukungan Roblox yang bisa menanganinya.",
+        "p3": "Memulihkan Robux, membatalkan pembelian, atau apa pun yang menyangkut saldo Anda.",
+        "p4": "Nasihat pajak. Tidak ada di sini yang berkualifikasi memberikannya, dan jawabannya bergantung pada negara serta keadaan Anda.",
+        "p5": "Memperkirakan apakah sebuah permohonan akan disetujui atau berapa kurs di masa depan.",
+        "p6": "Situs ini tidak akan pernah meminta kata sandi Roblox, kode masuk, atau akses ke akun Anda — dan tidak ada alat yang sah yang akan melakukannya. Mohon jangan menyertakannya dalam pesan."
+      }
+    }
+  },
+  "form": {
+    "name": "Nama Anda",
+    "email": "Alamat surel",
+    "emailHint": "Hanya dipakai untuk membalas Anda.",
+    "subject": "Perihal",
+    "message": "Pesan",
+    "honeypot": "Biarkan kolom ini kosong",
+    "submit": "Kirim pesan",
+    "submitting": "Mengirim…",
+    "submittingAnnouncement": "Mengirim pesan Anda.",
+    "receivedTitle": "Pesan diterima",
+    "couldNotSendTitle": "Tidak dapat dikirim",
+    "body": {
+      "intro": {
+        "p1": "Terima kasih. Jika Anda melaporkan koreksi fakta, hal itu akan diperiksa terhadap dokumentasi resmi sebelum ada yang diubah."
+      }
+    }
+  },
+  "responses": {
+    "sent": "Pesan diterima. Terima kasih.",
+    "generic": "Pesan tidak dapat dikirim.",
+    "networkFailed": "Pesan tidak dapat dikirim — permintaan jaringan gagal. Silakan coba lagi.",
+    "notConfigured": "Formulir kontak tidak dikonfigurasi pada penerapan ini, jadi tidak akan ada yang terkirim.",
+    "partiallyConfigured": "Formulir kontak belum sepenuhnya dikonfigurasi pada penerapan ini.",
+    "badOrigin": "Permintaan ditolak.",
+    "rateLimited": "Terlalu banyak pesan dari koneksi ini. Coba lagi nanti.",
+    "tooLong": "Pesan itu terlalu panjang.",
+    "malformed": "Kiriman tidak berbentuk benar.",
+    "spamCheckFailed": "Pemeriksaan antispam tidak lolos. Muat ulang halaman lalu coba lagi."
+  },
+  "email": {
+    "from": "Dari:",
+    "subject": "Perihal:",
+    "reference": "Rujukan:"
+  }
+}

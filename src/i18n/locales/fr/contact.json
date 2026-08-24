@@ -1,0 +1,67 @@
+{
+  "$comment": "Machine-drafted. Not yet read by a native speaker. Server responses are shown to a reader verbatim, so they are translated too. Protected names are never translated.",
+  "$identical": [
+    "form.message"
+  ],
+  "page": {
+    "intro": "Les corrections sont la chose la plus utile que vous puissiez envoyer, surtout accompagnées d’un lien vers la page officielle qui contredit ce qui est publié ici.",
+    "formHeading": "Nous écrire",
+    "emailIsTheWayTitle": "L’e-mail est le moyen de nous joindre",
+    "notConfiguredTitle": "Le contact n’est pas configuré sur ce déploiement",
+    "cannotHelpHeading": "Ce pour quoi ce site ne peut rien",
+    "cannotHelpDescription": "Ce n’est pas une esquive : ces sujets sont réellement hors de portée d’une calculatrice indépendante.",
+    "neverSendCredentialsTitle": "N’envoyez jamais vos identifiants",
+    "body": {
+      "form": {
+        "p1": "Les messages arrivent à",
+        "p2": "Aucun formulaire ni adresse publiée n’est disponible ici, et en afficher un qui jetterait discrètement votre message serait pire que de le dire. Si vous avez trouvé une erreur factuelle, le plus rapide est de consulter la",
+        "p3": "— elle renvoie vers toutes les pages officielles dont proviennent ces chiffres, vous pouvez donc vérifier la valeur actuelle directement.",
+        "p4": "Votre message et votre adresse e-mail servent uniquement à lire ce que vous avez envoyé et à y répondre.",
+        "p5": "Comment les envois sont traités"
+      },
+      "cannotHelp": {
+        "p1": "Votre compte Roblox, à quelque titre que ce soit. Ce site n’a aucun lien avec Roblox ni accès à un compte.",
+        "p2": "Une demande DevEx déposée, retardée ou refusée. Seul le support de Roblox peut l’examiner.",
+        "p3": "Récupérer des Robux, annuler un achat, ou quoi que ce soit touchant à votre solde.",
+        "p4": "Des conseils fiscaux. Personne ici n’est qualifié pour en donner, et la réponse dépend de votre pays et de votre situation.",
+        "p5": "Prédire si une demande sera acceptée ou quel sera un taux futur.",
+        "p6": "Ce site ne vous demandera jamais votre mot de passe Roblox, un code de connexion ou l’accès à votre compte — et aucun outil légitime ne le fera. Merci de ne pas les inclure dans un message."
+      }
+    }
+  },
+  "form": {
+    "name": "Votre nom",
+    "email": "Adresse e-mail",
+    "emailHint": "Utilisée uniquement pour vous répondre.",
+    "subject": "Objet",
+    "message": "Message",
+    "honeypot": "Laissez ce champ vide",
+    "submit": "Envoyer le message",
+    "submitting": "Envoi…",
+    "submittingAnnouncement": "Envoi de votre message.",
+    "receivedTitle": "Message reçu",
+    "couldNotSendTitle": "Envoi impossible",
+    "body": {
+      "intro": {
+        "p1": "Merci. Si vous avez signalé une correction factuelle, elle sera vérifiée avec la documentation officielle avant tout changement."
+      }
+    }
+  },
+  "responses": {
+    "sent": "Message reçu. Merci.",
+    "generic": "Le message n’a pas pu être envoyé.",
+    "networkFailed": "Le message n’a pas pu être envoyé — la requête réseau a échoué. Réessayez.",
+    "notConfigured": "Le formulaire de contact n’est pas configuré sur ce déploiement ; rien ne serait transmis.",
+    "partiallyConfigured": "Le formulaire de contact n’est pas entièrement configuré sur ce déploiement.",
+    "badOrigin": "Requête refusée.",
+    "rateLimited": "Trop de messages depuis cette connexion. Réessayez plus tard.",
+    "tooLong": "Ce message est trop long.",
+    "malformed": "L’envoi était mal formé.",
+    "spamCheckFailed": "La vérification antispam n’est pas passée. Rechargez la page et réessayez."
+  },
+  "email": {
+    "from": "De :",
+    "subject": "Objet :",
+    "reference": "Référence :"
+  }
+}

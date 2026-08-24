@@ -1,0 +1,64 @@
+{
+  "$comment": "Machine-drafted. Not yet read by a native speaker. Server responses are shown to a reader verbatim, so they are translated too. Protected names are never translated.",
+  "page": {
+    "intro": "Las correcciones son lo más valioso que puedes enviar, sobre todo con un enlace a la página oficial que contradice lo publicado aquí.",
+    "formHeading": "Ponte en contacto",
+    "emailIsTheWayTitle": "El correo es la forma de contactarnos",
+    "notConfiguredTitle": "El contacto no está configurado en este despliegue",
+    "cannotHelpHeading": "Con qué no puede ayudar este sitio",
+    "cannotHelpDescription": "No es una excusa: estas cosas quedan realmente fuera del alcance de una calculadora independiente.",
+    "neverSendCredentialsTitle": "Nunca envíes credenciales",
+    "body": {
+      "form": {
+        "p1": "Los mensajes van a",
+        "p2": "Aquí no hay formulario ni dirección publicada, y mostrar uno que descartara tu mensaje en silencio sería peor que decirlo. Si has encontrado un error factual, la vía más rápida es consultar la",
+        "p3": "— enlaza todas las páginas oficiales de donde salen estas cifras, así que puedes confirmar el valor actual directamente.",
+        "p4": "Tu mensaje y tu dirección de correo se usan solo para leer y responder a lo que enviaste.",
+        "p5": "Cómo se tratan los envíos"
+      },
+      "cannotHelp": {
+        "p1": "Tu cuenta de Roblox, en cualquier aspecto. Este sitio no tiene relación con Roblox ni acceso a ninguna cuenta.",
+        "p2": "Una solicitud de DevEx enviada, retrasada o rechazada. Solo el soporte de Roblox puede revisarla.",
+        "p3": "Recuperar Robux, revertir una compra o cualquier cosa relacionada con tu saldo.",
+        "p4": "Asesoramiento fiscal. Nadie aquí está cualificado para darlo, y la respuesta depende de tu país y tus circunstancias.",
+        "p5": "Predecir si se aprobará una solicitud o cuál será una tasa futura.",
+        "p6": "Este sitio nunca te pedirá tu contraseña de Roblox, un código de acceso ni acceso a tu cuenta, y ninguna herramienta legítima lo haría. Por favor, no los incluyas en un mensaje."
+      }
+    }
+  },
+  "form": {
+    "name": "Tu nombre",
+    "email": "Dirección de correo",
+    "emailHint": "Solo se usa para responderte.",
+    "subject": "Asunto",
+    "message": "Mensaje",
+    "honeypot": "Deja este campo vacío",
+    "submit": "Enviar mensaje",
+    "submitting": "Enviando…",
+    "submittingAnnouncement": "Enviando tu mensaje.",
+    "receivedTitle": "Mensaje recibido",
+    "couldNotSendTitle": "No se pudo enviar",
+    "body": {
+      "intro": {
+        "p1": "Gracias. Si has informado de una corrección factual, se comprobará contra la documentación oficial antes de cambiar nada."
+      }
+    }
+  },
+  "responses": {
+    "sent": "Mensaje recibido. Gracias.",
+    "generic": "No se pudo enviar el mensaje.",
+    "networkFailed": "No se pudo enviar el mensaje: falló la petición de red. Inténtalo de nuevo.",
+    "notConfigured": "El formulario de contacto no está configurado en este despliegue, así que no se entregaría nada.",
+    "partiallyConfigured": "El formulario de contacto no está completamente configurado en este despliegue.",
+    "badOrigin": "Petición rechazada.",
+    "rateLimited": "Demasiados mensajes desde esta conexión. Inténtalo más tarde.",
+    "tooLong": "Ese mensaje es demasiado largo.",
+    "malformed": "El envío estaba mal formado.",
+    "spamCheckFailed": "La comprobación antispam no pasó. Recarga la página e inténtalo de nuevo."
+  },
+  "email": {
+    "from": "De:",
+    "subject": "Asunto:",
+    "reference": "Referencia:"
+  }
+}
