@@ -46,20 +46,14 @@
     "changedHeading": "La page de Roblox ne correspond plus à ces chiffres.",
     "changedBody": "Détecté par la vérification automatique du {checked}. Les chiffres ci-dessus restent valables jusqu’à ce qu’une personne ait lu ce qui a changé.",
     "unreadableBody": "La page de Roblox n’a pas pu être lue le {checked} ; ces chiffres sont donc ceux de la dernière relecture et non d’une comparaison récente.",
-    "unchangedPrefix": "Comparé à",
     "unchangedLinkLabel": "la page DevEx officielle de Roblox",
-    "unchangedSuffix": "le {checked} — inchangé.",
     "sourceUpdatedAt": "Roblox a mis cette page à jour pour la dernière fois le {date}.",
     "badgeChanged": "source modifiée, en cours d’examen",
     "badgeUnreachable": "source inaccessible {when}",
     "badgeChecked": "source vérifiée {when}",
     "unreadableReason": "Le document ne se lit pas comme la page DevEx de Roblox.",
     "noCheckYet": "Aucune vérification n’a encore été effectuée.",
-    "body": {
-      "intro": {
-        "p1": "Détecté par la vérification automatique du"
-      }
-    }
+    "unchanged": "Comparé à {link} le {checked} — inchangé."
   },
   "byline": {
     "maintainedBy": "Maintenu par",
@@ -119,11 +113,7 @@
     "pinterest": "DevEx Calculator sur Pinterest",
     "instagramName": "Instagram",
     "pinterestName": "Pinterest",
-    "body": {
-      "intro": {
-        "p1": "{description} (ouvre un nouvel onglet)"
-      }
-    }
+    "opensInNewTab": "{description} (ouvre un nouvel onglet)"
   },
   "consent": {
     "accept": "Accepter",

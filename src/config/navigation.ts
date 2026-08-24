@@ -1,9 +1,13 @@
 import { requireRoute } from "@/lib/content/route-registry";
+import { getNamespace } from "@/i18n/get-dictionary";
+import { localizedPath } from "@/i18n/locale-path";
+import { flatRouteKey } from "@/i18n/route-key";
+import type { Locale } from "@/i18n/types";
 
 /**
  * Navigation structure.
  *
- * Every entry resolves through `requireRoute`, so a typo or a removed page
+ * Every route resolves through `requireRoute`, so a typo or a removed page
  * fails the build rather than shipping a broken link in the header.
  *
  * One configuration drives the desktop menus, the mobile drawer, the
@@ -13,27 +17,49 @@ import { requireRoute } from "@/lib/content/route-registry";
  * destinations, including the guides, the API and the marketplace calculator,
  * reachable only from the footer.
  *
- * Grouping them is what makes the rest of the site visible from any page. The
- * labels come from each route's own `navLabel` rather than being written again
- * here, so a page renamed in the registry is renamed in the menus.
+ * **Structure and words are separate here.** The structure is a list of routes
+ * and group ids, synchronous, and it is what the link validator and the tests
+ * read: they are asking which pages the header reaches, which is the same
+ * question in every language. The words come from the `navigation` dictionary
+ * and are fetched per locale.
+ *
+ * That split is not tidiness. The descriptions used to be written into this
+ * file as arguments — `item("/api/", "Read these figures as JSON")` — and the
+ * extractor never saw them, because a bare call argument in a `.ts` file does
+ * not look like prose from the outside. Twenty-one reader-facing sentences sat
+ * in the header of every page and in no dictionary, and the hardcoded-English
+ * count read zero the whole time. Holding them as keys means there is no
+ * literal left to miss.
  */
 
 export interface NavItem {
   readonly href: string;
   readonly label: string;
+}
+
+/**
+ * A header destination, which also answers "why would I go there".
+ *
+ * The footer's links carry no description, and that is the point of the two
+ * types: the footer renders labels only, so a description written for it would
+ * be a sentence nobody reads and somebody translates. Seven of them were
+ * exactly that before this split.
+ */
+export interface DescribedNavItem extends NavItem {
   readonly description: string;
 }
 
-export interface NavGroup {
-  /** Stable id, used for the disclosure's DOM ids. */
+export interface NavGroup<Item extends NavItem = NavItem> {
+  /** Stable id, used for the disclosure's DOM ids and as the heading's key. */
   readonly id: string;
   readonly heading: string;
-  readonly items: readonly NavItem[];
+  readonly items: readonly Item[];
 }
 
-function item(route: string, description: string): NavItem {
-  const record = requireRoute(route);
-  return { href: record.route, label: record.navLabel, description };
+/** A group as structure alone: which routes, under which id. */
+interface GroupShape {
+  readonly id: string;
+  readonly routes: readonly string[];
 }
 
 /**
@@ -43,129 +69,161 @@ function item(route: string, description: string): NavItem {
  * mean a reader who arrived on a guide needs two interactions to reach the
  * thing they came for.
  */
-export const primaryDestination: NavItem = item(
-  "/",
-  "Convert Earned Robux to an estimated USD payout",
-);
+export const PRIMARY_ROUTE = "/";
 
-export const navigationGroups: readonly NavGroup[] = [
+export const HEADER_GROUPS: readonly GroupShape[] = [
   {
     id: "tools",
-    heading: "Tools",
-    items: [
-      primaryDestination,
-      item("/robux-to-usd/", "Creator payout compared with purchase price"),
-      item("/usd-to-robux/", "Work backwards from a payout goal"),
-      item("/robux-tax-calculator/", "What a marketplace sale leaves you"),
-      item("/conversions/", "Worked examples for common amounts"),
-      item("/calculators/", "Every calculator on the site"),
+    routes: [
+      PRIMARY_ROUTE,
+      "/robux-to-usd/",
+      "/usd-to-robux/",
+      "/robux-tax-calculator/",
+      "/conversions/",
+      "/calculators/",
     ],
   },
   {
-    id: "devex-guide",
-    heading: "DevEx Guide",
-    items: [
-      item("/devex-rates/", "Current, legacy and conditional rates"),
-      item("/devex-requirements/", "Eligibility and the 30,000 minimum"),
-      item("/earned-robux/", "Which Robux actually count"),
-      item("/how-to-cash-out-robux/", "The request, step by step"),
-      item("/devex-fees-and-taxes/", "What is taken out, and by whom"),
-      item("/devex-rate-history/", "Every rate change, dated"),
-      item("/guides/", "Explanatory guides in reading order"),
+    id: "devexGuide",
+    routes: [
+      "/devex-rates/",
+      "/devex-requirements/",
+      "/earned-robux/",
+      "/how-to-cash-out-robux/",
+      "/devex-fees-and-taxes/",
+      "/devex-rate-history/",
+      "/guides/",
     ],
   },
   {
-    id: "roblox-data",
-    heading: "Roblox Data",
-    items: [
-      item("/roblox-stats/", "What Roblox pays creators, from its filings"),
-      item("/platform/", "Live player counts from Roblox public endpoints"),
-      item("/platform/stock/", "Reported results, with no fabricated price"),
-    ],
+    id: "robloxData",
+    routes: ["/roblox-stats/", "/platform/", "/platform/stock/"],
   },
   {
     id: "resources",
-    heading: "Resources",
-    items: [
-      item("/api/", "Read these figures as JSON"),
-      item("/methodology/", "How every figure is calculated"),
-      item("/sources/", "Sources and verification dates"),
-      item("/changelog/", "Every change to the published figures"),
-      item("/corrections/", "Report something wrong"),
+    routes: ["/api/", "/methodology/", "/sources/", "/changelog/", "/corrections/"],
+  },
+];
+
+export const FOOTER_GROUPS: readonly GroupShape[] = [
+  {
+    id: "calculators",
+    routes: [
+      "/",
+      "/robux-to-usd/",
+      "/usd-to-robux/",
+      "/robux-tax-calculator/",
+      "/conversions/",
     ],
+  },
+  {
+    id: "guides",
+    routes: [
+      "/devex-rates/",
+      "/devex-requirements/",
+      "/earned-robux/",
+      "/how-to-cash-out-robux/",
+      "/devex-rate-history/",
+      "/devex-fees-and-taxes/",
+      "/roblox-stats/",
+      "/platform/",
+      "/platform/stock/",
+    ],
+  },
+  {
+    id: "trust",
+    routes: [
+      "/about/",
+      "/methodology/",
+      "/sources/",
+      "/editorial-policy/",
+      "/corrections/",
+      "/changelog/",
+      // The raw registry sits under Trust rather than beside the calculators:
+      // its point is that the figures can be checked, not that it is a tool.
+      "/api/",
+    ],
+  },
+  {
+    id: "legal",
+    routes: ["/privacy/", "/terms/", "/disclaimer/", "/accessibility/", "/contact/"],
   },
 ];
 
 /**
- * Every header destination as one flat list, de-duplicated.
+ * Every header destination as one flat list of routes, de-duplicated.
  *
  * The calculator appears both as the standalone link and inside Tools, which
  * is right in the menus and wrong in a list used to answer "is this route
  * linked from the header" — so it is collapsed here rather than in the groups.
  */
-export const primaryNavigation: readonly NavItem[] = (() => {
+export const primaryNavigationRoutes: readonly string[] = (() => {
   const seen = new Set<string>();
-  const flat: NavItem[] = [];
-  for (const group of navigationGroups) {
-    for (const entry of group.items) {
-      if (seen.has(entry.href)) continue;
-      seen.add(entry.href);
-      flat.push(entry);
-    }
+  for (const group of HEADER_GROUPS) {
+    for (const route of group.routes) seen.add(requireRoute(route).route);
   }
-  return flat;
+  return [...seen];
 })();
 
-export const footerNavigation: readonly {
-  readonly heading: string;
-  readonly items: readonly NavItem[];
-}[] = [
-  {
-    heading: "Calculators",
-    items: [
-      item("/", "DevEx payout estimate"),
-      item("/robux-to-usd/", "Robux to USD"),
-      item("/usd-to-robux/", "Payout target"),
-      item("/robux-tax-calculator/", "Marketplace fee"),
-      item("/conversions/", "Common amounts"),
-    ],
-  },
-  {
-    heading: "Guides",
-    items: [
-      item("/devex-rates/", "Current rates"),
-      item("/devex-requirements/", "Requirements and minimum"),
-      item("/earned-robux/", "What Earned Robux means"),
-      item("/how-to-cash-out-robux/", "Cashing out"),
-      item("/devex-rate-history/", "Rate history"),
-      item("/devex-fees-and-taxes/", "Fees and taxes"),
-      item("/roblox-stats/", "Payout statistics"),
-      item("/platform/", "Platform activity"),
-      item("/platform/stock/", "Roblox stock"),
-    ],
-  },
-  {
-    heading: "Trust",
-    items: [
-      item("/about/", "About this site"),
-      item("/methodology/", "How figures are calculated"),
-      item("/sources/", "Sources and dates"),
-      item("/editorial-policy/", "Editorial policy"),
-      item("/corrections/", "Corrections"),
-      item("/changelog/", "Changelog"),
-      // The raw registry sits under Trust rather than beside the calculators:
-      // its point is that the figures can be checked, not that it is a tool.
-      item("/api/", "Rates API"),
-    ],
-  },
-  {
-    heading: "Legal",
-    items: [
-      item("/privacy/", "Privacy policy"),
-      item("/terms/", "Terms of use"),
-      item("/disclaimer/", "Disclaimer"),
-      item("/accessibility/", "Accessibility statement"),
-      item("/contact/", "Contact"),
-    ],
-  },
-];
+export const footerNavigationRoutes: readonly string[] = FOOTER_GROUPS.flatMap((group) =>
+  group.routes.map((route) => requireRoute(route).route),
+);
+
+interface NavigationStrings {
+  readonly groups: Readonly<Record<string, string>>;
+  readonly routes: Readonly<Record<string, string>>;
+  readonly descriptions: Readonly<Record<string, string>>;
+}
+
+/** The header and footer menus, worded for one language and linked within it. */
+export interface Navigation {
+  readonly primary: DescribedNavItem;
+  readonly headerGroups: readonly NavGroup<DescribedNavItem>[];
+  readonly footerGroups: readonly NavGroup[];
+}
+
+export async function getNavigation(locale: Locale): Promise<Navigation> {
+  const strings = await getNamespace<NavigationStrings>(locale, "navigation");
+
+  const need = (
+    table: Readonly<Record<string, string>>,
+    key: string,
+    what: string,
+  ): string => {
+    const value = table[key];
+    if (value === undefined) {
+      throw new Error(`No "navigation.${what}.${key}" in locale "${locale}".`);
+    }
+    return value;
+  };
+
+  const toItem = (route: string): NavItem => {
+    const record = requireRoute(route);
+    return {
+      // Every link in a localized page stays in that locale. A header that
+      // sends a Spanish reader to an English page is the leak this prevents.
+      href: localizedPath(locale, record.route),
+      label: need(strings.routes, flatRouteKey(record.route), "routes"),
+    };
+  };
+
+  const describe = (route: string): DescribedNavItem => ({
+    ...toItem(route),
+    description: need(strings.descriptions, flatRouteKey(route), "descriptions"),
+  });
+
+  const toGroup = <Item extends NavItem>(
+    shape: GroupShape,
+    item: (route: string) => Item,
+  ): NavGroup<Item> => ({
+    id: shape.id,
+    heading: need(strings.groups, shape.id, "groups"),
+    items: shape.routes.map(item),
+  });
+
+  return {
+    primary: describe(PRIMARY_ROUTE),
+    headerGroups: HEADER_GROUPS.map((shape) => toGroup(shape, describe)),
+    footerGroups: FOOTER_GROUPS.map((shape) => toGroup(shape, toItem)),
+  };
+}

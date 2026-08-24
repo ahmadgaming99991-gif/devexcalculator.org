@@ -21,9 +21,28 @@ export function ageInDays(iso: string, now: number): number {
   return Math.max(0, Math.floor((now - then) / DAY_MS));
 }
 
-/** Plain words for a small number of days; a figure once it stops being one. */
-export function describeAge(days: number): string {
-  if (days <= 0) return "today";
-  if (days === 1) return "yesterday";
-  return `${days} days ago`;
+/** The three ways this is said, in one language. */
+export interface RelativeDayWords {
+  readonly today: string;
+  readonly yesterday: string;
+  /** Carries a `{days}` token. */
+  readonly daysAgo: string;
+}
+
+/**
+ * Plain words for a small number of days; a figure once it stops being one.
+ *
+ * The words are passed in rather than looked up. This runs inside a Client
+ * Component, and a dictionary reached from here would be a dictionary in the
+ * browser bundle — in every language, on every page.
+ *
+ * Zero and one are separate cases rather than a plural rule because they are
+ * different words in every language this site has, and picking the plural form
+ * of a count is a job for the translation, not for a switch here: languages
+ * with more than two forms would need more branches than English can name.
+ */
+export function describeAge(days: number, words: RelativeDayWords): string {
+  if (days <= 0) return words.today;
+  if (days === 1) return words.yesterday;
+  return words.daysAgo.replace("{days}", String(days));
 }

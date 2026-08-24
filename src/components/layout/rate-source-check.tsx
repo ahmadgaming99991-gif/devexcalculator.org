@@ -1,7 +1,8 @@
 "use client";
 
 import { formatDate } from "@/lib/calculations/format";
-import { ageInDays, describeAge } from "@/lib/utilities/relative-day";
+import { ageInDays, describeAge, type RelativeDayWords } from "@/lib/utilities/relative-day";
+import { rich } from "@/i18n/rich";
 import { useRateCheck } from "@/lib/rates/use-rate-check";
 import { useClientValue } from "@/lib/utilities/use-client-value";
 
@@ -35,12 +36,47 @@ function useNow(): number {
   return useClientValue(() => Date.now(), 0);
 }
 
-function CheckedOn({ checkedAt }: { checkedAt: string }) {
+/**
+ * Everything this component says, handed in from the server.
+ *
+ * A Client Component, so a dictionary reached from here would be a dictionary
+ * in the browser bundle — in every language, on every page. The footer loads
+ * these once and passes them down.
+ */
+export interface SourceCheckWords {
+  readonly changedHeading: string;
+  readonly changedBody: string;
+  readonly unreadableBody: string;
+  readonly unchanged: string;
+  readonly unchangedLinkLabel: string;
+  readonly sourceUpdatedAt: string;
+  readonly badgeChanged: string;
+  readonly badgeUnreachable: string;
+  readonly badgeChecked: string;
+  readonly relativeDay: RelativeDayWords;
+  /** BCP 47 tag, for the dates. */
+  readonly dateLocale: string;
+}
+
+/** Fills a `{token}` with a string, matching `interpolate`. */
+function fill(template: string, values: Readonly<Record<string, string | number>>): string {
+  return template.replace(/{([a-zA-Z_][a-zA-Z0-9_]*)}/g, (whole, token: string) =>
+    token in values ? String(values[token]) : whole,
+  );
+}
+
+function CheckedOn({
+  checkedAt,
+  words,
+}: {
+  checkedAt: string;
+  words: SourceCheckWords;
+}) {
   const now = useNow();
   return (
     <>
-      <span className="tabular">{formatDate(checkedAt)}</span> (
-      {describeAge(ageInDays(checkedAt, now))})
+      <span className="tabular">{formatDate(checkedAt, words.dateLocale)}</span> (
+      {describeAge(ageInDays(checkedAt, now), words.relativeDay)})
     </>
   );
 }
@@ -53,18 +89,23 @@ function CheckedOn({ checkedAt }: { checkedAt: string }) {
  * document, the day and the outcome is the part they cannot copy without
  * building it.
  */
-export function RateSourceCheck({ className }: { className?: string }) {
+export function RateSourceCheck({
+  className,
+  words,
+}: {
+  className?: string;
+  words: SourceCheckWords;
+}) {
   const check = useRateCheck();
   if (!check || check.status === "unknown" || !check.checkedAt) return null;
 
   if (check.status === "changed") {
     return (
       <p className={className}>
-        <span className="font-semibold text-(--color-warning)">
-          Roblox&rsquo;s page no longer matches these figures.
-        </span>{" "}
-        Found by the automatic check on <CheckedOn checkedAt={check.checkedAt} />. The figures
-        above stand until a person has read what changed.
+        <span className="font-semibold text-(--color-warning)">{words.changedHeading}</span>{" "}
+        {rich(words.changedBody, {
+          checked: <CheckedOn checkedAt={check.checkedAt} words={words} />,
+        })}
       </p>
     );
   }
@@ -72,25 +113,39 @@ export function RateSourceCheck({ className }: { className?: string }) {
   if (check.status === "unreadable") {
     return (
       <p className={className}>
-        Roblox&rsquo;s page could not be read on <CheckedOn checkedAt={check.checkedAt} />, so
-        these figures are the ones from the last review rather than a fresh comparison.
+        {rich(words.unreadableBody, {
+          checked: <CheckedOn checkedAt={check.checkedAt} words={words} />,
+        })}
       </p>
     );
   }
 
   return (
     <p className={className}>
-      Checked against{" "}
-      <a
-        href="https://create.roblox.com/docs/production/monetization/developer-exchange"
-        rel="noopener nofollow"
-        className="underline hover:text-(--color-primary)"
-      >
-        Roblox&rsquo;s own DevEx page
-      </a>{" "}
-      on <CheckedOn checkedAt={check.checkedAt} /> — unchanged.
+      {/*
+        One sentence with the link inside it. Written as prefix + link + suffix
+        it can only be assembled in English word order, and this sentence puts
+        the date before the link in German.
+      */}
+      {rich(words.unchanged, {
+        link: (
+          <a
+            href="https://create.roblox.com/docs/production/monetization/developer-exchange"
+            rel="noopener nofollow"
+            className="underline hover:text-(--color-primary)"
+          >
+            {words.unchangedLinkLabel}
+          </a>
+        ),
+        checked: <CheckedOn checkedAt={check.checkedAt} words={words} />,
+      })}
       {check.sourceUpdatedAt ? (
-        <> Roblox last updated that page on {formatDate(check.sourceUpdatedAt)}.</>
+        <>
+          {" "}
+          {fill(words.sourceUpdatedAt, {
+            date: formatDate(check.sourceUpdatedAt, words.dateLocale),
+          })}
+        </>
       ) : null}
     </p>
   );
@@ -103,25 +158,25 @@ export function RateSourceCheck({ className }: { className?: string }) {
  * push a reader past it. What it adds is the one thing the frozen verification
  * date beside it cannot say: that somebody — something — looked today.
  */
-export function RateSourceCheckBadge() {
+export function RateSourceCheckBadge({ words }: { words: SourceCheckWords }) {
   const check = useRateCheck();
   const now = useNow();
   if (!check || check.status === "unknown" || !check.checkedAt) return null;
 
-  const when = describeAge(ageInDays(check.checkedAt, now));
+  const when = describeAge(ageInDays(check.checkedAt, now), words.relativeDay);
 
   if (check.status === "changed") {
     return (
       <>
         {" · "}
-        <span className="font-semibold text-(--color-warning)">source changed, under review</span>
+        <span className="font-semibold text-(--color-warning)">{words.badgeChanged}</span>
       </>
     );
   }
 
   if (check.status === "unreadable") {
-    return <>{` · source unreachable ${when}`}</>;
+    return <>{` · ${fill(words.badgeUnreachable, { when })}`}</>;
   }
 
-  return <>{` · source checked ${when}`}</>;
+  return <>{` · ${fill(words.badgeChecked, { when })}`}</>;
 }

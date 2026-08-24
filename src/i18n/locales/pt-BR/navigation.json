@@ -27,7 +27,6 @@
     "robloxStats": "Estatísticas",
     "devexRequirements": "Requisitos",
     "earnedRobux": "Earned Robux",
-    "howToCashOut": "Como sacar",
     "devexRateHistory": "Histórico de taxas",
     "devexFeesAndTaxes": "Taxas e impostos",
     "robuxTaxCalculator": "Comissão do Roblox",
@@ -46,7 +45,8 @@
     "terms": "Termos",
     "disclaimer": "Aviso legal",
     "accessibility": "Acessibilidade",
-    "authors": "Autores"
+    "authors": "Autores",
+    "howToCashOutRobux": "Como sacar"
   },
   "language": {
     "label": "Idioma",
@@ -57,5 +57,28 @@
     "machineDrafted": "Tradução automática — aguardando revisão de falante nativo",
     "machineDraftedExplained": "Esta tradução foi feita automaticamente e ainda não foi revisada por um falante nativo. Os números vêm do mesmo registro verificado da página em inglês.",
     "readInEnglish": "Ler esta página em inglês"
+  },
+  "descriptions": {
+    "home": "Converta Earned Robux em uma estimativa de pagamento em USD",
+    "robuxToUsd": "Pagamento ao criador comparado com o preço de compra",
+    "usdToRobux": "Calcule de trás para frente a partir de uma meta de pagamento",
+    "robuxTaxCalculator": "O que sobra para você em uma venda no marketplace",
+    "conversions": "Exemplos resolvidos para valores comuns",
+    "calculators": "Todas as calculadoras do site",
+    "devexRates": "Taxas atuais, antigas e condicionais",
+    "devexRequirements": "Elegibilidade e o mínimo de 30.000",
+    "earnedRobux": "Quais Robux realmente contam",
+    "devexFeesAndTaxes": "O que é descontado, e por quem",
+    "devexRateHistory": "Todas as mudanças de taxa, com data",
+    "guides": "Guias explicativos em ordem de leitura",
+    "robloxStats": "O que a Roblox paga aos criadores, segundo seus registros oficiais",
+    "platform": "Contagens de jogadores ao vivo dos endpoints públicos da Roblox",
+    "platformStock": "Resultados divulgados, sem nenhum preço inventado",
+    "api": "Leia estes números em JSON",
+    "methodology": "Como cada número é calculado",
+    "sources": "Fontes e datas de verificação",
+    "changelog": "Todas as alterações nos números publicados",
+    "corrections": "Relate algo incorreto",
+    "howToCashOutRobux": "A solicitação, passo a passo"
   }
 }

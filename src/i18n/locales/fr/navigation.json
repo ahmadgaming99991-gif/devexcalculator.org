@@ -35,7 +35,6 @@
     "robloxStats": "Statistiques",
     "devexRequirements": "Conditions",
     "earnedRobux": "Earned Robux",
-    "howToCashOut": "Encaisser",
     "devexRateHistory": "Historique des taux",
     "devexFeesAndTaxes": "Frais et impôts",
     "robuxTaxCalculator": "Commission Roblox",
@@ -54,7 +53,8 @@
     "terms": "Conditions",
     "disclaimer": "Avertissement",
     "accessibility": "Accessibilité",
-    "authors": "Auteurs"
+    "authors": "Auteurs",
+    "howToCashOutRobux": "Encaisser"
   },
   "language": {
     "label": "Langue",
@@ -65,5 +65,28 @@
     "machineDrafted": "Traduction automatique — en attente de relecture par un locuteur natif",
     "machineDraftedExplained": "Cette traduction a été rédigée automatiquement et n'a pas encore été relue par un locuteur natif. Les chiffres proviennent du même registre vérifié que la page en anglais.",
     "readInEnglish": "Lire cette page en anglais"
+  },
+  "descriptions": {
+    "home": "Convertir des Earned Robux en une estimation de paiement en USD",
+    "robuxToUsd": "Paiement au créateur comparé au prix d'achat",
+    "usdToRobux": "Partir d'un objectif de paiement et remonter le calcul",
+    "robuxTaxCalculator": "Ce qu'il vous reste d'une vente sur le marketplace",
+    "conversions": "Exemples chiffrés pour les montants courants",
+    "calculators": "Toutes les calculatrices du site",
+    "devexRates": "Taux actuels, anciens et conditionnels",
+    "devexRequirements": "Admissibilité et le minimum de 30 000",
+    "earnedRobux": "Quels Robux comptent réellement",
+    "devexFeesAndTaxes": "Ce qui est prélevé, et par qui",
+    "devexRateHistory": "Chaque changement de taux, daté",
+    "guides": "Guides explicatifs dans l'ordre de lecture",
+    "robloxStats": "Ce que Roblox verse aux créateurs, d'après ses documents officiels",
+    "platform": "Nombres de joueurs en direct depuis les points de terminaison publics de Roblox",
+    "platformStock": "Résultats publiés, sans aucun cours inventé",
+    "api": "Lire ces chiffres en JSON",
+    "methodology": "Comment chaque chiffre est calculé",
+    "sources": "Sources et dates de vérification",
+    "changelog": "Chaque modification des chiffres publiés",
+    "corrections": "Signaler une erreur",
+    "howToCashOutRobux": "La demande, étape par étape"
   }
 }

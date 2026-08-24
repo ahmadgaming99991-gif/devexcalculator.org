@@ -3,8 +3,8 @@
 import Link from "next/link";
 import { useClientValue } from "@/lib/utilities/use-client-value";
 import { formatDate } from "@/lib/calculations/format";
-import { ageInDays, describeAge } from "@/lib/utilities/relative-day";
-import { RateSourceCheckBadge } from "./rate-source-check";
+import { ageInDays, describeAge, type RelativeDayWords } from "@/lib/utilities/relative-day";
+import { RateSourceCheckBadge, type SourceCheckWords } from "./rate-source-check";
 
 /**
  * The footer's status line, kept true on the day it is read.
@@ -44,6 +44,10 @@ export function FooterStatus({
   /** Age and year as of the build, used until hydration replaces them. */
   builtAgeDays,
   builtYear,
+  dateLocale,
+  sourcesHref,
+  sourceCheck,
+  words,
 }: {
   siteName: string;
   verifiedAt: string;
@@ -51,8 +55,28 @@ export function FooterStatus({
   reviewCadenceDays: number;
   builtAgeDays: number;
   builtYear: number;
+  /*
+   * Everything language-shaped arrives as a prop. This is a Client Component,
+   * so a dictionary reached from inside it would be a dictionary in the
+   * browser bundle, in every language, on every page.
+   */
+  readonly dateLocale: string;
+  readonly sourcesHref: string;
+  readonly sourceCheck: SourceCheckWords;
+  readonly words: {
+    readonly copyright: string;
+    readonly rateDataLabel: string;
+    readonly verifiedOn: string;
+    readonly dueForReview: string;
+    readonly registryVersion: string;
+    readonly relativeDay: RelativeDayWords;
+  };
 }) {
   const days = useClientValue(() => ageInDays(verifiedAt, Date.now()), builtAgeDays);
+  const fill = (template: string, values: Record<string, string | number>): string =>
+    template.replace(/{([a-zA-Z_][a-zA-Z0-9_]*)}/g, (whole, token: string) =>
+      token in values ? String(values[token]) : whole,
+    );
   const year = useClientValue(() => new Date().getUTCFullYear(), builtYear);
 
   // Past the cadence the site's own policy says these are due another look.
@@ -61,26 +85,24 @@ export function FooterStatus({
 
   return (
     <div className="mt-6 flex flex-col items-center gap-2 border-t border-(--color-border) pt-6 text-center text-xs text-(--color-text-muted)">
-      <p>
-        © {year} {siteName}. Every payout figure is an estimate.
-      </p>
+      <p>{fill(words.copyright, { year, siteName })}</p>
       <p className="tabular">
-        Rate data{" "}
-        <Link href="/sources/" className="underline hover:text-(--color-primary)">
-          verified {formatDate(verifiedAt)}
+        {words.rateDataLabel}{" "}
+        <Link href={sourcesHref} className="underline hover:text-(--color-primary)">
+          {fill(words.verifiedOn, { date: formatDate(verifiedAt, dateLocale) })}
         </Link>
         {" · "}
         <span className={overdue ? "font-semibold text-(--color-warning)" : undefined}>
-          {describeAge(days)}
-          {overdue ? ", due for review" : null}
+          {describeAge(days, words.relativeDay)}
+          {overdue ? words.dueForReview : null}
         </span>{" "}
         {/*
           No link to /api/ here. The Trust column already carries one, and a
           test holds the footer to exactly one — a second would be noise on a
           line that exists to carry dates.
         */}
-        · registry {registryVersion}
-        <RateSourceCheckBadge />
+        · {fill(words.registryVersion, { version: registryVersion })}
+        <RateSourceCheckBadge words={sourceCheck} />
       </p>
     </div>
   );

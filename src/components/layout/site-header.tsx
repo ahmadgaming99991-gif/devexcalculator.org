@@ -1,5 +1,8 @@
 import Link from "next/link";
-import { navigationGroups, primaryDestination } from "@/config/navigation";
+import { getNavigation } from "@/config/navigation";
+import { getTranslator } from "@/i18n/get-dictionary";
+import { localizedPath } from "@/i18n/locale-path";
+import type { Locale } from "@/i18n/types";
 import { features } from "@/config/site";
 import { Container } from "@/components/ui";
 import { Logo, Wordmark } from "./logo";
@@ -15,7 +18,10 @@ import { ThemeToggle } from "./theme-toggle";
  * JavaScript disabled; only the mobile drawer, the theme toggle and a small
  * behavioural enhancement for the menus hydrate.
  */
-export function SiteHeader() {
+export async function SiteHeader({ locale }: { readonly locale: Locale }) {
+  const { primary, headerGroups } = await getNavigation(locale);
+  const t = await getTranslator(locale, ["navigation"]);
+
   return (
     <header className="site-header sticky top-0 z-30 border-b border-(--color-border) bg-(--color-surface)/95 backdrop-blur supports-[backdrop-filter]:bg-(--color-surface)/80">
       <Container width="wide">
@@ -23,19 +29,29 @@ export function SiteHeader() {
           {/* `group` so the mark can respond to a hover anywhere on the lockup,
               rather than only when the pointer is over the mark itself. */}
           <Link
-            href="/"
+            href={localizedPath(locale, "/")}
             className="group flex shrink-0 items-center gap-2.5 rounded-(--radius-control) py-1"
           >
             <Logo interactive className="h-10" />
             <Wordmark className="text-base sm:text-lg" />
-            <span className="sr-only">— home</span>
+            <span className="sr-only">— {t("navigation.home")}</span>
           </Link>
 
-          <DesktopNavigation />
+          <DesktopNavigation
+            primary={primary}
+            groups={headerGroups}
+            mainLabel={t("navigation.mainNavigation")}
+          />
 
           <div className="flex items-center gap-2">
             {features.darkMode ? <ThemeToggle /> : null}
-            <MobileNavigation primary={primaryDestination} groups={navigationGroups} />
+            <MobileNavigation
+              primary={primary}
+              groups={headerGroups}
+              openLabel={t("navigation.openMenu")}
+              closeLabel={t("navigation.closeMenu")}
+              navigationLabel={t("navigation.mainNavigation")}
+            />
           </div>
         </div>
 
@@ -72,12 +88,12 @@ export function SiteHeader() {
           <style>{"@media (max-width: 1023.98px){.site-header{position:static}}"}</style>
           <div className="border-t border-(--color-border) py-2 lg:hidden">
             <Link
-              href={primaryDestination.href}
+              href={primary.href}
               className="inline-flex min-h-[44px] items-center text-sm font-semibold text-(--color-primary) underline underline-offset-2"
             >
-              {primaryDestination.label}
+              {primary.label}
             </Link>
-            {navigationGroups.map((group) => (
+            {headerGroups.map((group) => (
               <nav key={group.id} aria-label={group.heading} className="mt-1">
                 <h2 className="text-xs font-semibold tracking-wide text-(--color-text-muted) uppercase">
                   {group.heading}

@@ -58,13 +58,13 @@ export function SiteDocument({ locale, skipToContent, children }: SiteDocumentPr
           {skipToContent}
         </a>
 
-        <SiteHeader />
+        <SiteHeader locale={locale} />
 
         <main id="main" className="flex-1 pb-12 pt-6 sm:pt-8">
           {children}
         </main>
 
-        <SiteFooter />
+        <SiteFooter locale={locale} />
 
         <Analytics />
         {requiresAnalyticsConsent ? <AnalyticsConsent /> : null}

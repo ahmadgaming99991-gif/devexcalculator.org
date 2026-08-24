@@ -30,7 +30,6 @@
     "robloxStats": "Statistik",
     "devexRequirements": "Persyaratan",
     "earnedRobux": "Earned Robux",
-    "howToCashOut": "Cara mencairkan",
     "devexRateHistory": "Riwayat kurs",
     "devexFeesAndTaxes": "Biaya dan pajak",
     "robuxTaxCalculator": "Komisi Roblox",
@@ -49,7 +48,8 @@
     "terms": "Ketentuan",
     "disclaimer": "Penafian",
     "accessibility": "Aksesibilitas",
-    "authors": "Penulis"
+    "authors": "Penulis",
+    "howToCashOutRobux": "Cara mencairkan"
   },
   "language": {
     "label": "Bahasa",
@@ -60,5 +60,28 @@
     "machineDrafted": "Terjemahan mesin — menunggu tinjauan penutur asli",
     "machineDraftedExplained": "Terjemahan ini dibuat secara otomatis dan belum diperiksa oleh penutur asli. Angka-angkanya berasal dari registri terverifikasi yang sama dengan halaman bahasa Inggris.",
     "readInEnglish": "Baca halaman ini dalam bahasa Inggris"
+  },
+  "descriptions": {
+    "home": "Ubah Earned Robux menjadi perkiraan pembayaran dalam USD",
+    "robuxToUsd": "Pembayaran kreator dibandingkan dengan harga beli",
+    "usdToRobux": "Hitung mundur dari target pembayaran",
+    "robuxTaxCalculator": "Berapa yang tersisa dari penjualan di marketplace",
+    "conversions": "Contoh perhitungan untuk jumlah yang umum",
+    "calculators": "Semua kalkulator di situs ini",
+    "devexRates": "Tarif saat ini, tarif lama, dan tarif bersyarat",
+    "devexRequirements": "Kelayakan dan minimum 30.000",
+    "earnedRobux": "Robux mana yang benar-benar dihitung",
+    "devexFeesAndTaxes": "Apa saja yang dipotong, dan oleh siapa",
+    "devexRateHistory": "Setiap perubahan tarif, lengkap dengan tanggal",
+    "guides": "Panduan penjelasan dalam urutan baca",
+    "robloxStats": "Berapa yang dibayarkan Roblox kepada kreator, menurut laporan resminya",
+    "platform": "Jumlah pemain langsung dari endpoint publik Roblox",
+    "platformStock": "Hasil yang dilaporkan, tanpa harga yang dikarang",
+    "api": "Baca angka-angka ini dalam format JSON",
+    "methodology": "Bagaimana setiap angka dihitung",
+    "sources": "Sumber dan tanggal verifikasi",
+    "changelog": "Setiap perubahan pada angka yang dipublikasikan",
+    "corrections": "Laporkan sesuatu yang keliru",
+    "howToCashOutRobux": "Proses pengajuan, langkah demi langkah"
   }
 }

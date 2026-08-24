@@ -30,7 +30,6 @@
     "robloxStats": "İstatistikler",
     "devexRequirements": "Koşullar",
     "earnedRobux": "Earned Robux",
-    "howToCashOut": "Nakde çevirme",
     "devexRateHistory": "Kur geçmişi",
     "devexFeesAndTaxes": "Ücretler ve vergiler",
     "robuxTaxCalculator": "Roblox komisyonu",
@@ -49,7 +48,8 @@
     "terms": "Koşullar",
     "disclaimer": "Yasal uyarı",
     "accessibility": "Erişilebilirlik",
-    "authors": "Yazarlar"
+    "authors": "Yazarlar",
+    "howToCashOutRobux": "Nakde çevirme"
   },
   "language": {
     "label": "Dil",
@@ -60,5 +60,28 @@
     "machineDrafted": "Makine çevirisi — ana dili konuşan biri tarafından incelenmeyi bekliyor",
     "machineDraftedExplained": "Bu çeviri otomatik olarak hazırlandı ve henüz ana dili Türkçe olan biri tarafından incelenmedi. Rakamlar İngilizce sayfayla aynı doğrulanmış kayıttan gelir.",
     "readInEnglish": "Bu sayfayı İngilizce okuyun"
+  },
+  "descriptions": {
+    "home": "Earned Robux'ı tahmini USD ödemesine çevirin",
+    "robuxToUsd": "Yaratıcı ödemesi ile satın alma fiyatının karşılaştırması",
+    "usdToRobux": "Bir ödeme hedefinden geriye doğru hesaplayın",
+    "robuxTaxCalculator": "Bir marketplace satışından size ne kalır",
+    "conversions": "Yaygın tutarlar için çözümlü örnekler",
+    "calculators": "Sitedeki tüm hesaplayıcılar",
+    "devexRates": "Mevcut, eski ve koşullu oranlar",
+    "devexRequirements": "Uygunluk ve 30.000 alt sınırı",
+    "earnedRobux": "Hangi Robux gerçekten sayılır",
+    "devexFeesAndTaxes": "Neyin, kim tarafından kesildiği",
+    "devexRateHistory": "Tarihleriyle birlikte her oran değişikliği",
+    "guides": "Okuma sırasına göre açıklayıcı rehberler",
+    "robloxStats": "Roblox'un yaratıcılara ödediği tutar, resmî bildirimlerine göre",
+    "platform": "Roblox'un herkese açık uç noktalarından canlı oyuncu sayıları",
+    "platformStock": "Açıklanan sonuçlar, uydurma bir fiyat olmadan",
+    "api": "Bu rakamları JSON olarak okuyun",
+    "methodology": "Her rakamın nasıl hesaplandığı",
+    "sources": "Kaynaklar ve doğrulama tarihleri",
+    "changelog": "Yayımlanan rakamlardaki her değişiklik",
+    "corrections": "Yanlış bir şeyi bildirin",
+    "howToCashOutRobux": "Talep süreci, adım adım"
   }
 }

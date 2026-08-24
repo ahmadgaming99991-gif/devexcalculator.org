@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { navigationGroups, primaryDestination } from "@/config/navigation";
+import type { DescribedNavItem, NavGroup } from "@/config/navigation";
 import { cx } from "@/components/ui";
 import { NavDisclosures } from "./nav-disclosures";
 
@@ -22,25 +22,34 @@ import { NavDisclosures } from "./nav-disclosures";
  * implementation of that pattern is worse for a screen reader than the plain
  * disclosure-of-links this actually is.
  */
-export function DesktopNavigation() {
+export function DesktopNavigation({
+  primary,
+  groups,
+  mainLabel,
+}: {
+  readonly primary: DescribedNavItem;
+  readonly groups: readonly NavGroup<DescribedNavItem>[];
+  /** "Main", in this page's language: the landmark's accessible name. */
+  readonly mainLabel: string;
+}) {
   return (
     <NavDisclosures className="hidden lg:block">
-      <nav aria-label="Main">
+      <nav aria-label={mainLabel}>
         <ul className="flex list-none items-center gap-1 p-0">
           {/* The calculator, never behind a disclosure. */}
           <li>
             <Link
-              href={primaryDestination.href}
+              href={primary.href}
               className="inline-flex min-h-[44px] items-center rounded-(--radius-control) px-3 text-sm font-medium text-(--color-text-muted) hover:bg-(--color-surface-subtle) hover:text-(--color-text)"
             >
-              {primaryDestination.label}
+              {primary.label}
             </Link>
           </li>
 
-          {navigationGroups.map((group, index) => {
+          {groups.map((group, index) => {
             // The last panel is anchored to its right edge. A 288px panel
             // hung from the left of the final trigger runs off a 1280px page.
-            const alignEnd = index === navigationGroups.length - 1;
+            const alignEnd = index === groups.length - 1;
 
             return (
               <li key={group.id} className="relative">

@@ -5,6 +5,9 @@ import { JsonLd } from "@/components/seo/json-ld";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { Badge, Container, Section, SourceLink } from "@/components/ui";
 import { RateSourceCheck } from "@/components/layout/rate-source-check";
+import { sourceCheckWords } from "@/components/layout/source-check-words";
+import { getTranslator } from "@/i18n/get-dictionary";
+import { DEFAULT_LOCALE } from "@/i18n/config";
 import { PageHeader, QuickAnswer, RelatedLinks } from "@/components/content";
 import { rateRegistry, registryFreshness, sources } from "@/lib/calculations/rate-registry";
 import { formatDate } from "@/lib/calculations/format";
@@ -13,7 +16,8 @@ const ROUTE = "/sources/";
 
 export const metadata: Metadata = buildMetadata(ROUTE);
 
-export default function SourcesPage() {
+export default async function SourcesPage() {
+  const t = await getTranslator(DEFAULT_LOCALE, ["common"]);
   const record = requireRoute(ROUTE);
   const freshness = registryFreshness();
 
@@ -122,7 +126,10 @@ export default function SourcesPage() {
               check has run, so it cannot reassure on the strength of a check
               that did not happen.
             */}
-            <RateSourceCheck className="mt-4 rounded-(--radius-control) border border-(--color-border) bg-(--color-surface) p-4 text-sm text-(--color-text-muted)" />
+            <RateSourceCheck
+              words={sourceCheckWords(DEFAULT_LOCALE, t)}
+              className="mt-4 rounded-(--radius-control) border border-(--color-border) bg-(--color-surface) p-4 text-sm text-(--color-text-muted)"
+            />
 
             <p className="mt-4 text-(--color-text-muted)">
               Between reviews, a scheduled job re-reads the markdown Roblox

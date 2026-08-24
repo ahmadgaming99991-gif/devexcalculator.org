@@ -43,20 +43,14 @@
     "changedHeading": "Roblox'un sayfası artık bu rakamlarla örtüşmüyor.",
     "changedBody": "{checked} tarihindeki otomatik denetimde saptandı. Bir kişi neyin değiştiğini okuyana kadar yukarıdaki rakamlar geçerli kalır.",
     "unreadableBody": "Roblox'un sayfası {checked} tarihinde okunamadı; bu nedenle buradaki rakamlar güncel bir karşılaştırmadan değil, son incelemeden geliyor.",
-    "unchangedPrefix": "Şununla karşılaştırıldı:",
     "unchangedLinkLabel": "Roblox'un kendi DevEx sayfası",
-    "unchangedSuffix": "{checked} tarihinde — değişiklik yok.",
     "sourceUpdatedAt": "Roblox bu sayfayı en son {date} tarihinde güncelledi.",
     "badgeChanged": "kaynak değişti, inceleniyor",
     "badgeUnreachable": "kaynağa erişilemedi {when}",
     "badgeChecked": "kaynak denetlendi {when}",
     "unreadableReason": "Belge, Roblox'un DevEx sayfası gibi okunmuyor.",
     "noCheckYet": "Henüz hiçbir denetim yapılmadı.",
-    "body": {
-      "intro": {
-        "p1": "Otomatik denetimde saptandı:"
-      }
-    }
+    "unchanged": "{checked} tarihinde {link} ile karşılaştırıldı — değişiklik yok."
   },
   "byline": {
     "maintainedBy": "Yürüten:",
@@ -116,11 +110,7 @@
     "pinterest": "DevEx Calculator Pinterest'te",
     "instagramName": "Instagram",
     "pinterestName": "Pinterest",
-    "body": {
-      "intro": {
-        "p1": "{description} (yeni sekmede açılır)"
-      }
-    }
+    "opensInNewTab": "{description} (yeni sekmede açılır)"
   },
   "consent": {
     "accept": "Kabul et",

@@ -9,7 +9,7 @@
  * Exits non-zero on any error so a broken manifest cannot reach production.
  */
 import { indexableRoutes, routeRegistry } from "../../src/lib/content/route-registry";
-import { footerNavigation, primaryNavigation } from "../../src/config/navigation";
+import { footerNavigationRoutes, primaryNavigationRoutes } from "../../src/config/navigation";
 import { getSource } from "../../src/lib/calculations/rate-registry";
 import { MAX_DESCRIPTION_LENGTH, MAX_TITLE_LENGTH } from "../../src/lib/seo/metadata";
 import { approvedAmountValues } from "../../src/lib/content/amount-pages";
@@ -192,10 +192,14 @@ checkUnique("H1", (r) => r.h1);
  * from related content is weakly connected even when it is not orphaned.
  */
 const contextualLinks = new Set(routeRegistry.flatMap((r) => r.internalLinks.map((l) => l.route)));
-const navigationLinks = new Set([
-  ...primaryNavigation.map((item) => item.href),
-  ...footerNavigation.flatMap((group) => group.items.map((item) => item.href)),
-]);
+/*
+ * Routes rather than hrefs. The question is which pages the chrome reaches,
+ * and that is the same set in every language — the localized href is the same
+ * route with a prefix, so comparing prefixed hrefs against the registry's
+ * canonical routes would report every page as an orphan in every language but
+ * English.
+ */
+const navigationLinks = new Set([...primaryNavigationRoutes, ...footerNavigationRoutes]);
 
 for (const record of indexableRoutes) {
   if (record.route === "/") continue;

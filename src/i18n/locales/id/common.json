@@ -45,20 +45,14 @@
     "changedHeading": "Halaman Roblox tidak lagi cocok dengan angka-angka ini.",
     "changedBody": "Ditemukan oleh pemeriksaan otomatis pada {checked}. Angka di atas tetap berlaku sampai seseorang membaca apa yang berubah.",
     "unreadableBody": "Halaman Roblox tidak dapat dibaca pada {checked}, sehingga angka-angka ini berasal dari tinjauan terakhir, bukan dari perbandingan terbaru.",
-    "unchangedPrefix": "Diperiksa terhadap",
     "unchangedLinkLabel": "halaman DevEx resmi milik Roblox",
-    "unchangedSuffix": "pada {checked} — tidak berubah.",
     "sourceUpdatedAt": "Roblox terakhir memperbarui halaman itu pada {date}.",
     "badgeChanged": "sumber berubah, sedang ditinjau",
     "badgeUnreachable": "sumber tidak terjangkau {when}",
     "badgeChecked": "sumber diperiksa {when}",
     "unreadableReason": "Dokumen itu tidak terbaca sebagai halaman DevEx milik Roblox.",
     "noCheckYet": "Belum ada pemeriksaan yang dijalankan.",
-    "body": {
-      "intro": {
-        "p1": "Ditemukan oleh pemeriksaan otomatis pada"
-      }
-    }
+    "unchanged": "Diperiksa terhadap {link} pada {checked} — tidak berubah."
   },
   "byline": {
     "maintainedBy": "Dikelola oleh",
@@ -118,11 +112,7 @@
     "pinterest": "DevEx Calculator di Pinterest",
     "instagramName": "Instagram",
     "pinterestName": "Pinterest",
-    "body": {
-      "intro": {
-        "p1": "{description} (terbuka di tab baru)"
-      }
-    }
+    "opensInNewTab": "{description} (terbuka di tab baru)"
   },
   "consent": {
     "accept": "Terima",

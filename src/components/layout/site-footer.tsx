@@ -1,5 +1,10 @@
 import Link from "next/link";
-import { footerNavigation } from "@/config/navigation";
+import { getNavigation } from "@/config/navigation";
+import { getTranslator } from "@/i18n/get-dictionary";
+import { getLocaleMeta } from "@/i18n/config";
+import { localizedPath } from "@/i18n/locale-path";
+import { rich } from "@/i18n/rich";
+import type { Locale } from "@/i18n/types";
 import { siteConfig } from "@/config/site";
 import {
   getRateValue,
@@ -13,6 +18,7 @@ import { Logo, Wordmark } from "./logo";
 import { SocialLinks } from "./social-links";
 import { FooterStatus } from "./footer-status";
 import { RateSourceCheck } from "./rate-source-check";
+import { sourceCheckWords } from "./source-check-words";
 
 /**
  * One fact from the rate registry, shown on every page.
@@ -70,8 +76,13 @@ function ageAtBuild(iso: string): number {
   return Math.max(0, Math.floor((BUILT_AT - Date.parse(iso)) / 86_400_000));
 }
 
-export function SiteFooter() {
+export async function SiteFooter({ locale }: { readonly locale: Locale }) {
   const standardRate = getRateValue(standardRateId);
+  const { footerGroups } = await getNavigation(locale);
+  const t = await getTranslator(locale, ["common"]);
+  const at = (route: string) => localizedPath(locale, route);
+  const { bcp47 } = getLocaleMeta(locale);
+  const sourceCheck = sourceCheckWords(locale, t);
 
   return (
     <footer className="mt-16 border-t border-(--color-border) bg-(--color-surface)">
@@ -84,18 +95,17 @@ export function SiteFooter() {
         */}
         <div className="grid gap-8 py-10 text-center sm:grid-cols-2 lg:grid-cols-5">
           <div className="flex flex-col items-center lg:col-span-1">
-            <Link href="/" className="group inline-flex items-center justify-center gap-2.5">
+            <Link href={at("/")} className="group inline-flex items-center justify-center gap-2.5">
               <Logo interactive className="h-9" />
               <Wordmark className="text-sm" />
             </Link>
             <p className="mt-3 text-sm text-balance text-(--color-text-muted)">
-              Independent DevEx payout estimates for Roblox creators, with every
-              figure traced to an official source.
+              {t("common.brand.tagline")}
             </p>
           </div>
 
-          {footerNavigation.map((group) => (
-            <nav key={group.heading} aria-label={group.heading}>
+          {footerGroups.map((group) => (
+            <nav key={group.id} aria-label={group.heading}>
               <h2 className="text-xs font-semibold tracking-wide text-(--color-text) uppercase">
                 {group.heading}
               </h2>
@@ -123,35 +133,44 @@ export function SiteFooter() {
         <div className="border-t border-(--color-border) py-6">
           <div className="flex flex-wrap items-center justify-center gap-2">
             <Fact
-              label="Standard DevEx rate"
+              label={t("common.footer.facts.standardRate")}
               value={`$${formatRate(standardRate)}`}
-              href="/devex-rates/"
+              href={at("/devex-rates/")}
             />
             <Fact
-              label="Minimum to cash out"
+              label={t("common.footer.facts.minimumToCashOut")}
               value={`${formatRobux(minimumEarnedRobux)} R$`}
-              href="/devex-requirements/"
+              href={at("/devex-requirements/")}
             />
             <Fact
-              label="Rates verified"
+              label={t("common.footer.facts.ratesVerified")}
               value={formatDate(rateRegistry.lastVerifiedAt)}
-              href="/sources/"
+              href={at("/sources/")}
             />
           </div>
           <p className="mt-2 text-center text-xs text-(--color-text-muted)">
-            Per eligible Earned Robux, before any payment-provider fee or tax.{" "}
-            <Link href="/changelog/" className="underline hover:text-(--color-primary)">
-              Every change to these figures
+            {t("common.footer.perEligibleNote")}{" "}
+            <Link href={at("/changelog/")} className="underline hover:text-(--color-primary)">
+              {t("common.footer.changelogLink")}
             </Link>{" "}
             ·{" "}
-            <a href="/feed.xml" className="underline hover:text-(--color-primary)">
-              Atom
-            </a>{" "}
-            or{" "}
-            <a href="/feed.json" className="underline hover:text-(--color-primary)">
-              JSON
-            </a>{" "}
-            feed
+            {/*
+              One sentence with two links in it, rather than "Atom", "or",
+              "JSON", "feed" as four strings glued together in English word
+              order. German puts "Feed" at the end and Turkish puts it first.
+            */}
+            {rich(t("common.footer.feedLine"), {
+              atom: (
+                <a href="/feed.xml" className="underline hover:text-(--color-primary)">
+                  {t("common.footer.feedAtom")}
+                </a>
+              ),
+              json: (
+                <a href="/feed.json" className="underline hover:text-(--color-primary)">
+                  {t("common.footer.feedJson")}
+                </a>
+              ),
+            })}
           </p>
           {/*
             The other date. "Rates verified" above is the day a person read
@@ -159,7 +178,10 @@ export function SiteFooter() {
             day the scheduled job last re-read that same document and found the
             figures unchanged. Renders nothing until a check has run.
           */}
-          <RateSourceCheck className="mt-1 text-center text-xs text-balance text-(--color-text-muted)" />
+          <RateSourceCheck
+            words={sourceCheck}
+            className="mt-1 text-center text-xs text-balance text-(--color-text-muted)"
+          />
         </div>
 
         {/*
@@ -169,16 +191,12 @@ export function SiteFooter() {
         <div className="border-t border-(--color-border) py-6">
           <p className="mx-auto max-w-3xl text-center text-sm text-balance text-(--color-text-muted)">
             <strong className="font-semibold text-(--color-text)">
-              Not affiliated with Roblox Corporation.
+              {t("common.footer.notAffiliatedHeading")}
             </strong>{" "}
-            DevExCalculator.org is an independent tool. Roblox, Robux and Developer
-            Exchange are trademarks of Roblox Corporation, used here only to
-            describe the subject of these calculations. This site is not endorsed,
-            sponsored or operated by Roblox Corporation, and it cannot determine
-            whether any DevEx request will be approved.
+            {t("common.footer.trademarkNotice")}
           </p>
 
-          <SocialLinks className="mt-6 flex flex-col items-center" />
+          <SocialLinks locale={locale} className="mt-6 flex flex-col items-center" />
 
           <FooterStatus
             siteName={siteConfig.name}
@@ -187,6 +205,21 @@ export function SiteFooter() {
             reviewCadenceDays={rateRegistry.reviewCadenceDays}
             builtAgeDays={ageAtBuild(rateRegistry.lastVerifiedAt)}
             builtYear={BUILT_YEAR}
+            dateLocale={bcp47}
+            sourcesHref={at("/sources/")}
+            sourceCheck={sourceCheck}
+            words={{
+              copyright: t("common.footer.copyright"),
+              rateDataLabel: t("common.footer.rateDataLabel"),
+              verifiedOn: t("common.footer.verifiedOn"),
+              dueForReview: t("common.footer.dueForReview"),
+              registryVersion: t("common.footer.registryVersion"),
+              relativeDay: {
+                today: t("common.relativeDay.today"),
+                yesterday: t("common.relativeDay.yesterday"),
+                daysAgo: t("common.relativeDay.daysAgo"),
+              },
+            }}
           />
         </div>
       </Container>

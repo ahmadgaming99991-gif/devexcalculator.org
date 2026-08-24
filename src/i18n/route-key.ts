@@ -12,6 +12,21 @@
  * symptom would be a page throwing on a key that is sitting right there under
  * a slightly different name.
  */
+
+/**
+ * The same route as a single flat key.
+ *
+ * `routeKey` joins segments with a dot so `routes.json` mirrors the shape of
+ * the site, and that is right for a file where each route owns a whole object.
+ * It is wrong for a flat table of one string per route: `/platform/` would be
+ * a string and `/platform/stock/` would need `platform` to be an object at
+ * the same time. The navigation's labels and descriptions are such tables, so
+ * they use this — `platform.stock` becomes `platformStock`.
+ */
+export function flatRouteKey(route: string): string {
+  return routeKey(route).replace(/\.([a-z0-9])/g, (_, c: string) => c.toUpperCase());
+}
+
 export function routeKey(route: string): string {
   if (route === "/") return "home";
   return route

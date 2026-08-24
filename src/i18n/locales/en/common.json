@@ -35,20 +35,14 @@
     "changedHeading": "Roblox’s page no longer matches these figures.",
     "changedBody": "Found by the automatic check on {checked}. The figures above stand until a person has read what changed.",
     "unreadableBody": "Roblox’s page could not be read on {checked}, so these figures are the ones from the last review rather than a fresh comparison.",
-    "unchangedPrefix": "Checked against",
     "unchangedLinkLabel": "Roblox’s own DevEx page",
-    "unchangedSuffix": "on {checked} — unchanged.",
     "sourceUpdatedAt": "Roblox last updated that page on {date}.",
     "badgeChanged": "source changed, under review",
     "badgeUnreachable": "source unreachable {when}",
     "badgeChecked": "source checked {when}",
     "unreadableReason": "The document does not read as Roblox’s DevEx page.",
     "noCheckYet": "No check has run yet.",
-    "body": {
-      "intro": {
-        "p1": "Found by the automatic check on"
-      }
-    }
+    "unchanged": "Checked against {link} on {checked} — unchanged."
   },
   "byline": {
     "maintainedBy": "Maintained by",
@@ -108,11 +102,7 @@
     "pinterest": "DevEx Calculator on Pinterest",
     "instagramName": "Instagram",
     "pinterestName": "Pinterest",
-    "body": {
-      "intro": {
-        "p1": "{description} (opens in a new tab)"
-      }
-    }
+    "opensInNewTab": "{description} (opens in a new tab)"
   },
   "consent": {
     "accept": "Accept",

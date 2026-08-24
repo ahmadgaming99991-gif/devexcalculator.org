@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useCallback, useEffect, useId, useRef, useState } from "react";
-import type { NavGroup, NavItem } from "@/config/navigation";
+import type { DescribedNavItem, NavGroup } from "@/config/navigation";
 import { cx } from "@/components/ui";
 
 /**
@@ -29,9 +29,20 @@ import { cx } from "@/components/ui";
 export function MobileNavigation({
   primary,
   groups,
+  openLabel,
+  closeLabel,
+  navigationLabel,
 }: {
-  primary: NavItem;
-  groups: readonly NavGroup[];
+  primary: DescribedNavItem;
+  groups: readonly NavGroup<DescribedNavItem>[];
+  /*
+   * The three strings this component says in its own voice, handed in rather
+   * than looked up. It is a Client Component: a dictionary reached from here
+   * would be a dictionary in the browser bundle, in every language.
+   */
+  readonly openLabel: string;
+  readonly closeLabel: string;
+  readonly navigationLabel: string;
 }) {
   const [open, setOpen] = useState(false);
   const panelId = useId();
@@ -112,7 +123,7 @@ export function MobileNavigation({
         onClick={() => setOpen((value) => !value)}
         className="inline-flex size-[44px] items-center justify-center rounded-(--radius-control) border border-(--color-border) text-(--color-text) lg:hidden"
       >
-        <span className="sr-only">{open ? "Close menu" : "Open menu"}</span>
+        <span className="sr-only">{open ? closeLabel : openLabel}</span>
         <svg
           className="size-5"
           viewBox="0 0 20 20"
@@ -147,7 +158,7 @@ export function MobileNavigation({
         hidden={!open}
         className="fixed inset-x-0 top-16 z-50 mx-3 max-h-[calc(100dvh-5.5rem)] overflow-y-auto rounded-(--radius-card) border border-(--color-border) bg-(--color-surface) p-3 shadow-(--shadow-raised) lg:hidden"
       >
-        <nav aria-label="Main">
+        <nav aria-label={navigationLabel}>
           <ul className="flex list-none flex-col gap-1 p-0">
             <li>
               <Link

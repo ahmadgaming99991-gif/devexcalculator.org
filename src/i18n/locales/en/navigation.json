@@ -27,7 +27,6 @@
     "robloxStats": "Stats",
     "devexRequirements": "Requirements",
     "earnedRobux": "Earned Robux",
-    "howToCashOut": "Cashing out",
     "devexRateHistory": "Rate history",
     "devexFeesAndTaxes": "Fees and taxes",
     "robuxTaxCalculator": "Roblox tax",
@@ -46,7 +45,8 @@
     "terms": "Terms",
     "disclaimer": "Disclaimer",
     "accessibility": "Accessibility",
-    "authors": "Authors"
+    "authors": "Authors",
+    "howToCashOutRobux": "Cashing out"
   },
   "language": {
     "label": "Language",
@@ -60,5 +60,28 @@
   },
   "desktop": {},
   "mobile": {},
-  "disclosures": {}
+  "disclosures": {},
+  "descriptions": {
+    "home": "Convert Earned Robux to an estimated USD payout",
+    "robuxToUsd": "Creator payout compared with purchase price",
+    "usdToRobux": "Work backwards from a payout goal",
+    "robuxTaxCalculator": "What a marketplace sale leaves you",
+    "conversions": "Worked examples for common amounts",
+    "calculators": "Every calculator on the site",
+    "devexRates": "Current, legacy and conditional rates",
+    "devexRequirements": "Eligibility and the 30,000 minimum",
+    "earnedRobux": "Which Robux actually count",
+    "devexFeesAndTaxes": "What is taken out, and by whom",
+    "devexRateHistory": "Every rate change, dated",
+    "guides": "Explanatory guides in reading order",
+    "robloxStats": "What Roblox pays creators, from its filings",
+    "platform": "Live player counts from Roblox public endpoints",
+    "platformStock": "Reported results, with no fabricated price",
+    "api": "Read these figures as JSON",
+    "methodology": "How every figure is calculated",
+    "sources": "Sources and verification dates",
+    "changelog": "Every change to the published figures",
+    "corrections": "Report something wrong",
+    "howToCashOutRobux": "The request, step by step"
+  }
 }

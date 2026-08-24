@@ -1,3 +1,5 @@
+import { getTranslator, interpolate, type Translate } from "@/i18n/get-dictionary";
+import type { Locale } from "@/i18n/types";
 import { siteConfig } from "@/config/site";
 import { cx } from "@/components/ui";
 
@@ -54,12 +56,12 @@ interface Network {
   readonly glyph: React.ReactNode;
 }
 
-function networks(): Network[] {
+function networks(t: Translate): Network[] {
   const all: Network[] = [
     {
       id: "youtube",
       label: "YouTube",
-      description: "DevEx Calculator on YouTube",
+      description: t("common.social.youtube"),
       href: siteConfig.social.youtube,
       background:
         "linear-gradient(160deg, var(--brand-youtube) 0%, var(--brand-youtube-deep) 100%)",
@@ -78,7 +80,7 @@ function networks(): Network[] {
     {
       id: "x",
       label: "X",
-      description: "DevEx Calculator on X",
+      description: t("common.social.x"),
       href: siteConfig.social.x,
       background: "linear-gradient(160deg, var(--brand-x) 0%, var(--brand-x-deep) 100%)",
       base: "var(--brand-x)",
@@ -93,7 +95,7 @@ function networks(): Network[] {
     {
       id: "instagram",
       label: "Instagram",
-      description: "DevEx Calculator on Instagram",
+      description: t("common.social.instagram"),
       href: siteConfig.social.instagram,
       /*
        * Three stops rather than two, because Instagram's identity is the
@@ -125,7 +127,7 @@ function networks(): Network[] {
     {
       id: "pinterest",
       label: "Pinterest",
-      description: "DevEx Calculator on Pinterest",
+      description: t("common.social.pinterest"),
       href: siteConfig.social.pinterest,
       background:
         "linear-gradient(160deg, var(--brand-pinterest) 0%, var(--brand-pinterest-deep) 100%)",
@@ -143,16 +145,23 @@ function networks(): Network[] {
   return all.filter((network): network is Network => network.href !== null);
 }
 
-export function SocialLinks({ className }: { className?: string }) {
-  const items = networks();
+export async function SocialLinks({
+  locale,
+  className,
+}: {
+  readonly locale: Locale;
+  className?: string;
+}) {
+  const t = await getTranslator(locale, ["common"]);
+  const items = networks(t);
   if (items.length === 0) return null;
 
   return (
     // A landmark, like the other footer link groups, so it can be reached and
     // skipped as one thing rather than as four loose links.
-    <nav aria-label="Social profiles" className={cx("min-w-0", className)}>
+    <nav aria-label={t("common.footer.socialProfiles")} className={cx("min-w-0", className)}>
       <h2 className="text-xs font-semibold tracking-wide text-(--color-text) uppercase">
-        Follow
+        {t("common.footer.followHeading")}
       </h2>
       <ul className="mt-3 flex list-none flex-wrap items-center justify-center gap-3 p-0">
         {items.map((network) => (
@@ -198,7 +207,11 @@ export function SocialLinks({ className }: { className?: string }) {
               >
                 {network.glyph}
               </svg>
-              <span className="sr-only">{network.description} (opens in a new tab)</span>
+              <span className="sr-only">
+                {interpolate(t("common.social.opensInNewTab"), {
+                  description: network.description,
+                })}
+              </span>
             </a>
           </li>
         ))}
