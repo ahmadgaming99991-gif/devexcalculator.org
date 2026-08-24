@@ -8,7 +8,7 @@
     "preferCalculateDescription": "Jeder Leitfaden verlinkt das Werkzeug, das er begleitet — du kannst aber auch direkt dorthin.",
     "body": {
       "readingOrder": {
-        "p1": "Zuletzt geprüft"
+        "p1": "Zuletzt geprüft am {lastReviewedAt}"
       },
       "calculators": {
         "p1": "DevEx-Auszahlung, Robux zu USD, Auszahlungsziele und Marketplace-Gebühren."
@@ -73,7 +73,7 @@
     },
     "body": {
       "process": {
-        "p1": "Sammle mindestens",
+        "p1": "Sammeln Sie mindestens {minimumEarnedRobux} Earned Robux an.",
         "p2": "Nur Earned Robux zählen.",
         "p3": "Prüfe, welche deiner Robux anrechenbar sind",
         "p4": "Bestätigte E-Mail, Mindestalter 13, ein gültiges DevEx-Portalkonto, ein hinterlegtes W-9 oder W-8 und ein Konto ohne Beanstandungen.",

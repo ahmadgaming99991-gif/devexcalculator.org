@@ -27,44 +27,38 @@
     },
     "body": {
       "how": {
-        "p1": "Obtenido en el servidor desde Roblox cuando se sirve la página, y cacheado durante",
-        "p2": "minutos. Tu navegador no hace ninguna petición a Roblox, y ningún script de Roblox se ejecuta en esta página.",
+        "p1": "Se obtiene en el servidor desde Roblox cuando se sirve la página y se almacena en caché durante {experienceCacheSeconds} minutos. Tu navegador no hace ninguna petición a Roblox y ningún script de Roblox se ejecuta en esta página.",
         "p3": "Un trabajo programado registra una observación cada",
         "p4": "minutos. Los totales de la plataforma guardan todas ellas durante",
         "p5": "días, porque eso es un array por experiencia entre varios cientos de ellas. Ambos gráficos muestran lo que se registró realmente, huecos incluidos: no se promedia nada para rellenar las tandas que no se guardan."
       },
       "related": {
-        "p1": "No se muestra nada en su lugar, porque una cifra desactualizada o inventada sería peor que ninguna. El resto de este sitio no depende de este endpoint: la",
+        "p1": "{reason} No se muestra nada en su lugar, porque una cifra obsoleta o inventada sería peor que ninguna. El resto de este sitio no depende de este endpoint:",
         "p2": "funciona igualmente.",
         "p3": "El endpoint respondió, pero su clasificación estaba vacía. Es inusual y probablemente temporal.",
         "p4": "endpoint de explorar de Roblox",
         "p5": "endpoint de juegos de Roblox",
         "p6": "Se omiten los recuentos de visitas, los favoritos y los nombres de creadores: el endpoint que los suministra no respondió a esta petición. Los recuentos de jugadores y los votos de arriba vienen de la propia clasificación y no se ven afectados.",
-        "p7": "Roblox publica",
+        "p7": "Roblox publica {rankingsCount} clasificación",
         "p8": "Los recuentos por experiencia se guardan en un espacio de nombres KV de Cloudflare vinculado al Worker desplegado. Sin ese vínculo no hay nada registrado que dibujar, y por eso esto lo dice en lugar de mostrar un eje vacío.",
-        "p9": "hasta ahora. Un gráfico necesita",
-        "p10": "para ser una línea en vez de un punto.",
+        "p10": "hasta ahora. Un gráfico necesita {minimumPointsForChart} para ser una línea y no un punto.",
         "p11": "Sumado a partir de",
         "p12": "clasificaciones públicas, contando cada una una sola vez aunque una clasificación liste la misma experiencia dos veces, según se leyó el"
       },
       "experience": {
         "p1": "Cerrar este gráfico",
         "p2": "de esta experiencia",
-        "p3": "se han registrado, lo que no basta para dibujar una línea. Los recuentos por experiencia se guardan durante los últimos",
-        "p4": "días, a una observación por hora, y una experiencia solo se registra mientras Roblox la esté clasificando.",
-        "p5": "Trazar los últimos",
-        "p6": "días de",
+        "p3": "se han registrado, lo que no basta para trazar una línea. Los recuentos por experiencia se conservan durante los últimos {gameHistoryDays} días, con una observación por hora, y una experiencia solo se registra mientras Roblox la clasifica.",
+        "p5": "Ver el gráfico de los últimos {gameHistoryDays} días de {name}",
         "p7": "aún no seguida",
         "p8": ": esta experiencia no se ha observado suficientes veces como para dibujar una línea",
         "p9": "Las observaciones se guardan en un espacio de nombres KV de Cloudflare vinculado al Worker desplegado. Al ejecutarlo en local sin ese vínculo no hay nada que trazar, y por eso esto lo dice en lugar de dibujar un eje vacío.",
         "p10": "El almacén no respondió. Las cifras en directo de arriba no se ven afectadas.",
         "p11": "No se ha almacenado nada para este intervalo. Donde el trabajo programado está en marcha, se escribe una observación cada",
         "p12": "minutos, y el gráfico aparece en cuanto haya",
-        "p13": "en los últimos",
-        "p14": "jugadores. Un gráfico necesita al menos",
-        "p15": "puntos para ser una línea en vez de un punto, así que en su lugar se listan las cifras.",
-        "p16": "La ventana se ensancha sola a medida que se acumulan observaciones, hasta",
-        "p17": "días. Las observaciones antiguas caducan en lugar de borrarse mediante un trabajo. El pico, el mínimo y la media describen solo estos puntos registrados: el total pudo ser mayor entre dos observaciones, y este sitio no afirma lo contrario."
+        "p13": "en los últimos {label}, y el más reciente muestra",
+        "p14": "jugadores. Un gráfico necesita al menos {minimumPointsForChart} puntos para ser una línea y no un punto, así que en su lugar se listan las cifras.",
+        "p16": "La ventana se amplía por sí sola a medida que se acumulan las observaciones, hasta {retentionDays} días. Las observaciones más antiguas caducan en lugar de ser borradas por un proceso. Máximo, mínimo y promedio describen solo estos puntos registrados: el total pudo haber sido mayor entre dos observaciones, y este sitio no afirma lo contrario."
       }
     }
   },
@@ -174,7 +168,8 @@
       },
       "related": {
         "p1": "Esta es la cotización más reciente que ha recibido este sitio.",
-        "p2": "No se muestra ninguna cifra en su lugar. Un precio desactualizado presentado como actual sería peor que ninguno."
+        "p2": "No se muestra ninguna cifra en su lugar. Un precio desactualizado presentado como actual sería peor que ninguno.",
+        "p3": "· vía {providerName}, obtenido en el servidor"
       }
     }
   },
@@ -244,7 +239,7 @@
     "body": {
       "engagement": {
         "p1": "Horas por usuario activo y día",
-        "p2": "días. Ambos datos vienen redondeados en el comunicado, así que esto es aproximado.",
+        "p2": "{hoursBillions} mil millones de Horas ÷ {dauMillions} millones de DAU ÷ {periodDays} días. Ambos datos vienen redondeados en la publicación, así que esto es aproximado.",
         "p3": "Todas las cifras de arriba salvo la última están citadas de"
       },
       "business": {

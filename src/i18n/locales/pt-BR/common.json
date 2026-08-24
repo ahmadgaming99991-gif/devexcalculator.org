@@ -114,7 +114,12 @@
     "instagram": "DevEx Calculator no Instagram",
     "pinterest": "DevEx Calculator no Pinterest",
     "instagramName": "Instagram",
-    "pinterestName": "Pinterest"
+    "pinterestName": "Pinterest",
+    "body": {
+      "intro": {
+        "p1": "{description} (abre em uma nova aba)"
+      }
+    }
   },
   "consent": {
     "accept": "Aceitar",
@@ -142,7 +147,8 @@
       "intro": {
         "p1": "Taxas e requisitos mudam.",
         "p2": "Os números aqui usam as taxas que o Roblox documenta atualmente. Só o Roblox decide quais dos seus Robux contam como Earned Robux, qual taxa se aplica a cada parte do seu saldo e se um pedido de DevEx é aprovado. Taxas do provedor de pagamento e suas próprias obrigações fiscais não estão incluídas, a menos que você as acrescente.",
-        "p3": "Robux que você comprou, recebeu de presente ou obteve fora dos ganhos como criador não são Earned Robux e não podem ser sacados. O preço de varejo dos Robux é outra coisa completamente e nunca é misturado a estes números."
+        "p3": "Robux que você comprou, recebeu de presente ou obteve fora dos ganhos como criador não são Earned Robux e não podem ser sacados. O preço de varejo dos Robux é outra coisa completamente e nunca é misturado a estes números.",
+        "p4": "Taxas verificadas em {lastVerifiedAt}"
       },
       "tocHeading": {
         "p1": "Nesta página"
@@ -152,7 +158,7 @@
   "tables": {
     "body": {
       "intro": {
-        "p1": "Saldos ganhos antes de",
+        "p1": "Saldos obtidos antes de {effectiveTo}.",
         "p2": "O caminho inverso divide, e sempre arredonda para cima: uma meta de",
         "p3": "ficaria uma fração abaixo."
       }
@@ -161,14 +167,14 @@
   "charts": {
     "body": {
       "intro": {
-        "p1": "Os valores estão em"
+        "p1": "{caption} Os valores são {valueLabel}."
       }
     }
   },
   "diagrams": {
     "body": {
       "intro": {
-        "p1": "Aplicado por"
+        "p1": "Aplicado por {by}"
       }
     }
   }

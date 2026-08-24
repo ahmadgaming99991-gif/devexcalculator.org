@@ -132,7 +132,8 @@
         "p1": "Fakten, die diese Quelle belegt"
       },
       "cadence": {
-        "p1": "Kursdaten werden nie automatisch aus einer abgegriffenen Seite aktualisiert. Einen veröffentlichten Kurs zu ändern verlangt, die Quelle von Hand zu prüfen, das Register zu aktualisieren, die Unit-Tests auf die neuen erwarteten Werte zu aktualisieren, die betroffenen Seiten zu prüfen, einen Eintrag im Changelog zu ergänzen und neu zu deployen. Diese Abfolge ist absichtlich langsam — ein falscher Kurs, schnell veröffentlicht, ist schlimmer als ein richtiger, der einen Tag später erscheint."
+        "p1": "Kursdaten werden nie automatisch aus einer abgegriffenen Seite aktualisiert. Einen veröffentlichten Kurs zu ändern verlangt, die Quelle von Hand zu prüfen, das Register zu aktualisieren, die Unit-Tests auf die neuen erwarteten Werte zu aktualisieren, die betroffenen Seiten zu prüfen, einen Eintrag im Changelog zu ergänzen und neu zu deployen. Diese Abfolge ist absichtlich langsam — ein falscher Kurs, schnell veröffentlicht, ist schlimmer als ein richtiger, der einen Tag später erscheint.",
+        "p2": "{lastVerifiedAt} (vor {ageDays} Tagen)"
       }
     }
   },
@@ -171,8 +172,7 @@
         "p2": "Strukturierte Daten, die etwas beschreiben, das die Seite sichtbar nicht enthält."
       },
       "review": {
-        "p1": "Kurssensible Inhalte werden alle",
-        "p2": "Tage geprüft und erfordern nach",
+        "p1": "Satzabhängige Inhalte werden alle {reviewCadenceDays} Tage überprüft und nach {criticalReviewAgeDays} zu einer verpflichtenden manuellen Prüfung hochgestuft. Der Build verfolgt das Alter des Satzregisters und zeigt es auf jeder satzabhängigen Seite an, sodass eine veraltete Zahl für Leser sichtbar ist und nicht nur für die Person, die die Website pflegt.",
         "p3": "Eine Zahl bleibt nie online, weil sie in der Suche gut läuft, nachdem sie aufgehört hat zu stimmen. Ist sie falsch, wird sie geändert, und die Änderung wird festgehalten.",
         "p4": "Wie Korrekturen ablaufen"
       }

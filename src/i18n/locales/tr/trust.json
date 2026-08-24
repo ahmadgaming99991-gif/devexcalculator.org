@@ -130,7 +130,8 @@
         "p1": "Bu kaynağın ortaya koyduğu olgular"
       },
       "cadence": {
-        "p1": "Kur verileri hiçbir zaman kazınmış bir sayfadan otomatik güncellenmez. Yayımlanmış bir kuru değiştirmek; kaynağın elle doğrulanmasını, kaydın güncellenmesini, birim testlerinin yeni beklenen değerlere güncellenmesini, etkilenen sayfaların gözden geçirilmesini, changelog'a bir girdi eklenmesini ve yeniden dağıtımı gerektirir. Bu sıra bilerek yavaştır — hızla yayımlanmış yanlış bir kur, bir gün sonra yayımlanmış doğru bir kurdan kötüdür."
+        "p1": "Kur verileri hiçbir zaman kazınmış bir sayfadan otomatik güncellenmez. Yayımlanmış bir kuru değiştirmek; kaynağın elle doğrulanmasını, kaydın güncellenmesini, birim testlerinin yeni beklenen değerlere güncellenmesini, etkilenen sayfaların gözden geçirilmesini, changelog'a bir girdi eklenmesini ve yeniden dağıtımı gerektirir. Bu sıra bilerek yavaştır — hızla yayımlanmış yanlış bir kur, bir gün sonra yayımlanmış doğru bir kurdan kötüdür.",
+        "p2": "{lastVerifiedAt} ({ageDays} gün önce)"
       }
     }
   },
@@ -169,8 +170,7 @@
         "p2": "Sayfanın görünürde içermediği bir şeyi anlatan yapılandırılmış veri."
       },
       "review": {
-        "p1": "Kura duyarlı içerik şu sıklıkla gözden geçirilir:",
-        "p2": "gün; ve şu süreden sonra elle gözden geçirme zorunlu hâle gelir:",
+        "p1": "Orana bağlı içerik her {reviewCadenceDays} günde bir gözden geçirilir ve {criticalReviewAgeDays} sonrasında zorunlu bir manuel incelemeye yükseltilir. Derleme, oran kaydının yaşını izler ve bunu orana bağlı her sayfada gösterir; böylece güncel olmayan bir rakam yalnızca siteyi sürdüren kişiye değil, okuyuculara da görünür olur.",
         "p3": "Bir rakam, doğru olmaktan çıktıktan sonra aramalarda iyi gidiyor diye çevrimiçi bırakılmaz. Yanlışsa değiştirilir ve değişiklik kaydedilir.",
         "p4": "Düzeltmeler nasıl işliyor"
       }

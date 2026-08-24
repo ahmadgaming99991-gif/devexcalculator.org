@@ -26,11 +26,10 @@
         "p2": "Kalkulator terbagi memodelkan saldo campuran"
       },
       "difference": {
-        "p1": "Selisih antara kurs saat ini dan kurs lama adalah",
-        "p2": "per 100.000 Earned Robux — sekitar 8,6% lebih tinggi pada kurs saat ini. Kurs bersyarat AS 18+ membayar kira-kira 42% lebih tinggi daripada kurs standar untuk bagian saldo yang memenuhi syaratnya."
+        "p1": "Selisih antara tarif saat ini dan tarif lama adalah {rateValue} per 100.000 Earned Robux — sekitar 8,6% lebih tinggi dengan tarif saat ini. Tarif bersyarat untuk pengguna AS berusia 18+ membayar kira-kira 42% lebih besar daripada tarif standar atas bagian saldo yang memenuhi syarat."
       },
       "changes": {
-        "p1": "Roblox mengubah kurs standar dari 0,0035 menjadi 0,0038 pada",
+        "p1": "Roblox mengubah tarif standar dari 0.0035 menjadi 0.0038 pada {date}. Dari luar Roblox tidak ada cara untuk mengetahui apakah atau kapan tarif itu akan berubah lagi, jadi halaman ini tidak membuat prakiraan. Yang dicatat halaman ini adalah tanggal setiap angka di sini terakhir diperiksa terhadap dokumentasi resmi, yang ditampilkan di bagian atas halaman dan di",
         "p2": "Lihat riwayat bertanggal perubahan kurs",
         "p3": "Lihat kapan situs ini terakhir memperbarui datanya"
       }
@@ -109,7 +108,7 @@
     },
     "body": {
       "minimum": {
-        "p1": "Earned Robux adalah ambang untuk mengajukan permohonan. Pada kurs standar saat ini, saldo sebesar itu bernilai sekitar",
+        "p1": "{minimumEarnedRobux} Earned Robux adalah ambang batas untuk mengajukan permintaan. Pada tarif standar saat ini, saldo itu bernilai sekitar",
         "p2": "sebelum biaya penyedia pembayaran atau pajak apa pun.",
         "p3": "Kata yang penting di sini adalah"
       },
@@ -117,7 +116,7 @@
         "p1": "Tidak ada kalkulator, termasuk yang ini, yang bisa memberi tahu apakah sebuah permohonan DevEx akan disetujui. Roblox menentukan Robux mana milik Anda yang dihitung sebagai Earned Robux dan apakah akun serta permohonan Anda memenuhi kriterianya. Siapa pun yang mengatakan sebaliknya — termasuk situs mana pun yang menjanjikan pembayaran terjamin — tidak berada dalam posisi untuk tahu."
       },
       "checklist": {
-        "p1": "Pastikan saldo Anda benar-benar Earned Robux dan sudah mencapai",
+        "p1": "Pastikan saldo Anda benar-benar Earned Robux dan telah mencapai {minimumEarnedRobux}.",
         "p2": "Isi formulir pajak yang benar — W-9 jika Anda wajib pajak Amerika Serikat, W-8 jika bukan.",
         "p3": "Periksa bahwa akun Anda berstatus baik menurut Ketentuan Penggunaan dan Standar Komunitas.",
         "p4": "Tentukan ke mana uangnya akan pergi, dan periksa berapa yang akan dikenakan bank atau penyedia pembayaran Anda untuk menerimanya."
@@ -145,8 +144,7 @@
     "body": {
       "definition": {
         "p1": "Bagian dari saldo Robux Anda yang berasal dari aktivitas sebagai kreator — orang lain membelanjakan Robux untuk sesuatu yang Anda buat — bukan dari Robux yang Anda peroleh dengan cara lain. DevEx hanya mengonversi Earned Robux. Akun Anda menampilkan satu angka Robux, tetapi Roblox melacak dari mana tiap bagiannya berasal, dan pembukuan internal itulah yang menentukan kelayakan.",
-        "p2": "— saldo yang dikonversi DevEx, dan satu-satunya saldo yang dihitung untuk batas minimum",
-        "p3": "Roblox membuat penentuan akhir untuk saldo tertentu mana pun.",
+        "p2": "— saldo yang dikonversi DevEx, dan satu-satunya saldo yang dihitung untuk minimum {minimumEarnedRobux}. Roblox yang menentukan keputusan akhir untuk saldo tertentu.",
         "p4": "Jika Anda pernah membeli Robux, menerimanya dari keanggotaan, atau menukarkan kartu hadiah, sebagian saldo Anda bukan hasil perolehan. Bagian itu tidak bisa dicairkan, dan juga tidak dihitung untuk batas minimum 30.000."
       },
       "qualifying": {
@@ -295,19 +293,16 @@
     "ogImageAlt": "Dibulatkan ke atas, karena Robux pecahan tidak bisa diperoleh maupun ditukar",
     "body": {
       "rounding": {
-        "p1": "Target 1.000 dolar dibagi 0,0038 menghasilkan 263.157,89. Robux berupa satuan utuh, jadi 263.157 akan membayar",
-        "p2": "— tepat di bawah target. Membulatkan ke atas menjadi 263.158 membayar"
+        "p1": "Target 1.000 dolar dibagi 0.0038 menghasilkan 263.157,89. Robux hadir dalam satuan bulat, jadi 263.157 akan membayar {rate} — sedikit di bawah target. Membulatkan ke atas menjadi 263.158 membayar {rate2}, yang melampaui target. Itulah sebabnya setiap angka di halaman ini dibulatkan ke atas, bukan ke bilangan bulat terdekat."
       },
       "minimum": {
-        "p1": "Roblox mensyaratkan",
-        "p2": "Earned Robux sebelum sebuah permohonan DevEx bahkan bisa diajukan. Jika target Anda membutuhkan kurang dari itu, batas minimumlah yang sebenarnya harus Anda capai — dan itu akan membayar",
-        "p3": "alih-alih target awal Anda."
+        "p1": "Roblox mensyaratkan {minimumEarnedRobux} Earned Robux sebelum permintaan DevEx dapat diajukan sama sekali. Jika target Anda membutuhkan lebih sedikit dari itu, minimum itulah yang sebenarnya harus Anda capai — dan itu akan membayar {rate}, bukan target awal Anda."
       },
       "planner": {
         "p1": "Target pembayaran adalah sebuah jarak. Mengubahnya menjadi tanggal butuh satu fakta lagi — seberapa cepat Anda memperoleh — dan mengubah tanggal menjadi rencana butuh fakta yang sama secara terbalik. Keduanya adalah pembagian yang sama:"
       },
       "examples": {
-        "p1": "Ya — Anda akan membutuhkan"
+        "p1": "Ya — Anda akan membutuhkan {effective}"
       },
       "buyingRobux": {
         "p1": "Halaman ini menjawab pertanyaan kreator: berapa yang perlu saya peroleh untuk menerima sejumlah uang tertentu. Ia tidak memberi tahu berapa Robux yang bisa dibeli dengan sejumlah uang tertentu. Roblox menetapkan harga paket Robux menurut wilayah, platform, dan promosi, dan tidak ada satu kurs pun yang akan benar bagi semua orang — jadi situs ini tidak menerbitkan satu pun.",
@@ -395,11 +390,11 @@
         "p1": "Buka jumlah ini di kalkulator lengkap"
       },
       "rateComparison": {
-        "p1": "selisih antara kurs saat ini dan kurs lama adalah nilai perubahan September 2025 pada jumlah ini.",
+        "p1": "Selisih {standardVsLegacyUsd} antara tarif saat ini dan tarif lama adalah nilai perubahan September 2025 pada jumlah ini.",
         "p2": "Lihat riwayat kurs"
       },
       "reverse": {
-        "p1": "Tertutup oleh",
+        "p1": "Tercakup oleh {display}?",
         "p2": "Hitung mundur dari target Anda sendiri"
       },
       "nearby": {

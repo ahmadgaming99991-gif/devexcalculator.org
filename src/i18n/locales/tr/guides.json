@@ -8,7 +8,7 @@
     "preferCalculateDescription": "Her rehber, desteklediği araca bağlantı verir; ama doğrudan oraya da gidebilirsiniz.",
     "body": {
       "readingOrder": {
-        "p1": "Son inceleme"
+        "p1": "Son inceleme: {lastReviewedAt}"
       },
       "calculators": {
         "p1": "DevEx ödemesi, Robux'tan USD'ye, ödeme hedefleri ve marketplace ücretleri."
@@ -73,7 +73,7 @@
     },
     "body": {
       "process": {
-        "p1": "En az şu kadarını biriktirin:",
+        "p1": "En az {minimumEarnedRobux} Earned Robux biriktirin.",
         "p2": "Yalnızca Earned Robux sayılır.",
         "p3": "Robux'unuzun hangilerinin uygun olduğunu kontrol edin",
         "p4": "Doğrulanmış e-posta, en az 13 yaş, geçerli bir DevEx portal hesabı, dosyada bir W-9 ya da W-8 ve kuralları ihlal etmemiş bir hesap.",

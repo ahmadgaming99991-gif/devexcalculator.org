@@ -29,7 +29,7 @@
     "contactPageLink": "iletişim sayfası",
     "body": {
       "intro": {
-        "p1": "Son inceleme"
+        "p1": "Son inceleme: {lastReviewedAt}."
       },
       "calculations": {
         "p1": "Her hesaplama tarayıcınızda çalışır. Yazdığınız tutarlar, seçtiğiniz kur ve sonuçlar hiçbir zaman bir sunucuya iletilmez; çünkü bu aritmetiğin gerçekleşmesi için sunucuya gerek yoktur.",
@@ -56,8 +56,7 @@
       },
       "rights": {
         "p1": "Kaydedilmiş hesaplamaları hesaplayıcıdaki Geçmişi temizle düğmesiyle istediğiniz zaman silin.",
-        "p2": "Şunun site verilerini temizleyerek tüm tercihleri silin:",
-        "p3": "tarayıcı ayarlarınızdan.",
+        "p2": "Tarayıcı ayarlarınızda {host} için site verilerini temizleyerek tüm tercihleri silin.",
         "p4": "Siteyi yerel depolama tamamen engelliyken kullanın — her şey çalışır, hiçbir şey hatırlanmaz.",
         "p5": "Bu politikadaki her konuda bize şuradan ulaşın:"
       }
@@ -72,11 +71,10 @@
     "changesHeading": "Bu koşullardaki değişiklikler",
     "body": {
       "intro": {
-        "p1": "Son inceleme"
+        "p1": "Son inceleme: {lastReviewedAt}."
       },
       "use": {
-        "p1": "Şunu kullanabilirsiniz:",
-        "p2": "DevEx ödemelerini tahmin etmek için serbestçe; kendiniz için ya da içerik üreticiliği işinizin parçası olarak. Hesap gerekmez ve hiçbir ücret alınmaz.",
+        "p1": "{host} sitesini DevEx ödemelerini tahmin etmek için, kendiniz için ya da yaratıcı olarak işinizin bir parçası olarak serbestçe kullanabilirsiniz. Hesap gerekmez ve hiçbir ücret alınmaz.",
         "p3": "Karşılığında istenen: siteyi ya da üzerinde çalıştığı altyapıyı aksatmaya çalışmayın, başkaları için bozacak biçimde kazımayın ve buradaki rakamları yeniden yayımlarsanız kaynağı belirtin ve doğrulama tarihini ekleyin. Tarihi olmadan aktarılan bir kur, uyarı vermeden yanlış hâle gelir ve bu, onu bir sonraki okuyanı yanıltır."
       },
       "estimates": {
@@ -125,7 +123,7 @@
         "p1": "Roblox, Robux ve Developer Exchange, Roblox Corporation'ın ticari markalarıdır. Bu sitede yalnızca bu hesaplamaların neyle ilgili olduğunu anlatmak için görünürler; bu, olağan tanımlayıcı kullanımdır. Bu sitenin Roblox Corporation ile bağlantısı yoktur; onun tarafından onaylanmamış, desteklenmemiş ya da işletilmemektedir ve buradaki marka, görseller ve metinler siteye aittir."
       },
       "accuracy": {
-        "p1": "Bu sitedeki kur verileri, resmî belgelere karşı en son şu tarihte doğrulandı:",
+        "p1": "Bu sitedeki oran verileri en son {lastVerifiedAt} tarihinde resmî belgelere karşı doğrulandı ve bu tarih burada gizlenmek yerine orana bağlı her sayfada gösterilir. Oranlar değişir: standart oran Eylül 2025'te değişti ve yeniden değişebilir.",
         "p2": "Buradaki bir rakam geride kaldıysa,",
         "p3": "doğrudan geldiği resmî sayfaya bağlantı verir; böylece güncel değeri birkaç saniyede kendiniz kontrol edebilirsiniz. Şu yolla bildirmek",
         "p4": "onu herkes için de düzeltilmiş hâle getirir."
@@ -156,7 +154,7 @@
     "aboutPageLink": "hakkında sayfası",
     "body": {
       "intro": {
-        "p1": "Son inceleme"
+        "p1": "Son inceleme: {lastReviewedAt}."
       },
       "standard": {
         "p1": "Bu site şunu karşılamayı hedefler:"

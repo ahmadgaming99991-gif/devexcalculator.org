@@ -29,11 +29,10 @@
         "p2": "La calculadora repartida modela un saldo mixto"
       },
       "difference": {
-        "p1": "La diferencia entre la tasa actual y la antigua es de",
-        "p2": "por cada 100.000 Earned Robux: alrededor de un 8,6% más con la tasa actual. La tasa condicional de EE. UU. 18+ paga aproximadamente un 42% más que la estándar sobre la parte del saldo que cumple para ella."
+        "p1": "La diferencia entre la tasa actual y la antigua es de {rateValue} por cada 100.000 Earned Robux, alrededor de un 8,6 % más con la tasa actual. La tasa condicional de EE. UU. para mayores de 18 años paga aproximadamente un 42 % más que la tasa estándar sobre la parte del saldo que reúne los requisitos."
       },
       "changes": {
-        "p1": "Roblox pasó la tasa estándar de 0,0035 a 0,0038 el",
+        "p1": "Roblox cambió la tasa estándar de 0.0035 a 0.0038 el {date}. Desde fuera de Roblox no hay forma de saber si cambiará de nuevo ni cuándo, así que esta página no hace pronósticos. Lo que sí registra es la fecha en que cada cifra de aquí se comprobó por última vez con la documentación oficial, mostrada en la parte superior de la página y en",
         "p2": "Consulta el historial fechado de cambios de tasa",
         "p3": "Consulta cuándo actualizó este sitio sus datos por última vez"
       }
@@ -112,7 +111,7 @@
     },
     "body": {
       "minimum": {
-        "p1": "Earned Robux es el umbral para enviar una solicitud. Con la tasa estándar actual, ese saldo vale unos",
+        "p1": "{minimumEarnedRobux} Earned Robux es el umbral para enviar una solicitud. A la tasa estándar actual, ese saldo vale alrededor de",
         "p2": "antes de cualquier comisión del proveedor de pagos o impuesto.",
         "p3": "La palabra que importa es"
       },
@@ -120,7 +119,7 @@
         "p1": "Ninguna calculadora, ni siquiera esta, puede decirte si se aprobará una solicitud de DevEx. Roblox decide cuáles de tus Robux cuentan como Earned Robux y si tu cuenta y tu solicitud cumplen sus criterios. Quien te diga lo contrario —incluido cualquier sitio que prometa un pago garantizado— no está en posición de saberlo."
       },
       "checklist": {
-        "p1": "Confirma que tu saldo es genuinamente Earned Robux y ha alcanzado",
+        "p1": "Confirma que tu saldo es realmente Earned Robux y que ha alcanzado {minimumEarnedRobux}.",
         "p2": "Cumplimenta el formulario fiscal correcto: W-9 si eres contribuyente de Estados Unidos, W-8 en caso contrario.",
         "p3": "Comprueba que tu cuenta está en regla frente a las Condiciones de uso y las Normas de la comunidad.",
         "p4": "Decide adónde va el dinero y comprueba cuánto te cobrará tu banco o proveedor de pagos por recibirlo."
@@ -148,8 +147,7 @@
     "body": {
       "definition": {
         "p1": "La parte de tu saldo de Robux que vino de la actividad como creador —otras personas gastando Robux en algo que hiciste tú— y no de Robux obtenidos de cualquier otra forma. DevEx convierte solo Earned Robux. Tu cuenta muestra una única cifra de Robux, pero Roblox registra de dónde salió cada parte, y esa contabilidad interna es la que determina la elegibilidad.",
-        "p2": "—el saldo que convierte DevEx, y el único que cuenta para el mínimo de",
-        "p3": "Roblox toma la determinación final para cualquier saldo concreto.",
+        "p2": "— el saldo que DevEx convierte y el único saldo que cuenta para el mínimo de {minimumEarnedRobux}. Roblox tiene la última palabra sobre cualquier saldo concreto.",
         "p4": "Si alguna vez has comprado Robux, los has recibido por una suscripción o has canjeado una tarjeta regalo, parte de tu saldo no es ganada. Esa parte no puede cobrarse, y tampoco cuenta para el mínimo de 30.000."
       },
       "qualifying": {
@@ -298,19 +296,16 @@
     "ogImageAlt": "Redondeado hacia arriba, porque un Robux parcial no se puede ganar ni cambiar",
     "body": {
       "rounding": {
-        "p1": "Un objetivo de 1.000 dólares dividido entre 0,0038 da 263.157,89. Los Robux van en unidades enteras, así que 263.157 pagarían",
-        "p2": "—justo por debajo del objetivo. Redondear hacia arriba a 263.158 paga"
+        "p1": "Un objetivo de 1.000 dólares dividido por 0.0038 da 263.157,89. Los Robux vienen en unidades enteras, así que 263.157 pagarían {rate}, justo por debajo del objetivo. Redondear al alza hasta 263.158 paga {rate2}, que sí lo alcanza. Por eso cada cifra de esta página se redondea al alza y no al entero más cercano."
       },
       "minimum": {
-        "p1": "Roblox exige",
-        "p2": "Earned Robux antes de poder siquiera enviar una solicitud de DevEx. Si tu objetivo necesita menos que eso, el mínimo es lo que realmente tienes que alcanzar, y pagaría",
-        "p3": "en lugar de tu objetivo original."
+        "p1": "Roblox exige {minimumEarnedRobux} Earned Robux antes de que se pueda enviar siquiera una solicitud de DevEx. Si tu objetivo necesita menos que eso, el mínimo es lo que realmente tienes que alcanzar, y pagaría {rate} en lugar de tu objetivo original."
       },
       "planner": {
         "p1": "Un objetivo de pago es una distancia. Convertirlo en una fecha necesita un dato más —a qué ritmo ganas— y convertir una fecha en un plan necesita ese mismo dato al revés. Ambas cosas son la misma división:"
       },
       "examples": {
-        "p1": "Sí: necesitarías"
+        "p1": "Sí: necesitarías {effective}"
       },
       "buyingRobux": {
         "p1": "Esta página responde a la pregunta del creador: cuánto necesito ganar para recibir una cantidad de dinero dada. No te dice cuántos Robux compra una cantidad de dinero dada. Roblox fija el precio de los paquetes de Robux por región, plataforma y promoción, y no hay una única tasa que fuera cierta para todo el mundo, así que este sitio no publica ninguna.",
@@ -398,11 +393,11 @@
         "p1": "Abrir esta cantidad en la calculadora completa"
       },
       "rateComparison": {
-        "p1": "diferencia entre la tasa actual y la antigua es lo que vale el cambio de septiembre de 2025 con esta cantidad.",
+        "p1": "La diferencia de {standardVsLegacyUsd} entre la tasa actual y la antigua es lo que vale el cambio de septiembre de 2025 en esta cantidad.",
         "p2": "Ver el historial de tasas"
       },
       "reverse": {
-        "p1": "Cubierto por",
+        "p1": "¿Cubierto por {display}?",
         "p2": "Trabaja hacia atrás desde tu propio objetivo"
       },
       "nearby": {

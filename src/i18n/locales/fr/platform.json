@@ -33,44 +33,38 @@
     },
     "body": {
       "how": {
-        "p1": "Récupéré côté serveur auprès de Roblox au moment où la page est servie, puis mis en cache pendant",
-        "p2": "minutes. Votre navigateur n’envoie aucune requête à Roblox, et aucun script de Roblox ne s’exécute sur cette page.",
+        "p1": "Récupéré côté serveur auprès de Roblox au moment où la page est servie, puis mis en cache pendant {experienceCacheSeconds} minutes. Votre navigateur n'envoie aucune requête à Roblox et aucun script de Roblox ne s'exécute sur cette page.",
         "p3": "Une tâche planifiée enregistre une observation toutes les",
         "p4": "minutes. Les totaux de la plateforme les conservent toutes pendant",
         "p5": "jours, parce que cela fait un tableau par expérience sur plusieurs centaines d’entre elles. Les deux graphiques montrent ce qui a réellement été enregistré, trous compris — rien n’est moyenné pour combler les passages non conservés."
       },
       "related": {
-        "p1": "Rien n’est affiché à la place, car un chiffre périmé ou inventé serait pire que rien. Le reste de ce site ne dépend pas de ce point d’accès — la",
+        "p1": "{reason} Rien n'est affiché à la place, car un chiffre périmé ou inventé serait pire que rien. Le reste de ce site ne dépend pas de ce point de terminaison —",
         "p2": "fonctionne quoi qu’il arrive.",
         "p3": "Le point d’accès a répondu, mais son classement était vide. C’est inhabituel et probablement temporaire.",
         "p4": "point d’accès « explore » de Roblox",
         "p5": "point d’accès « games » de Roblox",
         "p6": "Les nombres de visites, les favoris et les noms de créateurs sont omis : le point d’accès qui les fournit n’a pas répondu à cette requête. Les comptages de joueurs et les votes ci-dessus proviennent du classement lui-même et ne sont pas affectés.",
-        "p7": "Roblox publie",
+        "p7": "Roblox publie {rankingsCount} classement",
         "p8": "Les comptages par expérience sont stockés dans un espace de noms KV Cloudflare rattaché au Worker déployé. Sans ce rattachement, il n’y a rien d’enregistré à tracer, et c’est pourquoi ceci le dit plutôt que d’afficher un axe vide.",
-        "p9": "jusqu’ici. Un graphique a besoin de",
-        "p10": "pour être une courbe plutôt qu’un point.",
+        "p10": "jusqu'ici. Un graphique a besoin de {minimumPointsForChart} pour former une ligne plutôt qu'un point.",
         "p11": "Somme calculée à partir de",
         "p12": "classements publics, chacune comptée une seule fois même lorsqu’un classement liste deux fois la même expérience, telle que lue le"
       },
       "experience": {
         "p1": "Fermer ce graphique",
         "p2": "de cette expérience",
-        "p3": "ont été enregistrées, ce qui ne suffit pas pour tracer une courbe. Les comptages par expérience sont conservés sur les",
-        "p4": "derniers jours, à raison d’une observation par heure, et une expérience n’est enregistrée que tant que Roblox la classe.",
-        "p5": "Tracer les",
-        "p6": "derniers jours de",
+        "p3": "ont été enregistrées, ce qui ne suffit pas pour tracer une ligne. Les comptages par expérience sont conservés pendant les {gameHistoryDays} derniers jours, à raison d'une observation par heure, et une expérience n'est enregistrée que tant que Roblox la classe.",
+        "p5": "Afficher le graphique des {gameHistoryDays} derniers jours pour {name}",
         "p7": "pas encore suivie",
         "p8": " — cette expérience n’a pas été observée assez souvent pour tracer une courbe",
         "p9": "Les observations sont stockées dans un espace de noms KV Cloudflare rattaché au Worker déployé. En exécution locale sans ce rattachement, il n’y a rien à tracer — et c’est pourquoi ceci le dit plutôt que de dessiner un axe vide.",
         "p10": "Le stockage n’a pas répondu. Les chiffres en direct ci-dessus ne sont pas affectés.",
         "p11": "Rien n’a été stocké pour cette plage. Là où la tâche planifiée tourne, une observation est écrite toutes les",
         "p12": "minutes, et le graphique apparaît dès qu’il y a",
-        "p13": "au cours des",
-        "p14": "joueurs. Un graphique a besoin d’au moins",
-        "p15": "points pour être une courbe plutôt qu’un point ; les chiffres sont donc listés à la place.",
-        "p16": "La fenêtre s’élargit d’elle-même à mesure que les observations s’accumulent, jusqu’à",
-        "p17": "jours. Les observations anciennes expirent au lieu d’être supprimées par une tâche. Le pic, le minimum et la moyenne ne décrivent que ces points enregistrés — le total a pu être plus élevé entre deux observations, et ce site ne prétend pas le contraire."
+        "p13": "au cours des {label} écoulés, le plus récent indiquant",
+        "p14": "joueurs. Un graphique a besoin d'au moins {minimumPointsForChart} points pour former une ligne plutôt qu'un point ; les chiffres sont donc listés à la place.",
+        "p16": "La fenêtre s'élargit d'elle-même à mesure que les observations s'accumulent, jusqu'à {retentionDays} jours. Les observations les plus anciennes expirent au lieu d'être supprimées par une tâche. Le pic, le minimum et la moyenne ne décrivent que ces points enregistrés — le total a pu être plus élevé entre deux observations, et ce site ne prétend pas le contraire."
       }
     }
   },
@@ -180,7 +174,8 @@
       },
       "related": {
         "p1": "Voici la cotation la plus récente que ce site ait reçue.",
-        "p2": "Aucun chiffre n’est affiché à la place. Un cours périmé présenté comme actuel serait pire que rien."
+        "p2": "Aucun chiffre n’est affiché à la place. Un cours périmé présenté comme actuel serait pire que rien.",
+        "p3": "· via {providerName}, récupéré côté serveur"
       }
     }
   },
@@ -250,7 +245,7 @@
     "body": {
       "engagement": {
         "p1": "Heures par utilisateur actif et par jour",
-        "p2": "jours. Les deux données d’entrée sont arrondies dans le communiqué : ceci est donc approximatif.",
+        "p2": "{hoursBillions} milliards d'Heures ÷ {dauMillions} millions de DAU ÷ {periodDays} jours. Les deux données sont arrondies dans la publication, ce résultat est donc approximatif.",
         "p3": "Tous les chiffres ci-dessus sauf le dernier sont cités depuis"
       },
       "business": {

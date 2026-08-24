@@ -24,7 +24,7 @@
     "contactPageLink": "contact page",
     "body": {
       "intro": {
-        "p1": "Last reviewed"
+        "p1": "Last reviewed {lastReviewedAt}."
       },
       "calculations": {
         "p1": "Every calculation runs in your browser. The amounts you type, the rate you select and the results are never transmitted to a server, because the arithmetic does not need a server to happen.",
@@ -51,8 +51,7 @@
       },
       "rights": {
         "p1": "Clear saved calculations at any time with the Clear history button in the calculator.",
-        "p2": "Clear every preference by clearing site data for",
-        "p3": "in your browser settings.",
+        "p2": "Clear every preference by clearing site data for {host} in your browser settings.",
         "p4": "Use the site with local storage blocked entirely — everything works, nothing is remembered.",
         "p5": "Contact us about anything in this policy through the"
       }
@@ -67,11 +66,10 @@
     "changesHeading": "Changes to these terms",
     "body": {
       "intro": {
-        "p1": "Last reviewed"
+        "p1": "Last reviewed {lastReviewedAt}."
       },
       "use": {
-        "p1": "You are welcome to use",
-        "p2": "freely to estimate DevEx payouts, for yourself or as part of your work as a creator. No account is needed and nothing is charged.",
+        "p1": "You are welcome to use {host} freely to estimate DevEx payouts, for yourself or as part of your work as a creator. No account is needed and nothing is charged.",
         "p3": "What is asked in return: do not attempt to disrupt the site or the infrastructure it runs on, do not scrape it in a way that degrades it for others, and if you republish figures from it, cite the source and include the verification date. A rate quoted without its date becomes wrong without warning, and that misleads whoever reads it next."
       },
       "estimates": {
@@ -120,7 +118,7 @@
         "p1": "Roblox, Robux and Developer Exchange are trademarks of Roblox Corporation. They appear on this site only to describe what these calculations concern, which is ordinary descriptive use. This site is not affiliated with, endorsed by, sponsored by or operated by Roblox Corporation, and the branding, artwork and wording here are its own."
       },
       "accuracy": {
-        "p1": "Rate data on this site was last verified against official documentation on",
+        "p1": "Rate data on this site was last verified against official documentation on {lastVerifiedAt}, and that date is displayed on every rate-sensitive page rather than hidden here. Rates change: the standard rate moved in September 2025, and it could move again.",
         "p2": "If a figure here has fallen behind, the",
         "p3": "links directly to the official page it came from, so you can check the current value yourself in a few seconds. Reporting it through the",
         "p4": "gets it fixed for everyone else too."
@@ -151,7 +149,7 @@
     "aboutPageLink": "about page",
     "body": {
       "intro": {
-        "p1": "Last reviewed"
+        "p1": "Last reviewed {lastReviewedAt}."
       },
       "standard": {
         "p1": "This site aims to meet"

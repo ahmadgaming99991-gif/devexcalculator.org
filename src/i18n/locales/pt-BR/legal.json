@@ -28,7 +28,7 @@
     "contactPageLink": "página de contato",
     "body": {
       "intro": {
-        "p1": "Revisado pela última vez"
+        "p1": "Última revisão em {lastReviewedAt}."
       },
       "calculations": {
         "p1": "Todo cálculo roda no seu navegador. As quantias que você digita, a taxa que você seleciona e os resultados nunca são transmitidos a um servidor, porque a aritmética não precisa de servidor para acontecer.",
@@ -55,8 +55,7 @@
       },
       "rights": {
         "p1": "Limpe os cálculos salvos a qualquer momento com o botão Limpar histórico na calculadora.",
-        "p2": "Limpe todas as preferências apagando os dados do site de",
-        "p3": "nas configurações do seu navegador.",
+        "p2": "Limpe todas as preferências apagando os dados do site de {host} nas configurações do seu navegador.",
         "p4": "Use o site com o armazenamento local totalmente bloqueado — tudo funciona, nada é lembrado.",
         "p5": "Fale conosco sobre qualquer ponto desta política pela"
       }
@@ -71,11 +70,10 @@
     "changesHeading": "Mudanças nestes termos",
     "body": {
       "intro": {
-        "p1": "Revisado pela última vez"
+        "p1": "Última revisão em {lastReviewedAt}."
       },
       "use": {
-        "p1": "Você pode usar o",
-        "p2": "livremente para estimar pagamentos DevEx, para si mesmo ou como parte do seu trabalho como criador. Não é preciso conta e nada é cobrado.",
+        "p1": "Você pode usar {host} livremente para estimar pagamentos do DevEx, para si mesmo ou como parte do seu trabalho como criador. Não é necessária conta e nada é cobrado.",
         "p3": "O que se pede em troca: não tente atrapalhar o site nem a infraestrutura em que ele roda, não faça raspagem de um jeito que o degrade para os outros e, se republicar números daqui, cite a fonte e inclua a data de verificação. Uma taxa citada sem sua data se torna errada sem aviso, e isso engana quem a lê depois."
       },
       "estimates": {
@@ -124,7 +122,7 @@
         "p1": "Roblox, Robux e Developer Exchange são marcas registradas da Roblox Corporation. Aparecem neste site apenas para descrever do que tratam estes cálculos, o que é uso descritivo comum. Este site não é afiliado, endossado, patrocinado nem operado pela Roblox Corporation, e a marca, a arte e os textos daqui são próprios."
       },
       "accuracy": {
-        "p1": "Os dados de taxa deste site foram verificados pela última vez contra a documentação oficial em",
+        "p1": "Os dados de taxas deste site foram verificados pela última vez em relação à documentação oficial em {lastVerifiedAt}, e essa data é exibida em todas as páginas sensíveis a taxas, em vez de ficar escondida aqui. As taxas mudam: a taxa padrão foi alterada em setembro de 2025 e pode mudar de novo.",
         "p2": "Se algum número aqui ficou para trás, a",
         "p3": "leva direto à página oficial de onde ele veio, então você pode conferir o valor atual em segundos. Relatar pelo",
         "p4": "faz com que seja corrigido para todos os outros também."
@@ -155,7 +153,7 @@
     "aboutPageLink": "página sobre",
     "body": {
       "intro": {
-        "p1": "Revisado pela última vez"
+        "p1": "Última revisão em {lastReviewedAt}."
       },
       "standard": {
         "p1": "Este site busca atender a"

@@ -117,7 +117,12 @@
     "instagram": "DevEx Calculator di Instagram",
     "pinterest": "DevEx Calculator di Pinterest",
     "instagramName": "Instagram",
-    "pinterestName": "Pinterest"
+    "pinterestName": "Pinterest",
+    "body": {
+      "intro": {
+        "p1": "{description} (terbuka di tab baru)"
+      }
+    }
   },
   "consent": {
     "accept": "Terima",
@@ -145,7 +150,8 @@
       "intro": {
         "p1": "Kurs dan persyaratan berubah.",
         "p2": "Angka di sini memakai kurs yang saat ini didokumentasikan Roblox. Hanya Roblox yang menentukan Robux mana yang dihitung sebagai Earned Robux, kurs mana yang berlaku untuk bagian mana dari saldo Anda, dan apakah suatu permohonan DevEx disetujui. Biaya penyedia pembayaran dan kewajiban pajak Anda sendiri tidak termasuk kecuali Anda menambahkannya.",
-        "p3": "Robux yang Anda beli, terima sebagai hadiah, atau peroleh di luar penghasilan sebagai kreator bukan Earned Robux dan tidak dapat dicairkan. Harga eceran Robux adalah hal yang sama sekali terpisah dan tidak pernah dicampur ke dalam angka-angka ini."
+        "p3": "Robux yang Anda beli, terima sebagai hadiah, atau peroleh di luar penghasilan sebagai kreator bukan Earned Robux dan tidak dapat dicairkan. Harga eceran Robux adalah hal yang sama sekali terpisah dan tidak pernah dicampur ke dalam angka-angka ini.",
+        "p4": "Tarif diverifikasi pada {lastVerifiedAt}"
       },
       "tocHeading": {
         "p1": "Di halaman ini"
@@ -155,7 +161,7 @@
   "tables": {
     "body": {
       "intro": {
-        "p1": "Saldo yang diperoleh sebelum",
+        "p1": "Saldo yang diperoleh sebelum {effectiveTo}.",
         "p2": "Arah sebaliknya membagi, dan selalu membulatkan ke atas: target sebesar",
         "p3": "akan kurang sedikit sekali."
       }
@@ -164,14 +170,14 @@
   "charts": {
     "body": {
       "intro": {
-        "p1": "Nilainya dalam"
+        "p1": "{caption} Nilainya adalah {valueLabel}."
       }
     }
   },
   "diagrams": {
     "body": {
       "intro": {
-        "p1": "Diterapkan oleh"
+        "p1": "Diterapkan oleh {by}"
       }
     }
   }

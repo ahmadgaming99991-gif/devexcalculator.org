@@ -8,7 +8,7 @@
     "preferCalculateDescription": "Chaque guide renvoie vers l’outil qu’il accompagne, mais vous pouvez y aller directement.",
     "body": {
       "readingOrder": {
-        "p1": "Dernière relecture"
+        "p1": "Dernière révision le {lastReviewedAt}"
       },
       "calculators": {
         "p1": "Paiement DevEx, Robux vers USD, objectifs de paiement et commissions du marketplace."
@@ -73,7 +73,7 @@
     },
     "body": {
       "process": {
-        "p1": "Accumulez au moins",
+        "p1": "Accumulez au moins {minimumEarnedRobux} Earned Robux.",
         "p2": "Seuls les Earned Robux comptent.",
         "p3": "Vérifiez lesquels de vos Robux sont éligibles",
         "p4": "E-mail vérifié, âge minimum de 13 ans, compte valide sur le portail DevEx, formulaire W-9 ou W-8 enregistré, et compte en règle.",

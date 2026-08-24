@@ -1,53 +1,53 @@
 {
   "$comment": "Deterministic inventory of translatable English. No timestamp: a diff here should mean the content changed, not that the script ran again.",
   "totals": {
-    "strings": 1479,
-    "words": 13103,
+    "strings": 1451,
+    "words": 13195,
     "files": 66,
     "filesScanned": 151
   },
   "byCategory": {
     "attribute": 565,
-    "jsx-text": 526,
+    "jsx-text": 498,
     "registry-prose": 388
   },
   "byFile": {
     "src/lib/content/route-registry.ts": 388,
-    "src/app/platform/page.tsx": 89,
+    "src/app/platform/page.tsx": 76,
     "src/app/roblox-stats/page.tsx": 56,
     "src/app/how-to-cash-out-robux/page.tsx": 48,
     "src/app/methodology/page.tsx": 44,
     "src/app/api/page.tsx": 43,
     "src/app/devex-fees-and-taxes/page.tsx": 35,
-    "src/app/privacy/page.tsx": 35,
+    "src/app/privacy/page.tsx": 34,
     "src/app/robux-to-usd/page.tsx": 34,
-    "src/features/devex/planner.tsx": 34,
+    "src/features/devex/planner.tsx": 33,
     "src/app/page.tsx": 31,
     "src/app/robux-tax-calculator/page.tsx": 30,
-    "src/app/usd-to-robux/page.tsx": 29,
     "src/app/accessibility/page.tsx": 28,
-    "src/app/editorial-policy/page.tsx": 28,
     "src/app/about/page.tsx": 27,
-    "src/app/devex-rates/page.tsx": 25,
+    "src/app/editorial-policy/page.tsx": 27,
+    "src/app/usd-to-robux/page.tsx": 26,
     "src/app/devex-requirements/page.tsx": 25,
-    "src/features/devex/calculator.tsx": 25,
     "src/app/devex-rate-history/page.tsx": 24,
-    "src/app/earned-robux/page.tsx": 24,
+    "src/app/devex-rates/page.tsx": 24,
+    "src/features/devex/calculator.tsx": 24,
+    "src/app/earned-robux/page.tsx": 23,
     "src/lib/api/contract.ts": 23,
     "src/app/corrections/page.tsx": 22,
     "src/app/disclaimer/page.tsx": 21,
-    "src/features/devex/components/results.tsx": 21,
-    "src/app/terms/page.tsx": 20,
     "src/app/contact/page.tsx": 19,
     "src/app/conversions/[slug]/page.tsx": 19,
-    "src/components/content/tables.tsx": 18,
+    "src/app/terms/page.tsx": 19,
+    "src/features/devex/components/results.tsx": 18,
     "src/app/changelog/page.tsx": 17,
     "src/components/content/index.tsx": 17,
     "src/app/platform/stock/page.tsx": 16,
+    "src/components/content/tables.tsx": 16,
     "src/features/marketplace/calculator.tsx": 16,
-    "src/app/sources/page.tsx": 14,
-    "src/features/devex/group-split.tsx": 14,
+    "src/app/sources/page.tsx": 15,
     "src/app/conversions/page.tsx": 13,
+    "src/features/devex/group-split.tsx": 12,
     "src/app/not-found.tsx": 11,
     "src/app/calculators/page.tsx": 8,
     "src/components/layout/site-footer.tsx": 8,
@@ -62,6 +62,7 @@
     "src/lib/content/changelog.ts": 4,
     "src/components/layout/rate-source-check.tsx": 3,
     "src/lib/platform/history.ts": 3,
+    "src/components/layout/footer-status.tsx": 2,
     "src/components/seo/analytics-consent.tsx": 2,
     "src/lib/rates/source-check.ts": 2,
     "src/lib/seo/metadata.ts": 2,
@@ -73,7 +74,6 @@
     "src/components/diagrams/index.tsx": 1,
     "src/components/layout/breadcrumbs.tsx": 1,
     "src/components/layout/desktop-navigation.tsx": 1,
-    "src/components/layout/footer-status.tsx": 1,
     "src/components/layout/mobile-navigation.tsx": 1,
     "src/components/ui/ad-slot.tsx": 1,
     "src/components/ui/index.tsx": 1,
@@ -396,9 +396,9 @@
       "file": "src/app/accessibility/page.tsx",
       "line": 91,
       "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "Last reviewed"
+      "words": 3,
+      "hasTokens": true,
+      "text": "Last reviewed {lastReviewedAt}."
     },
     {
       "file": "src/app/accessibility/page.tsx",
@@ -1260,9 +1260,9 @@
       "file": "src/app/conversions/[slug]/page.tsx",
       "line": 200,
       "category": "jsx-text",
-      "words": 18,
-      "hasTokens": false,
-      "text": "gap between the current and legacy rates is what the September 2025 change is worth at this amount."
+      "words": 20,
+      "hasTokens": true,
+      "text": "The {standardVsLegacyUsd} gap between the current and legacy rates is what the September 2025 change is worth at this amount."
     },
     {
       "file": "src/app/conversions/[slug]/page.tsx",
@@ -1324,9 +1324,9 @@
       "file": "src/app/conversions/[slug]/page.tsx",
       "line": 225,
       "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "Covered by"
+      "words": 3,
+      "hasTokens": true,
+      "text": "Covered by {display}?"
     },
     {
       "file": "src/app/conversions/[slug]/page.tsx",
@@ -2252,17 +2252,9 @@
       "file": "src/app/devex-rates/page.tsx",
       "line": 133,
       "category": "jsx-text",
-      "words": 9,
-      "hasTokens": false,
-      "text": "The gap between the current and legacy rates is"
-    },
-    {
-      "file": "src/app/devex-rates/page.tsx",
-      "line": 133,
-      "category": "jsx-text",
-      "words": 35,
-      "hasTokens": false,
-      "text": "per 100,000 Earned Robux — about 8.6% more under the current rate. The conditional U.S. 18+ rate pays roughly 42% more than the standard rate on the portion of a balance that qualifies for it."
+      "words": 45,
+      "hasTokens": true,
+      "text": "The gap between the current and legacy rates is {rateValue} per 100,000 Earned Robux — about 8.6% more under the current rate. The conditional U.S. 18+ rate pays roughly 42% more than the standard rate on the portion of a balance that qualifies for it."
     },
     {
       "file": "src/app/devex-rates/page.tsx",
@@ -2292,9 +2284,9 @@
       "file": "src/app/devex-rates/page.tsx",
       "line": 156,
       "category": "jsx-text",
-      "words": 10,
-      "hasTokens": false,
-      "text": "Roblox moved the standard rate from 0.0035 to 0.0038 on"
+      "words": 60,
+      "hasTokens": true,
+      "text": "Roblox moved the standard rate from 0.0035 to 0.0038 on {date}. There is no way to know from outside Roblox whether or when it will change again, so this page makes no forecast. What it does record is the date every figure here was last checked against the official documentation, shown at the top of the page and in the"
     },
     {
       "file": "src/app/devex-rates/page.tsx",
@@ -2364,9 +2356,9 @@
       "file": "src/app/devex-requirements/page.tsx",
       "line": 91,
       "category": "jsx-text",
-      "words": 19,
-      "hasTokens": false,
-      "text": "Earned Robux is the threshold to submit a request. At the current standard rate that balance is worth about"
+      "words": 20,
+      "hasTokens": true,
+      "text": "{minimumEarnedRobux} Earned Robux is the threshold to submit a request. At the current standard rate that balance is worth about"
     },
     {
       "file": "src/app/devex-requirements/page.tsx",
@@ -2452,9 +2444,9 @@
       "file": "src/app/devex-requirements/page.tsx",
       "line": 140,
       "category": "jsx-text",
-      "words": 10,
-      "hasTokens": false,
-      "text": "Confirm your balance is genuinely Earned Robux and has reached"
+      "words": 11,
+      "hasTokens": true,
+      "text": "Confirm your balance is genuinely Earned Robux and has reached {minimumEarnedRobux}."
     },
     {
       "file": "src/app/devex-requirements/page.tsx",
@@ -2652,9 +2644,9 @@
       "file": "src/app/disclaimer/page.tsx",
       "line": 83,
       "category": "jsx-text",
-      "words": 12,
-      "hasTokens": false,
-      "text": "Rate data on this site was last verified against official documentation on"
+      "words": 40,
+      "hasTokens": true,
+      "text": "Rate data on this site was last verified against official documentation on {lastVerifiedAt}, and that date is displayed on every rate-sensitive page rather than hidden here. Rates change: the standard rate moved in September 2025, and it could move again."
     },
     {
       "file": "src/app/disclaimer/page.tsx",
@@ -2748,17 +2740,9 @@
       "file": "src/app/earned-robux/page.tsx",
       "line": 102,
       "category": "jsx-text",
-      "words": 13,
-      "hasTokens": false,
-      "text": "— the balance DevEx converts, and the only balance that counts toward the"
-    },
-    {
-      "file": "src/app/earned-robux/page.tsx",
-      "line": 102,
-      "category": "jsx-text",
-      "words": 10,
-      "hasTokens": false,
-      "text": "minimum. Roblox makes the final determination for any specific balance."
+      "words": 24,
+      "hasTokens": true,
+      "text": "— the balance DevEx converts, and the only balance that counts toward the {minimumEarnedRobux} minimum. Roblox makes the final determination for any specific balance."
     },
     {
       "file": "src/app/earned-robux/page.tsx",
@@ -3076,17 +3060,9 @@
       "file": "src/app/editorial-policy/page.tsx",
       "line": 118,
       "category": "jsx-text",
-      "words": 5,
-      "hasTokens": false,
-      "text": "Rate-sensitive content is reviewed every"
-    },
-    {
-      "file": "src/app/editorial-policy/page.tsx",
-      "line": 118,
-      "category": "jsx-text",
-      "words": 9,
-      "hasTokens": false,
-      "text": "days, and escalates to a required manual review after"
+      "words": 48,
+      "hasTokens": true,
+      "text": "Rate-sensitive content is reviewed every {reviewCadenceDays} days, and escalates to a required manual review after {criticalReviewAgeDays}. The build tracks the age of the rate registry and surfaces it on every rate-sensitive page, so a stale figure is visible to readers rather than only to whoever maintains the site."
     },
     {
       "file": "src/app/editorial-policy/page.tsx",
@@ -3172,9 +3148,9 @@
       "file": "src/app/guides/page.tsx",
       "line": 108,
       "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "Last reviewed"
+      "words": 3,
+      "hasTokens": true,
+      "text": "Last reviewed {lastReviewedAt}"
     },
     {
       "file": "src/app/guides/page.tsx",
@@ -3276,9 +3252,9 @@
       "file": "src/app/how-to-cash-out-robux/page.tsx",
       "line": 90,
       "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "Accumulate at least"
+      "words": 6,
+      "hasTokens": true,
+      "text": "Accumulate at least {minimumEarnedRobux} Earned Robux."
     },
     {
       "file": "src/app/how-to-cash-out-robux/page.tsx",
@@ -4356,41 +4332,9 @@
       "file": "src/app/platform/page.tsx",
       "line": 173,
       "category": "jsx-text",
-      "words": 12,
-      "hasTokens": false,
-      "text": "Fetched server-side from Roblox when the page is served and cached for"
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 173,
-      "category": "jsx-text",
-      "words": 17,
-      "hasTokens": false,
-      "text": "minutes. Your browser makes no request to Roblox, and no script from Roblox runs on this page."
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 181,
-      "category": "jsx-text",
-      "words": 7,
-      "hasTokens": false,
-      "text": "A scheduled job records one observation every"
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 181,
-      "category": "jsx-text",
-      "words": 9,
-      "hasTokens": false,
-      "text": "minutes. Platform totals keep every one of them for"
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 181,
-      "category": "jsx-text",
-      "words": 32,
-      "hasTokens": false,
-      "text": "days, because that is one array per experience across several hundred of them. Both charts show what was actually recorded, gaps included — nothing is averaged to fill the runs not kept."
+      "words": 30,
+      "hasTokens": true,
+      "text": "Fetched server-side from Roblox when the page is served and cached for {experienceCacheSeconds} minutes. Your browser makes no request to Roblox, and no script from Roblox runs on this page."
     },
     {
       "file": "src/app/platform/page.tsx",
@@ -4500,9 +4444,9 @@
       "file": "src/app/platform/page.tsx",
       "line": 340,
       "category": "jsx-text",
-      "words": 30,
-      "hasTokens": false,
-      "text": "Nothing is shown in their place, because a stale or invented number would be worse than none. The rest of this site does not depend on this endpoint — the"
+      "words": 31,
+      "hasTokens": true,
+      "text": "{reason} Nothing is shown in their place, because a stale or invented number would be worse than none. The rest of this site does not depend on this endpoint — the"
     },
     {
       "file": "src/app/platform/page.tsx",
@@ -4612,9 +4556,9 @@
       "file": "src/app/platform/page.tsx",
       "line": 451,
       "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "Roblox publishes"
+      "words": 4,
+      "hasTokens": true,
+      "text": "Roblox publishes {rankingsCount} ranking"
     },
     {
       "file": "src/app/platform/page.tsx",
@@ -4668,17 +4612,9 @@
       "file": "src/app/platform/page.tsx",
       "line": 569,
       "category": "jsx-text",
-      "words": 5,
-      "hasTokens": false,
-      "text": "so far. A chart needs"
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 569,
-      "category": "jsx-text",
-      "words": 8,
-      "hasTokens": false,
-      "text": "to be a line rather than a dot."
+      "words": 14,
+      "hasTokens": true,
+      "text": "so far. A chart needs {minimumPointsForChart} to be a line rather than a dot."
     },
     {
       "file": "src/app/platform/page.tsx",
@@ -4719,22 +4655,6 @@
       "words": 7,
       "hasTokens": false,
       "text": "Players across every experience Roblox is ranking"
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 644,
-      "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "Summed from"
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 644,
-      "category": "jsx-text",
-      "words": 17,
-      "hasTokens": false,
-      "text": "public rankings, counted once each even where a ranking lists the same experience twice, as read at"
     },
     {
       "file": "src/app/platform/page.tsx",
@@ -4796,33 +4716,17 @@
       "file": "src/app/platform/page.tsx",
       "line": 730,
       "category": "jsx-text",
-      "words": 17,
-      "hasTokens": false,
-      "text": "been recorded, which is not enough to draw a line. Per-experience counts are kept for the last"
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 730,
-      "category": "jsx-text",
-      "words": 17,
-      "hasTokens": false,
-      "text": "days at one observation an hour, and an experience is only recorded while Roblox is ranking it."
+      "words": 35,
+      "hasTokens": true,
+      "text": "been recorded, which is not enough to draw a line. Per-experience counts are kept for the last {gameHistoryDays} days at one observation an hour, and an experience is only recorded while Roblox is ranking it."
     },
     {
       "file": "src/app/platform/page.tsx",
       "line": 819,
       "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "Chart the last"
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 819,
-      "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "days for"
+      "words": 7,
+      "hasTokens": true,
+      "text": "Chart the last {gameHistoryDays} days for {name}"
     },
     {
       "file": "src/app/platform/page.tsx",
@@ -4882,43 +4786,19 @@
     },
     {
       "file": "src/app/platform/page.tsx",
-      "line": 976,
-      "category": "jsx-text",
-      "words": 18,
-      "hasTokens": false,
-      "text": "Nothing has been stored for this range. Where the scheduled job is running, an observation is written every"
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 976,
+      "line": 996,
       "category": "jsx-text",
       "words": 8,
-      "hasTokens": false,
-      "text": "minutes and the chart appears once there are"
+      "hasTokens": true,
+      "text": "within the last {label}, the most recent showing"
     },
     {
       "file": "src/app/platform/page.tsx",
       "line": 996,
       "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "within the last"
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 996,
-      "category": "jsx-text",
-      "words": 6,
-      "hasTokens": false,
-      "text": "players. A chart needs at least"
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 996,
-      "category": "jsx-text",
-      "words": 15,
-      "hasTokens": false,
-      "text": "points to be a line rather than a dot, so the figures are listed instead."
+      "words": 22,
+      "hasTokens": true,
+      "text": "players. A chart needs at least {minimumPointsForChart} points to be a line rather than a dot, so the figures are listed instead."
     },
     {
       "file": "src/app/platform/page.tsx",
@@ -4972,17 +4852,9 @@
       "file": "src/app/platform/page.tsx",
       "line": 1088,
       "category": "jsx-text",
-      "words": 11,
-      "hasTokens": false,
-      "text": "The window widens on its own as observations accumulate, up to"
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 1088,
-      "category": "jsx-text",
-      "words": 37,
-      "hasTokens": false,
-      "text": "days. Older observations expire rather than being deleted by a job. Peak, low and average describe these recorded points only — the total may have been higher between two observations, and this site does not claim otherwise."
+      "words": 49,
+      "hasTokens": true,
+      "text": "The window widens on its own as observations accumulate, up to {retentionDays} days. Older observations expire rather than being deleted by a job. Peak, low and average describe these recorded points only — the total may have been higher between two observations, and this site does not claim otherwise."
     },
     {
       "file": "src/app/platform/page.tsx",
@@ -5074,19 +4946,19 @@
     },
     {
       "file": "src/app/platform/stock/page.tsx",
-      "line": 164,
+      "line": 153,
       "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "Not the latest"
+      "words": 5,
+      "hasTokens": true,
+      "text": "· via {providerName}, fetched server-side"
     },
     {
       "file": "src/app/platform/stock/page.tsx",
       "line": 164,
       "category": "jsx-text",
-      "words": 9,
+      "words": 3,
       "hasTokens": false,
-      "text": "This is the most recent quote this site received."
+      "text": "Not the latest"
     },
     {
       "file": "src/app/platform/stock/page.tsx",
@@ -5100,9 +4972,9 @@
       "file": "src/app/platform/stock/page.tsx",
       "line": 176,
       "category": "jsx-text",
-      "words": 18,
-      "hasTokens": false,
-      "text": "No figure is shown in its place. A stale price presented as current would be worse than none."
+      "words": 19,
+      "hasTokens": true,
+      "text": "{reason} No figure is shown in its place. A stale price presented as current would be worse than none."
     },
     {
       "file": "src/app/platform/stock/page.tsx",
@@ -5124,9 +4996,9 @@
       "file": "src/app/privacy/page.tsx",
       "line": 47,
       "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "Last reviewed"
+      "words": 3,
+      "hasTokens": true,
+      "text": "Last reviewed {lastReviewedAt}."
     },
     {
       "file": "src/app/privacy/page.tsx",
@@ -5348,17 +5220,9 @@
       "file": "src/app/privacy/page.tsx",
       "line": 184,
       "category": "jsx-text",
-      "words": 8,
-      "hasTokens": false,
-      "text": "Clear every preference by clearing site data for"
-    },
-    {
-      "file": "src/app/privacy/page.tsx",
-      "line": 184,
-      "category": "jsx-text",
-      "words": 4,
-      "hasTokens": false,
-      "text": "in your browser settings."
+      "words": 13,
+      "hasTokens": true,
+      "text": "Clear every preference by clearing site data for {host} in your browser settings."
     },
     {
       "file": "src/app/privacy/page.tsx",
@@ -5636,9 +5500,9 @@
       "file": "src/app/roblox-stats/page.tsx",
       "line": 325,
       "category": "jsx-text",
-      "words": 12,
-      "hasTokens": false,
-      "text": "days. Both inputs are rounded in the release, so this is approximate."
+      "words": 21,
+      "hasTokens": true,
+      "text": "{hoursBillions} billion Hours ÷ {dauMillions} million DAUs ÷ {periodDays} days. Both inputs are rounded in the release, so this is approximate."
     },
     {
       "file": "src/app/roblox-stats/page.tsx",
@@ -6442,6 +6306,14 @@
     },
     {
       "file": "src/app/sources/page.tsx",
+      "line": 100,
+      "category": "jsx-text",
+      "words": 4,
+      "hasTokens": true,
+      "text": "{lastVerifiedAt} ({ageDays} days ago)"
+    },
+    {
+      "file": "src/app/sources/page.tsx",
       "line": 105,
       "category": "jsx-text",
       "words": 3,
@@ -6476,9 +6348,9 @@
       "file": "src/app/terms/page.tsx",
       "line": 31,
       "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "Last reviewed"
+      "words": 3,
+      "hasTokens": true,
+      "text": "Last reviewed {lastReviewedAt}."
     },
     {
       "file": "src/app/terms/page.tsx",
@@ -6492,17 +6364,9 @@
       "file": "src/app/terms/page.tsx",
       "line": 36,
       "category": "jsx-text",
-      "words": 5,
-      "hasTokens": false,
-      "text": "You are welcome to use"
-    },
-    {
-      "file": "src/app/terms/page.tsx",
-      "line": 36,
-      "category": "jsx-text",
-      "words": 24,
-      "hasTokens": false,
-      "text": "freely to estimate DevEx payouts, for yourself or as part of your work as a creator. No account is needed and nothing is charged."
+      "words": 30,
+      "hasTokens": true,
+      "text": "You are welcome to use {host} freely to estimate DevEx payouts, for yourself or as part of your work as a creator. No account is needed and nothing is charged."
     },
     {
       "file": "src/app/terms/page.tsx",
@@ -6660,17 +6524,9 @@
       "file": "src/app/usd-to-robux/page.tsx",
       "line": 93,
       "category": "jsx-text",
-      "words": 18,
-      "hasTokens": false,
-      "text": "A 1,000 dollar target divided by 0.0038 gives 263,157.89. Robux come in whole units, so 263,157 would pay"
-    },
-    {
-      "file": "src/app/usd-to-robux/page.tsx",
-      "line": 93,
-      "category": "jsx-text",
-      "words": 10,
-      "hasTokens": false,
-      "text": "— just under the target. Rounding up to 263,158 pays"
+      "words": 50,
+      "hasTokens": true,
+      "text": "A 1,000 dollar target divided by 0.0038 gives 263,157.89. Robux come in whole units, so 263,157 would pay {rate} — just under the target. Rounding up to 263,158 pays {rate2}, which clears it. That is why every figure on this page rounds up rather than to the nearest whole number."
     },
     {
       "file": "src/app/usd-to-robux/page.tsx",
@@ -6700,25 +6556,9 @@
       "file": "src/app/usd-to-robux/page.tsx",
       "line": 111,
       "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "Roblox requires"
-    },
-    {
-      "file": "src/app/usd-to-robux/page.tsx",
-      "line": 111,
-      "category": "jsx-text",
-      "words": 32,
-      "hasTokens": false,
-      "text": "Earned Robux before a DevEx request can be submitted at all. If your target needs fewer than that, the minimum is what you actually have to reach — and it would pay"
-    },
-    {
-      "file": "src/app/usd-to-robux/page.tsx",
-      "line": 111,
-      "category": "jsx-text",
-      "words": 5,
-      "hasTokens": false,
-      "text": "rather than your original target."
+      "words": 41,
+      "hasTokens": true,
+      "text": "Roblox requires {minimumEarnedRobux} Earned Robux before a DevEx request can be submitted at all. If your target needs fewer than that, the minimum is what you actually have to reach — and it would pay {rate} rather than your original target."
     },
     {
       "file": "src/app/usd-to-robux/page.tsx",
@@ -6820,9 +6660,9 @@
       "file": "src/app/usd-to-robux/page.tsx",
       "line": 181,
       "category": "jsx-text",
-      "words": 5,
-      "hasTokens": false,
-      "text": "Yes — you would need"
+      "words": 6,
+      "hasTokens": true,
+      "text": "Yes — you would need {effective}"
     },
     {
       "file": "src/app/usd-to-robux/page.tsx",
@@ -6876,17 +6716,17 @@
       "file": "src/components/charts/index.tsx",
       "line": 167,
       "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "Values are"
+      "words": 4,
+      "hasTokens": true,
+      "text": "{caption} Values are {valueLabel}."
     },
     {
       "file": "src/components/content/index.tsx",
       "line": 83,
       "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "Rates verified"
+      "words": 3,
+      "hasTokens": true,
+      "text": "Rates verified {lastVerifiedAt}"
     },
     {
       "file": "src/components/content/index.tsx",
@@ -7044,9 +6884,9 @@
       "file": "src/components/content/tables.tsx",
       "line": 82,
       "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "Balances earned before"
+      "words": 4,
+      "hasTokens": true,
+      "text": "Balances earned before {effectiveTo}."
     },
     {
       "file": "src/components/content/tables.tsx",
@@ -7079,22 +6919,6 @@
       "words": 2,
       "hasTokens": false,
       "text": "Below minimum"
-    },
-    {
-      "file": "src/components/content/tables.tsx",
-      "line": 232,
-      "category": "jsx-text",
-      "words": 11,
-      "hasTokens": false,
-      "text": "Working backwards divides instead, and always rounds up: a target of"
-    },
-    {
-      "file": "src/components/content/tables.tsx",
-      "line": 232,
-      "category": "jsx-text",
-      "words": 5,
-      "hasTokens": false,
-      "text": "would fall a fraction short."
     },
     {
       "file": "src/components/content/tables.tsx",
@@ -7164,9 +6988,9 @@
       "file": "src/components/diagrams/index.tsx",
       "line": 153,
       "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "Applied by"
+      "words": 3,
+      "hasTokens": true,
+      "text": "Applied by {by}"
     },
     {
       "file": "src/components/layout/breadcrumbs.tsx",
@@ -7183,6 +7007,14 @@
       "words": 1,
       "hasTokens": false,
       "text": "Main"
+    },
+    {
+      "file": "src/components/layout/footer-status.tsx",
+      "line": 64,
+      "category": "jsx-text",
+      "words": 9,
+      "hasTokens": true,
+      "text": "© {year} {siteName}. Every payout figure is an estimate."
     },
     {
       "file": "src/components/layout/footer-status.tsx",
@@ -7348,9 +7180,9 @@
       "file": "src/components/layout/social-links.tsx",
       "line": 201,
       "category": "jsx-text",
-      "words": 5,
-      "hasTokens": false,
-      "text": "(opens in a new tab)"
+      "words": 6,
+      "hasTokens": true,
+      "text": "{description} (opens in a new tab)"
     },
     {
       "file": "src/components/seo/analytics-consent.tsx",
@@ -7684,17 +7516,9 @@
       "file": "src/features/devex/calculator.tsx",
       "line": 644,
       "category": "jsx-text",
-      "words": 8,
-      "hasTokens": false,
-      "text": "Estimates use the rates Roblox currently documents. The"
-    },
-    {
-      "file": "src/features/devex/calculator.tsx",
-      "line": 644,
-      "category": "jsx-text",
-      "words": 23,
-      "hasTokens": false,
-      "text": "Earned Robux minimum is a requirement to submit a request, not an approval. Roblox decides which Robux qualify and whether any request succeeds."
+      "words": 32,
+      "hasTokens": true,
+      "text": "Estimates use the rates Roblox currently documents. The {minimumEarnedRobux} Earned Robux minimum is a requirement to submit a request, not an approval. Roblox decides which Robux qualify and whether any request succeeds."
     },
     {
       "file": "src/features/devex/calculator.tsx",
@@ -7748,17 +7572,9 @@
       "file": "src/features/devex/components/results.tsx",
       "line": 121,
       "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "Roblox requires"
-    },
-    {
-      "file": "src/features/devex/components/results.tsx",
-      "line": 121,
-      "category": "jsx-text",
-      "words": 25,
-      "hasTokens": false,
-      "text": "Earned Robux to submit a request. Reaching that number is a requirement, not an approval — Roblox reviews every request and decides which Robux qualify."
+      "words": 28,
+      "hasTokens": true,
+      "text": "Roblox requires {minimumRobux} Earned Robux to submit a request. Reaching that number is a requirement, not an approval — Roblox reviews every request and decides which Robux qualify."
     },
     {
       "file": "src/features/devex/components/results.tsx",
@@ -7844,9 +7660,9 @@
       "file": "src/features/devex/components/results.tsx",
       "line": 352,
       "category": "jsx-text",
-      "words": 5,
-      "hasTokens": false,
-      "text": "whole Earned Robux. That pays"
+      "words": 21,
+      "hasTokens": true,
+      "text": "whole Earned Robux. That pays {currency}, which is the first whole-Robux amount that reaches your target rather than falling just short."
     },
     {
       "file": "src/features/devex/components/results.tsx",
@@ -7860,25 +7676,17 @@
       "file": "src/features/devex/components/results.tsx",
       "line": 360,
       "category": "jsx-text",
-      "words": 10,
-      "hasTokens": false,
-      "text": "Earned Robux would reach your target arithmetically, but Roblox requires"
-    },
-    {
-      "file": "src/features/devex/components/results.tsx",
-      "line": 360,
-      "category": "jsx-text",
-      "words": 9,
-      "hasTokens": false,
-      "text": "before a request can be submitted. You would need"
+      "words": 21,
+      "hasTokens": true,
+      "text": "{requiredRobux} Earned Robux would reach your target arithmetically, but Roblox requires {minimumRobux} before a request can be submitted. You would need"
     },
     {
       "file": "src/features/devex/components/results.tsx",
       "line": 375,
       "category": "jsx-text",
       "words": 5,
-      "hasTokens": false,
-      "text": "% of the way there"
+      "hasTokens": true,
+      "text": "{progressPercent}% of the way there"
     },
     {
       "file": "src/features/devex/components/results.tsx",
@@ -7900,17 +7708,9 @@
       "file": "src/features/devex/components/results.tsx",
       "line": 451,
       "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "Stale rates."
-    },
-    {
-      "file": "src/features/devex/components/results.tsx",
-      "line": 455,
-      "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "figures use"
+      "words": 3,
+      "hasTokens": true,
+      "text": "Stale rates. {staleReason}"
     },
     {
       "file": "src/features/devex/group-split.tsx",
@@ -7919,14 +7719,6 @@
       "words": 2,
       "hasTokens": false,
       "text": "Valued at"
-    },
-    {
-      "file": "src/features/devex/group-split.tsx",
-      "line": 111,
-      "category": "jsx-text",
-      "words": 4,
-      "hasTokens": false,
-      "text": "per eligible Earned Robux"
     },
     {
       "file": "src/features/devex/group-split.tsx",
@@ -7964,9 +7756,9 @@
       "file": "src/features/devex/group-split.tsx",
       "line": 138,
       "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "Name for member"
+      "words": 4,
+      "hasTokens": true,
+      "text": "Name for member {index}"
     },
     {
       "file": "src/features/devex/group-split.tsx",
@@ -7988,17 +7780,9 @@
       "file": "src/features/devex/group-split.tsx",
       "line": 212,
       "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "They total"
-    },
-    {
-      "file": "src/features/devex/group-split.tsx",
-      "line": 212,
-      "category": "jsx-text",
-      "words": 37,
-      "hasTokens": false,
-      "text": "Robux unassigned. Nothing here has been scaled to make the numbers meet: adjusting them for you would produce figures nobody agreed to. Fix the percentages, or accept that a remainder stays with whoever holds the group funds."
+      "words": 42,
+      "hasTokens": true,
+      "text": "They total {allocatedPercent}%, leaving {unallocatedRobux} Robux unassigned. Nothing here has been scaled to make the numbers meet: adjusting them for you would produce figures nobody agreed to. Fix the percentages, or accept that a remainder stays with whoever holds the group funds."
     },
     {
       "file": "src/features/devex/group-split.tsx",
@@ -8012,9 +7796,9 @@
       "file": "src/features/devex/group-split.tsx",
       "line": 220,
       "category": "jsx-text",
-      "words": 32,
-      "hasTokens": false,
-      "text": "Robux cannot be divided evenly at these percentages. Robux are whole, so each share is rounded down and the remainder is shown rather than handed to whoever happens to be listed first."
+      "words": 33,
+      "hasTokens": true,
+      "text": "{unallocatedRobux} Robux cannot be divided evenly at these percentages. Robux are whole, so each share is rounded down and the remainder is shown rather than handed to whoever happens to be listed first."
     },
     {
       "file": "src/features/devex/group-split.tsx",
@@ -8255,14 +8039,6 @@
       "words": 5,
       "hasTokens": false,
       "text": "What this plan is not"
-    },
-    {
-      "file": "src/features/devex/planner.tsx",
-      "line": 478,
-      "category": "jsx-text",
-      "words": 12,
-      "hasTokens": false,
-      "text": "Every figure here is an estimate produced from what you entered. Reaching"
     },
     {
       "file": "src/features/devex/planner.tsx",

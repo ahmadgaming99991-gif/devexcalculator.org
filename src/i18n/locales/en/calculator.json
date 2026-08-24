@@ -85,14 +85,13 @@
     "columnRate": "Rate",
     "body": {
       "intro": {
-        "p1": "Roblox requires",
-        "p2": "Earned Robux to submit a request. Reaching that number is a requirement, not an approval — Roblox reviews every request and decides which Robux qualify.",
+        "p1": "Roblox requires {minimumRobux} Earned Robux to submit a request. Reaching that number is a requirement, not an approval — Roblox reviews every request and decides which Robux qualify.",
         "p3": "These are the figures you entered, not amounts Roblox or any provider has quoted. This site gives no tax advice.",
-        "p4": "whole Earned Robux. That pays",
-        "p5": "Earned Robux would reach your target arithmetically, but Roblox requires",
-        "p6": "before a request can be submitted. You would need",
-        "p7": "% of the way there",
-        "p8": "figures use"
+        "p4": "whole Earned Robux. That pays {currency}, which is the first whole-Robux amount that reaches your target rather than falling just short.",
+        "p5": "{requiredRobux} Earned Robux would reach your target arithmetically, but Roblox requires {minimumRobux} before a request can be submitted. You would need",
+        "p7": "{progressPercent}% of the way there",
+        "p8": "figures use",
+        "p9": "Stale rates. {staleReason}"
       }
     }
   },
@@ -126,10 +125,9 @@
     "body": {
       "intro": {
         "p1": "per eligible Earned Robux",
-        "p2": "Name for member",
-        "p3": "They total",
-        "p4": "Robux unassigned. Nothing here has been scaled to make the numbers meet: adjusting them for you would produce figures nobody agreed to. Fix the percentages, or accept that a remainder stays with whoever holds the group funds.",
-        "p5": "Robux cannot be divided evenly at these percentages. Robux are whole, so each share is rounded down and the remainder is shown rather than handed to whoever happens to be listed first."
+        "p2": "Name for member {index}",
+        "p3": "They total {allocatedPercent}%, leaving {unallocatedRobux} Robux unassigned. Nothing here has been scaled to make the numbers meet: adjusting them for you would produce figures nobody agreed to. Fix the percentages, or accept that a remainder stays with whoever holds the group funds.",
+        "p5": "{unallocatedRobux} Robux cannot be divided evenly at these percentages. Robux are whole, so each share is rounded down and the remainder is shown rather than handed to whoever happens to be listed first."
       }
     }
   },
@@ -259,8 +257,7 @@
     "intro": {
       "p1": "Enter each part of your balance separately. Nothing is counted twice — every Robux belongs to exactly one bucket, and you are the one who decides which. Roblox makes the real split.",
       "p2": "Roblox decides which rate applies to which part of your balance. This is not a choice you can make.",
-      "p3": "Estimates use the rates Roblox currently documents. The",
-      "p4": "Earned Robux minimum is a requirement to submit a request, not an approval. Roblox decides which Robux qualify and whether any request succeeds.",
+      "p3": "Estimates use the rates Roblox currently documents. The {minimumEarnedRobux} Earned Robux minimum is a requirement to submit a request, not an approval. Roblox decides which Robux qualify and whether any request succeeds.",
       "p5": "Saved only in this browser. Nothing is uploaded, and clearing your browser data removes them."
     }
   }

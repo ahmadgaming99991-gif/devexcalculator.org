@@ -29,7 +29,7 @@
     "contactPageLink": "halaman kontak",
     "body": {
       "intro": {
-        "p1": "Terakhir ditinjau"
+        "p1": "Terakhir ditinjau {lastReviewedAt}."
       },
       "calculations": {
         "p1": "Setiap perhitungan berjalan di peramban Anda. Jumlah yang Anda ketik, kurs yang Anda pilih, dan hasilnya tidak pernah dikirim ke server, karena aritmetikanya tidak memerlukan server untuk terjadi.",
@@ -56,8 +56,7 @@
       },
       "rights": {
         "p1": "Bersihkan perhitungan tersimpan kapan saja dengan tombol Bersihkan riwayat di kalkulator.",
-        "p2": "Bersihkan semua preferensi dengan menghapus data situs untuk",
-        "p3": "di pengaturan peramban Anda.",
+        "p2": "Hapus semua preferensi dengan menghapus data situs untuk {host} di pengaturan browser Anda.",
         "p4": "Gunakan situs ini dengan penyimpanan lokal diblokir sepenuhnya — semuanya berjalan, tidak ada yang diingat.",
         "p5": "Hubungi kami soal apa pun dalam kebijakan ini melalui"
       }
@@ -72,11 +71,10 @@
     "changesHeading": "Perubahan pada ketentuan ini",
     "body": {
       "intro": {
-        "p1": "Terakhir ditinjau"
+        "p1": "Terakhir ditinjau {lastReviewedAt}."
       },
       "use": {
-        "p1": "Anda dipersilakan memakai",
-        "p2": "secara bebas untuk memperkirakan pembayaran DevEx, untuk diri sendiri maupun sebagai bagian dari pekerjaan Anda sebagai kreator. Tidak perlu akun dan tidak ada biaya.",
+        "p1": "Anda bebas menggunakan {host} untuk memperkirakan pembayaran DevEx, untuk diri sendiri atau sebagai bagian dari pekerjaan Anda sebagai kreator. Tidak perlu akun dan tidak ada biaya.",
         "p3": "Yang diminta sebagai gantinya: jangan mencoba mengganggu situs ini atau infrastruktur tempatnya berjalan, jangan mengeruk isinya dengan cara yang menurunkan kualitasnya bagi orang lain, dan jika Anda menerbitkan ulang angka dari sini, sebutkan sumbernya dan sertakan tanggal verifikasinya. Kurs yang dikutip tanpa tanggalnya menjadi keliru tanpa peringatan, dan itu menyesatkan siapa pun yang membacanya berikutnya."
       },
       "estimates": {
@@ -125,7 +123,7 @@
         "p1": "Roblox, Robux, dan Developer Exchange adalah merek dagang Roblox Corporation. Semuanya muncul di situs ini hanya untuk menjelaskan pokok perhitungan ini, yang merupakan penggunaan deskriptif biasa. Situs ini tidak berafiliasi dengan, tidak didukung, tidak disponsori, dan tidak dioperasikan oleh Roblox Corporation; identitas, gambar, dan tulisannya adalah miliknya sendiri."
       },
       "accuracy": {
-        "p1": "Data kurs di situs ini terakhir diverifikasi terhadap dokumentasi resmi pada",
+        "p1": "Data tarif di situs ini terakhir diverifikasi terhadap dokumentasi resmi pada {lastVerifiedAt}, dan tanggal itu ditampilkan di setiap halaman yang bergantung pada tarif, bukan disembunyikan di sini. Tarif berubah: tarif standar berubah pada September 2025, dan bisa berubah lagi.",
         "p2": "Jika ada angka di sini yang tertinggal, halaman",
         "p3": "menautkan langsung ke halaman resmi asalnya, jadi Anda bisa memeriksa nilai terkininya sendiri dalam beberapa detik. Melaporkannya lewat",
         "p4": "membuatnya diperbaiki untuk semua orang juga."
@@ -156,7 +154,7 @@
     "aboutPageLink": "halaman tentang",
     "body": {
       "intro": {
-        "p1": "Terakhir ditinjau"
+        "p1": "Terakhir ditinjau {lastReviewedAt}."
       },
       "standard": {
         "p1": "Situs ini berupaya memenuhi"

@@ -88,14 +88,13 @@
     "columnRate": "Kurs",
     "body": {
       "intro": {
-        "p1": "Roblox verlangt",
-        "p2": "Earned Robux, um einen Antrag zu stellen. Diese Zahl zu erreichen ist eine Voraussetzung, keine Genehmigung — Roblox prüft jeden Antrag und entscheidet, welche Robux anrechenbar sind.",
+        "p1": "Roblox verlangt {minimumRobux} Earned Robux, um einen Antrag einzureichen. Diese Zahl zu erreichen ist eine Voraussetzung, keine Genehmigung — Roblox prüft jeden Antrag und entscheidet, welche Robux infrage kommen.",
         "p3": "Das sind die Zahlen, die du eingegeben hast, keine Beträge, die Roblox oder ein Dienstleister genannt hätte. Diese Website gibt keine Steuerberatung.",
-        "p4": "ganze Earned Robux. Das zahlt",
-        "p5": "Earned Robux würden dein Ziel rechnerisch erreichen, aber Roblox verlangt",
-        "p6": "bevor ein Antrag gestellt werden kann. In der Praxis bräuchtest du",
-        "p7": "% des Wegs geschafft",
-        "p8": "die Zahlen verwenden"
+        "p4": "ganze Earned Robux. Das zahlt {currency} — der erste Betrag in ganzen Robux, der Ihr Ziel erreicht, statt knapp darunter zu bleiben.",
+        "p5": "{requiredRobux} Earned Robux würden Ihr Ziel rechnerisch erreichen, aber Roblox verlangt {minimumRobux}, bevor ein Antrag eingereicht werden kann. Sie bräuchten",
+        "p7": "{progressPercent} % des Wegs geschafft",
+        "p8": "die Zahlen verwenden",
+        "p9": "Veraltete Sätze. {staleReason}"
       }
     }
   },
@@ -129,10 +128,9 @@
     "body": {
       "intro": {
         "p1": "pro anrechenbarem Earned Robux",
-        "p2": "Name des Mitglieds",
-        "p3": "Sie ergeben zusammen",
-        "p4": "Robux nicht zugeordnet. Hier wurde nichts hochskaliert, damit die Zahlen aufgehen: das für dich zu tun ergäbe Zahlen, denen niemand zugestimmt hat. Korrigiere die Prozentsätze, oder akzeptiere, dass ein Rest bei der Person bleibt, die das Gruppenguthaben hält.",
-        "p5": "Bei diesen Prozentsätzen lassen sich Robux nicht glatt aufteilen. Robux sind ganzzahlig, also wird jeder Anteil abgerundet und der Rest angezeigt, statt ihn dem zu geben, der zufällig zuerst in der Liste steht."
+        "p2": "Name für Mitglied {index}",
+        "p3": "Sie ergeben zusammen {allocatedPercent} % und lassen {unallocatedRobux} Robux unzugeordnet. Hier wurde nichts skaliert, damit die Zahlen aufgehen: eine Anpassung für Sie würde Beträge erzeugen, denen niemand zugestimmt hat. Korrigieren Sie die Prozentsätze, oder akzeptieren Sie, dass ein Rest bei der Person bleibt, die die Gruppengelder verwaltet.",
+        "p5": "{unallocatedRobux} Robux lassen sich bei diesen Prozentsätzen nicht gleichmäßig aufteilen. Robux sind ganze Einheiten, daher wird jeder Anteil abgerundet und der Rest angezeigt, statt an die Person zu gehen, die zufällig zuerst aufgeführt ist."
       }
     }
   },
@@ -247,7 +245,6 @@
       }
     }
   },
-  "actions": {},
   "controls": {
     "body": {
       "intro": {
@@ -262,8 +259,7 @@
     "intro": {
       "p1": "Trage jeden Teil deines Guthabens getrennt ein. Nichts wird doppelt gezählt — jeder Robux gehört genau zu einer Gruppe, und du entscheidest, zu welcher. Die tatsächliche Aufteilung nimmt Roblox vor.",
       "p2": "Roblox entscheidet, welcher Kurs für welchen Teil deines Guthabens gilt. Das ist keine Wahl, die du treffen kannst.",
-      "p3": "Die Schätzungen verwenden die Kurse, die Roblox derzeit dokumentiert. Das Minimum von",
-      "p4": "Earned Robux ist eine Voraussetzung, um einen Antrag zu stellen, keine Genehmigung. Roblox entscheidet, welche Robux anrechenbar sind und ob ein Antrag Erfolg hat.",
+      "p3": "Die Schätzungen verwenden die Sätze, die Roblox derzeit dokumentiert. Das Minimum von {minimumEarnedRobux} Earned Robux ist eine Voraussetzung für das Einreichen eines Antrags, keine Genehmigung. Roblox entscheidet, welche Robux infrage kommen und ob ein Antrag Erfolg hat.",
       "p5": "Nur in diesem Browser gespeichert. Nichts wird hochgeladen, und das Löschen deiner Browserdaten entfernt sie."
     }
   }

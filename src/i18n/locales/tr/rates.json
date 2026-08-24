@@ -26,11 +26,10 @@
         "p2": "Bölünmüş hesaplayıcı karışık bir bakiyeyi modelliyor"
       },
       "difference": {
-        "p1": "Güncel kurla eski kur arasındaki fark:",
-        "p2": "100.000 Earned Robux başına — güncel kurda yaklaşık %8,6 daha fazla. Koşullu ABD 18+ kuru, bakiyenin bu kura uygun kısmında standart kurdan kabaca %42 daha fazla öder."
+        "p1": "Mevcut oran ile eski oran arasındaki fark 100.000 Earned Robux başına {rateValue} — yani mevcut oranda yaklaşık %8,6 daha fazla. ABD 18+ koşullu oranı, bir bakiyenin buna uygun olan kısmında standart orandan kabaca %42 daha fazla öder."
       },
       "changes": {
-        "p1": "Roblox standart kuru 0,0035'ten 0,0038'e şu tarihte çıkardı:",
+        "p1": "Roblox standart oranı {date} tarihinde 0.0035'ten 0.0038'e taşıdı. Roblox'un dışından, oranın yeniden değişip değişmeyeceğini ya da ne zaman değişeceğini bilmenin bir yolu yok; bu nedenle bu sayfa hiçbir öngörüde bulunmuyor. Kaydettiği şey, buradaki her rakamın resmî belgelere karşı en son ne zaman kontrol edildiğidir; bu tarih sayfanın üstünde ve şurada gösterilir:",
         "p2": "Kur değişikliklerinin tarihli geçmişini görün",
         "p3": "Bu sitenin verilerini en son ne zaman güncellediğini görün"
       }
@@ -109,7 +108,7 @@
     },
     "body": {
       "minimum": {
-        "p1": "Earned Robux, bir talep göndermenin eşiğidir. Güncel standart kurda bu bakiye yaklaşık",
+        "p1": "Bir talep göndermenin eşiği {minimumEarnedRobux} Earned Robux'tur. Mevcut standart oranda bu bakiyenin değeri yaklaşık",
         "p2": "değerindedir; ödeme sağlayıcı ücretleri ve vergiler düşülmeden önce.",
         "p3": "Önemli olan sözcük şu:"
       },
@@ -117,7 +116,7 @@
         "p1": "Hiçbir hesaplayıcı — bu da dâhil — bir DevEx talebinin onaylanıp onaylanmayacağını size söyleyemez. Robux'unuzun hangisinin Earned Robux sayılacağına ve hesabınızla talebinizin ölçütleri karşılayıp karşılamadığına Roblox karar verir. Aksini söyleyen herkes — garantili ödeme vaat eden her site dâhil — bunu bilebilecek konumda değildir."
       },
       "checklist": {
-        "p1": "Bakiyenizin gerçekten Earned Robux olduğunu ve şu düzeye ulaştığını doğrulayın:",
+        "p1": "Bakiyenizin gerçekten Earned Robux olduğunu ve {minimumEarnedRobux} değerine ulaştığını doğrulayın.",
         "p2": "Doğru vergi formunu doldurun — ABD'de mükellefseniz W-9, değilseniz W-8.",
         "p3": "Hesabınızın Kullanım Koşulları ve Topluluk Standartları karşısında kurallara uygun olduğunu kontrol edin.",
         "p4": "Paranın nereye gideceğine karar verin ve bankanızın ya da ödeme sağlayıcınızın bunu almak için ne kadar keseceğini kontrol edin."
@@ -145,8 +144,7 @@
     "body": {
       "definition": {
         "p1": "Robux bakiyenizin, başka insanların sizin yaptığınız bir şeye Robux harcamasından — yani içerik üreticiliği faaliyetinden — gelen kısmı; başka herhangi bir yolla edindiğiniz Robux'tan değil. DevEx yalnızca Earned Robux'u çevirir. Hesabınız tek bir Robux sayısı gösterir, ama Roblox her parçasının nereden geldiğini izler ve uygunluğu belirleyen şey o iç muhasebedir.",
-        "p2": "— DevEx'in çevirdiği bakiye ve şu alt sınıra sayılan tek bakiye:",
-        "p3": "Belirli bir bakiye için nihai kararı Roblox verir.",
+        "p2": "— DevEx'in dönüştürdüğü bakiye ve {minimumEarnedRobux} alt sınırına sayılan tek bakiye. Belirli bir bakiye hakkındaki nihai kararı Roblox verir.",
         "p4": "Hiç Robux satın aldıysanız, bir üyelikten aldıysanız ya da bir hediye kartı kullandıysanız, bakiyenizin bir kısmı kazanılmış değildir. O kısım nakde çevrilemez ve 30.000 alt sınırına da sayılmaz."
       },
       "qualifying": {
@@ -295,19 +293,16 @@
     "ogImageAlt": "Yukarı yuvarlandı; çünkü Robux'un kesri ne kazanılabilir ne de takas edilebilir",
     "body": {
       "rounding": {
-        "p1": "1.000 dolarlık bir hedefin 0,0038'e bölümü 263.157,89 eder. Robux tam birimler hâlindedir; dolayısıyla 263.157 şu kadar öderdi:",
-        "p2": "— hedefin hemen altında. 263.158'e yukarı yuvarlamak şu kadar öder:"
+        "p1": "1.000 dolarlık bir hedef 0.0038'e bölündüğünde 263.157,89 çıkar. Robux tam birimler hâlinde gelir; bu yüzden 263.157 {rate} öderdi — hedefin hemen altında. 263.158'e yukarı yuvarlamak {rate2} öder ve hedefi aşar. Bu sayfadaki her rakamın en yakın tam sayıya değil, yukarı yuvarlanmasının nedeni budur."
       },
       "minimum": {
-        "p1": "Roblox şunu şart koşar:",
-        "p2": "Bir DevEx talebinin gönderilebilmesi için Earned Robux. Hedefiniz bundan azını gerektiriyorsa, gerçekte ulaşmanız gereken şey alt sınırdır — ve o da şu kadar öderdi:",
-        "p3": "özgün hedefiniz yerine."
+        "p1": "Roblox, bir DevEx talebinin gönderilebilmesi için {minimumEarnedRobux} Earned Robux şartı koyar. Hedefiniz bundan azını gerektiriyorsa, gerçekte ulaşmanız gereken şey bu alt sınırdır — ve özgün hedefiniz yerine {rate} öderdi."
       },
       "planner": {
         "p1": "Ödeme hedefi bir mesafedir. Onu tarihe çevirmek bir bilgi daha ister — ne hızla kazandığınızı — ve bir tarihi plana çevirmek aynı bilgiyi tersinden ister. İkisi de aynı bölmedir:"
       },
       "examples": {
-        "p1": "Evet — şu kadarına ihtiyacınız olurdu:"
+        "p1": "Evet — {effective} gerekir"
       },
       "buyingRobux": {
         "p1": "Bu sayfa içerik üreticisinin sorusunu yanıtlıyor: belirli bir miktar parayı almak için ne kadar kazanmam gerekir. Belirli bir miktar paranın kaç Robux alacağını söylemiyor. Roblox, Robux paketlerini bölgeye, platforma ve kampanyaya göre fiyatlandırır ve herkes için doğru olacak tek bir kur yoktur — bu yüzden bu site böyle bir kur yayımlamaz.",
@@ -395,11 +390,11 @@
         "p1": "Bu tutarı tam hesaplayıcıda aç"
       },
       "rateComparison": {
-        "p1": "güncel kurla eski kur arasındaki fark, Eylül 2025 değişikliğinin bu tutardaki değeridir.",
+        "p1": "Mevcut oran ile eski oran arasındaki {standardVsLegacyUsd} fark, Eylül 2025 değişikliğinin bu tutardaki karşılığıdır.",
         "p2": "Kur geçmişini gör"
       },
       "reverse": {
-        "p1": "Şunun tarafından karşılanıyor:",
+        "p1": "{display} bunu karşılıyor mu?",
         "p2": "Kendi hedefinizden geriye doğru hesaplayın"
       },
       "nearby": {

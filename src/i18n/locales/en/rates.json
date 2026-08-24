@@ -26,11 +26,10 @@
         "p2": "The split calculator models a mixed balance"
       },
       "difference": {
-        "p1": "The gap between the current and legacy rates is",
-        "p2": "per 100,000 Earned Robux — about 8.6% more under the current rate. The conditional U.S. 18+ rate pays roughly 42% more than the standard rate on the portion of a balance that qualifies for it."
+        "p1": "The gap between the current and legacy rates is {rateValue} per 100,000 Earned Robux — about 8.6% more under the current rate. The conditional U.S. 18+ rate pays roughly 42% more than the standard rate on the portion of a balance that qualifies for it."
       },
       "changes": {
-        "p1": "Roblox moved the standard rate from 0.0035 to 0.0038 on",
+        "p1": "Roblox moved the standard rate from 0.0035 to 0.0038 on {date}. There is no way to know from outside Roblox whether or when it will change again, so this page makes no forecast. What it does record is the date every figure here was last checked against the official documentation, shown at the top of the page and in the",
         "p2": "See the dated history of rate changes",
         "p3": "See when this site last updated its data"
       }
@@ -109,7 +108,7 @@
     },
     "body": {
       "minimum": {
-        "p1": "Earned Robux is the threshold to submit a request. At the current standard rate that balance is worth about",
+        "p1": "{minimumEarnedRobux} Earned Robux is the threshold to submit a request. At the current standard rate that balance is worth about",
         "p2": "before any payment-provider fees or tax.",
         "p3": "The word that matters is"
       },
@@ -117,7 +116,7 @@
         "p1": "No calculator, including this one, can tell you whether a DevEx request will be approved. Roblox decides which of your Robux count as Earned Robux and whether your account and request meet its criteria. Anyone telling you otherwise — including any site promising a guaranteed payout — is not in a position to know."
       },
       "checklist": {
-        "p1": "Confirm your balance is genuinely Earned Robux and has reached",
+        "p1": "Confirm your balance is genuinely Earned Robux and has reached {minimumEarnedRobux}.",
         "p2": "Complete the correct tax form — W-9 if you are a United States taxpayer, W-8 otherwise.",
         "p3": "Check your account is in good standing against the Terms of Use and Community Standards.",
         "p4": "Decide where the money is going, and check what your bank or payment provider will charge to receive it."
@@ -145,8 +144,7 @@
     "body": {
       "definition": {
         "p1": "The portion of your Robux balance that came from creator activity — other people spending Robux on something you made — rather than from Robux you acquired any other way. DevEx converts Earned Robux only. Your account shows a single Robux number, but Roblox tracks where each part of it came from, and that internal accounting is what determines eligibility.",
-        "p2": "— the balance DevEx converts, and the only balance that counts toward the",
-        "p3": "minimum. Roblox makes the final determination for any specific balance.",
+        "p2": "— the balance DevEx converts, and the only balance that counts toward the {minimumEarnedRobux} minimum. Roblox makes the final determination for any specific balance.",
         "p4": "If you have ever bought Robux, received them from a membership, or redeemed a gift card, part of your balance is not earned. That part cannot be cashed out, and it does not count toward the 30,000 minimum either."
       },
       "qualifying": {
@@ -295,19 +293,16 @@
     "ogImageAlt": "Rounded up, because a partial Robux cannot be earned or exchanged",
     "body": {
       "rounding": {
-        "p1": "A 1,000 dollar target divided by 0.0038 gives 263,157.89. Robux come in whole units, so 263,157 would pay",
-        "p2": "— just under the target. Rounding up to 263,158 pays"
+        "p1": "A 1,000 dollar target divided by 0.0038 gives 263,157.89. Robux come in whole units, so 263,157 would pay {rate} — just under the target. Rounding up to 263,158 pays {rate2}, which clears it. That is why every figure on this page rounds up rather than to the nearest whole number."
       },
       "minimum": {
-        "p1": "Roblox requires",
-        "p2": "Earned Robux before a DevEx request can be submitted at all. If your target needs fewer than that, the minimum is what you actually have to reach — and it would pay",
-        "p3": "rather than your original target."
+        "p1": "Roblox requires {minimumEarnedRobux} Earned Robux before a DevEx request can be submitted at all. If your target needs fewer than that, the minimum is what you actually have to reach — and it would pay {rate} rather than your original target."
       },
       "planner": {
         "p1": "A payout target is a distance. Turning it into a date needs one more fact — how fast you earn — and turning a date into a plan needs the same fact in reverse. Both are the same division:"
       },
       "examples": {
-        "p1": "Yes — you would need"
+        "p1": "Yes — you would need {effective}"
       },
       "buyingRobux": {
         "p1": "This page answers the creator question: how much do I need to earn to receive a given amount of money. It does not tell you how many Robux a given amount of money will buy. Roblox prices Robux packages by region, platform and promotion, and there is no single rate that would be true for everyone — so this site does not publish one.",
@@ -395,11 +390,11 @@
         "p1": "Open this amount in the full calculator"
       },
       "rateComparison": {
-        "p1": "gap between the current and legacy rates is what the September 2025 change is worth at this amount.",
+        "p1": "The {standardVsLegacyUsd} gap between the current and legacy rates is what the September 2025 change is worth at this amount.",
         "p2": "See the rate history"
       },
       "reverse": {
-        "p1": "Covered by",
+        "p1": "Covered by {display}?",
         "p2": "Work backwards from your own target"
       },
       "nearby": {

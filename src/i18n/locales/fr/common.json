@@ -118,7 +118,12 @@
     "instagram": "DevEx Calculator sur Instagram",
     "pinterest": "DevEx Calculator sur Pinterest",
     "instagramName": "Instagram",
-    "pinterestName": "Pinterest"
+    "pinterestName": "Pinterest",
+    "body": {
+      "intro": {
+        "p1": "{description} (ouvre un nouvel onglet)"
+      }
+    }
   },
   "consent": {
     "accept": "Accepter",
@@ -146,7 +151,8 @@
       "intro": {
         "p1": "Les taux et les conditions changent.",
         "p2": "Les chiffres présentés ici utilisent les taux que Roblox documente actuellement. Roblox seul décide lesquels de vos Robux comptent comme Earned Robux, quel taux s’applique à quelle partie de votre solde, et si une demande DevEx est acceptée. Les frais du prestataire de paiement et vos propres obligations fiscales ne sont pas inclus, sauf si vous les ajoutez.",
-        "p3": "Les Robux que vous avez achetés, reçus en cadeau ou obtenus en dehors de vos revenus de créateur ne sont pas des Earned Robux et ne peuvent pas être encaissés. Le prix de vente au détail des Robux est une tout autre chose, et il n’est jamais mêlé à ces chiffres."
+        "p3": "Les Robux que vous avez achetés, reçus en cadeau ou obtenus en dehors de vos revenus de créateur ne sont pas des Earned Robux et ne peuvent pas être encaissés. Le prix de vente au détail des Robux est une tout autre chose, et il n’est jamais mêlé à ces chiffres.",
+        "p4": "Taux vérifiés le {lastVerifiedAt}"
       },
       "tocHeading": {
         "p1": "Sur cette page"
@@ -156,7 +162,7 @@
   "tables": {
     "body": {
       "intro": {
-        "p1": "Soldes gagnés avant le",
+        "p1": "Soldes acquis avant le {effectiveTo}.",
         "p2": "Le sens inverse divise, et arrondit toujours vers le haut : un objectif de",
         "p3": "serait inférieur d’une fraction."
       }
@@ -165,14 +171,14 @@
   "charts": {
     "body": {
       "intro": {
-        "p1": "Les valeurs sont en"
+        "p1": "{caption} Les valeurs sont {valueLabel}."
       }
     }
   },
   "diagrams": {
     "body": {
       "intro": {
-        "p1": "Appliqué par"
+        "p1": "Appliqué par {by}"
       }
     }
   }

@@ -130,7 +130,8 @@
         "p1": "Fatos que esta fonte estabelece"
       },
       "cadence": {
-        "p1": "Os dados de taxa nunca são atualizados automaticamente a partir de uma página raspada. Alterar uma taxa publicada exige que a fonte seja verificada à mão, o registro atualizado, os testes unitários atualizados para os novos valores esperados, as páginas afetadas revisadas, uma entrada acrescentada ao changelog e um novo deploy. Essa sequência é deliberadamente lenta — uma taxa errada publicada rápido é pior que uma certa publicada um dia depois."
+        "p1": "Os dados de taxa nunca são atualizados automaticamente a partir de uma página raspada. Alterar uma taxa publicada exige que a fonte seja verificada à mão, o registro atualizado, os testes unitários atualizados para os novos valores esperados, as páginas afetadas revisadas, uma entrada acrescentada ao changelog e um novo deploy. Essa sequência é deliberadamente lenta — uma taxa errada publicada rápido é pior que uma certa publicada um dia depois.",
+        "p2": "{lastVerifiedAt} (há {ageDays} dias)"
       }
     }
   },
@@ -169,8 +170,7 @@
         "p2": "Dados estruturados descrevendo algo que a página não contém visivelmente."
       },
       "review": {
-        "p1": "O conteúdo sensível a taxas é revisado a cada",
-        "p2": "dias, e passa a exigir revisão manual após",
+        "p1": "O conteúdo sensível a taxas é revisado a cada {reviewCadenceDays} dias e passa a exigir uma revisão manual após {criticalReviewAgeDays}. A build acompanha a idade do registro de taxas e a exibe em todas as páginas sensíveis a taxas, de modo que um número desatualizado fique visível para os leitores, e não apenas para quem mantém o site.",
         "p3": "Um número nunca é deixado no ar porque tem bom desempenho na busca depois de deixar de ser exato. Se está errado, muda, e a mudança é registrada.",
         "p4": "Como funcionam as correções"
       }

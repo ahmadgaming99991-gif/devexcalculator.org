@@ -33,44 +33,38 @@
     },
     "body": {
       "how": {
-        "p1": "Diambil di sisi server dari Roblox saat halaman disajikan dan disimpan dalam cache selama",
-        "p2": "menit. Peramban Anda tidak melakukan permintaan apa pun ke Roblox, dan tidak ada skrip Roblox yang berjalan di halaman ini.",
+        "p1": "Diambil di sisi server dari Roblox saat halaman disajikan dan disimpan dalam cache selama {experienceCacheSeconds} menit. Browser Anda tidak membuat permintaan apa pun ke Roblox, dan tidak ada skrip dari Roblox yang berjalan di halaman ini.",
         "p3": "Sebuah tugas terjadwal mencatat satu pengamatan setiap",
         "p4": "menit. Total platform menyimpan semuanya selama",
         "p5": "hari, karena itu satu larik per experience di antara beberapa ratus experience. Kedua grafik menampilkan apa yang benar-benar tercatat, termasuk celahnya — tidak ada yang dirata-ratakan untuk menambal periode yang tidak disimpan."
       },
       "related": {
-        "p1": "Tidak ada yang ditampilkan sebagai gantinya, karena angka usang atau karangan akan lebih buruk daripada tidak ada. Bagian lain situs ini tidak bergantung pada endpoint tersebut —",
+        "p1": "{reason} Tidak ada yang ditampilkan sebagai gantinya, karena angka yang basi atau dikarang akan lebih buruk daripada tidak ada sama sekali. Bagian lain situs ini tidak bergantung pada endpoint ini —",
         "p2": "tetap berfungsi.",
         "p3": "Endpoint-nya menjawab, tetapi peringkatnya kosong. Itu tidak biasa dan kemungkinan sementara.",
         "p4": "endpoint explore Roblox",
         "p5": "endpoint games Roblox",
         "p6": "Jumlah kunjungan, favorit, dan nama kreator dihilangkan: endpoint yang menyediakannya tidak menjawab permintaan ini. Jumlah pemain dan suara di atas berasal dari peringkatnya sendiri dan tidak terpengaruh.",
-        "p7": "Roblox menerbitkan",
+        "p7": "Roblox menerbitkan {rankingsCount} peringkat",
         "p8": "Jumlah per experience disimpan di sebuah namespace KV Cloudflare yang terikat pada Worker yang diterapkan. Tanpa ikatan itu tidak ada catatan untuk digambar, dan karena itu hal ini dinyatakan alih-alih menampilkan sumbu kosong.",
-        "p9": "sejauh ini. Sebuah grafik membutuhkan",
-        "p10": "agar menjadi garis, bukan titik.",
+        "p10": "sejauh ini. Sebuah grafik memerlukan {minimumPointsForChart} agar menjadi garis, bukan satu titik.",
         "p11": "Dijumlahkan dari",
         "p12": "peringkat publik, masing-masing dihitung sekali meski sebuah peringkat mencantumkan experience yang sama dua kali, sebagaimana dibaca pada"
       },
       "experience": {
         "p1": "Tutup grafik ini",
         "p2": "untuk experience ini",
-        "p3": "telah tercatat, yang belum cukup untuk menggambar garis. Jumlah per experience disimpan untuk",
-        "p4": "hari terakhir dengan satu pengamatan per jam, dan sebuah experience hanya dicatat selama Roblox memeringkatnya.",
-        "p5": "Gambarkan grafik untuk",
-        "p6": "hari terakhir dari",
+        "p3": "telah dicatat, yang tidak cukup untuk menggambar garis. Hitungan per pengalaman disimpan selama {gameHistoryDays} hari terakhir dengan satu observasi per jam, dan sebuah pengalaman hanya dicatat selama Roblox memeringkatnya.",
+        "p5": "Tampilkan grafik {gameHistoryDays} hari terakhir untuk {name}",
         "p7": "belum dipantau",
         "p8": "— experience ini belum diamati cukup sering untuk menggambar garis",
         "p9": "Pengamatan disimpan di sebuah namespace KV Cloudflare yang terikat pada Worker yang diterapkan. Saat dijalankan secara lokal tanpa ikatan itu, tidak ada yang bisa digambar — dan karena itu hal ini dinyatakan alih-alih menggambar sumbu kosong.",
         "p10": "Penyimpanannya tidak menjawab. Angka langsung di atas tidak terpengaruh.",
         "p11": "Tidak ada yang tersimpan untuk rentang ini. Di tempat tugas terjadwalnya berjalan, satu pengamatan ditulis setiap",
         "p12": "menit dan grafiknya muncul setelah ada",
-        "p13": "dalam",
-        "p14": "pemain. Sebuah grafik butuh setidaknya",
-        "p15": "titik agar menjadi garis, bukan titik tunggal; jadi angkanya ditampilkan dalam bentuk daftar.",
-        "p16": "Jendelanya melebar dengan sendirinya seiring pengamatan menumpuk, sampai",
-        "p17": "hari. Pengamatan lama kedaluwarsa alih-alih dihapus oleh sebuah tugas. Puncak, terendah, dan rata-rata hanya menggambarkan titik-titik yang tercatat ini — totalnya bisa saja lebih tinggi di antara dua pengamatan, dan situs ini tidak mengeklaim sebaliknya."
+        "p13": "dalam {label} terakhir, dengan yang terbaru menunjukkan",
+        "p14": "pemain. Sebuah grafik memerlukan setidaknya {minimumPointsForChart} titik agar menjadi garis, bukan satu titik, jadi angkanya ditampilkan dalam bentuk daftar.",
+        "p16": "Rentang waktu melebar dengan sendirinya seiring bertambahnya observasi, hingga {retentionDays} hari. Observasi yang lebih lama kedaluwarsa, bukan dihapus oleh suatu proses. Puncak, terendah, dan rata-rata hanya menggambarkan titik-titik yang tercatat ini — totalnya bisa saja lebih tinggi di antara dua observasi, dan situs ini tidak mengklaim sebaliknya."
       }
     }
   },
@@ -180,7 +174,8 @@
       },
       "related": {
         "p1": "Ini kutipan harga terbaru yang diterima situs ini.",
-        "p2": "Tidak ada angka yang ditampilkan sebagai gantinya. Harga usang yang disajikan sebagai terkini akan lebih buruk daripada tidak ada."
+        "p2": "Tidak ada angka yang ditampilkan sebagai gantinya. Harga usang yang disajikan sebagai terkini akan lebih buruk daripada tidak ada.",
+        "p3": "· via {providerName}, diambil di sisi server"
       }
     }
   },
@@ -250,7 +245,7 @@
     "body": {
       "engagement": {
         "p1": "Jam per pengguna aktif, per hari",
-        "p2": "hari. Kedua masukannya dibulatkan dalam rilisnya, jadi ini perkiraan.",
+        "p2": "{hoursBillions} miliar Jam ÷ {dauMillions} juta DAU ÷ {periodDays} hari. Kedua angka masukan dibulatkan dalam rilisnya, jadi hasil ini merupakan perkiraan.",
         "p3": "Semua angka di atas kecuali yang terakhir dikutip dari"
       },
       "business": {

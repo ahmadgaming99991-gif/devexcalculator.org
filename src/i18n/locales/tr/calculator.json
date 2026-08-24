@@ -88,14 +88,13 @@
     "columnRate": "Kur",
     "body": {
       "intro": {
-        "p1": "Roblox şunu şart koşar:",
-        "p2": "Talep göndermek için Earned Robux. O sayıya ulaşmak bir koşuldur, onay değil — Roblox her talebi inceler ve hangi Robux'un uygun olduğuna karar verir.",
+        "p1": "Roblox, bir talep göndermek için {minimumRobux} Earned Robux şartı koyar. Bu sayıya ulaşmak bir koşuldur, onay değil — Roblox her talebi inceler ve hangi Robux'ların uygun olduğuna karar verir.",
         "p3": "Bunlar sizin girdiğiniz rakamlar; Roblox'un ya da herhangi bir sağlayıcının verdiği tutarlar değil. Bu site vergi danışmanlığı vermez.",
-        "p4": "tam Earned Robux. Bu şu kadar öder:",
-        "p5": "Earned Robux hedefinize aritmetik olarak ulaşırdı, ama Roblox şunu şart koşar:",
-        "p6": "bir talep gönderilebilmesi için. Uygulamada şu kadarına ihtiyacınız olurdu:",
-        "p7": "% yol alındı",
-        "p8": "rakamlar şunu kullanıyor:"
+        "p4": "tam Earned Robux. Bu tutar {currency} öder; bu, hedefinizin hemen altında kalmak yerine ona ulaşan ilk tam Robux miktarıdır.",
+        "p5": "{requiredRobux} Earned Robux hedefinize aritmetik olarak ulaşırdı, ancak Roblox bir talep gönderilebilmesi için {minimumRobux} şartı koyuyor. Şuna ihtiyacınız olurdu:",
+        "p7": "hedefe giden yolun %{progressPercent}'i",
+        "p8": "rakamlar şunu kullanıyor:",
+        "p9": "Güncel olmayan oranlar. {staleReason}"
       }
     }
   },
@@ -129,10 +128,9 @@
     "body": {
       "intro": {
         "p1": "uygun her Earned Robux için",
-        "p2": "Üyenin adı",
-        "p3": "Toplamları",
-        "p4": "Robux atanmadı. Sayılar tutsun diye burada hiçbir şey ölçeklenmedi: bunu sizin yerinize yapmak, kimsenin üzerinde anlaşmadığı rakamlar üretirdi. Yüzdeleri düzeltin ya da artan tutarın grup fonlarını elinde tutanda kaldığını kabul edin.",
-        "p5": "Bu yüzdelerle Robux eşit bölünemez. Robux tamdır; bu yüzden her pay aşağı yuvarlanır ve artan, listede rastgele ilk sırada olana verilmek yerine gösterilir."
+        "p2": "{index}. üyenin adı",
+        "p3": "Toplamları %{allocatedPercent}, bu da {unallocatedRobux} Robux'ı atanmamış bırakıyor. Sayıların tutması için burada hiçbir şey ölçeklenmedi: bunları sizin yerinize ayarlamak, kimsenin kabul etmediği rakamlar üretirdi. Yüzdeleri düzeltin ya da artan kısmın grup fonlarını elinde tutan kişide kalmasını kabul edin.",
+        "p5": "{unallocatedRobux} Robux bu yüzdelerle eşit olarak bölünemez. Robux tam birimlerdir; bu nedenle her pay aşağı yuvarlanır ve artan kısım, listede rastgele ilk sırada yer alan kişiye verilmek yerine gösterilir."
       }
     }
   },
@@ -247,7 +245,6 @@
       }
     }
   },
-  "actions": {},
   "controls": {
     "body": {
       "intro": {
@@ -262,8 +259,7 @@
     "intro": {
       "p1": "Bakiyenizin her bölümünü ayrı ayrı girin. Hiçbir şey iki kez sayılmaz — her Robux tam olarak tek bir gruba aittir ve hangisi olduğuna siz karar verirsiniz. Gerçek ayrımı Roblox yapar.",
       "p2": "Bakiyenizin hangi bölümüne hangi kurun uygulanacağına Roblox karar verir. Bu, sizin yapabileceğiniz bir seçim değildir.",
-      "p3": "Tahminler, Roblox'un şu anda belgelediği kurları kullanır. Şu alt sınır:",
-      "p4": "Earned Robux, talep göndermek için bir koşuldur, onay değil. Hangi Robux'un uygun olduğuna ve bir talebin sonuç verip vermeyeceğine Roblox karar verir.",
+      "p3": "Tahminler, Roblox'un şu anda belgelediği oranları kullanır. {minimumEarnedRobux} Earned Robux alt sınırı, bir talep göndermek için bir koşuldur, onay değildir. Hangi Robux'ların uygun olduğuna ve bir talebin başarılı olup olmayacağına Roblox karar verir.",
       "p5": "Yalnızca bu tarayıcıya kaydedilir. Hiçbir şey yüklenmez ve tarayıcı verilerinizi temizlemek onları siler."
     }
   }

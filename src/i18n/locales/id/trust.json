@@ -130,7 +130,8 @@
         "p1": "Fakta yang ditetapkan sumber ini"
       },
       "cadence": {
-        "p1": "Data kurs tidak pernah diperbarui otomatis dari halaman yang dikeruk. Mengubah kurs yang diterbitkan mengharuskan sumbernya diverifikasi secara manual, registrinya diperbarui, pengujian unitnya diperbarui ke nilai yang baru diharapkan, halaman terdampak ditinjau, sebuah entri ditambahkan ke changelog, dan penerapan ulang dilakukan. Urutan itu sengaja lambat — kurs yang salah dan diterbitkan cepat lebih buruk daripada kurs yang benar dan diterbitkan sehari kemudian."
+        "p1": "Data kurs tidak pernah diperbarui otomatis dari halaman yang dikeruk. Mengubah kurs yang diterbitkan mengharuskan sumbernya diverifikasi secara manual, registrinya diperbarui, pengujian unitnya diperbarui ke nilai yang baru diharapkan, halaman terdampak ditinjau, sebuah entri ditambahkan ke changelog, dan penerapan ulang dilakukan. Urutan itu sengaja lambat — kurs yang salah dan diterbitkan cepat lebih buruk daripada kurs yang benar dan diterbitkan sehari kemudian.",
+        "p2": "{lastVerifiedAt} ({ageDays} hari lalu)"
       }
     }
   },
@@ -169,8 +170,7 @@
         "p2": "Data terstruktur yang menggambarkan sesuatu yang tidak tampak ada di halamannya."
       },
       "review": {
-        "p1": "Konten yang peka terhadap kurs ditinjau setiap",
-        "p2": "hari, dan naik menjadi peninjauan manual wajib setelah",
+        "p1": "Konten yang bergantung pada tarif ditinjau setiap {reviewCadenceDays} hari, dan meningkat menjadi tinjauan manual wajib setelah {criticalReviewAgeDays}. Proses build melacak usia registri tarif dan menampilkannya di setiap halaman yang bergantung pada tarif, sehingga angka yang basi terlihat oleh pembaca, bukan hanya oleh pengelola situs.",
         "p3": "Sebuah angka tidak pernah dibiarkan daring hanya karena berkinerja baik di pencarian setelah ia berhenti akurat. Kalau salah, ia diubah, dan perubahannya dicatat.",
         "p4": "Bagaimana koreksi bekerja"
       }

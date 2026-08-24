@@ -30,44 +30,38 @@
     },
     "body": {
       "how": {
-        "p1": "Sayfa sunulurken sunucu tarafında Roblox'tan alınır ve şu kadar süreyle önbelleğe alınır:",
-        "p2": "dakika. Tarayıcınız Roblox'a hiçbir istek göndermez ve bu sayfada Roblox'a ait hiçbir betik çalışmaz.",
+        "p1": "Sayfa sunulurken sunucu tarafında Roblox'tan alınır ve {experienceCacheSeconds} dakika boyunca önbelleğe alınır. Tarayıcınız Roblox'a hiçbir istek göndermez ve bu sayfada Roblox'a ait hiçbir betik çalışmaz.",
         "p3": "Zamanlanmış bir görev şu aralıklarla bir gözlem kaydeder:",
         "p4": "dakika. Platform toplamları hepsini şu süre boyunca saklar:",
         "p5": "gün; çünkü bu, birkaç yüz experience'ın her biri için bir dizi demek. İki grafik de gerçekten kaydedileni, boşluklarıyla birlikte gösterir — saklanmayan turları doldurmak için hiçbir şeyin ortalaması alınmaz."
       },
       "related": {
-        "p1": "Yerine hiçbir şey gösterilmez; çünkü eski ya da uydurma bir sayı, hiç olmamasından kötüdür. Bu sitenin geri kalanı o uç noktaya bağlı değil —",
+        "p1": "{reason} Yerlerine hiçbir şey gösterilmez, çünkü eski ya da uydurma bir sayı hiç olmamasından daha kötüdür. Bu sitenin geri kalanı bu uç noktaya bağlı değildir —",
         "p2": "yine de çalışır.",
         "p3": "Uç nokta yanıt verdi ama sıralaması boştu. Bu alışılmadık ve büyük olasılıkla geçici.",
         "p4": "Roblox explore uç noktası",
         "p5": "Roblox games uç noktası",
         "p6": "Ziyaret sayıları, favoriler ve içerik üreticisi adları atlandı: bunları sağlayan uç nokta bu istek için yanıt vermedi. Yukarıdaki oyuncu sayıları ve oylar sıralamanın kendisinden geliyor ve bundan etkilenmiyor.",
-        "p7": "Roblox şunu yayımlıyor:",
+        "p7": "Roblox {rankingsCount} sıralama yayımlıyor",
         "p8": "Experience başına sayılar, dağıtılan Worker'a bağlı bir Cloudflare KV ad alanında tutulur. O bağ olmadan çizilecek hiçbir kayıt yoktur; bu yüzden burada boş bir eksen göstermek yerine bu yazıyor.",
-        "p9": "şimdiye kadar. Bir grafiğin şuna ihtiyacı var:",
-        "p10": "nokta değil çizgi olabilmesi için.",
+        "p10": "şu ana kadar. Bir grafiğin nokta yerine çizgi olabilmesi için {minimumPointsForChart} gerekir.",
         "p11": "Şuradan toplandı:",
         "p12": "açık sıralama; bir sıralama aynı experience'ı iki kez listelese bile her biri yalnızca bir kez sayıldı, şu tarihte okunduğu hâliyle:"
       },
       "experience": {
         "p1": "Bu grafiği kapat",
         "p2": "bu experience'ın",
-        "p3": "kaydedildi; bu bir çizgi çizmeye yetmiyor. Experience başına sayılar son",
-        "p4": "gün için saatte bir gözlemle tutulur ve bir experience yalnızca Roblox onu sıraladığı sürece kaydedilir.",
-        "p5": "Son",
-        "p6": "günün grafiğini çiz:",
+        "p3": "kaydedildi; bu, bir çizgi çizmek için yeterli değil. Deneyim başına sayımlar son {gameHistoryDays} gün boyunca saatte bir gözlem olarak tutulur ve bir deneyim yalnızca Roblox onu sıralarken kaydedilir.",
+        "p5": "{name} için son {gameHistoryDays} günü grafikte göster",
         "p7": "henüz izlenmiyor",
         "p8": " — bu experience bir çizgi çizmeye yetecek kadar gözlenmedi",
         "p9": "Gözlemler, dağıtılan Worker'a bağlı bir Cloudflare KV ad alanında saklanır. Bu bağ olmadan yerelde çalıştırıldığında çizilecek bir şey yoktur — bu yüzden boş bir eksen çizmek yerine bu yazıyor.",
         "p10": "Depo yanıt vermedi. Yukarıdaki canlı rakamlar bundan etkilenmez.",
         "p11": "Bu aralık için hiçbir şey saklanmadı. Zamanlanmış görevin çalıştığı yerde şu aralıklarla bir gözlem yazılır:",
         "p12": "dakika; ve grafik şu kadarı olunca görünür:",
-        "p13": "son",
-        "p14": "oyuncu. Bir grafiğin nokta değil çizgi olabilmesi için en az",
-        "p15": "noktaya ihtiyacı var; bu yüzden rakamlar bunun yerine liste olarak veriliyor.",
-        "p16": "Gözlemler biriktikçe pencere kendiliğinden genişler, şuna kadar:",
-        "p17": "gün. Eski gözlemler bir görevle silinmek yerine kendiliğinden düşer. Zirve, en düşük ve ortalama yalnızca bu kaydedilmiş noktaları tanımlar — toplam, iki gözlem arasında daha yüksek olmuş olabilir ve bu site aksini iddia etmez."
+        "p13": "son {label} içinde, en yenisi şunu gösteriyor:",
+        "p14": "oyuncu. Bir grafiğin nokta yerine çizgi olabilmesi için en az {minimumPointsForChart} noktaya ihtiyacı vardır; bu yüzden rakamlar bunun yerine listelenir.",
+        "p16": "Gözlemler biriktikçe pencere kendiliğinden genişler, {retentionDays} güne kadar. Daha eski gözlemlerin süresi bir işle silinmek yerine kendiliğinden dolar. Zirve, en düşük ve ortalama yalnızca bu kaydedilmiş noktaları tanımlar — toplam, iki gözlem arasında daha yüksek olmuş olabilir ve bu site aksini iddia etmez."
       }
     }
   },
@@ -177,7 +171,8 @@
       },
       "related": {
         "p1": "Bu, bu sitenin aldığı en son fiyat bilgisidir.",
-        "p2": "Yerine hiçbir rakam gösterilmiyor. Eski bir fiyatı güncelmiş gibi sunmak hiç göstermemekten kötü olurdu."
+        "p2": "Yerine hiçbir rakam gösterilmiyor. Eski bir fiyatı güncelmiş gibi sunmak hiç göstermemekten kötü olurdu.",
+        "p3": "· {providerName} üzerinden, sunucu tarafında alındı"
       }
     }
   },
@@ -247,7 +242,7 @@
     "body": {
       "engagement": {
         "p1": "Etkin kullanıcı başına günlük saat",
-        "p2": "gün. İki girdi de bültende yuvarlanmış hâlde; dolayısıyla bu yaklaşık bir değer.",
+        "p2": "{hoursBillions} milyar Saat ÷ {dauMillions} milyon DAU ÷ {periodDays} gün. Her iki girdi de yayımda yuvarlanmıştır, bu nedenle bu sonuç yaklaşıktır.",
         "p3": "Yukarıdaki son rakam dışında hepsi şuradan alıntılandı:"
       },
       "business": {

@@ -8,7 +8,7 @@
     "preferCalculateDescription": "Cada guía enlaza la herramienta a la que acompaña, pero puedes ir directamente allí.",
     "body": {
       "readingOrder": {
-        "p1": "Última revisión"
+        "p1": "Última revisión el {lastReviewedAt}"
       },
       "calculators": {
         "p1": "Pago DevEx, Robux a USD, objetivos de pago y comisiones del marketplace."
@@ -73,7 +73,7 @@
     },
     "body": {
       "process": {
-        "p1": "Acumula al menos",
+        "p1": "Acumula al menos {minimumEarnedRobux} Earned Robux.",
         "p2": "Solo cuentan los Earned Robux.",
         "p3": "Comprueba cuáles de tus Robux cumplen",
         "p4": "Correo verificado, edad mínima de 13 años, una cuenta válida en el portal de DevEx, un W-9 o W-8 registrado y una cuenta en regla.",

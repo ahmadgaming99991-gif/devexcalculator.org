@@ -90,14 +90,13 @@
     "columnRate": "Tasa",
     "body": {
       "intro": {
-        "p1": "Roblox exige",
-        "p2": "Earned Robux para enviar una solicitud. Llegar a esa cifra es un requisito, no una aprobación: Roblox revisa cada solicitud y decide qué Robux cumplen.",
+        "p1": "Roblox exige {minimumRobux} Earned Robux para enviar una solicitud. Alcanzar esa cifra es un requisito, no una aprobación: Roblox revisa cada solicitud y decide qué Robux califican.",
         "p3": "Estas son las cifras que has introducido, no importes que Roblox ni ningún proveedor hayan cotizado. Este sitio no da asesoramiento fiscal.",
-        "p4": "Earned Robux enteros. Eso paga",
-        "p5": "Earned Robux alcanzarían tu objetivo aritméticamente, pero Roblox exige",
-        "p6": "antes de poder enviar una solicitud. En la práctica necesitarías",
-        "p7": "% del camino recorrido",
-        "p8": "las cifras usan"
+        "p4": "Earned Robux enteros. Eso paga {currency}, que es la primera cantidad en Robux enteros que alcanza tu objetivo en lugar de quedarse justo por debajo.",
+        "p5": "{requiredRobux} Earned Robux alcanzarían tu objetivo aritméticamente, pero Roblox exige {minimumRobux} antes de poder enviar una solicitud. Necesitarías",
+        "p7": "{progressPercent}% del camino recorrido",
+        "p8": "las cifras usan",
+        "p9": "Tasas desactualizadas. {staleReason}"
       }
     }
   },
@@ -131,10 +130,9 @@
     "body": {
       "intro": {
         "p1": "por cada Earned Robux elegible",
-        "p2": "Nombre del miembro",
-        "p3": "Suman",
-        "p4": "Robux sin asignar. Nada de esto se ha ajustado para que cuadre: cambiar las cifras por ti produciría números que nadie acordó. Corrige los porcentajes, o acepta que un resto se queda con quien custodia los fondos del grupo.",
-        "p5": "Los Robux no se pueden repartir de forma exacta con esos porcentajes. Los Robux son enteros, así que cada parte se redondea hacia abajo y el resto se muestra en lugar de entregarse a quien aparezca primero."
+        "p2": "Nombre del miembro {index}",
+        "p3": "Suman {allocatedPercent}%, lo que deja {unallocatedRobux} Robux sin asignar. Aquí no se ha escalado nada para cuadrar los números: ajustarlos por ti produciría cifras que nadie acordó. Corrige los porcentajes o acepta que un resto quede con quien controla los fondos del grupo.",
+        "p5": "{unallocatedRobux} Robux no se pueden repartir de forma exacta con estos porcentajes. Los Robux son unidades enteras, así que cada parte se redondea hacia abajo y el resto se muestra en lugar de entregarse a quien casualmente figure primero."
       }
     }
   },
@@ -249,7 +247,6 @@
       }
     }
   },
-  "actions": {},
   "controls": {
     "body": {
       "intro": {
@@ -264,8 +261,7 @@
     "intro": {
       "p1": "Introduce cada parte de tu saldo por separado. Nada se cuenta dos veces: cada Robux pertenece exactamente a un tramo, y eres tú quien decide a cuál. Roblox hace el reparto real.",
       "p2": "Roblox decide qué tasa se aplica a cada parte de tu saldo. Esta no es una elección que puedas hacer tú.",
-      "p3": "Las estimaciones usan las tasas que Roblox documenta actualmente. El mínimo de",
-      "p4": "Earned Robux es un requisito para enviar una solicitud, no una aprobación. Roblox decide qué Robux cumplen y si alguna solicitud prospera.",
+      "p3": "Las estimaciones usan las tasas que Roblox documenta actualmente. El mínimo de {minimumEarnedRobux} Earned Robux es un requisito para enviar una solicitud, no una aprobación. Roblox decide qué Robux califican y si alguna solicitud prospera.",
       "p5": "Guardados solo en este navegador. No se sube nada, y borrar los datos del navegador los elimina."
     }
   }

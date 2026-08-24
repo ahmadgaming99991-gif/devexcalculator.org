@@ -114,7 +114,12 @@
     "instagram": "DevEx Calculator en Instagram",
     "pinterest": "DevEx Calculator en Pinterest",
     "instagramName": "Instagram",
-    "pinterestName": "Pinterest"
+    "pinterestName": "Pinterest",
+    "body": {
+      "intro": {
+        "p1": "{description} (se abre en una pestaña nueva)"
+      }
+    }
   },
   "consent": {
     "accept": "Aceptar",
@@ -142,7 +147,8 @@
       "intro": {
         "p1": "Las tasas y los requisitos cambian.",
         "p2": "Las cifras de aquí usan las tasas que Roblox documenta actualmente. Solo Roblox decide cuáles de tus Robux cuentan como Earned Robux, qué tasa se aplica a cada parte de tu saldo y si se aprueba una solicitud de DevEx. Las comisiones del proveedor de pagos y tus propias obligaciones fiscales no están incluidas salvo que las añadas.",
-        "p3": "Los Robux que compraste, recibiste como regalo u obtuviste fuera de las ganancias como creador no son Earned Robux y no pueden cobrarse. El precio de venta al público de los Robux es algo completamente distinto y nunca se mezcla con estas cifras."
+        "p3": "Los Robux que compraste, recibiste como regalo u obtuviste fuera de las ganancias como creador no son Earned Robux y no pueden cobrarse. El precio de venta al público de los Robux es algo completamente distinto y nunca se mezcla con estas cifras.",
+        "p4": "Tasas verificadas el {lastVerifiedAt}"
       },
       "tocHeading": {
         "p1": "En esta página"
@@ -152,7 +158,7 @@
   "tables": {
     "body": {
       "intro": {
-        "p1": "Saldos ganados antes del",
+        "p1": "Saldos obtenidos antes del {effectiveTo}.",
         "p2": "El camino inverso divide, y siempre redondea hacia arriba: un objetivo de",
         "p3": "se quedaría corto por una fracción."
       }
@@ -161,14 +167,14 @@
   "charts": {
     "body": {
       "intro": {
-        "p1": "Los valores están en"
+        "p1": "{caption} Los valores son {valueLabel}."
       }
     }
   },
   "diagrams": {
     "body": {
       "intro": {
-        "p1": "Aplicado por"
+        "p1": "Aplicado por {by}"
       }
     }
   }

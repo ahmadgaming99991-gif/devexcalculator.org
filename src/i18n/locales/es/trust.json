@@ -129,7 +129,8 @@
         "p1": "Hechos que establece esta fuente"
       },
       "cadence": {
-        "p1": "Los datos de tasas nunca se actualizan automáticamente desde una página rastreada. Cambiar una tasa publicada exige verificar la fuente a mano, actualizar el registro, actualizar las pruebas unitarias con los nuevos valores esperados, revisar las páginas afectadas, añadir una entrada al changelog y volver a desplegar. Esa secuencia es deliberadamente lenta: una tasa equivocada publicada deprisa es peor que una correcta publicada un día después."
+        "p1": "Los datos de tasas nunca se actualizan automáticamente desde una página rastreada. Cambiar una tasa publicada exige verificar la fuente a mano, actualizar el registro, actualizar las pruebas unitarias con los nuevos valores esperados, revisar las páginas afectadas, añadir una entrada al changelog y volver a desplegar. Esa secuencia es deliberadamente lenta: una tasa equivocada publicada deprisa es peor que una correcta publicada un día después.",
+        "p2": "{lastVerifiedAt} (hace {ageDays} días)"
       }
     }
   },
@@ -168,8 +169,7 @@
         "p2": "Datos estructurados que describan algo que la página no contiene de forma visible."
       },
       "review": {
-        "p1": "El contenido sensible a las tasas se revisa cada",
-        "p2": "días, y pasa a requerir revisión manual tras",
+        "p1": "El contenido sensible a las tasas se revisa cada {reviewCadenceDays} días y pasa a requerir una revisión manual después de {criticalReviewAgeDays}. La compilación registra la antigüedad del registro de tasas y la muestra en cada página sensible a las tasas, de modo que una cifra obsoleta sea visible para los lectores y no solo para quien mantiene el sitio.",
         "p3": "Una cifra nunca se deja publicada porque funcione bien en las búsquedas después de dejar de ser exacta. Si está mal, cambia, y el cambio queda registrado.",
         "p4": "Cómo funcionan las correcciones"
       }

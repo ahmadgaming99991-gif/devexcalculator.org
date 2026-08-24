@@ -121,7 +121,8 @@
         "p1": "Facts this source establishes"
       },
       "cadence": {
-        "p1": "Rate data is never updated automatically from a scraped page. A change to a published rate requires the source to be verified by hand, the registry updated, the unit tests updated to the new expected values, the affected pages reviewed, an entry added to the changelog, and a redeploy. That sequence is deliberately slow — a wrong rate published quickly is worse than a right one published a day later."
+        "p1": "Rate data is never updated automatically from a scraped page. A change to a published rate requires the source to be verified by hand, the registry updated, the unit tests updated to the new expected values, the affected pages reviewed, an entry added to the changelog, and a redeploy. That sequence is deliberately slow — a wrong rate published quickly is worse than a right one published a day later.",
+        "p2": "{lastVerifiedAt} ({ageDays} days ago)"
       }
     }
   },
@@ -160,8 +161,7 @@
         "p2": "Structured data describing something the page does not visibly contain."
       },
       "review": {
-        "p1": "Rate-sensitive content is reviewed every",
-        "p2": "days, and escalates to a required manual review after",
+        "p1": "Rate-sensitive content is reviewed every {reviewCadenceDays} days, and escalates to a required manual review after {criticalReviewAgeDays}. The build tracks the age of the rate registry and surfaces it on every rate-sensitive page, so a stale figure is visible to readers rather than only to whoever maintains the site.",
         "p3": "A figure is never left online because it performs well in search after it stops being accurate. If it is wrong, it changes, and the change is recorded.",
         "p4": "How corrections work"
       }

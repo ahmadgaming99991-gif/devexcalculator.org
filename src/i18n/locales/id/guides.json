@@ -8,7 +8,7 @@
     "preferCalculateDescription": "Setiap panduan menautkan alat yang didukungnya, tetapi Anda bisa langsung ke sana.",
     "body": {
       "readingOrder": {
-        "p1": "Terakhir ditinjau"
+        "p1": "Terakhir ditinjau {lastReviewedAt}"
       },
       "calculators": {
         "p1": "Pembayaran DevEx, Robux ke USD, target pembayaran, dan biaya marketplace."
@@ -73,7 +73,7 @@
     },
     "body": {
       "process": {
-        "p1": "Kumpulkan setidaknya",
+        "p1": "Kumpulkan setidaknya {minimumEarnedRobux} Earned Robux.",
         "p2": "Hanya Earned Robux yang dihitung.",
         "p3": "Periksa Robux mana milik Anda yang memenuhi syarat",
         "p4": "Surel terverifikasi, usia minimum 13 tahun, akun portal DevEx yang sah, W-9 atau W-8 yang tercatat, dan akun dalam status baik.",

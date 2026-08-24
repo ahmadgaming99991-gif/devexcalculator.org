@@ -28,7 +28,7 @@
     "contactPageLink": "page de contact",
     "body": {
       "intro": {
-        "p1": "Dernière relecture"
+        "p1": "Dernière révision le {lastReviewedAt}."
       },
       "calculations": {
         "p1": "Chaque calcul s’exécute dans votre navigateur. Les montants que vous saisissez, le taux que vous choisissez et les résultats ne sont jamais transmis à un serveur, car l’arithmétique n’a besoin d’aucun serveur pour se faire.",
@@ -55,8 +55,7 @@
       },
       "rights": {
         "p1": "Effacez les calculs enregistrés à tout moment avec le bouton Effacer l’historique de la calculatrice.",
-        "p2": "Effacez toutes les préférences en supprimant les données du site pour",
-        "p3": "dans les réglages de votre navigateur.",
+        "p2": "Effacez toutes les préférences en supprimant les données du site {host} dans les paramètres de votre navigateur.",
         "p4": "Utilisez le site avec le stockage local entièrement bloqué : tout fonctionne, rien n’est retenu.",
         "p5": "Écrivez-nous à propos de n’importe quel point de cette politique via la"
       }
@@ -71,11 +70,10 @@
     "changesHeading": "Modifications de ces conditions",
     "body": {
       "intro": {
-        "p1": "Dernière relecture"
+        "p1": "Dernière révision le {lastReviewedAt}."
       },
       "use": {
-        "p1": "Vous pouvez utiliser",
-        "p2": "librement pour estimer des paiements DevEx, pour vous-même ou dans le cadre de votre travail de créateur. Aucun compte n’est nécessaire et rien n’est facturé.",
+        "p1": "Vous pouvez utiliser {host} librement pour estimer les paiements DevEx, pour vous-même ou dans le cadre de votre travail de créateur. Aucun compte n'est nécessaire et rien n'est facturé.",
         "p3": "Ce qui est demandé en retour : ne cherchez pas à perturber le site ni l’infrastructure sur laquelle il tourne, ne le moissonnez pas d’une manière qui le dégrade pour les autres, et si vous republiez des chiffres qui en proviennent, citez la source et indiquez la date de vérification. Un taux cité sans sa date devient faux sans prévenir, et cela trompe la personne qui le lit ensuite."
       },
       "estimates": {
@@ -124,7 +122,7 @@
         "p1": "Roblox, Robux et Developer Exchange sont des marques de Roblox Corporation. Elles apparaissent sur ce site uniquement pour décrire l’objet de ces calculs, ce qui relève d’un usage descriptif ordinaire. Ce site n’est ni affilié à Roblox Corporation, ni approuvé, sponsorisé ou exploité par elle, et son identité visuelle, ses illustrations et ses textes lui appartiennent."
       },
       "accuracy": {
-        "p1": "Les données de taux de ce site ont été vérifiées pour la dernière fois auprès de la documentation officielle le",
+        "p1": "Les données de taux de ce site ont été vérifiées pour la dernière fois par rapport à la documentation officielle le {lastVerifiedAt}, et cette date est affichée sur chaque page sensible aux taux plutôt que dissimulée ici. Les taux changent : le taux standard a évolué en septembre 2025 et il peut évoluer de nouveau.",
         "p2": "Si un chiffre a pris du retard ici, la",
         "p3": "renvoie directement à la page officielle dont il provient : vous pouvez donc vérifier la valeur actuelle vous-même en quelques secondes. Le signaler via le",
         "p4": "le fait corriger pour tout le monde également."
@@ -155,7 +153,7 @@
     "aboutPageLink": "page à propos",
     "body": {
       "intro": {
-        "p1": "Dernière relecture"
+        "p1": "Dernière révision le {lastReviewedAt}."
       },
       "standard": {
         "p1": "Ce site vise à respecter"

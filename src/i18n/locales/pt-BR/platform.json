@@ -27,44 +27,38 @@
     },
     "body": {
       "how": {
-        "p1": "Buscado no servidor junto ao Roblox quando a página é servida e mantido em cache por",
-        "p2": "minutos. Seu navegador não faz requisição alguma ao Roblox, e nenhum script do Roblox roda nesta página.",
+        "p1": "Obtido no servidor a partir da Roblox quando a página é entregue e armazenado em cache por {experienceCacheSeconds} minutos. Seu navegador não faz nenhuma requisição à Roblox, e nenhum script da Roblox é executado nesta página.",
         "p3": "Um job agendado registra uma observação a cada",
         "p4": "minutos. Os totais da plataforma guardam todas elas por",
         "p5": "dias, porque isso é um array por experiência em várias centenas delas. Os dois gráficos mostram o que foi de fato registrado, com as lacunas incluídas — nada é calculado como média para preencher as coletas não guardadas."
       },
       "related": {
-        "p1": "Nada é mostrado no lugar, porque um número desatualizado ou inventado seria pior que nenhum. O resto deste site não depende deste endpoint — a",
+        "p1": "{reason} Nada é exibido no lugar, porque um número desatualizado ou inventado seria pior do que nenhum. O restante deste site não depende deste endpoint —",
         "p2": "funciona de qualquer forma.",
         "p3": "O endpoint respondeu, mas o ranking veio vazio. Isso é incomum e provavelmente temporário.",
         "p4": "endpoint de explorar do Roblox",
         "p5": "endpoint de jogos do Roblox",
         "p6": "Contagens de visitas, favoritos e nomes de criadores foram omitidos: o endpoint que os fornece não respondeu a esta requisição. As contagens de jogadores e os votos acima vêm do próprio ranking e não são afetados.",
-        "p7": "O Roblox publica",
+        "p7": "A Roblox publica {rankingsCount} classificação",
         "p8": "As contagens por experiência ficam em um namespace KV da Cloudflare vinculado ao Worker implantado. Sem esse vínculo não há nada registrado para desenhar, e é por isso que isto diz isso em vez de mostrar um eixo vazio.",
-        "p9": "até agora. Um gráfico precisa de",
-        "p10": "para ser uma linha em vez de um ponto.",
+        "p10": "até agora. Um gráfico precisa de {minimumPointsForChart} para ser uma linha em vez de um ponto.",
         "p11": "Somado a partir de",
         "p12": "rankings públicos, contando cada uma só uma vez mesmo quando um ranking lista a mesma experiência duas vezes, conforme lido em"
       },
       "experience": {
         "p1": "Fechar este gráfico",
         "p2": "desta experiência",
-        "p3": "foram registradas, o que não basta para desenhar uma linha. As contagens por experiência são guardadas pelos últimos",
-        "p4": "dias, a uma observação por hora, e uma experiência só é registrada enquanto o Roblox a estiver rankeando.",
-        "p5": "Traçar os últimos",
-        "p6": "dias de",
+        "p3": "foram registradas, o que não é suficiente para traçar uma linha. As contagens por experiência são mantidas pelos últimos {gameHistoryDays} dias, com uma observação por hora, e uma experiência só é registrada enquanto a Roblox a estiver classificando.",
+        "p5": "Ver o gráfico dos últimos {gameHistoryDays} dias de {name}",
         "p7": "ainda não acompanhada",
         "p8": "— esta experiência não foi observada vezes suficientes para desenhar uma linha",
         "p9": "As observações ficam em um namespace KV da Cloudflare vinculado ao Worker implantado. Rodando localmente sem esse vínculo, não há nada a traçar — e é por isso que isto diz isso em vez de desenhar um eixo vazio.",
         "p10": "O armazenamento não respondeu. Os números ao vivo acima não são afetados.",
         "p11": "Nada foi armazenado para este intervalo. Onde o job agendado está rodando, uma observação é escrita a cada",
         "p12": "minutos, e o gráfico aparece assim que houver",
-        "p13": "dentro dos últimos",
-        "p14": "jogadores. Um gráfico precisa de pelo menos",
-        "p15": "pontos para ser uma linha em vez de um ponto, então os números são listados em vez disso.",
-        "p16": "A janela se amplia sozinha conforme as observações se acumulam, até",
-        "p17": "dias. Observações antigas expiram em vez de serem apagadas por um job. Pico, mínimo e média descrevem apenas estes pontos registrados — o total pode ter sido maior entre duas observações, e este site não afirma o contrário."
+        "p13": "nos últimos {label}, com o mais recente mostrando",
+        "p14": "jogadores. Um gráfico precisa de pelo menos {minimumPointsForChart} pontos para ser uma linha em vez de um ponto, então os números são listados no lugar.",
+        "p16": "A janela se amplia sozinha conforme as observações se acumulam, até {retentionDays} dias. Observações mais antigas expiram em vez de serem apagadas por uma rotina. Pico, mínimo e média descrevem apenas esses pontos registrados — o total pode ter sido maior entre duas observações, e este site não afirma o contrário."
       }
     }
   },
@@ -174,7 +168,8 @@
       },
       "related": {
         "p1": "Esta é a cotação mais recente que este site recebeu.",
-        "p2": "Nenhum número é mostrado no lugar. Um preço desatualizado apresentado como atual seria pior que nenhum."
+        "p2": "Nenhum número é mostrado no lugar. Um preço desatualizado apresentado como atual seria pior que nenhum.",
+        "p3": "· via {providerName}, obtido no servidor"
       }
     }
   },
@@ -244,7 +239,7 @@
     "body": {
       "engagement": {
         "p1": "Horas por usuário ativo, por dia",
-        "p2": "dias. Os dois insumos vêm arredondados no comunicado, então isto é aproximado.",
+        "p2": "{hoursBillions} bilhões de Horas ÷ {dauMillions} milhões de DAUs ÷ {periodDays} dias. Os dois números são arredondados na divulgação, portanto este resultado é aproximado.",
         "p3": "Todo número acima, exceto o último, é citado de"
       },
       "business": {

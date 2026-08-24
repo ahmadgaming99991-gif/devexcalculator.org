@@ -26,11 +26,10 @@
         "p2": "A calculadora dividida modela um saldo misto"
       },
       "difference": {
-        "p1": "A diferença entre a taxa atual e a antiga é de",
-        "p2": "por 100.000 Earned Robux — cerca de 8,6% a mais na taxa atual. A taxa condicional dos EUA 18+ paga aproximadamente 42% a mais que a taxa padrão na parte do saldo que qualifica para ela."
+        "p1": "A diferença entre a taxa atual e a antiga é de {rateValue} por 100.000 Earned Robux — cerca de 8,6% a mais sob a taxa atual. A taxa condicional dos EUA para maiores de 18 anos paga aproximadamente 42% a mais do que a taxa padrão sobre a parte do saldo que se qualifica para ela."
       },
       "changes": {
-        "p1": "O Roblox mudou a taxa padrão de 0,0035 para 0,0038 em",
+        "p1": "A Roblox alterou a taxa padrão de 0.0035 para 0.0038 em {date}. Não há como saber, de fora da Roblox, se ou quando ela mudará de novo, então esta página não faz previsões. O que ela registra é a data em que cada número aqui foi verificado pela última vez em relação à documentação oficial, exibida no topo da página e em",
         "p2": "Veja o histórico datado das mudanças de taxa",
         "p3": "Veja quando este site atualizou seus dados pela última vez"
       }
@@ -109,7 +108,7 @@
     },
     "body": {
       "minimum": {
-        "p1": "Earned Robux é o limite para enviar um pedido. Na taxa padrão atual esse saldo vale cerca de",
+        "p1": "{minimumEarnedRobux} Earned Robux é o limite para enviar uma solicitação. Na taxa padrão atual, esse saldo vale cerca de",
         "p2": "antes de qualquer taxa do provedor de pagamento ou imposto.",
         "p3": "A palavra que importa é"
       },
@@ -117,7 +116,7 @@
         "p1": "Nenhuma calculadora, incluindo esta, pode lhe dizer se um pedido de DevEx será aprovado. O Roblox decide quais dos seus Robux contam como Earned Robux e se sua conta e seu pedido atendem aos critérios dele. Quem diz o contrário — inclusive qualquer site prometendo pagamento garantido — não tem como saber."
       },
       "checklist": {
-        "p1": "Confirme que seu saldo é genuinamente Earned Robux e chegou a",
+        "p1": "Confirme que seu saldo é realmente Earned Robux e que chegou a {minimumEarnedRobux}.",
         "p2": "Preencha o formulário fiscal correto — W-9 se você for contribuinte dos Estados Unidos, W-8 caso contrário.",
         "p3": "Verifique se sua conta está regular perante os Termos de Uso e os Padrões da Comunidade.",
         "p4": "Decida para onde o dinheiro vai e confira quanto seu banco ou provedor de pagamento cobrará para recebê-lo."
@@ -145,8 +144,7 @@
     "body": {
       "definition": {
         "p1": "A parte do seu saldo de Robux que veio de atividade de criador — outras pessoas gastando Robux em algo que você fez — e não de Robux obtidos de qualquer outra forma. O DevEx converte apenas Earned Robux. Sua conta mostra um único número de Robux, mas o Roblox acompanha de onde veio cada parte, e é essa contabilidade interna que determina a elegibilidade.",
-        "p2": "— o saldo que o DevEx converte, e o único saldo que conta para o mínimo de",
-        "p3": "O Roblox faz a determinação final para qualquer saldo específico.",
+        "p2": "— o saldo que o DevEx converte e o único saldo que conta para o mínimo de {minimumEarnedRobux}. A Roblox dá a palavra final sobre qualquer saldo específico.",
         "p4": "Se você já comprou Robux, recebeu por uma assinatura ou resgatou um cartão-presente, parte do seu saldo não é ganha. Essa parte não pode ser sacada, e também não conta para o mínimo de 30.000."
       },
       "qualifying": {
@@ -295,19 +293,16 @@
     "ogImageAlt": "Arredondado para cima, porque um Robux parcial não pode ser ganho nem trocado",
     "body": {
       "rounding": {
-        "p1": "Uma meta de 1.000 dólares dividida por 0,0038 dá 263.157,89. Robux vêm em unidades inteiras, então 263.157 pagariam",
-        "p2": "— logo abaixo da meta. Arredondar para cima até 263.158 paga"
+        "p1": "Uma meta de 1.000 dólares dividida por 0.0038 dá 263.157,89. Robux vêm em unidades inteiras, então 263.157 pagariam {rate} — logo abaixo da meta. Arredondar para cima até 263.158 paga {rate2}, o que a alcança. É por isso que todo número nesta página é arredondado para cima, e não para o inteiro mais próximo."
       },
       "minimum": {
-        "p1": "O Roblox exige",
-        "p2": "Earned Robux antes que um pedido de DevEx possa sequer ser enviado. Se a sua meta precisa de menos que isso, o mínimo é o que você realmente tem que alcançar — e ele pagaria",
-        "p3": "em vez da sua meta original."
+        "p1": "A Roblox exige {minimumEarnedRobux} Earned Robux antes que qualquer solicitação de DevEx possa ser enviada. Se sua meta exigir menos do que isso, o mínimo é o que você realmente precisa alcançar — e ele pagaria {rate} em vez da sua meta original."
       },
       "planner": {
         "p1": "Uma meta de pagamento é uma distância. Transformá-la em uma data exige mais um dado — a que velocidade você ganha — e transformar uma data em um plano exige o mesmo dado ao contrário. Os dois são a mesma divisão:"
       },
       "examples": {
-        "p1": "Sim — você precisaria de"
+        "p1": "Sim — você precisaria de {effective}"
       },
       "buyingRobux": {
         "p1": "Esta página responde à pergunta do criador: quanto preciso ganhar para receber determinada quantia de dinheiro. Ela não diz quantos Robux determinada quantia de dinheiro compra. O Roblox precifica pacotes de Robux por região, plataforma e promoção, e não existe taxa única que fosse verdadeira para todos — então este site não publica uma.",
@@ -395,11 +390,11 @@
         "p1": "Abrir esta quantia na calculadora completa"
       },
       "rateComparison": {
-        "p1": "diferença entre a taxa atual e a antiga é o que a mudança de setembro de 2025 vale nesta quantia.",
+        "p1": "A diferença de {standardVsLegacyUsd} entre a taxa atual e a antiga é o que a mudança de setembro de 2025 vale neste montante.",
         "p2": "Ver o histórico de taxas"
       },
       "reverse": {
-        "p1": "Coberta por",
+        "p1": "Coberto por {display}?",
         "p2": "Trabalhe de trás para frente a partir da sua própria meta"
       },
       "nearby": {

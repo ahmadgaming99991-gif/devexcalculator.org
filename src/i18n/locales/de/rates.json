@@ -29,11 +29,10 @@
         "p2": "Der Aufteilungsrechner bildet ein gemischtes Guthaben ab"
       },
       "difference": {
-        "p1": "Der Abstand zwischen dem aktuellen und dem alten Kurs beträgt",
-        "p2": "pro 100.000 Earned Robux — rund 8,6 % mehr zum aktuellen Kurs. Der bedingte USA-18+-Kurs zahlt auf den dafür anrechenbaren Teil eines Guthabens ungefähr 42 % mehr als der Standardkurs."
+        "p1": "Der Unterschied zwischen dem aktuellen und dem alten Satz beträgt {rateValue} je 100.000 Earned Robux — rund 8,6 % mehr beim aktuellen Satz. Der bedingte US-Satz für 18+ zahlt etwa 42 % mehr als der Standardsatz auf den Teil eines Guthabens, der dafür infrage kommt."
       },
       "changes": {
-        "p1": "Roblox hat den Standardkurs am folgenden Datum von 0,0035 auf 0,0038 geändert:",
+        "p1": "Roblox hat den Standardsatz am {date} von 0.0035 auf 0.0038 geändert. Von außerhalb von Roblox lässt sich nicht wissen, ob oder wann er sich erneut ändert, daher trifft diese Seite keine Prognose. Festgehalten wird stattdessen das Datum, an dem jede Zahl hier zuletzt gegen die offizielle Dokumentation geprüft wurde — angezeigt oben auf der Seite und in",
         "p2": "Die datierte Geschichte der Kursänderungen ansehen",
         "p3": "Nachsehen, wann diese Website ihre Daten zuletzt aktualisiert hat"
       }
@@ -112,7 +111,7 @@
     },
     "body": {
       "minimum": {
-        "p1": "Earned Robux ist die Schwelle, um einen Antrag zu stellen. Zum aktuellen Standardkurs ist dieses Guthaben etwa",
+        "p1": "{minimumEarnedRobux} Earned Robux ist die Schwelle, um einen Antrag einzureichen. Beim aktuellen Standardsatz ist dieses Guthaben etwa wert:",
         "p2": "wert, vor allen Gebühren des Zahlungsdienstleisters und vor Steuern.",
         "p3": "Das Wort, auf das es ankommt, ist"
       },
@@ -120,7 +119,7 @@
         "p1": "Kein Rechner, auch dieser nicht, kann dir sagen, ob ein DevEx-Antrag genehmigt wird. Roblox entscheidet, welche deiner Robux als Earned Robux zählen und ob dein Konto und dein Antrag seine Kriterien erfüllen. Wer dir etwas anderes erzählt — auch jede Website, die eine garantierte Auszahlung verspricht — ist nicht in der Lage, das zu wissen."
       },
       "checklist": {
-        "p1": "Bestätige, dass dein Guthaben wirklich aus Earned Robux besteht und Folgendes erreicht hat:",
+        "p1": "Bestätigen Sie, dass Ihr Guthaben tatsächlich Earned Robux ist und {minimumEarnedRobux} erreicht hat.",
         "p2": "Fülle das richtige Steuerformular aus — W-9, wenn du in den Vereinigten Staaten steuerpflichtig bist, sonst W-8.",
         "p3": "Prüfe, dass dein Konto gegenüber den Nutzungsbedingungen und Community-Standards in Ordnung ist.",
         "p4": "Entscheide, wohin das Geld geht, und prüfe, was deine Bank oder dein Zahlungsdienstleister für den Empfang berechnet."
@@ -148,8 +147,7 @@
     "body": {
       "definition": {
         "p1": "Der Teil deines Robux-Guthabens, der aus Creator-Tätigkeit stammt — andere Menschen geben Robux für etwas aus, das du gemacht hast — und nicht aus Robux, die du auf anderem Weg bekommen hast. DevEx wandelt nur Earned Robux um. Dein Konto zeigt eine einzige Robux-Zahl, aber Roblox verfolgt, woher jeder Teil davon kommt, und diese interne Buchführung entscheidet über die Anrechenbarkeit.",
-        "p2": "— das Guthaben, das DevEx umwandelt, und das einzige, das auf das Minimum von",
-        "p3": "Roblox trifft die endgültige Entscheidung für jedes konkrete Guthaben.",
+        "p2": "— das Guthaben, das DevEx umwandelt, und das einzige Guthaben, das auf das Minimum von {minimumEarnedRobux} angerechnet wird. Die endgültige Entscheidung über ein konkretes Guthaben trifft Roblox.",
         "p4": "Wenn du jemals Robux gekauft, über eine Mitgliedschaft erhalten oder eine Geschenkkarte eingelöst hast, ist ein Teil deines Guthabens nicht verdient. Dieser Teil kann nicht ausgezahlt werden und zählt auch nicht auf das Minimum von 30.000."
       },
       "qualifying": {
@@ -298,19 +296,16 @@
     "ogImageAlt": "Aufgerundet, weil ein Bruchteil eines Robux weder verdient noch getauscht werden kann",
     "body": {
       "rounding": {
-        "p1": "Ein Ziel von 1.000 Dollar geteilt durch 0,0038 ergibt 263.157,89. Robux gibt es nur in ganzen Einheiten, 263.157 würden also",
-        "p2": "zahlen — knapp unter dem Ziel. Aufgerundet auf 263.158 zahlt es"
+        "p1": "Ein Ziel von 1.000 Dollar geteilt durch 0.0038 ergibt 263.157,89. Robux gibt es nur in ganzen Einheiten, daher würden 263.157 den Betrag {rate} zahlen — knapp unter dem Ziel. Aufgerundet auf 263.158 zahlt es {rate2} und erreicht das Ziel. Deshalb wird jede Zahl auf dieser Seite aufgerundet und nicht auf die nächste ganze Zahl gerundet."
       },
       "minimum": {
-        "p1": "Roblox verlangt",
-        "p2": "Earned Robux, bevor ein DevEx-Antrag überhaupt gestellt werden kann. Wenn dein Ziel weniger braucht, ist das Minimum das, was du tatsächlich erreichen musst — und es würde",
-        "p3": "statt deines ursprünglichen Ziels zahlen."
+        "p1": "Roblox verlangt {minimumEarnedRobux} Earned Robux, bevor überhaupt ein DevEx-Antrag eingereicht werden kann. Wenn Ihr Ziel weniger erfordert, ist das Minimum das, was Sie tatsächlich erreichen müssen — und es würde {rate} zahlen statt Ihres ursprünglichen Ziels."
       },
       "planner": {
         "p1": "Ein Auszahlungsziel ist eine Entfernung. Daraus ein Datum zu machen braucht eine Angabe mehr — wie schnell du verdienst — und aus einem Datum einen Plan zu machen braucht dieselbe Angabe umgekehrt. Beides ist dieselbe Division:"
       },
       "examples": {
-        "p1": "Ja — du bräuchtest"
+        "p1": "Ja — Sie bräuchten {effective}"
       },
       "buyingRobux": {
         "p1": "Diese Seite beantwortet die Creator-Frage: wie viel muss ich verdienen, um einen bestimmten Geldbetrag zu erhalten. Sie sagt nicht, wie viele Robux ein bestimmter Geldbetrag kauft. Roblox legt die Preise von Robux-Paketen nach Region, Plattform und Aktion fest, und es gäbe keinen einzelnen Kurs, der für alle stimmt — deshalb veröffentlicht diese Website keinen.",
@@ -398,11 +393,11 @@
         "p1": "Diesen Betrag im vollständigen Rechner öffnen"
       },
       "rateComparison": {
-        "p1": "Abstand zwischen dem aktuellen und dem alten Kurs ist das, was die Änderung vom September 2025 bei diesem Betrag wert ist.",
+        "p1": "Der Unterschied von {standardVsLegacyUsd} zwischen dem aktuellen und dem alten Satz ist das, was die Änderung vom September 2025 bei diesem Betrag wert ist.",
         "p2": "Die Kurshistorie ansehen"
       },
       "reverse": {
-        "p1": "Abgedeckt von",
+        "p1": "Durch {display} abgedeckt?",
         "p2": "Rechne von deinem eigenen Ziel rückwärts"
       },
       "nearby": {

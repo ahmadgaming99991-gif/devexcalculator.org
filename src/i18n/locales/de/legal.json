@@ -28,7 +28,7 @@
     "contactPageLink": "Kontaktseite",
     "body": {
       "intro": {
-        "p1": "Zuletzt geprüft"
+        "p1": "Zuletzt geprüft am {lastReviewedAt}."
       },
       "calculations": {
         "p1": "Jede Berechnung läuft in deinem Browser. Die Beträge, die du eintippst, der gewählte Kurs und die Ergebnisse werden nie an einen Server übertragen, weil die Rechnung dafür keinen Server braucht.",
@@ -55,8 +55,7 @@
       },
       "rights": {
         "p1": "Lösche gespeicherte Berechnungen jederzeit mit dem Knopf „Verlauf löschen“ im Rechner.",
-        "p2": "Lösche alle Einstellungen, indem du die Websitedaten für",
-        "p3": "in deinen Browsereinstellungen löschst.",
+        "p2": "Löschen Sie alle Einstellungen, indem Sie in Ihren Browsereinstellungen die Websitedaten für {host} entfernen.",
         "p4": "Nutze die Website mit vollständig blockiertem lokalem Speicher — alles funktioniert, nichts wird gemerkt.",
         "p5": "Schreib uns zu allem in dieser Erklärung über die"
       }
@@ -71,11 +70,10 @@
     "changesHeading": "Änderungen dieser Bedingungen",
     "body": {
       "intro": {
-        "p1": "Zuletzt geprüft"
+        "p1": "Zuletzt geprüft am {lastReviewedAt}."
       },
       "use": {
-        "p1": "Du darfst",
-        "p2": "frei nutzen, um DevEx-Auszahlungen zu schätzen — für dich selbst oder im Rahmen deiner Arbeit als Creator. Es ist kein Konto nötig, und es fallen keine Kosten an.",
+        "p1": "Sie können {host} frei nutzen, um DevEx-Auszahlungen zu schätzen — für sich selbst oder im Rahmen Ihrer Arbeit als Creator. Ein Konto ist nicht nötig und es fallen keine Kosten an.",
         "p3": "Was im Gegenzug erwartet wird: versuche nicht, die Website oder die Infrastruktur dahinter zu stören, greife sie nicht so ab, dass sie für andere schlechter wird, und wenn du Zahlen von hier weiterveröffentlichst, nenne die Quelle und das Verifizierungsdatum. Ein ohne Datum zitierter Kurs wird ohne Vorwarnung falsch, und das führt die nächste Leserin in die Irre."
       },
       "estimates": {
@@ -124,7 +122,7 @@
         "p1": "Roblox, Robux und Developer Exchange sind Marken der Roblox Corporation. Sie erscheinen auf dieser Website nur, um zu beschreiben, worum es bei diesen Berechnungen geht — gewöhnlicher beschreibender Gebrauch. Diese Website ist nicht mit der Roblox Corporation verbunden und wird von ihr weder unterstützt noch gesponsert oder betrieben; Erscheinungsbild, Grafiken und Texte hier sind eigene."
       },
       "accuracy": {
-        "p1": "Die Kursdaten dieser Website wurden zuletzt gegen die offizielle Dokumentation geprüft am",
+        "p1": "Die Satzdaten auf dieser Website wurden zuletzt am {lastVerifiedAt} gegen die offizielle Dokumentation geprüft, und dieses Datum wird auf jeder satzabhängigen Seite angezeigt, statt hier versteckt zu werden. Sätze ändern sich: Der Standardsatz wurde im September 2025 geändert und kann sich erneut ändern.",
         "p2": "Falls eine Zahl hier zurückgefallen ist: die",
         "p3": "verlinkt direkt auf die offizielle Seite, aus der sie stammt, sodass du den aktuellen Wert in wenigen Sekunden selbst prüfen kannst. Sie über den",
         "p4": "zu melden sorgt dafür, dass sie auch für alle anderen korrigiert wird."
@@ -155,7 +153,7 @@
     "aboutPageLink": "Über-Seite",
     "body": {
       "intro": {
-        "p1": "Zuletzt geprüft"
+        "p1": "Zuletzt geprüft am {lastReviewedAt}."
       },
       "standard": {
         "p1": "Diese Website will erfüllen:"

@@ -133,7 +133,8 @@
         "p1": "Faits établis par cette source"
       },
       "cadence": {
-        "p1": "Les données de taux ne sont jamais mises à jour automatiquement depuis une page moissonnée. Modifier un taux publié exige de vérifier la source à la main, de mettre à jour le registre, de mettre à jour les tests unitaires avec les nouvelles valeurs attendues, de relire les pages concernées, d’ajouter une entrée au changelog et de redéployer. Cette séquence est volontairement lente — un taux faux publié vite est pire qu’un taux juste publié un jour plus tard."
+        "p1": "Les données de taux ne sont jamais mises à jour automatiquement depuis une page moissonnée. Modifier un taux publié exige de vérifier la source à la main, de mettre à jour le registre, de mettre à jour les tests unitaires avec les nouvelles valeurs attendues, de relire les pages concernées, d’ajouter une entrée au changelog et de redéployer. Cette séquence est volontairement lente — un taux faux publié vite est pire qu’un taux juste publié un jour plus tard.",
+        "p2": "{lastVerifiedAt} (il y a {ageDays} jours)"
       }
     }
   },
@@ -172,8 +173,7 @@
         "p2": "Des données structurées décrivant quelque chose que la page ne contient pas visiblement."
       },
       "review": {
-        "p1": "Le contenu sensible aux taux est relu tous les",
-        "p2": "jours, et passe en relecture manuelle obligatoire après",
+        "p1": "Le contenu sensible aux taux est revu tous les {reviewCadenceDays} jours et passe à une relecture manuelle obligatoire au bout de {criticalReviewAgeDays}. La compilation suit l'ancienneté du registre des taux et l'affiche sur chaque page sensible aux taux, de sorte qu'un chiffre périmé soit visible pour les lecteurs et pas seulement pour la personne qui maintient le site.",
         "p3": "Un chiffre n’est jamais laissé en ligne parce qu’il fonctionne bien dans la recherche après avoir cessé d’être exact. S’il est faux, il change, et le changement est consigné.",
         "p4": "Comment fonctionnent les corrections"
       }

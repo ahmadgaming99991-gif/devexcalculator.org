@@ -91,14 +91,13 @@
     "columnRate": "Kurs",
     "body": {
       "intro": {
-        "p1": "Roblox mensyaratkan",
-        "p2": "Earned Robux untuk mengajukan permohonan. Mencapai angka itu adalah syarat, bukan persetujuan — Roblox meninjau setiap permohonan dan menentukan Robux mana yang memenuhi syarat.",
+        "p1": "Roblox mensyaratkan {minimumRobux} Earned Robux untuk mengajukan permintaan. Mencapai angka itu adalah syarat, bukan persetujuan — Roblox meninjau setiap permintaan dan menentukan Robux mana yang memenuhi syarat.",
         "p3": "Ini angka yang Anda masukkan, bukan jumlah yang dikutip Roblox atau penyedia mana pun. Situs ini tidak memberi nasihat pajak.",
-        "p4": "Earned Robux utuh. Itu membayar",
-        "p5": "Earned Robux akan mencapai target Anda secara aritmetika, tetapi Roblox mensyaratkan",
-        "p6": "sebelum sebuah permohonan dapat diajukan. Dalam praktiknya Anda butuh",
-        "p7": "% dari perjalanannya",
-        "p8": "angkanya memakai"
+        "p4": "Earned Robux bulat. Jumlah itu membayar {currency}, yaitu jumlah Robux bulat pertama yang mencapai target Anda alih-alih kurang sedikit.",
+        "p5": "{requiredRobux} Earned Robux secara aritmetika sudah mencapai target Anda, tetapi Roblox mensyaratkan {minimumRobux} sebelum permintaan dapat diajukan. Anda akan membutuhkan",
+        "p7": "{progressPercent}% dari perjalanan menuju target",
+        "p8": "angkanya memakai",
+        "p9": "Tarif kedaluwarsa. {staleReason}"
       }
     }
   },
@@ -132,10 +131,9 @@
     "body": {
       "intro": {
         "p1": "per Earned Robux yang memenuhi syarat",
-        "p2": "Nama anggota",
-        "p3": "Totalnya",
-        "p4": "Robux belum dialokasikan. Tidak ada yang disesuaikan di sini agar angkanya pas: mengubahnya untuk Anda akan menghasilkan angka yang tidak disepakati siapa pun. Perbaiki persentasenya, atau terima bahwa sisanya tinggal pada siapa pun yang memegang dana grup.",
-        "p5": "Robux tidak dapat dibagi rata pada persentase ini. Robux itu utuh, jadi tiap bagian dibulatkan ke bawah dan sisanya ditampilkan alih-alih diberikan kepada siapa pun yang kebetulan tercantum pertama."
+        "p2": "Nama anggota {index}",
+        "p3": "Totalnya {allocatedPercent}%, sehingga {unallocatedRobux} Robux tidak teralokasi. Tidak ada yang diskalakan di sini agar angkanya pas: menyesuaikannya untuk Anda akan menghasilkan angka yang tidak disepakati siapa pun. Perbaiki persentasenya, atau terima bahwa sisanya tetap berada pada pemegang dana grup.",
+        "p5": "{unallocatedRobux} Robux tidak dapat dibagi rata pada persentase ini. Robux adalah satuan bulat, jadi setiap bagian dibulatkan ke bawah dan sisanya ditampilkan, bukan diberikan kepada siapa pun yang kebetulan tercantum pertama."
       }
     }
   },
@@ -250,7 +248,6 @@
       }
     }
   },
-  "actions": {},
   "controls": {
     "body": {
       "intro": {
@@ -265,8 +262,7 @@
     "intro": {
       "p1": "Masukkan tiap bagian saldo Anda secara terpisah. Tidak ada yang dihitung dua kali — setiap Robux masuk tepat ke satu kelompok, dan Andalah yang menentukan yang mana. Pembagian sebenarnya dilakukan Roblox.",
       "p2": "Roblox menentukan kurs mana yang berlaku untuk bagian mana dari saldo Anda. Ini bukan pilihan yang bisa Anda buat.",
-      "p3": "Perkiraan memakai kurs yang saat ini didokumentasikan Roblox. Batas minimum",
-      "p4": "Earned Robux adalah syarat untuk mengajukan permohonan, bukan persetujuan. Roblox menentukan Robux mana yang memenuhi syarat dan apakah suatu permohonan berhasil.",
+      "p3": "Estimasi menggunakan tarif yang saat ini didokumentasikan Roblox. Minimum {minimumEarnedRobux} Earned Robux adalah syarat untuk mengajukan permintaan, bukan persetujuan. Roblox yang menentukan Robux mana yang memenuhi syarat dan apakah suatu permintaan berhasil.",
       "p5": "Disimpan hanya di peramban ini. Tidak ada yang diunggah, dan membersihkan data peramban akan menghapusnya."
     }
   }

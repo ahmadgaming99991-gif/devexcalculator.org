@@ -163,9 +163,12 @@ function looksTranslatable(value: string): boolean {
  * here would catch.
  */
 function isStructurallyProse(value: string): boolean {
-  // A brace at all means the split failed to remove an interpolation, which
-  // only happens when the brace was opened outside this span.
-  if (/[{}]/.test(value)) return false;
+  /*
+   * A named token is part of the sentence and stays. Any other brace means the
+   * split failed to close an interpolation, which only happens when the brace
+   * was opened outside this span — a conditional wrapping the whole element.
+   */
+  if (/[{}]/.test(value.replace(TOKEN, ""))) return false;
   // Unbalanced parentheses: `export function ValueFlow(` opens one and stops.
   const open = (value.match(/\(/g) ?? []).length;
   const close = (value.match(/\)/g) ?? []).length;
@@ -187,8 +190,10 @@ function countWords(value: string): number {
   return value.trim().split(/\s+/).filter(Boolean).length;
 }
 
+const TOKEN = /\{[a-zA-Z_][a-zA-Z0-9_]*\}/g;
+
 function hasInterpolation(value: string): boolean {
-  return /\{[a-zA-Z_][a-zA-Z0-9_]*\}/.test(value);
+  return new RegExp(TOKEN.source).test(value);
 }
 
 /**
@@ -298,10 +303,119 @@ function scan(file: string): Finding[] {
  * them and the mask eats whole function bodies.
  *
  * `{" "}` becomes a space because that is the only reason it is ever written.
- * Every other interpolation ends the run: a value is not part of the sentence
- * around it, and welding across one produced sentences that appear on no page
- * and that no dictionary could ever match.
+ *
+ * A **value** interpolation stays in the sentence as a named token:
+ *
+ *     Last reviewed {formatDate(record.lastReviewedAt)}.
+ *       ->  Last reviewed {lastReviewedAt}.
+ *
+ * Splitting there instead — which this did — hands a translator the fragment
+ * "Last reviewed" and throws the rest away. That is not a shorter sentence,
+ * it is a different one, and it cannot be put back together in a language that
+ * orders it differently: German and Turkish both place that date somewhere
+ * English does not, and concatenating in source order silently produces word
+ * salad. `interpolate()` exists for exactly this, so the inventory records
+ * what it can fill.
+ *
+ * A **structural** interpolation still ends the run — a ternary, a `&&`, an
+ * arrow function. Those choose between sentences rather than sit inside one,
+ * and welding across a branch produces text that appears on no page.
  */
+/**
+ * Turns value interpolations into named tokens, and breaks on structural ones.
+ *
+ * The span the caller passes can hold neither `<`, `>` nor a nested brace —
+ * the tag-bounded pattern guarantees it — so an interpolation here is a flat
+ * expression, and only four operators can make it a choice between sentences
+ * rather than a value inside one.
+ */
+function splitOnStructure(raw: string): string[] {
+  const parts: string[] = [];
+  const used = new Map<string, number>();
+  let current = "";
+  let index = 0;
+  const pattern = /\{([^{}]*)\}/g;
+  let match: RegExpExecArray | null;
+  while ((match = pattern.exec(raw)) !== null) {
+    current += raw.slice(index, match.index);
+    index = match.index + match[0].length;
+    const expression = (match[1] ?? "").trim();
+    const name = tokenName(expression);
+    if (name === null) {
+      // A branch, not a value. The sentence ends here.
+      parts.push(current);
+      current = "";
+      continue;
+    }
+    /*
+     * Two dates in one sentence need two tokens. Numbering the second rather
+     * than reusing the first keeps `interpolate` able to fill them separately;
+     * sharing a name would put the same value in both places.
+     */
+    const seen = used.get(name) ?? 0;
+    used.set(name, seen + 1);
+    current += `{${seen === 0 ? name : `${name}${seen + 1}`}}`;
+  }
+  parts.push(current + raw.slice(index));
+  return parts;
+}
+
+/**
+ * A name for the value an expression produces, or null if it produces a
+ * choice.
+ *
+ * The last identifier is the one that means something: `formatDate` and
+ * `formatRobux` are how a value is written, not what it is, and every one of
+ * them wraps the field a reader would name — `lastReviewedAt`,
+ * `minimumEarnedRobux`. Constants are lowered to the same camelCase so
+ * `{EXPERIENCE_CACHE_SECONDS}` and `{experienceCacheSeconds}` cannot become
+ * two different tokens for one value.
+ */
+function tokenName(expression: string): string | null {
+  if (expression === "") return null;
+  // A ternary, a guard, an arrow, or a template literal that may hold either.
+  if (/\?|&&|\|\||=>|`/.test(expression)) return null;
+  /*
+   * String literals first. `formatDate("2025-09-05T10:00:00-07:00")` ends in
+   * an identifier only if you count the `T10` inside an ISO timestamp, and
+   * `{t10}` is a token nobody can read or fill correctly.
+   */
+  const identifiers = expression.replace(/"[^"]*"|'[^']*'/g, "").match(/[A-Za-z_$][\w$]*/g);
+  if (!identifiers || identifiers.length === 0) return null;
+  const last = identifiers[identifiers.length - 1] as string;
+
+  /*
+   * `.length` names the operation, not the value. The collection before it is
+   * what the sentence is counting.
+   */
+  if (last === "length" && identifiers.length > 1) {
+    return `${identifiers[identifiers.length - 2] as string}Count`;
+  }
+
+  /*
+   * A method call names how the value is rendered, the same way `.length`
+   * names an operation. `rate.toFixed(4)` is still the rate.
+   */
+  if (/^(toFixed|toString|toLocaleString|toUpperCase|toLowerCase|trim)$/.test(last)) {
+    if (identifiers.length > 1) return identifiers[identifiers.length - 2] as string;
+    return null;
+  }
+
+  // `formatCurrency(...)` around a literal leaves only the formatter, and what
+  // it formats is the better name for what the reader sees. `getRateValue()`
+  // likewise: the reader sees a rate, not a getter.
+  const formatted = /^(?:format|get)([A-Z]\w*)$/.exec(last);
+  if (formatted?.[1]) return formatted[1].charAt(0).toLowerCase() + formatted[1].slice(1);
+
+  if (/^[A-Z0-9_$]+$/.test(last)) {
+    return last
+      .toLowerCase()
+      .replace(/_([a-z0-9])/g, (_, c: string) => c.toUpperCase())
+      .replace(/^[0-9]+/, "");
+  }
+  return last;
+}
+
 function scanJsxText(
   file: string,
   source: string,
@@ -325,9 +439,7 @@ function scanJsxText(
   while ((match = span.exec(source)) !== null) {
     const line = (source.slice(0, match.index).match(/\n/g)?.length ?? 0) + 1;
     const raw = match[1] ?? "";
-    for (const part of raw
-      .replace(/\{\s*"\s*"\s*\}/g, " ")
-      .split(/\{[^{}]*\}/)) {
+    for (const part of splitOnStructure(raw.replace(/\{\s*"\s*"\s*\}/g, " "))) {
       // Removing an interpolation leaves the space that sat before it, so
       // `quote reference {digest}.` would end `reference .`. The sentence is
       // the same one either way; this just does not write the gap down.

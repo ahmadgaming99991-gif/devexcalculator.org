@@ -8,7 +8,7 @@
     "preferCalculateDescription": "Every guide links to the tool it supports, but you can go straight there.",
     "body": {
       "readingOrder": {
-        "p1": "Last reviewed"
+        "p1": "Last reviewed {lastReviewedAt}"
       },
       "calculators": {
         "p1": "DevEx payout, Robux to USD, payout targets and marketplace fees."
@@ -73,7 +73,7 @@
     },
     "body": {
       "process": {
-        "p1": "Accumulate at least",
+        "p1": "Accumulate at least {minimumEarnedRobux} Earned Robux.",
         "p2": "Only Earned Robux count.",
         "p3": "Check which of your Robux qualify",
         "p4": "Verified email, minimum age of 13, a valid DevEx portal account, a W-9 or W-8 on file, and an account in good standing.",

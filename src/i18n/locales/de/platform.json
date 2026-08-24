@@ -31,44 +31,38 @@
     },
     "body": {
       "how": {
-        "p1": "Serverseitig bei Roblox abgerufen, wenn die Seite ausgeliefert wird, und zwischengespeichert für",
-        "p2": "Minuten. Dein Browser stellt keine Anfrage an Roblox, und kein Skript von Roblox läuft auf dieser Seite.",
+        "p1": "Serverseitig von Roblox abgerufen, wenn die Seite ausgeliefert wird, und für {experienceCacheSeconds} Minuten zwischengespeichert. Ihr Browser sendet keine Anfrage an Roblox, und auf dieser Seite läuft kein Skript von Roblox.",
         "p3": "Ein geplanter Job hält alle",
         "p4": "Minuten eine Beobachtung fest. Die Plattform-Gesamtwerte behalten jede einzelne davon",
         "p5": "Tage lang, denn das ist ein Array pro Experience über mehrere Hundert von ihnen. Beide Diagramme zeigen, was tatsächlich aufgezeichnet wurde, Lücken inklusive — nichts wird gemittelt, um nicht behaltene Läufe aufzufüllen."
       },
       "related": {
-        "p1": "An seiner Stelle wird nichts gezeigt, denn eine veraltete oder erfundene Zahl wäre schlimmer als keine. Der Rest dieser Website hängt nicht von diesem Endpunkt ab — der",
+        "p1": "{reason} An ihrer Stelle wird nichts angezeigt, denn eine veraltete oder erfundene Zahl wäre schlimmer als gar keine. Der Rest dieser Website hängt nicht von diesem Endpunkt ab —",
         "p2": "funktioniert unabhängig davon.",
         "p3": "Der Endpunkt hat geantwortet, aber seine Rangliste war leer. Das ist ungewöhnlich und vermutlich vorübergehend.",
         "p4": "Roblox-Explore-Endpunkt",
         "p5": "Roblox-Games-Endpunkt",
         "p6": "Besuchszahlen, Favoriten und Creator-Namen fehlen: Der Endpunkt, der sie liefert, hat auf diese Anfrage nicht geantwortet. Die Spielerzahlen und Stimmen oben stammen aus der Rangliste selbst und sind davon nicht betroffen.",
-        "p7": "Roblox veröffentlicht",
+        "p7": "Roblox veröffentlicht {rankingsCount} Rangliste",
         "p8": "Zahlen pro Experience liegen in einem Cloudflare-KV-Namespace, der an den bereitgestellten Worker gebunden ist. Ohne diese Bindung gibt es nichts Aufgezeichnetes zu zeichnen, und deshalb steht das hier, statt eine leere Achse zu zeigen.",
-        "p9": "bisher. Ein Diagramm braucht",
-        "p10": "um eine Linie statt eines Punkts zu sein.",
+        "p10": "bisher. Ein Diagramm braucht {minimumPointsForChart}, um eine Linie statt eines Punktes zu sein.",
         "p11": "Summiert aus",
         "p12": "öffentlichen Ranglisten, jede nur einmal gezählt, auch wenn eine Rangliste dieselbe Experience zweimal führt, gelesen am"
       },
       "experience": {
         "p1": "Dieses Diagramm schließen",
         "p2": "dieser Experience",
-        "p3": "wurden aufgezeichnet, was für eine Linie nicht reicht. Zahlen pro Experience werden für die letzten",
-        "p4": "Tage bei einer Beobachtung pro Stunde behalten, und eine Experience wird nur aufgezeichnet, solange Roblox sie in einer Rangliste führt.",
-        "p5": "Die letzten",
-        "p6": "Tage zeichnen für",
+        "p3": "aufgezeichnet, was nicht ausreicht, um eine Linie zu zeichnen. Zählwerte je Erlebnis werden für die letzten {gameHistoryDays} Tage bei einer Beobachtung pro Stunde vorgehalten, und ein Erlebnis wird nur erfasst, solange Roblox es in die Rangliste aufnimmt.",
+        "p5": "Die letzten {gameHistoryDays} Tage für {name} als Diagramm anzeigen",
         "p7": "noch nicht erfasst",
         "p8": " — diese Experience wurde nicht oft genug beobachtet, um eine Linie zu zeichnen",
         "p9": "Beobachtungen liegen in einem Cloudflare-KV-Namespace, der an den bereitgestellten Worker gebunden ist. Lokal ohne diese Bindung gibt es nichts zu zeichnen — und deshalb steht das hier, statt eine leere Achse zu zeichnen.",
         "p10": "Der Speicher hat nicht geantwortet. Die Live-Zahlen oben sind davon nicht betroffen.",
         "p11": "Für diesen Zeitraum wurde nichts gespeichert. Wo der geplante Job läuft, wird alle",
         "p12": "Minuten eine Beobachtung geschrieben, und das Diagramm erscheint, sobald es",
-        "p13": "innerhalb der letzten",
-        "p14": "Spielende. Ein Diagramm braucht mindestens",
-        "p15": "Punkte, um eine Linie statt eines Punkts zu sein; deshalb werden die Zahlen stattdessen aufgelistet.",
-        "p16": "Das Fenster weitet sich von selbst, während sich Beobachtungen ansammeln, bis zu",
-        "p17": "Tage. Ältere Beobachtungen laufen ab, statt von einem Job gelöscht zu werden. Höchstwert, Tiefstwert und Durchschnitt beschreiben nur diese aufgezeichneten Punkte — der Gesamtwert kann zwischen zwei Beobachtungen höher gewesen sein, und diese Website behauptet nichts anderes."
+        "p13": "innerhalb der letzten {label}, die jüngste davon zeigt",
+        "p14": "Spieler. Ein Diagramm braucht mindestens {minimumPointsForChart} Punkte, um eine Linie statt eines Punktes zu sein, daher werden die Zahlen stattdessen aufgelistet.",
+        "p16": "Das Fenster erweitert sich von selbst, während Beobachtungen zusammenkommen, bis zu {retentionDays} Tage. Ältere Beobachtungen laufen ab, statt von einem Job gelöscht zu werden. Höchst-, Tiefst- und Durchschnittswert beschreiben nur diese aufgezeichneten Punkte — zwischen zwei Beobachtungen kann der Wert höher gewesen sein, und diese Website behauptet nichts anderes."
       }
     }
   },
@@ -178,7 +172,8 @@
       },
       "related": {
         "p1": "Das ist die jüngste Kursangabe, die diese Website erhalten hat.",
-        "p2": "An seiner Stelle wird keine Zahl gezeigt. Ein veralteter Kurs, als aktuell dargestellt, wäre schlimmer als keiner."
+        "p2": "An seiner Stelle wird keine Zahl gezeigt. Ein veralteter Kurs, als aktuell dargestellt, wäre schlimmer als keiner.",
+        "p3": "· über {providerName}, serverseitig abgerufen"
       }
     }
   },
@@ -248,7 +243,7 @@
     "body": {
       "engagement": {
         "p1": "Stunden pro aktivem Nutzer und Tag",
-        "p2": "Tage. Beide Eingangsgrößen sind in der Mitteilung gerundet, das hier ist also ein Näherungswert.",
+        "p2": "{hoursBillions} Milliarden Stunden ÷ {dauMillions} Millionen DAUs ÷ {periodDays} Tage. Beide Eingangswerte sind in der Veröffentlichung gerundet, daher ist dies ein Näherungswert.",
         "p3": "Jede Zahl oben außer der letzten ist zitiert aus"
       },
       "business": {

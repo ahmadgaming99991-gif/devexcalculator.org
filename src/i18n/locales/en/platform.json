@@ -27,44 +27,38 @@
     },
     "body": {
       "how": {
-        "p1": "Fetched server-side from Roblox when the page is served and cached for",
-        "p2": "minutes. Your browser makes no request to Roblox, and no script from Roblox runs on this page.",
+        "p1": "Fetched server-side from Roblox when the page is served and cached for {experienceCacheSeconds} minutes. Your browser makes no request to Roblox, and no script from Roblox runs on this page.",
         "p3": "A scheduled job records one observation every",
         "p4": "minutes. Platform totals keep every one of them for",
         "p5": "days, because that is one array per experience across several hundred of them. Both charts show what was actually recorded, gaps included — nothing is averaged to fill the runs not kept."
       },
       "related": {
-        "p1": "Nothing is shown in their place, because a stale or invented number would be worse than none. The rest of this site does not depend on this endpoint — the",
+        "p1": "{reason} Nothing is shown in their place, because a stale or invented number would be worse than none. The rest of this site does not depend on this endpoint — the",
         "p2": "works regardless.",
         "p3": "The endpoint answered, but its ranking was empty. That is unusual and probably temporary.",
         "p4": "Roblox explore endpoint",
         "p5": "Roblox games endpoint",
         "p6": "Visit counts, favourites and creator names are omitted: the endpoint that supplies them did not answer for this request. Player counts and votes above come from the ranking itself and are unaffected.",
-        "p7": "Roblox publishes",
+        "p7": "Roblox publishes {rankingsCount} ranking",
         "p8": "Per-experience counts are stored in a Cloudflare KV namespace bound to the deployed Worker. Without that binding there is nothing recorded to draw, which is why this says so rather than showing an empty axis.",
-        "p9": "so far. A chart needs",
-        "p10": "to be a line rather than a dot.",
+        "p10": "so far. A chart needs {minimumPointsForChart} to be a line rather than a dot.",
         "p11": "Summed from",
         "p12": "public rankings, counted once each even where a ranking lists the same experience twice, as read at"
       },
       "experience": {
         "p1": "Close this chart",
         "p2": "of this experience",
-        "p3": "been recorded, which is not enough to draw a line. Per-experience counts are kept for the last",
-        "p4": "days at one observation an hour, and an experience is only recorded while Roblox is ranking it.",
-        "p5": "Chart the last",
-        "p6": "days for",
+        "p3": "been recorded, which is not enough to draw a line. Per-experience counts are kept for the last {gameHistoryDays} days at one observation an hour, and an experience is only recorded while Roblox is ranking it.",
+        "p5": "Chart the last {gameHistoryDays} days for {name}",
         "p7": "not tracked yet",
         "p8": "— this experience has not been observed enough times to draw a line",
         "p9": "Observations are stored in a Cloudflare KV namespace that is bound to the deployed Worker. Running locally without that binding, there is nothing to chart — which is why this says so rather than drawing an empty axis.",
         "p10": "The store did not answer. Live figures above are unaffected.",
         "p11": "Nothing has been stored for this range. Where the scheduled job is running, an observation is written every",
         "p12": "minutes and the chart appears once there are",
-        "p13": "within the last",
-        "p14": "players. A chart needs at least",
-        "p15": "points to be a line rather than a dot, so the figures are listed instead.",
-        "p16": "The window widens on its own as observations accumulate, up to",
-        "p17": "days. Older observations expire rather than being deleted by a job. Peak, low and average describe these recorded points only — the total may have been higher between two observations, and this site does not claim otherwise."
+        "p13": "within the last {label}, the most recent showing",
+        "p14": "players. A chart needs at least {minimumPointsForChart} points to be a line rather than a dot, so the figures are listed instead.",
+        "p16": "The window widens on its own as observations accumulate, up to {retentionDays} days. Older observations expire rather than being deleted by a job. Peak, low and average describe these recorded points only — the total may have been higher between two observations, and this site does not claim otherwise."
       }
     }
   },
@@ -174,7 +168,8 @@
       },
       "related": {
         "p1": "This is the most recent quote this site received.",
-        "p2": "No figure is shown in its place. A stale price presented as current would be worse than none."
+        "p2": "No figure is shown in its place. A stale price presented as current would be worse than none.",
+        "p3": "· via {providerName}, fetched server-side"
       }
     }
   },
@@ -244,7 +239,7 @@
     "body": {
       "engagement": {
         "p1": "Hours per active user, per day",
-        "p2": "days. Both inputs are rounded in the release, so this is approximate.",
+        "p2": "{hoursBillions} billion Hours ÷ {dauMillions} million DAUs ÷ {periodDays} days. Both inputs are rounded in the release, so this is approximate.",
         "p3": "Every figure above except the last is quoted from"
       },
       "business": {

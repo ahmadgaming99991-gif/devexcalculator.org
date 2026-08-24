@@ -115,7 +115,12 @@
     "instagram": "DevEx Calculator Instagram'da",
     "pinterest": "DevEx Calculator Pinterest'te",
     "instagramName": "Instagram",
-    "pinterestName": "Pinterest"
+    "pinterestName": "Pinterest",
+    "body": {
+      "intro": {
+        "p1": "{description} (yeni sekmede açılır)"
+      }
+    }
   },
   "consent": {
     "accept": "Kabul et",
@@ -143,7 +148,8 @@
       "intro": {
         "p1": "Kurlar ve koşullar değişir.",
         "p2": "Buradaki rakamlar Roblox'un şu anda belgelediği kurları kullanır. Robux'unuzun hangisinin Earned Robux sayılacağına, bakiyenizin hangi bölümüne hangi kurun uygulanacağına ve bir DevEx talebinin onaylanıp onaylanmayacağına yalnızca Roblox karar verir. Ödeme sağlayıcı ücretleri ve kendi vergi yükümlülükleriniz, siz eklemedikçe dahil değildir.",
-        "p3": "Satın aldığınız, hediye olarak aldığınız ya da içerik üreticisi kazancınız dışında edindiğiniz Robux, Earned Robux değildir ve nakde çevrilemez. Robux'un perakende fiyatı bambaşka bir şeydir ve bu rakamlara hiçbir zaman karıştırılmaz."
+        "p3": "Satın aldığınız, hediye olarak aldığınız ya da içerik üreticisi kazancınız dışında edindiğiniz Robux, Earned Robux değildir ve nakde çevrilemez. Robux'un perakende fiyatı bambaşka bir şeydir ve bu rakamlara hiçbir zaman karıştırılmaz.",
+        "p4": "Oranlar {lastVerifiedAt} tarihinde doğrulandı"
       },
       "tocHeading": {
         "p1": "Bu sayfada"
@@ -153,7 +159,7 @@
   "tables": {
     "body": {
       "intro": {
-        "p1": "Şu tarihten önce kazanılan bakiyeler:",
+        "p1": "{effectiveTo} tarihinden önce kazanılan bakiyeler.",
         "p2": "Ters yön bölme yapar ve her zaman yukarı yuvarlar: şu tutarda bir hedef:",
         "p3": "kıl payı yetersiz kalırdı."
       }
@@ -162,14 +168,14 @@
   "charts": {
     "body": {
       "intro": {
-        "p1": "Değerler şu birimde:"
+        "p1": "{caption} Değerler {valueLabel} biçimindedir."
       }
     }
   },
   "diagrams": {
     "body": {
       "intro": {
-        "p1": "Uygulayan:"
+        "p1": "{by} tarafından uygulanır"
       }
     }
   }
