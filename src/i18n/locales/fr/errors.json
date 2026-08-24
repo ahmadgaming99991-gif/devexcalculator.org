@@ -22,7 +22,12 @@
     "body": "La calculatrice elle-même n’est pas touchée : les calculs s’exécutent dans votre navigateur et ne dépendent pas du chargement de cette page. Réessayez, ou allez directement à la calculatrice.",
     "tryAgain": "Réessayer",
     "goToCalculator": "Aller à la calculatrice",
-    "reference": "Si vous signalez ce problème, indiquez la référence {digest}."
+    "reference": "Si vous signalez ce problème, indiquez la référence {digest}.",
+    "prose": {
+      "intro": {
+        "p1": "Si vous signalez ce problème, indiquez la référence."
+      }
+    }
   },
   "input": {
     "empty": "Saisissez un montant.",

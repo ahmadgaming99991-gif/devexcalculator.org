@@ -1,6 +1,9 @@
 {
   "$comment": "Machine-drafted. Not yet read by a native speaker. Protected names (Roblox, Robux, DevEx, Marketplace) are never translated.",
-  "$identical": ["results.roblox", "results.total"],
+  "$identical": [
+    "results.roblox",
+    "results.total"
+  ],
   "srHeading": "Kalkulator biaya marketplace",
   "modes": {
     "after": {
@@ -39,8 +42,7 @@
     "intro": {
       "p1": "Apa yang Anda jual?",
       "p2": "Harga sebagai kelipatan dari harga dasar",
-      "p3": "Harga dasar berbeda menurut kategori item, jadi di sini yang diminta adalah kelipatannya, bukan mengandaikan satu harga dasar yang berlaku umum. Item yang dihargai enam kali harga dasarnya atau lebih masuk ke tingkat teratas.",
-      "p4": "Komisi ini dipotong saat Robux diperoleh. Menukar Robux yang Anda terima menjadi uang lewat DevEx adalah langkah terpisah dengan kursnya sendiri — 30% itu tidak dikenakan dua kali."
+      "p3": "Harga dasar berbeda menurut kategori item, jadi di sini yang diminta adalah kelipatannya, bukan mengandaikan satu harga dasar yang berlaku umum. Item yang dihargai enam kali harga dasarnya atau lebih masuk ke tingkat teratas."
     }
   }
 }

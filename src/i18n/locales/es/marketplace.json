@@ -1,6 +1,9 @@
 {
   "$comment": "Machine-drafted. Not yet read by a native speaker. Protected names (Roblox, Robux, DevEx, Marketplace) are never translated.",
-  "$identical": ["results.roblox", "results.total"],
+  "$identical": [
+    "results.roblox",
+    "results.total"
+  ],
   "srHeading": "Calculadora de comisión del marketplace",
   "modes": {
     "after": {
@@ -39,8 +42,7 @@
     "intro": {
       "p1": "¿Qué estás vendiendo?",
       "p2": "Precio como múltiplo del precio mínimo",
-      "p3": "Los precios mínimos varían según la categoría del artículo, así que aquí se pide el múltiplo en lugar de suponer un único mínimo universal. Un artículo con un precio igual o superior a seis veces su mínimo alcanza el tramo más alto.",
-      "p4": "Esta comisión se retiene cuando se ganan los Robux. Convertir en dinero, mediante DevEx, los Robux que te quedan es un paso aparte con su propia tasa: el 30% no se aplica dos veces."
+      "p3": "Los precios mínimos varían según la categoría del artículo, así que aquí se pide el múltiplo en lugar de suponer un único mínimo universal. Un artículo con un precio igual o superior a seis veces su mínimo alcanza el tramo más alto."
     }
   }
 }

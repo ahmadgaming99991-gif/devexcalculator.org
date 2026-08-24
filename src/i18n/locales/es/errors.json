@@ -25,7 +25,12 @@
     "body": "La calculadora en sí no se ve afectada: los cálculos se ejecutan en tu navegador y no dependen de que esta página cargue. Inténtalo de nuevo o ve directamente a la calculadora.",
     "tryAgain": "Intentar de nuevo",
     "goToCalculator": "Ir a la calculadora",
-    "reference": "Si informas de esto, cita la referencia {digest}."
+    "reference": "Si informas de esto, cita la referencia {digest}.",
+    "prose": {
+      "intro": {
+        "p1": "Si informas de esto, cita la referencia."
+      }
+    }
   },
   "input": {
     "empty": "Introduce una cantidad.",

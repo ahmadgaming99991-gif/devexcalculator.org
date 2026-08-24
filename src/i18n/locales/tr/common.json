@@ -1,6 +1,13 @@
 {
   "$comment": "Machine-drafted. Not yet read by a native speaker. Protected names (Roblox, Robux, DevEx, Earned Robux) are never translated.",
-  "$identical": ["footer.feedAtom", "footer.feedJson", "units.standard", "units.minimum"],
+  "$identical": [
+    "footer.feedAtom",
+    "footer.feedJson",
+    "social.instagramName",
+    "social.pinterestName",
+    "units.minimum",
+    "units.standard"
+  ],
   "brand": {
     "tagline": "Roblox içerik üreticileri için bağımsız DevEx ödeme tahminleri; her rakam resmî bir kaynağa dayandırılır.",
     "shortName": "DevEx Hesaplayıcı"
@@ -42,7 +49,14 @@
     "sourceUpdatedAt": "Roblox bu sayfayı en son {date} tarihinde güncelledi.",
     "badgeChanged": "kaynak değişti, inceleniyor",
     "badgeUnreachable": "kaynağa erişilemedi {when}",
-    "badgeChecked": "kaynak denetlendi {when}"
+    "badgeChecked": "kaynak denetlendi {when}",
+    "unreadableReason": "Belge, Roblox'un DevEx sayfası gibi okunmuyor.",
+    "noCheckYet": "Henüz hiçbir denetim yapılmadı.",
+    "body": {
+      "intro": {
+        "p1": "Otomatik denetimde saptandı:"
+      }
+    }
   },
   "byline": {
     "maintainedBy": "Yürüten:",
@@ -92,6 +106,71 @@
     "standard": "Standard",
     "legacyRate": "Eski",
     "usEighteenPlus": "ABD 18+",
-    "minimum": "Minimum"
+    "minimum": "Minimum",
+    "rate": "Kur"
+  },
+  "social": {
+    "youtube": "DevEx Calculator YouTube'da",
+    "x": "DevEx Calculator X'te",
+    "instagram": "DevEx Calculator Instagram'da",
+    "pinterest": "DevEx Calculator Pinterest'te",
+    "instagramName": "Instagram",
+    "pinterestName": "Pinterest"
+  },
+  "consent": {
+    "accept": "Kabul et",
+    "body": {
+      "consentHeading": {
+        "p1": "Analitik çerezleri",
+        "p2": "Hangi sayfaların kullanıldığını ölçmek istiyoruz; bunun için bir çerez gerekiyor. Hesaplayıcı her iki durumda da aynı şekilde çalışır ve hesaplarınız hiçbir yere gönderilmez."
+      }
+    }
+  },
+  "ranges": {
+    "day": "24 saat",
+    "threeDays": "3 gün",
+    "sevenDays": "7 gün"
+  },
+  "shell": {
+    "body": {
+      "intro": {
+        "p1": "Ana içeriğe geç"
+      }
+    }
+  },
+  "content": {
+    "body": {
+      "intro": {
+        "p1": "Kurlar ve koşullar değişir.",
+        "p2": "Buradaki rakamlar Roblox'un şu anda belgelediği kurları kullanır. Robux'unuzun hangisinin Earned Robux sayılacağına, bakiyenizin hangi bölümüne hangi kurun uygulanacağına ve bir DevEx talebinin onaylanıp onaylanmayacağına yalnızca Roblox karar verir. Ödeme sağlayıcı ücretleri ve kendi vergi yükümlülükleriniz, siz eklemedikçe dahil değildir.",
+        "p3": "Satın aldığınız, hediye olarak aldığınız ya da içerik üreticisi kazancınız dışında edindiğiniz Robux, Earned Robux değildir ve nakde çevrilemez. Robux'un perakende fiyatı bambaşka bir şeydir ve bu rakamlara hiçbir zaman karıştırılmaz."
+      },
+      "tocHeading": {
+        "p1": "Bu sayfada"
+      }
+    }
+  },
+  "tables": {
+    "body": {
+      "intro": {
+        "p1": "Şu tarihten önce kazanılan bakiyeler:",
+        "p2": "Ters yön bölme yapar ve her zaman yukarı yuvarlar: şu tutarda bir hedef:",
+        "p3": "kıl payı yetersiz kalırdı."
+      }
+    }
+  },
+  "charts": {
+    "body": {
+      "intro": {
+        "p1": "Değerler şu birimde:"
+      }
+    }
+  },
+  "diagrams": {
+    "body": {
+      "intro": {
+        "p1": "Uygulayan:"
+      }
+    }
   }
 }

@@ -1,6 +1,9 @@
 {
   "$comment": "Machine-drafted. Not yet read by a native speaker. Protected names (Roblox, Robux, DevEx, Marketplace) are never translated.",
-  "$identical": ["results.roblox", "results.total"],
+  "$identical": [
+    "results.roblox",
+    "results.total"
+  ],
   "srHeading": "Calculatrice de commission du marketplace",
   "modes": {
     "after": {
@@ -39,8 +42,7 @@
     "intro": {
       "p1": "Que vendez-vous ?",
       "p2": "Prix exprimé en multiple du prix plancher",
-      "p3": "Les prix planchers varient selon la catégorie de l’article ; on demande donc le multiple plutôt que de supposer un plancher universel. Un article dont le prix atteint six fois son plancher ou plus se situe dans la tranche la plus élevée.",
-      "p4": "Cette commission est prélevée au moment où les Robux sont gagnés. Convertir en argent, via DevEx, les Robux qui vous restent est une étape distincte, avec son propre taux : les 30 % ne sont pas appliqués deux fois."
+      "p3": "Les prix planchers varient selon la catégorie de l’article ; on demande donc le multiple plutôt que de supposer un plancher universel. Un article dont le prix atteint six fois son plancher ou plus se situe dans la tranche la plus élevée."
     }
   }
 }

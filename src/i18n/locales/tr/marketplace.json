@@ -1,6 +1,9 @@
 {
   "$comment": "Machine-drafted. Not yet read by a native speaker. Protected names (Roblox, Robux, DevEx, Marketplace) are never translated.",
-  "$identical": ["results.roblox", "results.total"],
+  "$identical": [
+    "results.roblox",
+    "results.total"
+  ],
   "srHeading": "Marketplace ücret hesaplayıcısı",
   "modes": {
     "after": {
@@ -39,8 +42,7 @@
     "intro": {
       "p1": "Ne satıyorsunuz?",
       "p2": "Taban fiyatın katı olarak fiyat",
-      "p3": "Taban fiyatlar ürün kategorisine göre değişir; bu yüzden burada tek bir evrensel taban varsayılmak yerine kat sorulur. Taban fiyatının altı katı veya üzerinde fiyatlanan bir ürün en üst kademeye girer.",
-      "p4": "Bu komisyon, Robux kazanıldığı anda alınır. Elinizde kalan Robux'u DevEx üzerinden nakde çevirmek, kendi kuru olan ayrı bir adımdır — %30 iki kez uygulanmaz."
+      "p3": "Taban fiyatlar ürün kategorisine göre değişir; bu yüzden burada tek bir evrensel taban varsayılmak yerine kat sorulur. Taban fiyatının altı katı veya üzerinde fiyatlanan bir ürün en üst kademeye girer."
     }
   }
 }

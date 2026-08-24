@@ -22,7 +22,12 @@
     "body": "Kalkulatornya sendiri tidak terpengaruh — perhitungan berjalan di peramban Anda dan tidak bergantung pada halaman ini. Coba lagi, atau langsung buka kalkulatornya.",
     "tryAgain": "Coba lagi",
     "goToCalculator": "Buka kalkulator",
-    "reference": "Jika Anda melaporkan ini, sebutkan rujukan {digest}."
+    "reference": "Jika Anda melaporkan ini, sebutkan rujukan {digest}.",
+    "prose": {
+      "intro": {
+        "p1": "Jika Anda melaporkan ini, sebutkan rujukannya."
+      }
+    }
   },
   "input": {
     "empty": "Masukkan jumlahnya.",

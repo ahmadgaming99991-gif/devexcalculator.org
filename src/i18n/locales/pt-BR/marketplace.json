@@ -1,6 +1,9 @@
 {
   "$comment": "Machine-drafted. Not yet read by a native speaker. Protected names (Roblox, Robux, DevEx, Marketplace) are never translated.",
-  "$identical": ["results.roblox"],
+  "$identical": [
+    "results.roblox",
+    "results.total"
+  ],
   "srHeading": "Calculadora de taxa do marketplace",
   "modes": {
     "after": {
@@ -39,8 +42,7 @@
     "intro": {
       "p1": "O que você está vendendo?",
       "p2": "Preço como múltiplo do piso de preço",
-      "p3": "Os pisos de preço variam por categoria de item, então isto pede o múltiplo em vez de supor um piso universal. Um item com preço igual ou superior a seis vezes o seu piso alcança a faixa mais alta.",
-      "p4": "Esta comissão é retida no momento em que os Robux são ganhos. Converter em dinheiro os Robux que você ficou, pelo DevEx, é uma etapa separada com sua própria taxa — os 30% não são aplicados duas vezes."
+      "p3": "Os pisos de preço variam por categoria de item, então isto pede o múltiplo em vez de supor um piso universal. Um item com preço igual ou superior a seis vezes o seu piso alcança a faixa mais alta."
     }
   }
 }

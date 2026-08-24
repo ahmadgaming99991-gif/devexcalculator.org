@@ -1,6 +1,12 @@
 {
   "$comment": "Machine-drafted. Not yet read by a native speaker. Protected names (Roblox, Robux, DevEx, Earned Robux) are never translated.",
-  "$identical": ["footer.feedAtom", "footer.feedJson", "units.standard"],
+  "$identical": [
+    "footer.feedAtom",
+    "footer.feedJson",
+    "social.instagramName",
+    "social.pinterestName",
+    "units.standard"
+  ],
   "brand": {
     "tagline": "Estimativas independentes de pagamento do DevEx para criadores do Roblox, com cada número rastreado até uma fonte oficial.",
     "shortName": "Calculadora DevEx"
@@ -42,7 +48,14 @@
     "sourceUpdatedAt": "O Roblox atualizou essa página pela última vez em {date}.",
     "badgeChanged": "fonte alterada, em revisão",
     "badgeUnreachable": "fonte inacessível {when}",
-    "badgeChecked": "fonte verificada {when}"
+    "badgeChecked": "fonte verificada {when}",
+    "unreadableReason": "O documento não se lê como a página do DevEx do Roblox.",
+    "noCheckYet": "Nenhuma verificação foi feita ainda.",
+    "body": {
+      "intro": {
+        "p1": "Detectado pela verificação automática em"
+      }
+    }
   },
   "byline": {
     "maintainedBy": "Mantido por",
@@ -92,6 +105,71 @@
     "standard": "Standard",
     "legacyRate": "Antiga",
     "usEighteenPlus": "EUA 18+",
-    "minimum": "Mínimo"
+    "minimum": "Mínimo",
+    "rate": "Taxa"
+  },
+  "social": {
+    "youtube": "DevEx Calculator no YouTube",
+    "x": "DevEx Calculator no X",
+    "instagram": "DevEx Calculator no Instagram",
+    "pinterest": "DevEx Calculator no Pinterest",
+    "instagramName": "Instagram",
+    "pinterestName": "Pinterest"
+  },
+  "consent": {
+    "accept": "Aceitar",
+    "body": {
+      "consentHeading": {
+        "p1": "Cookies de análise",
+        "p2": "Gostaríamos de medir quais páginas são usadas, e isso precisa de um cookie. A calculadora funciona igual de qualquer forma, e seus cálculos nunca são enviados a lugar nenhum."
+      }
+    }
+  },
+  "ranges": {
+    "day": "24 horas",
+    "threeDays": "3 dias",
+    "sevenDays": "7 dias"
+  },
+  "shell": {
+    "body": {
+      "intro": {
+        "p1": "Pular para o conteúdo principal"
+      }
+    }
+  },
+  "content": {
+    "body": {
+      "intro": {
+        "p1": "Taxas e requisitos mudam.",
+        "p2": "Os números aqui usam as taxas que o Roblox documenta atualmente. Só o Roblox decide quais dos seus Robux contam como Earned Robux, qual taxa se aplica a cada parte do seu saldo e se um pedido de DevEx é aprovado. Taxas do provedor de pagamento e suas próprias obrigações fiscais não estão incluídas, a menos que você as acrescente.",
+        "p3": "Robux que você comprou, recebeu de presente ou obteve fora dos ganhos como criador não são Earned Robux e não podem ser sacados. O preço de varejo dos Robux é outra coisa completamente e nunca é misturado a estes números."
+      },
+      "tocHeading": {
+        "p1": "Nesta página"
+      }
+    }
+  },
+  "tables": {
+    "body": {
+      "intro": {
+        "p1": "Saldos ganhos antes de",
+        "p2": "O caminho inverso divide, e sempre arredonda para cima: uma meta de",
+        "p3": "ficaria uma fração abaixo."
+      }
+    }
+  },
+  "charts": {
+    "body": {
+      "intro": {
+        "p1": "Os valores estão em"
+      }
+    }
+  },
+  "diagrams": {
+    "body": {
+      "intro": {
+        "p1": "Aplicado por"
+      }
+    }
   }
 }

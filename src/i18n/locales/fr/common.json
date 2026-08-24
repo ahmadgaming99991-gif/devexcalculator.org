@@ -6,6 +6,8 @@
     "footer.feedAtom",
     "footer.feedJson",
     "sections.sourcesHeading",
+    "social.instagramName",
+    "social.pinterestName",
     "units.minimum",
     "units.standard"
   ],
@@ -50,7 +52,14 @@
     "sourceUpdatedAt": "Roblox a mis cette page à jour pour la dernière fois le {date}.",
     "badgeChanged": "source modifiée, en cours d’examen",
     "badgeUnreachable": "source inaccessible {when}",
-    "badgeChecked": "source vérifiée {when}"
+    "badgeChecked": "source vérifiée {when}",
+    "unreadableReason": "Le document ne se lit pas comme la page DevEx de Roblox.",
+    "noCheckYet": "Aucune vérification n’a encore été effectuée.",
+    "body": {
+      "intro": {
+        "p1": "Détecté par la vérification automatique du"
+      }
+    }
   },
   "byline": {
     "maintainedBy": "Maintenu par",
@@ -100,6 +109,71 @@
     "standard": "Standard",
     "legacyRate": "Ancien",
     "usEighteenPlus": "États-Unis 18+",
-    "minimum": "Minimum"
+    "minimum": "Minimum",
+    "rate": "Taux"
+  },
+  "social": {
+    "youtube": "DevEx Calculator sur YouTube",
+    "x": "DevEx Calculator sur X",
+    "instagram": "DevEx Calculator sur Instagram",
+    "pinterest": "DevEx Calculator sur Pinterest",
+    "instagramName": "Instagram",
+    "pinterestName": "Pinterest"
+  },
+  "consent": {
+    "accept": "Accepter",
+    "body": {
+      "consentHeading": {
+        "p1": "Cookies de mesure d’audience",
+        "p2": "Nous aimerions mesurer quelles pages sont consultées, ce qui nécessite un cookie. La calculatrice fonctionne exactement pareil dans les deux cas, et vos calculs ne sont jamais envoyés nulle part."
+      }
+    }
+  },
+  "ranges": {
+    "day": "24 heures",
+    "threeDays": "3 jours",
+    "sevenDays": "7 jours"
+  },
+  "shell": {
+    "body": {
+      "intro": {
+        "p1": "Aller au contenu principal"
+      }
+    }
+  },
+  "content": {
+    "body": {
+      "intro": {
+        "p1": "Les taux et les conditions changent.",
+        "p2": "Les chiffres présentés ici utilisent les taux que Roblox documente actuellement. Roblox seul décide lesquels de vos Robux comptent comme Earned Robux, quel taux s’applique à quelle partie de votre solde, et si une demande DevEx est acceptée. Les frais du prestataire de paiement et vos propres obligations fiscales ne sont pas inclus, sauf si vous les ajoutez.",
+        "p3": "Les Robux que vous avez achetés, reçus en cadeau ou obtenus en dehors de vos revenus de créateur ne sont pas des Earned Robux et ne peuvent pas être encaissés. Le prix de vente au détail des Robux est une tout autre chose, et il n’est jamais mêlé à ces chiffres."
+      },
+      "tocHeading": {
+        "p1": "Sur cette page"
+      }
+    }
+  },
+  "tables": {
+    "body": {
+      "intro": {
+        "p1": "Soldes gagnés avant le",
+        "p2": "Le sens inverse divise, et arrondit toujours vers le haut : un objectif de",
+        "p3": "serait inférieur d’une fraction."
+      }
+    }
+  },
+  "charts": {
+    "body": {
+      "intro": {
+        "p1": "Les valeurs sont en"
+      }
+    }
+  },
+  "diagrams": {
+    "body": {
+      "intro": {
+        "p1": "Appliqué par"
+      }
+    }
   }
 }

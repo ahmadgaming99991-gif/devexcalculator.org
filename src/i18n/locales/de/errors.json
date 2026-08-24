@@ -22,7 +22,12 @@
     "body": "Der Rechner selbst ist davon nicht betroffen — die Berechnungen laufen in deinem Browser und hängen nicht davon ab, dass diese Seite lädt. Versuche es erneut, oder gehe direkt zum Rechner.",
     "tryAgain": "Erneut versuchen",
     "goToCalculator": "Zum Rechner",
-    "reference": "Wenn du das meldest, gib die Referenz {digest} an."
+    "reference": "Wenn du das meldest, gib die Referenz {digest} an.",
+    "prose": {
+      "intro": {
+        "p1": "Wenn du das meldest, gib die Referenz an."
+      }
+    }
   },
   "input": {
     "empty": "Gib einen Betrag ein.",

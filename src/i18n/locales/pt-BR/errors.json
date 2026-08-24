@@ -22,7 +22,12 @@
     "body": "A calculadora em si não foi afetada — os cálculos rodam no seu navegador e não dependem do carregamento desta página. Tente de novo ou vá direto para a calculadora.",
     "tryAgain": "Tentar de novo",
     "goToCalculator": "Ir para a calculadora",
-    "reference": "Se for relatar isto, cite a referência {digest}."
+    "reference": "Se for relatar isto, cite a referência {digest}.",
+    "prose": {
+      "intro": {
+        "p1": "Se for relatar isto, cite a referência."
+      }
+    }
   },
   "input": {
     "empty": "Informe uma quantia.",
