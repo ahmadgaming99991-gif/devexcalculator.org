@@ -1,0 +1,270 @@
+{
+  "$comment": "Machine-drafted. Not yet read by a native speaker. Every sentence here draws a line between what Roblox published, what this site observed, and what nobody knows — none may be shortened into a claim the data does not support.",
+  "$identical": [
+    "download.formats.csvPerExperience",
+    "history.stats.observationsHeld",
+    "live.table.experience",
+    "live.table.genre"
+  ],
+  "live": {
+    "intro": "Jumlah pemain langsung dari endpoint publik milik Roblox sendiri, di seluruh peringkat yang diterbitkan Roblox, beserta catatan apa yang telah diamati situs ini sejak mulai memantau.",
+    "jumpLabel": "Lihat angka langsungnya",
+    "rankingsLabel": "Peringkat Roblox",
+    "nowHeading": "Apa yang sedang dimainkan sekarang",
+    "nowDescription": "Dibaca dari endpoint explore dan games publik Roblox saat halaman ini disajikan. Tanpa akun, tanpa penyedia data pihak ketiga, dan tanpa apa pun yang diukur atau diperkirakan situs ini.",
+    "unavailableTitle": "Angka langsung Roblox sedang tidak tersedia",
+    "calculatorStillWorks": "kalkulator pembayaran",
+    "noExperiencesTitle": "Roblox tidak mengembalikan experience apa pun",
+    "stats": {
+      "playersInRanking": "Pemain dalam peringkat ini",
+      "experiencesShown": "Experience yang ditampilkan",
+      "experiencesShownValue": "{shown} dari {total}",
+      "robloxRanking": "Peringkat Roblox",
+      "busiestRightNow": "Paling ramai sekarang"
+    },
+    "table": {
+      "experience": "Experience",
+      "playersNow": "Pemain sekarang",
+      "last24h": "24 jam terakhir",
+      "lifetimeVisits": "Total kunjungan",
+      "approval": "Persetujuan",
+      "sponsored": "Bersponsor",
+      "genre": "Genre"
+    },
+    "body": {
+      "how": {
+        "p1": "Diambil di sisi server dari Roblox saat halaman disajikan dan disimpan dalam cache selama",
+        "p2": "menit. Peramban Anda tidak melakukan permintaan apa pun ke Roblox, dan tidak ada skrip Roblox yang berjalan di halaman ini.",
+        "p3": "Sebuah tugas terjadwal mencatat satu pengamatan setiap",
+        "p4": "menit. Total platform menyimpan semuanya selama",
+        "p5": "hari, karena itu satu larik per experience di antara beberapa ratus experience. Kedua grafik menampilkan apa yang benar-benar tercatat, termasuk celahnya — tidak ada yang dirata-ratakan untuk menambal periode yang tidak disimpan."
+      },
+      "related": {
+        "p1": "Tidak ada yang ditampilkan sebagai gantinya, karena angka usang atau karangan akan lebih buruk daripada tidak ada. Bagian lain situs ini tidak bergantung pada endpoint tersebut —",
+        "p2": "tetap berfungsi.",
+        "p3": "Endpoint-nya menjawab, tetapi peringkatnya kosong. Itu tidak biasa dan kemungkinan sementara.",
+        "p4": "endpoint explore Roblox",
+        "p5": "endpoint games Roblox",
+        "p6": "Jumlah kunjungan, favorit, dan nama kreator dihilangkan: endpoint yang menyediakannya tidak menjawab permintaan ini. Jumlah pemain dan suara di atas berasal dari peringkatnya sendiri dan tidak terpengaruh.",
+        "p7": "Roblox menerbitkan",
+        "p8": "Jumlah per experience disimpan di sebuah namespace KV Cloudflare yang terikat pada Worker yang diterapkan. Tanpa ikatan itu tidak ada catatan untuk digambar, dan karena itu hal ini dinyatakan alih-alih menampilkan sumbu kosong.",
+        "p9": "sejauh ini. Sebuah grafik membutuhkan",
+        "p10": "agar menjadi garis, bukan titik.",
+        "p11": "Dijumlahkan dari",
+        "p12": "peringkat publik, masing-masing dihitung sekali meski sebuah peringkat mencantumkan experience yang sama dua kali, sebagaimana dibaca pada"
+      },
+      "experience": {
+        "p1": "Tutup grafik ini",
+        "p2": "untuk experience ini",
+        "p3": "telah tercatat, yang belum cukup untuk menggambar garis. Jumlah per experience disimpan untuk",
+        "p4": "hari terakhir dengan satu pengamatan per jam, dan sebuah experience hanya dicatat selama Roblox memeringkatnya.",
+        "p5": "Gambarkan grafik untuk",
+        "p6": "hari terakhir dari",
+        "p7": "belum dipantau",
+        "p8": "— experience ini belum diamati cukup sering untuk menggambar garis",
+        "p9": "Pengamatan disimpan di sebuah namespace KV Cloudflare yang terikat pada Worker yang diterapkan. Saat dijalankan secara lokal tanpa ikatan itu, tidak ada yang bisa digambar — dan karena itu hal ini dinyatakan alih-alih menggambar sumbu kosong.",
+        "p10": "Penyimpanannya tidak menjawab. Angka langsung di atas tidak terpengaruh.",
+        "p11": "Tidak ada yang tersimpan untuk rentang ini. Di tempat tugas terjadwalnya berjalan, satu pengamatan ditulis setiap",
+        "p12": "menit dan grafiknya muncul setelah ada",
+        "p13": "dalam",
+        "p14": "pemain. Sebuah grafik butuh setidaknya",
+        "p15": "titik agar menjadi garis, bukan titik tunggal; jadi angkanya ditampilkan dalam bentuk daftar.",
+        "p16": "Jendelanya melebar dengan sendirinya seiring pengamatan menumpuk, sampai",
+        "p17": "hari. Pengamatan lama kedaluwarsa alih-alih dihapus oleh sebuah tugas. Puncak, terendah, dan rata-rata hanya menggambarkan titik-titik yang tercatat ini — totalnya bisa saja lebih tinggi di antara dua pengamatan, dan situs ini tidak mengeklaim sebaliknya."
+      }
+    }
+  },
+  "platformFigure": {
+    "label": "Pemain di seluruh experience yang sedang diperingkat Roblox",
+    "method": "Dijumlahkan dari {experiences} experience di {rankings} peringkat publik Roblox, masing-masing dihitung sekali meski sebuah peringkat mencantumkan experience yang sama dua kali, sebagaimana dibaca pada {observedAt}.",
+    "floorHeading": "Ini batas bawah, bukan total platform.",
+    "floorBody": "Roblox tidak menerbitkan angka langsung untuk seluruh platform dan situs ini tidak memperkirakannya. Roblox memeringkat sebagian kecil dari experience yang dihostingnya, jadi jumlah orang yang benar-benar bermain lebih tinggi daripada ini — berapa lebihnya, tidak ada di luar Roblox yang bisa mengatakannya."
+  },
+  "history": {
+    "topOverTimeHeading": "Experience teratas dari waktu ke waktu",
+    "busiestSingleHeading": "Experience tunggal paling ramai",
+    "busiestSingleDescription": "Jumlah pemain tertinggi yang dipegang satu experience pada tiap pengamatan — puncak platform per judul, bukan totalnya; keduanya bergerak sendiri-sendiri.",
+    "observedHeading": "Diamati dari waktu ke waktu",
+    "observedDescription": "Setiap 15 menit situs ini mencatat total pemain di experience yang sedang diperingkat Roblox, lalu menggambarkannya. Jendelanya tumbuh seiring pengamatan menumpuk; tidak ada yang diisi mundur.",
+    "notEnoughLinesTitle": "Pengamatannya belum cukup untuk menggambar garis",
+    "noPerExperienceCounts": "Belum ada jumlah per experience yang tercatat.",
+    "notEnoughYetTitle": "Pengamatannya belum cukup",
+    "unavailableInEnvironmentTitle": "Riwayat tidak tersedia di lingkungan ini",
+    "unreadableTitle": "Pengamatan yang tercatat tidak dapat dibaca",
+    "perExperienceHistory": "Riwayat per experience",
+    "busiestExperienceRecord": "Catatan experience paling ramai",
+    "thisExperience": "Experience ini",
+    "rangeLabel": "Rentang grafik",
+    "rangeExceedsTitle": "Semua yang terkumpul sejauh ini muat dalam {window}",
+    "rangeExceedsBody": "Situs ini telah mengamati selama {span}, yang kurang dari {window} yang dipilih — jadi rentang ini dan semua rentang yang lebih lebar menggambarkan {points} pengamatan yang sama, dan angkanya tidak berbeda di antaranya. Keduanya akan berbeda begitu riwayatnya melebihi cakupan sebuah rentang. Tidak ada yang ditambal untuk menutup selisihnya.",
+    "stats": {
+      "experiencesTracked": "Experience yang dipantau",
+      "observationsHeld": "Pengamatan tersimpan",
+      "busiestTracked": "Terpantau paling ramai",
+      "observations": "Pengamatan",
+      "observedPeak": "Puncak teramati",
+      "observedLow": "Terendah teramati",
+      "observationsRecorded": "Pengamatan tercatat",
+      "everyObservationHeld": "Semua pengamatan tersimpan — rentangnya lebih lebar daripada riwayatnya",
+      "withinTheLast": "Dalam {window} terakhir",
+      "periodCovered": "Periode yang dicakup",
+      "mostRecentTotal": "Total terbaru",
+      "changeSincePrevious": "{change} sejak pengamatan sebelumnya, {minutes} menit sebelumnya",
+      "averageAcrossObservations": "Rata-rata seluruh pengamatan",
+      "meanNote": "Rerata dari {points} titik tercatat, bukan rata-rata platform",
+      "highestObserved": "Tertinggi teramati",
+      "lowestObserved": "Terendah teramati"
+    },
+    "charts": {
+      "busiestCaption": "Jumlah pemain tertinggi yang dipegang satu experience mana pun pada tiap pengamatan, selama {span} yang tercatat. Experience terdepannya berganti-ganti; garis ini mengikuti jumlahnya, bukan satu judul.",
+      "totalCaption": "Total pemain di experience yang diperingkat. Situs ini telah mengamati selama {span}. Setiap titik adalah satu pengamatan tercatat; celah adalah celah pengumpulan, bukan nol."
+    },
+    "highestObservedNote": "“Tertinggi teramati” berarti tertinggi yang dilihat situs ini pada salah satu pengamatannya sendiri. Ini bukan rekor sepanjang masa: apa pun sebelum situs ini mulai memantau tidak diketahuinya, dan ia tidak akan meminjam angka yang tidak diukurnya.",
+    "windowNote": "Jendelanya melebar dengan sendirinya seiring pengamatan menumpuk, sampai {days} hari. Pengamatan lama kedaluwarsa alih-alih dihapus oleh sebuah tugas. Puncak, terendah, dan rata-rata hanya menggambarkan titik-titik yang tercatat ini — totalnya bisa saja lebih tinggi di antara dua pengamatan, dan situs ini tidak mengeklaim sebaliknya.",
+    "recordedByThisSite": "Dicatat oleh situs ini"
+  },
+  "method": {
+    "heading": "Bagaimana halaman ini memperoleh angkanya",
+    "liveHeading": "Angka langsung",
+    "liveBody": "Diambil di sisi server dari Roblox saat halaman disajikan dan disimpan dalam cache selama {minutes} menit. Peramban Anda tidak melakukan permintaan apa pun ke Roblox, dan tidak ada skrip Roblox yang berjalan di halaman ini.",
+    "historyHeading": "Riwayat",
+    "historyBody": "Sebuah tugas terjadwal mencatat satu pengamatan setiap {interval} menit. Total platform menyimpan semuanya selama {retention} hari; jumlah per experience menyimpan satu per jam selama {gameDays} hari, karena itu satu larik per experience di antara beberapa ratus experience. Kedua grafik menampilkan apa yang benar-benar tercatat, termasuk celahnya — tidak ada yang dirata-ratakan untuk menambal periode yang tidak disimpan.",
+    "provenanceTitle": "Peringkat dan jumlahnya milik Roblox, catatannya milik kami",
+    "provenanceBody": "Experience mana yang muncul, berapa pemainnya masing-masing, dan bagaimana masing-masing dinilai semuanya berasal dari Roblox. Situs ini tidak memeringkat experience, tidak memperkirakan jumlah pemain, dan tidak menerbitkan angka yang tidak dibacanya dari Roblox atau tidak diamatinya sendiri lalu ditandai demikian. Persentase persetujuan adalah satu-satunya aritmetika di halaman ini, dan itu adalah suara naik dan turun milik Roblox sendiri yang dibagi. Untuk sisi uang dari platform ini, lihat {payoutStatisticsLink}, yang berasal dari laporan resmi Roblox.",
+    "payoutStatisticsLink": "statistik pembayaran"
+  },
+  "download": {
+    "heading": "Unduh pengamatan ini",
+    "description": "Persis apa yang dikumpulkan, dengan celahnya dibiarkan.",
+    "innerHeading": "Jumlah pemain yang diamati",
+    "innerDescription": "Pengamatan di balik grafik di atas, sebagai lembar kerja atau JSON. Dibaca dari penyimpanan; mengunduhnya tidak melakukan permintaan apa pun ke Roblox.",
+    "formats": {
+      "csvTotals": "CSV — total platform",
+      "csvPerExperience": "CSV — per experience",
+      "jsonTotals": "JSON — total platform"
+    },
+    "limitations": {
+      "noInterpolation": "Hanya pengamatan. Tidak ada yang diinterpolasi dan tidak ada pengamatan hilang yang ditambal — sebuah celah berarti pengumpulnya tidak berjalan, dan itu dibiarkan terlihat alih-alih dihaluskan.",
+      "cadence": "Dikumpulkan setiap 15 menit. Total platform disimpan 14 hari; deret per experience diambil per jam dan disimpan 7 hari, jadi kedua berkas punya resolusi dan rentang yang berbeda.",
+      "coverage": "Hanya mencakup experience yang sedang diperingkat Roblox pada saat tiap pengamatan. Ini bukan seluruh Roblox, dan tidak ada pangsa platform yang bisa disimpulkan darinya.",
+      "rowProvenance": "Setiap baris membawa waktu pengamatan dan asalnya sendiri, jadi baris yang disalin ke tempat lain tetap menyatakan dirinya apa."
+    }
+  },
+  "faqsHeading": "Pertanyaan tentang angka-angka ini",
+  "relatedHeading": "Halaman terkait",
+  "stock": {
+    "intro": "Hasil yang dilaporkan Roblox, dan penjelasan jujur mengapa di sini belum ada harga saham langsung.",
+    "jumpLabel": "Lihat apa yang ditampilkan",
+    "respondsToHeading": "Harga itu merespons apa",
+    "reportedResultsLabel": "Hasil yang dilaporkan Roblox",
+    "reportedResultsCaption": "Hasil yang dilaporkan Roblox untuk kuartal terbaru, dibandingkan kuartal yang sama setahun sebelumnya.",
+    "columnMeasure": "Ukuran",
+    "quotedFrom": "Dikutip dari {source}, tidak dihitung ulang di sini. Rincian yang lebih lengkap, termasuk berapa yang dibayarkan Roblox kepada kreator tiap kuartal, ada di {payoutStatisticsLink}.",
+    "payoutStatisticsLink": "halaman statistik pembayaran",
+    "noChartHeading": "Mengapa tidak ada grafik sematan",
+    "noChartBody": "Situs yang menampilkan grafik Roblox langsung hampir selalu menyematkannya dari vendor data pasar, yang berarti skrip vendor itu berjalan di peramban Anda dan bisa melihat kunjungan Anda. Situs ini tidak memuat skrip pihak ketiga di halaman mana pun, dan menambahkan satu di sini akan diam-diam membatalkan itu bagi semua orang.",
+    "whenConnected": "Ketika sebuah penyedia terhubung, ia akan dibaca di sisi server dan dirender sebagai HTML biasa, sehingga harganya tiba dengan cara yang sama seperti setiap angka lain di situs ini: diambil oleh server, disebutkan sumbernya, dan diberi tanggal.",
+    "notAdviceTitle": "Bukan nasihat investasi",
+    "notAdviceBody": "Tidak ada di halaman ini yang merupakan rekomendasi untuk membeli atau menjual apa pun. Hasil sebuah perusahaan tidak mengatakan apa-apa tentang berapa yang akan diterima kreator mana pun, dan kurs DevEx ditetapkan Roblox terlepas dari harga sahamnya.",
+    "questionsHeading": "Pertanyaan",
+    "notLatestBadge": "Bukan yang terbaru",
+    "notLatestBody": "Ini kutipan harga terbaru yang diterima situs ini. {reason} Harga di atas tidak berubah sejak diambil; tidak ada yang disesuaikan agar tampak terkini.",
+    "providerSilentTitle": "Penyedia harga tidak menjawab",
+    "providerSilentBody": "{reason} Tidak ada angka yang ditampilkan sebagai gantinya. Harga usang yang disajikan sebagai terkini akan lebih buruk daripada tidak ada.",
+    "noPriceConfiguredTitle": "Tidak ada harga langsung yang dikonfigurasi",
+    "noPriceConfiguredBody": "Situs ini tidak akan mencetak harga saham yang tidak dapat diambil dan disebutkan sumbernya, dan tidak akan menyematkan widget pihak ketiga untuk meminjam satu.",
+    "configurationMissing": "Halaman ini sudah disiapkan untuk sebuah penyedia. Yang kurang hanyalah konfigurasi: {names}. Hasil yang dilaporkan di bawah adalah hal yang direspons oleh harga saham, dan itu diterbitkan bagaimanapun juga.",
+    "body": {
+      "results": {
+        "p1": "Dikutip dari"
+      },
+      "related": {
+        "p1": "Ini kutipan harga terbaru yang diterima situs ini.",
+        "p2": "Tidak ada angka yang ditampilkan sebagai gantinya. Harga usang yang disajikan sebagai terkini akan lebih buruk daripada tidak ada."
+      }
+    }
+  },
+  "stats": {
+    "intro": "Berapa sebenarnya yang dibayarkan Roblox kepada kreator, diambil dari laporannya sendiri ke SEC. Setiap angka di bawah menautkan ke dokumen asalnya.",
+    "jumpLabel": "Lihat angka pembayarannya",
+    "payoutsHeading": "Berapa yang dibayarkan Roblox kepada kreator",
+    "payoutsDescription": "Biaya developer exchange adalah satu baris pada laporan laba rugi Roblox: uang yang dibayarkannya lewat DevEx. Itulah hal yang paling mendekati ukuran penghasilan ekonomi kreator.",
+    "paidIn2025": "Dibayarkan kepada kreator pada 2025",
+    "paidIn2025Note": "Biaya developer exchange, setahun penuh",
+    "paidIn2024": "Dibayarkan pada 2024",
+    "paidIn2024Note": "Tahun sebelumnya",
+    "yearOnYearChange": "Perubahan tahun ke tahun",
+    "quarterNote": "Tiga bulan yang berakhir 30 Juni 2026",
+    "byYearChartCaption": "Biaya developer exchange per tahun buku, sebagaimana dilaporkan Roblox.",
+    "byYearTableLabel": "Biaya developer exchange per tahun",
+    "byYearTableCaption": "Biaya developer exchange Roblox per tahun buku, beserta laporan asal tiap angkanya.",
+    "columnPaidToCreators": "Dibayarkan kepada kreator",
+    "byQuarterHeading": "Pembayaran DevEx per kuartal",
+    "byQuarterDescription": "Roblox melapor per kuartal, jadi inilah resolusi terhalus yang ada. Dua kuartal ditandai sebagai turunan: keduanya adalah total enam bulan dikurangi kuartal yang dicetak Roblox — aritmetika yang tepat, tetapi bukan angka yang diterbitkan Roblox sendiri.",
+    "byQuarterChartCaption": "Biaya developer exchange per kuartal. Batang berongga diturunkan dengan pengurangan, bukan dilaporkan langsung.",
+    "byQuarterTableLabel": "Biaya developer exchange per kuartal",
+    "byQuarterTableCaption": "Biaya developer exchange Roblox per kuartal, menunjukkan angka mana yang dilaporkan dan mana yang diturunkan.",
+    "columnHowWeKnow": "Dari mana kami tahu",
+    "rateTimelineHeading": "Berapa nilai satu Robux selama ini",
+    "rateTableLabel": "Kurs DevEx dan berapa yang dibayarkannya",
+    "rateTableCaption": "Setiap kurs DevEx yang terdokumentasi dan pembayaran yang dihasilkannya untuk 100.000 Earned Robux yang memenuhi syarat.",
+    "rateBefore": "Sebelum 5 Sep 2025",
+    "rateFrom": "Sejak 5 Sep 2025",
+    "rateConditional": "Bersyarat AS 18+",
+    "usageHeading": "Berapa banyak orang memakai Roblox, dan berapa lama",
+    "derivedHere": "Diturunkan di sini",
+    "twoFiguresTitle": "Dua angka yang ditampilkan pelacak lain dan tidak di halaman ini",
+    "businessHeading": "Roblox sebagai bisnis",
+    "noSharePriceTitle": "Tidak ada harga saham di halaman ini, dan itu disengaja",
+    "downloadHeading": "Unduh angka-angka ini",
+    "downloadDescription": "Baris-baris di balik grafiknya, dengan tiap angka ditandai dilaporkan atau diturunkan.",
+    "downloadInnerHeading": "Statistik pembayaran kreator Roblox",
+    "downloadInnerDescription": "Semua yang digambarkan di halaman ini, ditambah metrik yang tidak diterbitkan Roblox, sebagai lembar kerja atau JSON.",
+    "limitations": {
+      "reportedOrDerived": "Setiap baris menyatakan apakah Roblox melaporkan angkanya atau situs ini menurunkannya dari angka yang dilaporkan. Cara penurunannya dijelaskan di halaman metodologi.",
+      "exactDecimal": "Uang dibawa sebagai untai desimal eksak, tidak pernah sebagai bilangan pecahan mesin, dan tidak pernah dibulatkan saat keluar.",
+      "filingLinked": "Setiap baris menyebut laporan asalnya dan menautkan ke sana, jadi angka mana pun bisa diperiksa terhadap dokumen aslinya.",
+      "absencesIncluded": "Metrik yang tidak diterbitkan Roblox dimasukkan sebagai ketiadaan beserta alasannya, bukan dihilangkan — berkas tanpa itu akan tampak seperti gambaran yang lengkap."
+    },
+    "whatItMeansHeading": "Apa artinya ini bagi pembayaran Anda sendiri",
+    "calculatorLink": "kalkulatornya",
+    "noLiveDataHeading": "Mengapa tidak ada data langsung di sini",
+    "quarterlyNotLiveTitle": "Angka kuartalan, bukan umpan langsung",
+    "methodologyLink": "metodologinya",
+    "faqsHeading": "Pertanyaan tentang angka-angka ini",
+    "columnYear": "Tahun",
+    "columnRevenue": "Pendapatan",
+    "columnSource": "Sumber",
+    "columnQuarter": "Kuartal",
+    "columnRate": "Kurs",
+    "columnNote": "Catatan",
+    "reported": "Dilaporkan",
+    "derived": "Diturunkan",
+    "payoutTotalNote": "Total pembayaran menyatakan berapa banyak yang dicairkan kreator, bukan berapa nilai tiap Robux. Itu angka terpisah yang terdokumentasi, dan angka itu sudah berubah sekali.",
+    "rateTimelineCaption": "USD per Earned Robux yang memenuhi syarat dari waktu ke waktu. Sebuah anak tangga, bukan kemiringan: kurs yang diterbitkan berlaku sampai diubah. Kurs bersyarat AS 18+ tidak ditampilkan di sini karena berjalan berdampingan dengan kurs standar alih-alih menggantikannya — kurs itu ada di tabel di bawah.",
+    "downloadFormats": {
+      "csvPayouts": "CSV — angka pembayaran",
+      "csvAbsences": "CSV — metrik yang tidak diterbitkan Roblox",
+      "jsonEverything": "JSON — semuanya"
+    },
+    "body": {
+      "engagement": {
+        "p1": "Jam per pengguna aktif, per hari",
+        "p2": "hari. Kedua masukannya dibulatkan dalam rilisnya, jadi ini perkiraan.",
+        "p3": "Semua angka di atas kecuali yang terakhir dikutip dari"
+      },
+      "business": {
+        "p1": "alih-alih dihitung ulang di sini.",
+        "p2": "Kutipan harga RBLX secara langsung akan memerlukan umpan data pasar berbayar dan skrip pihak ketiga yang berjalan di peramban Anda. Situs ini tidak memuat skrip pihak ketiga, dan angka yang tidak bisa dilacaknya sampai ke sebuah dokumen adalah angka yang tidak akan diterbitkannya. Angka-angka di atas berasal dari laporannya sendiri, yang merupakan sumber yang sama yang pada akhirnya direspons harga saham. Tidak satu pun dari ini adalah nasihat investasi, dan hasil satu kuartal tidak mengatakan apa-apa tentang berapa yang akan diterima siapa pun."
+      },
+      "whatItMeans": {
+        "p1": "Sangat sedikit, secara langsung — dan itu perlu dikatakan terus terang. Total di halaman ini menggambarkan seluruh platform. Angka itu tidak mengubah berapa nilai konversi saldo Anda sendiri, bukan ramalan, dan total yang naik tidak berarti kurs yang naik. Yang menentukan pembayaran Anda adalah kurs yang diterapkan pada Earned Robux Anda yang memenuhi syarat, yang bisa Anda hitung di",
+        "p2": "Satu hal yang memang ditunjukkan angka-angka ini adalah skalanya: DevEx adalah program yang lewatnya Roblox membayarkan",
+        "p3": "dalam satu tahun saja — konteks yang layak dimiliki sebelum memutuskan apakah batas minimum 30.000 Robux itu sepadan untuk dikejar."
+      },
+      "noLiveData": {
+        "p1": "Roblox menerbitkan angka-angka ini sekali per kuartal, dalam sebuah laporan. Itulah resolusi terhalus yang ada, jadi grafik yang mengeklaim menampilkannya berubah tiap menit sedang menampilkan sesuatu yang dikarang. Situs ini tidak menjalankan pengumpulan data, tidak mencuplik apa pun, dan tidak memperkirakan apa pun — ia membaca laporannya dan menautkan ke sana."
+      }
+    }
+  }
+}

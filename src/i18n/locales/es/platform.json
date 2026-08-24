@@ -1,0 +1,264 @@
+{
+  "$comment": "Machine-drafted. Not yet read by a native speaker. Every sentence here draws a line between what Roblox published, what this site observed, and what nobody knows — none may be shortened into a claim the data does not support.",
+  "live": {
+    "intro": "Recuentos de jugadores en directo desde los endpoints públicos del propio Roblox, en todas las clasificaciones que Roblox publica, y un registro de lo que este sitio ha observado desde que empezó a mirar.",
+    "jumpLabel": "Ver las cifras en directo",
+    "rankingsLabel": "Clasificaciones de Roblox",
+    "nowHeading": "Qué se está jugando ahora mismo",
+    "nowDescription": "Leído de los endpoints públicos de explorar y de juegos de Roblox en el momento en que se sirvió esta página. Sin cuenta, sin proveedor de datos externo y sin nada medido o estimado por este sitio.",
+    "unavailableTitle": "Las cifras en directo de Roblox no están disponibles ahora mismo",
+    "calculatorStillWorks": "calculadora de pagos",
+    "noExperiencesTitle": "Roblox no devolvió ninguna experiencia",
+    "stats": {
+      "playersInRanking": "Jugadores en esta clasificación",
+      "experiencesShown": "Experiencias mostradas",
+      "experiencesShownValue": "{shown} de {total}",
+      "robloxRanking": "Clasificación de Roblox",
+      "busiestRightNow": "La más concurrida ahora"
+    },
+    "table": {
+      "experience": "Experiencia",
+      "playersNow": "Jugadores ahora",
+      "last24h": "Últimas 24 h",
+      "lifetimeVisits": "Visitas totales",
+      "approval": "Aprobación",
+      "sponsored": "Patrocinado",
+      "genre": "Género"
+    },
+    "body": {
+      "how": {
+        "p1": "Obtenido en el servidor desde Roblox cuando se sirve la página, y cacheado durante",
+        "p2": "minutos. Tu navegador no hace ninguna petición a Roblox, y ningún script de Roblox se ejecuta en esta página.",
+        "p3": "Un trabajo programado registra una observación cada",
+        "p4": "minutos. Los totales de la plataforma guardan todas ellas durante",
+        "p5": "días, porque eso es un array por experiencia entre varios cientos de ellas. Ambos gráficos muestran lo que se registró realmente, huecos incluidos: no se promedia nada para rellenar las tandas que no se guardan."
+      },
+      "related": {
+        "p1": "No se muestra nada en su lugar, porque una cifra desactualizada o inventada sería peor que ninguna. El resto de este sitio no depende de este endpoint: la",
+        "p2": "funciona igualmente.",
+        "p3": "El endpoint respondió, pero su clasificación estaba vacía. Es inusual y probablemente temporal.",
+        "p4": "endpoint de explorar de Roblox",
+        "p5": "endpoint de juegos de Roblox",
+        "p6": "Se omiten los recuentos de visitas, los favoritos y los nombres de creadores: el endpoint que los suministra no respondió a esta petición. Los recuentos de jugadores y los votos de arriba vienen de la propia clasificación y no se ven afectados.",
+        "p7": "Roblox publica",
+        "p8": "Los recuentos por experiencia se guardan en un espacio de nombres KV de Cloudflare vinculado al Worker desplegado. Sin ese vínculo no hay nada registrado que dibujar, y por eso esto lo dice en lugar de mostrar un eje vacío.",
+        "p9": "hasta ahora. Un gráfico necesita",
+        "p10": "para ser una línea en vez de un punto.",
+        "p11": "Sumado a partir de",
+        "p12": "clasificaciones públicas, contando cada una una sola vez aunque una clasificación liste la misma experiencia dos veces, según se leyó el"
+      },
+      "experience": {
+        "p1": "Cerrar este gráfico",
+        "p2": "de esta experiencia",
+        "p3": "se han registrado, lo que no basta para dibujar una línea. Los recuentos por experiencia se guardan durante los últimos",
+        "p4": "días, a una observación por hora, y una experiencia solo se registra mientras Roblox la esté clasificando.",
+        "p5": "Trazar los últimos",
+        "p6": "días de",
+        "p7": "aún no seguida",
+        "p8": ": esta experiencia no se ha observado suficientes veces como para dibujar una línea",
+        "p9": "Las observaciones se guardan en un espacio de nombres KV de Cloudflare vinculado al Worker desplegado. Al ejecutarlo en local sin ese vínculo no hay nada que trazar, y por eso esto lo dice en lugar de dibujar un eje vacío.",
+        "p10": "El almacén no respondió. Las cifras en directo de arriba no se ven afectadas.",
+        "p11": "No se ha almacenado nada para este intervalo. Donde el trabajo programado está en marcha, se escribe una observación cada",
+        "p12": "minutos, y el gráfico aparece en cuanto haya",
+        "p13": "en los últimos",
+        "p14": "jugadores. Un gráfico necesita al menos",
+        "p15": "puntos para ser una línea en vez de un punto, así que en su lugar se listan las cifras.",
+        "p16": "La ventana se ensancha sola a medida que se acumulan observaciones, hasta",
+        "p17": "días. Las observaciones antiguas caducan en lugar de borrarse mediante un trabajo. El pico, el mínimo y la media describen solo estos puntos registrados: el total pudo ser mayor entre dos observaciones, y este sitio no afirma lo contrario."
+      }
+    }
+  },
+  "platformFigure": {
+    "label": "Jugadores en todas las experiencias que Roblox está clasificando",
+    "method": "Sumado a partir de {experiences} experiencias en {rankings} clasificaciones públicas de Roblox, contando cada una una sola vez aunque una clasificación liste la misma experiencia dos veces, según se leyó el {observedAt}.",
+    "floorHeading": "Esto es un suelo, no un total de la plataforma.",
+    "floorBody": "Roblox no publica ninguna cifra en directo para toda la plataforma y este sitio no estima ninguna. Roblox clasifica una pequeña parte de las experiencias que aloja, así que el número real de personas jugando es mayor que este; cuánto mayor, nadie fuera de Roblox puede decirlo."
+  },
+  "history": {
+    "topOverTimeHeading": "Experiencias destacadas a lo largo del tiempo",
+    "busiestSingleHeading": "La experiencia individual más concurrida",
+    "busiestSingleDescription": "El mayor recuento de jugadores que ha tenido una sola experiencia en cada observación: el pico de la plataforma por título, no su total, que se mueven de forma independiente.",
+    "observedHeading": "Observado a lo largo del tiempo",
+    "observedDescription": "Cada 15 minutos este sitio registra el total de jugadores en las experiencias que Roblox está clasificando, y traza lo que tiene. La ventana crece a medida que se acumulan observaciones; no se rellena nada hacia atrás.",
+    "notEnoughLinesTitle": "Aún no hay observaciones suficientes para dibujar líneas",
+    "noPerExperienceCounts": "Todavía no se ha registrado ningún recuento por experiencia.",
+    "notEnoughYetTitle": "Aún no hay observaciones suficientes",
+    "unavailableInEnvironmentTitle": "El histórico no está disponible en este entorno",
+    "unreadableTitle": "No se han podido leer las observaciones registradas",
+    "perExperienceHistory": "Histórico por experiencia",
+    "busiestExperienceRecord": "El registro de la experiencia más concurrida",
+    "thisExperience": "Esta experiencia",
+    "rangeLabel": "Intervalo del gráfico",
+    "rangeExceedsTitle": "Todo lo recogido hasta ahora cabe dentro de {window}",
+    "rangeExceedsBody": "Este sitio lleva observando {span}, que es menos que los {window} seleccionados, así que este intervalo y todos los más amplios trazan las mismas {points} observaciones, y las cifras no cambian entre ellos. Divergirán cuando haya más histórico del que cubre un intervalo. No se rellena nada para cubrir la diferencia.",
+    "stats": {
+      "experiencesTracked": "Experiencias seguidas",
+      "observationsHeld": "Observaciones guardadas",
+      "busiestTracked": "La más concurrida seguida",
+      "observations": "Observaciones",
+      "observedPeak": "Pico observado",
+      "observedLow": "Mínimo observado",
+      "observationsRecorded": "Observaciones registradas",
+      "everyObservationHeld": "Todas las observaciones guardadas: el intervalo es más amplio que el histórico",
+      "withinTheLast": "En los últimos {window}",
+      "periodCovered": "Periodo cubierto",
+      "mostRecentTotal": "Total más reciente",
+      "changeSincePrevious": "{change} desde la observación anterior, {minutes} minutos antes",
+      "averageAcrossObservations": "Media entre observaciones",
+      "meanNote": "Media de {points} puntos registrados, no una media de la plataforma",
+      "highestObserved": "Máximo observado",
+      "lowestObserved": "Mínimo observado"
+    },
+    "charts": {
+      "busiestCaption": "El mayor recuento de jugadores que ha mantenido una sola experiencia en cada observación, a lo largo de los {span} registrados. La experiencia líder cambia; esta línea sigue el recuento, no un título.",
+      "totalCaption": "Total de jugadores en las experiencias clasificadas. Este sitio lleva observando {span}. Cada punto es una observación registrada; los huecos son huecos de recogida, no ceros."
+    },
+    "highestObservedNote": "«Máximo observado» significa el máximo que este sitio vio en una de sus propias observaciones. No es un récord histórico: nada anterior al inicio de la observación le es conocido, y no va a tomar prestada una cifra que no midió.",
+    "windowNote": "La ventana se ensancha sola a medida que se acumulan observaciones, hasta {days} días. Las observaciones antiguas caducan en lugar de borrarse mediante un trabajo. El pico, el mínimo y la media describen solo estos puntos registrados: el total pudo ser mayor entre dos observaciones, y este sitio no afirma lo contrario.",
+    "recordedByThisSite": "Registrado por este sitio"
+  },
+  "method": {
+    "heading": "Cómo obtiene esta página sus cifras",
+    "liveHeading": "Cifras en directo",
+    "liveBody": "Obtenido en el servidor desde Roblox cuando se sirve la página, y cacheado durante {minutes} minutos. Tu navegador no hace ninguna petición a Roblox, y ningún script de Roblox se ejecuta en esta página.",
+    "historyHeading": "Histórico",
+    "historyBody": "Un trabajo programado registra una observación cada {interval} minutos. Los totales de la plataforma guardan todas ellas durante {retention} días; los recuentos por experiencia guardan uno por hora durante {gameDays} días, porque eso es un array por experiencia entre varios cientos de ellas. Ambos gráficos muestran lo que se registró realmente, huecos incluidos: no se promedia nada para rellenar las tandas que no se guardan.",
+    "provenanceTitle": "La clasificación y los recuentos son de Roblox, el registro es nuestro",
+    "provenanceBody": "Qué experiencias aparecen, cuántos jugadores tiene cada una y cómo se ha votado cada una viene todo de Roblox. Este sitio no clasifica experiencias, no estima recuentos de jugadores y no publica ninguna cifra que no haya leído de Roblox u observado él mismo y etiquetado como tal. El porcentaje de aprobación es la única aritmética de esta página, y son los propios votos positivos y negativos de Roblox divididos. Para el lado económico de la plataforma, consulta {payoutStatisticsLink}, que proceden de los informes oficiales de Roblox.",
+    "payoutStatisticsLink": "las estadísticas de pagos"
+  },
+  "download": {
+    "heading": "Descarga estas observaciones",
+    "description": "Exactamente lo que se recogió, con los huecos tal cual.",
+    "innerHeading": "Recuentos de jugadores observados",
+    "innerDescription": "Las observaciones que hay detrás del gráfico de arriba, como hoja de cálculo o como JSON. Se leen del almacén; descargarlas no hace ninguna petición a Roblox.",
+    "formats": {
+      "csvTotals": "CSV — totales de la plataforma",
+      "csvPerExperience": "CSV — por experiencia",
+      "jsonTotals": "JSON — totales de la plataforma"
+    },
+    "limitations": {
+      "noInterpolation": "Solo observaciones. No se interpola nada y no se rellena ninguna observación ausente: un hueco significa que el recolector no se ejecutó, y se deja visible en lugar de suavizarlo.",
+      "cadence": "Recogido cada 15 minutos. Los totales de la plataforma se guardan 14 días; las series por experiencia se muestrean cada hora y se guardan 7 días, así que los dos archivos tienen resoluciones y periodos distintos.",
+      "coverage": "Cubre solo las experiencias que Roblox estaba clasificando en el momento de cada observación. Esto no es todo Roblox, y de ello no puede deducirse ninguna cuota de la plataforma.",
+      "rowProvenance": "Cada fila lleva su propia hora de observación y su origen, así que una fila copiada a otro sitio sigue diciendo qué es."
+    }
+  },
+  "faqsHeading": "Preguntas sobre estas cifras",
+  "relatedHeading": "Páginas relacionadas",
+  "stock": {
+    "intro": "Los resultados publicados por Roblox, y una explicación honesta de por qué aquí todavía no hay un precio de la acción en directo.",
+    "jumpLabel": "Ver lo que se muestra",
+    "respondsToHeading": "A qué responde el precio",
+    "reportedResultsLabel": "Resultados publicados por Roblox",
+    "reportedResultsCaption": "Los resultados publicados por Roblox del trimestre más reciente, frente al mismo trimestre del año anterior.",
+    "columnMeasure": "Medida",
+    "quotedFrom": "Citado de {source}, no recalculado aquí. Un desglose más completo, incluido lo que Roblox paga a los creadores cada trimestre, está en {payoutStatisticsLink}.",
+    "payoutStatisticsLink": "la página de estadísticas de pagos",
+    "noChartHeading": "Por qué no hay un gráfico incrustado",
+    "noChartBody": "Los sitios que muestran un gráfico de Roblox en directo casi siempre incrustan uno de un proveedor de datos de mercado, lo que significa que el script de ese proveedor se ejecuta en tu navegador y puede ver tu visita. Este sitio no carga scripts de terceros en ninguna página, y añadir uno aquí desharía eso en silencio para todo el mundo.",
+    "whenConnected": "Cuando haya un proveedor conectado, se leerá en el servidor y se renderizará como HTML simple, así que el precio llegará igual que cualquier otra cifra de este sitio: obtenida por el servidor, atribuida y fechada.",
+    "notAdviceTitle": "No es asesoramiento de inversión",
+    "notAdviceBody": "Nada de esta página es una recomendación de compra o venta. Los resultados de una empresa no dicen nada sobre lo que se le pagará a un creador concreto, y Roblox fija la tasa de DevEx con independencia del precio de su acción.",
+    "questionsHeading": "Preguntas",
+    "notLatestBadge": "No es la más reciente",
+    "notLatestBody": "Esta es la cotización más reciente que ha recibido este sitio. {reason} El precio de arriba no ha cambiado desde que se tomó; no se ha ajustado nada para que parezca actual.",
+    "providerSilentTitle": "El proveedor de precios no respondió",
+    "providerSilentBody": "{reason} No se muestra ninguna cifra en su lugar. Un precio desactualizado presentado como actual sería peor que ninguno.",
+    "noPriceConfiguredTitle": "No hay ningún precio en directo configurado",
+    "noPriceConfiguredBody": "Este sitio no va a imprimir un precio de acción que no puede obtener y atribuir, y no va a incrustar un widget de terceros para tomar uno prestado.",
+    "configurationMissing": "La página ya está preparada para un proveedor. Lo único que falta es configuración: {names}. Los resultados publicados de abajo son aquello a lo que responde un precio de acción, y se publican en cualquier caso.",
+    "body": {
+      "results": {
+        "p1": "Citado de"
+      },
+      "related": {
+        "p1": "Esta es la cotización más reciente que ha recibido este sitio.",
+        "p2": "No se muestra ninguna cifra en su lugar. Un precio desactualizado presentado como actual sería peor que ninguno."
+      }
+    }
+  },
+  "stats": {
+    "intro": "Lo que Roblox paga realmente a los creadores, tomado de sus propios informes ante la SEC. Cada cifra de abajo enlaza al documento del que procede.",
+    "jumpLabel": "Ver las cifras de pagos",
+    "payoutsHeading": "Lo que Roblox paga a los creadores",
+    "payoutsDescription": "Las tarifas de developer exchange son una línea de la cuenta de resultados de Roblox: el dinero que pagó a través de DevEx. Es lo más parecido a una medida de lo que gana la economía de creadores.",
+    "paidIn2025": "Pagado a creadores en 2025",
+    "paidIn2025Note": "Tarifas de developer exchange, año completo",
+    "paidIn2024": "Pagado en 2024",
+    "paidIn2024Note": "El año anterior",
+    "yearOnYearChange": "Variación interanual",
+    "quarterNote": "Tres meses terminados el 30 de junio de 2026",
+    "byYearChartCaption": "Tarifas de developer exchange por ejercicio, según lo publicado por Roblox.",
+    "byYearTableLabel": "Tarifas de developer exchange por año",
+    "byYearTableCaption": "Tarifas de developer exchange de Roblox por ejercicio, con el informe del que procede cada cifra.",
+    "columnPaidToCreators": "Pagado a creadores",
+    "byQuarterHeading": "Pagos de DevEx por trimestre",
+    "byQuarterDescription": "Roblox informa trimestralmente, así que esta es la resolución más fina que existe. Dos trimestres están marcados como derivados: son un total semestral menos el trimestre que Roblox imprimió, lo que es aritmética exacta pero no una cifra que Roblox publicara por sí sola.",
+    "byQuarterChartCaption": "Tarifas de developer exchange por trimestre. Las barras huecas se derivan por resta en lugar de publicarse directamente.",
+    "byQuarterTableLabel": "Tarifas de developer exchange por trimestre",
+    "byQuarterTableCaption": "Tarifas de developer exchange de Roblox por trimestre, mostrando qué cifras se publicaron y cuáles se derivaron.",
+    "columnHowWeKnow": "Cómo lo sabemos",
+    "rateTimelineHeading": "Cuánto ha valido un Robux",
+    "rateTableLabel": "Tasas de DevEx y lo que pagan",
+    "rateTableCaption": "Cada tasa documentada de DevEx y el pago que produce para 100.000 Earned Robux elegibles.",
+    "rateBefore": "Antes del 5 sep 2025",
+    "rateFrom": "Desde el 5 sep 2025",
+    "rateConditional": "Condicional EE. UU. 18+",
+    "usageHeading": "Cuánta gente usa Roblox, y durante cuánto tiempo",
+    "derivedHere": "Derivado aquí",
+    "twoFiguresTitle": "Dos cifras que muestran otros rastreadores y esta página no",
+    "businessHeading": "Roblox como empresa",
+    "noSharePriceTitle": "En esta página no hay precio de la acción, a propósito",
+    "downloadHeading": "Descarga estas cifras",
+    "downloadDescription": "Las filas que hay detrás de los gráficos, con cada cifra etiquetada como publicada o derivada.",
+    "downloadInnerHeading": "Estadísticas de pagos a creadores de Roblox",
+    "downloadInnerDescription": "Todo lo representado en esta página, más las métricas que Roblox no publica, como hoja de cálculo o como JSON.",
+    "limitations": {
+      "reportedOrDerived": "Cada fila indica si Roblox publicó la cifra o si este sitio la derivó de cifras publicadas. Las derivaciones se describen en la página de metodología.",
+      "exactDecimal": "El dinero se lleva como cadena decimal exacta, nunca como número en coma flotante, y nunca se redondea a la salida.",
+      "filingLinked": "Cada fila nombra el informe del que procede y enlaza a él, así que cualquier cifra puede comprobarse contra el documento original.",
+      "absencesIncluded": "Las métricas que Roblox no publica se incluyen como ausencias con su motivo, no se omiten: un archivo sin ellas parecería el cuadro completo."
+    },
+    "whatItMeansHeading": "Qué significa esto para tu propio pago",
+    "calculatorLink": "la calculadora",
+    "noLiveDataHeading": "Por qué aquí no hay datos en directo",
+    "quarterlyNotLiveTitle": "Cifras trimestrales, no un flujo en directo",
+    "methodologyLink": "la metodología",
+    "faqsHeading": "Preguntas sobre estas cifras",
+    "columnYear": "Año",
+    "columnRevenue": "Ingresos",
+    "columnSource": "Fuente",
+    "columnQuarter": "Trimestre",
+    "columnRate": "Tasa",
+    "columnNote": "Nota",
+    "reported": "Publicado",
+    "derived": "Derivado",
+    "payoutTotalNote": "Un total de pagos dice cuánto cobraron los creadores, no cuánto valía cada Robux. Esa es una cifra distinta y documentada, y ha cambiado una vez.",
+    "rateTimelineCaption": "USD por Earned Robux elegible a lo largo del tiempo. Un escalón, no una pendiente: una tasa publicada rige hasta que se cambia. La tasa condicional de EE. UU. 18+ no aparece aquí porque convive con la tasa estándar en lugar de sustituirla: está en la tabla de abajo.",
+    "downloadFormats": {
+      "csvPayouts": "CSV — cifras de pagos",
+      "csvAbsences": "CSV — métricas que Roblox no publica",
+      "jsonEverything": "JSON — todo"
+    },
+    "body": {
+      "engagement": {
+        "p1": "Horas por usuario activo y día",
+        "p2": "días. Ambos datos vienen redondeados en el comunicado, así que esto es aproximado.",
+        "p3": "Todas las cifras de arriba salvo la última están citadas de"
+      },
+      "business": {
+        "p1": "en lugar de recalcularse aquí.",
+        "p2": "Una cotización en directo de RBLX requeriría un flujo de datos de mercado de pago y un script de terceros ejecutándose en tu navegador. Este sitio no carga scripts de terceros, y una cifra que no puede rastrear hasta un documento es una cifra que no publicará. Los datos de arriba proceden del propio informe, que es la misma fuente a la que en última instancia reacciona un precio de acción. Nada de esto es asesoramiento de inversión, y un resultado trimestral no dice nada sobre lo que cobrará una persona concreta."
+      },
+      "whatItMeans": {
+        "p1": "Muy poco, directamente, y conviene decirlo con claridad. Los totales de esta página describen toda la plataforma. No cambian a cuánto equivale tu propio saldo, no son una previsión, y un total creciente no significa una tasa creciente. Lo que decide tu pago es la tasa aplicada a tus Earned Robux elegibles, que puedes calcular en",
+        "p2": "Lo único que sí muestran estas cifras es la escala: DevEx es un programa a través del cual Roblox pagó",
+        "p3": "en un solo año, un contexto que vale la pena tener antes de decidir si merece la pena trabajar hacia el mínimo de 30.000 Robux."
+      },
+      "noLiveData": {
+        "p1": "Roblox publica estas cifras una vez por trimestre, en un informe. Esa es la resolución más fina que existe, así que un gráfico que dijera mostrarlas cambiando minuto a minuto estaría mostrando algo inventado. Este sitio no realiza ninguna recogida de datos, no muestrea nada y no estima nada: lee los informes y enlaza a ellos."
+      }
+    }
+  }
+}

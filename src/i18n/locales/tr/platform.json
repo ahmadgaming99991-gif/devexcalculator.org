@@ -1,0 +1,267 @@
+{
+  "$comment": "Machine-drafted. Not yet read by a native speaker. Every sentence here draws a line between what Roblox published, what this site observed, and what nobody knows — none may be shortened into a claim the data does not support.",
+  "$identical": [
+    "live.table.experience"
+  ],
+  "live": {
+    "intro": "Roblox'un kendi açık uç noktalarından gelen canlı oyuncu sayıları, Roblox'un yayımladığı bütün sıralamalarda; ve bu sitenin izlemeye başladığından beri gözlediklerinin kaydı.",
+    "jumpLabel": "Canlı rakamları gör",
+    "rankingsLabel": "Roblox sıralamaları",
+    "nowHeading": "Şu anda ne oynanıyor",
+    "nowDescription": "Bu sayfa sunulurken Roblox'un açık explore ve games uç noktalarından okundu. Hesap yok, üçüncü taraf veri sağlayıcı yok ve bu sitenin ölçtüğü ya da tahmin ettiği hiçbir şey yok.",
+    "unavailableTitle": "Roblox'un canlı rakamlarına şu anda ulaşılamıyor",
+    "calculatorStillWorks": "ödeme hesaplayıcısı",
+    "noExperiencesTitle": "Roblox hiçbir experience döndürmedi",
+    "stats": {
+      "playersInRanking": "Bu sıralamadaki oyuncular",
+      "experiencesShown": "Gösterilen experience'lar",
+      "experiencesShownValue": "{total} içinden {shown}",
+      "robloxRanking": "Roblox sıralaması",
+      "busiestRightNow": "Şu anda en yoğun"
+    },
+    "table": {
+      "experience": "Experience",
+      "playersNow": "Şu anki oyuncular",
+      "last24h": "Son 24 saat",
+      "lifetimeVisits": "Toplam ziyaret",
+      "approval": "Beğeni",
+      "sponsored": "Sponsorlu",
+      "genre": "Tür"
+    },
+    "body": {
+      "how": {
+        "p1": "Sayfa sunulurken sunucu tarafında Roblox'tan alınır ve şu kadar süreyle önbelleğe alınır:",
+        "p2": "dakika. Tarayıcınız Roblox'a hiçbir istek göndermez ve bu sayfada Roblox'a ait hiçbir betik çalışmaz.",
+        "p3": "Zamanlanmış bir görev şu aralıklarla bir gözlem kaydeder:",
+        "p4": "dakika. Platform toplamları hepsini şu süre boyunca saklar:",
+        "p5": "gün; çünkü bu, birkaç yüz experience'ın her biri için bir dizi demek. İki grafik de gerçekten kaydedileni, boşluklarıyla birlikte gösterir — saklanmayan turları doldurmak için hiçbir şeyin ortalaması alınmaz."
+      },
+      "related": {
+        "p1": "Yerine hiçbir şey gösterilmez; çünkü eski ya da uydurma bir sayı, hiç olmamasından kötüdür. Bu sitenin geri kalanı o uç noktaya bağlı değil —",
+        "p2": "yine de çalışır.",
+        "p3": "Uç nokta yanıt verdi ama sıralaması boştu. Bu alışılmadık ve büyük olasılıkla geçici.",
+        "p4": "Roblox explore uç noktası",
+        "p5": "Roblox games uç noktası",
+        "p6": "Ziyaret sayıları, favoriler ve içerik üreticisi adları atlandı: bunları sağlayan uç nokta bu istek için yanıt vermedi. Yukarıdaki oyuncu sayıları ve oylar sıralamanın kendisinden geliyor ve bundan etkilenmiyor.",
+        "p7": "Roblox şunu yayımlıyor:",
+        "p8": "Experience başına sayılar, dağıtılan Worker'a bağlı bir Cloudflare KV ad alanında tutulur. O bağ olmadan çizilecek hiçbir kayıt yoktur; bu yüzden burada boş bir eksen göstermek yerine bu yazıyor.",
+        "p9": "şimdiye kadar. Bir grafiğin şuna ihtiyacı var:",
+        "p10": "nokta değil çizgi olabilmesi için.",
+        "p11": "Şuradan toplandı:",
+        "p12": "açık sıralama; bir sıralama aynı experience'ı iki kez listelese bile her biri yalnızca bir kez sayıldı, şu tarihte okunduğu hâliyle:"
+      },
+      "experience": {
+        "p1": "Bu grafiği kapat",
+        "p2": "bu experience'ın",
+        "p3": "kaydedildi; bu bir çizgi çizmeye yetmiyor. Experience başına sayılar son",
+        "p4": "gün için saatte bir gözlemle tutulur ve bir experience yalnızca Roblox onu sıraladığı sürece kaydedilir.",
+        "p5": "Son",
+        "p6": "günün grafiğini çiz:",
+        "p7": "henüz izlenmiyor",
+        "p8": " — bu experience bir çizgi çizmeye yetecek kadar gözlenmedi",
+        "p9": "Gözlemler, dağıtılan Worker'a bağlı bir Cloudflare KV ad alanında saklanır. Bu bağ olmadan yerelde çalıştırıldığında çizilecek bir şey yoktur — bu yüzden boş bir eksen çizmek yerine bu yazıyor.",
+        "p10": "Depo yanıt vermedi. Yukarıdaki canlı rakamlar bundan etkilenmez.",
+        "p11": "Bu aralık için hiçbir şey saklanmadı. Zamanlanmış görevin çalıştığı yerde şu aralıklarla bir gözlem yazılır:",
+        "p12": "dakika; ve grafik şu kadarı olunca görünür:",
+        "p13": "son",
+        "p14": "oyuncu. Bir grafiğin nokta değil çizgi olabilmesi için en az",
+        "p15": "noktaya ihtiyacı var; bu yüzden rakamlar bunun yerine liste olarak veriliyor.",
+        "p16": "Gözlemler biriktikçe pencere kendiliğinden genişler, şuna kadar:",
+        "p17": "gün. Eski gözlemler bir görevle silinmek yerine kendiliğinden düşer. Zirve, en düşük ve ortalama yalnızca bu kaydedilmiş noktaları tanımlar — toplam, iki gözlem arasında daha yüksek olmuş olabilir ve bu site aksini iddia etmez."
+      }
+    }
+  },
+  "platformFigure": {
+    "label": "Roblox'un sıraladığı bütün experience'lardaki oyuncular",
+    "method": "Roblox'un {rankings} açık sıralamasındaki {experiences} experience'tan toplandı; bir sıralama aynı experience'ı iki kez listelese bile her biri yalnızca bir kez sayıldı, {observedAt} tarihinde okunduğu hâliyle.",
+    "floorHeading": "Bu bir alt sınırdır, platform toplamı değil.",
+    "floorBody": "Roblox bütün platform için canlı bir rakam yayımlamaz ve bu site de bir tane tahmin etmez. Roblox barındırdığı experience'ların küçük bir bölümünü sıralar; dolayısıyla gerçekte oynayan insan sayısı bundan daha yüksektir — ne kadar yüksek olduğunu Roblox dışında kimse söyleyemez."
+  },
+  "history": {
+    "topOverTimeHeading": "Zaman içinde öne çıkan experience'lar",
+    "busiestSingleHeading": "Tek başına en yoğun experience",
+    "busiestSingleDescription": "Her gözlemde herhangi bir tek experience'ın ulaştığı en yüksek oyuncu sayısı — platformun toplamı değil, başlık bazında zirvesi; ikisi birbirinden bağımsız hareket eder.",
+    "observedHeading": "Zaman içinde gözlenen",
+    "observedDescription": "Bu site her 15 dakikada bir, Roblox'un sıraladığı experience'lardaki toplam oyuncu sayısını kaydeder ve elindekini çizer. Gözlemler biriktikçe pencere büyür; geriye dönük hiçbir şey doldurulmaz.",
+    "notEnoughLinesTitle": "Çizgi çizmek için henüz yeterli gözlem yok",
+    "noPerExperienceCounts": "Henüz experience başına hiçbir sayı kaydedilmedi.",
+    "notEnoughYetTitle": "Henüz yeterli gözlem yok",
+    "unavailableInEnvironmentTitle": "Bu ortamda geçmiş verisi yok",
+    "unreadableTitle": "Kaydedilmiş gözlemler okunamadı",
+    "perExperienceHistory": "Experience başına geçmiş",
+    "busiestExperienceRecord": "En yoğun experience kaydı",
+    "thisExperience": "Bu experience",
+    "rangeLabel": "Grafik aralığı",
+    "rangeExceedsTitle": "Şimdiye kadar toplanan her şey {window} içine sığıyor",
+    "rangeExceedsBody": "Bu site {span} süredir gözlem yapıyor; bu, seçilen {window} aralığından kısa — dolayısıyla bu aralık ve daha geniş olanların hepsi aynı {points} gözlemi çiziyor ve rakamlar aralar arasında değişmiyor. Bir aralığın kapsadığından daha fazla geçmiş biriktiğinde ayrışacaklar. Farkı kapatmak için hiçbir şey doldurulmuyor.",
+    "stats": {
+      "experiencesTracked": "İzlenen experience'lar",
+      "observationsHeld": "Saklanan gözlemler",
+      "busiestTracked": "İzlenenler içinde en yoğun",
+      "observations": "Gözlemler",
+      "observedPeak": "Gözlenen zirve",
+      "observedLow": "Gözlenen en düşük",
+      "observationsRecorded": "Kaydedilen gözlemler",
+      "everyObservationHeld": "Tüm gözlemler saklandı — aralık, geçmişten daha geniş",
+      "withinTheLast": "Son {window} içinde",
+      "periodCovered": "Kapsanan dönem",
+      "mostRecentTotal": "En son toplam",
+      "changeSincePrevious": "{minutes} dakika önceki gözlemden bu yana {change}",
+      "averageAcrossObservations": "Gözlemler genelinde ortalama",
+      "meanNote": "Kaydedilmiş {points} noktanın ortalaması; platform ortalaması değil",
+      "highestObserved": "Gözlenen en yüksek",
+      "lowestObserved": "Gözlenen en düşük"
+    },
+    "charts": {
+      "busiestCaption": "Her gözlemde tek bir experience'ın ulaştığı en yüksek oyuncu sayısı, kaydedilen {span} boyunca. Başı çeken experience değişir; bu çizgi bir başlığı değil, sayıyı izler.",
+      "totalCaption": "Sıralanan experience'lardaki toplam oyuncu. Bu site {span} süredir gözlem yapıyor. Her nokta kaydedilmiş bir gözlemdir; boşluklar sıfır değil, toplama boşluklarıdır."
+    },
+    "highestObservedNote": "“Gözlenen en yüksek”, bu sitenin kendi gözlemlerinden birinde gördüğü en yüksek değer demektir. Bir tüm zamanlar rekoru değildir: site izlemeye başlamadan öncesini bilmez ve ölçmediği bir rakamı ödünç almaz.",
+    "windowNote": "Gözlemler biriktikçe pencere kendiliğinden {days} güne kadar genişler. Eski gözlemler bir görevle silinmek yerine kendiliğinden düşer. Zirve, en düşük ve ortalama yalnızca bu kaydedilmiş noktaları tanımlar — toplam, iki gözlem arasında daha yüksek olmuş olabilir ve bu site aksini iddia etmez.",
+    "recordedByThisSite": "Bu site tarafından kaydedildi"
+  },
+  "method": {
+    "heading": "Bu sayfa rakamlarını nasıl elde ediyor",
+    "liveHeading": "Canlı rakamlar",
+    "liveBody": "Sayfa sunulurken sunucu tarafında Roblox'tan alınır ve {minutes} dakika önbellekte tutulur. Tarayıcınız Roblox'a hiçbir istek göndermez ve bu sayfada Roblox'a ait hiçbir betik çalışmaz.",
+    "historyHeading": "Geçmiş",
+    "historyBody": "Zamanlanmış bir görev {interval} dakikada bir gözlem kaydeder. Platform toplamları hepsini {retention} gün saklar; experience başına sayılar {gameDays} gün boyunca saatte bir tanesini saklar, çünkü bu birkaç yüz experience'ın her biri için bir dizi demek. İki grafik de gerçekten kaydedileni, boşluklarıyla birlikte gösterir — saklanmayan turları doldurmak için hiçbir şeyin ortalaması alınmaz.",
+    "provenanceTitle": "Sıralama ve sayılar Roblox'un, kayıt bizim",
+    "provenanceBody": "Hangi experience'ların göründüğü, her birinin kaç oyuncusu olduğu ve her birinin nasıl oylandığı — hepsi Roblox'tan gelir. Bu site experience sıralamaz, oyuncu sayısı tahmin etmez ve ya Roblox'tan okumadığı ya da kendi gözleyip öyle etiketlemediği hiçbir rakamı yayımlamaz. Bu sayfadaki tek aritmetik beğeni oranıdır ve o da Roblox'un kendi olumlu ve olumsuz oy sayılarının bölünmesidir. Platformun para tarafı için Roblox'un resmî bildirimlerinden gelen {payoutStatisticsLink} sayfasına bakın.",
+    "payoutStatisticsLink": "ödeme istatistikleri"
+  },
+  "download": {
+    "heading": "Bu gözlemleri indirin",
+    "description": "Tam olarak toplananlar, boşlukları da yerinde bırakılmış hâlde.",
+    "innerHeading": "Gözlenen oyuncu sayıları",
+    "innerDescription": "Yukarıdaki grafiğin ardındaki gözlemler; hesap tablosu ya da JSON olarak. Depodan okunur; indirmek Roblox'a hiçbir istek göndermez.",
+    "formats": {
+      "csvTotals": "CSV — platform toplamları",
+      "csvPerExperience": "CSV — experience başına",
+      "jsonTotals": "JSON — platform toplamları"
+    },
+    "limitations": {
+      "noInterpolation": "Yalnızca gözlemler. Hiçbir şey aradeğerlenmez ve eksik hiçbir gözlem doldurulmaz — bir boşluk, toplayıcının çalışmadığı anlamına gelir ve düzleştirilmek yerine görünür bırakılır.",
+      "cadence": "Her 15 dakikada bir toplanır. Platform toplamları 14 gün saklanır; experience başına diziler saatte bir örneklenir ve 7 gün saklanır, dolayısıyla iki dosyanın çözünürlüğü ve kapsadığı süre farklıdır.",
+      "coverage": "Yalnızca her gözlem anında Roblox'un sıraladığı experience'ları kapsar. Bu, Roblox'un tamamı değildir ve buradan platformun herhangi bir payı çıkarılamaz.",
+      "rowProvenance": "Her satır kendi gözlem zamanını ve kaynağını taşır; böylece başka bir yere kopyalanan bir satır yine ne olduğunu söyler."
+    }
+  },
+  "faqsHeading": "Bu rakamlar hakkında sorular",
+  "relatedHeading": "İlgili sayfalar",
+  "stock": {
+    "intro": "Roblox'un açıkladığı sonuçlar ve burada neden henüz canlı bir hisse fiyatı olmadığının dürüst açıklaması.",
+    "jumpLabel": "Neyin gösterildiğini gör",
+    "respondsToHeading": "Fiyat neye tepki verir",
+    "reportedResultsLabel": "Roblox'un açıkladığı sonuçlar",
+    "reportedResultsCaption": "Roblox'un en son çeyreğe ilişkin açıkladığı sonuçlar, bir yıl önceki aynı çeyrekle karşılaştırmalı.",
+    "columnMeasure": "Ölçüt",
+    "quotedFrom": "{source} kaynağından alıntılandı, burada yeniden hesaplanmadı. Roblox'un her çeyrek içerik üreticilerine ne ödediği de dâhil daha ayrıntılı bir döküm {payoutStatisticsLink} sayfasında.",
+    "payoutStatisticsLink": "ödeme istatistikleri",
+    "noChartHeading": "Neden gömülü grafik yok",
+    "noChartBody": "Canlı bir Roblox grafiği gösteren siteler bunu neredeyse her zaman bir piyasa verisi sağlayıcısından gömer; bu da o sağlayıcının betiğinin tarayıcınızda çalışması ve ziyaretinizi görebilmesi demektir. Bu site hiçbir sayfada üçüncü taraf betiği yüklemez ve buraya bir tane eklemek bunu herkes için sessizce bozardı.",
+    "whenConnected": "Bir sağlayıcı bağlandığında sunucu tarafında okunacak ve düz HTML olarak işlenecek; böylece fiyat da bu sitedeki her rakam gibi gelecek: sunucu tarafından alınmış, kaynağı belirtilmiş ve tarihlenmiş.",
+    "notAdviceTitle": "Yatırım tavsiyesi değildir",
+    "notAdviceBody": "Bu sayfadaki hiçbir şey herhangi bir şeyi alma ya da satma tavsiyesi değildir. Bir şirketin sonuçları, herhangi bir içerik üreticisinin ne alacağı hakkında hiçbir şey söylemez ve DevEx kurunu Roblox, hisse fiyatından bağımsız olarak belirler.",
+    "questionsHeading": "Sorular",
+    "notLatestBadge": "En güncel değil",
+    "notLatestBody": "Bu, bu sitenin aldığı en son fiyat bilgisidir. {reason} Yukarıdaki fiyat alındığı andan beri değişmedi; güncel görünsün diye hiçbir şey ayarlanmadı.",
+    "providerSilentTitle": "Fiyat sağlayıcı yanıt vermedi",
+    "providerSilentBody": "{reason} Yerine hiçbir rakam gösterilmiyor. Eski bir fiyatı güncelmiş gibi sunmak hiç göstermemekten kötü olurdu.",
+    "noPriceConfiguredTitle": "Yapılandırılmış canlı fiyat yok",
+    "noPriceConfiguredBody": "Bu site, alıp kaynağını gösteremediği bir hisse fiyatını yazmaz ve ödünç almak için üçüncü taraf bir bileşen gömmez.",
+    "configurationMissing": "Sayfa bir sağlayıcı için zaten hazır. Eksik olan yalnızca yapılandırma: {names}. Aşağıdaki açıklanan sonuçlar, bir hisse fiyatının tepki verdiği şeydir ve her hâlükârda yayımlanır.",
+    "body": {
+      "results": {
+        "p1": "Alıntı kaynağı:"
+      },
+      "related": {
+        "p1": "Bu, bu sitenin aldığı en son fiyat bilgisidir.",
+        "p2": "Yerine hiçbir rakam gösterilmiyor. Eski bir fiyatı güncelmiş gibi sunmak hiç göstermemekten kötü olurdu."
+      }
+    }
+  },
+  "stats": {
+    "intro": "Roblox'un içerik üreticilerine gerçekte ne ödediği; SEC'e verdiği kendi bildirimlerinden alındı. Aşağıdaki her rakam, geldiği belgeye bağlantı verir.",
+    "jumpLabel": "Ödeme rakamlarını gör",
+    "payoutsHeading": "Roblox içerik üreticilerine ne ödüyor",
+    "payoutsDescription": "Developer exchange ücretleri, Roblox'un gelir tablosunda bir satırdır: DevEx yoluyla ödediği para. İçerik üreticisi ekonomisinin ne kazandığına dair en yakın ölçüdür.",
+    "paidIn2025": "2025'te içerik üreticilerine ödenen",
+    "paidIn2025Note": "Developer exchange ücretleri, tam yıl",
+    "paidIn2024": "2024'te ödenen",
+    "paidIn2024Note": "Bir önceki yıl",
+    "yearOnYearChange": "Yıllık değişim",
+    "quarterNote": "30 Haziran 2026'da sona eren üç ay",
+    "byYearChartCaption": "Mali yıla göre developer exchange ücretleri; Roblox'un açıkladığı hâliyle.",
+    "byYearTableLabel": "Yıla göre developer exchange ücretleri",
+    "byYearTableCaption": "Roblox'un mali yıla göre developer exchange ücretleri; her rakamın geldiği bildirimle birlikte.",
+    "columnPaidToCreators": "İçerik üreticilerine ödenen",
+    "byQuarterHeading": "Çeyreğe göre DevEx ödemeleri",
+    "byQuarterDescription": "Roblox çeyrek bazında rapor verir; dolayısıyla var olan en ince çözünürlük budur. İki çeyrek türetilmiş olarak işaretlenmiştir: altı aylık toplamdan Roblox'un yazdığı çeyreğin çıkarılmasıyla elde edilmişlerdir — tam bir aritmetik, ama Roblox'un kendi başına yayımladığı bir rakam değil.",
+    "byQuarterChartCaption": "Çeyreğe göre developer exchange ücretleri. İçi boş çubuklar doğrudan açıklanmak yerine çıkarma yoluyla türetilmiştir.",
+    "byQuarterTableLabel": "Çeyreğe göre developer exchange ücretleri",
+    "byQuarterTableCaption": "Roblox'un çeyreğe göre developer exchange ücretleri; hangi rakamların açıklandığını ve hangilerinin türetildiğini gösterir.",
+    "columnHowWeKnow": "Nereden biliyoruz",
+    "rateTimelineHeading": "Bir Robux ne kadar değer taşıdı",
+    "rateTableLabel": "DevEx kurları ve ne ödedikleri",
+    "rateTableCaption": "Belgelenmiş her DevEx kuru ve 100.000 uygun Earned Robux için ürettiği ödeme.",
+    "rateBefore": "5 Eyl 2025'ten önce",
+    "rateFrom": "5 Eyl 2025'ten itibaren",
+    "rateConditional": "Koşullu ABD 18+",
+    "usageHeading": "Roblox'u kaç kişi kullanıyor ve ne kadar süreyle",
+    "derivedHere": "Burada türetildi",
+    "twoFiguresTitle": "Başka takipçilerin gösterdiği, bu sayfanın göstermediği iki rakam",
+    "businessHeading": "Bir şirket olarak Roblox",
+    "noSharePriceTitle": "Bu sayfada bilerek hisse fiyatı yok",
+    "downloadHeading": "Bu rakamları indirin",
+    "downloadDescription": "Grafiklerin ardındaki satırlar; her rakam açıklanmış ya da türetilmiş olarak etiketlenmiş.",
+    "downloadInnerHeading": "Roblox içerik üreticisi ödeme istatistikleri",
+    "downloadInnerDescription": "Bu sayfada grafiklenen her şey, ayrıca Roblox'un yayımlamadığı ölçütler; hesap tablosu ya da JSON olarak.",
+    "limitations": {
+      "reportedOrDerived": "Her satır, rakamı Roblox'un mu açıkladığını yoksa bu sitenin açıklanan rakamlardan mı türettiğini belirtir. Türetmeler yöntem sayfasında anlatılıyor.",
+      "exactDecimal": "Para, kayan noktalı sayı olarak değil, tam ondalık dizgi olarak taşınır ve çıkışta hiçbir zaman yuvarlanmaz.",
+      "filingLinked": "Her satır geldiği bildirimi adlandırır ve ona bağlantı verir; böylece her rakam özgün belgeye karşı denetlenebilir.",
+      "absencesIncluded": "Roblox'un yayımlamadığı ölçütler, atlanmak yerine gerekçeleriyle birlikte yokluk olarak dâhil edilir — onlar olmadan bir dosya tam bir tablo gibi görünürdü."
+    },
+    "whatItMeansHeading": "Bunun sizin ödemeniz için anlamı",
+    "calculatorLink": "hesaplayıcı",
+    "noLiveDataHeading": "Burada neden canlı veri yok",
+    "quarterlyNotLiveTitle": "Çeyreklik rakamlar, canlı bir akış değil",
+    "methodologyLink": "yöntem",
+    "faqsHeading": "Bu rakamlar hakkında sorular",
+    "columnYear": "Yıl",
+    "columnRevenue": "Gelir",
+    "columnSource": "Kaynak",
+    "columnQuarter": "Çeyrek",
+    "columnRate": "Kur",
+    "columnNote": "Not",
+    "reported": "Açıklandı",
+    "derived": "Türetildi",
+    "payoutTotalNote": "Bir ödeme toplamı, içerik üreticilerinin ne kadarını nakde çevirdiğini söyler; her Robux'un ne değer taşıdığını değil. O ayrı ve belgelenmiş bir rakamdır ve bir kez değişmiştir.",
+    "rateTimelineCaption": "Zaman içinde uygun Earned Robux başına USD. Eğim değil, basamak: yayımlanan bir kur, değiştirilene kadar geçerlidir. Koşullu ABD 18+ kuru burada gösterilmiyor; çünkü standart kurun yerini almak yerine onunla birlikte işliyor — aşağıdaki tabloda yer alıyor.",
+    "downloadFormats": {
+      "csvPayouts": "CSV — ödeme rakamları",
+      "csvAbsences": "CSV — Roblox'un yayımlamadığı ölçütler",
+      "jsonEverything": "JSON — her şey"
+    },
+    "body": {
+      "engagement": {
+        "p1": "Etkin kullanıcı başına günlük saat",
+        "p2": "gün. İki girdi de bültende yuvarlanmış hâlde; dolayısıyla bu yaklaşık bir değer.",
+        "p3": "Yukarıdaki son rakam dışında hepsi şuradan alıntılandı:"
+      },
+      "business": {
+        "p1": "burada yeniden hesaplanmak yerine.",
+        "p2": "Canlı bir RBLX fiyatı, ücretli bir piyasa verisi akışı ve tarayıcınızda çalışan üçüncü taraf bir betik gerektirirdi. Bu site üçüncü taraf betiği yüklemez ve bir belgeye kadar izini süremediği bir rakamı yayımlamaz. Yukarıdaki veriler bildirimin kendisinden gelir; bu da bir hisse fiyatının nihayetinde tepki verdiği kaynağın aynısıdır. Bunların hiçbiri yatırım tavsiyesi değildir ve çeyreklik bir sonuç, herhangi bir kişinin ne alacağı hakkında hiçbir şey söylemez."
+      },
+      "whatItMeans": {
+        "p1": "Doğrudan çok az — ve bunu açıkça söylemeye değer. Bu sayfadaki toplamlar bütün platformu anlatır. Kendi bakiyenizin neye dönüştüğünü değiştirmezler, bir öngörü değildirler ve artan bir toplam, artan bir kur anlamına gelmez. Ödemenizi belirleyen şey, uygun Earned Robux'unuza uygulanan kurdur; bunu şurada hesaplayabilirsiniz:",
+        "p2": "Bu rakamların gerçekten gösterdiği tek şey ölçektir: DevEx, Roblox'un tek bir yılda şu kadarını ödediği bir programdır:",
+        "p3": "30.000 Robux alt sınırına doğru çalışmaya değip değmeyeceğine karar vermeden önce bilinmeye değer bir bağlam."
+      },
+      "noLiveData": {
+        "p1": "Roblox bu rakamları çeyrekte bir kez, bir bildirimle yayımlar. Var olan en ince çözünürlük budur; dolayısıyla bunları dakika dakika değişiyormuş gibi gösterdiğini iddia eden bir grafik, uydurulmuş bir şey gösteriyor olurdu. Bu site hiçbir veri toplama işletmez, hiçbir şey örneklemez ve hiçbir şey tahmin etmez — bildirimleri okur ve onlara bağlantı verir."
+      }
+    }
+  }
+}
