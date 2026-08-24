@@ -25,9 +25,7 @@
     "body": "The calculator itself is unaffected — calculations run in your browser and do not depend on this page loading. Try again, or go straight to the calculator.",
     "prose": {
       "intro": {
-        "p1": "{error.digest ? (",
-        "p2": "If you report this, quote reference .",
-        "p3": ") : null}"
+        "p1": "If you report this, quote reference ."
       }
     }
   },

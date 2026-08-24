@@ -22,10 +22,8 @@
     "columnRate": "Rate",
     "body": {
       "whichApplies": {
-        "p1": "{rate.conditionNote ? (",
-        "p2": ") : null}",
-        "p3": "A single balance can span more than one rate — Robux earned before and after the September 2025 transition are treated separately, and Roblox cashes the older portion out first.",
-        "p4": "The split calculator models a mixed balance"
+        "p1": "A single balance can span more than one rate — Robux earned before and after the September 2025 transition are treated separately, and Roblox cashes the older portion out first.",
+        "p2": "The split calculator models a mixed balance"
       },
       "difference": {
         "p1": "The gap between the current and legacy rates is",
@@ -58,20 +56,18 @@
       "timeline": {
         "p1": "Standard rate increased to 0.0038 USD per Earned Robux",
         "p2": "Roblox states this as 114 USD for 30,000 Earned Robux, up from 105. Balances earned before this moment continue to convert at the previous rate and are cashed out first.",
-        "p3": "Until",
-        "p4": "Standard rate of 0.0035 USD per Earned Robux",
-        "p5": "105 USD for 30,000 Earned Robux. Still applied to the portion of any balance earned before the transition.",
-        "p6": "Effective date not published",
-        "p7": "Higher 0.0054 rate for qualifying U.S. 18+ spending",
-        "p8": "Roblox documents this rate for certain Earned Robux from purchases by United States players who have verified they are at least 18. The documentation this site checked does not state an effective date, so none is recorded here rather than one being inferred."
+        "p3": "Standard rate of 0.0035 USD per Earned Robux",
+        "p4": "105 USD for 30,000 Earned Robux. Still applied to the portion of any balance earned before the transition.",
+        "p5": "Effective date not published",
+        "p6": "Higher 0.0054 rate for qualifying U.S. 18+ spending",
+        "p7": "Roblox documents this rate for certain Earned Robux from purchases by United States players who have verified they are at least 18. The documentation this site checked does not state an effective date, so none is recorded here rather than one being inferred."
       },
       "comparison": {
         "p1": "The increase is about 8.6% across the board, since it is a change to a single multiplier."
       },
       "legacyBalances": {
-        "p1": "Roblox cashes out the pre-transition portion of a balance at 0.0035 first, then the rest at 0.0038. The split is Roblox&rsquo;s own accounting of when each Robux was earned — it is not something a creator selects or can adjust.",
-        "p2": "The split calculator lets you model a mixed balance",
-        "p3": "if you know roughly how yours divides, but treat the result as an estimate built on your own assumption about the split."
+        "p1": "The split calculator lets you model a mixed balance",
+        "p2": "if you know roughly how yours divides, but treat the result as an estimate built on your own assumption about the split."
       },
       "noForecast": {
         "p1": "Roblox has changed the rate before and may change it again. Nobody outside Roblox knows whether or when, and a prediction dressed up as analysis would be a guess with a confident tone. This page records only changes that official documentation confirms, each with its effective date. When a change happens it appears here and in the",
@@ -159,14 +155,10 @@
         "p2": "Work out what you keep on a sale"
       },
       "notQualifying": {
-        "p1": "This is also why the retail price of Robux and the DevEx rate are unrelated numbers. Buying Robux is a purchase; DevEx is Roblox paying a creator.",
-        "p2": "The two are compared side by side here"
+        "p1": "The two are compared side by side here"
       },
       "pending": {
         "p1": "Robux from a recent purchase typically spend a period as pending before becoming available, which protects against reversed transactions. Pending Robux are not yet part of the balance you can act on. Roblox documents the current holding behaviour in the Creator Hub, and because that behaviour has changed over time this page does not state a specific number of days — check the official documentation for the figure that applies now."
-      },
-      "groups": {
-        "p1": "Earnings from an experience owned by a group accumulate in the group&rsquo;s funds rather than in any individual account. DevEx operates on a personal account, so group funds have to reach a personal balance through a payout before they are relevant to a DevEx request. If you are splitting revenue with collaborators, agree how that works before the money arrives rather than after — and check the current official documentation for how group payouts are treated, since this is an area Roblox has changed before."
       }
     }
   },
@@ -207,12 +199,7 @@
         "p1": "Nothing here tells you what you owe. Tax depends on where you live, your circumstances and your total income, and this site has no way of knowing any of that. The estimator below uses whatever percentage you enter so you can model your own situation. For an actual answer, speak to a qualified adviser in your country."
       },
       "threeLayers": {
-        "p1": "Whatever service delivers the money may charge for doing so — often a percentage plus a fixed amount per payout. This is between you and that provider; Roblox does not set it and neither does this site.",
-        "p2": "The DevEx rate is stated in US dollars. If you are paid in another currency, someone converts it, and they apply their own rate plus a margin. That margin is why your bank&rsquo;s figure will not match a reference rate.",
-        "p3": "A DevEx payout is income. How much tax applies, and when, depends entirely on your country and your circumstances. Roblox requires a W-9 or W-8 precisely because this is taxable."
-      },
-      "fees": {
-        "p1": "Fee structures vary by provider, country and payout method, so this page does not publish a table of them — any figure would be out of date or wrong for most readers. Check what your own provider charges before you submit a request, then enter that figure in the calculator below to see it applied. On a small payout a fixed fee can be a noticeable share of the total; on a large one the percentage matters more."
+        "p1": "A DevEx payout is income. How much tax applies, and when, depends entirely on your country and your circumstances. Roblox requires a W-9 or W-8 precisely because this is taxable."
       },
       "currency": {
         "p1": "Local-currency estimates here use European Central Bank reference rates, published once each working day. They are a reference, not a quote: no bank trades at them. Your provider will apply its own rate, usually with a margin built in, so treat a converted figure here as an indication of scale rather than a prediction of what lands in your account.",
@@ -310,10 +297,9 @@
     "ogImageAlt": "Rounded up, because a partial Robux cannot be earned or exchanged",
     "body": {
       "rounding": {
-        "p1": "required Earned Robux = ceiling( target USD ÷ rate per Robux )",
-        "p2": "A 1,000 dollar target divided by 0.0038 gives 263,157.89. Robux come in whole units, so 263,157 would pay",
-        "p3": "— just under the target. Rounding up to 263,158 pays",
-        "p4": ", which clears it. That is why every figure on this page rounds up rather than to the nearest whole number."
+        "p1": "A 1,000 dollar target divided by 0.0038 gives 263,157.89. Robux come in whole units, so 263,157 would pay",
+        "p2": "— just under the target. Rounding up to 263,158 pays",
+        "p3": ", which clears it. That is why every figure on this page rounds up rather than to the nearest whole number."
       },
       "minimum": {
         "p1": "Roblox requires",
@@ -322,12 +308,10 @@
       },
       "planner": {
         "p1": "A payout target is a distance. Turning it into a date needs one more fact — how fast you earn — and turning a date into a plan needs the same fact in reverse. Both are the same division:",
-        "p2": "days = remaining Earned Robux ÷ Earned Robux per day",
-        "p3": ", rounded up, because a part day earns nothing and a part Robux does not exist. Nothing here assumes your earnings grow, and nothing here is a date Roblox will pay on — Roblox publishes no DevEx processing time, so none is added."
+        "p2": ", rounded up, because a part day earns nothing and a part Robux does not exist. Nothing here assumes your earnings grow, and nothing here is a date Roblox will pay on — Roblox publishes no DevEx processing time, so none is added."
       },
       "examples": {
-        "p1": "{row.belowMinimum ? (",
-        "p2": "Yes — you would need"
+        "p1": "Yes — you would need"
       },
       "buyingRobux": {
         "p1": "This page answers the creator question: how much do I need to earn to receive a given amount of money. It does not tell you how many Robux a given amount of money will buy. Roblox prices Robux packages by region, platform and promotion, and there is no single rate that would be true for everyone — so this site does not publish one.",
@@ -367,9 +351,6 @@
         "p6": "Item creator and experience owner are paid separately",
         "p7": "If you sell your own item inside your own experience you receive both the creator share and the experience owner share, which comes to 70%."
       },
-      "progressive": {
-        "p1": "Price floors differ by item category and Roblox has adjusted them over time, so hardcoding one universal floor would produce wrong answers for most items. Entering the multiple keeps the result correct whatever your category&rsquo;s floor happens to be."
-      },
       "notDevex": {
         "p1": "The commission on this page applies at the moment a player spends Robux. What you keep becomes Earned Robux. DevEx then converts those Earned Robux to cash at its own rate, on a balance that has already had the commission taken. Subtracting 30% from a DevEx payout applies the same fee twice and understates what a creator receives.",
         "p2": "Convert your Earned Robux to a payout estimate",
@@ -390,14 +371,9 @@
     "roundingDescription": "Displayed to the cent, calculated with more precision than that.",
     "fullMethodologyLink": "Full methodology",
     "body": {
-      "table": {
-        "p1": "The list is not a selection of round numbers: it is the amounts that are actually searched for. Anything not here — including figures larger than the table&rsquo;s last row — goes into the converter above, which uses the same rates and the same arithmetic."
-      },
       "detailed": {
-        "p1": "{values.meetsMinimum ? `$",
-        "p2": "× the DevEx minimum` : \"Below the DevEx minimum\"}",
-        "p3": "This list is deliberately short. A page for every number would be a page that says nothing new, which is both unhelpful and against search-quality guidance. Amounts are added only when they clear a demand threshold and there is something specific to say about them.",
-        "p4": "See the publication policy"
+        "p1": "This list is deliberately short. A page for every number would be a page that says nothing new, which is both unhelpful and against search-quality guidance. Amounts are added only when they clear a demand threshold and there is something specific to say about them.",
+        "p2": "See the publication policy"
       },
       "rounding": {
         "p1": "Each figure is Robux multiplied by an exact decimal rate, held as a fraction throughout and rounded to the cent only when it is printed. Nothing is rounded partway through, so a total never disagrees with the sum of its parts."
@@ -419,22 +395,16 @@
     "columnRobuxNeeded": "Earned Robux needed",
     "ratesUsedHeading": "The rates used here",
     "body": {
-      "intro": {
-        "p1": "; }): Promise"
-      },
       "value": {
         "p1": "Open this amount in the full calculator"
       },
       "rateComparison": {
-        "p1": "{isStandard ? (",
-        "p2": "gap between the current and legacy rates is what the September 2025 change is worth at this amount.",
-        "p3": "See the rate history"
+        "p1": "gap between the current and legacy rates is what the September 2025 change is worth at this amount.",
+        "p2": "See the rate history"
       },
       "reverse": {
         "p1": "Covered by",
-        "p2": "{row.covered ? (",
-        "p3": "Not yet —",
-        "p4": "Work backwards from your own target"
+        "p2": "Work backwards from your own target"
       },
       "nearby": {
         "p1": "Back to all conversions",

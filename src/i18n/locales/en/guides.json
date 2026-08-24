@@ -8,12 +8,10 @@
     "preferCalculateDescription": "Every guide links to the tool it supports, but you can go straight there.",
     "body": {
       "readingOrder": {
-        "p1": "Assumes:",
-        "p2": "Last reviewed"
+        "p1": "Last reviewed"
       },
       "calculators": {
-        "p1": "All calculators",
-        "p2": "DevEx payout, Robux to USD, payout targets and marketplace fees."
+        "p1": "DevEx payout, Robux to USD, payout targets and marketplace fees."
       }
     }
   },
@@ -76,28 +74,21 @@
     "body": {
       "process": {
         "p1": "Accumulate at least",
-        "p2": "Earned Robux.",
-        "p3": "Only Earned Robux count.",
-        "p4": "Check which of your Robux qualify",
-        "p5": "Verified email, minimum age of 13, a valid DevEx portal account, a W-9 or W-8 on file, and an account in good standing.",
-        "p6": "Requests go through the official portal linked from the",
-        "p7": "Roblox Creator Hub DevEx documentation",
-        "p8": "It decides which Robux qualify and whether the request is approved. No third party influences this, and this site cannot predict the outcome.",
-        "p9": "Your payment provider and your bank apply their own handling from there.",
-        "p10": "What comes off the payout"
+        "p2": "Only Earned Robux count.",
+        "p3": "Check which of your Robux qualify",
+        "p4": "Verified email, minimum age of 13, a valid DevEx portal account, a W-9 or W-8 on file, and an account in good standing.",
+        "p5": "Requests go through the official portal linked from the",
+        "p6": "It decides which Robux qualify and whether the request is approved. No third party influences this, and this site cannot predict the outcome.",
+        "p7": "Your payment provider and your bank apply their own handling from there.",
+        "p8": "What comes off the payout"
       },
       "checklist": {
         "p1": "You have set aside an estimate for tax, if it applies where you live."
       },
-      "timing": {
-        "p1": "Roblox does not publish a guaranteed processing time, so this page does not state one. Specific numbers of days quoted elsewhere are other creators&rsquo; experiences, not commitments — and one person&rsquo;s timeline says nothing reliable about yours. If a request seems stuck, Roblox support is the only party who can actually look at it."
-      },
       "safety": {
         "p1": "No legitimate service needs your Roblox password, and this site never asks for it. Services offering to buy your Robux, convert a balance outside DevEx, or speed up a payout generally violate the Roblox Terms of Use. The realistic outcomes are losing the Robux, losing the account, or both.",
         "p2": "DevEx is the only official route from Earned Robux to money. There is no faster alternative.",
-        "p3": "A site asking you to sign in with your Roblox account to &ldquo;check eligibility&rdquo; is phishing.",
-        "p4": "Anyone guaranteeing approval is guaranteeing something they do not control.",
-        "p5": "Robux &ldquo;generators&rdquo; do not exist. Every one of them is a scam or a survey farm."
+        "p3": "Anyone guaranteeing approval is guaranteeing something they do not control."
       },
       "group": {
         "p1": "This catches groups out more often than the rate does. A team can earn several times the minimum together and still have nobody able to submit a request, because the threshold is measured against the balance one person holds. Work out what each agreed share comes to, and whether it clears on its own:"

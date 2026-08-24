@@ -196,10 +196,23 @@ function blank(source: string, pattern: RegExp): string {
  */
 const CODE_ELEMENT = /<(code|kbd|samp|var|pre|Code)(\s[^>]*)?>[\s\S]*?<\/\1>/g;
 const JSX_COMMENT = /\{\/\*[\s\S]*?\*\/\}/g;
+/*
+ * Comments, masked before anything is scanned.
+ *
+ * The line scan skipped a line that began one. Reading the file as spans lost
+ * that, and the doc comments here are long, discuss JSX and name tags — so a
+ * `<details>` written inside one opened a span that ran to the next real tag
+ * and carried a paragraph of implementation notes into the inventory.
+ */
+const BLOCK_COMMENT = /\/\*[\s\S]*?\*\//g;
+const LINE_COMMENT = /^[^\S\n]*\/\/.*$/gm;
 
 function scan(file: string): Finding[] {
   const raw = readFileSync(file, "utf8");
-  const source = blank(blank(raw, CODE_ELEMENT), JSX_COMMENT);
+  const source = blank(
+    blank(blank(blank(raw, CODE_ELEMENT), JSX_COMMENT), BLOCK_COMMENT),
+    LINE_COMMENT,
+  );
   const lines = source.split(/\r?\n/);
   const rel = relative(ROOT, file).split(sep).join("/");
   const isRegistry = rel.includes("route-registry") || rel.includes("amount-pages");
@@ -296,6 +309,17 @@ function scanJsxText(
       .split(/\{[^{}]*\}/)) {
       const value = part.split(/\s+/).filter(Boolean).join(" ");
       if (!value || !looksTranslatable(value)) continue;
+      /*
+       * Splitting on `{...}` cannot balance a brace that opened outside the
+       * span, so a conditional leaves fragments like `) : null}` and
+       * `const [open, setOpen] = useState(false)`. Both are code, and both say
+       * so in their punctuation — prose on this site contains no `=>`, no
+       * semicolon and no bare parenthesis pair.
+       */
+      if (/[=;`$]|=>|\(\s*\)|\)\s*[:;{}]|\[[a-z]/i.test(value)) continue;
+      // Two lowercase words in a row is the shortest thing that reads as a
+      // sentence rather than as a label or a stripped expression.
+      if (!/[a-z]{3}\s+[a-z]{2}/.test(value)) continue;
       findings.push({
         file: rel,
         line,

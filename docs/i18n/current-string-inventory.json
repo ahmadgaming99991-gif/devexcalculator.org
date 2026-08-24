@@ -1,90 +1,83 @@
 {
   "$comment": "Deterministic inventory of translatable English. No timestamp: a diff here should mean the content changed, not that the script ran again.",
   "totals": {
-    "strings": 1984,
-    "words": 20211,
-    "files": 73,
+    "strings": 1496,
+    "words": 13356,
+    "files": 66,
     "filesScanned": 151
   },
   "byCategory": {
     "attribute": 565,
-    "jsx-text": 1031,
+    "jsx-text": 543,
     "registry-prose": 388
   },
   "byFile": {
     "src/lib/content/route-registry.ts": 388,
-    "src/app/platform/page.tsx": 156,
-    "src/app/roblox-stats/page.tsx": 75,
-    "src/features/devex/components/results.tsx": 70,
-    "src/features/devex/planner.tsx": 64,
-    "src/app/api/page.tsx": 57,
-    "src/app/how-to-cash-out-robux/page.tsx": 53,
-    "src/app/privacy/page.tsx": 49,
-    "src/app/methodology/page.tsx": 48,
-    "src/components/content/tables.tsx": 48,
-    "src/app/robux-to-usd/page.tsx": 45,
-    "src/components/content/index.tsx": 44,
-    "src/app/devex-fees-and-taxes/page.tsx": 38,
-    "src/components/ui/index.tsx": 38,
-    "src/app/platform/stock/page.tsx": 34,
-    "src/app/usd-to-robux/page.tsx": 34,
-    "src/app/devex-rate-history/page.tsx": 32,
-    "src/app/robux-tax-calculator/page.tsx": 32,
-    "src/features/devex/calculator.tsx": 32,
+    "src/app/platform/page.tsx": 90,
+    "src/app/roblox-stats/page.tsx": 57,
+    "src/app/how-to-cash-out-robux/page.tsx": 48,
+    "src/app/api/page.tsx": 44,
+    "src/app/methodology/page.tsx": 44,
+    "src/app/devex-fees-and-taxes/page.tsx": 35,
+    "src/app/privacy/page.tsx": 35,
+    "src/app/robux-to-usd/page.tsx": 35,
+    "src/features/devex/planner.tsx": 34,
     "src/app/page.tsx": 31,
-    "src/app/about/page.tsx": 29,
-    "src/app/accessibility/page.tsx": 29,
-    "src/app/conversions/[slug]/page.tsx": 28,
-    "src/app/devex-rates/page.tsx": 28,
+    "src/app/usd-to-robux/page.tsx": 31,
+    "src/app/robux-tax-calculator/page.tsx": 30,
+    "src/app/accessibility/page.tsx": 28,
     "src/app/editorial-policy/page.tsx": 28,
-    "src/app/earned-robux/page.tsx": 27,
-    "src/features/contact/contact-form.tsx": 27,
-    "src/app/corrections/page.tsx": 26,
-    "src/app/devex-requirements/page.tsx": 26,
-    "src/features/devex/group-split.tsx": 26,
-    "src/app/disclaimer/page.tsx": 24,
-    "src/features/marketplace/calculator.tsx": 23,
+    "src/app/about/page.tsx": 27,
+    "src/app/devex-rate-history/page.tsx": 25,
+    "src/app/devex-rates/page.tsx": 25,
+    "src/app/devex-requirements/page.tsx": 25,
+    "src/features/devex/calculator.tsx": 25,
+    "src/app/earned-robux/page.tsx": 24,
+    "src/app/corrections/page.tsx": 23,
+    "src/features/devex/components/results.tsx": 23,
     "src/lib/api/contract.ts": 23,
-    "src/app/changelog/page.tsx": 20,
-    "src/app/contact/page.tsx": 20,
+    "src/app/disclaimer/page.tsx": 22,
     "src/app/terms/page.tsx": 20,
-    "src/app/sources/page.tsx": 18,
-    "src/components/diagrams/index.tsx": 17,
-    "src/app/conversions/page.tsx": 16,
-    "src/app/not-found.tsx": 13,
-    "src/features/devex/components/controls.tsx": 13,
-    "src/features/devex/preparation-checklist.tsx": 13,
-    "src/components/layout/site-footer.tsx": 10,
-    "src/app/calculators/page.tsx": 9,
-    "src/components/layout/social-links.tsx": 9,
-    "src/app/guides/page.tsx": 8,
+    "src/app/contact/page.tsx": 19,
+    "src/app/conversions/[slug]/page.tsx": 19,
+    "src/app/platform/stock/page.tsx": 19,
+    "src/components/content/tables.tsx": 18,
+    "src/app/changelog/page.tsx": 17,
+    "src/components/content/index.tsx": 17,
+    "src/features/marketplace/calculator.tsx": 16,
+    "src/app/sources/page.tsx": 15,
+    "src/features/devex/group-split.tsx": 14,
+    "src/app/conversions/page.tsx": 13,
+    "src/app/not-found.tsx": 11,
+    "src/app/calculators/page.tsx": 8,
+    "src/components/layout/site-footer.tsx": 8,
+    "src/components/layout/social-links.tsx": 8,
     "src/config/navigation.ts": 8,
-    "src/app/error.tsx": 7,
-    "src/components/layout/rate-source-check.tsx": 7,
-    "src/features/devex/components/actions.tsx": 6,
-    "src/components/charts/index.tsx": 5,
+    "src/features/contact/contact-form.tsx": 8,
+    "src/features/devex/preparation-checklist.tsx": 8,
+    "src/app/guides/page.tsx": 6,
     "src/lib/content/llms.ts": 5,
-    "src/components/layout/mobile-navigation.tsx": 4,
-    "src/components/seo/analytics-consent.tsx": 4,
-    "src/components/seo/analytics.tsx": 4,
+    "src/app/error.tsx": 4,
+    "src/features/devex/components/controls.tsx": 4,
     "src/lib/content/changelog.ts": 4,
-    "src/components/content/data-download.tsx": 3,
-    "src/components/layout/desktop-navigation.tsx": 3,
-    "src/components/layout/logo.tsx": 3,
-    "src/components/layout/nav-disclosures.tsx": 3,
-    "src/components/layout/site-header.tsx": 3,
+    "src/components/diagrams/index.tsx": 3,
+    "src/components/layout/rate-source-check.tsx": 3,
     "src/lib/platform/history.ts": 3,
-    "src/components/layout/footer-status.tsx": 2,
+    "src/components/seo/analytics-consent.tsx": 2,
     "src/lib/rates/source-check.ts": 2,
     "src/lib/seo/metadata.ts": 2,
     "src/app/api/health/route.ts": 1,
     "src/app/devex-fees-and-taxes/opengraph-image.tsx": 1,
     "src/app/layout.tsx": 1,
     "src/app/usd-to-robux/opengraph-image.tsx": 1,
+    "src/components/charts/index.tsx": 1,
     "src/components/layout/breadcrumbs.tsx": 1,
+    "src/components/layout/desktop-navigation.tsx": 1,
+    "src/components/layout/footer-status.tsx": 1,
+    "src/components/layout/mobile-navigation.tsx": 1,
     "src/components/ui/ad-slot.tsx": 1,
-    "src/lib/content/authors.ts": 1,
-    "src/lib/og/template.tsx": 1
+    "src/components/ui/index.tsx": 1,
+    "src/lib/content/authors.ts": 1
   },
   "findings": [
     {
@@ -134,14 +127,6 @@
       "words": 8,
       "hasTokens": false,
       "text": "Every rate has a source and a date."
-    },
-    {
-      "file": "src/app/about/page.tsx",
-      "line": 54,
-      "category": "jsx-text",
-      "words": 24,
-      "hasTokens": false,
-      "text": "Not &ldquo;current as of recently&rdquo; — a link to the official Roblox documentation and the date it was last checked, shown on the page."
     },
     {
       "file": "src/app/about/page.tsx",
@@ -246,14 +231,6 @@
       "words": 19,
       "hasTokens": false,
       "text": "Tell you whether your DevEx request will be approved. Roblox decides that, and no third party can predict it."
-    },
-    {
-      "file": "src/app/about/page.tsx",
-      "line": 90,
-      "category": "jsx-text",
-      "words": 17,
-      "hasTokens": false,
-      "text": "Publish a universal Robux purchase price. There isn&rsquo;t one — it varies by package, region and platform."
     },
     {
       "file": "src/app/about/page.tsx",
@@ -497,14 +474,6 @@
     },
     {
       "file": "src/app/accessibility/page.tsx",
-      "line": 159,
-      "category": "jsx-text",
-      "words": 23,
-      "hasTokens": false,
-      "text": "Cloudflare Turnstile, where a deployment enables it on the contact form, is a third-party widget whose internal accessibility is outside this site&rsquo;s control."
-    },
-    {
-      "file": "src/app/accessibility/page.tsx",
       "line": 167,
       "category": "attribute",
       "words": 3,
@@ -577,14 +546,6 @@
     },
     {
       "file": "src/app/api/page.tsx",
-      "line": 60,
-      "category": "jsx-text",
-      "words": 71,
-      "hasTokens": false,
-      "text": "The response carries a and a . Those two fields are the point: a rate on its own is a number that may already be wrong, and this site changed rate once already — the September 2025 move from $0.0035 to $0.0038 per Robux, which is why rates are published rather than one. Read the version, and you can tell whether what you cached is still what this site is serving."
-    },
-    {
-      "file": "src/app/api/page.tsx",
       "line": 72,
       "category": "attribute",
       "words": 12,
@@ -630,14 +591,6 @@
       "words": 16,
       "hasTokens": false,
       "text": "European Central Bank reference rates, for showing a payout in a currency other than US dollars."
-    },
-    {
-      "file": "src/app/api/page.tsx",
-      "line": 86,
-      "category": "jsx-text",
-      "words": 60,
-      "hasTokens": false,
-      "text": "These are reference rates, not a dealing rate: nobody converts money at them. They are published by the ECB once per working day, and the response says which day it is reporting. If the provider cannot be reached, a bundled snapshot is returned and marked rather than passed off as current — so check before treating a figure as today&rsquo;s."
     },
     {
       "file": "src/app/api/page.tsx",
@@ -737,27 +690,11 @@
     },
     {
       "file": "src/app/api/page.tsx",
-      "line": 133,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "What"
-    },
-    {
-      "file": "src/app/api/page.tsx",
       "line": 135,
       "category": "jsx-text",
       "words": 3,
       "hasTokens": false,
       "text": "the platform page"
-    },
-    {
-      "file": "src/app/api/page.tsx",
-      "line": 135,
-      "category": "jsx-text",
-      "words": 49,
-      "hasTokens": false,
-      "text": "charts. Add for a spreadsheet, or for per-experience rows rather than totals. Reading it makes no request to Roblox: the collector does that on its own schedule, and an export that triggered an upstream fetch would let anyone raise this site&rsquo;s request rate against Roblox by reloading a URL."
     },
     {
       "file": "src/app/api/page.tsx",
@@ -833,14 +770,6 @@
     },
     {
       "file": "src/app/api/page.tsx",
-      "line": 181,
-      "category": "jsx-text",
-      "words": 4,
-      "hasTokens": false,
-      "text": "No key, no sign-up"
-    },
-    {
-      "file": "src/app/api/page.tsx",
       "line": 182,
       "category": "jsx-text",
       "words": 28,
@@ -873,43 +802,11 @@
     },
     {
       "file": "src/app/api/page.tsx",
-      "line": 202,
-      "category": "jsx-text",
-      "words": 50,
-      "hasTokens": false,
-      "text": "Rates change rarely — twice in the programme&rsquo;s history at the time of writing. The responses carry and are safe to hold for an hour or a day. Please do not poll them every second; there is no rate limit and it would be a waste of both our bandwidth."
-    },
-    {
-      "file": "src/app/api/page.tsx",
-      "line": 211,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Attribution"
-    },
-    {
-      "file": "src/app/api/page.tsx",
-      "line": 212,
-      "category": "jsx-text",
-      "words": 32,
-      "hasTokens": false,
-      "text": "Not required, and appreciated. If you cite a figure, cite the source in alongside it — that is Roblox&rsquo;s own documentation, and it is what makes the number checkable rather than borrowed."
-    },
-    {
-      "file": "src/app/api/page.tsx",
       "line": 226,
       "category": "attribute",
       "words": 7,
       "hasTokens": false,
       "text": "What is promised, and what is not"
-    },
-    {
-      "file": "src/app/api/page.tsx",
-      "line": 228,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Promised:"
     },
     {
       "file": "src/app/api/page.tsx",
@@ -926,14 +823,6 @@
       "words": 2,
       "hasTokens": false,
       "text": "the changelog"
-    },
-    {
-      "file": "src/app/api/page.tsx",
-      "line": 237,
-      "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "Not promised:"
     },
     {
       "file": "src/app/api/page.tsx",
@@ -982,30 +871,6 @@
       "words": 2,
       "hasTokens": false,
       "text": "Related pages"
-    },
-    {
-      "file": "src/app/api/page.tsx",
-      "line": 283,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Endpoint"
-    },
-    {
-      "file": "src/app/api/page.tsx",
-      "line": 292,
-      "category": "jsx-text",
-      "words": 4,
-      "hasTokens": false,
-      "text": "); } function Field("
-    },
-    {
-      "file": "src/app/api/page.tsx",
-      "line": 292,
-      "category": "jsx-text",
-      "words": 4,
-      "hasTokens": false,
-      "text": ") { return ("
     },
     {
       "file": "src/app/api/page.tsx",
@@ -1070,14 +935,6 @@
       "words": 8,
       "hasTokens": false,
       "text": "The guides explain the rules behind these numbers."
-    },
-    {
-      "file": "src/app/calculators/page.tsx",
-      "line": 122,
-      "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "DevEx guides"
     },
     {
       "file": "src/app/calculators/page.tsx",
@@ -1147,14 +1004,6 @@
       "file": "src/app/changelog/page.tsx",
       "line": 61,
       "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "JSON Feed"
-    },
-    {
-      "file": "src/app/changelog/page.tsx",
-      "line": 61,
-      "category": "jsx-text",
       "words": 24,
       "hasTokens": false,
       "text": "for anything that would rather not parse XML. Both carry the same entries and the same source links. If you depend on these figures,"
@@ -1174,22 +1023,6 @@
       "words": 9,
       "hasTokens": false,
       "text": "publishes the current values with their verification date attached."
-    },
-    {
-      "file": "src/app/changelog/page.tsx",
-      "line": 88,
-      "category": "jsx-text",
-      "words": 5,
-      "hasTokens": false,
-      "text": "{entry.sourceUrl && entry.sourceLabel ? ("
-    },
-    {
-      "file": "src/app/changelog/page.tsx",
-      "line": 92,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": ") : null}"
     },
     {
       "file": "src/app/changelog/page.tsx",
@@ -1254,14 +1087,6 @@
       "words": 3,
       "hasTokens": false,
       "text": "Get in touch"
-    },
-    {
-      "file": "src/app/contact/page.tsx",
-      "line": 33,
-      "category": "jsx-text",
-      "words": 36,
-      "hasTokens": false,
-      "text": "{mode === \"disabled\" ? ( // No provider is configured, so no form is shown. Accepting a // message that would go nowhere is the one thing this page must // not do. email ? ("
     },
     {
       "file": "src/app/contact/page.tsx",
@@ -1409,27 +1234,11 @@
     },
     {
       "file": "src/app/conversions/[slug]/page.tsx",
-      "line": 51,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "; }): Promise"
-    },
-    {
-      "file": "src/app/conversions/[slug]/page.tsx",
       "line": 117,
       "category": "attribute",
       "words": 11,
       "hasTokens": false,
       "text": "At the current standard rate, before any payment-provider fee or tax."
-    },
-    {
-      "file": "src/app/conversions/[slug]/page.tsx",
-      "line": 120,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "eligible Earned Robux"
     },
     {
       "file": "src/app/conversions/[slug]/page.tsx",
@@ -1454,46 +1263,6 @@
       "words": 17,
       "hasTokens": false,
       "text": "Roblox decides which rate applies to which part of a balance. This shows what each would pay."
-    },
-    {
-      "file": "src/app/conversions/[slug]/page.tsx",
-      "line": 159,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Rate"
-    },
-    {
-      "file": "src/app/conversions/[slug]/page.tsx",
-      "line": 160,
-      "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "Per Robux"
-    },
-    {
-      "file": "src/app/conversions/[slug]/page.tsx",
-      "line": 161,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Payout"
-    },
-    {
-      "file": "src/app/conversions/[slug]/page.tsx",
-      "line": 162,
-      "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "vs standard"
-    },
-    {
-      "file": "src/app/conversions/[slug]/page.tsx",
-      "line": 178,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "{isStandard ? ("
     },
     {
       "file": "src/app/conversions/[slug]/page.tsx",
@@ -1566,22 +1335,6 @@
       "words": 2,
       "hasTokens": false,
       "text": "Covered by"
-    },
-    {
-      "file": "src/app/conversions/[slug]/page.tsx",
-      "line": 233,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "{row.covered ? ("
-    },
-    {
-      "file": "src/app/conversions/[slug]/page.tsx",
-      "line": 237,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "Not yet —"
     },
     {
       "file": "src/app/conversions/[slug]/page.tsx",
@@ -1665,14 +1418,6 @@
     },
     {
       "file": "src/app/conversions/page.tsx",
-      "line": 66,
-      "category": "jsx-text",
-      "words": 45,
-      "hasTokens": false,
-      "text": "The list is not a selection of round numbers: it is the amounts that are actually searched for. Anything not here — including figures larger than the table&rsquo;s last row — goes into the converter above, which uses the same rates and the same arithmetic."
-    },
-    {
-      "file": "src/app/conversions/page.tsx",
       "line": 77,
       "category": "attribute",
       "words": 5,
@@ -1686,22 +1431,6 @@
       "words": 30,
       "hasTokens": false,
       "text": "These amounts have enough demand and enough to say about them to justify a page of their own. The rest are served by the table above and by the calculator."
-    },
-    {
-      "file": "src/app/conversions/page.tsx",
-      "line": 95,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "{values.meetsMinimum ? `$"
-    },
-    {
-      "file": "src/app/conversions/page.tsx",
-      "line": 95,
-      "category": "jsx-text",
-      "words": 9,
-      "hasTokens": false,
-      "text": "× the DevEx minimum` : \"Below the DevEx minimum\"}"
     },
     {
       "file": "src/app/conversions/page.tsx",
@@ -1777,14 +1506,6 @@
     },
     {
       "file": "src/app/corrections/page.tsx",
-      "line": 38,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "Report a correction"
-    },
-    {
-      "file": "src/app/corrections/page.tsx",
       "line": 41,
       "category": "attribute",
       "words": 6,
@@ -1822,14 +1543,6 @@
       "words": 5,
       "hasTokens": false,
       "text": "Verify against the official source."
-    },
-    {
-      "file": "src/app/corrections/page.tsx",
-      "line": 55,
-      "category": "jsx-text",
-      "words": 16,
-      "hasTokens": false,
-      "text": "The claim is checked directly against Roblox&rsquo;s own documentation, not against another site that repeated it."
     },
     {
       "file": "src/app/corrections/page.tsx",
@@ -1926,14 +1639,6 @@
       "words": 4,
       "hasTokens": false,
       "text": "Where corrections are recorded"
-    },
-    {
-      "file": "src/app/corrections/page.tsx",
-      "line": 93,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "Publicly, in the"
     },
     {
       "file": "src/app/corrections/page.tsx",
@@ -2057,22 +1762,6 @@
     },
     {
       "file": "src/app/devex-fees-and-taxes/page.tsx",
-      "line": 110,
-      "category": "jsx-text",
-      "words": 37,
-      "hasTokens": false,
-      "text": "Whatever service delivers the money may charge for doing so — often a percentage plus a fixed amount per payout. This is between you and that provider; Roblox does not set it and neither does this site."
-    },
-    {
-      "file": "src/app/devex-fees-and-taxes/page.tsx",
-      "line": 116,
-      "category": "jsx-text",
-      "words": 40,
-      "hasTokens": false,
-      "text": "The DevEx rate is stated in US dollars. If you are paid in another currency, someone converts it, and they apply their own rate plus a margin. That margin is why your bank&rsquo;s figure will not match a reference rate."
-    },
-    {
-      "file": "src/app/devex-fees-and-taxes/page.tsx",
       "line": 122,
       "category": "jsx-text",
       "words": 30,
@@ -2094,14 +1783,6 @@
       "words": 12,
       "hasTokens": false,
       "text": "The one deduction you can find out in advance, and probably should."
-    },
-    {
-      "file": "src/app/devex-fees-and-taxes/page.tsx",
-      "line": 135,
-      "category": "jsx-text",
-      "words": 78,
-      "hasTokens": false,
-      "text": "Fee structures vary by provider, country and payout method, so this page does not publish a table of them — any figure would be out of date or wrong for most readers. Check what your own provider charges before you submit a request, then enter that figure in the calculator below to see it applied. On a small payout a fixed fee can be a noticeable share of the total; on a large one the percentage matters more."
     },
     {
       "file": "src/app/devex-fees-and-taxes/page.tsx",
@@ -2297,14 +1978,6 @@
     },
     {
       "file": "src/app/devex-rate-history/page.tsx",
-      "line": 54,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Current"
-    },
-    {
-      "file": "src/app/devex-rate-history/page.tsx",
       "line": 59,
       "category": "jsx-text",
       "words": 9,
@@ -2321,22 +1994,6 @@
     },
     {
       "file": "src/app/devex-rate-history/page.tsx",
-      "line": 71,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Legacy"
-    },
-    {
-      "file": "src/app/devex-rate-history/page.tsx",
-      "line": 72,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Until"
-    },
-    {
-      "file": "src/app/devex-rate-history/page.tsx",
       "line": 76,
       "category": "jsx-text",
       "words": 8,
@@ -2350,14 +2007,6 @@
       "words": 18,
       "hasTokens": false,
       "text": "105 USD for 30,000 Earned Robux. Still applied to the portion of any balance earned before the transition."
-    },
-    {
-      "file": "src/app/devex-rate-history/page.tsx",
-      "line": 87,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Conditional"
     },
     {
       "file": "src/app/devex-rate-history/page.tsx",
@@ -2417,22 +2066,6 @@
     },
     {
       "file": "src/app/devex-rate-history/page.tsx",
-      "line": 115,
-      "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "Earned Robux"
-    },
-    {
-      "file": "src/app/devex-rate-history/page.tsx",
-      "line": 118,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Difference"
-    },
-    {
-      "file": "src/app/devex-rate-history/page.tsx",
       "line": 144,
       "category": "jsx-text",
       "words": 17,
@@ -2454,14 +2087,6 @@
       "words": 13,
       "hasTokens": false,
       "text": "One balance can span both rates, and you do not choose the split."
-    },
-    {
-      "file": "src/app/devex-rate-history/page.tsx",
-      "line": 155,
-      "category": "jsx-text",
-      "words": 40,
-      "hasTokens": false,
-      "text": "Roblox cashes out the pre-transition portion of a balance at 0.0035 first, then the rest at 0.0038. The split is Roblox&rsquo;s own accounting of when each Robux was earned — it is not something a creator selects or can adjust."
     },
     {
       "file": "src/app/devex-rate-history/page.tsx",
@@ -2585,14 +2210,6 @@
     },
     {
       "file": "src/app/devex-rates/page.tsx",
-      "line": 68,
-      "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "Earned Robux"
-    },
-    {
-      "file": "src/app/devex-rates/page.tsx",
       "line": 94,
       "category": "jsx-text",
       "words": 7,
@@ -2622,22 +2239,6 @@
       "words": 13,
       "hasTokens": false,
       "text": "This is the part most explanations get wrong: it is not a choice."
-    },
-    {
-      "file": "src/app/devex-rates/page.tsx",
-      "line": 106,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "{rate.conditionNote ? ("
-    },
-    {
-      "file": "src/app/devex-rates/page.tsx",
-      "line": 111,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": ") : null}"
     },
     {
       "file": "src/app/devex-rates/page.tsx",
@@ -2809,14 +2410,6 @@
     },
     {
       "file": "src/app/devex-requirements/page.tsx",
-      "line": 101,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Earned"
-    },
-    {
-      "file": "src/app/devex-requirements/page.tsx",
       "line": 103,
       "category": "jsx-text",
       "words": 5,
@@ -2977,14 +2570,6 @@
     },
     {
       "file": "src/app/disclaimer/page.tsx",
-      "line": 32,
-      "category": "jsx-text",
-      "words": 59,
-      "hasTokens": false,
-      "text": "The calculator multiplies the Robux figure you enter by a rate taken from Roblox&rsquo;s published documentation. That arithmetic is exact and covered by tests. What it produces is still an estimate, because the inputs are assumptions: that the Robux you entered are eligible Earned Robux, and that the rate you selected is the one Roblox will apply to them."
-    },
-    {
-      "file": "src/app/disclaimer/page.tsx",
       "line": 40,
       "category": "jsx-text",
       "words": 13,
@@ -2998,14 +2583,6 @@
       "words": 5,
       "hasTokens": false,
       "text": "What this site cannot determine"
-    },
-    {
-      "file": "src/app/disclaimer/page.tsx",
-      "line": 48,
-      "category": "jsx-text",
-      "words": 20,
-      "hasTokens": false,
-      "text": "Whether your Robux count as Earned Robux. Roblox tracks where each Robux came from; that record is not visible here."
     },
     {
       "file": "src/app/disclaimer/page.tsx",
@@ -3203,14 +2780,6 @@
       "file": "src/app/earned-robux/page.tsx",
       "line": 102,
       "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "eligible Earned Robux"
-    },
-    {
-      "file": "src/app/earned-robux/page.tsx",
-      "line": 102,
-      "category": "jsx-text",
       "words": 13,
       "hasTokens": false,
       "text": "— the balance DevEx converts, and the only balance that counts toward the"
@@ -3297,14 +2866,6 @@
     },
     {
       "file": "src/app/earned-robux/page.tsx",
-      "line": 150,
-      "category": "jsx-text",
-      "words": 27,
-      "hasTokens": false,
-      "text": "This is also why the retail price of Robux and the DevEx rate are unrelated numbers. Buying Robux is a purchase; DevEx is Roblox paying a creator."
-    },
-    {
-      "file": "src/app/earned-robux/page.tsx",
       "line": 154,
       "category": "jsx-text",
       "words": 8,
@@ -3350,14 +2911,6 @@
       "words": 14,
       "hasTokens": false,
       "text": "Robux held by a group are not the same as Robux held by you."
-    },
-    {
-      "file": "src/app/earned-robux/page.tsx",
-      "line": 182,
-      "category": "jsx-text",
-      "words": 85,
-      "hasTokens": false,
-      "text": "Earnings from an experience owned by a group accumulate in the group&rsquo;s funds rather than in any individual account. DevEx operates on a personal account, so group funds have to reach a personal balance through a payout before they are relevant to a DevEx request. If you are splitting revenue with collaborators, agree how that works before the money arrives rather than after — and check the current official documentation for how group payouts are treated, since this is an area Roblox has changed before."
     },
     {
       "file": "src/app/earned-robux/page.tsx",
@@ -3617,14 +3170,6 @@
     },
     {
       "file": "src/app/error.tsx",
-      "line": 38,
-      "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "Try again"
-    },
-    {
-      "file": "src/app/error.tsx",
       "line": 39,
       "category": "jsx-text",
       "words": 4,
@@ -3633,27 +3178,11 @@
     },
     {
       "file": "src/app/error.tsx",
-      "line": 42,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "{error.digest ? ("
-    },
-    {
-      "file": "src/app/error.tsx",
       "line": 45,
       "category": "jsx-text",
       "words": 7,
       "hasTokens": false,
       "text": "If you report this, quote reference ."
-    },
-    {
-      "file": "src/app/error.tsx",
-      "line": 51,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": ") : null}"
     },
     {
       "file": "src/app/guides/page.tsx",
@@ -3670,14 +3199,6 @@
       "words": 13,
       "hasTokens": false,
       "text": "Each guide states its sources and the date its facts were last checked."
-    },
-    {
-      "file": "src/app/guides/page.tsx",
-      "line": 105,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Assumes:"
     },
     {
       "file": "src/app/guides/page.tsx",
@@ -3702,14 +3223,6 @@
       "words": 14,
       "hasTokens": false,
       "text": "Every guide links to the tool it supports, but you can go straight there."
-    },
-    {
-      "file": "src/app/guides/page.tsx",
-      "line": 129,
-      "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "All calculators"
     },
     {
       "file": "src/app/guides/page.tsx",
@@ -3801,14 +3314,6 @@
     },
     {
       "file": "src/app/how-to-cash-out-robux/page.tsx",
-      "line": 90,
-      "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "Earned Robux."
-    },
-    {
-      "file": "src/app/how-to-cash-out-robux/page.tsx",
       "line": 92,
       "category": "jsx-text",
       "words": 4,
@@ -3862,14 +3367,6 @@
       "words": 9,
       "hasTokens": false,
       "text": "Requests go through the official portal linked from the"
-    },
-    {
-      "file": "src/app/how-to-cash-out-robux/page.tsx",
-      "line": 108,
-      "category": "jsx-text",
-      "words": 5,
-      "hasTokens": false,
-      "text": "Roblox Creator Hub DevEx documentation"
     },
     {
       "file": "src/app/how-to-cash-out-robux/page.tsx",
@@ -4001,14 +3498,6 @@
     },
     {
       "file": "src/app/how-to-cash-out-robux/page.tsx",
-      "line": 158,
-      "category": "jsx-text",
-      "words": 54,
-      "hasTokens": false,
-      "text": "Roblox does not publish a guaranteed processing time, so this page does not state one. Specific numbers of days quoted elsewhere are other creators&rsquo; experiences, not commitments — and one person&rsquo;s timeline says nothing reliable about yours. If a request seems stuck, Roblox support is the only party who can actually look at it."
-    },
-    {
-      "file": "src/app/how-to-cash-out-robux/page.tsx",
       "line": 169,
       "category": "attribute",
       "words": 3,
@@ -4049,27 +3538,11 @@
     },
     {
       "file": "src/app/how-to-cash-out-robux/page.tsx",
-      "line": 185,
-      "category": "jsx-text",
-      "words": 16,
-      "hasTokens": false,
-      "text": "A site asking you to sign in with your Roblox account to &ldquo;check eligibility&rdquo; is phishing."
-    },
-    {
-      "file": "src/app/how-to-cash-out-robux/page.tsx",
       "line": 189,
       "category": "jsx-text",
       "words": 10,
       "hasTokens": false,
       "text": "Anyone guaranteeing approval is guaranteeing something they do not control."
-    },
-    {
-      "file": "src/app/how-to-cash-out-robux/page.tsx",
-      "line": 193,
-      "category": "jsx-text",
-      "words": 16,
-      "hasTokens": false,
-      "text": "Robux &ldquo;generators&rdquo; do not exist. Every one of them is a scam or a survey farm."
     },
     {
       "file": "src/app/how-to-cash-out-robux/page.tsx",
@@ -4313,14 +3786,6 @@
     },
     {
       "file": "src/app/methodology/page.tsx",
-      "line": 110,
-      "category": "jsx-text",
-      "words": 56,
-      "hasTokens": false,
-      "text": "A rate like 0.0038 cannot be represented exactly in binary floating point, which is how JavaScript stores ordinary numbers. Multiply 17,000 by 0.0054 in a browser console and you get 91.80000000000001 rather than 91.80. At small amounts that hides behind rounding; across a large balance, or a chain of fee and tax calculations, the drift compounds."
-    },
-    {
-      "file": "src/app/methodology/page.tsx",
       "line": 118,
       "category": "jsx-text",
       "words": 57,
@@ -4358,14 +3823,6 @@
       "words": 3,
       "hasTokens": false,
       "text": "Money rounds half-up"
-    },
-    {
-      "file": "src/app/methodology/page.tsx",
-      "line": 142,
-      "category": "jsx-text",
-      "words": 17,
-      "hasTokens": false,
-      "text": "to the currency&rsquo;s own minor units — two decimal places for dollars, none for yen or won."
     },
     {
       "file": "src/app/methodology/page.tsx",
@@ -4489,22 +3946,6 @@
     },
     {
       "file": "src/app/methodology/page.tsx",
-      "line": 207,
-      "category": "jsx-text",
-      "words": 20,
-      "hasTokens": false,
-      "text": "Which of your Robux Roblox counts as Earned Robux. That is Roblox&rsquo;s internal accounting and is not visible from outside."
-    },
-    {
-      "file": "src/app/methodology/page.tsx",
-      "line": 211,
-      "category": "jsx-text",
-      "words": 25,
-      "hasTokens": false,
-      "text": "How your balance divides between the standard, legacy and conditional rates. The split calculator models whatever division you supply; it cannot discover the real one."
-    },
-    {
-      "file": "src/app/methodology/page.tsx",
       "line": 216,
       "category": "jsx-text",
       "words": 12,
@@ -4553,14 +3994,6 @@
     },
     {
       "file": "src/app/not-found.tsx",
-      "line": 22,
-      "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "Error 404"
-    },
-    {
-      "file": "src/app/not-found.tsx",
       "line": 25,
       "category": "jsx-text",
       "words": 5,
@@ -4574,14 +4007,6 @@
       "words": 30,
       "hasTokens": false,
       "text": "The address may have changed, or the link that brought you here may be wrong. Nothing has been deleted — this site has never had a page at this address."
-    },
-    {
-      "file": "src/app/not-found.tsx",
-      "line": 35,
-      "category": "jsx-text",
-      "words": 5,
-      "hasTokens": false,
-      "text": "Go to the DevEx calculator"
     },
     {
       "file": "src/app/not-found.tsx",
@@ -4977,14 +4402,6 @@
     },
     {
       "file": "src/app/platform/page.tsx",
-      "line": 180,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "History"
-    },
-    {
-      "file": "src/app/platform/page.tsx",
       "line": 181,
       "category": "jsx-text",
       "words": 7,
@@ -4998,14 +4415,6 @@
       "words": 9,
       "hasTokens": false,
       "text": "minutes. Platform totals keep every one of them for"
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 181,
-      "category": "jsx-text",
-      "words": 8,
-      "hasTokens": false,
-      "text": "days; per-experience counts keep one an hour for"
     },
     {
       "file": "src/app/platform/page.tsx",
@@ -5025,27 +4434,11 @@
     },
     {
       "file": "src/app/platform/page.tsx",
-      "line": 193,
-      "category": "jsx-text",
-      "words": 79,
-      "hasTokens": false,
-      "text": "Which experiences appear, how many players each has, and how each has been voted on all come from Roblox. This site does not rank experiences, does not estimate player counts, and does not publish a figure it did not either read from Roblox or observe itself and label as such. The approval share is the only arithmetic on this page, and it is Roblox&rsquo;s own up and down vote counts divided. For the money side of the platform, see"
-    },
-    {
-      "file": "src/app/platform/page.tsx",
       "line": 201,
       "category": "jsx-text",
       "words": 3,
       "hasTokens": false,
       "text": "the payout statistics"
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 201,
-      "category": "jsx-text",
-      "words": 6,
-      "hasTokens": false,
-      "text": ", which come from Roblox&rsquo;s filings."
     },
     {
       "file": "src/app/platform/page.tsx",
@@ -5129,22 +4522,6 @@
     },
     {
       "file": "src/app/platform/page.tsx",
-      "line": 322,
-      "category": "jsx-text",
-      "words": 5,
-      "hasTokens": false,
-      "text": "); } async function LiveExperiences("
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 322,
-      "category": "jsx-text",
-      "words": 28,
-      "hasTokens": false,
-      "text": ") { // Both are wanted by the same section, and neither depends on the other. const [result, history] = await Promise.all([fetchRankings(requested), loadGameHistory()]); if (!result.ok) { return ("
-    },
-    {
-      "file": "src/app/platform/page.tsx",
       "line": 340,
       "category": "attribute",
       "words": 7,
@@ -5174,22 +4551,6 @@
       "words": 2,
       "hasTokens": false,
       "text": "works regardless."
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 345,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "); } const"
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 345,
-      "category": "jsx-text",
-      "words": 9,
-      "hasTokens": false,
-      "text": "= result.data; if (experiences.length === 0) { return ("
     },
     {
       "file": "src/app/platform/page.tsx",
@@ -5241,14 +4602,6 @@
     },
     {
       "file": "src/app/platform/page.tsx",
-      "line": 382,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "{selected.subtitle ? `$"
-    },
-    {
-      "file": "src/app/platform/page.tsx",
       "line": 387,
       "category": "jsx-text",
       "words": 3,
@@ -5265,14 +4618,6 @@
     },
     {
       "file": "src/app/platform/page.tsx",
-      "line": 408,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Experience"
-    },
-    {
-      "file": "src/app/platform/page.tsx",
       "line": 409,
       "category": "jsx-text",
       "words": 2,
@@ -5281,83 +4626,11 @@
     },
     {
       "file": "src/app/platform/page.tsx",
-      "line": 409,
-      "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "{history ?"
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 410,
-      "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "Last 24h"
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 410,
-      "category": "jsx-text",
-      "words": 4,
-      "hasTokens": false,
-      "text": ": null} {hasVisits ?"
-    },
-    {
-      "file": "src/app/platform/page.tsx",
       "line": 411,
       "category": "jsx-text",
       "words": 2,
       "hasTokens": false,
       "text": "Lifetime visits"
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 411,
-      "category": "jsx-text",
-      "words": 4,
-      "hasTokens": false,
-      "text": ": null} {hasVotes ?"
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 412,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Approval"
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 412,
-      "category": "jsx-text",
-      "words": 4,
-      "hasTokens": false,
-      "text": ": null} {hasGenre ?"
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 413,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Genre"
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 413,
-      "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": ": null}"
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 432,
-      "category": "jsx-text",
-      "words": 9,
-      "hasTokens": false,
-      "text": "{history && experience !== undefined && history.players[String(experience)] ? ("
     },
     {
       "file": "src/app/platform/page.tsx",
@@ -5377,30 +4650,6 @@
     },
     {
       "file": "src/app/platform/page.tsx",
-      "line": 451,
-      "category": "jsx-text",
-      "words": 5,
-      "hasTokens": false,
-      "text": "; this shows the first"
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 451,
-      "category": "jsx-text",
-      "words": 11,
-      "hasTokens": false,
-      "text": "of whichever is selected. The order is Roblox&rsquo;s, not this site&rsquo;s."
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 456,
-      "category": "jsx-text",
-      "words": 123,
-      "hasTokens": false,
-      "text": "); } /** * A shared, guarded read of the per-experience history. * * Three sections want it — the table's sparklines, the multi-series chart and * the busiest-experience record — and each states its own absence rather than * throwing: a missing binding or an unreadable store is a fact about this * deployment, not a reason for the page to fail. * * Wrapped in `cache` so those three are one read and one parse per request * rather than three. The stored value is tens of kilobytes now and grows * towards a couple of hundred as observations accumulate, so reading it three * times was work that would have got steadily worse. */ const loadGameHistory = cache(async (): Promise"
-    },
-    {
-      "file": "src/app/platform/page.tsx",
       "line": 481,
       "category": "jsx-text",
       "words": 35,
@@ -5409,51 +4658,11 @@
     },
     {
       "file": "src/app/platform/page.tsx",
-      "line": 485,
-      "category": "jsx-text",
-      "words": 5,
-      "hasTokens": false,
-      "text": "); } async function TopExperiencesOverTime("
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 485,
-      "category": "jsx-text",
-      "words": 10,
-      "hasTokens": false,
-      "text": ") { const history = await loadGameHistory(); if (!history) return"
-    },
-    {
-      "file": "src/app/platform/page.tsx",
       "line": 508,
       "category": "attribute",
       "words": 7,
       "hasTokens": false,
       "text": "Not enough observations yet to draw lines"
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 508,
-      "category": "jsx-text",
-      "words": 13,
-      "hasTokens": false,
-      "text": "{tracked.length === 0 ? \"No per-experience counts have been recorded yet.\" : `$"
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 508,
-      "category": "jsx-text",
-      "words": 34,
-      "hasTokens": false,
-      "text": "experiences have been seen once each.`} A line needs at least two observations of the same experience, so the chart appears after the next collection run rather than joining a single point to itself."
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 515,
-      "category": "jsx-text",
-      "words": 4,
-      "hasTokens": false,
-      "text": "); } return ("
     },
     {
       "file": "src/app/platform/page.tsx",
@@ -5481,22 +4690,6 @@
     },
     {
       "file": "src/app/platform/page.tsx",
-      "line": 554,
-      "category": "jsx-text",
-      "words": 5,
-      "hasTokens": false,
-      "text": "); } async function LargestExperience("
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 554,
-      "category": "jsx-text",
-      "words": 10,
-      "hasTokens": false,
-      "text": ") { const history = await loadGameHistory(); if (!history) return"
-    },
-    {
-      "file": "src/app/platform/page.tsx",
       "line": 569,
       "category": "attribute",
       "words": 4,
@@ -5518,14 +4711,6 @@
       "words": 8,
       "hasTokens": false,
       "text": "to be a line rather than a dot."
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 572,
-      "category": "jsx-text",
-      "words": 4,
-      "hasTokens": false,
-      "text": "); } return ("
     },
     {
       "file": "src/app/platform/page.tsx",
@@ -5553,35 +4738,11 @@
     },
     {
       "file": "src/app/platform/page.tsx",
-      "line": 608,
-      "category": "jsx-text",
-      "words": 41,
-      "hasTokens": false,
-      "text": "&ldquo;Highest observed&rdquo; means the highest this site saw at one of its own observations. It is not an all-time record: nothing before this site began watching is known to it, and it will not borrow a figure it did not measure."
-    },
-    {
-      "file": "src/app/platform/page.tsx",
       "line": 612,
       "category": "jsx-text",
       "words": 4,
       "hasTokens": false,
       "text": "Recorded by this site"
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 614,
-      "category": "jsx-text",
-      "words": 111,
-      "hasTokens": false,
-      "text": "); } /** * The platform-wide figure. * * The number a reader comes to a page like this for, and the one Roblox does * not publish. It is stated as exactly what it is — the sum across every * experience in every public Roblox ranking, each counted once — and described * as a floor rather than a total, because Roblox ranks a fraction of what it * hosts. Presenting it as \"players online right now\" would be a bigger, * rounder, wrong number, and the method is printed beside it so nobody has to * take this site's word for how it was reached. */ function PlatformFigure("
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 614,
-      "category": "jsx-text",
-      "words": 4,
-      "hasTokens": false,
-      "text": ") { return ("
     },
     {
       "file": "src/app/platform/page.tsx",
@@ -5598,14 +4759,6 @@
       "words": 2,
       "hasTokens": false,
       "text": "Summed from"
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 644,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "experiences across Roblox&rsquo;s"
     },
     {
       "file": "src/app/platform/page.tsx",
@@ -5630,22 +4783,6 @@
       "words": 46,
       "hasTokens": false,
       "text": "Roblox publishes no live figure for the whole platform and this site does not estimate one. Roblox ranks a small share of the experiences it hosts, so the real number of people playing is higher than this — by how much, nobody outside Roblox can say."
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 657,
-      "category": "jsx-text",
-      "words": 67,
-      "hasTokens": false,
-      "text": "); } /** * One experience's own chart, shown when a reader asks for it. * * Rendered for a single experience rather than expanding every row, because * ninety full charts on one page is work the Worker does not have the budget * for and nobody reads. Selecting one is a link, so it survives without * JavaScript and can be shared. */ function ExperienceDetail("
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 657,
-      "category": "jsx-text",
-      "words": 21,
-      "hasTokens": false,
-      "text": ") { const series = sliceSeries(gameSeries(history, universeId), days); const name = history.names[String(universeId)] ?? \"This experience\"; const summary = summarise(series); return ("
     },
     {
       "file": "src/app/platform/page.tsx",
@@ -5683,14 +4820,6 @@
       "file": "src/app/platform/page.tsx",
       "line": 730,
       "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Only"
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 730,
-      "category": "jsx-text",
       "words": 3,
       "hasTokens": false,
       "text": "of this experience"
@@ -5710,46 +4839,6 @@
       "words": 17,
       "hasTokens": false,
       "text": "days at one observation an hour, and an experience is only recorded while Roblox is ranking it."
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 740,
-      "category": "jsx-text",
-      "words": 4,
-      "hasTokens": false,
-      "text": "); } function ExperienceRow("
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 740,
-      "category": "jsx-text",
-      "words": 21,
-      "hasTokens": false,
-      "text": ") { const url = experienceUrl(experience); const approval = approvalPercent(experience); const trend = history ? gameSeries(history, experience.universeId) : null; return ("
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 770,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "{url ? ("
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 779,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Sponsored"
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 799,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "{history ? ("
     },
     {
       "file": "src/app/platform/page.tsx",
@@ -5785,107 +4874,11 @@
     },
     {
       "file": "src/app/platform/page.tsx",
-      "line": 831,
-      "category": "jsx-text",
-      "words": 6,
-      "hasTokens": false,
-      "text": ") : null} {showVisits ? ("
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 836,
-      "category": "jsx-text",
-      "words": 6,
-      "hasTokens": false,
-      "text": ") : null} {showVotes ? ("
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 851,
-      "category": "jsx-text",
-      "words": 5,
-      "hasTokens": false,
-      "text": ") : null} {showGenre ?"
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 853,
-      "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": ": null}"
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 854,
-      "category": "jsx-text",
-      "words": 75,
-      "hasTokens": false,
-      "text": "); } /** * The chart range switcher. * * Same technique as the ranking tabs: real links, server-rendered, no client * JavaScript. Selecting a range narrows which stored observations are plotted; * it never stretches a short history across a longer axis. Early on, \"14 days\" * and \"24 hours\" legitimately draw the same points, and the caption says how * much was actually collected so the axis cannot imply more. */ function ChartRangeTabs("
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 854,
-      "category": "jsx-text",
-      "words": 23,
-      "hasTokens": false,
-      "text": ": { selected: ChartWindow; ranking?: string; /** Observations each range would chart, so a button that changes nothing says so. */ counts?: Record"
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 875,
-      "category": "jsx-text",
-      "words": 5,
-      "hasTokens": false,
-      "text": "; }) { return ("
-    },
-    {
-      "file": "src/app/platform/page.tsx",
       "line": 878,
       "category": "attribute",
       "words": 2,
       "hasTokens": false,
       "text": "Chart range"
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 904,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": ") : null}"
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 906,
-      "category": "jsx-text",
-      "words": 4,
-      "hasTokens": false,
-      "text": "{counts ? `, $"
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 906,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "observations` : \"\"}"
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 916,
-      "category": "jsx-text",
-      "words": 5,
-      "hasTokens": false,
-      "text": "); } async function ObservedHistory("
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 916,
-      "category": "jsx-text",
-      "words": 12,
-      "hasTokens": false,
-      "text": ") { const store = await getHistoryStore(); if (!store) { return ("
     },
     {
       "file": "src/app/platform/page.tsx",
@@ -5902,22 +4895,6 @@
       "words": 38,
       "hasTokens": false,
       "text": "Observations are stored in a Cloudflare KV namespace that is bound to the deployed Worker. Running locally without that binding, there is nothing to chart — which is why this says so rather than drawing an empty axis."
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 935,
-      "category": "jsx-text",
-      "words": 76,
-      "hasTokens": false,
-      "text": "); } /* * Read once at the full retention window, then narrow in memory. * * Reading per range would be the obvious shape and would cost a store round * trip per view for no gain — the rollup is a single value, so every range is * already in hand. It also makes the counts below possible, which is what * stops the range buttons from looking broken. */ let full: HistorySeries; try"
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 935,
-      "category": "jsx-text",
-      "words": 4,
-      "hasTokens": false,
-      "text": "catch { return ("
     },
     {
       "file": "src/app/platform/page.tsx",
@@ -5953,22 +4930,6 @@
     },
     {
       "file": "src/app/platform/page.tsx",
-      "line": 976,
-      "category": "jsx-text",
-      "words": 21,
-      "hasTokens": false,
-      "text": "of them. A wider range may hold more; what it will never do is invent a point to fill this one."
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 983,
-      "category": "jsx-text",
-      "words": 17,
-      "hasTokens": false,
-      "text": "); } const latest = series.points[series.points.length - 1]; const summary = summarise(series); if (!series.chartable) { return ("
-    },
-    {
-      "file": "src/app/platform/page.tsx",
       "line": 996,
       "category": "jsx-text",
       "words": 3,
@@ -5998,22 +4959,6 @@
       "words": 15,
       "hasTokens": false,
       "text": "points to be a line rather than a dot, so the figures are listed instead."
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 1012,
-      "category": "jsx-text",
-      "words": 4,
-      "hasTokens": false,
-      "text": "); } return ("
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 1030,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": ") : null}"
     },
     {
       "file": "src/app/platform/page.tsx",
@@ -6049,14 +4994,6 @@
     },
     {
       "file": "src/app/platform/page.tsx",
-      "line": 1060,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "{summary ? ("
-    },
-    {
-      "file": "src/app/platform/page.tsx",
       "line": 1065,
       "category": "attribute",
       "words": 2,
@@ -6070,14 +5007,6 @@
       "words": 3,
       "hasTokens": false,
       "text": "Average across observations"
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 1074,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": ") : null}"
     },
     {
       "file": "src/app/platform/page.tsx",
@@ -6104,38 +5033,6 @@
       "text": "Recorded by this site"
     },
     {
-      "file": "src/app/platform/page.tsx",
-      "line": 1095,
-      "category": "jsx-text",
-      "words": 4,
-      "hasTokens": false,
-      "text": "); } function Stat("
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 1095,
-      "category": "jsx-text",
-      "words": 4,
-      "hasTokens": false,
-      "text": ") { return ("
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 1103,
-      "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "{note ?"
-    },
-    {
-      "file": "src/app/platform/page.tsx",
-      "line": 1104,
-      "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": ": null}"
-    },
-    {
       "file": "src/app/platform/stock/page.tsx",
       "line": 68,
       "category": "attribute",
@@ -6158,14 +5055,6 @@
       "words": 15,
       "hasTokens": false,
       "text": "Roblox's reported results for the most recent quarter, against the same quarter a year earlier."
-    },
-    {
-      "file": "src/app/platform/stock/page.tsx",
-      "line": 75,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Measure"
     },
     {
       "file": "src/app/platform/stock/page.tsx",
@@ -6201,14 +5090,6 @@
     },
     {
       "file": "src/app/platform/stock/page.tsx",
-      "line": 104,
-      "category": "jsx-text",
-      "words": 50,
-      "hasTokens": false,
-      "text": "Sites that show a live Roblox chart are almost always embedding one from a market data vendor, which means that vendor&rsquo;s script runs in your browser and can see your visit. This site loads no third-party scripts on any page, and adding one here would quietly undo that for everyone."
-    },
-    {
-      "file": "src/app/platform/stock/page.tsx",
       "line": 110,
       "category": "jsx-text",
       "words": 36,
@@ -6222,14 +5103,6 @@
       "words": 3,
       "hasTokens": false,
       "text": "Not investment advice"
-    },
-    {
-      "file": "src/app/platform/stock/page.tsx",
-      "line": 115,
-      "category": "jsx-text",
-      "words": 38,
-      "hasTokens": false,
-      "text": "Nothing on this page is a recommendation to buy or sell anything. A company&rsquo;s results say nothing about what any individual creator will be paid, and the DevEx rate is set by Roblox independently of its share price."
     },
     {
       "file": "src/app/platform/stock/page.tsx",
@@ -6251,25 +5124,9 @@
       "file": "src/app/platform/stock/page.tsx",
       "line": 153,
       "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "· via"
-    },
-    {
-      "file": "src/app/platform/stock/page.tsx",
-      "line": 153,
-      "category": "jsx-text",
       "words": 3,
       "hasTokens": false,
       "text": ", fetched server-side"
-    },
-    {
-      "file": "src/app/platform/stock/page.tsx",
-      "line": 155,
-      "category": "jsx-text",
-      "words": 62,
-      "hasTokens": false,
-      "text": "{lastKnown ? ( /* * Shown, not hidden. The figure above is real and carries the time it * was taken, so it is not a stale price passed off as current — but a * reader is entitled to know that a newer one was asked for and * refused, rather than being left to infer it from the timestamp. */"
     },
     {
       "file": "src/app/platform/stock/page.tsx",
@@ -6289,30 +5146,6 @@
     },
     {
       "file": "src/app/platform/stock/page.tsx",
-      "line": 164,
-      "category": "jsx-text",
-      "words": 17,
-      "hasTokens": false,
-      "text": "The price above is unchanged from when it was taken; nothing has been adjusted to look current."
-    },
-    {
-      "file": "src/app/platform/stock/page.tsx",
-      "line": 168,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": ") : null}"
-    },
-    {
-      "file": "src/app/platform/stock/page.tsx",
-      "line": 170,
-      "category": "jsx-text",
-      "words": 9,
-      "hasTokens": false,
-      "text": "); } if (state.status === \"unavailable\") { return ("
-    },
-    {
-      "file": "src/app/platform/stock/page.tsx",
       "line": 176,
       "category": "attribute",
       "words": 6,
@@ -6326,14 +5159,6 @@
       "words": 18,
       "hasTokens": false,
       "text": "No figure is shown in its place. A stale price presented as current would be worse than none."
-    },
-    {
-      "file": "src/app/platform/stock/page.tsx",
-      "line": 179,
-      "category": "jsx-text",
-      "words": 4,
-      "hasTokens": false,
-      "text": "); } return ("
     },
     {
       "file": "src/app/platform/stock/page.tsx",
@@ -6353,59 +5178,11 @@
     },
     {
       "file": "src/app/platform/stock/page.tsx",
-      "line": 196,
-      "category": "jsx-text",
-      "words": 19,
-      "hasTokens": false,
-      "text": "))} . The reported results below are what a share price responds to, and they are published either way."
-    },
-    {
-      "file": "src/app/platform/stock/page.tsx",
-      "line": 201,
-      "category": "jsx-text",
-      "words": 35,
-      "hasTokens": false,
-      "text": "); } /** * Reads the provider configuration from the Worker environment where there is * one, falling back to the process environment so a local run behaves the same. */ async function readQuote(): Promise"
-    },
-    {
-      "file": "src/app/platform/stock/page.tsx",
       "line": 209,
       "category": "jsx-text",
       "words": 4,
       "hasTokens": false,
       "text": "{ let env: Record"
-    },
-    {
-      "file": "src/app/platform/stock/page.tsx",
-      "line": 210,
-      "category": "jsx-text",
-      "words": 10,
-      "hasTokens": false,
-      "text": "= process.env; let store: QuoteStore | undefined; try { const"
-    },
-    {
-      "file": "src/app/platform/stock/page.tsx",
-      "line": 210,
-      "category": "jsx-text",
-      "words": 8,
-      "hasTokens": false,
-      "text": "= await import(\"@opennextjs/cloudflare\"); const context = await getCloudflareContext("
-    },
-    {
-      "file": "src/app/platform/stock/page.tsx",
-      "line": 210,
-      "category": "jsx-text",
-      "words": 7,
-      "hasTokens": false,
-      "text": "); const cloudflareEnv = context.env as Record"
-    },
-    {
-      "file": "src/app/platform/stock/page.tsx",
-      "line": 216,
-      "category": "jsx-text",
-      "words": 8,
-      "hasTokens": false,
-      "text": "; env = { ...process.env, ...(cloudflareEnv as Record"
     },
     {
       "file": "src/app/privacy/page.tsx",
@@ -6446,14 +5223,6 @@
       "words": 2,
       "hasTokens": false,
       "text": "Local storage"
-    },
-    {
-      "file": "src/app/privacy/page.tsx",
-      "line": 67,
-      "category": "jsx-text",
-      "words": 15,
-      "hasTokens": false,
-      "text": "With your action, this site stores a few things in your own browser&rsquo;s local storage:"
     },
     {
       "file": "src/app/privacy/page.tsx",
@@ -6529,43 +5298,11 @@
     },
     {
       "file": "src/app/privacy/page.tsx",
-      "line": 93,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "{analyticsConfig.cloudflareToken ? ("
-    },
-    {
-      "file": "src/app/privacy/page.tsx",
-      "line": 96,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "Cloudflare Web Analytics"
-    },
-    {
-      "file": "src/app/privacy/page.tsx",
       "line": 96,
       "category": "jsx-text",
       "words": 19,
       "hasTokens": false,
       "text": "— cookieless, and records page views rather than individuals. No consent prompt is shown because no cookie is set."
-    },
-    {
-      "file": "src/app/privacy/page.tsx",
-      "line": 99,
-      "category": "jsx-text",
-      "words": 6,
-      "hasTokens": false,
-      "text": ") : null} {analyticsConfig.ga4Id ? ("
-    },
-    {
-      "file": "src/app/privacy/page.tsx",
-      "line": 103,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "Google Analytics 4"
     },
     {
       "file": "src/app/privacy/page.tsx",
@@ -6577,35 +5314,11 @@
     },
     {
       "file": "src/app/privacy/page.tsx",
-      "line": 107,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": ") : null}"
-    },
-    {
-      "file": "src/app/privacy/page.tsx",
-      "line": 110,
-      "category": "jsx-text",
-      "words": 22,
-      "hasTokens": false,
-      "text": "Calculator values are never sent to analytics. Which pages are visited is useful; how much Robux you hold is not our business."
-    },
-    {
-      "file": "src/app/privacy/page.tsx",
       "line": 116,
       "category": "attribute",
       "words": 7,
       "hasTokens": false,
       "text": "No analytics are running on this deployment"
-    },
-    {
-      "file": "src/app/privacy/page.tsx",
-      "line": 116,
-      "category": "jsx-text",
-      "words": 63,
-      "hasTokens": false,
-      "text": "No analytics provider is configured, so this site loads no tracking script and sets no analytics cookie. Our host does not add one either: Cloudflare&rsquo;s Web Analytics was injecting a script into pages as they were served, and it has been turned off for this site. Verified after the change &mdash; no request to any analytics host is made when a page loads."
     },
     {
       "file": "src/app/privacy/page.tsx",
@@ -6617,35 +5330,11 @@
     },
     {
       "file": "src/app/privacy/page.tsx",
-      "line": 130,
-      "category": "jsx-text",
-      "words": 53,
-      "hasTokens": false,
-      "text": "If you send a message through the contact form, the name, email address, subject and message you enter are transmitted to this site&rsquo;s server and forwarded to the configured destination so it can be read and replied to. They are used for nothing else, and message content is not written to server logs."
-    },
-    {
-      "file": "src/app/privacy/page.tsx",
-      "line": 136,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "{isTurnstileEnabled ? ("
-    },
-    {
-      "file": "src/app/privacy/page.tsx",
       "line": 138,
       "category": "jsx-text",
       "words": 37,
       "hasTokens": false,
       "text": "The form is protected by Cloudflare Turnstile, which checks that a submission comes from a person rather than a script. Turnstile is provided by Cloudflare and processes a token along with your IP address for that check."
-    },
-    {
-      "file": "src/app/privacy/page.tsx",
-      "line": 143,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": ") : null}"
     },
     {
       "file": "src/app/privacy/page.tsx",
@@ -6670,14 +5359,6 @@
       "words": 4,
       "hasTokens": false,
       "text": "Hosting and server logs"
-    },
-    {
-      "file": "src/app/privacy/page.tsx",
-      "line": 155,
-      "category": "jsx-text",
-      "words": 50,
-      "hasTokens": false,
-      "text": "This site runs on Cloudflare Workers. As with any web host, Cloudflare processes the requests needed to serve pages, which involves your IP address and browser user agent, and it applies its own network-level security handling. That processing is governed by Cloudflare&rsquo;s own privacy terms rather than by this site."
     },
     {
       "file": "src/app/privacy/page.tsx",
@@ -6753,27 +5434,11 @@
     },
     {
       "file": "src/app/privacy/page.tsx",
-      "line": 191,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "{analyticsConfig.ga4Id ? ("
-    },
-    {
-      "file": "src/app/privacy/page.tsx",
       "line": 193,
       "category": "jsx-text",
       "words": 13,
       "hasTokens": false,
       "text": "Decline analytics cookies when prompted, or clear site data to be asked again."
-    },
-    {
-      "file": "src/app/privacy/page.tsx",
-      "line": 193,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": ") : null}"
     },
     {
       "file": "src/app/privacy/page.tsx",
@@ -6913,35 +5578,11 @@
     },
     {
       "file": "src/app/roblox-stats/page.tsx",
-      "line": 161,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Year"
-    },
-    {
-      "file": "src/app/roblox-stats/page.tsx",
       "line": 162,
       "category": "jsx-text",
       "words": 3,
       "hasTokens": false,
       "text": "Paid to creators"
-    },
-    {
-      "file": "src/app/roblox-stats/page.tsx",
-      "line": 163,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Revenue"
-    },
-    {
-      "file": "src/app/roblox-stats/page.tsx",
-      "line": 164,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Source"
     },
     {
       "file": "src/app/roblox-stats/page.tsx",
@@ -6985,59 +5626,11 @@
     },
     {
       "file": "src/app/roblox-stats/page.tsx",
-      "line": 213,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Quarter"
-    },
-    {
-      "file": "src/app/roblox-stats/page.tsx",
       "line": 214,
       "category": "jsx-text",
       "words": 3,
       "hasTokens": false,
       "text": "Paid to creators"
-    },
-    {
-      "file": "src/app/roblox-stats/page.tsx",
-      "line": 215,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "How we know"
-    },
-    {
-      "file": "src/app/roblox-stats/page.tsx",
-      "line": 216,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Source"
-    },
-    {
-      "file": "src/app/roblox-stats/page.tsx",
-      "line": 224,
-      "category": "jsx-text",
-      "words": 5,
-      "hasTokens": false,
-      "text": "{period.origin === \"reported\" ? ("
-    },
-    {
-      "file": "src/app/roblox-stats/page.tsx",
-      "line": 226,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Reported"
-    },
-    {
-      "file": "src/app/roblox-stats/page.tsx",
-      "line": 229,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Derived"
     },
     {
       "file": "src/app/roblox-stats/page.tsx",
@@ -7081,30 +5674,6 @@
     },
     {
       "file": "src/app/roblox-stats/page.tsx",
-      "line": 273,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Rate"
-    },
-    {
-      "file": "src/app/roblox-stats/page.tsx",
-      "line": 274,
-      "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "Per Robux"
-    },
-    {
-      "file": "src/app/roblox-stats/page.tsx",
-      "line": 275,
-      "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "Earned Robux"
-    },
-    {
-      "file": "src/app/roblox-stats/page.tsx",
       "line": 294,
       "category": "attribute",
       "words": 9,
@@ -7126,22 +5695,6 @@
       "words": 2,
       "hasTokens": false,
       "text": "Derived here"
-    },
-    {
-      "file": "src/app/roblox-stats/page.tsx",
-      "line": 325,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "billion Hours ÷"
-    },
-    {
-      "file": "src/app/roblox-stats/page.tsx",
-      "line": 325,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "million DAUs ÷"
     },
     {
       "file": "src/app/roblox-stats/page.tsx",
@@ -7198,30 +5751,6 @@
       "words": 15,
       "hasTokens": false,
       "text": "Roblox's reported results for the most recent quarter, against the same quarter a year earlier."
-    },
-    {
-      "file": "src/app/roblox-stats/page.tsx",
-      "line": 362,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Measure"
-    },
-    {
-      "file": "src/app/roblox-stats/page.tsx",
-      "line": 365,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Note"
-    },
-    {
-      "file": "src/app/roblox-stats/page.tsx",
-      "line": 381,
-      "category": "jsx-text",
-      "words": 42,
-      "hasTokens": false,
-      "text": "The line worth reading twice is the second one. Developer exchange fees are about a quarter of Roblox&rsquo;s revenue, so a meaningful share of what the platform takes in leaves again as creator payouts. Every figure in this table is quoted from"
     },
     {
       "file": "src/app/roblox-stats/page.tsx",
@@ -7369,14 +5898,6 @@
     },
     {
       "file": "src/app/roblox-stats/page.tsx",
-      "line": 450,
-      "category": "jsx-text",
-      "words": 63,
-      "hasTokens": false,
-      "text": "Figures are recorded to the precision the filing used. Where Roblox reported in thousands the amount is exact to the dollar; where it reported in millions, it is exact to the million and no further. Two quarters are marked as derived because they come from subtracting a reported quarter from a reported six-month total. Read more about how this site handles figures in"
-    },
-    {
-      "file": "src/app/roblox-stats/page.tsx",
       "line": 456,
       "category": "jsx-text",
       "words": 2,
@@ -7438,14 +5959,6 @@
       "words": 2,
       "hasTokens": false,
       "text": "Sale type"
-    },
-    {
-      "file": "src/app/robux-tax-calculator/page.tsx",
-      "line": 57,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Creator"
     },
     {
       "file": "src/app/robux-tax-calculator/page.tsx",
@@ -7574,14 +6087,6 @@
       "words": 7,
       "hasTokens": false,
       "text": "Why the calculator asks for a multiple"
-    },
-    {
-      "file": "src/app/robux-tax-calculator/page.tsx",
-      "line": 143,
-      "category": "jsx-text",
-      "words": 39,
-      "hasTokens": false,
-      "text": "Price floors differ by item category and Roblox has adjusted them over time, so hardcoding one universal floor would produce wrong answers for most items. Entering the multiple keeps the result correct whatever your category&rsquo;s floor happens to be."
     },
     {
       "file": "src/app/robux-tax-calculator/page.tsx",
@@ -7777,43 +6282,11 @@
     },
     {
       "file": "src/app/robux-to-usd/page.tsx",
-      "line": 105,
-      "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "Buying Robux"
-    },
-    {
-      "file": "src/app/robux-to-usd/page.tsx",
-      "line": 110,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Direction"
-    },
-    {
-      "file": "src/app/robux-to-usd/page.tsx",
       "line": 111,
       "category": "jsx-text",
       "words": 3,
       "hasTokens": false,
       "text": "Roblox pays you"
-    },
-    {
-      "file": "src/app/robux-to-usd/page.tsx",
-      "line": 112,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "You pay Roblox"
-    },
-    {
-      "file": "src/app/robux-to-usd/page.tsx",
-      "line": 115,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Rate"
     },
     {
       "file": "src/app/robux-to-usd/page.tsx",
@@ -7833,14 +6306,6 @@
     },
     {
       "file": "src/app/robux-to-usd/page.tsx",
-      "line": 120,
-      "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "Which Robux"
-    },
-    {
-      "file": "src/app/robux-to-usd/page.tsx",
       "line": 121,
       "category": "jsx-text",
       "words": 4,
@@ -7857,22 +6322,6 @@
     },
     {
       "file": "src/app/robux-to-usd/page.tsx",
-      "line": 125,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Minimum"
-    },
-    {
-      "file": "src/app/robux-to-usd/page.tsx",
-      "line": 126,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "30,000 Earned Robux"
-    },
-    {
-      "file": "src/app/robux-to-usd/page.tsx",
       "line": 127,
       "category": "jsx-text",
       "words": 5,
@@ -7881,35 +6330,11 @@
     },
     {
       "file": "src/app/robux-to-usd/page.tsx",
-      "line": 130,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Approval"
-    },
-    {
-      "file": "src/app/robux-to-usd/page.tsx",
       "line": 131,
       "category": "jsx-text",
       "words": 4,
       "hasTokens": false,
       "text": "Roblox reviews each request"
-    },
-    {
-      "file": "src/app/robux-to-usd/page.tsx",
-      "line": 132,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Instant"
-    },
-    {
-      "file": "src/app/robux-to-usd/page.tsx",
-      "line": 135,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Reversible"
     },
     {
       "file": "src/app/robux-to-usd/page.tsx",
@@ -8049,27 +6474,11 @@
     },
     {
       "file": "src/app/sources/page.tsx",
-      "line": 68,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "{source.effectiveDate ? ("
-    },
-    {
-      "file": "src/app/sources/page.tsx",
       "line": 71,
       "category": "jsx-text",
       "words": 2,
       "hasTokens": false,
       "text": "Effective from:"
-    },
-    {
-      "file": "src/app/sources/page.tsx",
-      "line": 73,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": ") : null}"
     },
     {
       "file": "src/app/sources/page.tsx",
@@ -8134,14 +6543,6 @@
       "words": 4,
       "hasTokens": false,
       "text": "Escalates to critical after"
-    },
-    {
-      "file": "src/app/sources/page.tsx",
-      "line": 127,
-      "category": "jsx-text",
-      "words": 84,
-      "hasTokens": false,
-      "text": "Between reviews, a scheduled job re-reads the markdown Roblox publishes for its DevEx page four times a day and compares the rates and the minimum to the ones published here. It can confirm that nothing has moved; it cannot change a figure. A difference raises a flag for a person to read, and a document it cannot recognise — an outage, or a redesign — is reported as unreadable rather than treated as a rate that has been withdrawn. The result is published at"
     },
     {
       "file": "src/app/sources/page.tsx",
@@ -8345,14 +6746,6 @@
     },
     {
       "file": "src/app/usd-to-robux/page.tsx",
-      "line": 90,
-      "category": "jsx-text",
-      "words": 12,
-      "hasTokens": false,
-      "text": "required Earned Robux = ceiling( target USD ÷ rate per Robux )"
-    },
-    {
-      "file": "src/app/usd-to-robux/page.tsx",
       "line": 93,
       "category": "jsx-text",
       "words": 18,
@@ -8457,14 +6850,6 @@
     },
     {
       "file": "src/app/usd-to-robux/page.tsx",
-      "line": 142,
-      "category": "jsx-text",
-      "words": 10,
-      "hasTokens": false,
-      "text": "days = remaining Earned Robux ÷ Earned Robux per day"
-    },
-    {
-      "file": "src/app/usd-to-robux/page.tsx",
       "line": 144,
       "category": "jsx-text",
       "words": 43,
@@ -8537,14 +6922,6 @@
     },
     {
       "file": "src/app/usd-to-robux/page.tsx",
-      "line": 179,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "{row.belowMinimum ? ("
-    },
-    {
-      "file": "src/app/usd-to-robux/page.tsx",
       "line": 181,
       "category": "jsx-text",
       "words": 5,
@@ -8608,116 +6985,12 @@
       "text": "Values are"
     },
     {
-      "file": "src/components/charts/index.tsx",
-      "line": 283,
-      "category": "jsx-text",
-      "words": 18,
-      "hasTokens": false,
-      "text": "); } /** Wraps a chart and the table that carries the same numbers. */ export function ChartWithTable("
-    },
-    {
-      "file": "src/components/charts/index.tsx",
-      "line": 283,
-      "category": "jsx-text",
-      "words": 4,
-      "hasTokens": false,
-      "text": ") { return ("
-    },
-    {
-      "file": "src/components/charts/index.tsx",
-      "line": 733,
-      "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "more, unnamed"
-    },
-    {
-      "file": "src/components/charts/index.tsx",
-      "line": 736,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": ") : null}"
-    },
-    {
-      "file": "src/components/content/data-download.tsx",
-      "line": 11,
-      "category": "jsx-text",
-      "words": 100,
-      "hasTokens": false,
-      "text": "` links to real endpoints — no client JavaScript, no * blob built in the browser, so they work with scripting off and the file is * the same whether a person or a script fetches it. * * The limitations are shown next to the links rather than inside the files. * A caveat that lives only in a header block stops travelling with the data * the first time someone opens it in a spreadsheet, and the point of stating * them here is that nobody downloads a range without reading what it covers. */ export function DataDownload("
-    },
-    {
-      "file": "src/components/content/data-download.tsx",
-      "line": 11,
-      "category": "jsx-text",
-      "words": 8,
-      "hasTokens": false,
-      "text": ": { heading: string; description: string; formats: readonly"
-    },
-    {
-      "file": "src/components/content/data-download.tsx",
-      "line": 11,
-      "category": "jsx-text",
-      "words": 8,
-      "hasTokens": false,
-      "text": "[]; limitations: readonly string[]; }) { return ("
-    },
-    {
-      "file": "src/components/content/index.tsx",
-      "line": 37,
-      "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "In short"
-    },
-    {
-      "file": "src/components/content/index.tsx",
-      "line": 42,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "{jumpTo ? ("
-    },
-    {
-      "file": "src/components/content/index.tsx",
-      "line": 51,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": ") : null}"
-    },
-    {
-      "file": "src/components/content/index.tsx",
-      "line": 53,
-      "category": "jsx-text",
-      "words": 54,
-      "hasTokens": false,
-      "text": "); } // --------------------------------------------------------------------------- // Trust badges // --------------------------------------------------------------------------- /** * Shows when the rate data was last checked against official documentation, * and escalates its tone once the review cadence has lapsed. A stale badge is * more useful than a confident one that is quietly out of date. */ export function LastVerifiedBadge("
-    },
-    {
-      "file": "src/components/content/index.tsx",
-      "line": 53,
-      "category": "jsx-text",
-      "words": 24,
-      "hasTokens": false,
-      "text": ") { const freshness = registryFreshness(); const tone = freshness.state === \"critical\" ? \"warning\" : freshness.state === \"review-due\" ? \"info\" : \"success\"; return ("
-    },
-    {
       "file": "src/components/content/index.tsx",
       "line": 83,
       "category": "jsx-text",
       "words": 2,
       "hasTokens": false,
       "text": "Rates verified"
-    },
-    {
-      "file": "src/components/content/index.tsx",
-      "line": 85,
-      "category": "jsx-text",
-      "words": 23,
-      "hasTokens": false,
-      "text": "); } /** Compact strip of trust signals shown directly under the H1 on tool pages. */ export function TrustStrip() { return ("
     },
     {
       "file": "src/components/content/index.tsx",
@@ -8734,22 +7007,6 @@
       "words": 2,
       "hasTokens": false,
       "text": "Estimates only"
-    },
-    {
-      "file": "src/components/content/index.tsx",
-      "line": 96,
-      "category": "jsx-text",
-      "words": 32,
-      "hasTokens": false,
-      "text": "); } /** * Citations for the facts on a page. Every rate-sensitive page renders this, * and the publish-queue validator refuses to ship one that does not. */ export function SourceNote("
-    },
-    {
-      "file": "src/components/content/index.tsx",
-      "line": 96,
-      "category": "jsx-text",
-      "words": 14,
-      "hasTokens": false,
-      "text": ") { if (sourceIds.length === 0) return null; const sources = getSources(sourceIds); return ("
     },
     {
       "file": "src/components/content/index.tsx",
@@ -8785,22 +7042,6 @@
     },
     {
       "file": "src/components/content/index.tsx",
-      "line": 137,
-      "category": "jsx-text",
-      "words": 38,
-      "hasTokens": false,
-      "text": "); } /** * The estimate disclaimer. * * Stated plainly rather than buried: a creator planning around a payout needs * to know up front that this site cannot determine eligibility or approval. */ export function EstimateDisclaimer("
-    },
-    {
-      "file": "src/components/content/index.tsx",
-      "line": 137,
-      "category": "jsx-text",
-      "words": 4,
-      "hasTokens": false,
-      "text": ") { return ("
-    },
-    {
-      "file": "src/components/content/index.tsx",
       "line": 149,
       "category": "attribute",
       "words": 7,
@@ -8822,22 +7063,6 @@
       "words": 4,
       "hasTokens": false,
       "text": "Read the full disclaimer"
-    },
-    {
-      "file": "src/components/content/index.tsx",
-      "line": 155,
-      "category": "jsx-text",
-      "words": 17,
-      "hasTokens": false,
-      "text": "); } /** The Earned Robux warning shown next to any conversion result. */ export function EarnedRobuxNote("
-    },
-    {
-      "file": "src/components/content/index.tsx",
-      "line": 155,
-      "category": "jsx-text",
-      "words": 4,
-      "hasTokens": false,
-      "text": ") { return ("
     },
     {
       "file": "src/components/content/index.tsx",
@@ -8865,51 +7090,11 @@
     },
     {
       "file": "src/components/content/index.tsx",
-      "line": 167,
-      "category": "jsx-text",
-      "words": 5,
-      "hasTokens": false,
-      "text": "); } export function MethodologyNote("
-    },
-    {
-      "file": "src/components/content/index.tsx",
-      "line": 167,
-      "category": "jsx-text",
-      "words": 4,
-      "hasTokens": false,
-      "text": ") { return ("
-    },
-    {
-      "file": "src/components/content/index.tsx",
-      "line": 173,
-      "category": "jsx-text",
-      "words": 18,
-      "hasTokens": false,
-      "text": "Calculations use exact decimal arithmetic and round only at the point of display; required-Robux figures always round up."
-    },
-    {
-      "file": "src/components/content/index.tsx",
       "line": 176,
       "category": "jsx-text",
       "words": 4,
       "hasTokens": false,
       "text": "Read the full methodology"
-    },
-    {
-      "file": "src/components/content/index.tsx",
-      "line": 177,
-      "category": "jsx-text",
-      "words": 5,
-      "hasTokens": false,
-      "text": "); } export function LimitationsNote("
-    },
-    {
-      "file": "src/components/content/index.tsx",
-      "line": 177,
-      "category": "jsx-text",
-      "words": 4,
-      "hasTokens": false,
-      "text": ") { return ("
     },
     {
       "file": "src/components/content/index.tsx",
@@ -8921,46 +7106,6 @@
     },
     {
       "file": "src/components/content/index.tsx",
-      "line": 196,
-      "category": "jsx-text",
-      "words": 11,
-      "hasTokens": false,
-      "text": "); } // --------------------------------------------------------------------------- // Definitions // --------------------------------------------------------------------------- export function DefinitionBlock("
-    },
-    {
-      "file": "src/components/content/index.tsx",
-      "line": 196,
-      "category": "jsx-text",
-      "words": 4,
-      "hasTokens": false,
-      "text": ") { return ("
-    },
-    {
-      "file": "src/components/content/index.tsx",
-      "line": 224,
-      "category": "jsx-text",
-      "words": 18,
-      "hasTokens": false,
-      "text": "); } // --------------------------------------------------------------------------- // FAQs // --------------------------------------------------------------------------- /** * Visible FAQs. * * Built on native `"
-    },
-    {
-      "file": "src/components/content/index.tsx",
-      "line": 235,
-      "category": "jsx-text",
-      "words": 50,
-      "hasTokens": false,
-      "text": "`, so the answers stay in the DOM, remain * crawlable, and work without JavaScript. No FAQPage JSON-LD is emitted: * Google removed FAQ rich-result support for most sites, so adding the markup * would be schema for its own sake rather than for a reader. */ export function FAQAccordion("
-    },
-    {
-      "file": "src/components/content/index.tsx",
-      "line": 235,
-      "category": "jsx-text",
-      "words": 10,
-      "hasTokens": false,
-      "text": ") { if (faqs.length === 0) return null; return ("
-    },
-    {
-      "file": "src/components/content/index.tsx",
       "line": 242,
       "category": "attribute",
       "words": 3,
@@ -8969,51 +7114,11 @@
     },
     {
       "file": "src/components/content/index.tsx",
-      "line": 272,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": ") : null}"
-    },
-    {
-      "file": "src/components/content/index.tsx",
       "line": 290,
       "category": "jsx-text",
       "words": 3,
       "hasTokens": false,
       "text": "On this page"
-    },
-    {
-      "file": "src/components/content/index.tsx",
-      "line": 357,
-      "category": "jsx-text",
-      "words": 15,
-      "hasTokens": false,
-      "text": "); } /** Page header: H1, one-line purpose, and trust signals. */ export function PageHeader("
-    },
-    {
-      "file": "src/components/content/index.tsx",
-      "line": 357,
-      "category": "jsx-text",
-      "words": 4,
-      "hasTokens": false,
-      "text": ") { return ("
-    },
-    {
-      "file": "src/components/content/index.tsx",
-      "line": 379,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "{record.rateSensitive ? ("
-    },
-    {
-      "file": "src/components/content/index.tsx",
-      "line": 383,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": ") : null}"
     },
     {
       "file": "src/components/content/tables.tsx",
@@ -9033,54 +7138,6 @@
     },
     {
       "file": "src/components/content/tables.tsx",
-      "line": 31,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Rate"
-    },
-    {
-      "file": "src/components/content/tables.tsx",
-      "line": 32,
-      "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "Per Robux"
-    },
-    {
-      "file": "src/components/content/tables.tsx",
-      "line": 33,
-      "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "Per 1,000"
-    },
-    {
-      "file": "src/components/content/tables.tsx",
-      "line": 33,
-      "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "{showExamples ?"
-    },
-    {
-      "file": "src/components/content/tables.tsx",
-      "line": 34,
-      "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "Per 30,000"
-    },
-    {
-      "file": "src/components/content/tables.tsx",
-      "line": 34,
-      "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": ": null}"
-    },
-    {
-      "file": "src/components/content/tables.tsx",
       "line": 35,
       "category": "jsx-text",
       "words": 2,
@@ -9089,75 +7146,11 @@
     },
     {
       "file": "src/components/content/tables.tsx",
-      "line": 68,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "{showExamples ? ("
-    },
-    {
-      "file": "src/components/content/tables.tsx",
-      "line": 72,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": ") : null}"
-    },
-    {
-      "file": "src/components/content/tables.tsx",
-      "line": 74,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "{rate.effectiveFrom ? ("
-    },
-    {
-      "file": "src/components/content/tables.tsx",
-      "line": 77,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "From"
-    },
-    {
-      "file": "src/components/content/tables.tsx",
-      "line": 79,
-      "category": "jsx-text",
-      "words": 6,
-      "hasTokens": false,
-      "text": ") : null} {rate.effectiveTo ? ("
-    },
-    {
-      "file": "src/components/content/tables.tsx",
       "line": 82,
       "category": "jsx-text",
       "words": 3,
       "hasTokens": false,
       "text": "Balances earned before"
-    },
-    {
-      "file": "src/components/content/tables.tsx",
-      "line": 84,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": ") : null}"
-    },
-    {
-      "file": "src/components/content/tables.tsx",
-      "line": 92,
-      "category": "jsx-text",
-      "words": 329,
-      "hasTokens": false,
-      "text": "); } // --------------------------------------------------------------------------- // Amount table // --------------------------------------------------------------------------- /** * Common amounts converted at all three rates. * * The list runs below the minimum on purpose. A creator with 10,000 Earned * Robux searches for what it is worth, and the honest answer includes that it * cannot be cashed out yet — so the row is shown and flagged rather than hidden. * * Every amount here is one people actually search for, taken from the keyword * dataset rather than chosen for roundness. The short list this replaced held * thirteen of the seventy-one amounts with recorded demand, and the rationale * recorded against the other fifty-eight said they were \"served by the * conversion hub\" — which was not true of a hub that did not list them. One * table answers all of them without a page per number, which is the pattern the * specification rules out. */ const DEFAULT_AMOUNTS: readonly number[] = [ // Below the 30,000 minimum: searched, and answerable, but not cashable. 1, 25, 50, 150, 200, 250, 300, 600, 700, 800, 1_000, 1_200, 1_500, 2_000, 2_300, 2_400, 2_500, 2_700, 3_000, 3_500, 4_000, 5_000, 6_000, 7_000, 8_000, 8_500, 9_000, 10_000, 11_000, 12_000, 13_000, 14_000, 15_000, 17_000, 18_000, 20_000, 25_000, // At or above the minimum. 30_000, 31_000, 35_000, 40_000, 48_000, 50_000, 60_000, 70_000, 75_000, 80_000, 90_000, 100_000, 130_000, 150_000, 160_000, 200_000, 300_000, 400_000, 500_000, 1_000_000, 1_500_000, 2_000_000, 3_000_000, 5_000_000, 7_000_000, 10_000_000, 14_000_000, 18_000_000, 100_000_000, 200_000_000, 600_000_000, 1_000_000_000, ]; /* * Two searched amounts are deliberately absent: 3.6 billion and one trillion * Robux. The arithmetic would be correct and the rows would be nonsense — no * balance of that size exists — and a reference table that answers a joke with * a billion-dollar figure reads as unserious. The converter above handles any * amount typed into it, including those, so the answer is available without the * table claiming they are ordinary cases. */ export function AmountTable("
-    },
-    {
-      "file": "src/components/content/tables.tsx",
-      "line": 92,
-      "category": "jsx-text",
-      "words": 16,
-      "hasTokens": false,
-      "text": ") { const standard = getRateValue(standardRateId); const legacy = getRateValue(legacyRateId); const us18 = getRateValue(us18RateId); return ("
     },
     {
       "file": "src/components/content/tables.tsx",
@@ -9177,54 +7170,6 @@
     },
     {
       "file": "src/components/content/tables.tsx",
-      "line": 152,
-      "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "Earned Robux"
-    },
-    {
-      "file": "src/components/content/tables.tsx",
-      "line": 153,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Standard"
-    },
-    {
-      "file": "src/components/content/tables.tsx",
-      "line": 154,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Legacy"
-    },
-    {
-      "file": "src/components/content/tables.tsx",
-      "line": 156,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Minimum"
-    },
-    {
-      "file": "src/components/content/tables.tsx",
-      "line": 167,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "{hasPage ? ("
-    },
-    {
-      "file": "src/components/content/tables.tsx",
-      "line": 190,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "{meetsMinimum ? ("
-    },
-    {
-      "file": "src/components/content/tables.tsx",
       "line": 192,
       "category": "jsx-text",
       "words": 2,
@@ -9241,38 +7186,6 @@
     },
     {
       "file": "src/components/content/tables.tsx",
-      "line": 202,
-      "category": "jsx-text",
-      "words": 62,
-      "hasTokens": false,
-      "text": "); } // --------------------------------------------------------------------------- // Formula // --------------------------------------------------------------------------- /** * The calculation, stated openly. * * Showing the arithmetic is the difference between a tool a creator can check * and one they have to trust. It is also the clearest possible answer to * \"how is this calculated\", which is a real query in the keyword data. */ export function FormulaBlock("
-    },
-    {
-      "file": "src/components/content/tables.tsx",
-      "line": 202,
-      "category": "jsx-text",
-      "words": 12,
-      "hasTokens": false,
-      "text": ") { const standard = getRateValue(standardRateId); const example = Rational.fromInt(100_000).mul(standard); return ("
-    },
-    {
-      "file": "src/components/content/tables.tsx",
-      "line": 225,
-      "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "The calculation"
-    },
-    {
-      "file": "src/components/content/tables.tsx",
-      "line": 226,
-      "category": "jsx-text",
-      "words": 11,
-      "hasTokens": false,
-      "text": "eligible Earned Robux × rate per Robux = estimated USD payout"
-    },
-    {
-      "file": "src/components/content/tables.tsx",
       "line": 232,
       "category": "jsx-text",
       "words": 11,
@@ -9283,57 +7196,9 @@
       "file": "src/components/content/tables.tsx",
       "line": 232,
       "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "Earned Robux, because"
-    },
-    {
-      "file": "src/components/content/tables.tsx",
-      "line": 232,
-      "category": "jsx-text",
       "words": 5,
       "hasTokens": false,
       "text": "would fall a fraction short."
-    },
-    {
-      "file": "src/components/content/tables.tsx",
-      "line": 239,
-      "category": "jsx-text",
-      "words": 13,
-      "hasTokens": false,
-      "text": "); } // --------------------------------------------------------------------------- // Requirements list // --------------------------------------------------------------------------- export const DEVEX_REQUIREMENTS: readonly"
-    },
-    {
-      "file": "src/components/content/tables.tsx",
-      "line": 239,
-      "category": "jsx-text",
-      "words": 8,
-      "hasTokens": false,
-      "text": "[] = [ { title: `At least $"
-    },
-    {
-      "file": "src/components/content/tables.tsx",
-      "line": 239,
-      "category": "jsx-text",
-      "words": 22,
-      "hasTokens": false,
-      "text": "Earned Robux`, detail: \"Earned Robux specifically — a balance made up of purchased Robux does not qualify however large it is.\", },"
-    },
-    {
-      "file": "src/components/content/tables.tsx",
-      "line": 239,
-      "category": "jsx-text",
-      "words": 5,
-      "hasTokens": false,
-      "text": ", ]; export function RequirementsList("
-    },
-    {
-      "file": "src/components/content/tables.tsx",
-      "line": 239,
-      "category": "jsx-text",
-      "words": 4,
-      "hasTokens": false,
-      "text": ") { return ("
     },
     {
       "file": "src/components/content/tables.tsx",
@@ -9401,51 +7266,11 @@
     },
     {
       "file": "src/components/diagrams/index.tsx",
-      "line": 17,
-      "category": "jsx-text",
-      "words": 170,
-      "hasTokens": false,
-      "text": "` scales with the viewBox, so a 720-wide drawing on * a 320px screen renders 12px labels at about five. These reflow instead. * - Real text honours the reader's own font size, can be selected, and is * translated by a browser's translator. Text in an SVG is none of those. * - A screen reader gets an ordered list describing the flow, because that is * literally what the markup is. Nothing has to be restated in a hidden * paragraph and kept in step by hand. * * No generated imagery, and specifically no depictions of the DevEx portal. An * invented screenshot of a real product is a fabricated record — the same thing * this site refuses to do with a rate, and worse, because a reader would try to * follow it. Every figure below comes from the rate registry rather than being * written into the drawing. */ type Tone = \"neutral\" | \"primary\" | \"warning\" | \"success\" | \"danger\"; const TONE_BORDER: Record"
-    },
-    {
-      "file": "src/components/diagrams/index.tsx",
-      "line": 34,
-      "category": "jsx-text",
-      "words": 4,
-      "hasTokens": false,
-      "text": "; const TONE_MARKER: Record"
-    },
-    {
-      "file": "src/components/diagrams/index.tsx",
-      "line": 42,
-      "category": "jsx-text",
-      "words": 63,
-      "hasTokens": false,
-      "text": "; /** * The connector between two stages. * * Rotated rather than swapped for a second glyph, so there is one shape to * keep consistent. It points down while the stages are stacked and right once * they sit in a row, which is the direction the reading order actually goes at * each width. */ function Connector() { return ("
-    },
-    {
-      "file": "src/components/diagrams/index.tsx",
       "line": 78,
-      "category": "jsx-text",
-      "words": 5,
-      "hasTokens": false,
-      "text": "); } export interface FlowStage"
-    },
-    {
-      "file": "src/components/diagrams/index.tsx",
-      "line": 78,
-      "category": "jsx-text",
-      "words": 4,
-      "hasTokens": false,
-      "text": ") { return ("
-    },
-    {
-      "file": "src/components/diagrams/index.tsx",
-      "line": 151,
       "category": "jsx-text",
       "words": 3,
       "hasTokens": false,
-      "text": "{stage.by ? ("
+      "text": "export function ValueFlow("
     },
     {
       "file": "src/components/diagrams/index.tsx",
@@ -9457,83 +7282,11 @@
     },
     {
       "file": "src/components/diagrams/index.tsx",
-      "line": 155,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": ") : null}"
-    },
-    {
-      "file": "src/components/diagrams/index.tsx",
-      "line": 195,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "; return ("
-    },
-    {
-      "file": "src/components/diagrams/index.tsx",
-      "line": 235,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "{part.note ? ("
-    },
-    {
-      "file": "src/components/diagrams/index.tsx",
-      "line": 238,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": ") : null}"
-    },
-    {
-      "file": "src/components/diagrams/index.tsx",
-      "line": 246,
-      "category": "jsx-text",
-      "words": 48,
-      "hasTokens": false,
-      "text": "); } /** * What passes a gate and what is stopped by it. * * The prose version of this is two bulleted lists, which describe the sorting * without showing that there is one — and the sorting is the whole point. */ export function EligibilityGate("
-    },
-    {
-      "file": "src/components/diagrams/index.tsx",
       "line": 246,
       "category": "jsx-text",
       "words": 4,
       "hasTokens": false,
       "text": ": { readonly accepted:"
-    },
-    {
-      "file": "src/components/diagrams/index.tsx",
-      "line": 246,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "; readonly rejected:"
-    },
-    {
-      "file": "src/components/diagrams/index.tsx",
-      "line": 246,
-      "category": "jsx-text",
-      "words": 14,
-      "hasTokens": false,
-      "text": "; readonly outcome: ReactNode; readonly caption: string; readonly className?: string; }) { return ("
-    },
-    {
-      "file": "src/components/diagrams/index.tsx",
-      "line": 346,
-      "category": "jsx-text",
-      "words": 61,
-      "hasTokens": false,
-      "text": "); } /** * A threshold on a scale, with what each side of it means. * * Drawn because a minimum is one of the few facts on this site that is genuinely * positional: a balance is on one side of it or the other, and no amount of * being close counts for anything. */ export function ThresholdScale("
-    },
-    {
-      "file": "src/components/diagrams/index.tsx",
-      "line": 346,
-      "category": "jsx-text",
-      "words": 4,
-      "hasTokens": false,
-      "text": ") { return ("
     },
     {
       "file": "src/components/layout/breadcrumbs.tsx",
@@ -9542,22 +7295,6 @@
       "words": 1,
       "hasTokens": false,
       "text": "Breadcrumb"
-    },
-    {
-      "file": "src/components/layout/desktop-navigation.tsx",
-      "line": 9,
-      "category": "jsx-text",
-      "words": 29,
-      "hasTokens": false,
-      "text": "` in the delivered * HTML, open panel or not, so the crawl surface does not depend on anything * running in the browser. * * Built on `"
-    },
-    {
-      "file": "src/components/layout/desktop-navigation.tsx",
-      "line": 13,
-      "category": "jsx-text",
-      "words": 127,
-      "hasTokens": false,
-      "text": "` rather than on a button and a state hook. The native * element is a disclosure already: it opens on click and on Enter or Space, * exposes its expanded state to assistive technology, and — the part that * decided it — keeps working with JavaScript disabled, which no hand-built * dropdown does. `NavDisclosures` adds Escape, outside-click and mutual * exclusion on top; none of those are needed for the menu to open. * * Deliberately not an ARIA menu. `role=\"menu\"` commits to arrow-key roving * focus and to treating these as commands rather than links, and a partial * implementation of that pattern is worse for a screen reader than the plain * disclosure-of-links this actually is. */ export function DesktopNavigation() { return ("
     },
     {
       "file": "src/components/layout/desktop-navigation.tsx",
@@ -9576,62 +7313,6 @@
       "text": "Rate data"
     },
     {
-      "file": "src/components/layout/footer-status.tsx",
-      "line": 76,
-      "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "· registry"
-    },
-    {
-      "file": "src/components/layout/logo.tsx",
-      "line": 101,
-      "category": "jsx-text",
-      "words": 94,
-      "hasTokens": false,
-      "text": "); } /** * Full lockup used in the header and footer. * * \"DevEx\" carries the weight because that is the name people search for; * \"Calculator\" is set lighter so the lockup has a hierarchy rather than being * one undifferentiated string. The two are a single word visually, so there is * no space between them and the tracking is tightened to match. * * This is the accessible name of the link the mark sits in, which is why the * mark itself is marked decorative. */ export function Wordmark("
-    },
-    {
-      "file": "src/components/layout/logo.tsx",
-      "line": 101,
-      "category": "jsx-text",
-      "words": 4,
-      "hasTokens": false,
-      "text": ") { return ("
-    },
-    {
-      "file": "src/components/layout/logo.tsx",
-      "line": 120,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Calculator"
-    },
-    {
-      "file": "src/components/layout/mobile-navigation.tsx",
-      "line": 12,
-      "category": "jsx-text",
-      "words": 146,
-      "hasTokens": false,
-      "text": "` elements the * desktop navigation renders, so nothing about the site's crawl surface * depends on this component running. * * The groups are passed in as plain data rather than imported here, so the * route registry stays out of the browser bundle. * * Behaviour required by the accessibility contract: * - Escape closes the panel and returns focus to the trigger. * - Focus is trapped inside the panel while it is open. * - Background scrolling is locked, without the layout shifting. * - The trigger reports its expanded state and the panel it controls. * * One accordion level inside, and no more: twenty-one destinations on a phone * is a scroll either way, and a second level of nesting would hide the thing * a reader is looking for behind two taps instead of one. */ export function MobileNavigation("
-    },
-    {
-      "file": "src/components/layout/mobile-navigation.tsx",
-      "line": 12,
-      "category": "jsx-text",
-      "words": 15,
-      "hasTokens": false,
-      "text": ") { const [open, setOpen] = useState(false); const panelId = useId(); const triggerRef = useRef"
-    },
-    {
-      "file": "src/components/layout/mobile-navigation.tsx",
-      "line": 38,
-      "category": "jsx-text",
-      "words": 5,
-      "hasTokens": false,
-      "text": "(null); const panelRef = useRef"
-    },
-    {
       "file": "src/components/layout/mobile-navigation.tsx",
       "line": 150,
       "category": "attribute",
@@ -9640,68 +7321,12 @@
       "text": "Main"
     },
     {
-      "file": "src/components/layout/nav-disclosures.tsx",
-      "line": 9,
-      "category": "jsx-text",
-      "words": 69,
-      "hasTokens": false,
-      "text": "` elements rendered on the server, * so they open, close and take keyboard focus with no JavaScript at all. That * is the whole reason for building them that way: a reader with scripts * blocked gets working navigation rather than a dead button, and a crawler * sees every destination in the HTML whether a panel is open or not. * * Three things a bare `"
-    },
-    {
-      "file": "src/components/layout/nav-disclosures.tsx",
-      "line": 15,
-      "category": "jsx-text",
-      "words": 127,
-      "hasTokens": false,
-      "text": "` still does not do, which this adds: * * - Escape closes the open menu and returns focus to its own trigger. * - A pointer press anywhere outside closes it. Without this a menu opened * by accident follows the reader down the page. * - Opening one closes the others. The `name` attribute already does this in * current browsers; this covers the ones where it does not, and is the * reason the exclusive behaviour can be relied on rather than hoped for. * * It wraps server-rendered children and touches them through the DOM instead * of owning them, so nothing here re-renders and no page content is pulled * into the client bundle to get this behaviour. */ export function NavDisclosures("
-    },
-    {
-      "file": "src/components/layout/nav-disclosures.tsx",
-      "line": 15,
-      "category": "jsx-text",
-      "words": 6,
-      "hasTokens": false,
-      "text": ") { const ref = useRef"
-    },
-    {
-      "file": "src/components/layout/rate-source-check.tsx",
-      "line": 63,
-      "category": "jsx-text",
-      "words": 7,
-      "hasTokens": false,
-      "text": "Roblox&rsquo;s page no longer matches these figures."
-    },
-    {
       "file": "src/components/layout/rate-source-check.tsx",
       "line": 65,
       "category": "jsx-text",
       "words": 6,
       "hasTokens": false,
       "text": "Found by the automatic check on"
-    },
-    {
-      "file": "src/components/layout/rate-source-check.tsx",
-      "line": 68,
-      "category": "jsx-text",
-      "words": 9,
-      "hasTokens": false,
-      "text": "); } if (check.status === \"unreadable\") { return ("
-    },
-    {
-      "file": "src/components/layout/rate-source-check.tsx",
-      "line": 74,
-      "category": "jsx-text",
-      "words": 7,
-      "hasTokens": false,
-      "text": "Roblox&rsquo;s page could not be read on"
-    },
-    {
-      "file": "src/components/layout/rate-source-check.tsx",
-      "line": 77,
-      "category": "jsx-text",
-      "words": 4,
-      "hasTokens": false,
-      "text": "); } return ("
     },
     {
       "file": "src/components/layout/rate-source-check.tsx",
@@ -9718,22 +7343,6 @@
       "words": 4,
       "hasTokens": false,
       "text": "source changed, under review"
-    },
-    {
-      "file": "src/components/layout/site-footer.tsx",
-      "line": 49,
-      "category": "jsx-text",
-      "words": 134,
-      "hasTokens": false,
-      "text": "); } /* * The clock read once, at module scope rather than during render. * * These are the values a reader without JavaScript sees, and the ones shown * for the instant before hydration — deliberately real numbers rather than * placeholders. Reading a clock inside a component body is a render that is * not idempotent, which React's own lint rejects and which would make this * component produce a different tree on every re-render. * * For a prerendered page this is the build. For the few routes rendered per * request it is whenever the isolate started, which can drift a little — and * does not matter, because the browser replaces both during hydration. */ const BUILT_AT = Date.now(); const BUILT_YEAR = new Date(BUILT_AT).getUTCFullYear(); function ageAtBuild(iso: string): number"
-    },
-    {
-      "file": "src/components/layout/site-footer.tsx",
-      "line": 49,
-      "category": "jsx-text",
-      "words": 10,
-      "hasTokens": false,
-      "text": "export function SiteFooter() { const standardRate = getRateValue(standardRateId); return ("
     },
     {
       "file": "src/components/layout/site-footer.tsx",
@@ -9800,30 +7409,6 @@
       "text": "DevExCalculator.org is an independent tool. Roblox, Robux and Developer Exchange are trademarks of Roblox Corporation, used here only to describe the subject of these calculations. This site is not endorsed, sponsored or operated by Roblox Corporation, and it cannot determine whether any DevEx request will be approved."
     },
     {
-      "file": "src/components/layout/site-header.tsx",
-      "line": 31,
-      "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "— home"
-    },
-    {
-      "file": "src/components/layout/site-header.tsx",
-      "line": 36,
-      "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "{features.darkMode ?"
-    },
-    {
-      "file": "src/components/layout/site-header.tsx",
-      "line": 72,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "{\"@media (max-width: 1023.98px){.site-header"
-    },
-    {
       "file": "src/components/layout/social-links.tsx",
       "line": 62,
       "category": "attribute",
@@ -9881,14 +7466,6 @@
     },
     {
       "file": "src/components/layout/social-links.tsx",
-      "line": 154,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Follow"
-    },
-    {
-      "file": "src/components/layout/social-links.tsx",
       "line": 201,
       "category": "jsx-text",
       "words": 5,
@@ -9912,54 +7489,6 @@
       "text": "We would like to measure which pages get used, which needs a cookie. The calculator works identically either way, and your calculations are never sent anywhere."
     },
     {
-      "file": "src/components/seo/analytics-consent.tsx",
-      "line": 71,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Decline"
-    },
-    {
-      "file": "src/components/seo/analytics-consent.tsx",
-      "line": 74,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Accept"
-    },
-    {
-      "file": "src/components/seo/analytics.tsx",
-      "line": 43,
-      "category": "jsx-text",
-      "words": 4,
-      "hasTokens": false,
-      "text": "{` window.dataLayer=window.dataLayer||[]; function gtag()"
-    },
-    {
-      "file": "src/components/seo/analytics.tsx",
-      "line": 43,
-      "category": "jsx-text",
-      "words": 15,
-      "hasTokens": false,
-      "text": "gtag('js',new Date()); // Consent starts denied and is granted only by an explicit choice. gtag('consent','default',"
-    },
-    {
-      "file": "src/components/seo/analytics.tsx",
-      "line": 43,
-      "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "); try{if(localStorage.getItem('devex:consent')==='granted'){gtag('consent','update',"
-    },
-    {
-      "file": "src/components/seo/analytics.tsx",
-      "line": 43,
-      "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "); `.trim()}"
-    },
-    {
       "file": "src/components/ui/ad-slot.tsx",
       "line": 27,
       "category": "attribute",
@@ -9969,307 +7498,11 @@
     },
     {
       "file": "src/components/ui/index.tsx",
-      "line": 8,
-      "category": "jsx-text",
-      "words": 36,
-      "hasTokens": false,
-      "text": "`, never a clickable `div`, so * keyboard operation and accessible names come from the platform rather than * from ARIA patched on afterwards. */ export function cx(...values: (string | false | null | undefined)[]): string"
-    },
-    {
-      "file": "src/components/ui/index.tsx",
-      "line": 8,
-      "category": "jsx-text",
-      "words": 5,
-      "hasTokens": false,
-      "text": ") { const widths ="
-    },
-    {
-      "file": "src/components/ui/index.tsx",
-      "line": 8,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "; return ("
-    },
-    {
-      "file": "src/components/ui/index.tsx",
-      "line": 38,
-      "category": "jsx-text",
-      "words": 5,
-      "hasTokens": false,
-      "text": "); } export function Card("
-    },
-    {
-      "file": "src/components/ui/index.tsx",
-      "line": 38,
-      "category": "jsx-text",
-      "words": 5,
-      "hasTokens": false,
-      "text": ") { const tones ="
-    },
-    {
-      "file": "src/components/ui/index.tsx",
-      "line": 38,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "; return ("
-    },
-    {
-      "file": "src/components/ui/index.tsx",
-      "line": 67,
-      "category": "jsx-text",
-      "words": 5,
-      "hasTokens": false,
-      "text": "); } export function Section("
-    },
-    {
-      "file": "src/components/ui/index.tsx",
-      "line": 67,
-      "category": "jsx-text",
-      "words": 14,
-      "hasTokens": false,
-      "text": ") { const Heading = headingLevel === 2 ? \"h2\" : \"h3\"; return ("
-    },
-    {
-      "file": "src/components/ui/index.tsx",
-      "line": 97,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "{description ? ("
-    },
-    {
-      "file": "src/components/ui/index.tsx",
-      "line": 99,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": ") : null}"
-    },
-    {
-      "file": "src/components/ui/index.tsx",
-      "line": 102,
-      "category": "jsx-text",
-      "words": 65,
-      "hasTokens": false,
-      "text": "as const; export type ButtonVariant = keyof typeof buttonVariants; /** * Lifts the label above the primary variant's sweep. * * Cheap enough to apply to every variant rather than making the caller know * which one needs it, and it keeps the accessible name unchanged — a span * inside a button contributes its text exactly as a bare string does. */ function ButtonLabel("
-    },
-    {
-      "file": "src/components/ui/index.tsx",
-      "line": 102,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": ") { return"
-    },
-    {
-      "file": "src/components/ui/index.tsx",
-      "line": 199,
-      "category": "jsx-text",
-      "words": 4,
-      "hasTokens": false,
-      "text": ") { return ("
-    },
-    {
-      "file": "src/components/ui/index.tsx",
-      "line": 207,
-      "category": "jsx-text",
-      "words": 5,
-      "hasTokens": false,
-      "text": "); } export function ButtonLink("
-    },
-    {
-      "file": "src/components/ui/index.tsx",
-      "line": 207,
-      "category": "jsx-text",
-      "words": 13,
-      "hasTokens": false,
-      "text": ") { const classes = cx(buttonBase, buttonVariants[variant], className); if (external) { return ("
-    },
-    {
-      "file": "src/components/ui/index.tsx",
-      "line": 229,
-      "category": "jsx-text",
-      "words": 4,
-      "hasTokens": false,
-      "text": "); } return ("
-    },
-    {
-      "file": "src/components/ui/index.tsx",
-      "line": 235,
-      "category": "jsx-text",
-      "words": 43,
-      "hasTokens": false,
-      "text": "); } /** * A link to an official external source. * * Opens in a new tab with `noopener noreferrer`, but deliberately without * `nofollow`: these are authoritative citations, and marking them nofollow * would misrepresent the relationship. */ export function SourceLink("
-    },
-    {
-      "file": "src/components/ui/index.tsx",
-      "line": 235,
-      "category": "jsx-text",
-      "words": 4,
-      "hasTokens": false,
-      "text": ") { return ("
-    },
-    {
-      "file": "src/components/ui/index.tsx",
       "line": 266,
       "category": "jsx-text",
       "words": 5,
       "hasTokens": false,
       "text": "(opens in a new tab)"
-    },
-    {
-      "file": "src/components/ui/index.tsx",
-      "line": 267,
-      "category": "jsx-text",
-      "words": 5,
-      "hasTokens": false,
-      "text": "); } export function InlineLink("
-    },
-    {
-      "file": "src/components/ui/index.tsx",
-      "line": 267,
-      "category": "jsx-text",
-      "words": 4,
-      "hasTokens": false,
-      "text": ") { return ("
-    },
-    {
-      "file": "src/components/ui/index.tsx",
-      "line": 289,
-      "category": "jsx-text",
-      "words": 26,
-      "hasTokens": false,
-      "text": "); } // --------------------------------------------------------------------------- // Badges and notes // --------------------------------------------------------------------------- export type BadgeTone = \"neutral\" | \"info\" | \"success\" | \"warning\" | \"danger\"; const badgeTones: Record"
-    },
-    {
-      "file": "src/components/ui/index.tsx",
-      "line": 299,
-      "category": "jsx-text",
-      "words": 4,
-      "hasTokens": false,
-      "text": "; export function Badge("
-    },
-    {
-      "file": "src/components/ui/index.tsx",
-      "line": 299,
-      "category": "jsx-text",
-      "words": 4,
-      "hasTokens": false,
-      "text": ") { return ("
-    },
-    {
-      "file": "src/components/ui/index.tsx",
-      "line": 325,
-      "category": "jsx-text",
-      "words": 35,
-      "hasTokens": false,
-      "text": "); } /** * A callout. The tone is carried by a text label as well as by colour, so the * meaning survives for anyone who cannot distinguish the colours. */ export function Callout("
-    },
-    {
-      "file": "src/components/ui/index.tsx",
-      "line": 325,
-      "category": "jsx-text",
-      "words": 5,
-      "hasTokens": false,
-      "text": ") { const borders: Record"
-    },
-    {
-      "file": "src/components/ui/index.tsx",
-      "line": 344,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "; return ("
-    },
-    {
-      "file": "src/components/ui/index.tsx",
-      "line": 363,
-      "category": "jsx-text",
-      "words": 51,
-      "hasTokens": false,
-      "text": "); } // --------------------------------------------------------------------------- // Tables // --------------------------------------------------------------------------- /** * A data table with its own horizontal scroll container. * * The wrapper is focusable and labelled so a keyboard user can scroll a wide * table; without `tabIndex` the overflow region is unreachable without a mouse. */ export function TableWrapper("
-    },
-    {
-      "file": "src/components/ui/index.tsx",
-      "line": 363,
-      "category": "jsx-text",
-      "words": 4,
-      "hasTokens": false,
-      "text": ") { return ("
-    },
-    {
-      "file": "src/components/ui/index.tsx",
-      "line": 412,
-      "category": "jsx-text",
-      "words": 5,
-      "hasTokens": false,
-      "text": "); } export function Table("
-    },
-    {
-      "file": "src/components/ui/index.tsx",
-      "line": 412,
-      "category": "jsx-text",
-      "words": 76,
-      "hasTokens": false,
-      "text": ") { /* * The minimum width is in pixels, not rem, deliberately. A rem minimum * scales with the root font size, so a reader at 200% text zoom made this * table demand 1024px and pushed the page sideways — the exact failure * WCAG 1.4.4 is about. In pixels the columns still get the room they need to * stay readable, and zooming the text does not widen the table. */ return ("
-    },
-    {
-      "file": "src/components/ui/index.tsx",
-      "line": 428,
-      "category": "jsx-text",
-      "words": 5,
-      "hasTokens": false,
-      "text": "); } export function Th("
-    },
-    {
-      "file": "src/components/ui/index.tsx",
-      "line": 428,
-      "category": "jsx-text",
-      "words": 4,
-      "hasTokens": false,
-      "text": ") { return ("
-    },
-    {
-      "file": "src/components/ui/index.tsx",
-      "line": 450,
-      "category": "jsx-text",
-      "words": 5,
-      "hasTokens": false,
-      "text": "); } export function Td("
-    },
-    {
-      "file": "src/components/ui/index.tsx",
-      "line": 450,
-      "category": "jsx-text",
-      "words": 4,
-      "hasTokens": false,
-      "text": ") { return ("
-    },
-    {
-      "file": "src/components/ui/index.tsx",
-      "line": 472,
-      "category": "jsx-text",
-      "words": 13,
-      "hasTokens": false,
-      "text": "); } // --------------------------------------------------------------------------- // Disclosure // --------------------------------------------------------------------------- /** * A native `"
-    },
-    {
-      "file": "src/components/ui/index.tsx",
-      "line": 481,
-      "category": "jsx-text",
-      "words": 42,
-      "hasTokens": false,
-      "text": "` disclosure. * * Native elements give keyboard operation, the correct expanded state and * screen-reader semantics without any JavaScript, and the content inside stays * in the DOM so it remains crawlable and findable with in-page search. */ export function Disclosure("
-    },
-    {
-      "file": "src/components/ui/index.tsx",
-      "line": 481,
-      "category": "jsx-text",
-      "words": 4,
-      "hasTokens": false,
-      "text": ") { return ("
     },
     {
       "file": "src/config/navigation.ts",
@@ -10337,78 +7570,6 @@
     },
     {
       "file": "src/features/contact/contact-form.tsx",
-      "line": 19,
-      "category": "jsx-text",
-      "words": 6,
-      "hasTokens": false,
-      "text": "(\"idle\"); const [issues, setIssues] = useState"
-    },
-    {
-      "file": "src/features/contact/contact-form.tsx",
-      "line": 20,
-      "category": "jsx-text",
-      "words": 6,
-      "hasTokens": false,
-      "text": "([]); const [errorMessage, setErrorMessage] = useState"
-    },
-    {
-      "file": "src/features/contact/contact-form.tsx",
-      "line": 21,
-      "category": "jsx-text",
-      "words": 5,
-      "hasTokens": false,
-      "text": "(null); const formRef = useRef"
-    },
-    {
-      "file": "src/features/contact/contact-form.tsx",
-      "line": 27,
-      "category": "jsx-text",
-      "words": 14,
-      "hasTokens": false,
-      "text": ") { event.preventDefault(); setStatus(\"submitting\"); setIssues([]); setErrorMessage(null); const data = new FormData(event.currentTarget); const payload ="
-    },
-    {
-      "file": "src/features/contact/contact-form.tsx",
-      "line": 27,
-      "category": "jsx-text",
-      "words": 12,
-      "hasTokens": false,
-      "text": "; try { const response = await fetch(\"/api/contact/\", { method: \"POST\", headers:"
-    },
-    {
-      "file": "src/features/contact/contact-form.tsx",
-      "line": 27,
-      "category": "jsx-text",
-      "words": 16,
-      "hasTokens": false,
-      "text": ", body: JSON.stringify(payload), }); const body = (await response.json()) as { ok?: boolean; issues?: ValidationIssue[]; error?:"
-    },
-    {
-      "file": "src/features/contact/contact-form.tsx",
-      "line": 27,
-      "category": "jsx-text",
-      "words": 6,
-      "hasTokens": false,
-      "text": "; }; if (response.ok && body.ok)"
-    },
-    {
-      "file": "src/features/contact/contact-form.tsx",
-      "line": 27,
-      "category": "jsx-text",
-      "words": 14,
-      "hasTokens": false,
-      "text": "if (body.issues) setIssues(body.issues); setErrorMessage(body.error?.message ?? \"The message could not be sent.\"); setStatus(\"error\"); } catch"
-    },
-    {
-      "file": "src/features/contact/contact-form.tsx",
-      "line": 27,
-      "category": "jsx-text",
-      "words": 8,
-      "hasTokens": false,
-      "text": "} if (status === \"sent\") { return ("
-    },
-    {
-      "file": "src/features/contact/contact-form.tsx",
       "line": 74,
       "category": "attribute",
       "words": 2,
@@ -10425,27 +7586,11 @@
     },
     {
       "file": "src/features/contact/contact-form.tsx",
-      "line": 90,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "{errorMessage ? ("
-    },
-    {
-      "file": "src/features/contact/contact-form.tsx",
       "line": 93,
       "category": "attribute",
       "words": 3,
       "hasTokens": false,
       "text": "Could not send"
-    },
-    {
-      "file": "src/features/contact/contact-form.tsx",
-      "line": 96,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": ") : null}"
     },
     {
       "file": "src/features/contact/contact-form.tsx",
@@ -10486,70 +7631,6 @@
       "words": 4,
       "hasTokens": false,
       "text": "Leave this field empty"
-    },
-    {
-      "file": "src/features/contact/contact-form.tsx",
-      "line": 152,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "{turnstileSiteKey ? ("
-    },
-    {
-      "file": "src/features/contact/contact-form.tsx",
-      "line": 166,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": ") : null}"
-    },
-    {
-      "file": "src/features/contact/contact-form.tsx",
-      "line": 227,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "{required ? ("
-    },
-    {
-      "file": "src/features/contact/contact-form.tsx",
-      "line": 232,
-      "category": "jsx-text",
-      "words": 5,
-      "hasTokens": false,
-      "text": ") : null} {required ?"
-    },
-    {
-      "file": "src/features/contact/contact-form.tsx",
-      "line": 234,
-      "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": ": null}"
-    },
-    {
-      "file": "src/features/contact/contact-form.tsx",
-      "line": 235,
-      "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "{multiline ?"
-    },
-    {
-      "file": "src/features/contact/contact-form.tsx",
-      "line": 240,
-      "category": "jsx-text",
-      "words": 6,
-      "hasTokens": false,
-      "text": ") : null} {error ? ("
-    },
-    {
-      "file": "src/features/contact/contact-form.tsx",
-      "line": 245,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": ") : null}"
     },
     {
       "file": "src/features/devex/calculator.tsx",
@@ -10601,43 +7682,11 @@
     },
     {
       "file": "src/features/devex/calculator.tsx",
-      "line": 130,
-      "category": "jsx-text",
-      "words": 28,
-      "hasTokens": false,
-      "text": "( // A currency in the URL was explicit, so it outranks the stored default. initialState.currency !== \"USD\" ? initialState.currency : null, ); const [advancedOverride, setAdvancedOverride] = useState"
-    },
-    {
-      "file": "src/features/devex/calculator.tsx",
-      "line": 134,
-      "category": "jsx-text",
-      "words": 6,
-      "hasTokens": false,
-      "text": "(null); const [historyOverride, setHistoryOverride] = useState"
-    },
-    {
-      "file": "src/features/devex/calculator.tsx",
-      "line": 135,
-      "category": "jsx-text",
-      "words": 21,
-      "hasTokens": false,
-      "text": "(null); const currency = currencyChoice ?? (isSupportedCurrency(storedCurrency) ? storedCurrency : \"USD\"); const advancedOpen = advancedOverride ?? storedAdvancedOpen; const storedHistory = useMemo"
-    },
-    {
-      "file": "src/features/devex/calculator.tsx",
       "line": 405,
       "category": "jsx-text",
       "words": 3,
       "hasTokens": false,
       "text": "DevEx payout calculator"
-    },
-    {
-      "file": "src/features/devex/calculator.tsx",
-      "line": 405,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "{!lockedMode ? ("
     },
     {
       "file": "src/features/devex/calculator.tsx",
@@ -10713,14 +7762,6 @@
     },
     {
       "file": "src/features/devex/calculator.tsx",
-      "line": 571,
-      "category": "jsx-text",
-      "words": 5,
-      "hasTokens": false,
-      "text": "{mode === \"target\" ? ("
-    },
-    {
-      "file": "src/features/devex/calculator.tsx",
       "line": 589,
       "category": "attribute",
       "words": 2,
@@ -10745,14 +7786,6 @@
     },
     {
       "file": "src/features/devex/calculator.tsx",
-      "line": 605,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "{showHistory ? ("
-    },
-    {
-      "file": "src/features/devex/calculator.tsx",
       "line": 631,
       "category": "jsx-text",
       "words": 5,
@@ -10766,14 +7799,6 @@
       "words": 19,
       "hasTokens": false,
       "text": "Roblox decides which rate applies to which part of your balance. This is not a choice you can make."
-    },
-    {
-      "file": "src/features/devex/calculator.tsx",
-      "line": 639,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": ") : null}"
     },
     {
       "file": "src/features/devex/calculator.tsx",
@@ -10808,108 +7833,12 @@
       "text": "Nothing saved yet."
     },
     {
-      "file": "src/features/devex/components/actions.tsx",
-      "line": 62,
-      "category": "jsx-text",
-      "words": 5,
-      "hasTokens": false,
-      "text": "(\"idle\"); const timer = useRef"
-    },
-    {
-      "file": "src/features/devex/components/actions.tsx",
-      "line": 146,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Reset"
-    },
-    {
-      "file": "src/features/devex/components/actions.tsx",
-      "line": 148,
-      "category": "jsx-text",
-      "words": 7,
-      "hasTokens": false,
-      "text": "); } if (confirming) { return ("
-    },
-    {
-      "file": "src/features/devex/components/actions.tsx",
-      "line": 165,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Cancel"
-    },
-    {
-      "file": "src/features/devex/components/actions.tsx",
-      "line": 168,
-      "category": "jsx-text",
-      "words": 4,
-      "hasTokens": false,
-      "text": "); } return ("
-    },
-    {
-      "file": "src/features/devex/components/actions.tsx",
-      "line": 173,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Reset"
-    },
-    {
-      "file": "src/features/devex/components/controls.tsx",
-      "line": 12,
-      "category": "jsx-text",
-      "words": 6,
-      "hasTokens": false,
-      "text": "` with a real * `"
-    },
-    {
-      "file": "src/features/devex/components/controls.tsx",
-      "line": 83,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": ") : null}"
-    },
-    {
-      "file": "src/features/devex/components/controls.tsx",
-      "line": 85,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "{hint ? ("
-    },
-    {
-      "file": "src/features/devex/components/controls.tsx",
-      "line": 89,
-      "category": "jsx-text",
-      "words": 27,
-      "hasTokens": false,
-      "text": ") : null} {error ? ( // `role=\"alert\"` announces the problem as soon as it appears, without // the reader needing to navigate back to the field."
-    },
-    {
-      "file": "src/features/devex/components/controls.tsx",
-      "line": 96,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": ") : null}"
-    },
-    {
       "file": "src/features/devex/components/controls.tsx",
       "line": 109,
       "category": "attribute",
       "words": 3,
       "hasTokens": false,
       "text": "Rate to apply"
-    },
-    {
-      "file": "src/features/devex/components/controls.tsx",
-      "line": 131,
-      "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "per Robux"
     },
     {
       "file": "src/features/devex/components/controls.tsx",
@@ -10929,115 +7858,11 @@
     },
     {
       "file": "src/features/devex/components/controls.tsx",
-      "line": 301,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "{hint ? ("
-    },
-    {
-      "file": "src/features/devex/components/controls.tsx",
-      "line": 305,
-      "category": "jsx-text",
-      "words": 6,
-      "hasTokens": false,
-      "text": ") : null} {error ? ("
-    },
-    {
-      "file": "src/features/devex/components/controls.tsx",
-      "line": 310,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": ") : null}"
-    },
-    {
-      "file": "src/features/devex/components/controls.tsx",
       "line": 362,
       "category": "attribute",
       "words": 2,
       "hasTokens": false,
       "text": "Calculator mode"
-    },
-    {
-      "file": "src/features/devex/components/results.tsx",
-      "line": 51,
-      "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "{secondary ?"
-    },
-    {
-      "file": "src/features/devex/components/results.tsx",
-      "line": 52,
-      "category": "jsx-text",
-      "words": 4,
-      "hasTokens": false,
-      "text": ": null} {children ?"
-    },
-    {
-      "file": "src/features/devex/components/results.tsx",
-      "line": 53,
-      "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": ": null}"
-    },
-    {
-      "file": "src/features/devex/components/results.tsx",
-      "line": 54,
-      "category": "jsx-text",
-      "words": 61,
-      "hasTokens": false,
-      "text": "); } /** * Live region for result and status announcements. * * `aria-live=\"polite\"` with `aria-atomic` so the whole sentence is read as one * update rather than digit by digit as the reader types. The text is a * summary, not the full breakdown, to avoid drowning a screen-reader user in * announcements on every keystroke. */ export function ResultAnnouncer("
-    },
-    {
-      "file": "src/features/devex/components/results.tsx",
-      "line": 54,
-      "category": "jsx-text",
-      "words": 4,
-      "hasTokens": false,
-      "text": ") { return ("
-    },
-    {
-      "file": "src/features/devex/components/results.tsx",
-      "line": 70,
-      "category": "jsx-text",
-      "words": 68,
-      "hasTokens": false,
-      "text": "); } // --------------------------------------------------------------------------- // Threshold meter // --------------------------------------------------------------------------- /** * Progress toward the documented minimum. * * The wording is chosen with care: reaching 30,000 is described as meeting the * stated minimum, never as being eligible. Roblox decides eligibility, and a * meter on a third-party site asserting eligibility outright would be a false * promise to someone planning around real money. */ export function ThresholdMeter("
-    },
-    {
-      "file": "src/features/devex/components/results.tsx",
-      "line": 70,
-      "category": "jsx-text",
-      "words": 16,
-      "hasTokens": false,
-      "text": ") { if (threshold.state === \"empty\") return null; const meets = threshold.state === \"meets-minimum\"; return ("
-    },
-    {
-      "file": "src/features/devex/components/results.tsx",
-      "line": 97,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "{meets ? `$"
-    },
-    {
-      "file": "src/features/devex/components/results.tsx",
-      "line": 97,
-      "category": "jsx-text",
-      "words": 4,
-      "hasTokens": false,
-      "text": "minimum reached` : `$"
-    },
-    {
-      "file": "src/features/devex/components/results.tsx",
-      "line": 97,
-      "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "more needed`}"
     },
     {
       "file": "src/features/devex/components/results.tsx",
@@ -11057,83 +7882,11 @@
     },
     {
       "file": "src/features/devex/components/results.tsx",
-      "line": 126,
-      "category": "jsx-text",
-      "words": 12,
-      "hasTokens": false,
-      "text": "); } // --------------------------------------------------------------------------- // Rate comparison // --------------------------------------------------------------------------- export function ScenarioComparison("
-    },
-    {
-      "file": "src/features/devex/components/results.tsx",
-      "line": 126,
-      "category": "jsx-text",
-      "words": 4,
-      "hasTokens": false,
-      "text": ") { return ("
-    },
-    {
-      "file": "src/features/devex/components/results.tsx",
       "line": 142,
       "category": "attribute",
       "words": 9,
       "hasTokens": false,
       "text": "What each DevEx rate would pay for this amount"
-    },
-    {
-      "file": "src/features/devex/components/results.tsx",
-      "line": 146,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Rate"
-    },
-    {
-      "file": "src/features/devex/components/results.tsx",
-      "line": 147,
-      "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "Per Robux"
-    },
-    {
-      "file": "src/features/devex/components/results.tsx",
-      "line": 148,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Payout"
-    },
-    {
-      "file": "src/features/devex/components/results.tsx",
-      "line": 149,
-      "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "vs standard"
-    },
-    {
-      "file": "src/features/devex/components/results.tsx",
-      "line": 156,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "{row.isBaseline ? ("
-    },
-    {
-      "file": "src/features/devex/components/results.tsx",
-      "line": 158,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": ") : null}"
-    },
-    {
-      "file": "src/features/devex/components/results.tsx",
-      "line": 165,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "{row.isBaseline ? ("
     },
     {
       "file": "src/features/devex/components/results.tsx",
@@ -11150,62 +7903,6 @@
       "words": 5,
       "hasTokens": false,
       "text": "DevEx payout by rate bucket"
-    },
-    {
-      "file": "src/features/devex/components/results.tsx",
-      "line": 211,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Bucket"
-    },
-    {
-      "file": "src/features/devex/components/results.tsx",
-      "line": 212,
-      "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "Earned Robux"
-    },
-    {
-      "file": "src/features/devex/components/results.tsx",
-      "line": 213,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Rate"
-    },
-    {
-      "file": "src/features/devex/components/results.tsx",
-      "line": 214,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Subtotal"
-    },
-    {
-      "file": "src/features/devex/components/results.tsx",
-      "line": 215,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Share"
-    },
-    {
-      "file": "src/features/devex/components/results.tsx",
-      "line": 233,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Total"
-    },
-    {
-      "file": "src/features/devex/components/results.tsx",
-      "line": 259,
-      "category": "jsx-text",
-      "words": 5,
-      "hasTokens": false,
-      "text": "{result.feesApplied || result.taxApplied ? ("
     },
     {
       "file": "src/features/devex/components/results.tsx",
@@ -11265,70 +7962,6 @@
     },
     {
       "file": "src/features/devex/components/results.tsx",
-      "line": 298,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": ") : null}"
-    },
-    {
-      "file": "src/features/devex/components/results.tsx",
-      "line": 300,
-      "category": "jsx-text",
-      "words": 4,
-      "hasTokens": false,
-      "text": "); } function SummaryRow("
-    },
-    {
-      "file": "src/features/devex/components/results.tsx",
-      "line": 300,
-      "category": "jsx-text",
-      "words": 4,
-      "hasTokens": false,
-      "text": ") { return ("
-    },
-    {
-      "file": "src/features/devex/components/results.tsx",
-      "line": 311,
-      "category": "jsx-text",
-      "words": 4,
-      "hasTokens": false,
-      "text": "); } function DeductionRow("
-    },
-    {
-      "file": "src/features/devex/components/results.tsx",
-      "line": 311,
-      "category": "jsx-text",
-      "words": 4,
-      "hasTokens": false,
-      "text": ") { return ("
-    },
-    {
-      "file": "src/features/devex/components/results.tsx",
-      "line": 332,
-      "category": "jsx-text",
-      "words": 12,
-      "hasTokens": false,
-      "text": "); } // --------------------------------------------------------------------------- // Target result // --------------------------------------------------------------------------- export function TargetBreakdown("
-    },
-    {
-      "file": "src/features/devex/components/results.tsx",
-      "line": 332,
-      "category": "jsx-text",
-      "words": 4,
-      "hasTokens": false,
-      "text": ") { return ("
-    },
-    {
-      "file": "src/features/devex/components/results.tsx",
-      "line": 349,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "per Robux ="
-    },
-    {
-      "file": "src/features/devex/components/results.tsx",
       "line": 351,
       "category": "jsx-text",
       "words": 4,
@@ -11350,14 +7983,6 @@
       "words": 16,
       "hasTokens": false,
       "text": ", which is the first whole-Robux amount that reaches your target rather than falling just short."
-    },
-    {
-      "file": "src/features/devex/components/results.tsx",
-      "line": 355,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "{result.requirementIsBelowMinimum ? ("
     },
     {
       "file": "src/features/devex/components/results.tsx",
@@ -11385,35 +8010,11 @@
     },
     {
       "file": "src/features/devex/components/results.tsx",
-      "line": 366,
-      "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "in practice."
-    },
-    {
-      "file": "src/features/devex/components/results.tsx",
-      "line": 369,
-      "category": "jsx-text",
-      "words": 12,
-      "hasTokens": false,
-      "text": ") : null} {result.progressPercent !== null && result.currentRobux !== null ? ("
-    },
-    {
-      "file": "src/features/devex/components/results.tsx",
       "line": 375,
       "category": "jsx-text",
       "words": 5,
       "hasTokens": false,
       "text": "% of the way there"
-    },
-    {
-      "file": "src/features/devex/components/results.tsx",
-      "line": 378,
-      "category": "jsx-text",
-      "words": 8,
-      "hasTokens": false,
-      "text": "{result.remainingRobux === 0n ? \"Target reached\" : `$"
     },
     {
       "file": "src/features/devex/components/results.tsx",
@@ -11425,59 +8026,11 @@
     },
     {
       "file": "src/features/devex/components/results.tsx",
-      "line": 397,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": ") : null}"
-    },
-    {
-      "file": "src/features/devex/components/results.tsx",
-      "line": 399,
-      "category": "jsx-text",
-      "words": 62,
-      "hasTokens": false,
-      "text": "); } // --------------------------------------------------------------------------- // FX status // --------------------------------------------------------------------------- /** * Provenance for a converted figure. * * Always states the provider and the observation date, and says outright that * these are reference rates rather than the rate a bank will actually give. * A stale figure is labelled as stale rather than quietly shown as current. */ export function FxNote("
-    },
-    {
-      "file": "src/features/devex/components/results.tsx",
-      "line": 399,
-      "category": "jsx-text",
-      "words": 15,
-      "hasTokens": false,
-      "text": ") { if (currency === \"USD\") return null; if (status === \"loading\") { return ("
-    },
-    {
-      "file": "src/features/devex/components/results.tsx",
       "line": 429,
       "category": "jsx-text",
       "words": 3,
       "hasTokens": false,
       "text": "Loading reference rates…"
-    },
-    {
-      "file": "src/features/devex/components/results.tsx",
-      "line": 431,
-      "category": "jsx-text",
-      "words": 11,
-      "hasTokens": false,
-      "text": "); } if (status === \"unavailable\" || !rates) { return ("
-    },
-    {
-      "file": "src/features/devex/components/results.tsx",
-      "line": 444,
-      "category": "jsx-text",
-      "words": 4,
-      "hasTokens": false,
-      "text": "); } return ("
-    },
-    {
-      "file": "src/features/devex/components/results.tsx",
-      "line": 449,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "{rates.stale ? ("
     },
     {
       "file": "src/features/devex/components/results.tsx",
@@ -11489,35 +8042,11 @@
     },
     {
       "file": "src/features/devex/components/results.tsx",
-      "line": 453,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": ") : null}"
-    },
-    {
-      "file": "src/features/devex/components/results.tsx",
       "line": 455,
       "category": "jsx-text",
       "words": 2,
       "hasTokens": false,
       "text": "figures use"
-    },
-    {
-      "file": "src/features/devex/components/results.tsx",
-      "line": 455,
-      "category": "jsx-text",
-      "words": 4,
-      "hasTokens": false,
-      "text": "reference rates observed {formatDate(`$"
-    },
-    {
-      "file": "src/features/devex/components/results.tsx",
-      "line": 455,
-      "category": "jsx-text",
-      "words": 22,
-      "hasTokens": false,
-      "text": "T00:00:00Z`)}. These are reference rates, not bank quotes — your payment provider will apply its own rate and may add a fee."
     },
     {
       "file": "src/features/devex/group-split.tsx",
@@ -11553,30 +8082,6 @@
     },
     {
       "file": "src/features/devex/group-split.tsx",
-      "line": 121,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Member"
-    },
-    {
-      "file": "src/features/devex/group-split.tsx",
-      "line": 122,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Share"
-    },
-    {
-      "file": "src/features/devex/group-split.tsx",
-      "line": 123,
-      "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "Earned Robux"
-    },
-    {
-      "file": "src/features/devex/group-split.tsx",
       "line": 124,
       "category": "jsx-text",
       "words": 2,
@@ -11593,14 +8098,6 @@
     },
     {
       "file": "src/features/devex/group-split.tsx",
-      "line": 127,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Remove"
-    },
-    {
-      "file": "src/features/devex/group-split.tsx",
       "line": 138,
       "category": "jsx-text",
       "words": 3,
@@ -11609,51 +8106,11 @@
     },
     {
       "file": "src/features/devex/group-split.tsx",
-      "line": 149,
-      "category": "jsx-text",
-      "words": 6,
-      "hasTokens": false,
-      "text": "Percentage for {row.name || `member $"
-    },
-    {
-      "file": "src/features/devex/group-split.tsx",
-      "line": 171,
-      "category": "jsx-text",
-      "words": 5,
-      "hasTokens": false,
-      "text": "{short === 0n ? ("
-    },
-    {
-      "file": "src/features/devex/group-split.tsx",
       "line": 173,
       "category": "jsx-text",
       "words": 3,
       "hasTokens": false,
       "text": "Meets the minimum"
-    },
-    {
-      "file": "src/features/devex/group-split.tsx",
-      "line": 188,
-      "category": "jsx-text",
-      "words": 4,
-      "hasTokens": false,
-      "text": "{row.name || `member $"
-    },
-    {
-      "file": "src/features/devex/group-split.tsx",
-      "line": 199,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "Add a member"
-    },
-    {
-      "file": "src/features/devex/group-split.tsx",
-      "line": 209,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "{result.percentagesUnbalanced ? ("
     },
     {
       "file": "src/features/devex/group-split.tsx",
@@ -11670,14 +8127,6 @@
       "words": 2,
       "hasTokens": false,
       "text": "They total"
-    },
-    {
-      "file": "src/features/devex/group-split.tsx",
-      "line": 212,
-      "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "%, leaving"
     },
     {
       "file": "src/features/devex/group-split.tsx",
@@ -11705,107 +8154,11 @@
     },
     {
       "file": "src/features/devex/group-split.tsx",
-      "line": 239,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": ") : null}"
-    },
-    {
-      "file": "src/features/devex/group-split.tsx",
       "line": 242,
       "category": "attribute",
       "words": 7,
       "hasTokens": false,
       "text": "Roblox pays one person, not a split"
-    },
-    {
-      "file": "src/features/devex/group-split.tsx",
-      "line": 242,
-      "category": "jsx-text",
-      "words": 64,
-      "hasTokens": false,
-      "text": "A DevEx request is submitted by an individual account and paid to that account. Roblox does not divide a payout between collaborators, and a revenue-share arrangement inside a group is between the people in it. What this works out is what each person&rsquo;s agreed share comes to — not something Roblox will do on their behalf, and not a figure Roblox has agreed to."
-    },
-    {
-      "file": "src/features/devex/planner.tsx",
-      "line": 66,
-      "category": "jsx-text",
-      "words": 85,
-      "hasTokens": false,
-      "text": "` hands back a local * calendar date, so anchoring the plan to a UTC day puts the two out of step * for anyone east or west of Greenwich — at 02:00 in Karachi the UTC day is * still yesterday, and a deadline of \"tomorrow\" would be counted as two days * away. Both ends are then treated as plain calendar dates, which is what a * plan measured in days actually is. */ function localDay(now: Date): string { const month = `$"
-    },
-    {
-      "file": "src/features/devex/planner.tsx",
-      "line": 66,
-      "category": "jsx-text",
-      "words": 6,
-      "hasTokens": false,
-      "text": "`.padStart(2, \"0\"); const day = `$"
-    },
-    {
-      "file": "src/features/devex/planner.tsx",
-      "line": 66,
-      "category": "jsx-text",
-      "words": 4,
-      "hasTokens": false,
-      "text": "`.padStart(2, \"0\"); return `$"
-    },
-    {
-      "file": "src/features/devex/planner.tsx",
-      "line": 66,
-      "category": "jsx-text",
-      "words": 5,
-      "hasTokens": false,
-      "text": "`; } const PERIOD_LABELS: Record"
-    },
-    {
-      "file": "src/features/devex/planner.tsx",
-      "line": 102,
-      "category": "jsx-text",
-      "words": 11,
-      "hasTokens": false,
-      "text": "(\"pace\"); const [paceAmount, setPaceAmount] = useState(\"5,000\"); const [pacePeriod, setPacePeriod] = useState"
-    },
-    {
-      "file": "src/features/devex/planner.tsx",
-      "line": 104,
-      "category": "jsx-text",
-      "words": 67,
-      "hasTokens": false,
-      "text": "(\"week\"); const [deadline, setDeadline] = useState(\"\"); const [feePercent, setFeePercent] = useState(\"\"); const [flatFee, setFlatFee] = useState(\"\"); const [taxPercent, setTaxPercent] = useState(\"\"); const parsedTarget = parseCurrencyAmount(targetUsd, maxUsdTargetInput, 2); const parsedCurrent = parseRobuxAmount(currentRobux || \"0\", maxRobuxInput); const parsedPace = parseRobuxAmount(paceAmount || \"0\", maxRobuxInput); const parsedFee = parsePercent(feePercent); const parsedFlat = parseCurrencyAmount(flatFee || \"0\", 10_000, 2); const parsedTax = parsePercent(taxPercent); const horizon: PlanHorizon | null = mode === \"pace\" ?"
-    },
-    {
-      "file": "src/features/devex/planner.tsx",
-      "line": 104,
-      "category": "jsx-text",
-      "words": 7,
-      "hasTokens": false,
-      "text": ": deadline.trim() === \"\" ? null :"
-    },
-    {
-      "file": "src/features/devex/planner.tsx",
-      "line": 104,
-      "category": "jsx-text",
-      "words": 20,
-      "hasTokens": false,
-      "text": "; const input = { targetUsd: parsedTarget.ok ? parsedTarget.value : Rational.ZERO, rateId, currentRobux: parsedCurrent.ok ? parsedCurrent.value.robux : 0n, horizon, fees:"
-    },
-    {
-      "file": "src/features/devex/planner.tsx",
-      "line": 104,
-      "category": "jsx-text",
-      "words": 12,
-      "hasTokens": false,
-      "text": ", startDate, }; const plan = planEarnings(input); const scenarios = planScenarios(input); const"
-    },
-    {
-      "file": "src/features/devex/planner.tsx",
-      "line": 104,
-      "category": "jsx-text",
-      "words": 12,
-      "hasTokens": false,
-      "text": "= plan; const targetInvalid = targetUsd.trim() !== \"\" && !parsedTarget.ok; return ("
     },
     {
       "file": "src/features/devex/planner.tsx",
@@ -11814,14 +8167,6 @@
       "words": 5,
       "hasTokens": false,
       "text": "Payout you are aiming for"
-    },
-    {
-      "file": "src/features/devex/planner.tsx",
-      "line": 177,
-      "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "per Robux"
     },
     {
       "file": "src/features/devex/planner.tsx",
@@ -11921,14 +8266,6 @@
     },
     {
       "file": "src/features/devex/planner.tsx",
-      "line": 340,
-      "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "The plan"
-    },
-    {
-      "file": "src/features/devex/planner.tsx",
       "line": 346,
       "category": "attribute",
       "words": 5,
@@ -11953,22 +8290,6 @@
     },
     {
       "file": "src/features/devex/planner.tsx",
-      "line": 371,
-      "category": "jsx-text",
-      "words": 4,
-      "hasTokens": false,
-      "text": "{mode === \"pace\" ?"
-    },
-    {
-      "file": "src/features/devex/planner.tsx",
-      "line": 373,
-      "category": "jsx-text",
-      "words": 5,
-      "hasTokens": false,
-      "text": "{(payout.feesApplied || payout.taxApplied) && ("
-    },
-    {
-      "file": "src/features/devex/planner.tsx",
       "line": 376,
       "category": "attribute",
       "words": 6,
@@ -11982,22 +8303,6 @@
       "words": 13,
       "hasTokens": false,
       "text": "The estimated payout, the fees and tax you entered, and what is left."
-    },
-    {
-      "file": "src/features/devex/planner.tsx",
-      "line": 380,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Stage"
-    },
-    {
-      "file": "src/features/devex/planner.tsx",
-      "line": 381,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Amount"
     },
     {
       "file": "src/features/devex/planner.tsx",
@@ -12057,14 +8362,6 @@
     },
     {
       "file": "src/features/devex/planner.tsx",
-      "line": 434,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Rate"
-    },
-    {
-      "file": "src/features/devex/planner.tsx",
       "line": 435,
       "category": "jsx-text",
       "words": 3,
@@ -12089,22 +8386,6 @@
     },
     {
       "file": "src/features/devex/planner.tsx",
-      "line": 458,
-      "category": "jsx-text",
-      "words": 21,
-      "hasTokens": false,
-      "text": "{mode === \"pace\" ? row.projected === null ? \"Not at this pace\" : row.projected.days === 0 ? \"Already reached\" : `$"
-    },
-    {
-      "file": "src/features/devex/planner.tsx",
-      "line": 458,
-      "category": "jsx-text",
-      "words": 19,
-      "hasTokens": false,
-      "text": "days` : row.requiredPace === null ? \"Pick a future date\" : row.remainingRobux === 0n ? \"Already reached\" : `$"
-    },
-    {
-      "file": "src/features/devex/planner.tsx",
       "line": 477,
       "category": "attribute",
       "words": 5,
@@ -12121,67 +8402,11 @@
     },
     {
       "file": "src/features/devex/planner.tsx",
-      "line": 478,
-      "category": "jsx-text",
-      "words": 45,
-      "hasTokens": false,
-      "text": "Earned Robux lets you submit a DevEx request; it does not mean the request will be approved. Roblox reviews eligibility, account standing and compliance, and decides on every request itself. Rates can change, and a projection assumes you keep earning at the pace you gave."
-    },
-    {
-      "file": "src/features/devex/planner.tsx",
-      "line": 488,
-      "category": "jsx-text",
-      "words": 6,
-      "hasTokens": false,
-      "text": "); } // --------------------------------------------------------------------------- function PaceOutcome("
-    },
-    {
-      "file": "src/features/devex/planner.tsx",
-      "line": 488,
-      "category": "jsx-text",
-      "words": 4,
-      "hasTokens": false,
-      "text": ": { plan: ReturnType"
-    },
-    {
-      "file": "src/features/devex/planner.tsx",
-      "line": 494,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "}) { const"
-    },
-    {
-      "file": "src/features/devex/planner.tsx",
-      "line": 494,
-      "category": "jsx-text",
-      "words": 7,
-      "hasTokens": false,
-      "text": "= plan; if (requirement.alreadyReached) { return ("
-    },
-    {
-      "file": "src/features/devex/planner.tsx",
       "line": 510,
       "category": "attribute",
       "words": 22,
       "hasTokens": false,
       "text": "Earning nothing per period never reaches the target. Enter what you expect to earn and the plan will work out the date."
-    },
-    {
-      "file": "src/features/devex/planner.tsx",
-      "line": 524,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "}) { const"
-    },
-    {
-      "file": "src/features/devex/planner.tsx",
-      "line": 524,
-      "category": "jsx-text",
-      "words": 7,
-      "hasTokens": false,
-      "text": "= plan; if (requirement.alreadyReached) { return ("
     },
     {
       "file": "src/features/devex/planner.tsx",
@@ -12208,38 +8433,6 @@
       "text": "With a date, the plan works out what has to be earned each day, week and month to reach the target by then."
     },
     {
-      "file": "src/features/devex/planner.tsx",
-      "line": 608,
-      "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "{note ?"
-    },
-    {
-      "file": "src/features/devex/planner.tsx",
-      "line": 609,
-      "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": ": null}"
-    },
-    {
-      "file": "src/features/devex/planner.tsx",
-      "line": 687,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "{hint ? ("
-    },
-    {
-      "file": "src/features/devex/planner.tsx",
-      "line": 691,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": ") : null}"
-    },
-    {
       "file": "src/features/devex/preparation-checklist.tsx",
       "line": 42,
       "category": "jsx-text",
@@ -12257,43 +8450,11 @@
     },
     {
       "file": "src/features/devex/preparation-checklist.tsx",
-      "line": 98,
-      "category": "jsx-text",
-      "words": 5,
-      "hasTokens": false,
-      "text": "(null); const stored = useMemo"
-    },
-    {
-      "file": "src/features/devex/preparation-checklist.tsx",
-      "line": 141,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": ") : null}"
-    },
-    {
-      "file": "src/features/devex/preparation-checklist.tsx",
-      "line": 184,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Step"
-    },
-    {
-      "file": "src/features/devex/preparation-checklist.tsx",
       "line": 192,
       "category": "jsx-text",
       "words": 20,
       "hasTokens": false,
       "text": "Ticks are kept in this browser only — not sent anywhere, and not an account. Clearing site data removes them."
-    },
-    {
-      "file": "src/features/devex/preparation-checklist.tsx",
-      "line": 196,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": "{allPrepared ? ("
     },
     {
       "file": "src/features/devex/preparation-checklist.tsx",
@@ -12336,14 +8497,6 @@
       "text": "What the submission process involves"
     },
     {
-      "file": "src/features/devex/preparation-checklist.tsx",
-      "line": 213,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": ") : null}"
-    },
-    {
       "file": "src/features/marketplace/calculator.tsx",
       "line": 31,
       "category": "attribute",
@@ -12374,14 +8527,6 @@
       "words": 4,
       "hasTokens": false,
       "text": "To clear a target"
-    },
-    {
-      "file": "src/features/marketplace/calculator.tsx",
-      "line": 36,
-      "category": "jsx-text",
-      "words": 6,
-      "hasTokens": false,
-      "text": "(\"after\"); const [schemeId, setSchemeId] = useState"
     },
     {
       "file": "src/features/marketplace/calculator.tsx",
@@ -12417,14 +8562,6 @@
     },
     {
       "file": "src/features/marketplace/calculator.tsx",
-      "line": 174,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": ") : null}"
-    },
-    {
-      "file": "src/features/marketplace/calculator.tsx",
       "line": 201,
       "category": "attribute",
       "words": 4,
@@ -12449,43 +8586,11 @@
     },
     {
       "file": "src/features/marketplace/calculator.tsx",
-      "line": 207,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Share"
-    },
-    {
-      "file": "src/features/marketplace/calculator.tsx",
-      "line": 219,
-      "category": "jsx-text",
-      "words": 5,
-      "hasTokens": false,
-      "text": "{afterFee.experienceOwnerRobux !== null ? ("
-    },
-    {
-      "file": "src/features/marketplace/calculator.tsx",
       "line": 222,
       "category": "jsx-text",
       "words": 2,
       "hasTokens": false,
       "text": "Experience owner"
-    },
-    {
-      "file": "src/features/marketplace/calculator.tsx",
-      "line": 232,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": ") : null}"
-    },
-    {
-      "file": "src/features/marketplace/calculator.tsx",
-      "line": 251,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Total"
     },
     {
       "file": "src/features/marketplace/calculator.tsx",
@@ -12502,14 +8607,6 @@
       "words": 3,
       "hasTokens": false,
       "text": "You actually keep"
-    },
-    {
-      "file": "src/features/marketplace/calculator.tsx",
-      "line": 276,
-      "category": "jsx-text",
-      "words": 3,
-      "hasTokens": false,
-      "text": ") : null}"
     },
     {
       "file": "src/features/marketplace/calculator.tsx",
@@ -15894,14 +11991,6 @@
       "words": 2,
       "hasTokens": false,
       "text": "Nearby amounts"
-    },
-    {
-      "file": "src/lib/og/template.tsx",
-      "line": 75,
-      "category": "jsx-text",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Calculator"
     },
     {
       "file": "src/lib/platform/history.ts",

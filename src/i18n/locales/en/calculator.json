@@ -85,53 +85,16 @@
     "columnRate": "Rate",
     "body": {
       "intro": {
-        "p1": "{secondary ?",
-        "p2": ": null} {children ?",
-        "p3": ": null}",
-        "p4": "); } /** * Live region for result and status announcements. * * `aria-live=\"polite\"` with `aria-atomic` so the whole sentence is read as one * update rather than digit by digit as the reader types. The text is a * summary, not the full breakdown, to avoid drowning a screen-reader user in * announcements on every keystroke. */ export function ResultAnnouncer(",
-        "p5": ") { return (",
-        "p6": "); } // --------------------------------------------------------------------------- // Threshold meter // --------------------------------------------------------------------------- /** * Progress toward the documented minimum. * * The wording is chosen with care: reaching 30,000 is described as meeting the * stated minimum, never as being eligible. Roblox decides eligibility, and a * meter on a third-party site asserting eligibility outright would be a false * promise to someone planning around real money. */ export function ThresholdMeter(",
-        "p7": ") { if (threshold.state === \"empty\") return null; const meets = threshold.state === \"meets-minimum\"; return (",
-        "p8": "{meets ? `$",
-        "p9": "minimum reached` : `$",
-        "p10": "more needed`}",
-        "p11": "Roblox requires",
-        "p12": "Earned Robux to submit a request. Reaching that number is a requirement, not an approval — Roblox reviews every request and decides which Robux qualify.",
-        "p13": "); } // --------------------------------------------------------------------------- // Rate comparison // --------------------------------------------------------------------------- export function ScenarioComparison(",
-        "p14": ") { return (",
-        "p15": "{row.isBaseline ? (",
-        "p16": ") : null}",
-        "p17": "{row.isBaseline ? (",
-        "p18": "{result.feesApplied || result.taxApplied ? (",
-        "p19": "These are the figures you entered, not amounts Roblox or any provider has quoted. This site gives no tax advice.",
-        "p20": ") : null}",
-        "p21": "); } function SummaryRow(",
-        "p22": ") { return (",
-        "p23": "); } function DeductionRow(",
-        "p24": ") { return (",
-        "p25": "); } // --------------------------------------------------------------------------- // Target result // --------------------------------------------------------------------------- export function TargetBreakdown(",
-        "p26": ") { return (",
-        "p27": "per Robux =",
-        "p28": ", rounded up to",
-        "p29": "whole Earned Robux. That pays",
-        "p30": ", which is the first whole-Robux amount that reaches your target rather than falling just short.",
-        "p31": "{result.requirementIsBelowMinimum ? (",
-        "p32": "Earned Robux would reach your target arithmetically, but Roblox requires",
-        "p33": "before a request can be submitted. You would need",
-        "p34": "in practice.",
-        "p35": ") : null} {result.progressPercent !== null && result.currentRobux !== null ? (",
-        "p36": "% of the way there",
-        "p37": "{result.remainingRobux === 0n ? \"Target reached\" : `$",
-        "p38": ") : null}",
-        "p39": "); } // --------------------------------------------------------------------------- // FX status // --------------------------------------------------------------------------- /** * Provenance for a converted figure. * * Always states the provider and the observation date, and says outright that * these are reference rates rather than the rate a bank will actually give. * A stale figure is labelled as stale rather than quietly shown as current. */ export function FxNote(",
-        "p40": ") { if (currency === \"USD\") return null; if (status === \"loading\") { return (",
-        "p41": "); } if (status === \"unavailable\" || !rates) { return (",
-        "p42": "); } return (",
-        "p43": "{rates.stale ? (",
-        "p44": ") : null}",
-        "p45": "figures use",
-        "p46": "reference rates observed {formatDate(`$",
-        "p47": "T00:00:00Z`)}. These are reference rates, not bank quotes — your payment provider will apply its own rate and may add a fee."
+        "p1": "Roblox requires",
+        "p2": "Earned Robux to submit a request. Reaching that number is a requirement, not an approval — Roblox reviews every request and decides which Robux qualify.",
+        "p3": "These are the figures you entered, not amounts Roblox or any provider has quoted. This site gives no tax advice.",
+        "p4": ", rounded up to",
+        "p5": "whole Earned Robux. That pays",
+        "p6": ", which is the first whole-Robux amount that reaches your target rather than falling just short.",
+        "p7": "Earned Robux would reach your target arithmetically, but Roblox requires",
+        "p8": "before a request can be submitted. You would need",
+        "p9": "% of the way there",
+        "p10": "figures use"
       }
     }
   },
@@ -166,17 +129,9 @@
       "intro": {
         "p1": "per eligible Earned Robux",
         "p2": "Name for member",
-        "p3": "Percentage for {row.name || `member $",
-        "p4": "{short === 0n ? (",
-        "p5": "{row.name || `member $",
-        "p6": "Add a member",
-        "p7": "{result.percentagesUnbalanced ? (",
-        "p8": "They total",
-        "p9": "%, leaving",
-        "p10": "Robux unassigned. Nothing here has been scaled to make the numbers meet: adjusting them for you would produce figures nobody agreed to. Fix the percentages, or accept that a remainder stays with whoever holds the group funds.",
-        "p11": "Robux cannot be divided evenly at these percentages. Robux are whole, so each share is rounded down and the remainder is shown rather than handed to whoever happens to be listed first.",
-        "p12": ") : null}",
-        "p13": "A DevEx request is submitted by an individual account and paid to that account. Roblox does not divide a payout between collaborators, and a revenue-share arrangement inside a group is between the people in it. What this works out is what each person&rsquo;s agreed share comes to — not something Roblox will do on their behalf, and not a figure Roblox has agreed to."
+        "p3": "They total",
+        "p4": "Robux unassigned. Nothing here has been scaled to make the numbers meet: adjusting them for you would produce figures nobody agreed to. Fix the percentages, or accept that a remainder stays with whoever holds the group funds.",
+        "p5": "Robux cannot be divided evenly at these percentages. Robux are whole, so each share is rounded down and the remainder is shown rather than handed to whoever happens to be listed first."
       }
     }
   },
@@ -190,15 +145,10 @@
     "robloxDecides": "Roblox decides",
     "body": {
       "intro": {
-        "p1": "(null); const stored = useMemo",
-        "p2": ") : null}",
-        "p3": "Step",
-        "p4": "Ticks are kept in this browser only — not sent anywhere, and not an account. Clearing site data removes them.",
-        "p5": "{allPrepared ? (",
-        "p6": "Every step on this list is done, which means the obvious delays are out of the way. It does not mean a request will be accepted.",
-        "p7": "Roblox reviews each request against its own criteria after it is submitted, and it does not publish what would cause one to be refused. A checklist in a browser has no standing in that review.",
-        "p8": "What the submission process involves",
-        "p9": ") : null}"
+        "p1": "Ticks are kept in this browser only — not sent anywhere, and not an account. Clearing site data removes them.",
+        "p2": "Every step on this list is done, which means the obvious delays are out of the way. It does not mean a request will be accepted.",
+        "p3": "Roblox reviews each request against its own criteria after it is submitted, and it does not publish what would cause one to be refused. A checklist in a browser has no standing in that review.",
+        "p4": "What the submission process involves"
       }
     }
   },
@@ -288,82 +238,32 @@
     "earnedOnlyNote": "Only Earned Robux count. Purchased and gifted Robux cannot be exchanged.",
     "body": {
       "intro": {
-        "p1": "` hands back a local * calendar date, so anchoring the plan to a UTC day puts the two out of step * for anyone east or west of Greenwich — at 02:00 in Karachi the UTC day is * still yesterday, and a deadline of \"tomorrow\" would be counted as two days * away. Both ends are then treated as plain calendar dates, which is what a * plan measured in days actually is. */ function localDay(now: Date): string { const month = `$",
-        "p2": "`.padStart(2, \"0\"); const day = `$",
-        "p3": "`.padStart(2, \"0\"); return `$",
-        "p4": "`; } const PERIOD_LABELS: Record",
-        "p5": "(\"pace\"); const [paceAmount, setPaceAmount] = useState(\"5,000\"); const [pacePeriod, setPacePeriod] = useState",
-        "p6": "(\"week\"); const [deadline, setDeadline] = useState(\"\"); const [feePercent, setFeePercent] = useState(\"\"); const [flatFee, setFlatFee] = useState(\"\"); const [taxPercent, setTaxPercent] = useState(\"\"); const parsedTarget = parseCurrencyAmount(targetUsd, maxUsdTargetInput, 2); const parsedCurrent = parseRobuxAmount(currentRobux || \"0\", maxRobuxInput); const parsedPace = parseRobuxAmount(paceAmount || \"0\", maxRobuxInput); const parsedFee = parsePercent(feePercent); const parsedFlat = parseCurrencyAmount(flatFee || \"0\", 10_000, 2); const parsedTax = parsePercent(taxPercent); const horizon: PlanHorizon | null = mode === \"pace\" ?",
-        "p7": ": deadline.trim() === \"\" ? null :",
-        "p8": "; const input = { targetUsd: parsedTarget.ok ? parsedTarget.value : Rational.ZERO, rateId, currentRobux: parsedCurrent.ok ? parsedCurrent.value.robux : 0n, horizon, fees:",
-        "p9": ", startDate, }; const plan = planEarnings(input); const scenarios = planScenarios(input); const",
-        "p10": "= plan; const targetInvalid = targetUsd.trim() !== \"\" && !parsedTarget.ok; return (",
-        "p11": "Roblox decides which rate applies to a balance. This plans against the one you pick.",
-        "p12": "This is the date you want to reach the balance. Roblox does not publish how long a DevEx request takes to process, so no processing time is added.",
-        "p13": "All three are yours to supply. This site publishes no default fee and no tax rate: it does not know your country, your provider or your circumstances, and a number filled in here on your behalf would be advice rather than arithmetic.",
-        "p14": "The plan",
-        "p15": "{mode === \"pace\" ?",
-        "p16": "{(payout.feesApplied || payout.taxApplied) && (",
-        "p17": "Estimated amount you keep",
-        "p18": "{mode === \"pace\" ? row.projected === null ? \"Not at this pace\" : row.projected.days === 0 ? \"Already reached\" : `$",
-        "p19": "days` : row.requiredPace === null ? \"Pick a future date\" : row.remainingRobux === 0n ? \"Already reached\" : `$",
-        "p20": "Every figure here is an estimate produced from what you entered. Reaching",
-        "p21": "Earned Robux lets you submit a DevEx request; it does not mean the request will be approved. Roblox reviews eligibility, account standing and compliance, and decides on every request itself. Rates can change, and a projection assumes you keep earning at the pace you gave.",
-        "p22": "); } // --------------------------------------------------------------------------- function PaceOutcome(",
-        "p23": ": { plan: ReturnType",
-        "p24": "}) { const",
-        "p25": "= plan; if (requirement.alreadyReached) { return (",
-        "p26": "}) { const",
-        "p27": "= plan; if (requirement.alreadyReached) { return (",
-        "p28": "{note ?",
-        "p29": ": null}",
-        "p30": "{hint ? (",
-        "p31": ") : null}"
+        "p1": "Roblox decides which rate applies to a balance. This plans against the one you pick.",
+        "p2": "This is the date you want to reach the balance. Roblox does not publish how long a DevEx request takes to process, so no processing time is added.",
+        "p3": "All three are yours to supply. This site publishes no default fee and no tax rate: it does not know your country, your provider or your circumstances, and a number filled in here on your behalf would be advice rather than arithmetic.",
+        "p4": "Estimated amount you keep",
+        "p5": "Every figure here is an estimate produced from what you entered. Reaching"
+      }
+    }
+  },
+  "actions": {},
+  "controls": {
+    "body": {
+      "intro": {
+        "p1": "Show result in"
+      },
+      "presetsLabel": {
+        "p1": "Quick amounts"
       }
     }
   },
   "body": {
     "intro": {
-      "p1": "( // A currency in the URL was explicit, so it outranks the stored default. initialState.currency !== \"USD\" ? initialState.currency : null, ); const [advancedOverride, setAdvancedOverride] = useState",
-      "p2": "(null); const [historyOverride, setHistoryOverride] = useState",
-      "p3": "(null); const currency = currencyChoice ?? (isSupportedCurrency(storedCurrency) ? storedCurrency : \"USD\"); const advancedOpen = advancedOverride ?? storedAdvancedOpen; const storedHistory = useMemo",
-      "p4": "{!lockedMode ? (",
-      "p5": "Enter each part of your balance separately. Nothing is counted twice — every Robux belongs to exactly one bucket, and you are the one who decides which. Roblox makes the real split.",
-      "p6": "{mode === \"target\" ? (",
-      "p7": "{showHistory ? (",
-      "p8": "Roblox decides which rate applies to which part of your balance. This is not a choice you can make.",
-      "p9": ") : null}",
-      "p10": "Estimates use the rates Roblox currently documents. The",
-      "p11": "Earned Robux minimum is a requirement to submit a request, not an approval. Roblox decides which Robux qualify and whether any request succeeds.",
-      "p12": "Saved only in this browser. Nothing is uploaded, and clearing your browser data removes them."
-    }
-  },
-  "actions": {
-    "body": {
-      "intro": {
-        "p1": "(\"idle\"); const timer = useRef",
-        "p2": "); } if (confirming) { return (",
-        "p3": "Cancel",
-        "p4": "); } return ("
-      }
-    }
-  },
-  "controls": {
-    "body": {
-      "intro": {
-        "p1": "` with a real * `",
-        "p2": ") : null}",
-        "p3": "{hint ? (",
-        "p4": ") : null} {error ? ( // `role=\"alert\"` announces the problem as soon as it appears, without // the reader needing to navigate back to the field.",
-        "p5": ") : null}",
-        "p6": "Show result in"
-      },
-      "presetsLabel": {
-        "p1": "Quick amounts",
-        "p2": "{hint ? (",
-        "p3": ") : null} {error ? (",
-        "p4": ") : null}"
-      }
+      "p1": "Enter each part of your balance separately. Nothing is counted twice — every Robux belongs to exactly one bucket, and you are the one who decides which. Roblox makes the real split.",
+      "p2": "Roblox decides which rate applies to which part of your balance. This is not a choice you can make.",
+      "p3": "Estimates use the rates Roblox currently documents. The",
+      "p4": "Earned Robux minimum is a requirement to submit a request, not an approval. Roblox decides which Robux qualify and whether any request succeeds.",
+      "p5": "Saved only in this browser. Nothing is uploaded, and clearing your browser data removes them."
     }
   }
 }
