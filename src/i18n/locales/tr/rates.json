@@ -1,0 +1,411 @@
+{
+  "$comment": "Machine-drafted. Not yet read by a native speaker. 'Roblox decides which rate applies' is the sentence that stops a reader thinking the rate is a choice; nothing here is shortened.",
+  "devexRates": {
+    "intro": "Roblox'un uygun her Earned Robux için ne ödediği, hangi kurun ne zaman geçerli olduğu ve Eylül 2025 değişikliğinin gerçekte ne değer taşıdığı.",
+    "jumpLabel": "Tam kur tablosunu gör",
+    "threeRatesHeading": "Belgelenmiş üç kur",
+    "threeRatesDescription": "Üçü de aynı resmî Roblox belgelerinden gelir; yukarıda gösterilen tarihte denetlendi.",
+    "whatEachPaysHeading": "Her kur ne ödüyor",
+    "whatEachPaysDescription": "Aynı tutarlar her kurda değerlendirildi; böylece fark soyut değil somut oluyor.",
+    "workedExamplesLabel": "Her DevEx kuru için örnek hesaplamalar",
+    "workedExamplesCaption": "Belgelenmiş her DevEx kurunda yaygın Earned Robux tutarları için ödeme",
+    "whichAppliesHeading": "Bakiyenize hangi kur uygulanır",
+    "whichAppliesDescription": "Açıklamaların çoğunun yanlış anlattığı yer burası: bu bir seçim değil.",
+    "compareHeading": "Kendi tutarınız için kurları karşılaştırın",
+    "compareDescription": "Üçünü yan yana görmek için hesaplayıcıya herhangi bir tutar girin.",
+    "canChangeHeading": "Kurlar değişebilir",
+    "canChangeDescription": "Daha önce değişti ve bu sayfa yalnızca şu anda belgelenmiş olanı kaydediyor.",
+    "faqsHeading": "DevEx kurları hakkında sorular",
+    "useCalculatorLink": "Başka herhangi bir tutar için hesaplayıcıyı kullanın",
+    "browseHubLink": "dönüşüm merkezinde daha fazla tutara göz atın",
+    "openCalculatorLink": "Hesaplayıcıyı açın ve kendi tutarınızı karşılaştırın",
+    "columnRate": "Kur",
+    "body": {
+      "whichApplies": {
+        "p1": "Tek bir bakiye birden fazla kuru kapsayabilir — Eylül 2025 geçişinden önce ve sonra kazanılan Robux ayrı ele alınır ve Roblox önce daha eski kısmı nakde çevirir.",
+        "p2": "Bölünmüş hesaplayıcı karışık bir bakiyeyi modelliyor"
+      },
+      "difference": {
+        "p1": "Güncel kurla eski kur arasındaki fark:",
+        "p2": "100.000 Earned Robux başına — güncel kurda yaklaşık %8,6 daha fazla. Koşullu ABD 18+ kuru, bakiyenin bu kura uygun kısmında standart kurdan kabaca %42 daha fazla öder."
+      },
+      "changes": {
+        "p1": "Roblox standart kuru 0,0035'ten 0,0038'e şu tarihte çıkardı:",
+        "p2": "Kur değişikliklerinin tarihli geçmişini görün",
+        "p3": "Bu sitenin verilerini en son ne zaman güncellediğini görün"
+      }
+    }
+  },
+  "rateHistory": {
+    "intro": "Bu sitenin resmî belgelere karşı doğruladığı kur değişikliklerinin tarihli kaydı — ve doğrulamadığı hiçbir şeyin kaydı yok.",
+    "jumpLabel": "Zaman çizelgesini gör",
+    "timelineHeading": "Doğrulanmış zaman çizelgesi",
+    "timelineDescription": "Her girdi neyin değiştiğini, ne zaman yürürlüğe girdiğini ve hangi kaynağın bunu ortaya koyduğunu kaydeder.",
+    "worthHeading": "Değişiklik ne değer taşıyordu",
+    "worthDescription": "Aynı bakiyeler, Eylül 2025 artışından önce ve sonra değerlendirildi.",
+    "comparisonLabel": "Eylül 2025 kur değişikliğinden önce ve sonra ödeme",
+    "comparisonCaption": "Eski 0,0035 kuru ile güncel 0,0038 kurundaki ödemelerin karşılaştırması",
+    "legacyHeading": "Eski bakiyeler nasıl ele alınıyor",
+    "legacyDescription": "Bir bakiye iki kuru birden kapsayabilir ve bölünmeyi siz seçmezsiniz.",
+    "noForecastHeading": "Burada neden öngörü yok",
+    "noForecastDescription": "Gelecekteki kurları tahmin eden bir sayfa, hiç sayfa olmamasından kötü olurdu.",
+    "faqsHeading": "Geçmiş kurlar hakkında sorular",
+    "columnDifference": "Fark",
+    "publicChangelogLink": "herkese açık changelog",
+    "body": {
+      "timeline": {
+        "p1": "Standart kur Earned Robux başına 0,0038 USD'ye yükseltildi",
+        "p2": "Roblox bunu 30.000 Earned Robux için 114 USD olarak belirtiyor; önceden 105'ti. O andan önce kazanılan bakiyeler önceki kurla çevrilmeye devam eder ve önce nakde çevrilir.",
+        "p3": "Earned Robux başına 0,0035 USD standart kur",
+        "p4": "30.000 Earned Robux için 105 USD. Herhangi bir bakiyenin geçişten önce kazanılan kısmına hâlâ uygulanıyor.",
+        "p5": "Yürürlük tarihi yayımlanmadı",
+        "p6": "Uygun ABD 18+ harcamaları için daha yüksek 0,0054 kuru",
+        "p7": "Roblox bu kuru, en az 18 yaşında olduğunu doğrulamış Amerika Birleşik Devletleri oyuncularının satın almalarından gelen belirli Earned Robux için belgeliyor. Bu sitenin denetlediği belgelerde bir yürürlük tarihi belirtilmiyor; bu yüzden bir tarih çıkarımı yapmak yerine burada hiçbiri kaydedilmiyor."
+      },
+      "comparison": {
+        "p1": "Artış her yerde yaklaşık %8,6; çünkü bu tek bir çarpandaki bir değişiklik."
+      },
+      "legacyBalances": {
+        "p1": "Bölünmüş hesaplayıcı karışık bir bakiyeyi modellemenize izin verir",
+        "p2": "kendi bakiyenizin kabaca nasıl bölündüğünü biliyorsanız; ama sonucu, bölünme konusundaki kendi varsayımınız üzerine kurulmuş bir tahmin olarak görün."
+      },
+      "noForecast": {
+        "p1": "Roblox kuru daha önce değiştirdi ve yine değiştirebilir. Roblox dışında kimse bunun olup olmayacağını ya da ne zaman olacağını bilmez; analiz kılığına sokulmuş bir öngörü ise kendinden emin bir tonda söylenmiş bir tahmindir. Bu sayfa yalnızca resmî belgelerin doğruladığı değişiklikleri, her birini yürürlük tarihiyle birlikte kaydeder. Bir değişiklik olduğunda burada ve şurada görünür:"
+      }
+    }
+  },
+  "requirements": {
+    "intro": "Bir DevEx talebi gönderilebilmeden önce Roblox'un gerçekte ne istediği; üçüncü tarafların yinelediği özetlerden değil, kendi belgelerinden alındı.",
+    "jumpLabel": "Her koşulu ayrıntısıyla gör",
+    "requirementsHeading": "Roblox neyi şart koşuyor",
+    "minimumDescription": "Herkesin ilk baktığı sayı ve en sık güncelliğini yitirmiş hâliyle aktarılan sayı.",
+    "minimumDiagramCaption": "Ölçekli değil: bir bakiyenin üst sınırı yoktur; dolayısıyla uygun tarafa verilecek herhangi bir genişlik uydurma olurdu. Anlam taşıyan tek kısım kırılma noktasıdır.",
+    "notApprovalHeading": "Eşiği karşılamak onay değildir",
+    "notApprovalDescription": "Bu ayrım bu sayfadaki en önemli şeydir.",
+    "numberCannotApproveTitle": "Bir sayı sizi onaylayamaz",
+    "checklistHeading": "Hazırlık listesi",
+    "checklistDescription": "Bunları başvurmadan önce halletmek bariz gecikmeleri önler. İlerledikçe işaretleyin — bu adımlar genellikle günler arayla yapılır ve ilerleme kendi tarayıcınızda tutulur.",
+    "misunderstandingsHeading": "Sık görülen yanlış anlamalar",
+    "misunderstandingsDescription": "Bunların her biri içerik üreticilerinin birbirine yinelediği şeylerdir; yanlarında belgelerin gerçekte ne dediği yazıyor.",
+    "faqsHeading": "Uygunluk hakkında sorular",
+    "items": {
+      "earnedOnly": "Özellikle Earned Robux — satın alınmış Robux'tan oluşan bir bakiye, ne kadar büyük olursa olsun uygun değildir.",
+      "minimumAgeTitle": "En az 13 yaş",
+      "minimumAgeDetail": "Roblox programa katılmak için asgari yaşı 13 olarak belgeliyor.",
+      "verifiedEmailTitle": "Roblox tarafından doğrulanmış bir e-posta adresi",
+      "verifiedEmailDetail": "Bir talebin ilerleyebilmesi için hesaptaki adresin doğrulanmış olması gerekir.",
+      "portalAccountTitle": "Geçerli bir DevEx portal hesabı",
+      "portalAccountDetail": "Talepler bu site üzerinden değil, resmî DevEx portalı üzerinden gönderilir.",
+      "taxFormTitle": "Dosyada bir vergi formu",
+      "taxFormDetail": "Amerika Birleşik Devletleri mükellefleri için IRS W-9 formu, ABD dışındaki mükellefler için W-8.",
+      "complianceTitle": "Roblox kurallarına uygunluk",
+      "complianceDetail": "Hesap, Roblox Kullanım Koşulları'na ve Topluluk Standartları'na uymalıdır."
+    },
+    "diagramEarned": "Kazanılan",
+    "checkBalanceLink": "Bakiyenizi alt sınırla karşılaştırın",
+    "checklist": {
+      "verifyEmail": "Roblox hesabınızdaki e-posta adresini doğrulayın.",
+      "portalAccount": "DevEx portal hesabınızı oluşturun ve erişebildiğinizi doğrulayın."
+    },
+    "body": {
+      "minimum": {
+        "p1": "Earned Robux, bir talep göndermenin eşiğidir. Güncel standart kurda bu bakiye yaklaşık",
+        "p2": "değerindedir; ödeme sağlayıcı ücretleri ve vergiler düşülmeden önce.",
+        "p3": "Önemli olan sözcük şu:"
+      },
+      "notApproval": {
+        "p1": "Hiçbir hesaplayıcı — bu da dâhil — bir DevEx talebinin onaylanıp onaylanmayacağını size söyleyemez. Robux'unuzun hangisinin Earned Robux sayılacağına ve hesabınızla talebinizin ölçütleri karşılayıp karşılamadığına Roblox karar verir. Aksini söyleyen herkes — garantili ödeme vaat eden her site dâhil — bunu bilebilecek konumda değildir."
+      },
+      "checklist": {
+        "p1": "Bakiyenizin gerçekten Earned Robux olduğunu ve şu düzeye ulaştığını doğrulayın:",
+        "p2": "Doğru vergi formunu doldurun — ABD'de mükellefseniz W-9, değilseniz W-8.",
+        "p3": "Hesabınızın Kullanım Koşulları ve Topluluk Standartları karşısında kurallara uygun olduğunu kontrol edin.",
+        "p4": "Paranın nereye gideceğine karar verin ve bankanızın ya da ödeme sağlayıcınızın bunu almak için ne kadar keseceğini kontrol edin."
+      }
+    }
+  },
+  "earnedRobux": {
+    "intro": "Bir DevEx ödemesinin hiç mümkün olup olmadığını belirleyen ayrım — ve bir talep reddedilene kadar en sık gözden kaçan ayrım.",
+    "jumpLabel": "Tam tanımı okuyun",
+    "definitionHeading": "Earned Robux ne demek",
+    "sortingCaption": "Ayrımın özeti. Tam listeler ve Roblox'un her yol hakkında söyledikleri aşağıdaki iki bölümde.",
+    "balanceDiffersTitle": "Bakiyeniz ile Earned Robux'unuz neden farklı",
+    "countsHeading": "Genelde neler sayılır",
+    "countsDescription": "Bunlar Robux'un normalde Earned Robux'a dönüştüğü yollardır. Belirli bir bakiye için nihai kararı Roblox verir.",
+    "doesNotCountHeading": "Genelde neler sayılmaz",
+    "doesNotCountDescription": "Bu yollarla edinilen Robux aynı bakiyede durur ama farklı ele alınır.",
+    "pendingHeading": "Bekleyen ve kullanılabilir bakiyeler",
+    "pendingDescription": "Yeni kazanılan Robux hemen kullanılabilir olmaz; bu, bakiyesinin yükselişini izleyen içerik üreticilerini şaşırtır.",
+    "groupFundsHeading": "Grup fonları",
+    "groupFundsDescription": "Bir grubun elindeki Robux, sizin elinizdeki Robux ile aynı şey değildir.",
+    "faqsHeading": "Earned Robux hakkında sorular",
+    "becomesEarned": "Earned Robux olur",
+    "staysButNeverQualifies": "Bakiyede kalır ama hiçbir zaman uygun olmaz",
+    "seeRequirementsLink": "Tüm koşulları görün",
+    "body": {
+      "definition": {
+        "p1": "Robux bakiyenizin, başka insanların sizin yaptığınız bir şeye Robux harcamasından — yani içerik üreticiliği faaliyetinden — gelen kısmı; başka herhangi bir yolla edindiğiniz Robux'tan değil. DevEx yalnızca Earned Robux'u çevirir. Hesabınız tek bir Robux sayısı gösterir, ama Roblox her parçasının nereden geldiğini izler ve uygunluğu belirleyen şey o iç muhasebedir.",
+        "p2": "— DevEx'in çevirdiği bakiye ve şu alt sınıra sayılan tek bakiye:",
+        "p3": "Belirli bir bakiye için nihai kararı Roblox verir.",
+        "p4": "Hiç Robux satın aldıysanız, bir üyelikten aldıysanız ya da bir hediye kartı kullandıysanız, bakiyenizin bir kısmı kazanılmış değildir. O kısım nakde çevrilemez ve 30.000 alt sınırına da sayılmaz."
+      },
+      "qualifying": {
+        "p1": "Her durumda Roblox, Robux size ulaşmadan önce platform komisyonunu çoktan almıştır — içerik üreticileri, bir oyuncunun experience içi bir satın almada harcadığının %70'ini alır.",
+        "p2": "Bir satıştan size ne kaldığını hesaplayın"
+      },
+      "notQualifying": {
+        "p1": "İkisi burada yan yana karşılaştırılıyor"
+      },
+      "pending": {
+        "p1": "Yakın zamanda yapılmış bir satın almadan gelen Robux, kullanılabilir hâle gelmeden önce genellikle bir süre bekleyen olarak durur; bu, geri alınan işlemlere karşı koruma sağlar. Bekleyen Robux henüz üzerinde işlem yapabileceğiniz bakiyenin parçası değildir. Roblox güncel bekletme davranışını Creator Hub'da belgeliyor; bu davranış zaman içinde değiştiği için bu sayfa belirli bir gün sayısı söylemiyor — şu anda geçerli rakam için resmî belgelere bakın."
+      }
+    }
+  },
+  "feesAndTaxes": {
+    "intro": "DevEx çevrimiyle paranın hesabınıza ulaşması arasında üç ayrı şey vardır. Hiçbiri DevEx kuru değildir.",
+    "jumpLabel": "Her birinin ne olduğunu gör",
+    "notTaxAdviceTitle": "Bu sayfa vergi danışmanlığı değildir",
+    "threeDeductionsHeading": "Üç ayrı kesinti",
+    "threeDeductionsDescription": "Sırayla uygulanırlar ve bunları karıştırmak, içerik üreticilerinin fena hâlde yanlış bir rakama varmasının yoludur.",
+    "sequenceCaption": "Her aşama, farklı bir tarafın farklı türde bir pay alması demektir; bu sırayla. Roblox bunların hiçbirini belirlemez ve bu site hiçbiri için bir rakam yayımlamaz.",
+    "term1": "1. Ödeme sağlayıcı ücretleri",
+    "term2": "2. Para birimi çevrimi",
+    "term3": "3. Gelir vergisi",
+    "providerFeesHeading": "Ödeme sağlayıcı ücretleri",
+    "providerFeesDescription": "Önceden öğrenebileceğiniz — ve muhtemelen öğrenmeniz gereken — tek kesinti.",
+    "conversionHeading": "Para birimi çevrimi",
+    "conversionDescription": "Bu sitedeki rakamla hesabınızdaki rakam neden farklı.",
+    "incomeTaxHeading": "Gelir vergisi",
+    "incomeTaxDescription": "Bu sitenin sizin adınıza bilerek yanıtlamayacağı bölüm.",
+    "modelHeading": "Kendi rakamlarınızı modelleyin",
+    "modelDescription": "Para birimi seçicinin altındaki ücret ve vergi denetimlerini açın ve kendi yüzdelerinizi girin.",
+    "notMarketplaceHeading": "Marketplace ücretiyle karıştırmayın",
+    "notMarketplaceDescription": "%30'luk platform komisyonu, başka bir zamanda gerçekleşen başka bir şeydir.",
+    "marketplaceDiagramCaption": "Bölüşme, oyuncu harcadığı anda gerçekleşir; DevEx işin içine girmeden çok önce. Yüzdeler bu çizimden değil, kur kaydından gelir.",
+    "faqsHeading": "Ücretler ve vergi hakkında sorular",
+    "diagram": {
+      "devexPayout": "DevEx ödemesi",
+      "providerFee": "Ödeme sağlayıcı ücreti",
+      "whatReachesYou": "Size ulaşan",
+      "toYouAsEarned": "size, Earned Robux olarak",
+      "balanceDevExConverts": "DevEx'in daha sonra çevirdiği bakiye budur.",
+      "platformCommission": "platform komisyonu",
+      "takenOnceHere": "Bir kez, burada alınır — nakde çevirmede yeniden değil."
+    },
+    "ogImageAlt": "Önce sağlayıcı ücretleri, sonra çevrim, sonra gelir vergisi — hiçbiri Roblox'un değil",
+    "body": {
+      "intro": {
+        "p1": "Burada hiçbir şey size ne borçlu olduğunuzu söylemez. Vergi; nerede yaşadığınıza, koşullarınıza ve toplam gelirinize bağlıdır ve bu sitenin bunların hiçbirini bilmesi mümkün değildir. Aşağıdaki tahmin aracı, kendi durumunuzu modelleyebilmeniz için girdiğiniz yüzdeyi kullanır. Gerçek bir yanıt için ülkenizdeki yetkin bir danışmana başvurun."
+      },
+      "threeLayers": {
+        "p1": "DevEx ödemesi bir gelirdir. Ne kadar vergi uygulanacağı ve ne zaman uygulanacağı tamamen ülkenize ve koşullarınıza bağlıdır. Roblox W-9 ya da W-8 istiyor; tam da bu vergilendirilebilir olduğu için."
+      },
+      "currency": {
+        "p1": "Buradaki yerel para birimi tahminleri, her iş günü bir kez yayımlanan Avrupa Merkez Bankası referans kurlarını kullanır. Bunlar bir referanstır, kotasyon değil: hiçbir banka bu kurlardan işlem yapmaz. Sağlayıcınız kendi kurunu, genellikle içine bir marj koyarak uygular; bu yüzden buradaki çevrilmiş rakamı hesabınıza ne ineceğinin öngörüsü değil, büyüklük göstergesi olarak alın.",
+        "p2": "Çevrimin nasıl hesaplandığı"
+      },
+      "tax": {
+        "p1": "Evrensel bir yüzde yoktur ve bir tane yayımlamak doğrudan zarar verirdi — bir ülkedeki içerik üreticisi, kendisi için iki kat yanlış olan bir rakama göre plan yapabilirdi. Bu sitenin bunun yerine yaptığı şey, kendi tahmininizi girmenize ve onun gerçek ödeme rakamına uygulandığını görmenize izin vermektir; böylece oran sizin olsa da aritmetiği sizin için yapılır.",
+        "p2": "Danışmanlık olmayan pratik bir not: vergi genellikle ücretlerden sonra kalana değil gelire uygulanır ve genellikle Robux'un kazanıldığı yıl değil, ödemenin alındığı yıl doğar. İkisini de yetkin birine doğrulatın."
+      },
+      "notTheMarketplaceFee": {
+        "p1": "Bir oyuncu experience'ınızda Robux harcadığında Roblox %30 alır — siz %70 alırsınız ve Earned Robux olan da o %70'tir. DevEx sonra o Earned Robux'u çevirir. Komisyon, nakde çevirmede ikinci kez uygulanmaz ve bir DevEx ödemesinden %30 düşen her hesaplayıcı onu iki kez saymış olur.",
+        "p2": "Marketplace ücretini ayrıca hesaplayın",
+        "p3": "Marketplace ücret hesaplayıcısını aç"
+      }
+    }
+  },
+  "robuxToUsd": {
+    "intro": "Aynı aramanın ardında iki farklı soru gizli. Bu sayfa ikisini yanıltıcı tek bir rakama karıştırmak yerine ayrı ayrı yanıtlıyor.",
+    "jumpLabel": "Neden iki yanıt var",
+    "twoAnswersHeading": "Neden iki yanıt var",
+    "twoAnswersDescription": "Robux'un dolar cinsinden değerini sormanın tek bir yanıtı ancak paranın hangi yöne gittiğini söylediğinizde olur.",
+    "noUniversalRateTitle": "Bu site neden evrensel bir satın alma kuru yayımlamıyor",
+    "payoutVsPriceHeading": "İçerik üreticisi ödemesiyle satın alma fiyatının karşılaştırması",
+    "payoutVsPriceDescription": "İki rakam tasarım gereği farklıdır ve aradaki fark, kimsenin sizden aldığı bir ücret değildir.",
+    "differencesLabel": "İçerik üreticisi ödemesiyle satın alma fiyatı nasıl farklılaşır",
+    "differencesCaption": "Bir DevEx içerik üreticisi ödemesiyle perakende Robux satın alması arasındaki farklar",
+    "formulaHeading": "Çevrim formülü",
+    "formulaDescription": "Tek bir çarpma; denetleyebilesiniz diye açıkça yazıldı.",
+    "commonAmountsHeading": "Yaygın tutarlar",
+    "commonAmountsDescription": "Belgelenmiş üç kurun tamamında hesaplandı. Alt sınırın altındaki tutarlar işaretlenmiştir.",
+    "faqsHeading": "Robux çevirme hakkında sorular",
+    "comparison": {
+      "creatorPayout": "İçerik üreticisi ödemesi (DevEx)",
+      "buyingRobux": "Robux satın almak",
+      "directionRow": "Yön",
+      "directionPayout": "Roblox size öder",
+      "directionPurchase": "Siz Roblox'a ödersiniz",
+      "rateRow": "Kur",
+      "ratePayout": "Belgelenmiş ve uygun Earned Robux başına 0,0038 USD olarak sabit",
+      "ratePurchase": "Pakete, bölgeye, platforma ve kampanyaya göre değişir",
+      "whichRobuxRow": "Hangi Robux",
+      "whichRobuxPayout": "Yalnızca uygun Earned Robux",
+      "whichRobuxPurchase": "Herhangi bir satın alma; uygunluk söz konusu değil",
+      "minimumPayout": "30.000 Earned Robux",
+      "minimumPurchase": "En küçük paketin ötesinde bir alt sınır yok",
+      "speedPayout": "Roblox her talebi inceler",
+      "speedPurchase": "Anında",
+      "reversibleRow": "Geri alınabilir mi",
+      "reversiblePayout": "Tek yönlü — nakde çevirmeyi geri alamazsınız",
+      "reversiblePurchase": "Tek yönlü — satın alınan Robux geri satılamaz"
+    },
+    "body": {
+      "twoAnswers": {
+        "p1": "Çıkan para — içerik üreticisi ödemesi",
+        "p2": "Oyuncuların experience'ınızda harcamasından Robux kazandınız ve bunları nakde çevirmek istiyorsunuz. Bu, belgelenmiş bir kurla DevEx üzerinden olur ve yukarıdaki hesaplayıcının tahmin ettiği şey budur. Yalnızca uygun Earned Robux için ve yalnızca 30.000'den itibaren geçerlidir.",
+        "p3": "Giren para — satın alma fiyatı",
+        "p4": "Bir Robux paketinin ne kadar tuttuğunu bilmek istiyorsunuz. Roblox bu fiyatı pakete, bölgeye, platforma ve o sırada yürüyen kampanyaya göre belirler. Bu bir perakende fiyatıdır, döviz kuru değil ve DevEx'in ödediğinden bağımsız hareket eder.",
+        "p5": "Her paket, ülke ve platform için doğru olan tek bir sayı yoktur; dolayısıyla bir tane söylemek rakam uydurmak olurdu. Güncel fiyatları şurada kontrol edin:",
+        "p6": "Roblox'un resmî Robux sayfası",
+        "p7": "gerçekte ne ödeyeceğinizi görmek için."
+      },
+      "comparison": {
+        "p1": "İkisi arasındaki fark, Roblox'un bir platform işletmesi, ödeme işlemlerini yürütmesi ve Robux harcandığı anda %30'luk payını çoktan almış olmasından kaynaklanır.",
+        "p2": "Daha önceki o %30 marketplace ücretidir"
+      },
+      "amounts": {
+        "p1": "Dönüşüm merkezinin tamamına göz atın",
+        "p2": "daha fazla tutar ve ayrıntı için."
+      }
+    }
+  },
+  "usdToRobux": {
+    "intro": "Hedeflediğiniz ödemeyi belirleyin ve oraya ulaşmak için tam olarak kaç uygun Earned Robux gerektiğini görün.",
+    "jumpLabel": "Yanıt neden yukarı yuvarlanıyor",
+    "roundingHeading": "Yanıt neden yukarı yuvarlanıyor",
+    "roundingDescription": "Aşağı yuvarlamak sizi her seferinde kendi hedefinizin bir sentin kesri kadar altında bırakırdı.",
+    "minimumHeading": "Alt sınır yine de geçerlidir",
+    "minimumDescription": "Aritmetik ve uygunluk iki ayrı kısıttır ve büyük olan kazanır.",
+    "smallTargetTitle": "Küçük hedef, küçük bir nakde çevirme demek değildir",
+    "paceHeading": "Sizin hızınızda ne kadar sürer",
+    "paceDescription": "Hedef ne kadar olduğunu söyler. Bu ise ne zaman olacağını hesaplar — ya da bir tarihten yola çıkarak, oraya ulaşmak için ne kazanmanız gerektiğini.",
+    "commonTargetsHeading": "Yaygın ödeme hedefleri",
+    "commonTargetsDescription": "Her satır, hesaplayıcının kullandığı formülle hesaplanır.",
+    "commonTargetsLabel": "Yaygın ödeme hedefleri için gereken Earned Robux",
+    "commonTargetsCaption": "Standart DevEx kurunda yaygın USD ödeme hedeflerine ulaşmak için gereken uygun Earned Robux",
+    "notBuyingHeading": "Bu, Robux satın almakla ilgili değil",
+    "notBuyingDescription": "Ters yönün yanıtı, kimin sorduğuna göre çok farklıdır.",
+    "faqsHeading": "Ödeme hedefleri hakkında sorular",
+    "seeRequirementsLink": "Tüm koşulları görün",
+    "columnTargetPayout": "Hedef ödeme",
+    "columnExactDivision": "Tam bölme",
+    "columnRobuxNeeded": "Gereken Earned Robux",
+    "columnMinimumApplies": "Alt sınır geçerli mi?",
+    "ogImageAlt": "Yukarı yuvarlandı; çünkü Robux'un kesri ne kazanılabilir ne de takas edilebilir",
+    "body": {
+      "rounding": {
+        "p1": "1.000 dolarlık bir hedefin 0,0038'e bölümü 263.157,89 eder. Robux tam birimler hâlindedir; dolayısıyla 263.157 şu kadar öderdi:",
+        "p2": "— hedefin hemen altında. 263.158'e yukarı yuvarlamak şu kadar öder:"
+      },
+      "minimum": {
+        "p1": "Roblox şunu şart koşar:",
+        "p2": "Bir DevEx talebinin gönderilebilmesi için Earned Robux. Hedefiniz bundan azını gerektiriyorsa, gerçekte ulaşmanız gereken şey alt sınırdır — ve o da şu kadar öderdi:",
+        "p3": "özgün hedefiniz yerine."
+      },
+      "planner": {
+        "p1": "Ödeme hedefi bir mesafedir. Onu tarihe çevirmek bir bilgi daha ister — ne hızla kazandığınızı — ve bir tarihi plana çevirmek aynı bilgiyi tersinden ister. İkisi de aynı bölmedir:"
+      },
+      "examples": {
+        "p1": "Evet — şu kadarına ihtiyacınız olurdu:"
+      },
+      "buyingRobux": {
+        "p1": "Bu sayfa içerik üreticisinin sorusunu yanıtlıyor: belirli bir miktar parayı almak için ne kadar kazanmam gerekir. Belirli bir miktar paranın kaç Robux alacağını söylemiyor. Roblox, Robux paketlerini bölgeye, platforma ve kampanyaya göre fiyatlandırır ve herkes için doğru olacak tek bir kur yoktur — bu yüzden bu site böyle bir kur yayımlamaz.",
+        "p2": "Ayrım, Robux'tan USD'ye sayfasında tam olarak açıklanıyor"
+      }
+    }
+  },
+  "robuxTax": {
+    "intro": "Roblox platform komisyonundan sonra size ne kaldığını ya da hedeflenen bir tutara ulaşmak için ne kadar isteyeceğinizi hesaplayın.",
+    "jumpLabel": "Hangi komisyonun geçerli olduğunu gör",
+    "schemesHeading": "Hangi komisyon geçerli",
+    "schemesDescription": "Roblox, neyin satıldığına ve nereden alındığına göre farklı bölüşümler kullanır.",
+    "schemesLabel": "Satış türüne göre Roblox komisyonu",
+    "schemesCaption": "Bir satıştan gelen Robux, satış türüne göre nasıl bölünüyor",
+    "progressiveHeading": "Marketplace'in artan oranlı payı",
+    "progressiveDescription": "Marketplace üzerinden satılan avatar ürünlerinde, içerik üreticisinin payı ürünün fiyatının kategorisinin taban fiyatına oranıyla birlikte yükselir.",
+    "progressiveLabel": "Marketplace artan oranlı gelir paylaşımı kademeleri",
+    "progressiveCaption": "Taban fiyatın katı olarak fiyata göre içerik üreticisi gelir payı",
+    "multipleTitle": "Hesaplayıcı neden bir kat istiyor",
+    "scopeHeading": "Kapsam ve istisnalar",
+    "scopeDescription": "Bu hesaplayıcının kapsadıkları ve kapsamadıkları.",
+    "notDevExHeading": "Bu, DevEx kuru değildir",
+    "notDevExDescription": "İki hesaplama farklı zamanlarda olur ve arka arkaya bağlanmamalıdır.",
+    "faqsHeading": "Roblox ücreti hakkında sorular",
+    "columnSaleType": "Satış türü",
+    "columnCreator": "İçerik üreticisi",
+    "columnPriceOverFloor": "Fiyat ÷ taban fiyat",
+    "columnCreatorShare": "İçerik üreticisi payı",
+    "columnRobloxShare": "Roblox payı",
+    "body": {
+      "schemes": {
+        "p1": "Experience içi satın alma",
+        "p2": "Developer product, pass, özel sunucular",
+        "p3": "Marketplace avatar ürünü",
+        "p4": "Fiyata göre artan oranlı — aşağıya bakın",
+        "p5": "Bir experience içinde satın alınan avatar ürünü",
+        "p6": "Ürünün üreticisi ile experience sahibine ayrı ayrı ödenir",
+        "p7": "Kendi ürününüzü kendi experience'ınızda satarsanız hem içerik üreticisi payını hem de experience sahibi payını alırsınız; bu da %70 eder."
+      },
+      "notDevex": {
+        "p1": "Bu sayfadaki komisyon, bir oyuncunun Robux harcadığı anda uygulanır. Elinizde kalan Earned Robux olur. DevEx sonra o Earned Robux'u kendi kuruyla, komisyonu çoktan alınmış bir bakiye üzerinden nakde çevirir. Bir DevEx ödemesinden %30 düşmek aynı ücreti iki kez uygulamak ve bir içerik üreticisinin aldığını olduğundan az göstermek demektir.",
+        "p2": "Earned Robux'unuzu bir ödeme tahminine çevirin",
+        "p3": "Bir DevEx ödemesinden gerçekte neler düşülür"
+      }
+    }
+  },
+  "conversions": {
+    "intro": "Belgelenmiş üç kurun tamamında yaygın tutarları içeren, sunucuda oluşturulmuş bir tablo; ayrıca listede olmayanlar için bir giriş alanı.",
+    "jumpLabel": "Tabloya atla",
+    "convertAnyHeading": "Herhangi bir tutarı çevirin",
+    "convertAnyDescription": "Her tutarın kendi sayfası olmasına gerek yok. Kendinizinkini buraya girin ve çıkan bağlantıyı paylaşın.",
+    "everyAmountHeading": "İnsanların sorduğu bütün tutarlar",
+    "everyAmountDescription": "Belgelenmiş üç kurda altmış sekiz tutar; DevEx alt sınırının altında olanlar dâhil — en çok sorulanlar onlardır ve dürüst yanıt, nakde çevrilemeyecekleri gerçeğini de içerir. Her rakam sunucuda oluşturulur; dolayısıyla JavaScript çalışsa da çalışmasa da burada.",
+    "fullBreakdownHeading": "Tam dökümü olan tutarlar",
+    "fullBreakdownDescription": "Bu tutarların kendi sayfalarını hak edecek kadar talebi ve söylenecek şeyi var. Geri kalanları yukarıdaki tablo ve hesaplayıcı karşılıyor.",
+    "roundingHeading": "Bu rakamlar nasıl yuvarlanıyor",
+    "roundingDescription": "Sente kadar gösterilir, bundan daha yüksek duyarlıkla hesaplanır.",
+    "fullMethodologyLink": "Yöntemin tamamı",
+    "body": {
+      "detailed": {
+        "p1": "Bu liste bilerek kısa. Her sayı için bir sayfa, yeni hiçbir şey söylemeyen bir sayfa olurdu; bu hem işe yaramaz hem de arama kalitesi yönergelerine aykırıdır. Tutarlar yalnızca bir talep eşiğini aştıklarında ve haklarında söylenecek özgül bir şey olduğunda eklenir.",
+        "p2": "Yayımlama politikasını görün"
+      },
+      "rounding": {
+        "p1": "Her rakam, Robux ile tam bir ondalık kurun çarpımıdır; baştan sona kesir olarak tutulur ve yalnızca yazdırılırken sente yuvarlanır. Yolun ortasında hiçbir şey yuvarlanmaz; bu yüzden bir toplam, parçalarının toplamıyla asla çelişmez."
+      }
+    }
+  },
+  "amountPage": {
+    "jumpLabel": "Üç kurun tümünü karşılaştır",
+    "headlineDescription": "Güncel standart kurda; ödeme sağlayıcı ücreti ve vergi düşülmeden önce.",
+    "allThreeHeading": "Üç kurun tamamında",
+    "allThreeDescription": "Bir bakiyenin hangi kısmına hangi kurun uygulanacağına Roblox karar verir. Burada her birinin ne ödeyeceği gösteriliyor.",
+    "contextHeading": "Bu tutar neden önemli",
+    "reachingHeading": "Bu tutara ulaşmak",
+    "reachingDescription": "Ters yönden: bu bakiyenin hangi ödeme hedeflerini karşıladığı.",
+    "reachingLabel": "Ödeme hedefleri ve bu tutarın onları karşılayıp karşılamadığı",
+    "nearbyHeading": "Yakın tutarlar",
+    "nearbyDescription": "Kendi ayrıntılı dökümü olan komşu tutarlar.",
+    "columnRate": "Kur",
+    "columnRobuxNeeded": "Gereken Earned Robux",
+    "ratesUsedHeading": "Burada kullanılan kurlar",
+    "body": {
+      "value": {
+        "p1": "Bu tutarı tam hesaplayıcıda aç"
+      },
+      "rateComparison": {
+        "p1": "güncel kurla eski kur arasındaki fark, Eylül 2025 değişikliğinin bu tutardaki değeridir.",
+        "p2": "Kur geçmişini gör"
+      },
+      "reverse": {
+        "p1": "Şunun tarafından karşılanıyor:",
+        "p2": "Kendi hedefinizden geriye doğru hesaplayın"
+      },
+      "nearby": {
+        "p1": "Tüm dönüşümlere dön",
+        "p2": "Farklı bir tutarı çevir"
+      }
+    }
+  }
+}
