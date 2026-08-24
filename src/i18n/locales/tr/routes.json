@@ -1,0 +1,1097 @@
+{
+  "$comment": "Machine-drafted. Not yet read by a native speaker. Titles, meta descriptions, quick answers, FAQs and link anchors for every route. Figures keep their value; only the separators follow local convention.",
+  "$identical": [
+    "api.sections.fx",
+    "api.sections.platform",
+    "api.sections.rates",
+    "api.sections.stats",
+    "changelog.h1",
+    "changelog.navLabel",
+    "changelog.title",
+    "platform.navLabel"
+  ],
+  "home": {
+    "title": "DevEx Hesaplayıcı: Earned Robux'u USD'ye çevirin",
+    "metaDescription": "Uygun Earned Robux'unuzun güncel 0,0038 DevEx kurunda USD karşılığı; eski kur ve ABD 18+ karşılaştırmalarıyla ve her rakam için bir kaynakla.",
+    "h1": "DevEx Hesaplayıcı: Earned Robux'u USD'ye çevirin",
+    "navLabel": "Hesaplayıcı",
+    "quickAnswer": "Uygun Earned Robux başına 0,0038 USD olan güncel DevEx kurunda 30.000 Earned Robux yaklaşık 114 ABD dolarına, 100.000 ise yaklaşık 380'e denk gelir. Yalnızca Earned Robux uygundur, 30.000 Roblox'un kabul ettiği alt sınırdır ve buradaki her rakam bir tahmindir — hangi Robux'un uygun olduğuna ve bir talebin onaylanıp onaylanmayacağına yalnızca Roblox karar verir.",
+    "ogImageAlt": "DevEx Hesaplayıcı: uygun Earned Robux'u ABD doları cinsinden tahmini bir ödemeye çevirin.",
+    "sections": {
+      "calculator": "DevEx hesaplayıcı",
+      "rate-comparison": "Her kur ne öderdi",
+      "how-it-works": "Hesaplama nasıl işliyor",
+      "current-rates": "Güncel DevEx kurları",
+      "earned-robux": "Her Robux bir Earned Robux değildir",
+      "popular-amounts": "Yaygın tutarlar",
+      "requirements": "Roblox neyi şart koşuyor",
+      "faqs": "İçerik üreticilerinin sorduğu sorular"
+    },
+    "faqs": {
+      "q01": {
+        "question": "Roblox'un güncel DevEx kuru nedir?",
+        "answer": "Roblox, uygun Earned Robux başına 0,0038 USD'lik standart bir kur belgeliyor ve bunu 30.000 Earned Robux için 114 USD olarak ifade ediyor. Bu kur 5 Eylül 2025'te saat 10.00 PT'de yürürlüğe girdi."
+      },
+      "q02": {
+        "question": "100.000 Earned Robux DevEx'te ne kadar eder?",
+        "answer": "100.000 uygun Earned Robux, standart kurda yaklaşık 380 ABD dolarıdır; ödeme sağlayıcı ücretleri ve vergiler düşülmeden önce. Aynı tutar eski 0,0035 kurunda 350 ABD doları olurdu."
+      },
+      "q03": {
+        "question": "DevEx için asgari Earned Robux nedir?",
+        "answer": "Roblox, DevEx'e katılabilmeniz için hesabınızda en az 30.000 Earned Robux olmasını şart koşar. O sayıya ulaşmak bir koşuldur, onay değil — Roblox yine de her talebi inceler."
+      },
+      "q04": {
+        "question": "Her Robux bakiyesi DevEx için uygun mudur?",
+        "answer": "Hayır. DevEx, Roblox'un içerik üreticiliği faaliyetiyle kazanılan Robux olarak tanımladığı Earned Robux için geçerlidir. Satın alınmış bakiyeler, hediye kartı kredisi ve diğer kategoriler farklı ele alınır ve bir bakiyenin hangi bölümünün uygun olduğuna Roblox karar verir."
+      },
+      "q05": {
+        "question": "DevEx kuru neden Robux satın alma fiyatından düşük?",
+        "answer": "Bunlar iki farklı işlemdir. Robux satın almak, platform fiyatlandırmasının uygulandığı bir perakende alımıdır; DevEx ise Roblox'un bir içerik üreticisine uygun kazançları için ödeme yapmasıdır. Rakamların hiçbiri diğerini öngörmez; bu site de bu yüzden ikisini asla tek bir sonuçta karıştırmaz."
+      },
+      "q06": {
+        "question": "Bakiyeme hangi kurun uygulanacağını seçebilir miyim?",
+        "answer": "Hayır. Bir bakiyenin hangi bölümünün standart kura, 5 Eylül 2025'ten önce kazanılan bakiyeler için eski kura ve 18 yaş ve üzeri olduğu doğrulanmış Amerika Birleşik Devletleri oyuncularının uygun harcamaları için daha yüksek kura gireceğini Roblox belirler. Buradaki karşılaştırma her kurun ne ödeyeceğini gösterir, seçebileceğiniz bir liste değildir."
+      }
+    },
+    "links": {
+      "robuxToUsd": "genel olarak Robux'u USD'ye çevirmek",
+      "devexRates": "güncel DevEx kurlarının tamamı",
+      "devexRequirements": "Roblox'un ödemeden önce istedikleri",
+      "earnedRobux": "hangi Robux Earned Robux sayılır",
+      "howToCashOutRobux": "nakde çevirme süreci nasıl işler",
+      "calculators": "içerik üreticileri için tüm finans hesaplayıcıları",
+      "methodology": "bu rakamlar nasıl hesaplanıyor",
+      "usdToRobux": "bir ödeme hedefinden geriye doğru hesaplamak",
+      "conversions": "yaygın tutarlar için dönüşümler"
+    }
+  },
+  "about": {
+    "title": "DevEx Hesaplayıcı hakkında",
+    "metaDescription": "Bu siteyi kimin yürüttüğü, ne işe yaradığı, bilerek neyi yapmadığı ve neden Roblox Corporation ile bağlantılı olmadığı.",
+    "h1": "DevEx Hesaplayıcı hakkında",
+    "navLabel": "Hakkında",
+    "quickAnswer": "DevExCalculator.org, bir DevEx ödemesinin ne değer taşıdığını hesaplayan Roblox içerik üreticileri için bağımsız bir hesaplayıcı ve başvuru kaynağıdır. Roblox Corporation ile bağlantılı değildir; onun tarafından onaylanmamış ve işletilmemektedir ve herhangi bir talebin onaylanıp onaylanmayacağını belirleyemez.",
+    "ogImageAlt": "DevEx Hesaplayıcı hakkında: Roblox içerik üreticisi ödemeleri için bağımsız bir başvuru kaynağı.",
+    "sections": {
+      "purpose": "Bu site ne işe yarar",
+      "principles": "Nasıl kuruldu",
+      "limits": "Yapmayacakları",
+      "affiliation": "Bağlantı"
+    },
+    "faqs": {},
+    "links": {
+      "methodology": "hesaplama yöntemi",
+      "sources": "her rakamın ardındaki kaynaklar",
+      "editorialPolicy": "yayın ilkeleri",
+      "accessibility": "erişilebilirlik bildirimi",
+      "home": "hesaplayıcının kendisi"
+    }
+  },
+  "accessibility": {
+    "title": "Erişilebilirlik bildirimi",
+    "metaDescription": "Bu sitenin hedeflediği erişilebilirlik standardı, nelerin test edildiği, bilinen sınırlamalar ve karşılaştığınız bir engeli nasıl bildireceğiniz.",
+    "h1": "Erişilebilirlik bildirimi",
+    "navLabel": "Erişilebilirlik",
+    "quickAnswer": "Bu site WCAG 2.2 AA düzeyini hedefler. Hesaplayıcı baştan sona klavyeyle kullanılabilir, sonuçlar ekran okuyuculara seslendirilir, 320 pikselde hiçbir şey yana kaymaz ve düzen %200 metin yakınlaştırmada bozulmaz. Bir şey sizi engelliyorsa, bunu bildirmek gerçekten yararlıdır.",
+    "ogImageAlt": "WCAG 2.2 AA düzeyini hedefleyen erişilebilirlik bildirimi.",
+    "sections": {
+      "standard": "Hedeflenen standart",
+      "tested": "Neler test edildi",
+      "features": "Erişilebilirlik özellikleri",
+      "limitations": "Bilinen sınırlamalar",
+      "feedback": "Sorun bildirme"
+    },
+    "faqs": {},
+    "links": {
+      "contact": "erişilebilirlik sorunu bildir",
+      "home": "hesaplayıcının kendisi"
+    }
+  },
+  "api": {
+    "title": "Kur API'si: DevEx kaydı JSON olarak",
+    "metaDescription": "Güncel DevEx kurları, alt sınır ve marketplace ücreti için ücretsiz, sürümlenmiş bir JSON uç noktası; her biri doğrulandığı kaynakla birlikte.",
+    "h1": "Kur API'si",
+    "navLabel": "API",
+    "quickAnswer": "Bu sitenin hesaplarken kullandığı kur kaydının aynısı /api/rates adresinde JSON olarak yayımlanır; her rakama kaynağı ve doğrulama tarihi eklidir. Anahtar gerektirmez, çerez koymaz ve herhangi bir kökendeki bir tarayıcıdan çağrılabilir. Kendi hesaplayıcınızı kuruyorsanız, güncelliğini yitirecek bir rakamı kopyalamak yerine buradan okuyun.",
+    "ogImageAlt": "Kur API'si: DevEx kur kaydının kaynaklarıyla birlikte JSON olarak yayımlanmış hâli.",
+    "sections": {
+      "rates": "GET /api/rates",
+      "fx": "GET /api/fx/latest",
+      "stats": "GET /api/stats",
+      "platform": "GET /api/platform",
+      "using": "Kullanımı",
+      "terms": "Ne vaat ediliyor, ne edilmiyor"
+    },
+    "faqs": {},
+    "links": {
+      "methodology": "bu rakamlar nasıl üretiliyor",
+      "sources": "her rakam nerede doğrulandı",
+      "changelog": "veriler en son ne zaman değişti",
+      "about": "bu site ne işe yarar"
+    }
+  },
+  "calculators": {
+    "title": "Roblox içerik üreticileri için finans hesaplayıcıları",
+    "metaDescription": "DevEx ödemelerini, Robux dönüşümlerini, ödeme hedeflerini ve marketplace ücretlerini kapsayan dört çalışan hesaplayıcı ve hangisine başvurulacağı.",
+    "h1": "İçerik üreticileri için finans hesaplayıcıları",
+    "navLabel": "Hesaplayıcılar",
+    "quickAnswer": "Dört hesaplayıcı; her biri tek bir soruyu yanıtlıyor. DevEx hesaplayıcısı Earned Robux'u dolara çevirir. Robux'tan USD'ye, içerik üreticisi ödemesini satın alma fiyatından ayırır. Ödeme hedefi hesaplayıcısı dolar cinsinden bir hedeften geriye doğru çalışır. Roblox ücret hesaplayıcısı bir satıştaki platform komisyonunu ele alır.",
+    "ogImageAlt": "Roblox içerik üreticileri için finans hesaplayıcıları dizini.",
+    "sections": {
+      "tools": "Kullanılabilir hesaplayıcılar"
+    },
+    "faqs": {},
+    "links": {
+      "home": "DevEx hesaplayıcı",
+      "robuxToUsd": "Robux'tan USD'ye çevirici",
+      "usdToRobux": "ödeme hedefi hesaplayıcısı",
+      "robuxTaxCalculator": "Roblox ücret hesaplayıcısı",
+      "guides": "açıklayıcı rehberler"
+    }
+  },
+  "changelog": {
+    "title": "Changelog",
+    "metaDescription": "Bu sitede yayımlanan kurlarda, koşullarda ve hesaplamalarda yapılan her değişikliğin tarihli kaydı; neyin, hangi kaynağa karşı doğrulandığı dâhil.",
+    "h1": "Changelog",
+    "navLabel": "Changelog",
+    "quickAnswer": "Yayımlanmış bir kurda, alt sınırda ya da ücret yüzdesinde yapılan her değişiklik burada tarihi ve onu gerekçelendiren kaynakla birlikte kaydedilir. Kur verileri hiçbir zaman kazınmış bir sayfadan otomatik güncellenmez; her değişiklik önce elle doğrulanır.",
+    "ogImageAlt": "Kur ve içerik güncellemelerinin tarih ve kaynaklarıyla changelog'u.",
+    "sections": {
+      "entries": "Değişiklik geçmişi"
+    },
+    "faqs": {},
+    "links": {
+      "devexRateHistory": "DevEx kurunun kendi geçmişi",
+      "corrections": "düzeltme politikası",
+      "sources": "kaynak kaydı",
+      "about": "bu site nasıl sürdürülüyor"
+    }
+  },
+  "contact": {
+    "title": "İletişim",
+    "metaDescription": "Bir olgu düzeltmesi, erişilebilirlik sorunu ya da hesaplamalarla ilgili bir soru için DevExCalculator.org'a nasıl ulaşılır.",
+    "h1": "İletişim",
+    "navLabel": "İletişim",
+    "quickAnswer": "Bir kur ya da koşula ilişkin düzeltmeler gönderebileceğiniz en yararlı şeydir; özellikle burada yayımlananla çelişen resmî sayfanın bağlantısıyla birlikte. Bu site Roblox hesabınızla, DevEx talebinizle ya da ulaşmamış bir ödemeyle ilgili yardımcı olamaz — bunu yalnızca Roblox yapabilir.",
+    "ogImageAlt": "Düzeltmeler ve erişilebilirlik bildirimleri için iletişim sayfası.",
+    "sections": {
+      "form": "Bize ulaşın",
+      "cannot-help": "Bu sitenin yardımcı olamayacağı şeyler"
+    },
+    "faqs": {},
+    "links": {
+      "corrections": "düzeltme politikası",
+      "privacy": "mesajınız nasıl ele alınıyor",
+      "about": "bu site hakkında"
+    }
+  },
+  "conversions": {
+    "title": "Yaygın tutarlar için Robux'tan USD'ye dönüşümler",
+    "metaDescription": "Yaygın Earned Robux tutarları güncel, eski ve ABD 18+ kurlarında değerlendirildi; ayrıca istediğiniz tutar için bir giriş alanı.",
+    "h1": "Robux'tan USD'ye dönüşümler",
+    "navLabel": "Dönüşümler",
+    "quickAnswer": "Aşağıdaki her tutar, uygun Earned Robux başına 0,0038 USD olan güncel DevEx kurunda çevrilir; karşılaştırma için eski ve koşullu kurlar da yanında gösterilir. 30.000'in altındaki tutarlar başvuru için verilmiştir ama nakde çevrilemez; çünkü belgelenmiş alt sınır budur.",
+    "ogImageAlt": "Yaygın Robux tutarlarının ABD dolarına dönüşüm tablosu.",
+    "sections": {
+      "converter": "Herhangi bir tutarı çevirin",
+      "table": "Yaygın tutarlar",
+      "detailed": "Tam dökümü olan tutarlar",
+      "rounding": "Bu rakamlar nasıl yuvarlanıyor"
+    },
+    "faqs": {},
+    "links": {
+      "robuxToUsd": "Robux'tan USD'ye çevirici",
+      "home": "DevEx hesaplayıcısının tamamı",
+      "devexRates": "bu tabloda kullanılan kurlar"
+    }
+  },
+  "conversions.100000RobuxToUsd": {
+    "title": "100.000 Robux'tan USD'ye: DevEx ödeme tahmini",
+    "metaDescription": "100.000 uygun Earned Robux, güncel DevEx kurunda yaklaşık 380,00 $ eder. Eski kur ve ABD 18+ kuruyla karşılaştırmalı.",
+    "h1": "100.000 Robux'tan USD'ye",
+    "navLabel": "100.000 Robux",
+    "quickAnswer": "100.000 uygun Earned Robux, Robux başına 0,0038 USD olan güncel DevEx kurunda 380,00 $ eder. Eski 0,0035 kurunda aynı tutar 350,00 $ öderdi; aradaki fark 30,00 $. 100.000, bu aralıkta en çok aranan yuvarlak rakamdır ve güncel kurla eski kur arasındaki farkın fark edilecek kadar büyüdüğü noktadır: aralarında otuz dolar var.",
+    "ogImageAlt": "100.000 Robux'un tahmini bir DevEx ödemesine, ABD doları cinsinden çevrimi.",
+    "sections": {
+      "value": "100.000 Robux ne değer taşır",
+      "rate-comparison": "Üç kurun tamamında",
+      "context": "Bu tutar neden önemli",
+      "reverse": "Bu tutara ulaşmak",
+      "nearby": "Yakın tutarlar"
+    },
+    "faqs": {
+      "q01": {
+        "question": "100.000 Robux kaç USD eder?",
+        "answer": "Güncel DevEx kurunda uygun Earned Robux için 380,00 $; ödeme sağlayıcı ücretleri ve gelir vergisi düşülmeden önce. Bu yalnızca Earned Robux için geçerlidir, satın alınmış bakiye için değil."
+      },
+      "q02": {
+        "question": "100.000 Robux DevEx alt sınırını karşılıyor mu?",
+        "answer": "100.000 Earned Robux, belgelenmiş 30.000 alt sınırının 3,3 katıdır; yani eşiği aşar. Eşiği aşmak onaylanmakla aynı şey değildir — Roblox her talebi inceler."
+      }
+    },
+    "links": {
+      "conversions": "100.000 civarındaki tutarlar",
+      "robuxToUsd": "100.000 Robux dışında bir tutarı çevir",
+      "devexRates": "380,00 $ rakamının arkasındaki kur",
+      "conversions.50000RobuxToUsd": "50.000 Robux'tan USD'ye",
+      "conversions.200000RobuxToUsd": "200.000 Robux'tan USD'ye"
+    }
+  },
+  "conversions.1000000RobuxToUsd": {
+    "title": "1.000.000 Robux'tan USD'ye: DevEx ödeme tahmini",
+    "metaDescription": "1.000.000 uygun Earned Robux, güncel DevEx kurunda yaklaşık 3.800,00 $ eder. Eski kur ve ABD 18+ kuruyla karşılaştırmalı.",
+    "h1": "1.000.000 Robux'tan USD'ye",
+    "navLabel": "1.000.000 Robux",
+    "quickAnswer": "1.000.000 uygun Earned Robux, Robux başına 0,0038 USD olan güncel DevEx kurunda 3.800,00 $ eder. Eski 0,0035 kurunda aynı tutar 3.500,00 $ öderdi; aradaki fark 300,00 $. Bir milyon Robux, içerik üreticilerinin gerçekten arattığı öne çıkan eşiktir ve satın alma fiyatıyla DevEx ödemesinin neden aynı rakam olmadığının en açık örneğidir.",
+    "ogImageAlt": "1.000.000 Robux'un tahmini bir DevEx ödemesine, ABD doları cinsinden çevrimi.",
+    "sections": {
+      "value": "1.000.000 Robux ne değer taşır",
+      "rate-comparison": "Üç kurun tamamında",
+      "context": "Bu tutar neden önemli",
+      "reverse": "Bu tutara ulaşmak",
+      "nearby": "Yakın tutarlar"
+    },
+    "faqs": {
+      "q01": {
+        "question": "1.000.000 Robux kaç USD eder?",
+        "answer": "Güncel DevEx kurunda uygun Earned Robux için 3.800,00 $; ödeme sağlayıcı ücretleri ve gelir vergisi düşülmeden önce. Bu yalnızca Earned Robux için geçerlidir, satın alınmış bakiye için değil."
+      },
+      "q02": {
+        "question": "1.000.000 Robux DevEx alt sınırını karşılıyor mu?",
+        "answer": "1.000.000 Earned Robux, belgelenmiş 30.000 alt sınırının 33,3 katıdır; yani eşiği aşar. Eşiği aşmak onaylanmakla aynı şey değildir — Roblox her talebi inceler."
+      }
+    },
+    "links": {
+      "conversions": "1.000.000 civarındaki tutarlar",
+      "robuxToUsd": "1.000.000 Robux dışında bir tutarı çevir",
+      "devexRates": "3.800,00 $ rakamının arkasındaki kur",
+      "conversions.500000RobuxToUsd": "500.000 Robux'tan USD'ye",
+      "conversions.10000000RobuxToUsd": "10.000.000 Robux'tan USD'ye"
+    }
+  },
+  "conversions.10000000RobuxToUsd": {
+    "title": "10.000.000 Robux'tan USD'ye: DevEx ödeme tahmini",
+    "metaDescription": "10.000.000 uygun Earned Robux, güncel DevEx kurunda yaklaşık 38.000,00 $ eder. Eski kur ve ABD 18+ kuruyla karşılaştırmalı.",
+    "h1": "10.000.000 Robux'tan USD'ye",
+    "navLabel": "10.000.000 Robux",
+    "quickAnswer": "10.000.000 uygun Earned Robux, Robux başına 0,0038 USD olan güncel DevEx kurunda 38.000,00 $ eder. Eski 0,0035 kurunda aynı tutar 35.000,00 $ öderdi; aradaki fark 3.000,00 $. On milyon Earned Robux, büyük bir experience'tan gelen sürekli kazancı temsil eder. Bu ölçekte standart ve eski bakiyeler arasındaki bölünme ile ABD 18+ kapsamına giren herhangi bir pay, toplamı binlerce dolar değiştirir.",
+    "ogImageAlt": "10.000.000 Robux'un tahmini bir DevEx ödemesine, ABD doları cinsinden çevrimi.",
+    "sections": {
+      "value": "10.000.000 Robux ne değer taşır",
+      "rate-comparison": "Üç kurun tamamında",
+      "context": "Bu tutar neden önemli",
+      "reverse": "Bu tutara ulaşmak",
+      "nearby": "Yakın tutarlar"
+    },
+    "faqs": {
+      "q01": {
+        "question": "10.000.000 Robux kaç USD eder?",
+        "answer": "Güncel DevEx kurunda uygun Earned Robux için 38.000,00 $; ödeme sağlayıcı ücretleri ve gelir vergisi düşülmeden önce. Bu yalnızca Earned Robux için geçerlidir, satın alınmış bakiye için değil."
+      },
+      "q02": {
+        "question": "10.000.000 Robux DevEx alt sınırını karşılıyor mu?",
+        "answer": "10.000.000 Earned Robux, belgelenmiş 30.000 alt sınırının 333,3 katıdır; yani eşiği aşar. Eşiği aşmak onaylanmakla aynı şey değildir — Roblox her talebi inceler."
+      }
+    },
+    "links": {
+      "conversions": "10.000.000 civarındaki tutarlar",
+      "robuxToUsd": "10.000.000 Robux dışında bir tutarı çevir",
+      "devexRates": "38.000,00 $ rakamının arkasındaki kur",
+      "conversions.1000000RobuxToUsd": "1.000.000 Robux'tan USD'ye",
+      "conversions.500000RobuxToUsd": "500.000 Robux'tan USD'ye"
+    }
+  },
+  "conversions.200000RobuxToUsd": {
+    "title": "200.000 Robux'tan USD'ye: DevEx ödeme tahmini",
+    "metaDescription": "200.000 uygun Earned Robux, güncel DevEx kurunda yaklaşık 760,00 $ eder. Eski kur ve ABD 18+ kuruyla karşılaştırmalı.",
+    "h1": "200.000 Robux'tan USD'ye",
+    "navLabel": "200.000 Robux",
+    "quickAnswer": "200.000 uygun Earned Robux, Robux başına 0,0038 USD olan güncel DevEx kurunda 760,00 $ eder. Eski 0,0035 kurunda aynı tutar 700,00 $ öderdi; aradaki fark 60,00 $. 200.000 Earned Robux'ta bir içerik üreticisi genellikle tek seferlik değil düzenli olarak nakde çevirir; bu da kur grupları arasındaki farkı tahmin etmek yerine izlemeye değer kılar.",
+    "ogImageAlt": "200.000 Robux'un tahmini bir DevEx ödemesine, ABD doları cinsinden çevrimi.",
+    "sections": {
+      "value": "200.000 Robux ne değer taşır",
+      "rate-comparison": "Üç kurun tamamında",
+      "context": "Bu tutar neden önemli",
+      "reverse": "Bu tutara ulaşmak",
+      "nearby": "Yakın tutarlar"
+    },
+    "faqs": {
+      "q01": {
+        "question": "200.000 Robux kaç USD eder?",
+        "answer": "Güncel DevEx kurunda uygun Earned Robux için 760,00 $; ödeme sağlayıcı ücretleri ve gelir vergisi düşülmeden önce. Bu yalnızca Earned Robux için geçerlidir, satın alınmış bakiye için değil."
+      },
+      "q02": {
+        "question": "200.000 Robux DevEx alt sınırını karşılıyor mu?",
+        "answer": "200.000 Earned Robux, belgelenmiş 30.000 alt sınırının 6,7 katıdır; yani eşiği aşar. Eşiği aşmak onaylanmakla aynı şey değildir — Roblox her talebi inceler."
+      }
+    },
+    "links": {
+      "conversions": "200.000 civarındaki tutarlar",
+      "robuxToUsd": "200.000 Robux dışında bir tutarı çevir",
+      "devexRates": "760,00 $ rakamının arkasındaki kur",
+      "conversions.100000RobuxToUsd": "100.000 Robux'tan USD'ye",
+      "conversions.300000RobuxToUsd": "300.000 Robux'tan USD'ye"
+    }
+  },
+  "conversions.30000RobuxToUsd": {
+    "title": "30.000 Robux'tan USD'ye: DevEx ödeme tahmini",
+    "metaDescription": "30.000 uygun Earned Robux, güncel DevEx kurunda yaklaşık 114,00 $ eder. Eski kur ve ABD 18+ kuruyla karşılaştırmalı.",
+    "h1": "30.000 Robux'tan USD'ye",
+    "navLabel": "30.000 Robux",
+    "quickAnswer": "30.000 uygun Earned Robux, Robux başına 0,0038 USD olan güncel DevEx kurunda 114,00 $ eder. Eski 0,0035 kurunda aynı tutar 105,00 $ öderdi; aradaki fark 9,00 $. 30.000, en çok önem taşıyan tutardır; çünkü bir DevEx talebinin gönderilebilmesi için Roblox'un istediği asgari Earned Robux bakiyesi budur. Bu rakamın altında soru, ödemenin ne kadar olacağı değil, talebin yapılıp yapılamayacağıdır.",
+    "ogImageAlt": "30.000 Robux'un tahmini bir DevEx ödemesine, ABD doları cinsinden çevrimi.",
+    "sections": {
+      "value": "30.000 Robux ne değer taşır",
+      "rate-comparison": "Üç kurun tamamında",
+      "context": "Bu tutar neden önemli",
+      "reverse": "Bu tutara ulaşmak",
+      "nearby": "Yakın tutarlar"
+    },
+    "faqs": {
+      "q01": {
+        "question": "30.000 Robux kaç USD eder?",
+        "answer": "Güncel DevEx kurunda uygun Earned Robux için 114,00 $; ödeme sağlayıcı ücretleri ve gelir vergisi düşülmeden önce. Bu yalnızca Earned Robux için geçerlidir, satın alınmış bakiye için değil."
+      },
+      "q02": {
+        "question": "30.000 Robux DevEx alt sınırını karşılıyor mu?",
+        "answer": "30.000 Earned Robux, belgelenmiş 30.000 alt sınırının 1,0 katıdır; yani eşiği aşar. Eşiği aşmak onaylanmakla aynı şey değildir — Roblox her talebi inceler."
+      }
+    },
+    "links": {
+      "conversions": "30.000 civarındaki tutarlar",
+      "robuxToUsd": "30.000 Robux dışında bir tutarı çevir",
+      "devexRates": "114,00 $ rakamının arkasındaki kur",
+      "conversions.50000RobuxToUsd": "50.000 Robux'tan USD'ye",
+      "conversions.100000RobuxToUsd": "100.000 Robux'tan USD'ye"
+    }
+  },
+  "conversions.300000RobuxToUsd": {
+    "title": "300.000 Robux'tan USD'ye: DevEx ödeme tahmini",
+    "metaDescription": "300.000 uygun Earned Robux, güncel DevEx kurunda yaklaşık 1.140,00 $ eder. Eski kur ve ABD 18+ kuruyla karşılaştırmalı.",
+    "h1": "300.000 Robux'tan USD'ye",
+    "navLabel": "300.000 Robux",
+    "quickAnswer": "300.000 uygun Earned Robux, Robux başına 0,0038 USD olan güncel DevEx kurunda 1.140,00 $ eder. Eski 0,0035 kurunda aynı tutar 1.050,00 $ öderdi; aradaki fark 90,00 $. 300.000 Earned Robux, DevEx alt sınırının on katıdır. Bir yıllık kazancın kaç nakde çevirme döngüsüne denk geldiğini hesaplayan bir içerik üreticisi için yararlı bir referans noktasıdır.",
+    "ogImageAlt": "300.000 Robux'un tahmini bir DevEx ödemesine, ABD doları cinsinden çevrimi.",
+    "sections": {
+      "value": "300.000 Robux ne değer taşır",
+      "rate-comparison": "Üç kurun tamamında",
+      "context": "Bu tutar neden önemli",
+      "reverse": "Bu tutara ulaşmak",
+      "nearby": "Yakın tutarlar"
+    },
+    "faqs": {
+      "q01": {
+        "question": "300.000 Robux kaç USD eder?",
+        "answer": "Güncel DevEx kurunda uygun Earned Robux için 1.140,00 $; ödeme sağlayıcı ücretleri ve gelir vergisi düşülmeden önce. Bu yalnızca Earned Robux için geçerlidir, satın alınmış bakiye için değil."
+      },
+      "q02": {
+        "question": "300.000 Robux DevEx alt sınırını karşılıyor mu?",
+        "answer": "300.000 Earned Robux, belgelenmiş 30.000 alt sınırının 10,0 katıdır; yani eşiği aşar. Eşiği aşmak onaylanmakla aynı şey değildir — Roblox her talebi inceler."
+      }
+    },
+    "links": {
+      "conversions": "300.000 civarındaki tutarlar",
+      "robuxToUsd": "300.000 Robux dışında bir tutarı çevir",
+      "devexRates": "1.140,00 $ rakamının arkasındaki kur",
+      "conversions.200000RobuxToUsd": "200.000 Robux'tan USD'ye",
+      "conversions.500000RobuxToUsd": "500.000 Robux'tan USD'ye"
+    }
+  },
+  "conversions.50000RobuxToUsd": {
+    "title": "50.000 Robux'tan USD'ye: DevEx ödeme tahmini",
+    "metaDescription": "50.000 uygun Earned Robux, güncel DevEx kurunda yaklaşık 190,00 $ eder. Eski kur ve ABD 18+ kuruyla karşılaştırmalı.",
+    "h1": "50.000 Robux'tan USD'ye",
+    "navLabel": "50.000 Robux",
+    "quickAnswer": "50.000 uygun Earned Robux, Robux başına 0,0038 USD olan güncel DevEx kurunda 190,00 $ eder. Eski 0,0035 kurunda aynı tutar 175,00 $ öderdi; aradaki fark 15,00 $. 50.000 Earned Robux alt sınırı rahatça aşar; bu yüzden experience'ı yeni yeni düzenli kazanmaya başlamış bir içerik üreticisi için yaygın bir ilk nakde çevirme tutarıdır.",
+    "ogImageAlt": "50.000 Robux'un tahmini bir DevEx ödemesine, ABD doları cinsinden çevrimi.",
+    "sections": {
+      "value": "50.000 Robux ne değer taşır",
+      "rate-comparison": "Üç kurun tamamında",
+      "context": "Bu tutar neden önemli",
+      "reverse": "Bu tutara ulaşmak",
+      "nearby": "Yakın tutarlar"
+    },
+    "faqs": {
+      "q01": {
+        "question": "50.000 Robux kaç USD eder?",
+        "answer": "Güncel DevEx kurunda uygun Earned Robux için 190,00 $; ödeme sağlayıcı ücretleri ve gelir vergisi düşülmeden önce. Bu yalnızca Earned Robux için geçerlidir, satın alınmış bakiye için değil."
+      },
+      "q02": {
+        "question": "50.000 Robux DevEx alt sınırını karşılıyor mu?",
+        "answer": "50.000 Earned Robux, belgelenmiş 30.000 alt sınırının 1,7 katıdır; yani eşiği aşar. Eşiği aşmak onaylanmakla aynı şey değildir — Roblox her talebi inceler."
+      }
+    },
+    "links": {
+      "conversions": "50.000 civarındaki tutarlar",
+      "robuxToUsd": "50.000 Robux dışında bir tutarı çevir",
+      "devexRates": "190,00 $ rakamının arkasındaki kur",
+      "conversions.30000RobuxToUsd": "30.000 Robux'tan USD'ye",
+      "conversions.100000RobuxToUsd": "100.000 Robux'tan USD'ye"
+    }
+  },
+  "conversions.500000RobuxToUsd": {
+    "title": "500.000 Robux'tan USD'ye: DevEx ödeme tahmini",
+    "metaDescription": "500.000 uygun Earned Robux, güncel DevEx kurunda yaklaşık 1.900,00 $ eder. Eski kur ve ABD 18+ kuruyla karşılaştırmalı.",
+    "h1": "500.000 Robux'tan USD'ye",
+    "navLabel": "500.000 Robux",
+    "quickAnswer": "500.000 uygun Earned Robux, Robux başına 0,0038 USD olan güncel DevEx kurunda 1.900,00 $ eder. Eski 0,0035 kurunda aynı tutar 1.750,00 $ öderdi; aradaki fark 150,00 $. Yarım milyon Earned Robux, ödeme sağlayıcı ücretlerinin ve kişisel vergi yükümlülüklerinin artık yuvarlama hatası olmaktan çıktığı ölçektir; bu sayfanın doğrudan ücretler ve vergiler rehberine bağlanmasının nedeni de budur.",
+    "ogImageAlt": "500.000 Robux'un tahmini bir DevEx ödemesine, ABD doları cinsinden çevrimi.",
+    "sections": {
+      "value": "500.000 Robux ne değer taşır",
+      "rate-comparison": "Üç kurun tamamında",
+      "context": "Bu tutar neden önemli",
+      "reverse": "Bu tutara ulaşmak",
+      "nearby": "Yakın tutarlar"
+    },
+    "faqs": {
+      "q01": {
+        "question": "500.000 Robux kaç USD eder?",
+        "answer": "Güncel DevEx kurunda uygun Earned Robux için 1.900,00 $; ödeme sağlayıcı ücretleri ve gelir vergisi düşülmeden önce. Bu yalnızca Earned Robux için geçerlidir, satın alınmış bakiye için değil."
+      },
+      "q02": {
+        "question": "500.000 Robux DevEx alt sınırını karşılıyor mu?",
+        "answer": "500.000 Earned Robux, belgelenmiş 30.000 alt sınırının 16,7 katıdır; yani eşiği aşar. Eşiği aşmak onaylanmakla aynı şey değildir — Roblox her talebi inceler."
+      }
+    },
+    "links": {
+      "conversions": "500.000 civarındaki tutarlar",
+      "robuxToUsd": "500.000 Robux dışında bir tutarı çevir",
+      "devexRates": "1.900,00 $ rakamının arkasındaki kur",
+      "conversions.300000RobuxToUsd": "300.000 Robux'tan USD'ye",
+      "conversions.1000000RobuxToUsd": "1.000.000 Robux'tan USD'ye"
+    }
+  },
+  "corrections": {
+    "title": "Düzeltme politikası",
+    "metaDescription": "Bu sitedeki bir hatayı nasıl bildireceğiniz, bir kur ya da koşulun yanlış çıkması hâlinde ne olacağı ve düzeltmelerin nerede kaydedildiği.",
+    "h1": "Düzeltme politikası",
+    "navLabel": "Düzeltmeler",
+    "quickAnswer": "Buradaki bir rakam yanlışsa, sessizce bırakılmaz; düzeltilir. Bir kur, alt sınır ya da ücret düzeltmesi sabit bir sırayı izler: resmî kaynağa karşı doğrula, veriyi güncelle, testleri güncelle, etkilenen sayfaları güncelle, changelog'a kaydet ve yeniden dağıt.",
+    "ogImageAlt": "Düzeltme politikası: hatalar nasıl bildiriliyor ve düzeltiliyor.",
+    "sections": {
+      "report": "Bir hatayı bildirmek",
+      "process": "Sonra ne oluyor",
+      "record": "Düzeltmeler nerede kaydediliyor"
+    },
+    "faqs": {},
+    "links": {
+      "changelog": "herkese açık changelog",
+      "editorialPolicy": "yayın ilkeleri",
+      "contact": "bize ulaşın",
+      "about": "bu site ne işe yarar"
+    }
+  },
+  "devexFeesAndTaxes": {
+    "title": "DevEx ücretleri ve vergileri: bir ödemeden neler düşülür",
+    "metaDescription": "Sağlayıcı ücretleri, döviz farkı ve gelir vergisi; hepsi DevEx kuruyla banka hesabınız arasında durur. Her birini kendi rakamlarınızla modelleyin.",
+    "h1": "DevEx ücretleri ve vergileri",
+    "navLabel": "Ücretler ve vergiler",
+    "quickAnswer": "Bir DevEx ödemesini üç ayrı şey azaltır ve hiçbiri DevEx kuru değildir: ödeme sağlayıcınızın ücretleri, Amerika Birleşik Devletleri dışında ödeme alıyorsanız para birimi dönüşüm farkı ve kendi ülkenizdeki gelir vergisi. Bu sayfa her birini kendi rakamlarınızla modellemenizi sağlar. Vergi danışmanlığı değildir.",
+    "ogImageAlt": "DevEx ücretleri ve vergileri: sağlayıcı ücretleri, döviz farkı ve gelir vergisi açıklandı.",
+    "sections": {
+      "three-layers": "Üç ayrı kesinti",
+      "fees": "Ödeme sağlayıcı ücretleri",
+      "currency": "Para birimi çevrimi",
+      "tax": "Gelir vergisi",
+      "estimator": "Kendi rakamlarınızı modelleyin",
+      "faqs": "Ücretler ve vergi hakkında sorular"
+    },
+    "faqs": {
+      "q01": {
+        "question": "Roblox DevEx kurunun üstüne ayrıca ücret alıyor mu?",
+        "answer": "DevEx kuru, Roblox'un uygun her Earned Robux için ödediği tutardır. %30'luk platform komisyonu daha önce, Robux kazanıldığında uygulanmıştı — nakde çevirmede ikinci kez uygulanmaz."
+      },
+      "q02": {
+        "question": "Bir DevEx ödemesine hangi vergi oranı uygulanır?",
+        "answer": "Bu tamamen ülkenize ve koşullarınıza bağlıdır ve bu site sizin adınıza bir rakam belirtmez. Buradaki tahmin aracı, kendi durumunuzu modelleyebilmeniz için girdiğiniz yüzdeyi kullanır."
+      },
+      "q03": {
+        "question": "Bankamın çevrimi neden bu sitedekinden farklı?",
+        "answer": "Buradaki yerel para birimi rakamları, her iş günü bir kez yayımlanan ve işlem yapılabilir kotasyon olmayan Avrupa Merkez Bankası referans kurlarını kullanır. Bankalar ve ödeme sağlayıcıları kendi kurlarını artı bir marj uygular."
+      }
+    },
+    "links": {
+      "home": "isteğe bağlı ücret ve vergi denetimleri olan hesaplayıcı",
+      "howToCashOutRobux": "nakde çevirme süreci",
+      "robuxTaxCalculator": "ayrı olan Roblox marketplace ücreti",
+      "methodology": "bu tahminler nasıl üretiliyor"
+    }
+  },
+  "devexRateHistory": {
+    "title": "DevEx kur geçmişi: 2025'te 0,0035'ten yapılan değişiklik",
+    "metaDescription": "Doğrulanmış DevEx kurlarının tarihli kaydı; Eylül 2025'te 0,0035'ten 0,0038'e çıkış ve eski bakiyelerin nasıl ele alındığı dâhil.",
+    "h1": "DevEx kur geçmişi",
+    "navLabel": "Kur geçmişi",
+    "quickAnswer": "Belgelenmiş değişiklik, Earned Robux başına 0,0035'ten 0,0038 USD'ye geçiştir; 5 Eylül 2025 saat 10.00 PT'de yürürlüğe girdi. 30.000 Earned Robux için bu, ödemeyi 105 dolardan 114 dolara taşıdı. Değişiklikten önce kazanılan bakiyeler önce eski kurla nakde çevrilir; dolayısıyla tek bir bakiye ikisini birden kapsayabilir.",
+    "ogImageAlt": "DevEx kur geçmişi: Eylül 2025'te 0,0035'ten 0,0038'e değişiklik.",
+    "sections": {
+      "timeline": "Doğrulanmış zaman çizelgesi",
+      "comparison": "Değişiklik ne değer taşıyordu",
+      "legacy-balances": "Eski bakiyeler nasıl ele alınıyor",
+      "no-forecast": "Burada neden öngörü yok",
+      "faqs": "Geçmiş kurlar hakkında sorular"
+    },
+    "faqs": {
+      "q01": {
+        "question": "Eylül 2025'ten önce DevEx kuru neydi?",
+        "answer": "Earned Robux başına 0,0035 USD; Roblox bunu 30.000 Earned Robux için 105 dolar olarak belirtiyordu."
+      },
+      "q02": {
+        "question": "Eski bakiyem eski kurdan mı çevriliyor?",
+        "answer": "5 Eylül 2025 saat 10.00 PT'den önce kazanılan Robux, Roblox'un geçiş kurallarına göre önce 0,0035'ten nakde çevrilir. Bölünme Roblox'un muhasebesidir, içerik üreticisinin seçtiği bir şey değil."
+      },
+      "q03": {
+        "question": "Kur yine yükselecek mi?",
+        "answer": "Roblox dışında kimse bilmiyor ve bu sayfa tahmin yürütmeyecek. Yalnızca resmî belgelerin doğruladığı değişiklikleri, her birini yürürlük tarihiyle birlikte kaydeder."
+      }
+    },
+    "links": {
+      "devexRates": "şu anda geçerli kurlar",
+      "home": "kendi bakiyenizde kurları karşılaştırın",
+      "changelog": "bu site verilerini en son ne zaman güncelledi"
+    }
+  },
+  "devexRates": {
+    "title": "Roblox DevEx kurları: güncel, eski ve ABD 18+",
+    "metaDescription": "Roblox'un belgelediği üç DevEx kuru, her birinin 1.000 ve 30.000 Robux için ne ödediği ve hangisinin ne zaman geçerli olduğu.",
+    "h1": "Roblox DevEx kurları",
+    "navLabel": "Kurlar",
+    "quickAnswer": "Roblox üç DevEx kuru belgeliyor. Standart kur, uygun Earned Robux başına 0,0038 USD, yani 30.000 için 114 dolardır. 5 Eylül 2025 saat 10.00 PT'den önce kazanılan bakiyeler eski 0,0035 kurundan çevrilir. 18 yaş ve üzeri olduğu doğrulanmış Amerika Birleşik Devletleri oyuncularından gelen belirli Earned Robux 0,0054'ten çevrilir. Hangisinin geçerli olacağına içerik üreticisi değil, Roblox karar verir.",
+    "ogImageAlt": "Roblox DevEx kurları: standart, eski ve koşullu ABD 18+ karşılaştırmalı.",
+    "sections": {
+      "current-rates": "Belgelenmiş üç kur",
+      "examples": "Her kur ne ödüyor",
+      "which-applies": "Bakiyenize hangi kur uygulanır",
+      "difference": "Kendi tutarınız için kurları karşılaştırın",
+      "changes": "Kurlar değişebilir",
+      "faqs": "DevEx kurları hakkında sorular"
+    },
+    "faqs": {
+      "q01": {
+        "question": "1.000 Robux başına DevEx kuru nedir?",
+        "answer": "Standart kurda 1.000 uygun Earned Robux için 3,80 ABD doları. Eski kur 3,50 ödüyordu ve koşullu ABD 18+ kuru 5,40 ödüyor."
+      },
+      "q02": {
+        "question": "DevEx kuru 0,0038'e ne zaman değişti?",
+        "answer": "5 Eylül 2025'te saat 10.00 PT'de. O andan önce kazanılan bakiyeler, Roblox'un kendi muhasebesine göre önce önceki 0,0035 kurundan nakde çevrilir."
+      },
+      "q03": {
+        "question": "0,0054 kuruna kimler girer?",
+        "answer": "Roblox bunu, en az 18 yaşında olduğunu doğrulamış Amerika Birleşik Devletleri oyuncularının developer product, pass, abonelik ve özel sunucu satın almalarından gelen belirli Earned Robux'a uygular. İçerik üreticisinin seçebileceği bir kur değildir."
+      },
+      "q04": {
+        "question": "DevEx kuru yine değişecek mi?",
+        "answer": "Roblox daha önce değiştirdi ve yine değiştirebilir. Bu sayfa yalnızca güncel resmî belgelerin söylediğini kaydeder; hiçbir öngörüde bulunmaz. Kaynağa karşı en son ne zaman denetlendiği yukarıda gösteriliyor."
+      }
+    },
+    "links": {
+      "home": "bu kurlarla bir ödeme hesaplayın",
+      "devexRateHistory": "kur zaman içinde nasıl değişti",
+      "robloxStats": "Roblox içerik üreticilerine toplamda ne ödüyor",
+      "earnedRobux": "kur hangi Robux'a uygulanır",
+      "devexRequirements": "kurun yanındaki koşullar",
+      "sources": "bu rakamların ardındaki kaynaklar"
+    }
+  },
+  "devexRequirements": {
+    "title": "DevEx koşulları: asgari Robux ve uygunluk",
+    "metaDescription": "Roblox'un DevEx için istedikleri: 30.000 Earned Robux, doğrulanmış e-posta, portal hesabı, W-9 ya da W-8 ve kuralları ihlal etmemiş bir hesap.",
+    "h1": "DevEx koşulları",
+    "navLabel": "Koşullar",
+    "quickAnswer": "Roblox DevEx için beş koşul belgeliyor: en az 30.000 Earned Robux, en az 13 yaş, Roblox tarafından doğrulanmış bir e-posta adresi, geçerli bir DevEx portal hesabı ve dosyada bir IRS W-9 ya da W-8 formu. Ayrıca Roblox Kullanım Koşulları'na ve Topluluk Standartları'na uymanız gerekir. Beşini de karşılamak başvurmanın koşuludur, onay güvencesi değil.",
+    "ogImageAlt": "DevEx koşulları: asgari Earned Robux, doğrulanmış e-posta, portal hesabı ve vergi formları.",
+    "sections": {
+      "requirements": "Roblox neyi şart koşuyor",
+      "minimum": "30.000 Earned Robux alt sınırı",
+      "not-approval": "Eşiği karşılamak onay değildir",
+      "checklist": "Hazırlık listesi",
+      "misunderstandings": "Sık görülen yanlış anlamalar",
+      "faqs": "Uygunluk hakkında sorular"
+    },
+    "faqs": {
+      "q01": {
+        "question": "DevEx için gereken asgari Robux nedir?",
+        "answer": "30.000 Earned Robux. 10.000 ya da 100.000 gibi eski rakamlar üçüncü taraf sitelerde dolaşıyor ama güncel resmî belgelerle örtüşmüyor."
+      },
+      "q02": {
+        "question": "DevEx için kaç yaşında olmak gerekir?",
+        "answer": "Roblox katılım için asgari 13 yaş belgeliyor. Bundan ayrı olarak, daha yüksek 0,0054 kuru içerik üreticisinin yaşına değil, Robux'u harcayan oyuncuların yaş doğrulamasına bağlıdır."
+      },
+      "q03": {
+        "question": "Vergi formu göndermem gerekiyor mu?",
+        "answer": "Evet. Bir DevEx talebinin ilerleyebilmesi için Roblox, Amerika Birleşik Devletleri mükellefleri için IRS W-9 formunun ya da ABD dışındaki mükellefler için W-8'in dosyada olmasını şart koşar."
+      },
+      "q04": {
+        "question": "30.000 Earned Robux'a ulaşmak ödeme alacağım anlamına mı geliyor?",
+        "answer": "Hayır. Eşik, talep göndermenizi sağlar. Roblox her talebi kendi ölçütlerine göre inceler ve hangi Robux'un Earned Robux sayılacağına karar verir. Hiçbir hesaplayıcı — bu da dâhil — uygunluğu belirleyemez."
+      }
+    },
+    "links": {
+      "home": "bakiyenizin alt sınırı karşılayıp karşılamadığını kontrol edin",
+      "earnedRobux": "alt sınıra hangi Robux sayılır",
+      "howToCashOutRobux": "nakde çevirme sürecinin kendisi",
+      "devexRates": "bakiyeniz ne öderdi"
+    }
+  },
+  "disclaimer": {
+    "title": "Sorumluluk reddi",
+    "metaDescription": "Buradaki her rakamın neden bir tahmin olduğu, bu sitenin DevEx talebiniz hakkında neyi belirleyemeyeceği ve Roblox Corporation'dan bağımsızlığı.",
+    "h1": "Sorumluluk reddi",
+    "navLabel": "Sorumluluk reddi",
+    "quickAnswer": "Bu site tahmin eder. Robux'unuzun Earned Robux sayılıp sayılmayacağını, bir DevEx talebinin onaylanıp onaylanmayacağını, ödemenin ne zaman geleceğini ya da bankanız ve vergi idareniz işini bitirdikten sonra ne alacağınızı size söyleyemez. Bunların hepsine Roblox karar verir.",
+    "ogImageAlt": "Sorumluluk reddi: yalnızca tahmin, Roblox Corporation ile bağlantı yok.",
+    "sections": {
+      "estimates": "Buradaki her şey bir tahmindir",
+      "cannot-determine": "Bu sitenin belirleyemedikleri",
+      "trademarks": "Ticari markalar",
+      "accuracy": "Bilgilerin doğruluğu ve güncelliği"
+    },
+    "faqs": {},
+    "links": {
+      "methodology": "tahminler nasıl üretiliyor",
+      "terms": "kullanım koşulları",
+      "sources": "kullanılan kaynaklar",
+      "home": "bu bildirimin kapsadığı tahminler"
+    }
+  },
+  "earnedRobux": {
+    "title": "Earned Robux: DevEx için ne uygun sayılır",
+    "metaDescription": "Earned Robux tüm bakiyeniz değildir. Neyin sayıldığı, neyin sayılmadığı ve bu ayrımın bir ödemenin mümkün olup olmadığını nasıl belirlediği.",
+    "h1": "Earned Robux",
+    "navLabel": "Earned Robux",
+    "quickAnswer": "Earned Robux, bakiyenizin içerik üreticiliği faaliyetinden gelen bölümüdür — oyuncuların experience'ınızda ya da ürünlerinize Robux harcaması — satın aldığınız, hediye olarak aldığınız veya başka yolla edindiğiniz Robux'un aksine. DevEx'ten yalnızca Earned Robux geçebilir ve bir bakiyenin hangi bölümünün uygun olduğuna Roblox karar verir.",
+    "ogImageAlt": "Earned Robux açıklandı: bir Robux bakiyesinin hangi bölümü DevEx için uygundur.",
+    "sections": {
+      "definition": "Earned Robux ne demek",
+      "qualifying": "Genelde neler sayılır",
+      "not-qualifying": "Genelde neler sayılmaz",
+      "pending": "Bekleyen ve kullanılabilir bakiyeler",
+      "groups": "Grup fonları",
+      "faqs": "Earned Robux hakkında sorular"
+    },
+    "faqs": {
+      "q01": {
+        "question": "Robux bakiyemin tamamı Earned Robux mu?",
+        "answer": "Neredeyse kesinlikle değil. Bir bakiye, içerik üreticisi olarak kazandığınız Robux ile satın aldığınız ya da aldığınız Robux'u karıştırabilir. DevEx için yalnızca kazanılmış bölüm uygundur ve bu belirlemeyi Roblox yapar."
+      },
+      "q02": {
+        "question": "Satın aldığım Robux 30.000 alt sınırına sayılır mı?",
+        "answer": "Satın alınan Robux, Earned Robux değildir; dolayısıyla bir bakiyeyi DevEx için uygun hâle getirmez. Alt sınır özellikle Earned Robux'u kasteder."
+      },
+      "q03": {
+        "question": "İçerik üreticileri Robux'u en baştan nasıl kazanıyor?",
+        "answer": "Roblox, developer product ve pass gibi experience içi satın almalara harcanan Robux'un %70'ini içerik üreticilerine öder, %30'unu tutar. Earned Robux olarak biriken şey işte o %70'tir."
+      },
+      "q04": {
+        "question": "Grup fonları nakde çevrilebilir mi?",
+        "answer": "Grup fonları bireysel bir hesap tarafından değil grup tarafından tutulur ve DevEx uygulanmadan önce ödemelerin kişisel bir hesaba ulaşması gerekir. Kendi durumunuzun nasıl ele alındığını görmek için güncel resmî belgelere bakın."
+      }
+    },
+    "links": {
+      "home": "uygun Robux üzerinden bir ödeme hesaplayın",
+      "devexRequirements": "uygunluk koşulları",
+      "robuxTaxCalculator": "bir satıştan size ne kalır",
+      "howToCashOutRobux": "uygun bir bakiyeyi çevirmek"
+    }
+  },
+  "editorialPolicy": {
+    "title": "Yayın ilkeleri",
+    "metaDescription": "Bu sitenin yazarken uyduğu kurallar: neyin kaynak sayıldığı, iddiaların nasıl etiketlendiği, neyin asla yayımlanmadığı ve zamana duyarlı içeriğin nasıl gözden geçirildiği.",
+    "h1": "Yayın ilkeleri",
+    "navLabel": "Yayın ilkeleri",
+    "quickAnswer": "Zamana duyarlı her iddia resmî bir kaynağa bağlanır ve tarihlenir. Doğrulanmamış hiçbir şey olgu olarak yayımlanmaz, çıkarımlar çıkarım olarak etiketlenir ve hiçbir rakam, doğru olmaktan çıktıktan sonra aramalarda iyi gidiyor diye çevrimiçi tutulmaz.",
+    "ogImageAlt": "Bu sitede kaynak kullanımını ve yayımlamayı düzenleyen yayın ilkeleri.",
+    "sections": {
+      "sourcing": "Kaynak ölçütü",
+      "labels": "İddialar nasıl etiketleniyor",
+      "never": "Bu sitenin asla yayımlamadıkları",
+      "review": "Gözden geçirme sıklığı"
+    },
+    "faqs": {},
+    "links": {
+      "corrections": "düzeltme politikası",
+      "sources": "kaynak kaydı",
+      "about": "bu siteyi kim yürütüyor"
+    }
+  },
+  "guides": {
+    "title": "DevEx rehberleri: kurlar, uygunluk ve nakde çevirme",
+    "metaDescription": "Earned Robux'un ne anlama geldiğinden bir ödemeden nelerin düşüldüğüne kadar, okuma sırasına göre altı rehber.",
+    "h1": "DevEx rehberleri",
+    "navLabel": "Rehberler",
+    "quickAnswer": "Altı rehber, okunması mantıklı olan sırayla. Earned Robux'un ne demek olduğuyla başlayın, sonra kurlar ve koşullar, sonra nakde çevirme süreci, ve ödemeden nelerin düşüldüğüyle bitirin. Her biri kaynaklarını ve en son ne zaman denetlendiğini belirtir.",
+    "ogImageAlt": "Önerilen okuma sırasına göre DevEx rehberleri dizini.",
+    "sections": {
+      "reading-order": "Önerilen okuma sırası"
+    },
+    "faqs": {},
+    "links": {
+      "earnedRobux": "Earned Robux",
+      "devexRates": "DevEx kurları",
+      "devexRequirements": "DevEx koşulları",
+      "howToCashOutRobux": "Robux'u nakde çevirmek",
+      "devexRateHistory": "kur geçmişi",
+      "devexFeesAndTaxes": "ücretler ve vergiler",
+      "calculators": "bu rehberlerin desteklediği hesaplayıcılar",
+      "home": "DevEx hesaplayıcısının kendisi"
+    }
+  },
+  "howToCashOutRobux": {
+    "title": "DevEx ile Robux nasıl nakde çevrilir",
+    "metaDescription": "Uygun Earned Robux'u gerçek paraya çevirmenin resmî adımları, önce nelerin hazırlanacağı ve hangi hizmetlerden kaçınılacağı.",
+    "h1": "Robux nasıl nakde çevrilir",
+    "navLabel": "Nakde çevirme",
+    "quickAnswer": "Robux'u nakde çevirmek; en az 30.000 Earned Robux'a sahip olduğunuzda, doğrulanmış bir e-postanız ve dosyada bir W-9 ya da W-8 bulunduğunda resmî Roblox DevEx portalı üzerinden bir DevEx talebi göndermek demektir. Roblox her talebi inceler ve sonucu belirler. Resmî programın dışında meşru bir yol yoktur.",
+    "ogImageAlt": "Robux nasıl nakde çevrilir: resmî DevEx talep süreci adım adım.",
+    "sections": {
+      "process": "Roblox'un belgelediği süreç",
+      "checklist": "Başvurmadan önce hazırlanın",
+      "timing": "Ne kadar sürer",
+      "safety": "Resmî olmayan hizmetlerden kaçının",
+      "group": "Kazanan bir grup olduğunda",
+      "after": "Ödemeden sonra",
+      "faqs": "Nakde çevirme hakkında sorular"
+    },
+    "faqs": {
+      "q01": {
+        "question": "DevEx talebini nereye gönderiyorum?",
+        "answer": "Roblox Creator Hub'dan bağlantı verilen resmî DevEx portalı üzerinden. Geçerli bir DevEx portal hesabı, belgelenmiş koşullardan biridir."
+      },
+      "q02": {
+        "question": "Bir DevEx ödemesi ne kadar sürer?",
+        "answer": "Roblox garantili bir işlem süresi yayımlamaz; bu yüzden bu site de bir süre belirtmez. Başka yerde aktarıldığını gördüğünüz her belirli rakam birinin anlattığı bir deneyimdir, resmî bir taahhüt değil."
+      },
+      "q03": {
+        "question": "Robux satmanın daha hızlı bir yolu var mı?",
+        "answer": "Meşru olan yok. Robux satın almayı ya da bakiyeyi DevEx dışında çevirmeyi öneren hizmetler genellikle Roblox Kullanım Koşulları'nı ihlal eder ve hesabınızı riske atar. Roblox kimlik bilgilerinizi hiçbir üçüncü tarafla — bu site dâhil — paylaşmayın."
+      },
+      "q04": {
+        "question": "Bir DevEx ödemesi için vergi öder miyim?",
+        "answer": "DevEx ödemesi bir gelirdir ve nasıl vergilendirileceği yaşadığınız yere bağlıdır. Bu site vergi danışmanlığı vermez ve isteğe bağlı bir tahmin alanını yalnızca kendi rakamınızı modelleyebilmeniz için sunar."
+      }
+    },
+    "links": {
+      "devexRequirements": "önce karşılamanız gereken koşullar",
+      "home": "bakiyenizin ne ödeyeceğini tahmin edin",
+      "devexFeesAndTaxes": "çevrimden sonra neler düşülür",
+      "earnedRobux": "hangi Robux'un uygun olduğunu kontrol edin"
+    }
+  },
+  "methodology": {
+    "title": "Hesaplama yöntemi",
+    "metaDescription": "Buradaki her rakamın nasıl üretildiği: formüller, tam aritmetik, yuvarlama politikası ve bir tahminin size söyleyemedikleri.",
+    "h1": "Hesaplama yöntemi",
+    "navLabel": "Yöntem",
+    "quickAnswer": "Her ödeme rakamı, kayan noktalı sayı yerine kesir olarak tutulan tam bir ondalık kurla çarpılmış Robux'tur ve yalnızca bir kez, gösterildiği anda yuvarlanır. Gereken Robux rakamları her zaman yukarı yuvarlanır. Yerel para birimi değerleri, gözlem tarihi gösterilen Avrupa Merkez Bankası referans kurlarıdır.",
+    "ogImageAlt": "Hesaplama yöntemi: formüller, tam aritmetik ve yuvarlama politikası.",
+    "sections": {
+      "formulas": "Formüller",
+      "arithmetic": "Tam aritmetik neden önemli",
+      "rounding": "Yuvarlama politikası",
+      "currency": "Yerel para birimi tahminleri",
+      "limits": "Bunun size söyleyemedikleri"
+    },
+    "faqs": {},
+    "links": {
+      "api": "aynı kayıt JSON olarak",
+      "sources": "kaynak kaydı",
+      "home": "bu formüllerin çalıştırdığı hesaplayıcı",
+      "corrections": "bir hata nasıl bildirilir",
+      "devexRates": "kullanılan kurlar"
+    }
+  },
+  "platform": {
+    "title": "Roblox platform etkinliği: canlı oyuncu sayıları",
+    "metaDescription": "Roblox'un sıraladığı experience'lar için canlı oyuncu sayıları, kendi açık uç noktalarından okundu; ayrıca bu sitenin gözlediklerinin büyüyen kaydı.",
+    "h1": "Roblox platform etkinliği",
+    "navLabel": "Platform",
+    "quickAnswer": "Bu sayfadaki oyuncu sayıları, sayfa sunulduğunda Roblox'un kendi açık uç noktalarından okunur ve sıralama bu sitenin değil, Roblox'undur. Yanında ise bu sitenin izlemeye başladığından beri gözlediklerinin kaydı yer alır; gerçekten toplanmış olan dönem boyunca çizilir.",
+    "ogImageAlt": "Canlı Roblox oyuncu sayıları ve zaman içinde gözlenen etkinlik.",
+    "sections": {
+      "live": "Şu anda ne oynanıyor",
+      "history": "Zaman içinde gözlenen",
+      "how": "Bu sayfa rakamlarını nasıl elde ediyor",
+      "data": "Bu gözlemleri indirin",
+      "faqs": "Bu rakamlar hakkında sorular"
+    },
+    "faqs": {
+      "q01": {
+        "question": "Şu anda Roblox'u kaç kişi oynuyor?",
+        "answer": "Tablo, sayfa sunulduğu anda Roblox'un o sırada sıraladığı experience'lardaki oyuncuları toplar. Bu, platformun tamamına ait bir rakam değildir: Roblox canlı bir toplam yayımlamaz ve bu site bir tane tahmin etmez."
+      },
+      "q02": {
+        "question": "Grafik neden bu kadar kısa bir dönemi kapsıyor?",
+        "answer": "Çünkü bu site ancak o kadar süredir kayıt tutuyor. Gözlemler biriktikçe pencere kendiliğinden on dört güne kadar genişler. On dört günlük veri var olmadan on dört günlük bir eksen göstermek, hiç ölçülmemiş bir şeyi çizmek olurdu."
+      },
+      "q03": {
+        "question": "Bu oyuncu sayıları DevEx ödememi etkiler mi?",
+        "answer": "Hayır. Bir ödeme, platformun ne kadar yoğun olduğuna değil, uygun Earned Robux'unuza ve belgelenmiş kura bağlıdır."
+      }
+    },
+    "links": {
+      "robloxStats": "Roblox içerik üreticilerine ne ödüyor",
+      "platform.stock": "Roblox'un açıkladığı sonuçlar",
+      "home": "kendi DevEx ödemenizi tahmin edin"
+    }
+  },
+  "platform.stock": {
+    "title": "Roblox hissesi (RBLX): açıklanan sonuçlar, gömülü bileşen yok",
+    "metaDescription": "Roblox'un açıkladığı çeyreklik sonuçlar — gelir, bookings büyümesi, içerik üreticisi ödemeleri — ve burada neden üçüncü taraf bir fiyat bileşeni gömülmediğinin yalın açıklaması.",
+    "h1": "Roblox hissesi ve açıklanan sonuçlar",
+    "navLabel": "Hisse",
+    "quickAnswer": "Roblox, 30 Haziran 2026'da sona eren çeyrek için 1.469 milyon ABD doları gelir açıkladı; buna karşılık 185 milyon konsolide net zarar bildirdi ve Developer Exchange yoluyla içerik üreticilerine 363 milyon ödedi. Burada canlı bir hisse fiyatı yok: bu site üçüncü taraf piyasa bileşeni gömmez ve alıp kaynağını gösteremediği bir rakamı yazmaz.",
+    "ogImageAlt": "Roblox'un SEC bildirimlerinden açıkladığı çeyreklik sonuçlar.",
+    "sections": {
+      "quote": "RBLX hisse fiyatı",
+      "results": "Fiyat neye tepki verir",
+      "why": "Neden gömülü grafik yok",
+      "faqs": "Sorular"
+    },
+    "faqs": {
+      "q01": {
+        "question": "Neden canlı bir RBLX fiyatı yok?",
+        "answer": "Çünkü bir tane göstermek genellikle bir piyasa satıcısının betiğini gömmek demektir; o betik de üçüncü taraf betiği yüklemeyen bir sitede tarayıcınızda çalışırdı. Sayfa, bir sağlayıcı yapılandırıldığında fiyatı sunucu tarafında almaya hazır durumda."
+      },
+      "q02": {
+        "question": "Roblox kâr ediyor mu?",
+        "answer": "30 Haziran 2026'da sona eren çeyrek için 185 milyon ABD doları konsolide net zarar açıkladı; bir yıl önceki 280 milyonluk zarardan düşük, düzeltilmiş FAVÖK ise 152 milyon. Bunlar şirketin kendi rakamları."
+      },
+      "q03": {
+        "question": "Hisse fiyatı DevEx kurunu etkiler mi?",
+        "answer": "Belgelenmiş bir bağ yok. DevEx kurunu Roblox belirler ve yayımlar; belgelerinde bu kuru hisse fiyatına bağlayan hiçbir şey yok. Buradaki hiçbir şey yatırım tavsiyesi değildir."
+      }
+    },
+    "links": {
+      "platform": "canlı platform etkinliği",
+      "robloxStats": "içerik üreticisi ödeme istatistikleri",
+      "sources": "burada kullanılan tüm kaynaklar"
+    }
+  },
+  "privacy": {
+    "title": "Gizlilik politikası",
+    "metaDescription": "Bu sitenin neyi sakladığı, neyi saklamadığı, hesaplayıcıya girdiklerinizin nereye gittiği ve hangi üçüncü tarafların işin içinde olduğu — yalnızca gerçekten yapılandırılmış olanı anlatır.",
+    "h1": "Gizlilik politikası",
+    "navLabel": "Gizlilik",
+    "quickAnswer": "Hesaplamalar tarayıcınızda çalışır ve hiçbir zaman bir sunucuya gönderilmez. Kaydettiğiniz her şey — son hesaplamalar, tercih ettiğiniz para birimi, tema — kendi tarayıcınızın yerel depolamasında kalır ve istediğiniz an hesaplayıcıdan temizlenebilir. Bu sayfa yalnızca gerçekten açık olanı anlatır.",
+    "ogImageAlt": "Yerel depolamayı ve yapılandırılmış bütünleşmeleri anlatan gizlilik politikası.",
+    "sections": {
+      "calculations": "Hesaplamalarınız",
+      "local-storage": "Yerel depolama",
+      "analytics": "Analitik",
+      "contact": "İletişim gönderileri",
+      "infrastructure": "Barındırma ve sunucu kayıtları",
+      "external": "Dış bağlantılar",
+      "rights": "Seçimleriniz"
+    },
+    "faqs": {},
+    "links": {
+      "terms": "kullanım koşulları",
+      "disclaimer": "sorumluluk reddi",
+      "contact": "iletişim",
+      "home": "bu politikanın kapsadığı hesaplayıcı"
+    }
+  },
+  "robloxStats": {
+    "title": "Roblox içerik üreticisi ödeme istatistikleri: çeyreğe göre DevEx ücretleri",
+    "metaDescription": "Roblox'un DevEx yoluyla içerik üreticilerine gerçekte ne ödediği, SEC bildirimlerinden çizildi: 2025'te 1,50 milyar USD, çeyrek çeyrek, her rakam kaynaklı.",
+    "h1": "Roblox içerik üreticisi ödeme istatistikleri",
+    "navLabel": "İstatistikler",
+    "quickAnswer": "Roblox 2025'te Developer Exchange yoluyla içerik üreticilerine 1,503 milyar USD ödedi; 2024'te bu 922,8 milyondu ve yalnızca 2026'nın ikinci çeyreğinde 363 milyon. Bu sayfadaki her rakam Roblox'un SEC'e verdiği bir bildirimden okunur ve ona bağlantı verir. Bunlar açıklanmış çeyreklik rakamlardır, canlı ölçümler değil.",
+    "ogImageAlt": "Roblox'un çeyreğe göre developer exchange ödemeleri, SEC bildirimlerinden çizildi.",
+    "sections": {
+      "payouts": "Roblox içerik üreticilerine ne ödüyor",
+      "quarterly": "Çeyreğe göre DevEx ödemeleri",
+      "rate-history": "Bir Robux ne değer taşıdı",
+      "engagement": "Roblox'u kaç kişi kullanıyor ve ne kadar süreyle",
+      "business": "Bir şirket olarak Roblox",
+      "data": "Bu rakamları indirin",
+      "what-it-means": "Bunun sizin ödemeniz için anlamı",
+      "no-live-data": "Burada neden canlı veri yok",
+      "faqs": "Bu rakamlar hakkında sorular"
+    },
+    "faqs": {
+      "q01": {
+        "question": "Roblox geliştiricilere toplamda ne kadar ödüyor?",
+        "answer": "2025'te 1.503.106 bin ABD doları; gelir tablosunda developer exchange ücretleri olarak bildirildi. 2024'te bu 922.821 bindi. İki rakam da Roblox'un SEC bildiriminden geliyor."
+      },
+      "q02": {
+        "question": "Bu veriler canlı mı?",
+        "answer": "Hayır ve hiçbir sayfa dürüstçe öyle olduğunu iddia edemez. Roblox bu rakamları çeyrekte bir yayımlar; dolayısıyla var olan en ince çözünürlük çeyrekliktir. Bu site hiçbir veri toplama işletmez ve hiçbir şey tahmin etmez."
+      },
+      "q03": {
+        "question": "Roblox hisse fiyatı nerede?",
+        "answer": "Burada değil. Canlı bir kotasyon ücretli bir piyasa verisi akışı ve üçüncü taraf bir betik gerektirir; bu site ise izini bir belgeye kadar süremediği hiçbir rakamı yayımlamaz. Fiyatın tepki verdiği açıklanmış sonuçlar bunun yerine bu sayfada. Buradaki hiçbir şey yatırım tavsiyesi değildir."
+      },
+      "q04": {
+        "question": "Daha büyük bir ödeme toplamı daha iyi bir DevEx kuru demek mi?",
+        "answer": "Hayır. Toplam, içerik üreticilerinin ne kadarını nakde çevirdiğini yansıtır; her Robux'un ne değer taşıdığını değil. Robux başına kur ayrıca belgelenir ve gösterilen dönemde bir kez değişti."
+      }
+    },
+    "links": {
+      "devexRateHistory": "kur değişikliklerinin tarihli kaydı",
+      "devexRates": "bu ödemelerin ardındaki kurlar",
+      "home": "kendi DevEx ödemenizi tahmin edin",
+      "sources": "bu sitede kullanılan tüm kaynaklar"
+    }
+  },
+  "robuxTaxCalculator": {
+    "title": "Roblox ücret hesaplayıcısı: bir satıştaki marketplace komisyonu",
+    "metaDescription": "Roblox platform komisyonundan sonra size ne kaldığı ya da bir hedefe ulaşmak için ne kadar isteyeceğiniz. Experience içi ve Marketplace satışlarını kapsar.",
+    "h1": "Roblox ücret hesaplayıcısı",
+    "navLabel": "Roblox ücreti",
+    "quickAnswer": "\"Roblox ücreti\" platform komisyonudur ve ne sattığınıza bağlıdır. Developer product ve pass gibi experience içi satın almalarda siz %70 alırsınız, Roblox %30 alır. Marketplace avatar ürünlerinde içerik üreticisi payı %30'dan başlar ve fiyatla birlikte yükselerek taban fiyatın altı katında %70'e ulaşır. Bu, DevEx'ten ayrıdır.",
+    "ogImageAlt": "Roblox ücret hesaplayıcısı: experience içi ve Marketplace satışlarındaki marketplace komisyonu.",
+    "sections": {
+      "calculator": "Marketplace ücret hesaplayıcısı",
+      "schemes": "Hangi komisyon geçerli",
+      "progressive": "Marketplace'in artan oranlı payı",
+      "scope": "Kapsam ve istisnalar",
+      "not-devex": "Bu, DevEx kuru değildir",
+      "faqs": "Roblox ücreti hakkında sorular"
+    },
+    "faqs": {
+      "q01": {
+        "question": "Roblox ücreti ne kadar?",
+        "answer": "Experience içi satın almalarda içerik üreticisi %70 alır, Roblox %30 tutar. Marketplace avatar ürünü satışlarında içerik üreticisinin taban payı %30'dur; belgelenmiş bir kademe tablosu üzerinden yükselerek taban fiyatın altı katı veya üzeri fiyatlanan ürünler için %70'e çıkar."
+      },
+      "q02": {
+        "question": "DevEx kullandığımda Roblox ücreti yeniden uygulanıyor mu?",
+        "answer": "Hayır. Komisyon bir kez, Robux kazanıldığında uygulanır. DevEx sonra elinizde kalan Earned Robux'u çevirir. İkisini aynı rakama uygulamak ödemenizi olduğundan az gösterirdi."
+      },
+      "q03": {
+        "question": "Taban fiyat nedir?",
+        "answer": "Bir ürün kategorisi için asgari fiyattır; artan oranlı kademeler ona göre ölçülür. Taban fiyatlar kategoriye göre değiştiği için bu hesaplayıcı tek bir evrensel taban varsaymak yerine katı sorar."
+      }
+    },
+    "links": {
+      "calculators": "içerik üreticileri için diğer hesaplayıcılar",
+      "earnedRobux": "elinizde kalan Robux'a ne oluyor",
+      "home": "Earned Robux'unuzu USD'ye çevirin",
+      "devexFeesAndTaxes": "DevEx ödemesinden sonraki kesintiler"
+    }
+  },
+  "robuxToUsd": {
+    "title": "Robux'tan USD'ye: içerik üreticisi ödemesi ile satın alma fiyatı",
+    "metaDescription": "Bunun iki yanıtı var. DevEx'in bir içerik üreticisine ne ödediğiyle Robux satın almanın ne tuttuğunu karşılaştırın ve herhangi bir tutarı açıkça belirtilen kurla çevirin.",
+    "h1": "Robux'tan USD'ye",
+    "navLabel": "Robux'tan USD'ye",
+    "quickAnswer": "\"Robux'tan USD'ye\" sorusunun, kimin sorduğuna göre iki dürüst yanıtı vardır. Uygun Earned Robux'u nakde çeviren bir içerik üreticisi DevEx yoluyla Robux başına 0,0038 USD alır; yani 100.000 Robux yaklaşık 380 dolardır. Robux satın alan bir oyuncu ise Roblox'un belirlediği perakende fiyatı öder ve bu tamamen başka bir işlemdir. Bu sayfa ikisini ayrı tutar.",
+    "ogImageAlt": "Robux'tan USD'ye: içerik üreticisine DevEx ödemesiyle perakende satın alma fiyatının karşılaştırması.",
+    "sections": {
+      "converter": "Robux'u USD'ye çevir",
+      "two-answers": "Neden iki yanıt var",
+      "comparison": "İçerik üreticisi ödemesiyle satın alma fiyatının karşılaştırması",
+      "formula": "Çevrim formülü",
+      "amounts": "Yaygın tutarlar",
+      "faqs": "Robux çevirme hakkında sorular"
+    },
+    "faqs": {
+      "q01": {
+        "question": "1.000 Robux kaç USD eder?",
+        "answer": "Uygun Earned Robux'u nakde çeviren bir içerik üreticisi için 1.000 Robux, güncel DevEx kurunda 3,80 ABD dolarıdır. Bu rakam bir ödeme kurudur; bir oyuncunun 1.000 Robux satın almak için ödediği fiyat değil."
+      },
+      "q02": {
+        "question": "Herhangi bir Robux'u USD'ye çevirebilir miyim?",
+        "answer": "Hayır. DevEx yoluyla yalnızca uygun Earned Robux çevrilebilir ve ancak bakiyeniz 30.000'e ulaştığında. Satın aldığınız Robux paraya geri çevrilemez."
+      },
+      "q03": {
+        "question": "Bu site neden tek bir Robux satın alma fiyatı yayımlamıyor?",
+        "answer": "Roblox, Robux'u pakete, bölgeye ve platforma göre fiyatlandırır ve bu fiyatlar değişir. Tek bir evrensel satın alma kuru yayımlamak rakam uydurmak olurdu; bu yüzden bu sayfa ayrımı açıklar ve bunun yerine resmî fiyatlandırmaya bağlantı verir."
+      },
+      "q04": {
+        "question": "Çevrim her ülkede aynı mı?",
+        "answer": "DevEx kurunun kendisi ABD doları cinsinden belirtilir. Bu sitedeki yerel para birimi rakamları, Avrupa Merkez Bankası'nın referans kurlarına dayanan tahminlerdir ve bankanız ya da ödeme sağlayıcınız kendi kurunu ve ücretlerini uygular."
+      }
+    },
+    "links": {
+      "home": "DevEx hesaplayıcısının tamamı",
+      "devexRates": "bu çevrimin ardındaki kur",
+      "usdToRobux": "ters yönde çevir",
+      "earnedRobux": "bir Robux'u uygun kılan nedir",
+      "conversions": "yaygın tutarlar tablosu"
+    }
+  },
+  "sources": {
+    "title": "Kaynaklar ve doğrulama tarihleri",
+    "metaDescription": "Bu sitedeki kurların, alt sınırların ve ücret yüzdelerinin ardındaki tüm resmî kaynaklar, her birinin neyi desteklediği ve en son ne zaman denetlendiği.",
+    "h1": "Kaynaklar",
+    "navLabel": "Kaynaklar",
+    "quickAnswer": "Bu sitedeki zamana duyarlı her iddia aşağıda listelenen kaynaklardan birine bağlanır; her biri desteklediği olgularla ve en son denetlendiği tarihle birlikte. Bir kaynak bir konuda susuyorsa, bu site de boşluğu doldurmak yerine susar.",
+    "ogImageAlt": "Yayımlanan her rakam için doğrulama tarihleriyle kaynak kaydı.",
+    "sections": {
+      "registry": "Kaynak kaydı",
+      "cadence": "Gözden geçirme sıklığı"
+    },
+    "faqs": {},
+    "links": {
+      "api": "bu kaynakları JSON olarak okuyun",
+      "methodology": "rakamlar nasıl hesaplanıyor",
+      "devexRates": "bu kaynakların desteklediği kurlar",
+      "corrections": "güncelliğini yitirmiş bir rakamı bildirin",
+      "home": "bu kaynakların beslediği hesaplayıcı"
+    }
+  },
+  "terms": {
+    "title": "Kullanım koşulları",
+    "metaDescription": "DevExCalculator.org'un kullanımını kapsayan koşullar; her rakamın yalnızca tahmin niteliği ve Roblox Corporation ile herhangi bir bağın bulunmaması dâhil.",
+    "h1": "Kullanım koşulları",
+    "navLabel": "Koşullar",
+    "quickAnswer": "Bu siteyi DevEx ödemelerini tahmin etmek için serbestçe kullanabilirsiniz. Her rakam bir tahmindir ve bunların hiçbiri finansal, hukuki ya da vergisel danışmanlık değildir. Bu site Roblox Corporation'dan bağımsızdır ve bir DevEx talebinin sonucunu etkileyemez, öngöremez ya da garanti edemez.",
+    "ogImageAlt": "DevExCalculator.org kullanım koşulları.",
+    "sections": {
+      "use": "Bu siteyi kullanmak",
+      "estimates": "Tahmin, danışmanlık değil",
+      "affiliation": "Roblox ile bağlantı yok",
+      "liability": "Sorumluluğun sınırlandırılması",
+      "changes": "Bu koşullardaki değişiklikler"
+    },
+    "faqs": {},
+    "links": {
+      "privacy": "gizlilik politikası",
+      "disclaimer": "sorumluluk reddi",
+      "home": "bu koşulların kapsadığı hesaplayıcı"
+    }
+  },
+  "usdToRobux": {
+    "title": "USD'den Robux'a: bir ödeme hedefi için gereken Earned Robux",
+    "metaDescription": "Dolar cinsinden bir ödeme hedefi belirleyin ve kaç uygun Earned Robux gerektiğini yukarı yuvarlanmış olarak, mevcut bakiyenize göre ilerlemeyle birlikte görün.",
+    "h1": "USD'den Robux'a: bir ödeme hedefinden geriye doğru hesaplayın",
+    "navLabel": "Ödeme hedefi",
+    "quickAnswer": "Güncel kurda 1.000 ABD dolarlık bir DevEx ödemesine ulaşmak için 263.158 uygun Earned Robux gerekir. Rakam her zaman yukarı yuvarlanır; çünkü Robux'un kesri diye bir şey yoktur ve aşağı yuvarlamak sizi hedefinizin altında bırakırdı. 30.000 Earned Robux'un altında, hedef ne olursa olsun hiçbir ödeme mümkün değildir.",
+    "ogImageAlt": "USD'den Robux'a: hedeflenen bir DevEx ödemesi kaç Earned Robux gerektirir.",
+    "sections": {
+      "target-calculator": "Hedefiniz için gereken Earned Robux",
+      "rounding": "Yanıt neden yukarı yuvarlanıyor",
+      "minimum": "Alt sınır yine de geçerlidir",
+      "planner": "Sizin hızınızda ne kadar sürer",
+      "examples": "Yaygın ödeme hedefleri",
+      "buying-robux": "Bu, Robux satın almakla ilgili değil",
+      "faqs": "Ödeme hedefleri hakkında sorular"
+    },
+    "faqs": {
+      "q01": {
+        "question": "1.000 USD için kaç Earned Robux gerekir?",
+        "answer": "Güncel 0,0038 kurunda 263.158 uygun Earned Robux. 1.000'i 0,0038'e bölmek 263.157,89 verir ve ödemenin hedefe gerçekten ulaşması için sonuç yukarı yuvarlanır."
+      },
+      "q02": {
+        "question": "100 USD için kaç Earned Robux gerekir?",
+        "answer": "26.316 Earned Robux aritmetik olarak 100 dolara ulaşırdı; ama bu 30.000 alt sınırının altında. Dolayısıyla bir talebin gönderilebilmesi için önce 30.000'e ihtiyacınız olurdu — ki bu da yaklaşık 114 dolar öder."
+      },
+      "q03": {
+        "question": "Bu bana belirli bir parayla kaç Robux alabileceğimi söyler mi?",
+        "answer": "Hayır. Bu sayfa içerik üreticisinin sorusunu yanıtlar: belirli bir ödemeyi almak için ne kadar kazanmanız gerektiğini. Robux satın alma Roblox tarafından ayrıca fiyatlandırılır ve bu site evrensel bir satın alma kuru uydurmaz."
+      },
+      "q04": {
+        "question": "Bakiyemin bir kısmı eskiyse yanıt değişir mi?",
+        "answer": "Evet. Eski bakiyeler 0,0035'ten çevrilir; dolayısıyla aynı dolar hedefine ulaşmak daha fazla Robux gerektirir. Karışık bir bakiyeyi modellemek için hesaplayıcının bölünmüş kipini kullanın."
+      }
+    },
+    "links": {
+      "home": "ana DevEx hesaplayıcısı",
+      "robuxToUsd": "ters yönde çevir",
+      "devexRequirements": "alt sınır ve koşullar",
+      "devexRates": "bu hesaplamada kullanılan kurlar",
+      "howToCashOutRobux": "hedefinize ulaştığınızda ne oluyor"
+    }
+  }
+}

@@ -1,0 +1,1096 @@
+{
+  "$comment": "Machine-drafted. Not yet read by a native speaker. Titles, meta descriptions, quick answers, FAQs and link anchors for every route. Figures keep their value; only the separators follow local convention.",
+  "$identical": [
+    "api.sections.fx",
+    "api.sections.platform",
+    "api.sections.rates",
+    "api.sections.stats",
+    "changelog.h1",
+    "changelog.navLabel",
+    "changelog.title"
+  ],
+  "home": {
+    "title": "DevEx-Rechner: Earned Robux in USD umrechnen",
+    "metaDescription": "Was deine anrechenbaren Earned Robux zum aktuellen DevEx-Kurs von 0,0038 in USD wert sind, mit Vergleichen zum alten Kurs und zum USA-18+-Kurs und einer Quelle für jede Zahl.",
+    "h1": "DevEx-Rechner: Earned Robux in USD umrechnen",
+    "navLabel": "Rechner",
+    "quickAnswer": "Zum aktuellen DevEx-Kurs von 0,0038 USD pro anrechenbarem Earned Robux ergeben 30.000 Earned Robux rund 114 US-Dollar und 100.000 rund 380. Nur Earned Robux zählen, 30.000 ist das Minimum, das Roblox akzeptiert, und jede Zahl hier ist eine Schätzung — allein Roblox entscheidet, welche Robux anrechenbar sind und ob ein Antrag genehmigt wird.",
+    "ogImageAlt": "DevEx-Rechner: anrechenbare Earned Robux in eine geschätzte Auszahlung in US-Dollar umrechnen.",
+    "sections": {
+      "calculator": "DevEx-Rechner",
+      "rate-comparison": "Was jeder Kurs zahlen würde",
+      "how-it-works": "Wie die Berechnung funktioniert",
+      "current-rates": "Aktuelle DevEx-Kurse",
+      "earned-robux": "Nicht jeder Robux ist ein Earned Robux",
+      "popular-amounts": "Übliche Beträge",
+      "requirements": "Was Roblox verlangt",
+      "faqs": "Fragen, die Creator stellen"
+    },
+    "faqs": {
+      "q01": {
+        "question": "Wie hoch ist der aktuelle DevEx-Kurs von Roblox?",
+        "answer": "Roblox dokumentiert einen Standardkurs von 0,0038 USD pro anrechenbarem Earned Robux, den es als 114 USD für 30.000 Earned Robux angibt. Dieser Kurs gilt seit dem 5. September 2025 um 10:00 PT."
+      },
+      "q02": {
+        "question": "Wie viel sind 100.000 Earned Robux bei DevEx?",
+        "answer": "100.000 anrechenbare Earned Robux sind zum Standardkurs rund 380 US-Dollar, vor Gebühren des Zahlungsdienstleisters und vor Steuern. Derselbe Betrag wären zum älteren Kurs von 0,0035 350 US-Dollar gewesen."
+      },
+      "q03": {
+        "question": "Wie hoch ist das Earned-Robux-Minimum für DevEx?",
+        "answer": "Roblox verlangt mindestens 30.000 Earned Robux auf deinem Konto, bevor du an DevEx teilnehmen kannst. Diese Zahl zu erreichen ist eine Voraussetzung, keine Genehmigung — Roblox prüft weiterhin jeden Antrag."
+      },
+      "q04": {
+        "question": "Ist jedes Robux-Guthaben für DevEx anrechenbar?",
+        "answer": "Nein. DevEx gilt für Earned Robux, die Roblox als durch Creator-Tätigkeit verdiente Robux beschreibt. Gekaufte Guthaben, Geschenkkartenguthaben und andere Kategorien werden anders behandelt, und Roblox entscheidet, welcher Teil eines Guthabens anrechenbar ist."
+      },
+      "q05": {
+        "question": "Warum ist der DevEx-Kurs niedriger als der Preis für den Kauf von Robux?",
+        "answer": "Das sind zwei verschiedene Geschäfte. Robux zu kaufen ist ein Einzelhandelskauf mit dem Preis der Plattform; DevEx ist Roblox, das einen Creator für anrechenbare Einnahmen bezahlt. Keine der beiden Zahlen sagt die andere voraus, und deshalb mischt diese Website sie nie in einem Ergebnis."
+      },
+      "q06": {
+        "question": "Kann ich wählen, welcher Kurs für mein Guthaben gilt?",
+        "answer": "Nein. Roblox bestimmt, welcher Teil eines Guthabens unter den Standardkurs fällt, unter den alten Kurs für vor dem 5. September 2025 verdiente Guthaben, und unter den höheren Kurs für anrechenbare Ausgaben von verifizierten Spielenden aus den Vereinigten Staaten ab 18 Jahren. Der Vergleich hier zeigt, was jeder Kurs zahlen würde, keine Auswahlliste."
+      }
+    },
+    "links": {
+      "robuxToUsd": "Robux allgemein in USD umrechnen",
+      "devexRates": "die aktuellen DevEx-Kurse vollständig",
+      "devexRequirements": "was Roblox vor einer Auszahlung verlangt",
+      "earnedRobux": "welche Robux als Earned Robux zählen",
+      "howToCashOutRobux": "wie die Auszahlung abläuft",
+      "calculators": "alle Finanzrechner für Creator",
+      "methodology": "wie diese Zahlen berechnet werden",
+      "usdToRobux": "von einem Auszahlungsziel rückwärts rechnen",
+      "conversions": "Umrechnungen für übliche Beträge"
+    }
+  },
+  "about": {
+    "title": "Über den DevEx-Rechner",
+    "metaDescription": "Wer diese Website betreibt, wozu sie da ist, was sie bewusst nicht tut, und warum sie nicht mit der Roblox Corporation verbunden ist.",
+    "h1": "Über den DevEx-Rechner",
+    "navLabel": "Über",
+    "quickAnswer": "DevExCalculator.org ist ein unabhängiger Rechner und Nachschlagewerk für Roblox-Creator, die wissen wollen, was eine DevEx-Auszahlung wert ist. Die Website ist nicht mit der Roblox Corporation verbunden, wird von ihr nicht unterstützt und nicht betrieben, und sie kann nicht feststellen, ob ein Antrag genehmigt wird.",
+    "ogImageAlt": "Über den DevEx-Rechner, ein unabhängiges Nachschlagewerk zu Roblox-Creator-Auszahlungen.",
+    "sections": {
+      "purpose": "Wozu diese Website da ist",
+      "principles": "Wie sie gebaut ist",
+      "limits": "Was sie nicht tun wird",
+      "affiliation": "Verbindungen"
+    },
+    "faqs": {},
+    "links": {
+      "methodology": "die Berechnungsmethodik",
+      "sources": "die Quellen hinter jeder Zahl",
+      "editorialPolicy": "die redaktionellen Regeln",
+      "accessibility": "die Erklärung zur Barrierefreiheit",
+      "home": "der Rechner selbst"
+    }
+  },
+  "accessibility": {
+    "title": "Erklärung zur Barrierefreiheit",
+    "metaDescription": "Der Barrierefreiheitsstandard, den diese Website anstrebt, was geprüft wurde, bekannte Einschränkungen, und wie man eine Barriere meldet.",
+    "h1": "Erklärung zur Barrierefreiheit",
+    "navLabel": "Barrierefreiheit",
+    "quickAnswer": "Diese Website strebt WCAG 2.2 Stufe AA an. Der Rechner ist vollständig mit der Tastatur bedienbar, Ergebnisse werden Screenreadern angesagt, bei 320 Pixeln scrollt nichts seitwärts, und das Layout hält bei 200 % Textzoom. Wenn dich etwas blockiert, ist es wirklich hilfreich, das zu melden.",
+    "ogImageAlt": "Erklärung zur Barrierefreiheit mit dem Ziel WCAG 2.2 Stufe AA.",
+    "sections": {
+      "standard": "Der angestrebte Standard",
+      "tested": "Was geprüft wurde",
+      "features": "Barrierefreiheitsfunktionen",
+      "limitations": "Bekannte Einschränkungen",
+      "feedback": "Ein Problem melden"
+    },
+    "faqs": {},
+    "links": {
+      "contact": "ein Barrierefreiheitsproblem melden",
+      "home": "der Rechner selbst"
+    }
+  },
+  "api": {
+    "title": "Kurs-API: das DevEx-Register als JSON",
+    "metaDescription": "Ein kostenloser, versionierter JSON-Endpunkt für die aktuellen DevEx-Kurse, das Minimum und die Marketplace-Gebühr, jeweils mit der Quelle, gegen die geprüft wurde.",
+    "h1": "Kurs-API",
+    "navLabel": "API",
+    "quickAnswer": "Dasselbe Kursregister, mit dem diese Website rechnet, wird unter /api/rates als JSON veröffentlicht, mit Quelle und Prüfdatum an jeder Zahl. Es braucht keinen Schlüssel, setzt kein Cookie und darf aus einem Browser von jeder Herkunft aufgerufen werden. Wenn du deinen eigenen Rechner baust, lies es aus, statt eine Zahl zu kopieren, die veralten wird.",
+    "ogImageAlt": "Kurs-API: das DevEx-Kursregister als JSON veröffentlicht, mit seinen Quellen.",
+    "sections": {
+      "rates": "GET /api/rates",
+      "fx": "GET /api/fx/latest",
+      "stats": "GET /api/stats",
+      "platform": "GET /api/platform",
+      "using": "Nutzung",
+      "terms": "Was zugesagt wird und was nicht"
+    },
+    "faqs": {},
+    "links": {
+      "methodology": "wie diese Zahlen entstehen",
+      "sources": "wo jede Zahl geprüft wurde",
+      "changelog": "wann sich die Daten zuletzt geändert haben",
+      "about": "wozu diese Website da ist"
+    }
+  },
+  "calculators": {
+    "title": "Finanzrechner für Roblox-Creator",
+    "metaDescription": "Vier funktionierende Rechner für DevEx-Auszahlungen, Robux-Umrechnungen, Auszahlungsziele und Marketplace-Gebühren — und wann welcher passt.",
+    "h1": "Finanzrechner für Creator",
+    "navLabel": "Rechner",
+    "quickAnswer": "Vier Rechner, jeder beantwortet eine Frage. Der DevEx-Rechner wandelt Earned Robux in Dollar um. Robux zu USD trennt die Creator-Auszahlung vom Kaufpreis. Der Zielrechner rechnet von einem Dollarziel rückwärts. Der Roblox-Gebührenrechner behandelt die Plattformprovision bei einem Verkauf.",
+    "ogImageAlt": "Verzeichnis der Finanzrechner für Roblox-Creator.",
+    "sections": {
+      "tools": "Verfügbare Rechner"
+    },
+    "faqs": {},
+    "links": {
+      "home": "DevEx-Rechner",
+      "robuxToUsd": "Robux-zu-USD-Umrechner",
+      "usdToRobux": "Rechner für das Auszahlungsziel",
+      "robuxTaxCalculator": "Roblox-Gebührenrechner",
+      "guides": "die erklärenden Leitfäden"
+    }
+  },
+  "changelog": {
+    "title": "Changelog",
+    "metaDescription": "Ein datiertes Verzeichnis jeder Änderung an den Kursen, Voraussetzungen und Berechnungen dieser Website, einschließlich dessen, was geprüft wurde und gegen welche Quelle.",
+    "h1": "Changelog",
+    "navLabel": "Changelog",
+    "quickAnswer": "Jede Änderung an einem veröffentlichten Kurs, Minimum oder Gebührensatz wird hier mit Datum und der begründenden Quelle festgehalten. Kursdaten werden nie automatisch aus einer abgegriffenen Seite aktualisiert; jede Änderung wird zuerst von Hand geprüft.",
+    "ogImageAlt": "Changelog der Kurs- und Inhaltsaktualisierungen mit Daten und Quellen.",
+    "sections": {
+      "entries": "Änderungsverlauf"
+    },
+    "faqs": {},
+    "links": {
+      "devexRateHistory": "die Geschichte des DevEx-Kurses selbst",
+      "corrections": "die Korrekturrichtlinie",
+      "sources": "das Quellenregister",
+      "about": "wie diese Website gepflegt wird"
+    }
+  },
+  "contact": {
+    "title": "Kontakt",
+    "metaDescription": "Wie du DevExCalculator.org zu einer sachlichen Korrektur, einem Barrierefreiheitsproblem oder einer Frage zu den Berechnungen erreichst.",
+    "h1": "Kontakt",
+    "navLabel": "Kontakt",
+    "quickAnswer": "Korrekturen an einem Kurs oder einer Voraussetzung sind das Nützlichste, was du schicken kannst — besonders mit einem Link auf die offizielle Seite, die dem hier Veröffentlichten widerspricht. Bei deinem Roblox-Konto, deinem DevEx-Antrag oder einer ausgebliebenen Auszahlung kann diese Website nicht helfen; das kann nur Roblox.",
+    "ogImageAlt": "Kontaktseite für Korrekturen und Barrierefreiheitsmeldungen.",
+    "sections": {
+      "form": "Kontakt aufnehmen",
+      "cannot-help": "Wobei diese Website nicht helfen kann"
+    },
+    "faqs": {},
+    "links": {
+      "corrections": "die Korrekturrichtlinie",
+      "privacy": "wie deine Nachricht behandelt wird",
+      "about": "über diese Website"
+    }
+  },
+  "conversions": {
+    "title": "Robux-zu-USD-Umrechnungen für übliche Beträge",
+    "metaDescription": "Übliche Earned-Robux-Beträge, bewertet zum aktuellen, zum alten und zum USA-18+-Kurs, dazu ein Feld für jeden beliebigen Betrag.",
+    "h1": "Robux-zu-USD-Umrechnungen",
+    "navLabel": "Umrechnungen",
+    "quickAnswer": "Jeder Betrag unten wird zum aktuellen DevEx-Kurs von 0,0038 USD pro anrechenbarem Earned Robux umgerechnet, mit dem alten und dem bedingten Kurs zum Vergleich daneben. Beträge unter 30.000 stehen zur Orientierung dabei, können aber nicht ausgezahlt werden, denn das ist das dokumentierte Minimum.",
+    "ogImageAlt": "Umrechnungstabelle üblicher Robux-Beträge in US-Dollar.",
+    "sections": {
+      "converter": "Beliebigen Betrag umrechnen",
+      "table": "Übliche Beträge",
+      "detailed": "Beträge mit vollständiger Aufschlüsselung",
+      "rounding": "Wie diese Zahlen gerundet werden"
+    },
+    "faqs": {},
+    "links": {
+      "robuxToUsd": "der Robux-zu-USD-Umrechner",
+      "home": "der vollständige DevEx-Rechner",
+      "devexRates": "die Kurse, die in dieser Tabelle verwendet werden"
+    }
+  },
+  "conversions.100000RobuxToUsd": {
+    "title": "100.000 Robux in USD: geschätzte DevEx-Auszahlung",
+    "metaDescription": "100.000 anrechenbare Earned Robux sind zum aktuellen DevEx-Kurs rund 380,00 $. Verglichen mit dem alten Kurs und dem USA-18+-Kurs.",
+    "h1": "100.000 Robux in USD",
+    "navLabel": "100.000 Robux",
+    "quickAnswer": "100.000 anrechenbare Earned Robux ergeben zum aktuellen DevEx-Kurs von 0,0038 USD pro Robux 380,00 $. Zum alten Kurs von 0,0035 würde derselbe Betrag 350,00 $ zahlen, ein Unterschied von 30,00 $. 100.000 ist die meistgesuchte runde Zahl in diesem Bereich, und es ist der Punkt, an dem der Abstand zwischen aktuellem und altem Kurs groß genug wird, um aufzufallen: dreißig Dollar trennen sie.",
+    "ogImageAlt": "100.000 Robux umgerechnet in eine geschätzte DevEx-Auszahlung in US-Dollar.",
+    "sections": {
+      "value": "Was 100.000 Robux wert sind",
+      "rate-comparison": "Zu allen drei Kursen",
+      "context": "Warum dieser Betrag wichtig ist",
+      "reverse": "Diesen Betrag erreichen",
+      "nearby": "Benachbarte Beträge"
+    },
+    "faqs": {
+      "q01": {
+        "question": "Wie viel sind 100.000 Robux in USD?",
+        "answer": "380,00 $ für anrechenbare Earned Robux zum aktuellen DevEx-Kurs, vor allen Gebühren des Zahlungsdienstleisters und vor Einkommensteuer. Das gilt nur für Earned Robux, nicht für ein gekauftes Guthaben."
+      },
+      "q02": {
+        "question": "Erreichen 100.000 Robux das DevEx-Minimum?",
+        "answer": "100.000 Earned Robux sind das 3,3-Fache des dokumentierten Minimums von 30.000, die Schwelle ist also überschritten. Die Schwelle zu überschreiten ist nicht dasselbe wie genehmigt zu sein — Roblox prüft jeden Antrag."
+      }
+    },
+    "links": {
+      "conversions": "die Beträge zu beiden Seiten von 100.000",
+      "robuxToUsd": "etwas anderes als 100.000 Robux umrechnen",
+      "devexRates": "der Kurs hinter der Zahl 380,00 $",
+      "conversions.50000RobuxToUsd": "50.000 Robux in USD",
+      "conversions.200000RobuxToUsd": "200.000 Robux in USD"
+    }
+  },
+  "conversions.1000000RobuxToUsd": {
+    "title": "1.000.000 Robux in USD: geschätzte DevEx-Auszahlung",
+    "metaDescription": "1.000.000 anrechenbare Earned Robux sind zum aktuellen DevEx-Kurs rund 3.800,00 $. Verglichen mit dem alten Kurs und dem USA-18+-Kurs.",
+    "h1": "1.000.000 Robux in USD",
+    "navLabel": "1.000.000 Robux",
+    "quickAnswer": "1.000.000 anrechenbare Earned Robux ergeben zum aktuellen DevEx-Kurs von 0,0038 USD pro Robux 3.800,00 $. Zum alten Kurs von 0,0035 würde derselbe Betrag 3.500,00 $ zahlen, ein Unterschied von 300,00 $. Eine Million Robux ist die Marke, nach der Creator tatsächlich suchen, und sie zeigt am deutlichsten, warum Kaufpreis und DevEx-Auszahlung nicht dieselbe Zahl sind.",
+    "ogImageAlt": "1.000.000 Robux umgerechnet in eine geschätzte DevEx-Auszahlung in US-Dollar.",
+    "sections": {
+      "value": "Was 1.000.000 Robux wert sind",
+      "rate-comparison": "Zu allen drei Kursen",
+      "context": "Warum dieser Betrag wichtig ist",
+      "reverse": "Diesen Betrag erreichen",
+      "nearby": "Benachbarte Beträge"
+    },
+    "faqs": {
+      "q01": {
+        "question": "Wie viel sind 1.000.000 Robux in USD?",
+        "answer": "3.800,00 $ für anrechenbare Earned Robux zum aktuellen DevEx-Kurs, vor allen Gebühren des Zahlungsdienstleisters und vor Einkommensteuer. Das gilt nur für Earned Robux, nicht für ein gekauftes Guthaben."
+      },
+      "q02": {
+        "question": "Erreichen 1.000.000 Robux das DevEx-Minimum?",
+        "answer": "1.000.000 Earned Robux sind das 33,3-Fache des dokumentierten Minimums von 30.000, die Schwelle ist also überschritten. Die Schwelle zu überschreiten ist nicht dasselbe wie genehmigt zu sein — Roblox prüft jeden Antrag."
+      }
+    },
+    "links": {
+      "conversions": "die Beträge zu beiden Seiten von 1.000.000",
+      "robuxToUsd": "etwas anderes als 1.000.000 Robux umrechnen",
+      "devexRates": "der Kurs hinter der Zahl 3.800,00 $",
+      "conversions.500000RobuxToUsd": "500.000 Robux in USD",
+      "conversions.10000000RobuxToUsd": "10.000.000 Robux in USD"
+    }
+  },
+  "conversions.10000000RobuxToUsd": {
+    "title": "10.000.000 Robux in USD: geschätzte DevEx-Auszahlung",
+    "metaDescription": "10.000.000 anrechenbare Earned Robux sind zum aktuellen DevEx-Kurs rund 38.000,00 $. Verglichen mit dem alten Kurs und dem USA-18+-Kurs.",
+    "h1": "10.000.000 Robux in USD",
+    "navLabel": "10.000.000 Robux",
+    "quickAnswer": "10.000.000 anrechenbare Earned Robux ergeben zum aktuellen DevEx-Kurs von 0,0038 USD pro Robux 38.000,00 $. Zum alten Kurs von 0,0035 würde derselbe Betrag 35.000,00 $ zahlen, ein Unterschied von 3.000,00 $. Zehn Millionen Earned Robux stehen für anhaltende Einnahmen aus einer großen Experience. In dieser Größenordnung verändert die Aufteilung zwischen Standard- und Altguthaben, und jeder anrechenbare USA-18+-Anteil, die Summe um Tausende von Dollar.",
+    "ogImageAlt": "10.000.000 Robux umgerechnet in eine geschätzte DevEx-Auszahlung in US-Dollar.",
+    "sections": {
+      "value": "Was 10.000.000 Robux wert sind",
+      "rate-comparison": "Zu allen drei Kursen",
+      "context": "Warum dieser Betrag wichtig ist",
+      "reverse": "Diesen Betrag erreichen",
+      "nearby": "Benachbarte Beträge"
+    },
+    "faqs": {
+      "q01": {
+        "question": "Wie viel sind 10.000.000 Robux in USD?",
+        "answer": "38.000,00 $ für anrechenbare Earned Robux zum aktuellen DevEx-Kurs, vor allen Gebühren des Zahlungsdienstleisters und vor Einkommensteuer. Das gilt nur für Earned Robux, nicht für ein gekauftes Guthaben."
+      },
+      "q02": {
+        "question": "Erreichen 10.000.000 Robux das DevEx-Minimum?",
+        "answer": "10.000.000 Earned Robux sind das 333,3-Fache des dokumentierten Minimums von 30.000, die Schwelle ist also überschritten. Die Schwelle zu überschreiten ist nicht dasselbe wie genehmigt zu sein — Roblox prüft jeden Antrag."
+      }
+    },
+    "links": {
+      "conversions": "die Beträge zu beiden Seiten von 10.000.000",
+      "robuxToUsd": "etwas anderes als 10.000.000 Robux umrechnen",
+      "devexRates": "der Kurs hinter der Zahl 38.000,00 $",
+      "conversions.1000000RobuxToUsd": "1.000.000 Robux in USD",
+      "conversions.500000RobuxToUsd": "500.000 Robux in USD"
+    }
+  },
+  "conversions.200000RobuxToUsd": {
+    "title": "200.000 Robux in USD: geschätzte DevEx-Auszahlung",
+    "metaDescription": "200.000 anrechenbare Earned Robux sind zum aktuellen DevEx-Kurs rund 760,00 $. Verglichen mit dem alten Kurs und dem USA-18+-Kurs.",
+    "h1": "200.000 Robux in USD",
+    "navLabel": "200.000 Robux",
+    "quickAnswer": "200.000 anrechenbare Earned Robux ergeben zum aktuellen DevEx-Kurs von 0,0038 USD pro Robux 760,00 $. Zum alten Kurs von 0,0035 würde derselbe Betrag 700,00 $ zahlen, ein Unterschied von 60,00 $. Bei 200.000 Earned Robux lässt sich ein Creator meist regelmäßig auszahlen statt einmalig, und dann lohnt es sich, den Unterschied zwischen den Kursgruppen zu verfolgen statt ihn zu schätzen.",
+    "ogImageAlt": "200.000 Robux umgerechnet in eine geschätzte DevEx-Auszahlung in US-Dollar.",
+    "sections": {
+      "value": "Was 200.000 Robux wert sind",
+      "rate-comparison": "Zu allen drei Kursen",
+      "context": "Warum dieser Betrag wichtig ist",
+      "reverse": "Diesen Betrag erreichen",
+      "nearby": "Benachbarte Beträge"
+    },
+    "faqs": {
+      "q01": {
+        "question": "Wie viel sind 200.000 Robux in USD?",
+        "answer": "760,00 $ für anrechenbare Earned Robux zum aktuellen DevEx-Kurs, vor allen Gebühren des Zahlungsdienstleisters und vor Einkommensteuer. Das gilt nur für Earned Robux, nicht für ein gekauftes Guthaben."
+      },
+      "q02": {
+        "question": "Erreichen 200.000 Robux das DevEx-Minimum?",
+        "answer": "200.000 Earned Robux sind das 6,7-Fache des dokumentierten Minimums von 30.000, die Schwelle ist also überschritten. Die Schwelle zu überschreiten ist nicht dasselbe wie genehmigt zu sein — Roblox prüft jeden Antrag."
+      }
+    },
+    "links": {
+      "conversions": "die Beträge zu beiden Seiten von 200.000",
+      "robuxToUsd": "etwas anderes als 200.000 Robux umrechnen",
+      "devexRates": "der Kurs hinter der Zahl 760,00 $",
+      "conversions.100000RobuxToUsd": "100.000 Robux in USD",
+      "conversions.300000RobuxToUsd": "300.000 Robux in USD"
+    }
+  },
+  "conversions.30000RobuxToUsd": {
+    "title": "30.000 Robux in USD: geschätzte DevEx-Auszahlung",
+    "metaDescription": "30.000 anrechenbare Earned Robux sind zum aktuellen DevEx-Kurs rund 114,00 $. Verglichen mit dem alten Kurs und dem USA-18+-Kurs.",
+    "h1": "30.000 Robux in USD",
+    "navLabel": "30.000 Robux",
+    "quickAnswer": "30.000 anrechenbare Earned Robux ergeben zum aktuellen DevEx-Kurs von 0,0038 USD pro Robux 114,00 $. Zum alten Kurs von 0,0035 würde derselbe Betrag 105,00 $ zahlen, ein Unterschied von 9,00 $. 30.000 ist der Betrag, auf den es am meisten ankommt, denn es ist das Mindestguthaben an Earned Robux, das Roblox verlangt, bevor überhaupt ein DevEx-Antrag gestellt werden kann. Unterhalb dieser Zahl lautet die Frage nicht, wie hoch die Auszahlung wäre, sondern ob ein Antrag möglich ist.",
+    "ogImageAlt": "30.000 Robux umgerechnet in eine geschätzte DevEx-Auszahlung in US-Dollar.",
+    "sections": {
+      "value": "Was 30.000 Robux wert sind",
+      "rate-comparison": "Zu allen drei Kursen",
+      "context": "Warum dieser Betrag wichtig ist",
+      "reverse": "Diesen Betrag erreichen",
+      "nearby": "Benachbarte Beträge"
+    },
+    "faqs": {
+      "q01": {
+        "question": "Wie viel sind 30.000 Robux in USD?",
+        "answer": "114,00 $ für anrechenbare Earned Robux zum aktuellen DevEx-Kurs, vor allen Gebühren des Zahlungsdienstleisters und vor Einkommensteuer. Das gilt nur für Earned Robux, nicht für ein gekauftes Guthaben."
+      },
+      "q02": {
+        "question": "Erreichen 30.000 Robux das DevEx-Minimum?",
+        "answer": "30.000 Earned Robux sind das 1,0-Fache des dokumentierten Minimums von 30.000, die Schwelle ist also überschritten. Die Schwelle zu überschreiten ist nicht dasselbe wie genehmigt zu sein — Roblox prüft jeden Antrag."
+      }
+    },
+    "links": {
+      "conversions": "die Beträge zu beiden Seiten von 30.000",
+      "robuxToUsd": "etwas anderes als 30.000 Robux umrechnen",
+      "devexRates": "der Kurs hinter der Zahl 114,00 $",
+      "conversions.50000RobuxToUsd": "50.000 Robux in USD",
+      "conversions.100000RobuxToUsd": "100.000 Robux in USD"
+    }
+  },
+  "conversions.300000RobuxToUsd": {
+    "title": "300.000 Robux in USD: geschätzte DevEx-Auszahlung",
+    "metaDescription": "300.000 anrechenbare Earned Robux sind zum aktuellen DevEx-Kurs rund 1.140,00 $. Verglichen mit dem alten Kurs und dem USA-18+-Kurs.",
+    "h1": "300.000 Robux in USD",
+    "navLabel": "300.000 Robux",
+    "quickAnswer": "300.000 anrechenbare Earned Robux ergeben zum aktuellen DevEx-Kurs von 0,0038 USD pro Robux 1.140,00 $. Zum alten Kurs von 0,0035 würde derselbe Betrag 1.050,00 $ zahlen, ein Unterschied von 90,00 $. 300.000 Earned Robux sind das Zehnfache des DevEx-Minimums. Ein nützlicher Bezugspunkt, wenn ein Creator ausrechnet, wie vielen Auszahlungszyklen ein Jahr an Einnahmen entspricht.",
+    "ogImageAlt": "300.000 Robux umgerechnet in eine geschätzte DevEx-Auszahlung in US-Dollar.",
+    "sections": {
+      "value": "Was 300.000 Robux wert sind",
+      "rate-comparison": "Zu allen drei Kursen",
+      "context": "Warum dieser Betrag wichtig ist",
+      "reverse": "Diesen Betrag erreichen",
+      "nearby": "Benachbarte Beträge"
+    },
+    "faqs": {
+      "q01": {
+        "question": "Wie viel sind 300.000 Robux in USD?",
+        "answer": "1.140,00 $ für anrechenbare Earned Robux zum aktuellen DevEx-Kurs, vor allen Gebühren des Zahlungsdienstleisters und vor Einkommensteuer. Das gilt nur für Earned Robux, nicht für ein gekauftes Guthaben."
+      },
+      "q02": {
+        "question": "Erreichen 300.000 Robux das DevEx-Minimum?",
+        "answer": "300.000 Earned Robux sind das 10,0-Fache des dokumentierten Minimums von 30.000, die Schwelle ist also überschritten. Die Schwelle zu überschreiten ist nicht dasselbe wie genehmigt zu sein — Roblox prüft jeden Antrag."
+      }
+    },
+    "links": {
+      "conversions": "die Beträge zu beiden Seiten von 300.000",
+      "robuxToUsd": "etwas anderes als 300.000 Robux umrechnen",
+      "devexRates": "der Kurs hinter der Zahl 1.140,00 $",
+      "conversions.200000RobuxToUsd": "200.000 Robux in USD",
+      "conversions.500000RobuxToUsd": "500.000 Robux in USD"
+    }
+  },
+  "conversions.50000RobuxToUsd": {
+    "title": "50.000 Robux in USD: geschätzte DevEx-Auszahlung",
+    "metaDescription": "50.000 anrechenbare Earned Robux sind zum aktuellen DevEx-Kurs rund 190,00 $. Verglichen mit dem alten Kurs und dem USA-18+-Kurs.",
+    "h1": "50.000 Robux in USD",
+    "navLabel": "50.000 Robux",
+    "quickAnswer": "50.000 anrechenbare Earned Robux ergeben zum aktuellen DevEx-Kurs von 0,0038 USD pro Robux 190,00 $. Zum alten Kurs von 0,0035 würde derselbe Betrag 175,00 $ zahlen, ein Unterschied von 15,00 $. 50.000 Earned Robux liegen mit Luft über dem Minimum, deshalb ist das eine häufige erste Auszahlung für Creator, deren Experience gerade angefangen hat, regelmäßig einzubringen.",
+    "ogImageAlt": "50.000 Robux umgerechnet in eine geschätzte DevEx-Auszahlung in US-Dollar.",
+    "sections": {
+      "value": "Was 50.000 Robux wert sind",
+      "rate-comparison": "Zu allen drei Kursen",
+      "context": "Warum dieser Betrag wichtig ist",
+      "reverse": "Diesen Betrag erreichen",
+      "nearby": "Benachbarte Beträge"
+    },
+    "faqs": {
+      "q01": {
+        "question": "Wie viel sind 50.000 Robux in USD?",
+        "answer": "190,00 $ für anrechenbare Earned Robux zum aktuellen DevEx-Kurs, vor allen Gebühren des Zahlungsdienstleisters und vor Einkommensteuer. Das gilt nur für Earned Robux, nicht für ein gekauftes Guthaben."
+      },
+      "q02": {
+        "question": "Erreichen 50.000 Robux das DevEx-Minimum?",
+        "answer": "50.000 Earned Robux sind das 1,7-Fache des dokumentierten Minimums von 30.000, die Schwelle ist also überschritten. Die Schwelle zu überschreiten ist nicht dasselbe wie genehmigt zu sein — Roblox prüft jeden Antrag."
+      }
+    },
+    "links": {
+      "conversions": "die Beträge zu beiden Seiten von 50.000",
+      "robuxToUsd": "etwas anderes als 50.000 Robux umrechnen",
+      "devexRates": "der Kurs hinter der Zahl 190,00 $",
+      "conversions.30000RobuxToUsd": "30.000 Robux in USD",
+      "conversions.100000RobuxToUsd": "100.000 Robux in USD"
+    }
+  },
+  "conversions.500000RobuxToUsd": {
+    "title": "500.000 Robux in USD: geschätzte DevEx-Auszahlung",
+    "metaDescription": "500.000 anrechenbare Earned Robux sind zum aktuellen DevEx-Kurs rund 1.900,00 $. Verglichen mit dem alten Kurs und dem USA-18+-Kurs.",
+    "h1": "500.000 Robux in USD",
+    "navLabel": "500.000 Robux",
+    "quickAnswer": "500.000 anrechenbare Earned Robux ergeben zum aktuellen DevEx-Kurs von 0,0038 USD pro Robux 1.900,00 $. Zum alten Kurs von 0,0035 würde derselbe Betrag 1.750,00 $ zahlen, ein Unterschied von 150,00 $. Eine halbe Million Earned Robux ist die Größenordnung, in der Gebühren des Zahlungsdienstleisters und die eigene Steuerpflicht keine Rundungsfehler mehr sind — deshalb verlinkt diese Seite direkt auf den Leitfaden zu Gebühren und Steuern.",
+    "ogImageAlt": "500.000 Robux umgerechnet in eine geschätzte DevEx-Auszahlung in US-Dollar.",
+    "sections": {
+      "value": "Was 500.000 Robux wert sind",
+      "rate-comparison": "Zu allen drei Kursen",
+      "context": "Warum dieser Betrag wichtig ist",
+      "reverse": "Diesen Betrag erreichen",
+      "nearby": "Benachbarte Beträge"
+    },
+    "faqs": {
+      "q01": {
+        "question": "Wie viel sind 500.000 Robux in USD?",
+        "answer": "1.900,00 $ für anrechenbare Earned Robux zum aktuellen DevEx-Kurs, vor allen Gebühren des Zahlungsdienstleisters und vor Einkommensteuer. Das gilt nur für Earned Robux, nicht für ein gekauftes Guthaben."
+      },
+      "q02": {
+        "question": "Erreichen 500.000 Robux das DevEx-Minimum?",
+        "answer": "500.000 Earned Robux sind das 16,7-Fache des dokumentierten Minimums von 30.000, die Schwelle ist also überschritten. Die Schwelle zu überschreiten ist nicht dasselbe wie genehmigt zu sein — Roblox prüft jeden Antrag."
+      }
+    },
+    "links": {
+      "conversions": "die Beträge zu beiden Seiten von 500.000",
+      "robuxToUsd": "etwas anderes als 500.000 Robux umrechnen",
+      "devexRates": "der Kurs hinter der Zahl 1.900,00 $",
+      "conversions.300000RobuxToUsd": "300.000 Robux in USD",
+      "conversions.1000000RobuxToUsd": "1.000.000 Robux in USD"
+    }
+  },
+  "corrections": {
+    "title": "Korrekturrichtlinie",
+    "metaDescription": "Wie man einen Fehler auf dieser Website meldet, was passiert, wenn ein Kurs oder eine Voraussetzung sich als falsch erweist, und wo Korrekturen festgehalten werden.",
+    "h1": "Korrekturrichtlinie",
+    "navLabel": "Korrekturen",
+    "quickAnswer": "Wenn eine Zahl hier falsch ist, wird sie korrigiert statt stillschweigend stehen gelassen. Eine Korrektur an einem Kurs, einem Minimum oder einer Gebühr folgt einer festen Abfolge: gegen die offizielle Quelle prüfen, die Daten aktualisieren, die Tests aktualisieren, die betroffenen Seiten aktualisieren, es im Changelog festhalten und neu deployen.",
+    "ogImageAlt": "Korrekturrichtlinie: wie Fehler gemeldet und behoben werden.",
+    "sections": {
+      "report": "Einen Fehler melden",
+      "process": "Was als Nächstes passiert",
+      "record": "Wo Korrekturen festgehalten werden"
+    },
+    "faqs": {},
+    "links": {
+      "changelog": "der öffentliche Changelog",
+      "editorialPolicy": "die redaktionellen Regeln",
+      "contact": "Kontakt aufnehmen",
+      "about": "wozu diese Website da ist"
+    }
+  },
+  "devexFeesAndTaxes": {
+    "title": "DevEx-Gebühren und -Steuern: was von einer Auszahlung abgeht",
+    "metaDescription": "Anbietergebühren, Wechselkursaufschläge und Einkommensteuer stehen alle zwischen dem DevEx-Kurs und deinem Bankkonto. Rechne jede mit deinen eigenen Zahlen durch.",
+    "h1": "DevEx-Gebühren und -Steuern",
+    "navLabel": "Gebühren und Steuern",
+    "quickAnswer": "Drei verschiedene Dinge verringern eine DevEx-Auszahlung, und keines davon ist der DevEx-Kurs: die Gebühren deines Zahlungsdienstleisters, der Umrechnungsaufschlag, wenn du außerhalb der Vereinigten Staaten bezahlt wirst, und die Einkommensteuer in deinem eigenen Land. Diese Seite lässt dich jedes davon mit deinen eigenen Zahlen durchrechnen. Sie ist keine Steuerberatung.",
+    "ogImageAlt": "DevEx-Gebühren und -Steuern: Anbietergebühren, Wechselkursaufschlag und Einkommensteuer erklärt.",
+    "sections": {
+      "three-layers": "Drei getrennte Abzüge",
+      "fees": "Gebühren des Zahlungsdienstleisters",
+      "currency": "Währungsumrechnung",
+      "tax": "Einkommensteuer",
+      "estimator": "Rechne mit deinen eigenen Zahlen",
+      "faqs": "Fragen zu Gebühren und Steuern"
+    },
+    "faqs": {
+      "q01": {
+        "question": "Nimmt Roblox zusätzlich zum DevEx-Kurs eine Gebühr?",
+        "answer": "Der DevEx-Kurs ist das, was Roblox pro anrechenbarem Earned Robux zahlt. Die Plattformprovision von 30 % wurde bereits früher angewandt, als die Robux verdient wurden — sie wird bei der Auszahlung kein zweites Mal abgezogen."
+      },
+      "q02": {
+        "question": "Welcher Steuersatz gilt für eine DevEx-Auszahlung?",
+        "answer": "Das hängt ganz von deinem Land und deinen Umständen ab, und diese Website nennt dir dafür keine Zahl. Der Schätzer hier rechnet mit dem Prozentsatz, den du einträgst, damit du deine eigene Lage abbilden kannst."
+      },
+      "q03": {
+        "question": "Warum weicht die Umrechnung meiner Bank von der dieser Website ab?",
+        "answer": "Die Beträge in Landeswährung nutzen hier Referenzkurse der Europäischen Zentralbank, die einmal an jedem Werktag veröffentlicht werden und keine handelbaren Kurse sind. Banken und Zahlungsdienstleister wenden ihren eigenen Kurs plus eine Marge an."
+      }
+    },
+    "links": {
+      "home": "der Rechner mit optionalen Gebühren- und Steuerfeldern",
+      "howToCashOutRobux": "der Auszahlungsablauf",
+      "robuxTaxCalculator": "die separate Roblox-Marketplace-Gebühr",
+      "methodology": "wie diese Schätzungen entstehen"
+    }
+  },
+  "devexRateHistory": {
+    "title": "DevEx-Kurshistorie: die Änderung von 0,0035 im Jahr 2025",
+    "metaDescription": "Ein datiertes Verzeichnis geprüfter DevEx-Kurse, einschließlich der Anhebung von 0,0035 auf 0,0038 im September 2025 und wie Altguthaben behandelt werden.",
+    "h1": "DevEx-Kurshistorie",
+    "navLabel": "Kurshistorie",
+    "quickAnswer": "Die dokumentierte Änderung geht von 0,0035 auf 0,0038 USD pro Earned Robux, gültig ab dem 5. September 2025 um 10:00 PT. Für 30.000 Earned Robux stieg die Auszahlung damit von 105 auf 114 Dollar. Vor der Änderung verdiente Guthaben werden zuerst zum älteren Kurs ausgezahlt, ein einzelnes Guthaben kann also beide umfassen.",
+    "ogImageAlt": "DevEx-Kurshistorie: die Änderung vom September 2025 von 0,0035 auf 0,0038.",
+    "sections": {
+      "timeline": "Geprüfter Zeitstrahl",
+      "comparison": "Was die Änderung wert war",
+      "legacy-balances": "Wie Altguthaben behandelt werden",
+      "no-forecast": "Warum es hier keine Prognose gibt",
+      "faqs": "Fragen zu früheren Kursen"
+    },
+    "faqs": {
+      "q01": {
+        "question": "Wie hoch war der DevEx-Kurs vor September 2025?",
+        "answer": "0,0035 USD pro Earned Robux, was Roblox als 105 Dollar für 30.000 Earned Robux angab."
+      },
+      "q02": {
+        "question": "Wird mein altes Guthaben zum alten Kurs umgerechnet?",
+        "answer": "Vor dem 5. September 2025 um 10:00 PT verdiente Robux werden nach Roblox’ Übergangsregeln zuerst zu 0,0035 ausgezahlt. Die Aufteilung ist Roblox’ Buchführung, nichts, was ein Creator auswählt."
+      },
+      "q03": {
+        "question": "Wird der Kurs wieder steigen?",
+        "answer": "Niemand außerhalb von Roblox weiß das, und diese Seite rät nicht. Sie hält nur Änderungen fest, die die offizielle Dokumentation bestätigt, jede mit ihrem Gültigkeitsdatum."
+      }
+    },
+    "links": {
+      "devexRates": "die derzeit geltenden Kurse",
+      "home": "Kurse an deinem eigenen Guthaben vergleichen",
+      "changelog": "wann diese Website ihre Daten zuletzt aktualisiert hat"
+    }
+  },
+  "devexRates": {
+    "title": "Roblox-DevEx-Kurse: aktuell, alt und USA 18+",
+    "metaDescription": "Die drei DevEx-Kurse, die Roblox dokumentiert, was jeder pro 1.000 und pro 30.000 Robux zahlt, und wann welcher gilt.",
+    "h1": "Roblox-DevEx-Kurse",
+    "navLabel": "Kurse",
+    "quickAnswer": "Roblox dokumentiert drei DevEx-Kurse. Der Standardkurs beträgt 0,0038 USD pro anrechenbarem Earned Robux, also 114 Dollar für 30.000. Vor dem 5. September 2025 um 10:00 PT verdiente Guthaben werden zum älteren Kurs von 0,0035 umgerechnet. Bestimmte Earned Robux von verifizierten Spielenden aus den Vereinigten Staaten ab 18 Jahren werden zu 0,0054 umgerechnet. Welcher gilt, entscheidet Roblox, nicht der Creator.",
+    "ogImageAlt": "Roblox-DevEx-Kurse: Standard, alt und bedingt USA 18+ im Vergleich.",
+    "sections": {
+      "current-rates": "Die drei dokumentierten Kurse",
+      "examples": "Was jeder Kurs zahlt",
+      "which-applies": "Welcher Kurs für dein Guthaben gilt",
+      "difference": "Vergleiche die Kurse für deinen Betrag",
+      "changes": "Kurse können sich ändern",
+      "faqs": "Fragen zu den DevEx-Kursen"
+    },
+    "faqs": {
+      "q01": {
+        "question": "Wie hoch ist der DevEx-Kurs pro 1.000 Robux?",
+        "answer": "3,80 US-Dollar pro 1.000 anrechenbaren Earned Robux zum Standardkurs. Der alte Kurs zahlte 3,50 und der bedingte USA-18+-Kurs zahlt 5,40."
+      },
+      "q02": {
+        "question": "Wann wurde der DevEx-Kurs auf 0,0038 geändert?",
+        "answer": "Am 5. September 2025 um 10:00 PT. Vor diesem Zeitpunkt verdiente Guthaben werden nach Roblox’ eigener Buchführung zuerst zum vorherigen Kurs von 0,0035 ausgezahlt."
+      },
+      "q03": {
+        "question": "Wer kommt für den Kurs von 0,0054 infrage?",
+        "answer": "Roblox wendet ihn auf bestimmte Earned Robux aus Käufen von Developer Products, Pässen, Abonnements und privaten Servern durch Spielende aus den Vereinigten Staaten an, die bestätigt haben, mindestens 18 zu sein. Es ist kein Kurs, den ein Creator wählen kann."
+      },
+      "q04": {
+        "question": "Wird sich der DevEx-Kurs erneut ändern?",
+        "answer": "Roblox hat ihn schon geändert und könnte ihn wieder ändern. Diese Seite hält nur fest, was die aktuelle offizielle Dokumentation sagt; sie stellt keine Prognose. Das Datum der letzten Prüfung gegen die Quelle steht oben."
+      }
+    },
+    "links": {
+      "home": "eine Auszahlung zu diesen Kursen berechnen",
+      "devexRateHistory": "wie sich der Kurs entwickelt hat",
+      "robloxStats": "was Roblox insgesamt an Creator zahlt",
+      "earnedRobux": "für welche Robux der Kurs gilt",
+      "devexRequirements": "die Voraussetzungen neben dem Kurs",
+      "sources": "die Quellen hinter diesen Zahlen"
+    }
+  },
+  "devexRequirements": {
+    "title": "DevEx-Voraussetzungen: Mindest-Robux und Anspruch",
+    "metaDescription": "Was Roblox für DevEx verlangt: 30.000 Earned Robux, eine bestätigte E-Mail, ein Portalkonto, ein W-9 oder W-8, und ein Konto ohne Beanstandungen.",
+    "h1": "DevEx-Voraussetzungen",
+    "navLabel": "Voraussetzungen",
+    "quickAnswer": "Roblox dokumentiert fünf Voraussetzungen für DevEx: mindestens 30.000 Earned Robux, ein Mindestalter von 13 Jahren, eine von Roblox bestätigte E-Mail-Adresse, ein gültiges DevEx-Portalkonto und ein hinterlegtes IRS-Formular W-9 oder W-8. Außerdem musst du die Roblox-Nutzungsbedingungen und Community-Standards einhalten. Alle fünf zu erfüllen ist die Bedingung, um einen Antrag zu stellen, keine Zusage einer Genehmigung.",
+    "ogImageAlt": "DevEx-Voraussetzungen: Mindest-Earned-Robux, bestätigte E-Mail, Portalkonto und Steuerformulare.",
+    "sections": {
+      "requirements": "Was Roblox verlangt",
+      "minimum": "Das Minimum von 30.000 Earned Robux",
+      "not-approval": "Die Schwelle zu erreichen ist keine Genehmigung",
+      "checklist": "Vorbereitungsliste",
+      "misunderstandings": "Häufige Missverständnisse",
+      "faqs": "Fragen zu den Voraussetzungen"
+    },
+    "faqs": {
+      "q01": {
+        "question": "Wie viele Robux braucht man mindestens für DevEx?",
+        "answer": "30.000 Earned Robux. Ältere Zahlen wie 10.000 oder 100.000 kursieren auf Drittseiten, entsprechen aber nicht der aktuellen offiziellen Dokumentation."
+      },
+      "q02": {
+        "question": "Wie alt muss man für DevEx sein?",
+        "answer": "Roblox dokumentiert ein Mindestalter von 13 Jahren für die Teilnahme. Davon getrennt hängt der höhere Kurs von 0,0054 an der Altersverifizierung der Spielenden, die die Robux ausgegeben haben, nicht am Alter des Creators."
+      },
+      "q03": {
+        "question": "Muss ich Steuerformulare einreichen?",
+        "answer": "Ja. Roblox verlangt, dass ein IRS-Formular W-9 für Steuerpflichtige in den Vereinigten Staaten oder ein W-8 für Steuerpflichtige außerhalb der Vereinigten Staaten hinterlegt ist, bevor ein DevEx-Antrag weitergehen kann."
+      },
+      "q04": {
+        "question": "Heißt 30.000 Earned Robux zu erreichen, dass ich bezahlt werde?",
+        "answer": "Nein. Die Schwelle erlaubt dir, einen Antrag zu stellen. Roblox prüft jeden Antrag nach eigenen Kriterien und entscheidet, welche Robux als Earned Robux zählen. Kein Rechner, auch dieser nicht, kann die Anspruchsberechtigung feststellen."
+      }
+    },
+    "links": {
+      "home": "prüfen, ob dein Guthaben das Minimum erreicht",
+      "earnedRobux": "welche Robux auf das Minimum zählen",
+      "howToCashOutRobux": "der Auszahlungsablauf selbst",
+      "devexRates": "was dein Guthaben zahlen würde"
+    }
+  },
+  "disclaimer": {
+    "title": "Haftungsausschluss",
+    "metaDescription": "Warum jede Zahl hier eine Schätzung ist, was diese Website über deinen DevEx-Antrag nicht feststellen kann, und ihre Unabhängigkeit von der Roblox Corporation.",
+    "h1": "Haftungsausschluss",
+    "navLabel": "Haftungsausschluss",
+    "quickAnswer": "Diese Website schätzt. Sie kann dir nicht sagen, ob deine Robux als Earned Robux gelten, ob ein DevEx-Antrag genehmigt wird, wann eine Auszahlung ankommt, oder was du bekommst, nachdem deine Bank und dein Finanzamt fertig sind. Über all das entscheidet Roblox.",
+    "ogImageAlt": "Haftungsausschluss: nur Schätzungen, keine Verbindung zur Roblox Corporation.",
+    "sections": {
+      "estimates": "Alles hier ist eine Schätzung",
+      "cannot-determine": "Was diese Website nicht feststellen kann",
+      "trademarks": "Marken",
+      "accuracy": "Richtigkeit und Aktualität der Angaben"
+    },
+    "faqs": {},
+    "links": {
+      "methodology": "wie die Schätzungen entstehen",
+      "terms": "die Nutzungsbedingungen",
+      "sources": "die verwendeten Quellen",
+      "home": "die Schätzungen, für die dieser Hinweis gilt"
+    }
+  },
+  "earnedRobux": {
+    "title": "Earned Robux: was für DevEx anrechenbar ist",
+    "metaDescription": "Earned Robux sind nicht dein ganzes Guthaben. Was zählt, was nicht, und warum diese Unterscheidung darüber entscheidet, ob eine Auszahlung möglich ist.",
+    "h1": "Earned Robux",
+    "navLabel": "Earned Robux",
+    "quickAnswer": "Earned Robux sind der Teil deines Guthabens, der aus Creator-Tätigkeit stammt — Spielende geben Robux in deiner Experience oder für deine Artikel aus — im Unterschied zu Robux, die du gekauft, geschenkt bekommen oder anders erhalten hast. Nur Earned Robux können durch DevEx gehen, und Roblox entscheidet, welcher Teil eines Guthabens anrechenbar ist.",
+    "ogImageAlt": "Earned Robux erklärt: welcher Teil eines Robux-Guthabens für DevEx anrechenbar ist.",
+    "sections": {
+      "definition": "Was Earned Robux bedeutet",
+      "qualifying": "Was in der Regel zählt",
+      "not-qualifying": "Was in der Regel nicht zählt",
+      "pending": "Ausstehende und verfügbare Guthaben",
+      "groups": "Gruppenguthaben",
+      "faqs": "Fragen zu Earned Robux"
+    },
+    "faqs": {
+      "q01": {
+        "question": "Ist mein ganzes Robux-Guthaben Earned Robux?",
+        "answer": "Mit ziemlicher Sicherheit nicht. Ein Guthaben kann Robux, die du als Creator verdient hast, mit gekauften oder erhaltenen Robux mischen. Nur der verdiente Teil ist für DevEx anrechenbar, und das stellt Roblox fest."
+      },
+      "q02": {
+        "question": "Zählen gekaufte Robux auf das Minimum von 30.000?",
+        "answer": "Gekaufte Robux sind keine Earned Robux, sie machen ein Guthaben also nicht DevEx-fähig. Das Minimum bezieht sich ausdrücklich auf Earned Robux."
+      },
+      "q03": {
+        "question": "Wie verdienen Creator überhaupt Robux?",
+        "answer": "Roblox zahlt Creators 70 % der Robux, die für Käufe in der Experience wie Developer Products und Pässe ausgegeben werden, und behält 30 %. Diese 70 % sammeln sich als Earned Robux an."
+      },
+      "q04": {
+        "question": "Können Gruppenguthaben ausgezahlt werden?",
+        "answer": "Gruppenguthaben gehören der Gruppe und nicht einem einzelnen Konto, und Auszahlungen müssen ein persönliches Konto erreichen, bevor DevEx greift. Sieh in der aktuellen offiziellen Dokumentation nach, wie dein konkreter Fall behandelt wird."
+      }
+    },
+    "links": {
+      "home": "eine Auszahlung auf anrechenbare Robux berechnen",
+      "devexRequirements": "die Voraussetzungen",
+      "robuxTaxCalculator": "was dir bei einem Verkauf bleibt",
+      "howToCashOutRobux": "ein anrechenbares Guthaben umwandeln"
+    }
+  },
+  "editorialPolicy": {
+    "title": "Redaktionelle Regeln",
+    "metaDescription": "Die Regeln, unter denen diese Website schreibt: was als Quelle zählt, wie Aussagen gekennzeichnet werden, was nie veröffentlicht wird, und wie zeitkritische Inhalte geprüft werden.",
+    "h1": "Redaktionelle Regeln",
+    "navLabel": "Redaktionelle Regeln",
+    "quickAnswer": "Jede zeitkritische Aussage ist an eine offizielle Quelle gebunden und datiert. Nichts wird als Tatsache veröffentlicht, was nicht geprüft wurde, Schlussfolgerungen werden als solche gekennzeichnet, und keine Zahl bleibt online, weil sie in der Suche gut läuft, nachdem sie aufgehört hat zu stimmen.",
+    "ogImageAlt": "Redaktionelle Regeln für Quellen und Veröffentlichung auf dieser Website.",
+    "sections": {
+      "sourcing": "Quellenstandard",
+      "labels": "Wie Aussagen gekennzeichnet werden",
+      "never": "Was diese Website nie veröffentlicht",
+      "review": "Prüfrhythmus"
+    },
+    "faqs": {},
+    "links": {
+      "corrections": "die Korrekturrichtlinie",
+      "sources": "das Quellenregister",
+      "about": "wer diese Website betreibt"
+    }
+  },
+  "guides": {
+    "title": "DevEx-Leitfäden: Kurse, Voraussetzungen und Auszahlung",
+    "metaDescription": "Sechs Leitfäden in einer Lesereihenfolge, von der Bedeutung von Earned Robux bis zu dem, was von einer Auszahlung abgeht.",
+    "h1": "DevEx-Leitfäden",
+    "navLabel": "Leitfäden",
+    "quickAnswer": "Sechs Leitfäden, in der Reihenfolge, in der es sinnvoll ist, sie zu lesen. Beginne damit, was Earned Robux bedeutet, dann Kurse und Voraussetzungen, dann der Auszahlungsablauf, und zum Schluss, was von der Auszahlung abgeht. Jeder nennt seine Quellen und das Datum der letzten Prüfung.",
+    "ogImageAlt": "Verzeichnis der DevEx-Leitfäden in der empfohlenen Lesereihenfolge.",
+    "sections": {
+      "reading-order": "Empfohlene Lesereihenfolge"
+    },
+    "faqs": {},
+    "links": {
+      "earnedRobux": "Earned Robux",
+      "devexRates": "DevEx-Kurse",
+      "devexRequirements": "DevEx-Voraussetzungen",
+      "howToCashOutRobux": "Robux auszahlen lassen",
+      "devexRateHistory": "Kurshistorie",
+      "devexFeesAndTaxes": "Gebühren und Steuern",
+      "calculators": "die Rechner, zu denen diese Leitfäden gehören",
+      "home": "der DevEx-Rechner selbst"
+    }
+  },
+  "howToCashOutRobux": {
+    "title": "Wie man Robux über DevEx auszahlen lässt",
+    "metaDescription": "Die offiziellen Schritte, um anrechenbare Earned Robux in echtes Geld umzuwandeln, was vorher vorzubereiten ist, und welche Dienste zu meiden sind.",
+    "h1": "Wie man Robux auszahlen lässt",
+    "navLabel": "Auszahlung",
+    "quickAnswer": "Robux auszahlen zu lassen heißt, einen DevEx-Antrag über das offizielle Roblox-DevEx-Portal zu stellen, sobald du mindestens 30.000 Earned Robux hältst, eine bestätigte E-Mail hast und ein W-9 oder W-8 hinterlegt ist. Roblox prüft jeden Antrag und entscheidet über den Ausgang. Außerhalb des offiziellen Programms gibt es keinen seriösen Weg.",
+    "ogImageAlt": "Wie man Robux auszahlen lässt: der offizielle DevEx-Antragsablauf Schritt für Schritt.",
+    "sections": {
+      "process": "Der von Roblox dokumentierte Ablauf",
+      "checklist": "Vorbereiten, bevor du den Antrag stellst",
+      "timing": "Wie lange es dauert",
+      "safety": "Meide inoffizielle Dienste",
+      "group": "Wenn eine Gruppe es verdient hat",
+      "after": "Nach der Auszahlung",
+      "faqs": "Fragen zur Auszahlung"
+    },
+    "faqs": {
+      "q01": {
+        "question": "Wo stelle ich einen DevEx-Antrag?",
+        "answer": "Über das offizielle DevEx-Portal, verlinkt vom Roblox Creator Hub. Ein gültiges DevEx-Portalkonto ist eine der dokumentierten Voraussetzungen."
+      },
+      "q02": {
+        "question": "Wie lange dauert eine DevEx-Auszahlung?",
+        "answer": "Roblox veröffentlicht keine zugesicherte Bearbeitungszeit, deshalb nennt diese Website auch keine. Jede konkrete Zahl, die anderswo zitiert wird, ist die Erfahrung von jemandem, keine offizielle Zusage."
+      },
+      "q03": {
+        "question": "Gibt es einen schnelleren Weg, Robux zu verkaufen?",
+        "answer": "Keinen seriösen. Dienste, die anbieten, Robux zu kaufen oder ein Guthaben außerhalb von DevEx umzuwandeln, verstoßen in aller Regel gegen die Roblox-Nutzungsbedingungen und gefährden dein Konto. Gib deine Roblox-Zugangsdaten niemals an Dritte weiter, auch nicht an diese Website."
+      },
+      "q04": {
+        "question": "Zahle ich Steuern auf eine DevEx-Auszahlung?",
+        "answer": "Eine DevEx-Auszahlung ist Einkommen, und wie sie besteuert wird, hängt davon ab, wo du lebst. Diese Website gibt keine Steuerberatung und bietet ein optionales Schätzfeld nur, damit du deine eigene Zahl durchrechnen kannst."
+      }
+    },
+    "links": {
+      "devexRequirements": "die Voraussetzungen, die du zuerst erfüllen musst",
+      "home": "schätzen, was dein Guthaben zahlen würde",
+      "devexFeesAndTaxes": "was nach der Umwandlung abgeht",
+      "earnedRobux": "prüfen, welche Robux anrechenbar sind"
+    }
+  },
+  "methodology": {
+    "title": "Berechnungsmethodik",
+    "metaDescription": "Wie jede Zahl hier entsteht: die Formeln, das exakte Rechnen, die Rundungsregeln, und was eine Schätzung nicht sagen kann.",
+    "h1": "Berechnungsmethodik",
+    "navLabel": "Methodik",
+    "quickAnswer": "Jede Auszahlungszahl ist eine Robux-Menge mal einem exakten Dezimalkurs, der als Bruch statt als Gleitkommazahl gehalten wird, genau einmal gerundet im Moment der Anzeige. Zahlen für benötigte Robux runden immer auf. Werte in Landeswährung sind Referenzkurse der Europäischen Zentralbank mit angezeigtem Beobachtungsdatum.",
+    "ogImageAlt": "Berechnungsmethodik: Formeln, exaktes Rechnen und Rundungsregeln.",
+    "sections": {
+      "formulas": "Die Formeln",
+      "arithmetic": "Warum exaktes Rechnen wichtig ist",
+      "rounding": "Rundungsregeln",
+      "currency": "Schätzungen in Landeswährung",
+      "limits": "Was dir das nicht sagen kann"
+    },
+    "faqs": {},
+    "links": {
+      "api": "dasselbe Register als JSON",
+      "sources": "das Quellenregister",
+      "home": "der Rechner, den diese Formeln antreiben",
+      "corrections": "wie man einen Fehler meldet",
+      "devexRates": "die verwendeten Kurse"
+    }
+  },
+  "platform": {
+    "title": "Roblox-Plattformaktivität: Live-Spielerzahlen",
+    "metaDescription": "Live-Spielerzahlen für die Experiences, die Roblox in Ranglisten führt, gelesen aus seinen eigenen öffentlichen Endpunkten, plus eine wachsende Aufzeichnung dessen, was diese Website beobachtet hat.",
+    "h1": "Roblox-Plattformaktivität",
+    "navLabel": "Plattform",
+    "quickAnswer": "Die Spielerzahlen auf dieser Seite werden aus Roblox’ eigenen öffentlichen Endpunkten gelesen, wenn die Seite ausgeliefert wird, und die Rangliste ist die von Roblox, nicht die dieser Website. Daneben steht eine Aufzeichnung dessen, was diese Website seit Beobachtungsbeginn gesehen hat, dargestellt über den Zeitraum, der tatsächlich erhoben wurde.",
+    "ogImageAlt": "Live-Spielerzahlen von Roblox und beobachtete Aktivität im Zeitverlauf.",
+    "sections": {
+      "live": "Was gerade gespielt wird",
+      "history": "Im Zeitverlauf beobachtet",
+      "how": "Wie diese Seite zu ihren Zahlen kommt",
+      "data": "Diese Beobachtungen herunterladen",
+      "faqs": "Fragen zu diesen Zahlen"
+    },
+    "faqs": {
+      "q01": {
+        "question": "Wie viele Menschen spielen gerade Roblox?",
+        "answer": "Die Tabelle summiert die Spielenden in den Experiences, die Roblox in diesem Moment in Ranglisten führt, zum Zeitpunkt der Auslieferung der Seite. Das ist keine plattformweite Zahl: Roblox veröffentlicht keine Live-Summe, und diese Website schätzt keine."
+      },
+      "q02": {
+        "question": "Warum deckt das Diagramm einen so kurzen Zeitraum ab?",
+        "answer": "Weil diese Website erst so lange aufzeichnet. Das Fenster weitet sich von selbst, während sich Beobachtungen ansammeln, bis zu vierzehn Tage. Eine Vierzehn-Tage-Achse zu zeigen, bevor es vierzehn Tage Daten gibt, hieße etwas zu zeichnen, das nie gemessen wurde."
+      },
+      "q03": {
+        "question": "Beeinflussen diese Spielerzahlen meine DevEx-Auszahlung?",
+        "answer": "Nein. Eine Auszahlung hängt von deinen anrechenbaren Earned Robux und dem dokumentierten Kurs ab, nicht davon, wie viel auf der Plattform los ist."
+      }
+    },
+    "links": {
+      "robloxStats": "was Roblox an Creator zahlt",
+      "platform.stock": "Roblox’ veröffentlichte Zahlen",
+      "home": "deine eigene DevEx-Auszahlung schätzen"
+    }
+  },
+  "platform.stock": {
+    "title": "Roblox-Aktie (RBLX): veröffentlichte Zahlen, kein eingebettetes Widget",
+    "metaDescription": "Roblox’ veröffentlichte Quartalszahlen — Umsatz, Bookings-Wachstum, Creator-Auszahlungen — mit einer klaren Erklärung, warum hier kein Kurs-Widget von Dritten eingebettet ist.",
+    "h1": "Roblox-Aktie und veröffentlichte Zahlen",
+    "navLabel": "Aktie",
+    "quickAnswer": "Roblox meldete für das Quartal bis zum 30. Juni 2026 einen Umsatz von 1.469 Millionen US-Dollar, dem ein konsolidierter Nettoverlust von 185 Millionen gegenübersteht, und zahlte 363 Millionen über den Developer Exchange an Creator. Einen Live-Aktienkurs gibt es hier nicht: diese Website bettet kein Marktwidget von Dritten ein und druckt keine Zahl, die sie nicht abrufen und einer Quelle zuordnen kann.",
+    "ogImageAlt": "Roblox’ veröffentlichte Quartalszahlen, aus seinen SEC-Berichten.",
+    "sections": {
+      "quote": "RBLX-Aktienkurs",
+      "results": "Worauf der Kurs reagiert",
+      "why": "Warum es hier kein eingebettetes Diagramm gibt",
+      "faqs": "Fragen"
+    },
+    "faqs": {
+      "q01": {
+        "question": "Warum gibt es keinen Live-RBLX-Kurs?",
+        "answer": "Weil einen zu zeigen meist heißt, das Skript eines Marktdatenanbieters einzubetten, das dann in deinem Browser liefe — auf einer Website, die keine Skripte von Dritten lädt. Die Seite ist darauf vorbereitet, einen Kurs serverseitig abzurufen, sobald ein Anbieter eingerichtet ist."
+      },
+      "q02": {
+        "question": "Ist Roblox profitabel?",
+        "answer": "Für das Quartal bis zum 30. Juni 2026 meldete das Unternehmen einen konsolidierten Nettoverlust von 185 Millionen US-Dollar, weniger als die 280 Millionen ein Jahr zuvor, bei einem bereinigten EBITDA von 152 Millionen. Das sind die eigenen Zahlen des Unternehmens."
+      },
+      "q03": {
+        "question": "Beeinflusst der Aktienkurs den DevEx-Kurs?",
+        "answer": "Ein Zusammenhang ist nicht dokumentiert. Roblox setzt den DevEx-Kurs fest und veröffentlicht ihn; nichts in seiner Dokumentation bindet diesen Kurs an den Aktienkurs. Nichts hiervon ist Anlageberatung."
+      }
+    },
+    "links": {
+      "platform": "Live-Plattformaktivität",
+      "robloxStats": "Statistiken zu Creator-Auszahlungen",
+      "sources": "alle hier verwendeten Quellen"
+    }
+  },
+  "privacy": {
+    "title": "Datenschutzerklärung",
+    "metaDescription": "Was diese Website speichert, was nicht, wohin deine Eingaben im Rechner gehen, und welche Dritten beteiligt sind — beschrieben wird nur, was tatsächlich eingerichtet ist.",
+    "h1": "Datenschutzerklärung",
+    "navLabel": "Datenschutz",
+    "quickAnswer": "Berechnungen laufen in deinem Browser und werden nie an einen Server gesendet. Alles, was du speicherst — kürzliche Berechnungen, bevorzugte Währung, Farbschema — bleibt im lokalen Speicher deines eigenen Browsers und lässt sich jederzeit aus dem Rechner heraus löschen. Diese Seite beschreibt nur, was tatsächlich eingeschaltet ist.",
+    "ogImageAlt": "Datenschutzerklärung zu lokalem Speicher und eingerichteten Integrationen.",
+    "sections": {
+      "calculations": "Deine Berechnungen",
+      "local-storage": "Lokaler Speicher",
+      "analytics": "Analyse",
+      "contact": "Kontaktformular-Einsendungen",
+      "infrastructure": "Hosting und Serverprotokolle",
+      "external": "Externe Links",
+      "rights": "Deine Möglichkeiten"
+    },
+    "faqs": {},
+    "links": {
+      "terms": "die Nutzungsbedingungen",
+      "disclaimer": "der Haftungsausschluss",
+      "contact": "Kontakt",
+      "home": "der Rechner, den diese Erklärung abdeckt"
+    }
+  },
+  "robloxStats": {
+    "title": "Roblox-Creator-Auszahlungsstatistiken: DevEx-Gebühren nach Quartal",
+    "metaDescription": "Was Roblox Creators über DevEx tatsächlich zahlt, aus seinen SEC-Berichten dargestellt: 1,50 Milliarden USD im Jahr 2025, Quartal für Quartal, jede Zahl mit Quelle.",
+    "h1": "Roblox-Creator-Auszahlungsstatistiken",
+    "navLabel": "Statistiken",
+    "quickAnswer": "Roblox zahlte Creators 2025 über den Developer Exchange 1,503 Milliarden USD, nach 922,8 Millionen im Jahr 2024, und allein im zweiten Quartal 2026 363 Millionen. Jede Zahl auf dieser Seite ist aus einem Roblox-Bericht an die SEC gelesen und darauf verlinkt. Das sind gemeldete Quartalszahlen, keine Live-Messungen.",
+    "ogImageAlt": "Roblox’ Developer-Exchange-Auszahlungen nach Quartal, aus SEC-Berichten dargestellt.",
+    "sections": {
+      "payouts": "Was Roblox Creators zahlt",
+      "quarterly": "DevEx-Auszahlungen nach Quartal",
+      "rate-history": "Was ein Robux wert war",
+      "engagement": "Wie viele Menschen Roblox nutzen, und wie lange",
+      "business": "Roblox als Unternehmen",
+      "data": "Diese Zahlen herunterladen",
+      "what-it-means": "Was das für deine eigene Auszahlung bedeutet",
+      "no-live-data": "Warum es hier keine Live-Daten gibt",
+      "faqs": "Fragen zu diesen Zahlen"
+    },
+    "faqs": {
+      "q01": {
+        "question": "Wie viel zahlt Roblox insgesamt an Entwickler?",
+        "answer": "1.503.106 Tausend US-Dollar im Jahr 2025, in der Gewinn- und Verlustrechnung als Developer-Exchange-Gebühren ausgewiesen, gegenüber 922.821 Tausend im Jahr 2024. Beide Zahlen stammen aus Roblox’ Bericht an die SEC."
+      },
+      "q02": {
+        "question": "Sind diese Daten live?",
+        "answer": "Nein, und keine Seite kann das ehrlich behaupten. Roblox veröffentlicht diese Zahlen einmal pro Quartal, quartalsweise ist also die feinste Auflösung, die es gibt. Diese Website betreibt keine Datenerhebung und schätzt nichts."
+      },
+      "q03": {
+        "question": "Wo ist der Roblox-Aktienkurs?",
+        "answer": "Nicht hier. Ein Live-Kurs braucht einen kostenpflichtigen Marktdaten-Feed und ein Skript von Dritten, und diese Website veröffentlicht keine Zahl, die sie nicht bis zu einem Dokument zurückverfolgen kann. Die veröffentlichten Zahlen, auf die er reagiert, stehen stattdessen auf dieser Seite. Nichts hiervon ist Anlageberatung."
+      },
+      "q04": {
+        "question": "Bedeutet eine höhere Auszahlungssumme einen besseren DevEx-Kurs?",
+        "answer": "Nein. Die Summe spiegelt, wie viel Creators sich haben auszahlen lassen, nicht, was ein einzelner Robux wert war. Der Kurs pro Robux ist getrennt dokumentiert und hat sich im gezeigten Zeitraum einmal geändert."
+      }
+    },
+    "links": {
+      "devexRateHistory": "die datierte Aufzeichnung der Kursänderungen",
+      "devexRates": "die Kurse hinter diesen Auszahlungen",
+      "home": "deine eigene DevEx-Auszahlung schätzen",
+      "sources": "alle auf dieser Website verwendeten Quellen"
+    }
+  },
+  "robuxTaxCalculator": {
+    "title": "Roblox-Gebührenrechner: Marketplace-Provision bei einem Verkauf",
+    "metaDescription": "Was dir nach der Roblox-Plattformprovision bleibt, oder was du verlangen musst, um ein Ziel zu erreichen. Deckt Verkäufe in der Experience und im Marketplace ab.",
+    "h1": "Roblox-Gebührenrechner",
+    "navLabel": "Roblox-Gebühr",
+    "quickAnswer": "Die „Roblox-Gebühr“ ist die Plattformprovision, und sie hängt davon ab, was du verkauft hast. Bei Käufen in der Experience wie Developer Products und Pässen behältst du 70 % und Roblox nimmt 30 %. Bei Avatar-Artikeln im Marketplace beginnt der Creator-Anteil bei 30 % und steigt mit dem Preis, bis er beim Sechsfachen des Mindestpreises 70 % erreicht. Das ist von DevEx getrennt.",
+    "ogImageAlt": "Roblox-Gebührenrechner: Marketplace-Provision bei Verkäufen in der Experience und im Marketplace.",
+    "sections": {
+      "calculator": "Marketplace-Gebührenrechner",
+      "schemes": "Welche Provision gilt",
+      "progressive": "Der progressive Marketplace-Anteil",
+      "scope": "Umfang und Ausschlüsse",
+      "not-devex": "Das ist nicht der DevEx-Kurs",
+      "faqs": "Fragen zur Roblox-Gebühr"
+    },
+    "faqs": {
+      "q01": {
+        "question": "Wie hoch ist die Roblox-Gebühr?",
+        "answer": "Bei Käufen in der Experience behält der Creator 70 % und Roblox 30 %. Bei Verkäufen von Avatar-Artikeln im Marketplace liegt der Grundanteil des Creators bei 30 % und steigt über eine dokumentierte Stufentabelle auf 70 % für Artikel, die das Sechsfache des Mindestpreises oder mehr kosten."
+      },
+      "q02": {
+        "question": "Wird die Roblox-Gebühr bei DevEx erneut angewandt?",
+        "answer": "Nein. Die Provision greift einmal, wenn die Robux verdient werden. DevEx wandelt anschließend die Earned Robux um, die dir geblieben sind. Beides auf dieselbe Zahl anzuwenden würde deine Auszahlung zu niedrig darstellen."
+      },
+      "q03": {
+        "question": "Was ist der Mindestpreis?",
+        "answer": "Der niedrigste Preis für eine Artikelkategorie, an dem die progressiven Stufen gemessen werden. Weil die Mindestpreise je nach Kategorie verschieden sind, fragt dieser Rechner nach dem Vielfachen statt von einem einheitlichen Mindestpreis auszugehen."
+      }
+    },
+    "links": {
+      "calculators": "die anderen Rechner für Creator",
+      "earnedRobux": "was mit den Robux passiert, die dir bleiben",
+      "home": "deine Earned Robux in USD umrechnen",
+      "devexFeesAndTaxes": "Abzüge nach einer DevEx-Auszahlung"
+    }
+  },
+  "robuxToUsd": {
+    "title": "Robux zu USD: Creator-Auszahlung gegen Kaufpreis",
+    "metaDescription": "Darauf gibt es zwei Antworten. Vergleiche, was DevEx einem Creator zahlt, mit dem, was der Kauf von Robux kostet, und rechne jeden Betrag mit offen genanntem Kurs um.",
+    "h1": "Robux zu USD",
+    "navLabel": "Robux zu USD",
+    "quickAnswer": "„Robux zu USD“ hat je nach Fragestellerin zwei ehrliche Antworten. Ein Creator, der anrechenbare Earned Robux auszahlen lässt, bekommt über DevEx 0,0038 USD pro Robux, 100.000 Robux sind also rund 380 Dollar. Wer Robux kauft, zahlt einen von Roblox festgelegten Verkaufspreis — ein völlig anderes Geschäft. Diese Seite hält beides auseinander.",
+    "ogImageAlt": "Robux zu USD: DevEx-Auszahlung an Creator im Vergleich zum Verkaufspreis im Handel.",
+    "sections": {
+      "converter": "Robux in USD umrechnen",
+      "two-answers": "Warum es zwei Antworten gibt",
+      "comparison": "Creator-Auszahlung im Vergleich zum Kaufpreis",
+      "formula": "Die Umrechnungsformel",
+      "amounts": "Übliche Beträge",
+      "faqs": "Fragen zum Umrechnen von Robux"
+    },
+    "faqs": {
+      "q01": {
+        "question": "Wie viel sind 1.000 Robux in USD?",
+        "answer": "Für einen Creator, der anrechenbare Earned Robux auszahlen lässt, sind 1.000 Robux zum aktuellen DevEx-Kurs 3,80 US-Dollar. Diese Zahl ist ein Auszahlungskurs, nicht der Preis, den Spielende für den Kauf von 1.000 Robux zahlen."
+      },
+      "q02": {
+        "question": "Kann ich beliebige Robux in USD umwandeln?",
+        "answer": "Nein. Nur anrechenbare Earned Robux können über DevEx umgewandelt werden, und erst, wenn dein Guthaben 30.000 erreicht. Gekaufte Robux lassen sich nicht wieder zu Geld machen."
+      },
+      "q03": {
+        "question": "Warum veröffentlicht diese Website keinen einheitlichen Robux-Kaufpreis?",
+        "answer": "Roblox bepreist Robux nach Paket, Region und Plattform, und diese Preise ändern sich. Einen allgemeingültigen Kaufkurs zu veröffentlichen hieße, eine Zahl zu erfinden — deshalb erklärt diese Seite den Unterschied und verlinkt stattdessen die offiziellen Preise."
+      },
+      "q04": {
+        "question": "Ist die Umrechnung in jedem Land gleich?",
+        "answer": "Der DevEx-Kurs selbst ist in US-Dollar angegeben. Die Beträge in Landeswährung auf dieser Website sind Schätzungen auf Basis von Referenzkursen der Europäischen Zentralbank, und deine Bank oder dein Zahlungsdienstleister wendet den eigenen Kurs und eigene Gebühren an."
+      }
+    },
+    "links": {
+      "home": "der vollständige DevEx-Rechner",
+      "devexRates": "der Kurs hinter dieser Umrechnung",
+      "usdToRobux": "in die andere Richtung umrechnen",
+      "earnedRobux": "was einen Robux anrechenbar macht",
+      "conversions": "eine Tabelle üblicher Beträge"
+    }
+  },
+  "sources": {
+    "title": "Quellen und Prüfdaten",
+    "metaDescription": "Alle offiziellen Quellen hinter den Kursen, Minima und Gebührensätzen dieser Website, was jede davon belegt, und das Datum der letzten Prüfung.",
+    "h1": "Quellen",
+    "navLabel": "Quellen",
+    "quickAnswer": "Jede zeitkritische Aussage auf dieser Website ist an eine der unten aufgeführten Quellen gebunden, jeweils mit den Fakten, die sie belegt, und dem Datum der letzten Prüfung. Wo eine Quelle zu einer Frage schweigt, schweigt auch diese Website, statt die Lücke zu füllen.",
+    "ogImageAlt": "Quellenregister mit Prüfdaten für jede veröffentlichte Zahl.",
+    "sections": {
+      "registry": "Quellenregister",
+      "cadence": "Prüfrhythmus"
+    },
+    "faqs": {},
+    "links": {
+      "api": "diese Quellen als JSON lesen",
+      "methodology": "wie die Zahlen berechnet werden",
+      "devexRates": "die Kurse, die diese Quellen belegen",
+      "corrections": "eine veraltete Zahl melden",
+      "home": "der Rechner, den diese Quellen speisen"
+    }
+  },
+  "terms": {
+    "title": "Nutzungsbedingungen",
+    "metaDescription": "Die Bedingungen für die Nutzung von DevExCalculator.org, einschließlich des reinen Schätzcharakters jeder Zahl und des Fehlens jeder Verbindung zur Roblox Corporation.",
+    "h1": "Nutzungsbedingungen",
+    "navLabel": "Bedingungen",
+    "quickAnswer": "Du darfst diese Website frei nutzen, um DevEx-Auszahlungen zu schätzen. Jede Zahl ist eine Schätzung, und nichts davon ist Finanz-, Rechts- oder Steuerberatung. Diese Website ist von der Roblox Corporation unabhängig und kann den Ausgang eines DevEx-Antrags weder beeinflussen noch vorhersagen oder garantieren.",
+    "ogImageAlt": "Nutzungsbedingungen für DevExCalculator.org.",
+    "sections": {
+      "use": "Diese Website nutzen",
+      "estimates": "Schätzungen, keine Beratung",
+      "affiliation": "Keine Verbindung zu Roblox",
+      "liability": "Haftungsbeschränkung",
+      "changes": "Änderungen dieser Bedingungen"
+    },
+    "faqs": {},
+    "links": {
+      "privacy": "die Datenschutzerklärung",
+      "disclaimer": "der Haftungsausschluss",
+      "home": "der Rechner, den diese Bedingungen abdecken"
+    }
+  },
+  "usdToRobux": {
+    "title": "USD zu Robux: benötigte Earned Robux für ein Auszahlungsziel",
+    "metaDescription": "Setze ein Auszahlungsziel in Dollar und sieh, wie viele anrechenbare Earned Robux dafür nötig sind, aufgerundet, mit dem Fortschritt gegenüber deinem aktuellen Guthaben.",
+    "h1": "USD zu Robux: von einem Auszahlungsziel rückwärts rechnen",
+    "navLabel": "Auszahlungsziel",
+    "quickAnswer": "Für eine DevEx-Auszahlung von 1.000 US-Dollar zum aktuellen Kurs brauchst du 263.158 anrechenbare Earned Robux. Die Zahl rundet immer auf, weil ein Bruchteil eines Robux nicht existiert und Abrunden dich unter deinem Ziel ließe. Unter 30.000 Earned Robux ist unabhängig vom Ziel keine Auszahlung möglich.",
+    "ogImageAlt": "USD zu Robux: wie viele Earned Robux ein angestrebte DevEx-Auszahlung erfordert.",
+    "sections": {
+      "target-calculator": "Für dein Ziel benötigte Earned Robux",
+      "rounding": "Warum die Antwort aufrundet",
+      "minimum": "Das Minimum gilt weiterhin",
+      "planner": "Wie lange es in deinem Tempo dauert",
+      "examples": "Übliche Auszahlungsziele",
+      "buying-robux": "Hier geht es nicht ums Robux-Kaufen",
+      "faqs": "Fragen zu Auszahlungszielen"
+    },
+    "faqs": {
+      "q01": {
+        "question": "Wie viele Earned Robux brauche ich für 1.000 USD?",
+        "answer": "263.158 anrechenbare Earned Robux zum aktuellen Kurs von 0,0038. 1.000 geteilt durch 0,0038 ergibt 263.157,89, und das Ergebnis wird aufgerundet, damit die Auszahlung das Ziel tatsächlich erreicht."
+      },
+      "q02": {
+        "question": "Wie viele Earned Robux brauche ich für 100 USD?",
+        "answer": "26.316 Earned Robux würden rechnerisch 100 Dollar erreichen, das liegt aber unter dem Minimum von 30.000 — du bräuchtest also 30.000, bevor überhaupt ein Antrag gestellt werden kann, und das zahlt rund 114 Dollar."
+      },
+      "q03": {
+        "question": "Sagt mir das, wie viele Robux ich für einen Geldbetrag kaufen kann?",
+        "answer": "Nein. Diese Seite beantwortet die Creator-Frage: wie viel du verdienen musst, um eine bestimmte Auszahlung zu erhalten. Der Kauf von Robux wird von Roblox getrennt bepreist, und diese Website erfindet keinen allgemeingültigen Kaufkurs."
+      },
+      "q04": {
+        "question": "Ändert sich die Antwort, wenn ein Teil meines Guthabens alt ist?",
+        "answer": "Ja. Altguthaben wird zu 0,0035 umgerechnet, dasselbe Dollarziel braucht also mehr Robux. Nutze den Aufteilungsmodus des Rechners, um ein gemischtes Guthaben abzubilden."
+      }
+    },
+    "links": {
+      "home": "der Haupt-DevEx-Rechner",
+      "robuxToUsd": "in die andere Richtung umrechnen",
+      "devexRequirements": "das Minimum und die Voraussetzungen",
+      "devexRates": "die in dieser Berechnung verwendeten Kurse",
+      "howToCashOutRobux": "was passiert, wenn du dein Ziel erreichst"
+    }
+  }
+}
