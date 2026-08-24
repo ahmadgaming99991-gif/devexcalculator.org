@@ -1,0 +1,102 @@
+{
+  "$comment": "Machine-drafted. Not yet read by a native speaker. The cash-out guide carries this site's strongest safety warning; its meaning is not negotiable in any language.",
+  "index": {
+    "intro": "Enam panduan yang mencakup segala hal antara memperoleh satu Robux dan uangnya masuk ke rekening Anda, dalam urutan yang masuk akal untuk dibaca.",
+    "readingOrderHeading": "Urutan baca yang disarankan",
+    "readingOrderDescription": "Setiap panduan menyebutkan sumbernya dan tanggal faktanya terakhir diperiksa.",
+    "preferCalculateHeading": "Lebih suka langsung menghitung?",
+    "preferCalculateDescription": "Setiap panduan menautkan alat yang didukungnya, tetapi Anda bisa langsung ke sana.",
+    "body": {
+      "readingOrder": {
+        "p1": "Terakhir ditinjau"
+      },
+      "calculators": {
+        "p1": "Pembayaran DevEx, Robux ke USD, target pembayaran, dan biaya marketplace."
+      }
+    }
+  },
+  "calculators": {
+    "intro": "Empat kalkulator, masing-masing menjawab satu pertanyaan dengan benar, alih-alih satu alat yang mencoba menjawab segalanya.",
+    "availableHeading": "Kalkulator yang tersedia",
+    "lookingUpHeading": "Mencari satu jumlah tertentu?",
+    "lookingUpDescription": "Pusat konversi punya tabel yang dirender di server berisi jumlah-jumlah umum pada ketiga kurs.",
+    "understandHeading": "Ingin memahami, bukan menghitung?",
+    "understandDescription": "Panduan-panduan itu menjelaskan aturan di balik angka-angka ini.",
+    "body": {
+      "conversions": {
+        "p1": "Jumlah umum dari 1.000 sampai 10 juta, dengan halaman terperinci untuk yang paling sering ditanyakan kreator."
+      },
+      "guides": {
+        "p1": "Kurs, persyaratan, apa yang dihitung sebagai Earned Robux, dan bagaimana proses pencairan berjalan."
+      }
+    }
+  },
+  "cashOut": {
+    "intro": "Proses resminya, apa yang perlu disiapkan sebelum mulai, dan cara mengenali layanan yang tidak sepadan dengan risikonya.",
+    "jumpLabel": "Lihat prosesnya",
+    "processHeading": "Proses yang didokumentasikan Roblox",
+    "processDescription": "Secara garis besar, dan hanya sejauh yang didukung dokumentasi resmi.",
+    "processDiagramCaption": "Tahap yang digambar dengan garis putus-putus adalah tahap yang tidak Anda kendalikan. Semua sebelum itu adalah persiapan; tidak ada setelah itu yang dijamin.",
+    "prepareHeading": "Bersiaplah sebelum mengajukan",
+    "prepareDescription": "Tidak ada yang sulit di sini, tetapi mengurusnya setelah mengajukan itulah yang menyebabkan keterlambatan.",
+    "howLongHeading": "Berapa lama waktunya",
+    "howLongDescription": "Sejujurnya: tidak ada di luar Roblox yang bisa memberi tahu Anda.",
+    "avoidHeading": "Hindari layanan tidak resmi",
+    "avoidDescription": "Bagian ini lebih penting daripada sisa halaman ini.",
+    "neverShareTitle": "Jangan pernah membagikan kredensial Roblox Anda",
+    "groupHeading": "Ketika sebuah grup yang memperolehnya",
+    "groupDescription": "Permohonan DevEx diajukan oleh satu akun dan dibayarkan ke akun itu. Roblox tidak membagi pembayaran di antara kolaborator, jadi pembagian pendapatan adalah kesepakatan antaranggota grup — dan batas minimum berlaku untuk masing-masing secara terpisah.",
+    "afterHeading": "Setelah pembayaran",
+    "afterDescription": "Kurs DevEx bukan angka terakhir yang terlibat.",
+    "faqsHeading": "Pertanyaan tentang pencairan",
+    "steps": {
+      "reachMinimum": "Capai batas minimum",
+      "meetRequirements": "Penuhi persyaratan akun",
+      "submitPortal": "Ajukan lewat portal",
+      "submitPortalDetail": "Portal DevEx resmi, dan tidak di tempat lain.",
+      "robloxReviews": "Roblox meninjaunya",
+      "paymentIssued": "Pembayaran diterbitkan"
+    },
+    "list": {
+      "meetRequirements": "Penuhi persyaratan akun.",
+      "fullListLink": "Daftar lengkap",
+      "submitPortal": "Ajukan lewat portal DevEx.",
+      "robloxReviews": "Roblox meninjau permohonannya.",
+      "paymentIssued": "Pembayaran diterbitkan."
+    },
+    "prepare": {
+      "emailVerified": "Alamat surel Roblox Anda sudah terverifikasi.",
+      "portalSignIn": "Anda bisa masuk ke portal DevEx.",
+      "taxForm": "Formulir pajak yang benar sudah diisi dan tercatat.",
+      "nameMatches": "Nama resmi dan data Anda cocok dengan yang ada di formulir pajak.",
+      "paymentMethod": "Anda tahu metode pembayaran yang akan dipakai dan berapa biayanya."
+    },
+    "body": {
+      "process": {
+        "p1": "Kumpulkan setidaknya",
+        "p2": "Hanya Earned Robux yang dihitung.",
+        "p3": "Periksa Robux mana milik Anda yang memenuhi syarat",
+        "p4": "Surel terverifikasi, usia minimum 13 tahun, akun portal DevEx yang sah, W-9 atau W-8 yang tercatat, dan akun dalam status baik.",
+        "p5": "Permohonan diajukan lewat portal resmi yang ditautkan dari",
+        "p6": "Portal itulah yang menentukan Robux mana yang memenuhi syarat dan apakah permohonan disetujui. Tidak ada pihak ketiga yang memengaruhinya, dan situs ini tidak dapat memperkirakan hasilnya.",
+        "p7": "Dari titik itu, penyedia pembayaran dan bank Anda menerapkan ketentuan mereka sendiri.",
+        "p8": "Apa yang dipotong dari pembayaran"
+      },
+      "checklist": {
+        "p1": "Anda sudah menyisihkan perkiraan untuk pajak, jika berlaku di tempat tinggal Anda."
+      },
+      "safety": {
+        "p1": "Tidak ada layanan sah yang memerlukan kata sandi Roblox Anda, dan situs ini tidak pernah memintanya. Layanan yang menawarkan membeli Robux Anda, menukar saldo di luar DevEx, atau mempercepat pembayaran umumnya melanggar Ketentuan Penggunaan Roblox. Hasil yang realistis adalah kehilangan Robux, kehilangan akun, atau keduanya.",
+        "p2": "DevEx adalah satu-satunya jalur resmi dari Earned Robux ke uang. Tidak ada alternatif yang lebih cepat.",
+        "p3": "Siapa pun yang menjamin persetujuan sedang menjamin sesuatu yang tidak dikendalikannya."
+      },
+      "group": {
+        "p1": "Hal ini lebih sering mengejutkan grup daripada kursnya sendiri. Sebuah tim bisa bersama-sama memperoleh beberapa kali lipat batas minimum dan tetap tidak ada yang dapat mengajukan permohonan, karena ambangnya diukur terhadap saldo yang dipegang satu orang. Hitunglah berapa nilai bagian yang disepakati masing-masing, dan apakah bagian itu sendiri sudah melewati ambang:"
+      },
+      "after": {
+        "p1": "Pembayaran adalah penghasilan, dan bagaimana ia dikenai pajak sepenuhnya bergantung pada tempat tinggal Anda. Penyedia pembayaran Anda mungkin mengenakan biaya, dan jika Anda dibayar dalam mata uang selain dolar AS akan ada selisih kurs di atasnya.",
+        "p2": "Modelkan potongan-potongan itu dengan angka Anda sendiri"
+      }
+    }
+  }
+}

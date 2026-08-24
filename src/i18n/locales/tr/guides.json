@@ -1,0 +1,102 @@
+{
+  "$comment": "Machine-drafted. Not yet read by a native speaker. The cash-out guide carries this site's strongest safety warning; its meaning is not negotiable in any language.",
+  "index": {
+    "intro": "Bir Robux kazanmakla paranın hesabınıza geçmesi arasındaki her şeyi kapsayan altı rehber; okunması mantıklı olan sırayla.",
+    "readingOrderHeading": "Önerilen okuma sırası",
+    "readingOrderDescription": "Her rehber kaynaklarını ve bilgilerinin en son ne zaman denetlendiğini belirtir.",
+    "preferCalculateHeading": "Doğrudan hesaplamayı mı tercih edersiniz?",
+    "preferCalculateDescription": "Her rehber, desteklediği araca bağlantı verir; ama doğrudan oraya da gidebilirsiniz.",
+    "body": {
+      "readingOrder": {
+        "p1": "Son inceleme"
+      },
+      "calculators": {
+        "p1": "DevEx ödemesi, Robux'tan USD'ye, ödeme hedefleri ve marketplace ücretleri."
+      }
+    }
+  },
+  "calculators": {
+    "intro": "Dört hesaplayıcı; her biri tek bir soruyu düzgün yanıtlıyor — her şeyi yanıtlamaya çalışan tek bir araç yerine.",
+    "availableHeading": "Kullanılabilir hesaplayıcılar",
+    "lookingUpHeading": "Belirli bir tutarı mı arıyorsunuz?",
+    "lookingUpDescription": "Dönüşüm merkezinde, üç kurun tamamı için yaygın tutarları içeren, sunucuda oluşturulmuş bir tablo var.",
+    "understandHeading": "Hesaplamak yerine anlamak mı istiyorsunuz?",
+    "understandDescription": "Rehberler bu rakamların arkasındaki kuralları açıklıyor.",
+    "body": {
+      "conversions": {
+        "p1": "1.000'den 10 milyona kadar yaygın tutarlar; içerik üreticilerinin en çok sorduğu tutarlar için ayrıntılı sayfalarla."
+      },
+      "guides": {
+        "p1": "Kurlar, koşullar, neyin Earned Robux sayıldığı ve nakde çevirme sürecinin nasıl işlediği."
+      }
+    }
+  },
+  "cashOut": {
+    "intro": "Resmî süreç, başlamadan önce hazır olması gerekenler ve riske değmeyen hizmetlerin nasıl tanınacağı.",
+    "jumpLabel": "Süreci gör",
+    "processHeading": "Roblox'un belgelediği süreç",
+    "processDescription": "Genel hatlarıyla ve yalnızca resmî belgelerin desteklediği ölçüde.",
+    "processDiagramCaption": "Kesik çizgiyle çizilen aşama, sizin denetiminizde olmayan aşamadır. Ondan öncesi hazırlıktır; sonrasında hiçbir şey garanti değildir.",
+    "prepareHeading": "Başvurmadan önce hazırlanın",
+    "prepareDescription": "Bunların hiçbiri zor değil; ama gönderdikten sonra peşine düşmek gecikmelere yol açan şeydir.",
+    "howLongHeading": "Ne kadar sürer",
+    "howLongDescription": "Dürüstçe: Roblox dışında kimse size söyleyemez.",
+    "avoidHeading": "Resmî olmayan hizmetlerden uzak durun",
+    "avoidDescription": "Bu bölüm sayfanın geri kalanından daha önemli.",
+    "neverShareTitle": "Roblox kimlik bilgilerinizi asla paylaşmayın",
+    "groupHeading": "Kazanan bir grup olduğunda",
+    "groupDescription": "DevEx talebi tek bir hesap tarafından gönderilir ve o hesaba ödenir. Roblox bir ödemeyi ortaklar arasında bölmez; dolayısıyla gelir paylaşımı gruptaki kişiler arasındaki bir anlaşmadır — ve alt sınır her biri için ayrı ayrı geçerlidir.",
+    "afterHeading": "Ödemeden sonra",
+    "afterDescription": "DevEx kuru, işin içindeki son rakam değildir.",
+    "faqsHeading": "Nakde çevirme hakkında sorular",
+    "steps": {
+      "reachMinimum": "Alt sınıra ulaşın",
+      "meetRequirements": "Hesap koşullarını karşılayın",
+      "submitPortal": "Portal üzerinden gönderin",
+      "submitPortalDetail": "Resmî DevEx portalı; başka hiçbir yer değil.",
+      "robloxReviews": "Roblox inceler",
+      "paymentIssued": "Ödeme yapılır"
+    },
+    "list": {
+      "meetRequirements": "Hesap koşullarını karşılayın.",
+      "fullListLink": "Tam liste",
+      "submitPortal": "DevEx portalı üzerinden gönderin.",
+      "robloxReviews": "Roblox talebi inceler.",
+      "paymentIssued": "Ödeme yapılır."
+    },
+    "prepare": {
+      "emailVerified": "Roblox e-posta adresiniz doğrulanmış durumda.",
+      "portalSignIn": "DevEx portalına giriş yapabiliyorsunuz.",
+      "taxForm": "Doğru vergi formu doldurulmuş ve dosyada.",
+      "nameMatches": "Resmî adınız ve bilgileriniz vergi formunuzdakilerle örtüşüyor.",
+      "paymentMethod": "Hangi ödeme yöntemini kullanacağınızı ve ne kadar kestiğini biliyorsunuz."
+    },
+    "body": {
+      "process": {
+        "p1": "En az şu kadarını biriktirin:",
+        "p2": "Yalnızca Earned Robux sayılır.",
+        "p3": "Robux'unuzun hangilerinin uygun olduğunu kontrol edin",
+        "p4": "Doğrulanmış e-posta, en az 13 yaş, geçerli bir DevEx portal hesabı, dosyada bir W-9 ya da W-8 ve kuralları ihlal etmemiş bir hesap.",
+        "p5": "Talepler, şuradan bağlantı verilen resmî portal üzerinden gider:",
+        "p6": "Hangi Robux'un uygun olduğuna ve talebin onaylanıp onaylanmayacağına o karar verir. Buna hiçbir üçüncü taraf etki edemez ve bu site sonucu öngöremez.",
+        "p7": "Oradan sonrasında ödeme sağlayıcınız ve bankanız kendi işleyişlerini uygular.",
+        "p8": "Ödemeden neler düşülür"
+      },
+      "checklist": {
+        "p1": "Yaşadığınız yerde geçerliyse, vergi için bir tahmin ayırdınız."
+      },
+      "safety": {
+        "p1": "Meşru hiçbir hizmetin Roblox parolanıza ihtiyacı yoktur ve bu site onu asla istemez. Robux'unuzu satın almayı, bakiyeyi DevEx dışında çevirmeyi ya da ödemeyi hızlandırmayı öneren hizmetler genellikle Roblox Kullanım Koşulları'nı ihlal eder. Gerçekçi sonuçlar: Robux'un gitmesi, hesabın gitmesi ya da ikisi birden.",
+        "p2": "Earned Robux'tan paraya giden tek resmî yol DevEx'tir. Daha hızlı bir alternatif yoktur.",
+        "p3": "Onay garantisi veren biri, denetiminde olmayan bir şeyi garanti ediyordur."
+      },
+      "group": {
+        "p1": "Bu, grupları kurdan daha sık şaşırtır. Bir ekip birlikte alt sınırın birkaç katını kazanabilir ve yine de kimse talep gönderemez; çünkü eşik, tek bir kişinin elindeki bakiyeye göre ölçülür. Anlaşılan her payın ne kadar ettiğini ve tek başına eşiği geçip geçmediğini hesaplayın:"
+      },
+      "after": {
+        "p1": "Ödeme bir gelirdir ve nasıl vergilendirileceği tamamen yaşadığınız yere bağlıdır. Ödeme sağlayıcınız bir ücret alabilir ve ABD doları dışında bir para biriminde ödeme alıyorsanız bunun üzerine bir de dönüşüm farkı biner.",
+        "p2": "Bu kesintileri kendi rakamlarınızla modelleyin"
+      }
+    }
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "$comment": "Machine-drafted. Not yet read by a native speaker. The cash-out guide carries this site's strongest safety warning; its meaning is not negotiable in any language.",
+  "index": {
+    "intro": "Seis guias cobrindo tudo entre ganhar um Robux e ter o dinheiro na sua conta, na ordem que faz sentido lê-los.",
+    "readingOrderHeading": "Ordem de leitura sugerida",
+    "readingOrderDescription": "Cada guia declara suas fontes e a data em que seus fatos foram conferidos pela última vez.",
+    "preferCalculateHeading": "Prefere só calcular?",
+    "preferCalculateDescription": "Todo guia leva à ferramenta que ele apoia, mas você pode ir direto para lá.",
+    "body": {
+      "readingOrder": {
+        "p1": "Revisado pela última vez"
+      },
+      "calculators": {
+        "p1": "Pagamento DevEx, Robux para USD, metas de pagamento e taxas do marketplace."
+      }
+    }
+  },
+  "calculators": {
+    "intro": "Quatro calculadoras, cada uma respondendo bem a uma pergunta, em vez de uma ferramenta tentando responder a tudo.",
+    "availableHeading": "Calculadoras disponíveis",
+    "lookingUpHeading": "Procurando uma quantia específica?",
+    "lookingUpDescription": "O hub de conversões tem uma tabela renderizada no servidor com quantias comuns nas três taxas.",
+    "understandHeading": "Quer entender em vez de calcular?",
+    "understandDescription": "Os guias explicam as regras por trás desses números.",
+    "body": {
+      "conversions": {
+        "p1": "Quantias comuns de 1.000 a 10 milhões, com páginas detalhadas para as que os criadores mais perguntam."
+      },
+      "guides": {
+        "p1": "Taxas, requisitos, o que conta como Earned Robux e como funciona o processo de saque."
+      }
+    }
+  },
+  "cashOut": {
+    "intro": "O processo oficial, o que ter em mãos antes de começar e como reconhecer os serviços que não valem o risco.",
+    "jumpLabel": "Ver o processo",
+    "processHeading": "O processo que o Roblox documenta",
+    "processDescription": "Em alto nível, e apenas até onde a documentação oficial sustenta.",
+    "processDiagramCaption": "A etapa desenhada com borda tracejada é a que você não controla. Tudo antes dela é preparação; nada depois dela é garantido.",
+    "prepareHeading": "Prepare-se antes de solicitar",
+    "prepareDescription": "Nada disso é difícil, mas correr atrás depois de enviar é o que causa atrasos.",
+    "howLongHeading": "Quanto tempo leva",
+    "howLongDescription": "Honestamente: ninguém fora do Roblox pode dizer.",
+    "avoidHeading": "Evite serviços não oficiais",
+    "avoidDescription": "Esta parte importa mais que o resto da página.",
+    "neverShareTitle": "Nunca compartilhe suas credenciais do Roblox",
+    "groupHeading": "Quando foi um grupo que ganhou",
+    "groupDescription": "Um pedido de DevEx é enviado por uma conta e pago a essa conta. O Roblox não divide um pagamento entre colaboradores, então uma divisão de receita é um acordo entre as pessoas do grupo — e o mínimo se aplica a cada uma delas separadamente.",
+    "afterHeading": "Depois do pagamento",
+    "afterDescription": "A taxa do DevEx não é o último número envolvido.",
+    "faqsHeading": "Perguntas sobre o saque",
+    "steps": {
+      "reachMinimum": "Atingir o mínimo",
+      "meetRequirements": "Cumprir os requisitos da conta",
+      "submitPortal": "Enviar pelo portal",
+      "submitPortalDetail": "O portal oficial do DevEx, e nenhum outro lugar.",
+      "robloxReviews": "O Roblox analisa",
+      "paymentIssued": "O pagamento é emitido"
+    },
+    "list": {
+      "meetRequirements": "Cumpra os requisitos da conta.",
+      "fullListLink": "Lista completa",
+      "submitPortal": "Envie pelo portal do DevEx.",
+      "robloxReviews": "O Roblox analisa o pedido.",
+      "paymentIssued": "O pagamento é emitido."
+    },
+    "prepare": {
+      "emailVerified": "Seu endereço de e-mail do Roblox está verificado.",
+      "portalSignIn": "Você consegue entrar no portal do DevEx.",
+      "taxForm": "O formulário fiscal correto está preenchido e registrado.",
+      "nameMatches": "Seu nome legal e seus dados batem com os do seu formulário fiscal.",
+      "paymentMethod": "Você sabe qual método de pagamento vai usar e quanto ele cobra."
+    },
+    "body": {
+      "process": {
+        "p1": "Acumule pelo menos",
+        "p2": "Só Earned Robux contam.",
+        "p3": "Confira quais dos seus Robux qualificam",
+        "p4": "E-mail verificado, idade mínima de 13 anos, uma conta válida no portal do DevEx, um W-9 ou W-8 registrado e uma conta em situação regular.",
+        "p5": "Os pedidos passam pelo portal oficial linkado em",
+        "p6": "É ele que decide quais Robux qualificam e se o pedido é aprovado. Nenhum terceiro influencia isso, e este site não pode prever o resultado.",
+        "p7": "Daí em diante, seu provedor de pagamento e seu banco aplicam o tratamento deles.",
+        "p8": "O que sai do pagamento"
+      },
+      "checklist": {
+        "p1": "Você separou uma estimativa para imposto, se isso se aplica onde você mora."
+      },
+      "safety": {
+        "p1": "Nenhum serviço legítimo precisa da sua senha do Roblox, e este site nunca a pede. Serviços que oferecem comprar seus Robux, converter um saldo fora do DevEx ou acelerar um pagamento geralmente violam os Termos de Uso do Roblox. Os desfechos realistas são perder os Robux, perder a conta, ou os dois.",
+        "p2": "O DevEx é a única rota oficial de Earned Robux para dinheiro. Não existe alternativa mais rápida.",
+        "p3": "Quem garante aprovação está garantindo algo que não controla."
+      },
+      "group": {
+        "p1": "Isso pega grupos de surpresa com mais frequência do que a taxa. Uma equipe pode ganhar junta várias vezes o mínimo e ainda assim não ter ninguém capaz de enviar um pedido, porque o limite é medido sobre o saldo que uma pessoa tem. Calcule quanto cada parte acordada representa e se ela atinge o mínimo sozinha:"
+      },
+      "after": {
+        "p1": "Um pagamento é renda, e como ele é tributado depende inteiramente de onde você mora. Seu provedor de pagamento pode cobrar uma taxa, e se você for pago em uma moeda que não seja o dólar americano haverá um spread de conversão por cima.",
+        "p2": "Modele essas deduções com seus próprios números"
+      }
+    }
+  }
+}

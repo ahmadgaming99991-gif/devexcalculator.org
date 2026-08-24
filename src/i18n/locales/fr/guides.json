@@ -1,0 +1,102 @@
+{
+  "$comment": "Machine-drafted. Not yet read by a native speaker. The cash-out guide carries this site's strongest safety warning; its meaning is not negotiable in any language.",
+  "index": {
+    "intro": "Six guides couvrant tout ce qui se passe entre le moment où un Robux est gagné et celui où l’argent est sur votre compte, dans l’ordre où il est logique de les lire.",
+    "readingOrderHeading": "Ordre de lecture conseillé",
+    "readingOrderDescription": "Chaque guide indique ses sources et la date à laquelle ses faits ont été vérifiés pour la dernière fois.",
+    "preferCalculateHeading": "Vous préférez simplement calculer ?",
+    "preferCalculateDescription": "Chaque guide renvoie vers l’outil qu’il accompagne, mais vous pouvez y aller directement.",
+    "body": {
+      "readingOrder": {
+        "p1": "Dernière relecture"
+      },
+      "calculators": {
+        "p1": "Paiement DevEx, Robux vers USD, objectifs de paiement et commissions du marketplace."
+      }
+    }
+  },
+  "calculators": {
+    "intro": "Quatre calculatrices, chacune répondant correctement à une question, plutôt qu’un seul outil qui essaie de tout traiter.",
+    "availableHeading": "Calculatrices disponibles",
+    "lookingUpHeading": "Vous cherchez un montant précis ?",
+    "lookingUpDescription": "Le centre de conversions propose un tableau rendu côté serveur des montants courants aux trois taux.",
+    "understandHeading": "Vous voulez comprendre plutôt que calculer ?",
+    "understandDescription": "Les guides expliquent les règles derrière ces chiffres.",
+    "body": {
+      "conversions": {
+        "p1": "Montants courants de 1 000 à 10 millions, avec des pages détaillées pour ceux dont les créateurs parlent le plus."
+      },
+      "guides": {
+        "p1": "Taux, conditions, ce qui compte comme Earned Robux, et comment se déroule l’encaissement."
+      }
+    }
+  },
+  "cashOut": {
+    "intro": "La procédure officielle, ce qu’il faut préparer avant de commencer, et comment reconnaître les services qui ne valent pas le risque.",
+    "jumpLabel": "Voir la procédure",
+    "processHeading": "La procédure documentée par Roblox",
+    "processDescription": "Dans les grandes lignes, et seulement dans la mesure où la documentation officielle l’appuie.",
+    "processDiagramCaption": "L’étape dessinée en pointillés est celle que vous ne contrôlez pas. Tout ce qui précède est de la préparation ; rien de ce qui suit n’est garanti.",
+    "prepareHeading": "Préparez-vous avant de faire la demande",
+    "prepareDescription": "Rien de tout cela n’est difficile, mais s’en occuper après avoir envoyé la demande est ce qui provoque les retards.",
+    "howLongHeading": "Combien de temps cela prend",
+    "howLongDescription": "Honnêtement : personne en dehors de Roblox ne peut vous le dire.",
+    "avoidHeading": "Évitez les services non officiels",
+    "avoidDescription": "Cette partie compte plus que le reste de la page.",
+    "neverShareTitle": "Ne partagez jamais vos identifiants Roblox",
+    "groupHeading": "Quand c’est un groupe qui a gagné",
+    "groupDescription": "Une demande DevEx est déposée par un compte et payée à ce compte. Roblox ne répartit pas un paiement entre collaborateurs : un partage de revenus est donc un accord entre les personnes du groupe, et le minimum s’applique à chacune séparément.",
+    "afterHeading": "Après le paiement",
+    "afterDescription": "Le taux DevEx n’est pas le dernier chiffre en jeu.",
+    "faqsHeading": "Questions sur l’encaissement",
+    "steps": {
+      "reachMinimum": "Atteindre le minimum",
+      "meetRequirements": "Remplir les conditions du compte",
+      "submitPortal": "Déposer via le portail",
+      "submitPortalDetail": "Le portail DevEx officiel, et nulle part ailleurs.",
+      "robloxReviews": "Roblox examine la demande",
+      "paymentIssued": "Le paiement est émis"
+    },
+    "list": {
+      "meetRequirements": "Remplissez les conditions du compte.",
+      "fullListLink": "Liste complète",
+      "submitPortal": "Déposez la demande via le portail DevEx.",
+      "robloxReviews": "Roblox examine la demande.",
+      "paymentIssued": "Le paiement est émis."
+    },
+    "prepare": {
+      "emailVerified": "Votre adresse e-mail Roblox est vérifiée.",
+      "portalSignIn": "Vous pouvez vous connecter au portail DevEx.",
+      "taxForm": "Le bon formulaire fiscal est rempli et enregistré.",
+      "nameMatches": "Votre nom légal et vos informations correspondent à ceux de votre formulaire fiscal.",
+      "paymentMethod": "Vous savez quel moyen de paiement vous utiliserez et ce qu’il facture."
+    },
+    "body": {
+      "process": {
+        "p1": "Accumulez au moins",
+        "p2": "Seuls les Earned Robux comptent.",
+        "p3": "Vérifiez lesquels de vos Robux sont éligibles",
+        "p4": "E-mail vérifié, âge minimum de 13 ans, compte valide sur le portail DevEx, formulaire W-9 ou W-8 enregistré, et compte en règle.",
+        "p5": "Les demandes passent par le portail officiel lié depuis",
+        "p6": "C’est lui qui décide quels Robux sont éligibles et si la demande est acceptée. Aucun tiers n’influence cela, et ce site ne peut pas en prédire l’issue.",
+        "p7": "À partir de là, votre prestataire de paiement et votre banque appliquent leur propre traitement.",
+        "p8": "Ce qui est retiré du paiement"
+      },
+      "checklist": {
+        "p1": "Vous avez mis de côté une estimation pour l’impôt, s’il s’applique là où vous vivez."
+      },
+      "safety": {
+        "p1": "Aucun service légitime n’a besoin de votre mot de passe Roblox, et ce site ne le demande jamais. Les services qui proposent d’acheter vos Robux, de convertir un solde en dehors de DevEx ou d’accélérer un paiement enfreignent généralement les Conditions d’utilisation de Roblox. Les issues réalistes sont la perte des Robux, la perte du compte, ou les deux.",
+        "p2": "DevEx est la seule voie officielle des Earned Robux vers de l’argent. Il n’existe pas d’alternative plus rapide.",
+        "p3": "Quiconque garantit une approbation garantit quelque chose qu’il ne contrôle pas."
+      },
+      "group": {
+        "p1": "Cela surprend les groupes plus souvent que le taux lui-même. Une équipe peut gagner ensemble plusieurs fois le minimum sans que personne ne puisse déposer de demande, parce que le seuil se mesure sur le solde détenu par une seule personne. Calculez ce que représente chaque part convenue, et si elle atteint le seuil à elle seule :"
+      },
+      "after": {
+        "p1": "Un paiement est un revenu, et sa fiscalité dépend entièrement de l’endroit où vous vivez. Votre prestataire de paiement peut prélever des frais, et si vous êtes payé dans une devise autre que le dollar américain, un écart de conversion s’ajoute.",
+        "p2": "Modélisez ces prélèvements avec vos propres chiffres"
+      }
+    }
+  }
+}

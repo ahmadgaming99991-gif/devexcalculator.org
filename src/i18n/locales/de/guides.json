@@ -1,0 +1,102 @@
+{
+  "$comment": "Machine-drafted. Not yet read by a native speaker. The cash-out guide carries this site's strongest safety warning; its meaning is not negotiable in any language.",
+  "index": {
+    "intro": "Sechs Leitfäden, die alles zwischen dem Verdienen eines Robux und dem Geld auf deinem Konto abdecken, in der Reihenfolge, in der es sinnvoll ist, sie zu lesen.",
+    "readingOrderHeading": "Empfohlene Lesereihenfolge",
+    "readingOrderDescription": "Jeder Leitfaden nennt seine Quellen und das Datum, an dem seine Angaben zuletzt geprüft wurden.",
+    "preferCalculateHeading": "Lieber einfach rechnen?",
+    "preferCalculateDescription": "Jeder Leitfaden verlinkt das Werkzeug, das er begleitet — du kannst aber auch direkt dorthin.",
+    "body": {
+      "readingOrder": {
+        "p1": "Zuletzt geprüft"
+      },
+      "calculators": {
+        "p1": "DevEx-Auszahlung, Robux zu USD, Auszahlungsziele und Marketplace-Gebühren."
+      }
+    }
+  },
+  "calculators": {
+    "intro": "Vier Rechner, von denen jeder eine Frage richtig beantwortet — statt eines Werkzeugs, das alles auf einmal versucht.",
+    "availableHeading": "Verfügbare Rechner",
+    "lookingUpHeading": "Suchst du einen bestimmten Betrag?",
+    "lookingUpDescription": "Der Umrechnungsbereich hat eine serverseitig gerenderte Tabelle üblicher Beträge zu allen drei Kursen.",
+    "understandHeading": "Willst du verstehen statt rechnen?",
+    "understandDescription": "Die Leitfäden erklären die Regeln hinter diesen Zahlen.",
+    "body": {
+      "conversions": {
+        "p1": "Übliche Beträge von 1.000 bis 10 Millionen, mit ausführlichen Seiten für die, nach denen Creator am häufigsten fragen."
+      },
+      "guides": {
+        "p1": "Kurse, Voraussetzungen, was als Earned Robux zählt und wie die Auszahlung abläuft."
+      }
+    }
+  },
+  "cashOut": {
+    "intro": "Der offizielle Ablauf, was du vorher bereithalten solltest, und woran du die Dienste erkennst, die das Risiko nicht wert sind.",
+    "jumpLabel": "Den Ablauf ansehen",
+    "processHeading": "Der von Roblox dokumentierte Ablauf",
+    "processDescription": "Im Überblick, und nur so weit, wie die offizielle Dokumentation es hergibt.",
+    "processDiagramCaption": "Die gestrichelt gezeichnete Stufe ist die, die du nicht steuerst. Alles davor ist Vorbereitung; nichts danach ist garantiert.",
+    "prepareHeading": "Bereite dich vor, bevor du den Antrag stellst",
+    "prepareDescription": "Nichts davon ist schwierig, aber es erst nach dem Absenden zu erledigen ist der Grund für Verzögerungen.",
+    "howLongHeading": "Wie lange es dauert",
+    "howLongDescription": "Ehrlich: niemand außerhalb von Roblox kann dir das sagen.",
+    "avoidHeading": "Meide inoffizielle Dienste",
+    "avoidDescription": "Dieser Teil ist wichtiger als der Rest der Seite.",
+    "neverShareTitle": "Gib deine Roblox-Zugangsdaten niemals weiter",
+    "groupHeading": "Wenn eine Gruppe es verdient hat",
+    "groupDescription": "Ein DevEx-Antrag wird von einem Konto gestellt und an dieses Konto ausgezahlt. Roblox teilt eine Auszahlung nicht unter Mitwirkenden auf; eine Erlösbeteiligung ist also eine Absprache zwischen den Menschen in der Gruppe — und der Mindestbetrag gilt für jede einzeln.",
+    "afterHeading": "Nach der Auszahlung",
+    "afterDescription": "Der DevEx-Kurs ist nicht die letzte Zahl, die eine Rolle spielt.",
+    "faqsHeading": "Fragen zur Auszahlung",
+    "steps": {
+      "reachMinimum": "Den Mindestbetrag erreichen",
+      "meetRequirements": "Die Kontovoraussetzungen erfüllen",
+      "submitPortal": "Über das Portal einreichen",
+      "submitPortalDetail": "Das offizielle DevEx-Portal, und sonst nirgends.",
+      "robloxReviews": "Roblox prüft den Antrag",
+      "paymentIssued": "Die Zahlung wird ausgelöst"
+    },
+    "list": {
+      "meetRequirements": "Erfülle die Kontovoraussetzungen.",
+      "fullListLink": "Vollständige Liste",
+      "submitPortal": "Reiche den Antrag über das DevEx-Portal ein.",
+      "robloxReviews": "Roblox prüft den Antrag.",
+      "paymentIssued": "Die Zahlung wird ausgelöst."
+    },
+    "prepare": {
+      "emailVerified": "Deine Roblox-E-Mail-Adresse ist bestätigt.",
+      "portalSignIn": "Du kannst dich im DevEx-Portal anmelden.",
+      "taxForm": "Das richtige Steuerformular ist ausgefüllt und hinterlegt.",
+      "nameMatches": "Dein bürgerlicher Name und deine Angaben stimmen mit denen auf deinem Steuerformular überein.",
+      "paymentMethod": "Du weißt, welche Zahlungsmethode du nutzen wirst und was sie kostet."
+    },
+    "body": {
+      "process": {
+        "p1": "Sammle mindestens",
+        "p2": "Nur Earned Robux zählen.",
+        "p3": "Prüfe, welche deiner Robux anrechenbar sind",
+        "p4": "Bestätigte E-Mail, Mindestalter 13, ein gültiges DevEx-Portalkonto, ein hinterlegtes W-9 oder W-8 und ein Konto ohne Beanstandungen.",
+        "p5": "Anträge laufen über das offizielle Portal, verlinkt von",
+        "p6": "Dort wird entschieden, welche Robux anrechenbar sind und ob der Antrag genehmigt wird. Kein Dritter nimmt darauf Einfluss, und diese Website kann das Ergebnis nicht vorhersagen.",
+        "p7": "Ab da wenden dein Zahlungsdienstleister und deine Bank ihre eigenen Regeln an.",
+        "p8": "Was von der Auszahlung abgeht"
+      },
+      "checklist": {
+        "p1": "Du hast eine Schätzung für die Steuer zurückgelegt, falls sie dort gilt, wo du lebst."
+      },
+      "safety": {
+        "p1": "Kein seriöser Dienst braucht dein Roblox-Passwort, und diese Website fragt nie danach. Dienste, die anbieten, dir Robux abzukaufen, ein Guthaben außerhalb von DevEx umzuwandeln oder eine Auszahlung zu beschleunigen, verstoßen in aller Regel gegen die Roblox-Nutzungsbedingungen. Die realistischen Ausgänge sind: die Robux weg, das Konto weg, oder beides.",
+        "p2": "DevEx ist der einzige offizielle Weg von Earned Robux zu Geld. Es gibt keine schnellere Alternative.",
+        "p3": "Wer eine Genehmigung garantiert, garantiert etwas, das er nicht in der Hand hat."
+      },
+      "group": {
+        "p1": "Das überrascht Gruppen häufiger als der Kurs. Ein Team kann gemeinsam ein Vielfaches des Mindestbetrags verdienen und trotzdem niemanden haben, der einen Antrag stellen kann, weil die Schwelle am Guthaben einer einzelnen Person gemessen wird. Rechne aus, wie viel jeder vereinbarte Anteil ergibt und ob er für sich allein reicht:"
+      },
+      "after": {
+        "p1": "Eine Auszahlung ist Einkommen, und wie sie besteuert wird, hängt ganz davon ab, wo du lebst. Dein Zahlungsdienstleister kann eine Gebühr erheben, und wenn du in einer anderen Währung als US-Dollar bezahlt wirst, kommt eine Umrechnungsspanne obendrauf.",
+        "p2": "Rechne diese Abzüge mit deinen eigenen Zahlen durch"
+      }
+    }
+  }
+}
