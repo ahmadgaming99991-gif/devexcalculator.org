@@ -1,0 +1,348 @@
+{
+  "$comment": "Machine-drafted. Not yet read by a native speaker. A translation that softens 'this site cannot determine' into 'this site does not usually determine' turns a limit into a habit.",
+  "$identical": [
+    "api.endpointColumn",
+    "api.fxHeading",
+    "api.platformHeading",
+    "api.ratesHeading",
+    "api.statsHeading",
+    "changelog.filterSite",
+    "changelog.jsonFeed"
+  ],
+  "about": {
+    "intro": "Para que serve este site, como ele é construído e as coisas que ele deliberadamente se recusa a fazer.",
+    "purposeHeading": "Para que serve este site",
+    "principlesHeading": "Como ele é construído",
+    "limitsHeading": "O que ele não vai fazer",
+    "affiliationHeading": "Afiliação",
+    "independentTitle": "Independente e sem ligação com o Roblox",
+    "principles": {
+      "rateHasSource": "Toda taxa tem fonte e data.",
+      "exactArithmetic": "A aritmética é exata.",
+      "methodologyExplains": "A metodologia explica por quê",
+      "worksWithoutJs": "A página funciona sem JavaScript.",
+      "nothingCollected": "Nada é coletado.",
+      "privacyIsSpecific": "A política de privacidade é específica sobre isso",
+      "correctionsPublished": "As correções são publicadas."
+    },
+    "body": {
+      "purpose": {
+        "p1": "Um criador com saldo em Robux quer saber uma coisa: quanto isso realmente vale. A resposta é aritmética, mas acertá-la exige taxas atuais, entender quais Robux qualificam e honestidade sobre o que o número significa e o que não significa.",
+        "p2": "A maioria das calculadoras faz a conta e para por aí. Várias que aparecem bem nas buscas ainda citam uma taxa que mudou em setembro de 2025, ou um mínimo que não está correto há anos. Um criador que planeja em cima desses números planeja em cima de ficção.",
+        "p3": "Este site existe para ser a versão que está correta, que diz de onde veio cada número e que admite o que não consegue lhe dizer."
+      },
+      "principles": {
+        "p1": "O dinheiro é calculado como frações exatas, não como números de ponto flutuante, e arredondado uma única vez, no momento em que é exibido.",
+        "p2": "Taxas, fórmulas, exemplos e explicações são todos renderizados no servidor. Só o recálculo ao vivo precisa de scripts.",
+        "p3": "Os cálculos rodam no seu navegador e nunca são enviados a lugar nenhum.",
+        "p4": "Quando um número aqui se revela errado, a correção é registrada com data no",
+        "p5": "em vez de ser editada em silêncio."
+      },
+      "limits": {
+        "p1": "Dizer se o seu pedido de DevEx será aprovado. Quem decide isso é o Roblox, e nenhum terceiro pode prever.",
+        "p2": "Dar consultoria fiscal, ou declarar uma alíquota para o seu país.",
+        "p3": "Pedir suas credenciais do Roblox, por qualquer motivo. Nenhuma ferramenta legítima precisa delas.",
+        "p4": "Publicar uma página para cada número só porque as pessoas pesquisam por ele. Páginas de quantia existem só onde há algo específico a dizer.",
+        "p5": "Inventar contagens de avaliações, números de usuários, depoimentos ou uma biografia de autor para parecer mais estabelecido do que é."
+      },
+      "affiliation": {
+        "p1": "O DevExCalculator.org não é afiliado, endossado, patrocinado nem operado pela Roblox Corporation. Roblox, Robux e Developer Exchange são marcas registradas da Roblox Corporation, usadas aqui apenas para descrever do que tratam estes cálculos. Para qualquer coisa sobre sua conta, seu saldo ou seu pedido de DevEx, o Roblox é a única parte que pode ajudar."
+      }
+    }
+  },
+  "methodology": {
+    "intro": "Todas as fórmulas que este site usa, como a aritmética é feita e onde a precisão é deliberadamente descartada.",
+    "jumpLabel": "Ver as fórmulas",
+    "formulasHeading": "As fórmulas",
+    "formulasDescription": "Este é o conjunto completo. Nada no site calcula um valor monetário de outra forma.",
+    "exactHeading": "Por que a aritmética exata importa",
+    "exactDescription": "Isto não é preciosismo — é a diferença entre um número em que você pode confiar e um que está quase certo.",
+    "roundingHeading": "Política de arredondamento",
+    "roundingDescription": "A precisão é descartada exatamente uma vez, e a direção é escolhida deliberadamente em cada caso.",
+    "currencyHeading": "Estimativas em moeda local",
+    "currencyDescription": "Secundárias ao valor em USD, e rotuladas como aquilo que são.",
+    "cannotHeading": "O que isto não pode lhe dizer",
+    "cannotDescription": "O limite honesto do que a aritmética consegue estabelecer.",
+    "formulas": {
+      "payoutTerm": "Pagamento a partir de um saldo",
+      "payoutDetail": "Uma multiplicação. A taxa vem do registro validado, nunca de um literal fixo em um componente.",
+      "mixedTerm": "Saldo misto",
+      "mixedDetail": "Cada faixa é uma entrada separada, então nenhum Robux pode ser contado sob duas taxas.",
+      "blendedTerm": "Taxa combinada",
+      "blendedDetail": "A média ponderada entre as faixas que você informou.",
+      "feesTerm": "Taxas opcionais",
+      "feesDetail": "Aplicadas só quando você informa seus próprios números. Limitadas para nunca ficarem abaixo de zero.",
+      "taxTerm": "Estimativa de imposto opcional",
+      "taxDetail": "O imposto é aplicado depois das taxas, usando a porcentagem que você fornecer. Este site não declara alíquota alguma.",
+      "reverseTerm": "Meta inversa",
+      "reverseDetail": "Sempre arredonda para cima. Arredondar para baixo deixaria o pagamento uma fração abaixo da meta.",
+      "currencyTerm": "Moeda local",
+      "currencyDetail": "O BCE publica taxas com base no euro, então as taxas cruzadas em USD são derivadas. A direção da divisão é fixada por testes.",
+      "marketplaceTerm": "Taxa do marketplace",
+      "marketplaceDetail": "Arredonda para baixo, então um número exibido nunca é maior do que você realmente receberia."
+    },
+    "rounding": {
+      "moneyHalfUp": "O dinheiro arredonda meio para cima",
+      "robuxUp": "Os Robux necessários arredondam para cima.",
+      "sharesDown": "As participações do marketplace arredondam para baixo.",
+      "intermediateNever": "Valores intermediários nunca são arredondados."
+    },
+    "cannot": {
+      "approvalOrTiming": "Se um pedido será aprovado, ou quando será pago.",
+      "providerCharges": "Quanto seu banco ou provedor de pagamento vai cobrar.",
+      "taxOwed": "Quanto você deve de imposto."
+    },
+    "body": {
+      "arithmetic": {
+        "p1": "Todo valor monetário neste site é mantido como fração exata — um par de inteiros de precisão arbitrária — desde o momento em que uma taxa é lida até o momento em que um número é impresso. Adição, multiplicação e divisão são exatas o tempo todo. Nada é arredondado no meio do caminho, então um total sempre é igual à soma das partes exibidas acima dele.",
+        "p2": "A mesma abordagem lida com saldos muito grandes. As contagens de Robux são guardadas como inteiros de precisão arbitrária em vez de números de precisão dupla, então um saldo de dez dígitos continua exato em vez de perder os últimos dígitos."
+      },
+      "rounding": {
+        "p1": "Arredondar para o mais próximo às vezes devolveria um número que fica abaixo da meta que você pediu.",
+        "p2": "Melhor prometer de menos do que você fica do que mostrar um valor um Robux acima do que chega.",
+        "p3": "Arredondar um subtotal e depois usá-lo permitiria que um total exibido discordasse do seu próprio detalhamento."
+      },
+      "currency": {
+        "p1": "A taxa do DevEx é denominada em dólares americanos, então todo cálculo é feito em USD e convertido depois. A conversão usa as taxas de referência do euro do Banco Central Europeu, publicadas uma vez a cada dia útil por volta das 16h CET.",
+        "p2": "Como essas taxas têm o euro como base, uma taxa cruzada em USD é derivada: a taxa em euro da moeda-alvo dividida pela taxa em euro do dólar. Todo valor convertido exibe o provedor e a data em que as taxas foram observadas.",
+        "p3": "Estas são taxas de referência. Nenhum banco negocia com elas. Seu provedor de pagamento aplicará a taxa dele com uma margem, então trate um valor convertido como indicação de ordem de grandeza, não como previsão.",
+        "p4": "Mais sobre conversão de moeda e taxas",
+        "p5": "Se o provedor estiver inacessível, um instantâneo armazenado é exibido e explicitamente rotulado como desatualizado. Uma taxa desatualizada nunca é apresentada como atual, e o cálculo em USD nunca depende de o provedor estar disponível."
+      }
+    }
+  },
+  "sources": {
+    "intro": "Todas as fontes oficiais por trás dos números deste site, o que cada uma estabelece e quando foi conferida pela última vez.",
+    "jumpLabel": "Ver o registro",
+    "registryHeading": "Registro de fontes",
+    "registryDescription": "Gerado a partir do mesmo registro que a calculadora lê, então esta página não pode sair de sincronia com os números que documenta.",
+    "cadenceHeading": "Frequência de revisão",
+    "cadenceDescription": "Com que frequência elas são reconferidas, e o que acontece quando uma muda.",
+    "lastChecked": "Conferido pela última vez:",
+    "effectiveFrom": "Em vigor desde:",
+    "reviewCadenceLabel": "Frequência de revisão:",
+    "registryVersionLabel": "Versão do registro de taxas",
+    "ratesLastVerified": "Taxas verificadas pela última vez",
+    "reviewDueAfter": "Revisão devida após",
+    "escalatesAfter": "Passa a crítico após",
+    "body": {
+      "registry": {
+        "p1": "Fatos que esta fonte estabelece"
+      },
+      "cadence": {
+        "p1": "Os dados de taxa nunca são atualizados automaticamente a partir de uma página raspada. Alterar uma taxa publicada exige que a fonte seja verificada à mão, o registro atualizado, os testes unitários atualizados para os novos valores esperados, as páginas afetadas revisadas, uma entrada acrescentada ao changelog e um novo deploy. Essa sequência é deliberadamente lenta — uma taxa errada publicada rápido é pior que uma certa publicada um dia depois."
+      }
+    }
+  },
+  "editorialPolicy": {
+    "intro": "As regras sob as quais este site escreve, declaradas para que você possa cobrá-las.",
+    "sourcingHeading": "Padrão de fontes",
+    "labellingHeading": "Como as afirmações são rotuladas",
+    "labellingDescription": "Toda conclusão de pesquisa na documentação deste projeto carrega um destes rótulos. Uma inferência nunca é promovida silenciosamente a fato.",
+    "neverHeading": "O que este site nunca publica",
+    "reviewHeading": "Frequência de revisão",
+    "labels": {
+      "verified": "Verificado por fonte oficial",
+      "derived": "Derivado de CSV fornecido",
+      "observed": "Observado em página pública de concorrente",
+      "inference": "Inferência razoável",
+      "decision": "Nova decisão de implementação"
+    },
+    "never": {
+      "testimonials": "Depoimentos, avaliações, contagens de reviews ou números de usuários inventados.",
+      "fakeAuthor": "Uma biografia ou credencial de autor que não corresponda a uma pessoa real.",
+      "unsourcedRate": "Uma taxa sem fonte e sem data de verificação.",
+      "snapshotAsLive": "Uma taxa de câmbio apresentada como ao vivo quando veio de um instantâneo armazenado.",
+      "countryTax": "Um valor de imposto para o seu país.",
+      "approvalClaim": "Uma afirmação de que um pedido de DevEx será aprovado."
+    },
+    "changedSoFar": "O que mudou até agora",
+    "body": {
+      "sourcing": {
+        "p1": "Toda afirmação sensível ao tempo — uma taxa, um mínimo, uma porcentagem de comissão, uma regra de elegibilidade — está ligada a uma fonte oficial e traz a data em que foi conferida pela última vez.",
+        "p2": "Onde uma fonte oficial é silenciosa, este site também é. Os prazos de processamento são o exemplo mais claro: o Roblox não publica prazo garantido algum, então nenhum é declarado aqui, ainda que um número fosse mais satisfatório de ler.",
+        "p3": "Páginas de concorrentes são pesquisa, não fonte. Nada é repetido porque outro site diz.",
+        "p4": "Exemplos numéricos são recalculados a partir do registro de taxas, não copiados de lugar algum."
+      },
+      "never": {
+        "p1": "Uma página criada só porque existe uma palavra-chave. Uma página precisa responder algo que o resto do site não responde.",
+        "p2": "Dados estruturados descrevendo algo que a página não contém visivelmente."
+      },
+      "review": {
+        "p1": "O conteúdo sensível a taxas é revisado a cada",
+        "p2": "dias, e passa a exigir revisão manual após",
+        "p3": "Um número nunca é deixado no ar porque tem bom desempenho na busca depois de deixar de ser exato. Se está errado, muda, e a mudança é registrada.",
+        "p4": "Como funcionam as correções"
+      }
+    }
+  },
+  "corrections": {
+    "intro": "Taxas mudam e documentação se move. Se algo aqui está desatualizado, avisar é genuinamente a coisa mais útil que você pode fazer.",
+    "reportHeading": "Relatar um erro",
+    "cannotHelpTitle": "Com o que este site não pode ajudar",
+    "nextHeading": "O que acontece em seguida",
+    "nextDescription": "Uma correção de taxa, mínimo ou comissão segue uma sequência fixa. Deliberadamente não é uma edição rápida.",
+    "recordHeading": "Onde as correções são registradas",
+    "reportButton": "Relatar uma correção",
+    "steps": {
+      "verify": "Verificar contra a fonte oficial.",
+      "updateRegistry": "Atualizar o registro de taxas.",
+      "updateTests": "Atualizar os testes.",
+      "reviewPages": "Revisar as páginas afetadas.",
+      "recordChangelog": "Registrar no changelog.",
+      "updateDate": "Atualizar a data de verificação."
+    },
+    "body": {
+      "report": {
+        "p1": "O relato mais útil inclui a página em que você estava, o número que você acha que está errado e — se você tiver — um link para a página oficial do Roblox que diz o contrário. Essa última parte transforma um relato em algo que pode ser tratado imediatamente em vez de investigado do zero.",
+        "p2": "Qualquer coisa sobre sua própria conta, seu saldo ou um pedido de DevEx que você enviou. Este site não tem acesso a nada disso e nenhuma relação com o Roblox — só o suporte do Roblox pode investigar."
+      },
+      "process": {
+        "p1": "As taxas ficam em um único arquivo de dados validado. Mudá-las ali muda todas as páginas, tabelas e calculadoras de uma vez — não há uma segunda cópia para esquecer.",
+        "p2": "Os testes unitários afirmam valores esperados específicos. Uma mudança de taxa significa que essas expectativas também mudam, e é isso que impede um número ser atualizado em um lugar e não em outro.",
+        "p3": "Qualquer texto corrido que declare o número antigo em palavras é reescrito, não só as tabelas.",
+        "p4": "Com a data, o que mudou e a fonte que justificou.",
+        "p5": "O selo exibido em toda página sensível a taxas reflete a nova conferência.",
+        "p6": "A suíte de testes completa precisa passar antes."
+      },
+      "record": {
+        "p1": "As mudanças de taxa feitas pelo Roblox também são refletidas no"
+      }
+    }
+  },
+  "changelog": {
+    "intro": "O que mudou neste site, quando, e qual fonte justificou.",
+    "jumpLabel": "Ver as entradas",
+    "historyHeading": "Histórico de mudanças",
+    "subscribeTitle": "Assine em vez de ficar voltando",
+    "recordedHeading": "O que é registrado aqui",
+    "recordedDescription": "Este changelog acompanha o que este site fez. O que o Roblox fez é acompanhado separadamente.",
+    "filterContent": "Conteúdo",
+    "filterSite": "Site",
+    "jsonFeed": "JSON Feed",
+    "ratesApiLink": "a API de taxas",
+    "correctionsPolicyLink": "veja a política de correções",
+    "entries": {
+      "registryEstablished": "Registro de taxas estabelecido e verificado",
+      "marketplaceRecorded": "Comissões do marketplace registradas",
+      "levRemoved": "Lev búlgaro removido das moedas suportadas",
+      "siteLaunched": "Site lançado"
+    },
+    "body": {
+      "entries": {
+        "p1": "Toda entrada aqui é publicada como feed:",
+        "p2": "para um leitor de feeds, ou",
+        "p3": "para qualquer coisa que prefira não interpretar XML. Os dois trazem as mesmas entradas e os mesmos links de fonte. Se você depende destes números,",
+        "p4": "publica os valores atuais com a data de verificação anexada."
+      },
+      "scope": {
+        "p1": "Qualquer mudança em uma taxa, mínimo ou percentual de comissão publicado aparece aqui com data e fonte. O mesmo vale para qualquer correção de um número que se revelou errado — essas não são editadas em silêncio. Edições rotineiras de conteúdo e correções de digitação não são listadas, porque um changelog que registra tudo não registra nada útil.",
+        "p2": "Para o histórico da própria taxa do DevEx, incluindo a mudança de setembro de 2025,",
+        "p3": "veja a página de histórico de taxas"
+      }
+    }
+  },
+  "api": {
+    "intro": "O registro de taxas com que este site calcula, publicado como JSON com toda fonte e data de verificação anexadas.",
+    "jumpLabel": "Ver o endpoint",
+    "ratesHeading": "GET /api/rates",
+    "ratesDescription": "As taxas atuais do DevEx, o mínimo, a taxa do marketplace e as fontes contra as quais cada um foi verificado.",
+    "fxHeading": "GET /api/fx/latest",
+    "fxDescription": "Taxas de referência do Banco Central Europeu, para mostrar um pagamento em moeda que não seja o dólar americano.",
+    "statsHeading": "GET /api/stats",
+    "statsDescription": "Os pagamentos a criadores e o engajamento divulgados pelo Roblox, como linhas, com cada número rotulado divulgado ou derivado.",
+    "platformHeading": "GET /api/platform",
+    "platformDescription": "As observações de contagem de jogadores que este site coletou, exatamente como coletadas.",
+    "usingHeading": "Usando",
+    "machineReadableTitle": "Uma descrição legível por máquina",
+    "termsHeading": "O que é prometido, e o que não é",
+    "robloxFiguresTitle": "Estes números são do Roblox, não deste site",
+    "fields": {
+      "rates": "id, rótulo, valor por Robux, status e a fonte de onde veio",
+      "minimum": "O saldo de Earned Robux que o Roblox exige antes que um pedido possa ser enviado",
+      "marketplaceFee": "O percentual da taxa do marketplace, para cálculos do lado da venda",
+      "sources": "Publicador, título, URL e a data em que cada uma foi conferida pela última vez",
+      "statsRows": "métrica, período, valor, unidade, origem, fonte e a URL do registro oficial",
+      "statsAbsences": "Métricas que o Roblox não publica, com o motivo de cada ausência",
+      "statsCsv": "As mesmas linhas como CSV para download",
+      "absencesCsv": "As ausências como CSV próprio",
+      "platformRows": "observed_at, a contagem, e a origem e a fonte de cada observação",
+      "platformLimits": "Limites de retenção, resolução e cobertura, na própria resposta",
+      "platformExperiences": "Linhas por experiência, amostradas de hora em hora e guardadas por sete dias",
+      "platformCsv": "Qualquer uma das séries como CSV para download"
+    },
+    "statisticsPageLink": "a página de estatísticas",
+    "platformPageLink": "a página da plataforma",
+    "changelogLink": "o changelog",
+    "terms": {
+      "noKey": "Sem chave, sem cadastro",
+      "callableFromBrowser": "Chamável de um navegador",
+      "cacheIt": "Faça cache",
+      "attribution": "Atribuição",
+      "promised": "Prometido:",
+      "notPromised": "Não prometido:"
+    },
+    "endpointColumn": "Endpoint",
+    "contract": {
+      "ratesSummary": "Taxas atuais do DevEx e o mínimo para envio",
+      "ratesResponse": "O registro de taxas.",
+      "rateCheckSummary": "Se a página do Roblox ainda declara as taxas publicadas",
+      "rateCheckResponse": "O resultado da última verificação automática.",
+      "fxSummary": "Taxas de referência do Banco Central Europeu",
+      "fxResponse": "Taxas de referência, ao vivo ou explicitamente marcadas como alternativa.",
+      "statsSummary": "Números de pagamento a criadores e engajamento do Roblox",
+      "statsJson": "Os números, como JSON.",
+      "statsCsv": "Os números, como CSV.",
+      "platformSummary": "Contagens de jogadores do Roblox observadas",
+      "platformSeriesParam": "`totals` (padrão) para contagens de toda a plataforma, `experiences` para linhas por experiência.",
+      "platformFormatParam": "Omita para JSON, ou `csv` para planilha.",
+      "platformJson": "As observações coletadas.",
+      "platformCsv": "As observações coletadas, como CSV.",
+      "healthSummary": "Saúde do serviço e frescor dos dados",
+      "healthOk": "Saudável, ou desatualizado mas não crítico.",
+      "healthCritical": "Uma desatualização crítica que exige ação.",
+      "contactSummary": "Envio de contato",
+      "contactRejected": "O envio foi recusado pela validação.",
+      "contactNotConfigured": "Nenhum provedor de contato está configurado.",
+      "asSent": "Como enviado por este endpoint.",
+      "corsNote": "Legível de qualquer origem; estas respostas não carregam credenciais.",
+      "description": "Dados de referência para pagamentos do DevEx do Roblox, publicados para que possam ser conferidos."
+    },
+    "healthNoBinding": "Sem vínculo de histórico neste ambiente, então nada é coletado aqui.",
+    "body": {
+      "stats": {
+        "p1": "Os números representados em",
+        "p2": "O dinheiro é uma string decimal exata, nunca um número de ponto flutuante. Um número lido de um registro oficial é reproduzido como está escrito."
+      },
+      "platform": {
+        "p1": "Nada é preenchido.",
+        "p2": "Uma lacuna significa que o coletor não rodou naquele momento, e a lacuna fica — sem interpolação, sem carregar o valor anterior, sem preenchimento retroativo. Quando nenhuma observação pode ser lida, o endpoint responde em vez de uma lista vazia, porque um arquivo vazio é indistinguível de um período sem jogadores."
+      },
+      "using": {
+        "p1": "descreve todo endpoint daqui como OpenAPI 3.1 — parâmetros, códigos de status, tipos de conteúdo e o exato que cada um envia. É gerado a partir da mesma declaração que esta página lê, e um teste compara essa declaração com os manipuladores de rota que de fato existem, então um endpoint não pode ser acrescentado sem aparecer nela nem descrito depois de sumir.",
+        "p2": "Não há nada para se cadastrar e nenhum token para manter em segredo. Todo endpoint de referência é um GET simples, não define cookie e responde igual para todo chamador.",
+        "p3": "Todo endpoint de referência envia, então uma página de qualquer origem pode acessá-lo diretamente. Isso não era verdade até pouco tempo atrás, e tornava os endpoints inúteis exatamente para quem eles foram publicados. Os dois que não fazem isso são deliberados: o de saúde é infraestrutura para um operador, e o de contato aceita envios e verifica a origem."
+      },
+      "terms": {
+        "p1": "o formato da resposta não vai mudar sem que mude, todo número vai trazer a fonte contra a qual foi verificado, e uma taxa nunca será atualizada a partir de uma página raspada sem que uma pessoa confira antes. As mudanças são registradas em",
+        "p2": "um número de disponibilidade, um compromisso de suporte, ou que este endpoint exista para sempre. É uma conveniência gratuita servida pela mesma implantação do site, não um produto com contrato por trás. Se você está construindo algo que não pode quebrar, faça cache da resposta e tenha sua própria cópia como reserva.",
+        "p3": "Toda taxa aqui é a que o Roblox documenta atualmente, registrada na data de verificação exibida. O Roblox decide qual taxa se aplica a qual saldo e se algum pedido de DevEx é aprovado. Leia",
+        "p4": "para saber como cada número sai da documentação deles e chega a esta resposta."
+      },
+      "related": {
+        "p1": "Lendo a taxa padrão"
+      }
+    }
+  },
+  "authors": {
+    "heading": "Quem escreve este site",
+    "maintainerRole": "Fundador e mantenedor",
+    "reviewerRole": "Revisor de conteúdo e verificador de fatos",
+    "contactLabel": "Contato",
+    "profilesLabel": "Perfis",
+    "pagesReviewed": "Páginas revisadas",
+    "noPagesReviewed": "Nenhuma página carrega crédito de revisão no momento.",
+    "ahmadRazaPhotoAlt": "Ahmad Raza, fundador e mantenedor do DevExCalculator.org"
+  },
+  "relatedHeading": "Páginas relacionadas"
+}

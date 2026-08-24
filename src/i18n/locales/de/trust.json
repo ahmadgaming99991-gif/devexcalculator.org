@@ -1,0 +1,350 @@
+{
+  "$comment": "Machine-drafted. Not yet read by a native speaker. A translation that softens 'this site cannot determine' into 'this site does not usually determine' turns a limit into a habit.",
+  "$identical": [
+    "api.endpointColumn",
+    "api.fxHeading",
+    "api.platformHeading",
+    "api.ratesHeading",
+    "api.statsHeading",
+    "api.terms.attribution",
+    "authors.contactLabel",
+    "changelog.filterSite",
+    "changelog.jsonFeed"
+  ],
+  "about": {
+    "intro": "Wozu es diese Website gibt, wie sie gebaut ist, und was sie bewusst nicht tut.",
+    "purposeHeading": "Wozu es diese Website gibt",
+    "principlesHeading": "Wie sie gebaut ist",
+    "limitsHeading": "Was sie nicht tun wird",
+    "affiliationHeading": "Verbindungen",
+    "independentTitle": "Unabhängig und ohne Verbindung zu Roblox",
+    "principles": {
+      "rateHasSource": "Jeder Kurs hat eine Quelle und ein Datum.",
+      "exactArithmetic": "Die Rechnung ist exakt.",
+      "methodologyExplains": "Die Methodik erklärt, warum",
+      "worksWithoutJs": "Die Seite funktioniert ohne JavaScript.",
+      "nothingCollected": "Es wird nichts erhoben.",
+      "privacyIsSpecific": "Die Datenschutzerklärung wird dazu konkret",
+      "correctionsPublished": "Korrekturen werden veröffentlicht."
+    },
+    "body": {
+      "purpose": {
+        "p1": "Ein Creator mit einem Robux-Guthaben will eines wissen: was ist das eigentlich wert. Die Antwort ist Rechnen, aber sie richtig hinzubekommen braucht aktuelle Kurse, ein Verständnis davon, welche Robux anrechenbar sind, und Ehrlichkeit darüber, was die Zahl bedeutet und was nicht.",
+        "p2": "Die meisten Rechner erledigen die Rechnung und hören dort auf. Mehrere, die gut ranken, nennen noch immer einen Kurs, der sich im September 2025 geändert hat, oder ein Minimum, das seit Jahren nicht mehr stimmt. Wer mit solchen Zahlen plant, plant mit Fiktion.",
+        "p3": "Diese Website gibt es, damit es die Fassung gibt, die stimmt, die sagt, woher jede Zahl kommt, und die zugibt, was sie dir nicht sagen kann."
+      },
+      "principles": {
+        "p1": "Geld wird als exakter Bruch gerechnet statt als Gleitkommazahl und genau einmal gerundet, im Moment der Anzeige.",
+        "p2": "Kurse, Formeln, Beispiele und Erklärungen werden alle serverseitig gerendert. Nur die Neuberechnung in Echtzeit braucht Skripte.",
+        "p3": "Berechnungen laufen in deinem Browser und werden nie irgendwohin gesendet.",
+        "p4": "Wenn sich eine Zahl hier als falsch herausstellt, wird die Korrektur mit Datum festgehalten im",
+        "p5": "statt still geändert zu werden."
+      },
+      "limits": {
+        "p1": "Dir sagen, ob dein DevEx-Antrag genehmigt wird. Das entscheidet Roblox, und kein Dritter kann es vorhersagen.",
+        "p2": "Steuerberatung geben oder einen Steuersatz für dein Land nennen.",
+        "p3": "Nach deinen Roblox-Zugangsdaten fragen, aus welchem Grund auch immer. Kein seriöses Werkzeug braucht sie.",
+        "p4": "Für jede Zahl eine Seite veröffentlichen, nur weil Leute danach suchen. Betragsseiten gibt es nur dort, wo es etwas Bestimmtes zu sagen gibt.",
+        "p5": "Bewertungszahlen, Nutzerzahlen, Erfahrungsberichte oder eine Autorenbiografie erfinden, um etablierter zu wirken, als es ist."
+      },
+      "affiliation": {
+        "p1": "DevExCalculator.org ist nicht mit der Roblox Corporation verbunden und wird von ihr weder unterstützt noch gesponsert oder betrieben. Roblox, Robux und Developer Exchange sind Marken der Roblox Corporation und werden hier nur verwendet, um zu beschreiben, worum es bei diesen Berechnungen geht. Für alles rund um dein Konto, dein Guthaben oder deinen DevEx-Antrag ist Roblox die einzige Stelle, die helfen kann."
+      }
+    }
+  },
+  "methodology": {
+    "intro": "Jede Formel, die diese Website verwendet, wie gerechnet wird, und wo Genauigkeit bewusst aufgegeben wird.",
+    "jumpLabel": "Die Formeln ansehen",
+    "formulasHeading": "Die Formeln",
+    "formulasDescription": "Das ist der vollständige Satz. Nichts auf der Website berechnet einen Geldbetrag auf andere Weise.",
+    "exactHeading": "Warum exaktes Rechnen wichtig ist",
+    "exactDescription": "Das ist keine Pedanterie — es ist der Unterschied zwischen einer Zahl, auf die man sich verlassen kann, und einer, die fast stimmt.",
+    "roundingHeading": "Rundungsregeln",
+    "roundingDescription": "Genauigkeit wird genau einmal aufgegeben, und die Richtung wird in jedem Fall bewusst gewählt.",
+    "currencyHeading": "Schätzungen in Landeswährung",
+    "currencyDescription": "Nachrangig zur USD-Zahl und als das gekennzeichnet, was sie sind.",
+    "cannotHeading": "Was dir das nicht sagen kann",
+    "cannotDescription": "Die ehrliche Grenze dessen, was sich rechnerisch feststellen lässt.",
+    "formulas": {
+      "payoutTerm": "Auszahlung aus einem Guthaben",
+      "payoutDetail": "Eine Multiplikation. Der Kurs kommt aus dem geprüften Register, nie aus einem fest eingetragenen Wert in einer Komponente.",
+      "mixedTerm": "Gemischtes Guthaben",
+      "mixedDetail": "Jede Gruppe ist eine eigene Eingabe, sodass kein Robux unter zwei Kursen gezählt werden kann.",
+      "blendedTerm": "Gemischter Kurs",
+      "blendedDetail": "Der gewichtete Durchschnitt über die von dir eingetragenen Gruppen.",
+      "feesTerm": "Optionale Gebühren",
+      "feesDetail": "Werden nur angewandt, wenn du eigene Zahlen einträgst. Begrenzt, sodass sie nie unter null fallen.",
+      "taxTerm": "Optionale Steuerschätzung",
+      "taxDetail": "Die Steuer wird nach den Gebühren angewandt, mit dem Prozentsatz, den du angibst. Diese Website nennt keinen Steuersatz.",
+      "reverseTerm": "Zielrückrechnung",
+      "reverseDetail": "Rundet immer auf. Abrunden ließe die Auszahlung um einen Bruchteil unter dem Ziel.",
+      "currencyTerm": "Landeswährung",
+      "currencyDetail": "Die EZB veröffentlicht euro-basierte Kurse, USD-Kreuzkurse werden daher abgeleitet. Die Richtung der Division ist durch Tests festgeschrieben.",
+      "marketplaceTerm": "Marketplace-Gebühr",
+      "marketplaceDetail": "Rundet ab, damit eine angezeigte Zahl nie höher ist als das, was tatsächlich ankommt."
+    },
+    "rounding": {
+      "moneyHalfUp": "Geld rundet kaufmännisch auf",
+      "robuxUp": "Benötigte Robux runden auf.",
+      "sharesDown": "Marketplace-Anteile runden ab.",
+      "intermediateNever": "Zwischenwerte werden nie gerundet."
+    },
+    "cannot": {
+      "approvalOrTiming": "Ob ein Antrag genehmigt wird oder wann ausgezahlt wird.",
+      "providerCharges": "Was deine Bank oder dein Zahlungsdienstleister berechnet.",
+      "taxOwed": "Was du an Steuern schuldest."
+    },
+    "body": {
+      "arithmetic": {
+        "p1": "Jeder Geldwert auf dieser Website wird als exakter Bruch gehalten — ein Paar ganzer Zahlen beliebiger Genauigkeit — von dem Moment an, in dem ein Kurs gelesen wird, bis zu dem Moment, in dem eine Zahl ausgegeben wird. Addition, Multiplikation und Division sind durchgehend exakt. Nichts wird zwischendurch gerundet, deshalb entspricht eine Summe immer der Summe der darüber gezeigten Teile.",
+        "p2": "Dasselbe Vorgehen trägt auch sehr große Guthaben. Robux-Zahlen werden als ganze Zahlen beliebiger Genauigkeit gespeichert statt als Zahlen doppelter Genauigkeit, sodass ein zehnstelliges Guthaben exakt bleibt, statt seine letzten Stellen zu verlieren."
+      },
+      "rounding": {
+        "p1": "Kaufmännisches Runden würde manchmal eine Zahl liefern, die unter dem von dir genannten Ziel bleibt.",
+        "p2": "Lieber zu wenig versprechen, als eine Zahl zu zeigen, die einen Robux über dem liegt, was ankommt.",
+        "p3": "Eine Zwischensumme zu runden und dann weiterzuverwenden ließe eine angezeigte Summe ihrer eigenen Aufschlüsselung widersprechen."
+      },
+      "currency": {
+        "p1": "Der DevEx-Kurs lautet auf US-Dollar, deshalb wird jede Berechnung in USD ausgeführt und erst danach umgerechnet. Die Umrechnung nutzt die Euro-Referenzkurse der Europäischen Zentralbank, veröffentlicht einmal an jedem Werktag gegen 16:00 Uhr MEZ.",
+        "p2": "Da diese Kurse euro-basiert sind, wird ein USD-Kreuzkurs abgeleitet: der Eurokurs der Zielwährung geteilt durch den Eurokurs des Dollars. Jede umgerechnete Zahl zeigt den Anbieter und das Datum, an dem die Kurse beobachtet wurden.",
+        "p3": "Das sind Referenzkurse. Keine Bank handelt zu ihnen. Dein Zahlungsdienstleister wendet seinen eigenen Kurs mit einer Marge an — betrachte eine umgerechnete Zahl also als Größenordnung, nicht als Vorhersage.",
+        "p4": "Mehr zu Währungsumrechnung und Gebühren",
+        "p5": "Ist der Anbieter nicht erreichbar, wird eine gespeicherte Momentaufnahme gezeigt und ausdrücklich als veraltet gekennzeichnet. Ein veralteter Kurs wird nie als aktuell dargestellt, und die USD-Berechnung hängt nie davon ab, dass der Anbieter verfügbar ist."
+      }
+    }
+  },
+  "sources": {
+    "intro": "Jede offizielle Quelle hinter den Zahlen dieser Website, was jede davon belegt, und wann sie zuletzt geprüft wurde.",
+    "jumpLabel": "Das Register ansehen",
+    "registryHeading": "Quellenregister",
+    "registryDescription": "Erzeugt aus demselben Register, das der Rechner liest — diese Seite kann also nicht aus dem Takt geraten mit den Zahlen, die sie dokumentiert.",
+    "cadenceHeading": "Prüfrhythmus",
+    "cadenceDescription": "Wie oft sie erneut geprüft werden und was passiert, wenn sich eine ändert.",
+    "lastChecked": "Zuletzt geprüft:",
+    "effectiveFrom": "Gültig ab:",
+    "reviewCadenceLabel": "Prüfrhythmus:",
+    "registryVersionLabel": "Version des Kursregisters",
+    "ratesLastVerified": "Kurse zuletzt geprüft",
+    "reviewDueAfter": "Prüfung fällig nach",
+    "escalatesAfter": "Wird kritisch nach",
+    "body": {
+      "registry": {
+        "p1": "Fakten, die diese Quelle belegt"
+      },
+      "cadence": {
+        "p1": "Kursdaten werden nie automatisch aus einer abgegriffenen Seite aktualisiert. Einen veröffentlichten Kurs zu ändern verlangt, die Quelle von Hand zu prüfen, das Register zu aktualisieren, die Unit-Tests auf die neuen erwarteten Werte zu aktualisieren, die betroffenen Seiten zu prüfen, einen Eintrag im Changelog zu ergänzen und neu zu deployen. Diese Abfolge ist absichtlich langsam — ein falscher Kurs, schnell veröffentlicht, ist schlimmer als ein richtiger, der einen Tag später erscheint."
+      }
+    }
+  },
+  "editorialPolicy": {
+    "intro": "Die Regeln, unter denen diese Website schreibt — festgehalten, damit du sie daran messen kannst.",
+    "sourcingHeading": "Quellenstandard",
+    "labellingHeading": "Wie Aussagen gekennzeichnet werden",
+    "labellingDescription": "Jede Rechercheschlussfolgerung in der Dokumentation dieses Projekts trägt eine dieser Kennzeichnungen. Eine Schlussfolgerung wird nie still zur Tatsache befördert.",
+    "neverHeading": "Was diese Website nie veröffentlicht",
+    "reviewHeading": "Prüfrhythmus",
+    "labels": {
+      "verified": "Über eine offizielle Quelle geprüft",
+      "derived": "Aus einer gelieferten CSV abgeleitet",
+      "observed": "Auf einer öffentlichen Wettbewerberseite beobachtet",
+      "inference": "Naheliegende Schlussfolgerung",
+      "decision": "Neue Umsetzungsentscheidung"
+    },
+    "never": {
+      "testimonials": "Erfundene Erfahrungsberichte, Bewertungen, Rezensionszahlen oder Nutzerzahlen.",
+      "fakeAuthor": "Eine Autorenbiografie oder Qualifikation, der keine reale Person entspricht.",
+      "unsourcedRate": "Ein Kurs ohne Quelle und ohne Prüfdatum.",
+      "snapshotAsLive": "Ein Wechselkurs, der als live dargestellt wird, obwohl er aus einer gespeicherten Momentaufnahme stammt.",
+      "countryTax": "Eine Steuerzahl für dein Land.",
+      "approvalClaim": "Die Behauptung, dass ein DevEx-Antrag genehmigt wird."
+    },
+    "changedSoFar": "Was sich bisher geändert hat",
+    "body": {
+      "sourcing": {
+        "p1": "Jede zeitkritische Aussage — ein Kurs, ein Minimum, ein Gebührensatz, eine Voraussetzung — ist an eine offizielle Quelle gebunden und trägt das Datum ihrer letzten Prüfung.",
+        "p2": "Wo eine offizielle Quelle schweigt, schweigt auch diese Website. Bearbeitungszeiten sind das deutlichste Beispiel: Roblox veröffentlicht keine zugesicherte Frist, also steht hier keine, auch wenn eine Zahl befriedigender zu lesen wäre.",
+        "p3": "Wettbewerberseiten sind Recherche, keine Quellen. Nichts wird wiederholt, weil eine andere Website es sagt.",
+        "p4": "Zahlenbeispiele werden aus dem Kursregister neu berechnet, nicht von irgendwoher kopiert."
+      },
+      "never": {
+        "p1": "Eine Seite, die nur entsteht, weil es ein Keyword gibt. Eine Seite muss etwas beantworten, was der Rest der Website nicht beantwortet.",
+        "p2": "Strukturierte Daten, die etwas beschreiben, das die Seite sichtbar nicht enthält."
+      },
+      "review": {
+        "p1": "Kurssensible Inhalte werden alle",
+        "p2": "Tage geprüft und erfordern nach",
+        "p3": "Eine Zahl bleibt nie online, weil sie in der Suche gut läuft, nachdem sie aufgehört hat zu stimmen. Ist sie falsch, wird sie geändert, und die Änderung wird festgehalten.",
+        "p4": "Wie Korrekturen ablaufen"
+      }
+    }
+  },
+  "corrections": {
+    "intro": "Kurse ändern sich, und Dokumentation wandert. Wenn hier etwas veraltet ist, ist es uns zu sagen wirklich das Nützlichste, was du tun kannst.",
+    "reportHeading": "Einen Fehler melden",
+    "cannotHelpTitle": "Wobei diese Website nicht helfen kann",
+    "nextHeading": "Was als Nächstes passiert",
+    "nextDescription": "Eine Korrektur an einem Kurs, einem Minimum oder einer Gebühr folgt einer festen Abfolge. Sie ist bewusst keine schnelle Änderung.",
+    "recordHeading": "Wo Korrekturen festgehalten werden",
+    "reportButton": "Eine Korrektur melden",
+    "steps": {
+      "verify": "Gegen die offizielle Quelle prüfen.",
+      "updateRegistry": "Das Kursregister aktualisieren.",
+      "updateTests": "Die Tests aktualisieren.",
+      "reviewPages": "Die betroffenen Seiten prüfen.",
+      "recordChangelog": "Im Changelog festhalten.",
+      "updateDate": "Das Prüfdatum aktualisieren."
+    },
+    "body": {
+      "report": {
+        "p1": "Die nützlichste Meldung nennt die Seite, auf der du warst, die Zahl, die du für falsch hältst, und — falls du ihn hast — einen Link auf die offizielle Roblox-Seite, die etwas anderes sagt. Dieser letzte Teil macht aus einer Meldung etwas, worauf sofort reagiert werden kann, statt etwas, das von null aus untersucht werden muss.",
+        "p2": "Alles, was dein eigenes Konto, dein Guthaben oder einen von dir eingereichten DevEx-Antrag betrifft. Diese Website hat darauf keinen Zugriff und keine Beziehung zu Roblox — nur der Roblox-Support kann sich das ansehen."
+      },
+      "process": {
+        "p1": "Die Kurse liegen in einer einzigen geprüften Datendatei. Sie dort zu ändern ändert alle Seiten, Tabellen und Rechner auf einmal — es gibt keine zweite Kopie, die man vergessen könnte.",
+        "p2": "Die Unit-Tests behaupten konkrete erwartete Werte. Eine Kursänderung heißt, dass sich auch diese Erwartungen ändern, und genau das verhindert, dass eine Zahl an einer Stelle aktualisiert wird und an einer anderen nicht.",
+        "p3": "Jeder Fließtext, der die alte Zahl ausschreibt, wird neu geschrieben, nicht nur die Tabellen.",
+        "p4": "Mit dem Datum, was sich geändert hat, und der Quelle, die es begründet.",
+        "p5": "Das Abzeichen auf jeder kurssensiblen Seite spiegelt die neue Prüfung.",
+        "p6": "Die vollständige Testsuite muss vorher durchlaufen."
+      },
+      "record": {
+        "p1": "Kursänderungen durch Roblox spiegeln sich ebenfalls im"
+      }
+    }
+  },
+  "changelog": {
+    "intro": "Was sich auf dieser Website geändert hat, wann, und welche Quelle es begründet hat.",
+    "jumpLabel": "Die Einträge ansehen",
+    "historyHeading": "Änderungsverlauf",
+    "subscribeTitle": "Abonnieren statt immer wieder nachzusehen",
+    "recordedHeading": "Was hier festgehalten wird",
+    "recordedDescription": "Dieser Changelog verfolgt, was diese Website getan hat. Was Roblox getan hat, wird getrennt verfolgt.",
+    "filterContent": "Inhalt",
+    "filterSite": "Site",
+    "jsonFeed": "JSON Feed",
+    "ratesApiLink": "die Kurs-API",
+    "correctionsPolicyLink": "siehe die Korrekturrichtlinie",
+    "entries": {
+      "registryEstablished": "Kursregister eingerichtet und geprüft",
+      "marketplaceRecorded": "Marketplace-Provisionen erfasst",
+      "levRemoved": "Bulgarischer Lew aus den unterstützten Währungen entfernt",
+      "siteLaunched": "Website gestartet"
+    },
+    "body": {
+      "entries": {
+        "p1": "Jeder Eintrag hier wird als Feed veröffentlicht:",
+        "p2": "für einen Feedreader, oder",
+        "p3": "für alles, was lieber kein XML zerlegt. Beide tragen dieselben Einträge und dieselben Quellenlinks. Wenn du auf diese Zahlen angewiesen bist:",
+        "p4": "veröffentlicht die aktuellen Werte mit ihrem Prüfdatum."
+      },
+      "scope": {
+        "p1": "Jede Änderung an einem veröffentlichten Kurs, Minimum oder Gebührensatz erscheint hier mit Datum und Quelle. Ebenso jede Korrektur einer Zahl, die sich als falsch erwiesen hat — die werden nicht still wegretuschiert. Gewöhnliche Inhaltsänderungen und Tippfehlerkorrekturen stehen nicht drin, denn ein Changelog, der alles festhält, hält nichts Nützliches fest.",
+        "p2": "Zur Geschichte des DevEx-Kurses selbst, einschließlich der Änderung im September 2025,",
+        "p3": "siehe die Seite zur Kurshistorie"
+      }
+    }
+  },
+  "api": {
+    "intro": "Das Kursregister, mit dem diese Website rechnet, veröffentlicht als JSON, mit jeder Quelle und jedem Prüfdatum dabei.",
+    "jumpLabel": "Den Endpunkt ansehen",
+    "ratesHeading": "GET /api/rates",
+    "ratesDescription": "Die aktuellen DevEx-Kurse, das Minimum, die Marketplace-Gebühr und die Quellen, gegen die jeweils geprüft wurde.",
+    "fxHeading": "GET /api/fx/latest",
+    "fxDescription": "Referenzkurse der Europäischen Zentralbank, um eine Auszahlung in einer anderen Währung als US-Dollar zu zeigen.",
+    "statsHeading": "GET /api/stats",
+    "statsDescription": "Roblox’ berichtete Creator-Auszahlungen und Nutzung, als Zeilen, jede Zahl als berichtet oder abgeleitet gekennzeichnet.",
+    "platformHeading": "GET /api/platform",
+    "platformDescription": "Die Spielerzahl-Beobachtungen, die diese Website erhoben hat, genau so, wie sie erhoben wurden.",
+    "usingHeading": "Nutzung",
+    "machineReadableTitle": "Eine maschinenlesbare Beschreibung",
+    "termsHeading": "Was zugesagt wird und was nicht",
+    "robloxFiguresTitle": "Das sind Roblox’ Zahlen, nicht die dieser Website",
+    "fields": {
+      "rates": "id, Bezeichnung, Wert pro Robux, Status und die Quelle, aus der er stammt",
+      "minimum": "Das Earned-Robux-Guthaben, das Roblox verlangt, bevor ein Antrag gestellt werden kann",
+      "marketplaceFee": "Der Prozentsatz der Marketplace-Gebühr, für Berechnungen auf der Verkaufsseite",
+      "sources": "Herausgeber, Titel, URL und das Datum der letzten Prüfung",
+      "statsRows": "Kennzahl, Zeitraum, Wert, Einheit, Herkunft, Quelle und die URL des Berichts",
+      "statsAbsences": "Kennzahlen, die Roblox nicht veröffentlicht, mit dem Grund für jede Leerstelle",
+      "statsCsv": "Dieselben Zeilen als herunterladbare CSV",
+      "absencesCsv": "Die Leerstellen als eigene CSV",
+      "platformRows": "observed_at, die Zahl, sowie Herkunft und Quelle jeder Beobachtung",
+      "platformLimits": "Aufbewahrungs-, Auflösungs- und Abdeckungsgrenzen, in der Antwort selbst",
+      "platformExperiences": "Zeilen pro Experience, stündlich abgetastet und sieben Tage aufbewahrt",
+      "platformCsv": "Beide Reihen als herunterladbare CSV"
+    },
+    "statisticsPageLink": "die Statistikseite",
+    "platformPageLink": "die Plattformseite",
+    "changelogLink": "den Changelog",
+    "terms": {
+      "noKey": "Kein Schlüssel, keine Anmeldung",
+      "callableFromBrowser": "Aus einem Browser aufrufbar",
+      "cacheIt": "Cache es",
+      "attribution": "Attribution",
+      "promised": "Zugesagt:",
+      "notPromised": "Nicht zugesagt:"
+    },
+    "endpointColumn": "Endpoint",
+    "contract": {
+      "ratesSummary": "Aktuelle DevEx-Kurse und das Minimum für einen Antrag",
+      "ratesResponse": "Das Kursregister.",
+      "rateCheckSummary": "Ob Roblox’ Seite die veröffentlichten Kurse noch nennt",
+      "rateCheckResponse": "Das Ergebnis der letzten automatischen Prüfung.",
+      "fxSummary": "Referenzkurse der Europäischen Zentralbank",
+      "fxResponse": "Referenzkurse, live oder ausdrücklich als Rückfall gekennzeichnet.",
+      "statsSummary": "Roblox’ Zahlen zu Creator-Auszahlungen und Nutzung",
+      "statsJson": "Die Zahlen, als JSON.",
+      "statsCsv": "Die Zahlen, als CSV.",
+      "platformSummary": "Beobachtete Roblox-Spielerzahlen",
+      "platformSeriesParam": "`totals` (Standard) für plattformweite Zahlen, `experiences` für Zeilen pro Experience.",
+      "platformFormatParam": "Weglassen für JSON, oder `csv` für eine Tabelle.",
+      "platformJson": "Die erhobenen Beobachtungen.",
+      "platformCsv": "Die erhobenen Beobachtungen, als CSV.",
+      "healthSummary": "Zustand des Dienstes und Aktualität der Daten",
+      "healthOk": "In Ordnung, oder veraltet, aber nicht kritisch.",
+      "healthCritical": "Eine kritische Veraltung, die Handeln verlangt.",
+      "contactSummary": "Kontakteinsendung",
+      "contactRejected": "Die Einsendung wurde von der Prüfung abgelehnt.",
+      "contactNotConfigured": "Es ist kein Kontaktdienst eingerichtet.",
+      "asSent": "So, wie dieser Endpunkt sie sendet.",
+      "corsNote": "Von jeder Herkunft lesbar; diese Antworten führen keine Anmeldedaten mit.",
+      "description": "Referenzdaten zu Roblox-DevEx-Auszahlungen, veröffentlicht, damit sie geprüft werden können."
+    },
+    "healthNoBinding": "In dieser Umgebung gibt es keine Verlaufsbindung, hier wird also nichts erhoben.",
+    "body": {
+      "stats": {
+        "p1": "Die Zahlen, die dargestellt sind auf",
+        "p2": "Geld ist eine exakte Dezimalzeichenkette, nie eine Gleitkommazahl. Eine aus einem Bericht gelesene Zahl wird so wiedergegeben, wie sie dort steht."
+      },
+      "platform": {
+        "p1": "Es wird nichts ergänzt.",
+        "p2": "Eine Lücke heißt, dass der Sammler in diesem Moment nicht lief, und die Lücke bleibt drin — keine Interpolation, kein Fortschreiben, kein Nachtragen. Wenn überhaupt keine Beobachtungen gelesen werden können, antwortet der Endpunkt, statt eine leere Liste zu liefern, denn eine leere Datei ist von einem Zeitraum ohne Spielende nicht zu unterscheiden."
+      },
+      "using": {
+        "p1": "beschreibt jeden Endpunkt hier als OpenAPI 3.1 — Parameter, Statuscodes, Inhaltstypen und das genaue, das jeder sendet. Sie wird aus derselben Deklaration erzeugt, die diese Seite liest, und ein Test vergleicht diese Deklaration mit den tatsächlich vorhandenen Route-Handlern: ein Endpunkt kann also weder hinzugefügt werden, ohne darin aufzutauchen, noch beschrieben bleiben, nachdem er verschwunden ist.",
+        "p2": "Es gibt nichts, wofür man sich registrieren müsste, und kein Token, das man geheim halten müsste. Jeder Referenz-Endpunkt ist ein einfaches GET, setzt kein Cookie und antwortet für jede aufrufende Seite gleich.",
+        "p3": "Jeder Referenz-Endpunkt sendet, sodass eine Seite von jeder Herkunft ihn direkt aufrufen kann. Das war bis vor Kurzem nicht so, und es machte die Endpunkte genau für die Leute nutzlos, für die sie veröffentlicht wurden. Die beiden Ausnahmen sind Absicht: der Zustandsendpunkt ist Infrastruktur für Betreibende, und der Kontaktendpunkt nimmt Einsendungen an und prüft die Herkunft."
+      },
+      "terms": {
+        "p1": "die Form der Antwort ändert sich nicht, ohne dass sich ändert, jede Zahl trägt die Quelle, gegen die sie geprüft wurde, und ein Kurs wird nie aus einer abgegriffenen Seite aktualisiert, ohne dass ihn vorher ein Mensch prüft. Änderungen werden festgehalten in",
+        "p2": "eine Verfügbarkeitszahl, eine Supportzusage oder dass es diesen Endpunkt für immer gibt. Er ist eine kostenlose Bequemlichkeit aus demselben Deployment wie die Website, kein Produkt mit einem Vertrag dahinter. Wenn du etwas baust, das nicht kaputtgehen darf, cache die Antwort und halte eine eigene Kopie bereit.",
+        "p3": "Jeder Kurs hier ist der, den Roblox derzeit dokumentiert, festgehalten zum angezeigten Prüfdatum. Roblox entscheidet, welcher Kurs für welches Guthaben gilt und ob ein DevEx-Antrag genehmigt wird. Lies",
+        "p4": "dazu, wie jede Zahl aus deren Dokumentation in diese Antwort gelangt."
+      },
+      "related": {
+        "p1": "Den Standardkurs lesen"
+      }
+    }
+  },
+  "authors": {
+    "heading": "Wer diese Website schreibt",
+    "maintainerRole": "Gründer und Betreiber",
+    "reviewerRole": "Inhaltsprüfer und Faktenchecker",
+    "contactLabel": "Kontakt",
+    "profilesLabel": "Profile",
+    "pagesReviewed": "Geprüfte Seiten",
+    "noPagesReviewed": "Derzeit trägt keine Seite einen Prüfvermerk.",
+    "ahmadRazaPhotoAlt": "Ahmad Raza, Gründer und Betreiber von DevExCalculator.org"
+  },
+  "relatedHeading": "Verwandte Seiten"
+}

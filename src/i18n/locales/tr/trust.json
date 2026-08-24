@@ -1,0 +1,348 @@
+{
+  "$comment": "Machine-drafted. Not yet read by a native speaker. A translation that softens 'this site cannot determine' into 'this site does not usually determine' turns a limit into a habit.",
+  "$identical": [
+    "api.endpointColumn",
+    "api.fxHeading",
+    "api.platformHeading",
+    "api.ratesHeading",
+    "api.statsHeading",
+    "changelog.filterSite",
+    "changelog.jsonFeed"
+  ],
+  "about": {
+    "intro": "Bu sitenin ne işe yaradığı, nasıl kurulduğu ve bilerek yapmayı reddettiği şeyler.",
+    "purposeHeading": "Bu site ne işe yarar",
+    "principlesHeading": "Nasıl kuruldu",
+    "limitsHeading": "Yapmayacakları",
+    "affiliationHeading": "Bağlantı",
+    "independentTitle": "Bağımsızdır ve Roblox ile bağlantısı yoktur",
+    "principles": {
+      "rateHasSource": "Her kurun bir kaynağı ve tarihi vardır.",
+      "exactArithmetic": "Aritmetik tamdır.",
+      "methodologyExplains": "Yöntem sayfası nedenini açıklıyor",
+      "worksWithoutJs": "Sayfa JavaScript olmadan çalışır.",
+      "nothingCollected": "Hiçbir şey toplanmaz.",
+      "privacyIsSpecific": "Gizlilik politikası bu konuda açıktır",
+      "correctionsPublished": "Düzeltmeler yayımlanır."
+    },
+    "body": {
+      "purpose": {
+        "p1": "Robux bakiyesi olan bir içerik üreticisi tek bir şeyi bilmek ister: bunun gerçekte değeri ne. Yanıt aritmetiktir; ama doğru yapmak güncel kurları, hangi Robux'un uygun olduğunu anlamayı ve o sayının ne anlama gelip gelmediği konusunda dürüstlüğü gerektirir.",
+        "p2": "Çoğu hesaplayıcı aritmetiği yapar ve orada durur. Aramalarda iyi çıkan birkaçı hâlâ Eylül 2025'te değişmiş bir kuru ya da yıllardır doğru olmayan bir alt sınırı aktarıyor. Bu rakamlara göre plan yapan bir içerik üreticisi, kurguya göre plan yapıyor demektir.",
+        "p3": "Bu site, doğru olan, her rakamın nereden geldiğini söyleyen ve size neyi söyleyemeyeceğini kabul eden sürüm olmak için var."
+      },
+      "principles": {
+        "p1": "Para, kayan noktalı sayılarla değil tam kesirlerle hesaplanır ve yalnızca bir kez, gösterildiği anda yuvarlanır.",
+        "p2": "Kurlar, formüller, örnekler ve açıklamalar sunucuda oluşturulur. Yalnızca canlı yeniden hesaplama betik gerektirir.",
+        "p3": "Hesaplamalar tarayıcınızda çalışır ve hiçbir yere gönderilmez.",
+        "p4": "Buradaki bir rakamın yanlış olduğu ortaya çıktığında düzeltme, tarihiyle birlikte şuraya kaydedilir:",
+        "p5": "sessizce düzenlenmek yerine."
+      },
+      "limits": {
+        "p1": "DevEx talebinizin onaylanıp onaylanmayacağını söylemek. Buna Roblox karar verir ve hiçbir üçüncü taraf bunu öngöremez.",
+        "p2": "Vergi danışmanlığı vermek ya da ülkeniz için bir vergi oranı belirtmek.",
+        "p3": "Herhangi bir gerekçeyle Roblox kimlik bilgilerinizi istemek. Meşru hiçbir aracın buna ihtiyacı yoktur.",
+        "p4": "İnsanlar arattı diye her sayı için bir sayfa yayımlamak. Tutar sayfaları yalnızca söylenecek özgül bir şey olduğunda vardır.",
+        "p5": "Olduğundan daha köklü görünmek için değerlendirme sayıları, kullanıcı sayıları, referanslar ya da yazar biyografisi uydurmak."
+      },
+      "affiliation": {
+        "p1": "DevExCalculator.org, Roblox Corporation ile bağlantılı değildir; şirket tarafından onaylanmamış, desteklenmemiş ya da işletilmemektedir. Roblox, Robux ve Developer Exchange, Roblox Corporation'ın ticari markalarıdır ve burada yalnızca bu hesaplamaların neyle ilgili olduğunu anlatmak için kullanılır. Hesabınız, bakiyeniz ya da DevEx talebinizle ilgili her şey için yardımcı olabilecek tek taraf Roblox'tur."
+      }
+    }
+  },
+  "methodology": {
+    "intro": "Bu sitenin kullandığı bütün formüller, aritmetiğin nasıl yapıldığı ve hassasiyetin bilerek nerede bırakıldığı.",
+    "jumpLabel": "Formülleri gör",
+    "formulasHeading": "Formüller",
+    "formulasDescription": "Bu, tam takımı. Sitede hiçbir şey bir para rakamını başka bir yolla hesaplamaz.",
+    "exactHeading": "Tam aritmetik neden önemli",
+    "exactDescription": "Bu bir kılı kırk yarma değil — güvenebileceğiniz bir rakamla neredeyse doğru bir rakam arasındaki fark.",
+    "roundingHeading": "Yuvarlama politikası",
+    "roundingDescription": "Hassasiyet tam olarak bir kez bırakılır ve yön her durumda bilerek seçilir.",
+    "currencyHeading": "Yerel para birimi tahminleri",
+    "currencyDescription": "USD rakamına göre ikincildir ve ne olduklarıyla etiketlenirler.",
+    "cannotHeading": "Bunun size söyleyemedikleri",
+    "cannotDescription": "Aritmetiğin ortaya koyabileceklerinin dürüst sınırı.",
+    "formulas": {
+      "payoutTerm": "Bir bakiyeden ödeme",
+      "payoutDetail": "Tek bir çarpma. Kur, bir bileşene sabit yazılmış bir değerden değil, doğrulanmış kayıttan gelir.",
+      "mixedTerm": "Karışık bakiye",
+      "mixedDetail": "Her grup ayrı bir giriştir; böylece hiçbir Robux iki kur altında sayılamaz.",
+      "blendedTerm": "Karma kur",
+      "blendedDetail": "Girdiğiniz gruplar üzerinden ağırlıklı ortalama.",
+      "feesTerm": "İsteğe bağlı ücretler",
+      "feesDetail": "Yalnızca kendi rakamlarınızı girdiğinizde uygulanır. Sıfırın altına inemeyecek şekilde sınırlandırılmıştır.",
+      "taxTerm": "İsteğe bağlı vergi tahmini",
+      "taxDetail": "Vergi, ücretlerden sonra, verdiğiniz yüzdeyle uygulanır. Bu site hiçbir vergi oranı belirtmez.",
+      "reverseTerm": "Ters hedef",
+      "reverseDetail": "Her zaman yukarı yuvarlar. Aşağı yuvarlamak ödemeyi hedefin kıl payı altında bırakırdı.",
+      "currencyTerm": "Yerel para birimi",
+      "currencyDetail": "AMB euro tabanlı kurlar yayımlar; bu yüzden USD çapraz kurları türetilir. Bölme yönü testlerle sabitlenmiştir.",
+      "marketplaceTerm": "Marketplace ücreti",
+      "marketplaceDetail": "Aşağı yuvarlar; böylece gösterilen bir rakam, gerçekte alacağınızdan asla fazla olmaz."
+    },
+    "rounding": {
+      "moneyHalfUp": "Para yarımdan yukarı yuvarlanır",
+      "robuxUp": "Gereken Robux yukarı yuvarlanır.",
+      "sharesDown": "Marketplace payları aşağı yuvarlanır.",
+      "intermediateNever": "Ara değerler asla yuvarlanmaz."
+    },
+    "cannot": {
+      "approvalOrTiming": "Bir talebin onaylanıp onaylanmayacağı ya da ne zaman ödeneceği.",
+      "providerCharges": "Bankanızın ya da ödeme sağlayıcınızın ne kadar keseceği.",
+      "taxOwed": "Ne kadar vergi borçlandığınız."
+    },
+    "body": {
+      "arithmetic": {
+        "p1": "Bu sitedeki her para değeri, bir kur okunduğu andan bir rakam yazdırıldığı ana kadar tam kesir olarak — keyfî duyarlıkta bir tam sayı çifti olarak — tutulur. Toplama, çarpma ve bölme baştan sona tamdır. Yolun ortasında hiçbir şey yuvarlanmaz; bu yüzden bir toplam her zaman üstünde gösterilen parçaların toplamına eşittir.",
+        "p2": "Aynı yaklaşım çok büyük bakiyeleri de kaldırır. Robux sayıları çift duyarlıklı sayılar yerine keyfî duyarlıkta tam sayı olarak saklanır; böylece on haneli bir bakiye son basamaklarını yitirmek yerine tam kalır."
+      },
+      "rounding": {
+        "p1": "En yakına yuvarlamak bazen istediğiniz hedefin altında kalan bir rakam döndürürdü.",
+        "p2": "Elinizde kalanı eksik vaat etmek, gelenden bir Robux fazla bir rakam göstermekten iyidir.",
+        "p3": "Bir ara toplamı yuvarlayıp sonra kullanmak, gösterilen bir toplamın kendi dökümüyle çelişmesine izin verirdi."
+      },
+      "currency": {
+        "p1": "DevEx kuru ABD doları cinsindendir; bu yüzden her hesap USD üzerinden yapılır ve sonradan çevrilir. Çevrim, Avrupa Merkez Bankası'nın her iş günü saat 16.00 CET civarında yayımladığı euro referans kurlarını kullanır.",
+        "p2": "Bu kurlar euro tabanlı olduğundan USD çapraz kuru türetilir: hedef para biriminin euro kuru, doların euro kuruna bölünür. Çevrilen her rakam, sağlayıcıyı ve kurların gözlendiği tarihi gösterir.",
+        "p3": "Bunlar referans kurlardır. Hiçbir banka bu kurlardan işlem yapmaz. Ödeme sağlayıcınız kendi kurunu bir marjla uygular; bu yüzden çevrilmiş bir rakamı öngörü değil, büyüklük göstergesi olarak alın.",
+        "p4": "Para birimi çevrimi ve ücretler hakkında daha fazlası",
+        "p5": "Sağlayıcıya erişilemiyorsa, saklanmış bir anlık görüntü gösterilir ve açıkça güncelliğini yitirmiş olarak etiketlenir. Güncelliğini yitirmiş bir kur asla güncelmiş gibi sunulmaz ve USD hesabı hiçbir zaman sağlayıcının erişilebilir olmasına bağlı değildir."
+      }
+    }
+  },
+  "sources": {
+    "intro": "Bu sitedeki rakamların ardındaki her resmî kaynak, her birinin neyi ortaya koyduğu ve en son ne zaman denetlendiği.",
+    "jumpLabel": "Kaydı gör",
+    "registryHeading": "Kaynak kaydı",
+    "registryDescription": "Hesaplayıcının okuduğu kayıttan üretilir; bu yüzden bu sayfa, belgelediği rakamlardan ayrı düşemez.",
+    "cadenceHeading": "Gözden geçirme sıklığı",
+    "cadenceDescription": "Bunların ne sıklıkla yeniden denetlendiği ve biri değiştiğinde ne olduğu.",
+    "lastChecked": "Son denetim:",
+    "effectiveFrom": "Yürürlük tarihi:",
+    "reviewCadenceLabel": "Gözden geçirme sıklığı:",
+    "registryVersionLabel": "Kur kaydı sürümü",
+    "ratesLastVerified": "Kurlar en son doğrulandı",
+    "reviewDueAfter": "Şu süreden sonra gözden geçirme gerekir:",
+    "escalatesAfter": "Şu süreden sonra kritiğe yükselir:",
+    "body": {
+      "registry": {
+        "p1": "Bu kaynağın ortaya koyduğu olgular"
+      },
+      "cadence": {
+        "p1": "Kur verileri hiçbir zaman kazınmış bir sayfadan otomatik güncellenmez. Yayımlanmış bir kuru değiştirmek; kaynağın elle doğrulanmasını, kaydın güncellenmesini, birim testlerinin yeni beklenen değerlere güncellenmesini, etkilenen sayfaların gözden geçirilmesini, changelog'a bir girdi eklenmesini ve yeniden dağıtımı gerektirir. Bu sıra bilerek yavaştır — hızla yayımlanmış yanlış bir kur, bir gün sonra yayımlanmış doğru bir kurdan kötüdür."
+      }
+    }
+  },
+  "editorialPolicy": {
+    "intro": "Bu sitenin yazarken uyduğu kurallar; onları size karşı sorumlu tutabilesiniz diye açıkça yazıldı.",
+    "sourcingHeading": "Kaynak ölçütü",
+    "labellingHeading": "İddialar nasıl etiketleniyor",
+    "labellingDescription": "Bu projenin belgelerindeki her araştırma sonucu bu etiketlerden birini taşır. Bir çıkarım hiçbir zaman sessizce olguya terfi ettirilmez.",
+    "neverHeading": "Bu sitenin asla yayımlamadıkları",
+    "reviewHeading": "Gözden geçirme sıklığı",
+    "labels": {
+      "verified": "Resmî kaynaktan doğrulandı",
+      "derived": "Sağlanan CSV'den türetildi",
+      "observed": "Rakibin herkese açık sayfasında gözlendi",
+      "inference": "Makul çıkarım",
+      "decision": "Yeni uygulama kararı"
+    },
+    "never": {
+      "testimonials": "Uydurma referanslar, puanlar, değerlendirme sayıları ya da kullanıcı sayıları.",
+      "fakeAuthor": "Gerçek bir kişiye karşılık gelmeyen bir yazar biyografisi ya da yeterliliği.",
+      "unsourcedRate": "Kaynağı ve doğrulama tarihi olmayan bir kur.",
+      "snapshotAsLive": "Saklanmış bir anlık görüntüden gelmişken canlıymış gibi sunulan bir döviz kuru.",
+      "countryTax": "Ülkeniz için bir vergi rakamı.",
+      "approvalClaim": "Bir DevEx talebinin onaylanacağı iddiası."
+    },
+    "changedSoFar": "Şimdiye kadar neler değişti",
+    "body": {
+      "sourcing": {
+        "p1": "Zamana duyarlı her iddia — bir kur, bir alt sınır, bir ücret yüzdesi, bir uygunluk kuralı — resmî bir kaynağa bağlanır ve en son ne zaman denetlendiğinin tarihini taşır.",
+        "p2": "Resmî bir kaynağın sustuğu yerde bu site de susar. İşlem süreleri en açık örnektir: Roblox garantili bir süre yayımlamaz; bu yüzden okuması daha tatmin edici olsa da burada da hiçbir süre belirtilmez.",
+        "p3": "Rakip sayfalar araştırmadır, kaynak değil. Başka bir site söyledi diye hiçbir şey yinelenmez.",
+        "p4": "Sayısal örnekler bir yerden kopyalanmaz; kur kaydından yeniden hesaplanır."
+      },
+      "never": {
+        "p1": "Yalnızca bir anahtar kelime var diye oluşturulmuş bir sayfa. Bir sayfanın, sitenin geri kalanının yanıtlamadığı bir şeyi yanıtlaması gerekir.",
+        "p2": "Sayfanın görünürde içermediği bir şeyi anlatan yapılandırılmış veri."
+      },
+      "review": {
+        "p1": "Kura duyarlı içerik şu sıklıkla gözden geçirilir:",
+        "p2": "gün; ve şu süreden sonra elle gözden geçirme zorunlu hâle gelir:",
+        "p3": "Bir rakam, doğru olmaktan çıktıktan sonra aramalarda iyi gidiyor diye çevrimiçi bırakılmaz. Yanlışsa değiştirilir ve değişiklik kaydedilir.",
+        "p4": "Düzeltmeler nasıl işliyor"
+      }
+    }
+  },
+  "corrections": {
+    "intro": "Kurlar değişir, belgeler yer değiştirir. Burada bir şey güncelliğini yitirdiyse, bize söylemek yapabileceğiniz gerçekten en yararlı şeydir.",
+    "reportHeading": "Bir hatayı bildirmek",
+    "cannotHelpTitle": "Bu sitenin yardımcı olamayacağı şeyler",
+    "nextHeading": "Sonra ne oluyor",
+    "nextDescription": "Bir kur, alt sınır ya da ücret düzeltmesi sabit bir sırayı izler. Bilerek hızlı bir düzenleme değildir.",
+    "recordHeading": "Düzeltmeler nerede kaydediliyor",
+    "reportButton": "Bir düzeltme bildir",
+    "steps": {
+      "verify": "Resmî kaynağa karşı doğrula.",
+      "updateRegistry": "Kur kaydını güncelle.",
+      "updateTests": "Testleri güncelle.",
+      "reviewPages": "Etkilenen sayfaları gözden geçir.",
+      "recordChangelog": "Changelog'a kaydet.",
+      "updateDate": "Doğrulama tarihini güncelle."
+    },
+    "body": {
+      "report": {
+        "p1": "En yararlı bildirim; hangi sayfada olduğunuzu, yanlış olduğunu düşündüğünüz rakamı ve — varsa — aksini söyleyen resmî Roblox sayfasının bağlantısını içerir. Bu son kısım, bir bildirimi sıfırdan araştırılacak bir şeyden hemen işlem yapılabilecek bir şeye dönüştürür.",
+        "p2": "Kendi hesabınız, bakiyeniz ya da göndermiş olduğunuz bir DevEx talebiyle ilgili her şey. Bu sitenin bunların hiçbirine erişimi ve Roblox ile hiçbir ilişkisi yok — buna yalnızca Roblox destek ekibi bakabilir."
+      },
+      "process": {
+        "p1": "Kurlar tek bir doğrulanmış veri dosyasında durur. Onları orada değiştirmek her sayfayı, tabloyu ve hesaplayıcıyı bir anda değiştirir — unutulacak ikinci bir kopya yoktur.",
+        "p2": "Birim testleri belirli beklenen değerleri doğrular. Kur değişikliği o beklentilerin de değişmesi demektir; bir rakamın bir yerde güncellenip başka bir yerde güncellenmemesini önleyen şey budur.",
+        "p3": "Eski rakamı sözcüklerle anlatan her düz metin de yeniden yazılır, yalnızca tablolar değil.",
+        "p4": "Tarihi, neyin değiştiği ve bunu gerekçelendiren kaynakla birlikte.",
+        "p5": "Kura duyarlı her sayfada gösterilen rozet yeni denetimi yansıtır.",
+        "p6": "Önce tüm test takımının geçmesi gerekir."
+      },
+      "record": {
+        "p1": "Roblox'un yaptığı kur değişiklikleri de şuraya yansıtılır:"
+      }
+    }
+  },
+  "changelog": {
+    "intro": "Bu sitede ne değişti, ne zaman ve hangi kaynak bunu gerekçelendirdi.",
+    "jumpLabel": "Girdileri gör",
+    "historyHeading": "Değişiklik geçmişi",
+    "subscribeTitle": "Tekrar tekrar bakmak yerine abone olun",
+    "recordedHeading": "Burada neler kaydediliyor",
+    "recordedDescription": "Bu changelog, bu sitenin ne yaptığını izler. Roblox'un ne yaptığı ayrıca izlenir.",
+    "filterContent": "İçerik",
+    "filterSite": "Site",
+    "jsonFeed": "JSON Feed",
+    "ratesApiLink": "kur API'si",
+    "correctionsPolicyLink": "düzeltme politikasına bakın",
+    "entries": {
+      "registryEstablished": "Kur kaydı oluşturuldu ve doğrulandı",
+      "marketplaceRecorded": "Marketplace komisyonları kaydedildi",
+      "levRemoved": "Bulgar levası desteklenen para birimlerinden çıkarıldı",
+      "siteLaunched": "Site yayına alındı"
+    },
+    "body": {
+      "entries": {
+        "p1": "Buradaki her girdi bir akış olarak yayımlanır:",
+        "p2": "bir akış okuyucu için ya da",
+        "p3": "XML ayrıştırmayı yeğlemeyen her şey için. İkisi de aynı girdileri ve aynı kaynak bağlantılarını taşır. Bu rakamlara bağımlıysanız,",
+        "p4": "güncel değerleri doğrulama tarihleriyle birlikte yayımlıyor."
+      },
+      "scope": {
+        "p1": "Yayımlanmış bir kur, alt sınır ya da ücret yüzdesindeki her değişiklik burada tarihi ve kaynağıyla görünür. Yanlış çıkmış bir rakamın düzeltmesi de öyle — bunlar sessizce silinmez. Rutin içerik düzenlemeleri ve yazım düzeltmeleri listelenmez; çünkü her şeyi kaydeden bir changelog işe yarar hiçbir şey kaydetmez.",
+        "p2": "DevEx kurunun kendi geçmişi için, Eylül 2025 değişikliği de dâhil,",
+        "p3": "kur geçmişi sayfasına bakın"
+      }
+    }
+  },
+  "api": {
+    "intro": "Bu sitenin hesaplarken kullandığı kur kaydı; her kaynağı ve doğrulama tarihiyle birlikte JSON olarak yayımlanır.",
+    "jumpLabel": "Uç noktayı gör",
+    "ratesHeading": "GET /api/rates",
+    "ratesDescription": "Güncel DevEx kurları, alt sınır, marketplace ücreti ve her birinin doğrulandığı kaynaklar.",
+    "fxHeading": "GET /api/fx/latest",
+    "fxDescription": "Avrupa Merkez Bankası referans kurları; bir ödemeyi ABD doları dışında bir para biriminde göstermek için.",
+    "statsHeading": "GET /api/stats",
+    "statsDescription": "Roblox'un bildirdiği içerik üreticisi ödemeleri ve etkileşim; satırlar hâlinde, her rakam açıklandı ya da türetildi olarak etiketlenmiş.",
+    "platformHeading": "GET /api/platform",
+    "platformDescription": "Bu sitenin topladığı oyuncu sayısı gözlemleri, tam olarak toplandığı hâliyle.",
+    "usingHeading": "Kullanımı",
+    "machineReadableTitle": "Makinece okunabilir bir tanım",
+    "termsHeading": "Ne vaat ediliyor, ne edilmiyor",
+    "robloxFiguresTitle": "Bunlar Roblox'un rakamları, bu sitenin değil",
+    "fields": {
+      "rates": "id, etiket, Robux başına değer, durum ve geldiği kaynak",
+      "minimum": "Bir talep gönderilebilmesi için Roblox'un istediği Earned Robux bakiyesi",
+      "marketplaceFee": "Satış tarafı hesaplamaları için marketplace ücret yüzdesi",
+      "sources": "Yayımcı, başlık, URL ve her birinin en son denetlendiği tarih",
+      "statsRows": "ölçüt, dönem, değer, birim, köken, kaynak ve bildirimin URL'si",
+      "statsAbsences": "Roblox'un yayımlamadığı ölçütler ve her birinin yokluk gerekçesi",
+      "statsCsv": "Aynı satırlar, indirilebilir CSV olarak",
+      "absencesCsv": "Yokluklar, kendi CSV'si olarak",
+      "platformRows": "observed_at, sayı ve her gözlemin kökeni ile kaynağı",
+      "platformLimits": "Saklama, çözünürlük ve kapsam sınırları, yanıtın kendi içinde",
+      "platformExperiences": "Experience başına satırlar; saatlik örneklenir ve yedi gün saklanır",
+      "platformCsv": "Her iki dizi de indirilebilir CSV olarak"
+    },
+    "statisticsPageLink": "istatistik sayfası",
+    "platformPageLink": "platform sayfası",
+    "changelogLink": "changelog",
+    "terms": {
+      "noKey": "Anahtar yok, kayıt yok",
+      "callableFromBrowser": "Tarayıcıdan çağrılabilir",
+      "cacheIt": "Önbelleğe alın",
+      "attribution": "Kaynak gösterme",
+      "promised": "Vaat edilen:",
+      "notPromised": "Vaat edilmeyen:"
+    },
+    "endpointColumn": "Endpoint",
+    "contract": {
+      "ratesSummary": "Güncel DevEx kurları ve gönderim alt sınırı",
+      "ratesResponse": "Kur kaydı.",
+      "rateCheckSummary": "Roblox'un sayfasının hâlâ yayımlanan kurları belirtip belirtmediği",
+      "rateCheckResponse": "Son otomatik denetimin sonucu.",
+      "fxSummary": "Avrupa Merkez Bankası referans kurları",
+      "fxResponse": "Referans kurlar; canlı ya da açıkça yedek olarak işaretlenmiş.",
+      "statsSummary": "Roblox içerik üreticisi ödeme ve etkileşim rakamları",
+      "statsJson": "Rakamlar, JSON olarak.",
+      "statsCsv": "Rakamlar, CSV olarak.",
+      "platformSummary": "Gözlenen Roblox oyuncu sayıları",
+      "platformSeriesParam": "Platform geneli sayılar için `totals` (varsayılan), experience başına satırlar için `experiences`.",
+      "platformFormatParam": "JSON için boş bırakın, hesap tablosu için `csv`.",
+      "platformJson": "Toplanan gözlemler.",
+      "platformCsv": "Toplanan gözlemler, CSV olarak.",
+      "healthSummary": "Hizmet sağlığı ve veri tazeliği",
+      "healthOk": "Sağlıklı ya da eskimiş ama kritik değil.",
+      "healthCritical": "Eylem gerektiren kritik bir eskime.",
+      "contactSummary": "İletişim gönderimi",
+      "contactRejected": "Gönderim doğrulama tarafından reddedildi.",
+      "contactNotConfigured": "Yapılandırılmış bir iletişim sağlayıcısı yok.",
+      "asSent": "Bu uç noktanın gönderdiği hâliyle.",
+      "corsNote": "Herhangi bir kökenden okunabilir; bu yanıtlar kimlik bilgisi taşımaz.",
+      "description": "Roblox DevEx ödemeleri için başvuru verisi; denetlenebilsin diye yayımlandı."
+    },
+    "healthNoBinding": "Bu ortamda geçmiş bağı yok; dolayısıyla burada hiçbir şey toplanmıyor.",
+    "body": {
+      "stats": {
+        "p1": "Şurada grafiklenen rakamlar:",
+        "p2": "Para, kayan noktalı bir sayı değil, tam bir ondalık dizgidir. Bir bildirimden okunan bir rakam yazıldığı gibi aktarılır."
+      },
+      "platform": {
+        "p1": "Hiçbir şey doldurulmaz.",
+        "p2": "Bir boşluk, toplayıcının o anda çalışmadığı anlamına gelir ve boşluk olduğu gibi bırakılır — aradeğerleme yok, önceki değeri taşıma yok, geriye dönük doldurma yok. Hiçbir gözlem okunamadığında, uç nokta boş bir liste yerine yanıt verir; çünkü boş bir dosya, hiç oyuncu olmayan bir dönemden ayırt edilemez."
+      },
+      "using": {
+        "p1": "buradaki her uç noktayı OpenAPI 3.1 olarak tanımlar — parametreler, durum kodları, içerik türleri ve her birinin gönderdiği tam değer. Bu sayfanın okuduğu bildirimin aynısından üretilir ve bir test, o bildirimi gerçekte var olan rota işleyicileriyle karşılaştırır; dolayısıyla bir uç nokta orada görünmeden eklenemez ya da ortadan kalktıktan sonra tanımlı kalamaz.",
+        "p2": "Kaydolunacak bir şey ve gizli tutulacak bir belirteç yok. Her başvuru uç noktası düz bir GET'tir, çerez koymaz ve her çağırana aynı yanıtı verir.",
+        "p3": "Her başvuru uç noktası gönderir; böylece herhangi bir kökenden bir sayfa ona doğrudan erişebilir. Bu, yakın zamana kadar böyle değildi ve uç noktaları tam da yayımlandıkları kişiler için işe yaramaz kılıyordu. Öyle olmayan ikisi bilinçli: sağlık uç noktası işletmeci için altyapıdır ve iletişim uç noktası gönderim alır, kökeni denetlenir."
+      },
+      "terms": {
+        "p1": "yanıtın biçimi, o değişmeden değişmeyecek; her rakam doğrulandığı kaynağı taşıyacak ve bir kur, önce bir kişi denetlemeden kazınmış bir sayfadan asla güncellenmeyecek. Değişiklikler şurada kaydedilir:",
+        "p2": "bir çalışma süresi rakamı, bir destek taahhüdü ya da bu uç noktanın sonsuza dek var olacağı. Bu, arkasında sözleşme olan bir ürün değil; sitenin dağıtıldığı yerden sunulan ücretsiz bir kolaylıktır. Bozulmaması gereken bir şey inşa ediyorsanız yanıtı önbelleğe alın ve kendi kopyanıza geri düşün.",
+        "p3": "Buradaki her kur, Roblox'un şu anda belgelediği kurdur ve gösterilen doğrulama tarihinde kaydedilmiştir. Hangi kurun hangi bakiyeye uygulanacağına ve bir DevEx talebinin onaylanıp onaylanmayacağına Roblox karar verir. Her rakamın onların belgelerinden bu yanıta nasıl geldiğini öğrenmek için",
+        "p4": "sayfasını okuyun."
+      },
+      "related": {
+        "p1": "Standart kuru okumak"
+      }
+    }
+  },
+  "authors": {
+    "heading": "Bu siteyi kimler yazıyor",
+    "maintainerRole": "Kurucu ve yürütücü",
+    "reviewerRole": "İçerik denetçisi ve olgu doğrulayıcı",
+    "contactLabel": "İletişim",
+    "profilesLabel": "Profiller",
+    "pagesReviewed": "Denetlenen sayfalar",
+    "noPagesReviewed": "Şu anda hiçbir sayfa denetim künyesi taşımıyor.",
+    "ahmadRazaPhotoAlt": "Ahmad Raza, DevExCalculator.org'un kurucusu ve yürütücüsü"
+  },
+  "relatedHeading": "İlgili sayfalar"
+}

@@ -1,0 +1,348 @@
+{
+  "$comment": "Machine-drafted. Not yet read by a native speaker. A translation that softens 'this site cannot determine' into 'this site does not usually determine' turns a limit into a habit.",
+  "$identical": [
+    "api.endpointColumn",
+    "api.fxHeading",
+    "api.platformHeading",
+    "api.ratesHeading",
+    "api.statsHeading",
+    "changelog.filterSite",
+    "changelog.jsonFeed"
+  ],
+  "about": {
+    "intro": "Untuk apa situs ini ada, bagaimana ia dibangun, dan hal-hal yang dengan sengaja tidak mau dilakukannya.",
+    "purposeHeading": "Untuk apa situs ini ada",
+    "principlesHeading": "Bagaimana ia dibangun",
+    "limitsHeading": "Apa yang tidak akan dilakukannya",
+    "affiliationHeading": "Afiliasi",
+    "independentTitle": "Independen dan tidak terhubung dengan Roblox",
+    "principles": {
+      "rateHasSource": "Setiap kurs punya sumber dan tanggal.",
+      "exactArithmetic": "Aritmetikanya eksak.",
+      "methodologyExplains": "Metodologinya menjelaskan alasannya",
+      "worksWithoutJs": "Halamannya berfungsi tanpa JavaScript.",
+      "nothingCollected": "Tidak ada yang dikumpulkan.",
+      "privacyIsSpecific": "Kebijakan privasinya spesifik soal ini",
+      "correctionsPublished": "Koreksi diterbitkan."
+    },
+    "body": {
+      "purpose": {
+        "p1": "Seorang kreator dengan saldo Robux ingin tahu satu hal: sebenarnya ini bernilai berapa. Jawabannya adalah aritmetika, tetapi menjawabnya dengan benar butuh kurs terkini, pemahaman tentang Robux mana yang memenuhi syarat, dan kejujuran tentang apa yang angka itu maksudkan dan tidak maksudkan.",
+        "p2": "Kebanyakan kalkulator mengerjakan aritmetikanya lalu berhenti di situ. Beberapa yang peringkatnya bagus masih mengutip kurs yang berubah pada September 2025, atau batas minimum yang sudah bertahun-tahun tidak benar. Kreator yang merencanakan berdasarkan angka-angka itu merencanakan berdasarkan fiksi.",
+        "p3": "Situs ini ada untuk menjadi versi yang benar, yang menyebutkan asal tiap angka, dan yang mengakui apa yang tidak bisa dikatakannya kepada Anda."
+      },
+      "principles": {
+        "p1": "Uang dihitung sebagai pecahan eksak, bukan bilangan pecahan mesin, dan dibulatkan sekali saja, tepat saat ditampilkan.",
+        "p2": "Kurs, rumus, contoh, dan penjelasan semuanya dirender di server. Hanya perhitungan ulang secara langsung yang membutuhkan skrip.",
+        "p3": "Perhitungan berjalan di peramban Anda dan tidak pernah dikirim ke mana pun.",
+        "p4": "Ketika sebuah angka di sini ternyata keliru, perbaikannya dicatat beserta tanggalnya di",
+        "p5": "alih-alih disunting diam-diam."
+      },
+      "limits": {
+        "p1": "Memberi tahu apakah permohonan DevEx Anda akan disetujui. Roblox yang memutuskan itu, dan tidak ada pihak ketiga yang bisa memperkirakannya.",
+        "p2": "Memberi nasihat pajak, atau menyatakan tarif pajak untuk negara Anda.",
+        "p3": "Meminta kredensial Roblox Anda, dengan alasan apa pun. Tidak ada alat yang sah yang membutuhkannya.",
+        "p4": "Menerbitkan halaman untuk setiap angka hanya karena orang mencarinya. Halaman jumlah hanya ada jika memang ada sesuatu yang khusus untuk dikatakan.",
+        "p5": "Mengarang jumlah ulasan, jumlah pengguna, testimoni, atau biografi penulis agar tampak lebih mapan daripada yang sebenarnya."
+      },
+      "affiliation": {
+        "p1": "DevExCalculator.org tidak berafiliasi dengan, tidak didukung, tidak disponsori, dan tidak dioperasikan oleh Roblox Corporation. Roblox, Robux, dan Developer Exchange adalah merek dagang Roblox Corporation, yang dipakai di sini hanya untuk menjelaskan pokok perhitungan ini. Untuk apa pun yang menyangkut akun, saldo, atau permohonan DevEx Anda, hanya Roblox yang dapat membantu."
+      }
+    }
+  },
+  "methodology": {
+    "intro": "Semua rumus yang dipakai situs ini, bagaimana aritmetikanya dikerjakan, dan di mana presisi sengaja dilepaskan.",
+    "jumpLabel": "Lihat rumusnya",
+    "formulasHeading": "Rumus-rumusnya",
+    "formulasDescription": "Ini himpunan yang lengkap. Tidak ada apa pun di situs ini yang menghitung angka uang dengan cara lain.",
+    "exactHeading": "Mengapa aritmetika eksak itu penting",
+    "exactDescription": "Ini bukan kerewelan — ini beda antara angka yang bisa Anda andalkan dan angka yang nyaris benar.",
+    "roundingHeading": "Kebijakan pembulatan",
+    "roundingDescription": "Presisi dilepaskan tepat satu kali, dan arahnya dipilih dengan sengaja pada tiap kasus.",
+    "currencyHeading": "Perkiraan dalam mata uang lokal",
+    "currencyDescription": "Sekunder terhadap angka USD, dan diberi label sesuai apa adanya.",
+    "cannotHeading": "Apa yang tidak bisa disampaikan di sini",
+    "cannotDescription": "Batas jujur dari apa yang bisa ditetapkan oleh aritmetika.",
+    "formulas": {
+      "payoutTerm": "Pembayaran dari sebuah saldo",
+      "payoutDetail": "Satu perkalian. Kursnya berasal dari registri yang tervalidasi, tidak pernah dari nilai yang ditulis langsung di dalam komponen.",
+      "mixedTerm": "Saldo campuran",
+      "mixedDetail": "Tiap kelompok adalah masukan terpisah, jadi tidak ada Robux yang bisa dihitung pada dua kurs.",
+      "blendedTerm": "Kurs gabungan",
+      "blendedDetail": "Rata-rata tertimbang dari kelompok mana pun yang Anda masukkan.",
+      "feesTerm": "Biaya opsional",
+      "feesDetail": "Diterapkan hanya ketika Anda memasukkan angka Anda sendiri. Dibatasi agar tidak pernah turun di bawah nol.",
+      "taxTerm": "Perkiraan pajak opsional",
+      "taxDetail": "Pajak diterapkan setelah biaya, memakai persentase apa pun yang Anda berikan. Situs ini tidak menyatakan tarif pajak apa pun.",
+      "reverseTerm": "Target terbalik",
+      "reverseDetail": "Selalu membulatkan ke atas. Membulatkan ke bawah akan membuat pembayarannya kurang sedikit dari target.",
+      "currencyTerm": "Mata uang lokal",
+      "currencyDetail": "ECB menerbitkan kurs berbasis euro, jadi kurs silang USD diturunkan. Arah pembagiannya dipatok oleh pengujian.",
+      "marketplaceTerm": "Biaya marketplace",
+      "marketplaceDetail": "Membulatkan ke bawah, sehingga angka yang ditampilkan tidak pernah lebih besar daripada yang benar-benar Anda terima."
+    },
+    "rounding": {
+      "moneyHalfUp": "Uang dibulatkan setengah ke atas",
+      "robuxUp": "Robux yang dibutuhkan dibulatkan ke atas.",
+      "sharesDown": "Bagian marketplace dibulatkan ke bawah.",
+      "intermediateNever": "Nilai antara tidak pernah dibulatkan."
+    },
+    "cannot": {
+      "approvalOrTiming": "Apakah sebuah permohonan akan disetujui, atau kapan akan dibayarkan.",
+      "providerCharges": "Berapa yang akan dikenakan bank atau penyedia pembayaran Anda.",
+      "taxOwed": "Berapa pajak yang Anda tanggung."
+    },
+    "body": {
+      "arithmetic": {
+        "p1": "Setiap nilai uang di situs ini disimpan sebagai pecahan eksak — sepasang bilangan bulat berpresisi sembarang — sejak sebuah kurs dibaca sampai sebuah angka dicetak. Penjumlahan, perkalian, dan pembagian eksak sepanjang jalan. Tidak ada yang dibulatkan di tengah, jadi sebuah total selalu sama dengan jumlah bagian-bagian yang ditampilkan di atasnya.",
+        "p2": "Pendekatan yang sama menangani saldo yang sangat besar. Jumlah Robux disimpan sebagai bilangan bulat berpresisi sembarang, bukan bilangan presisi ganda, jadi saldo sepuluh digit tetap eksak alih-alih kehilangan digit terakhirnya."
+      },
+      "rounding": {
+        "p1": "Membulatkan ke yang terdekat kadang akan menghasilkan angka yang kurang dari target yang Anda minta.",
+        "p2": "Lebih baik menjanjikan lebih sedikit dari yang Anda terima daripada menampilkan angka satu Robux di atas yang benar-benar sampai.",
+        "p3": "Membulatkan subtotal lalu memakainya akan membuat total yang ditampilkan bertentangan dengan rinciannya sendiri."
+      },
+      "currency": {
+        "p1": "Kurs DevEx dinyatakan dalam dolar AS, jadi setiap perhitungan dilakukan dalam USD lalu dikonversi setelahnya. Konversinya memakai kurs acuan euro dari Bank Sentral Eropa, yang diterbitkan sekali tiap hari kerja sekitar pukul 16.00 CET.",
+        "p2": "Karena kurs-kurs itu berbasis euro, kurs silang USD diturunkan: kurs euro untuk mata uang tujuan dibagi kurs euro untuk dolar. Setiap angka hasil konversi menampilkan penyedianya dan tanggal kursnya diamati.",
+        "p3": "Ini kurs acuan. Tidak ada bank yang bertransaksi pada kurs itu. Penyedia pembayaran Anda akan memakai kursnya sendiri dengan margin, jadi perlakukan angka hasil konversi sebagai gambaran besaran, bukan ramalan.",
+        "p4": "Selengkapnya tentang konversi mata uang dan biaya",
+        "p5": "Jika penyedianya tidak terjangkau, sebuah cuplikan tersimpan ditampilkan dan secara tegas ditandai usang. Kurs usang tidak pernah disajikan sebagai kurs terkini, dan perhitungan USD tidak pernah bergantung pada tersedianya penyedia itu."
+      }
+    }
+  },
+  "sources": {
+    "intro": "Setiap sumber resmi di balik angka-angka di situs ini, apa yang ditetapkan masing-masing, dan kapan terakhir diperiksa.",
+    "jumpLabel": "Lihat registrinya",
+    "registryHeading": "Registri sumber",
+    "registryDescription": "Dihasilkan dari registri yang sama dengan yang dibaca kalkulatornya, sehingga halaman ini tidak mungkin melenceng dari angka-angka yang didokumentasikannya.",
+    "cadenceHeading": "Jadwal peninjauan",
+    "cadenceDescription": "Seberapa sering semua ini diperiksa ulang, dan apa yang terjadi ketika salah satunya berubah.",
+    "lastChecked": "Terakhir diperiksa:",
+    "effectiveFrom": "Berlaku sejak:",
+    "reviewCadenceLabel": "Jadwal peninjauan:",
+    "registryVersionLabel": "Versi registri kurs",
+    "ratesLastVerified": "Kurs terakhir diverifikasi",
+    "reviewDueAfter": "Peninjauan jatuh tempo setelah",
+    "escalatesAfter": "Naik menjadi kritis setelah",
+    "body": {
+      "registry": {
+        "p1": "Fakta yang ditetapkan sumber ini"
+      },
+      "cadence": {
+        "p1": "Data kurs tidak pernah diperbarui otomatis dari halaman yang dikeruk. Mengubah kurs yang diterbitkan mengharuskan sumbernya diverifikasi secara manual, registrinya diperbarui, pengujian unitnya diperbarui ke nilai yang baru diharapkan, halaman terdampak ditinjau, sebuah entri ditambahkan ke changelog, dan penerapan ulang dilakukan. Urutan itu sengaja lambat — kurs yang salah dan diterbitkan cepat lebih buruk daripada kurs yang benar dan diterbitkan sehari kemudian."
+      }
+    }
+  },
+  "editorialPolicy": {
+    "intro": "Aturan yang menjadi dasar penulisan situs ini, dinyatakan agar Anda bisa menagihnya.",
+    "sourcingHeading": "Standar sumber",
+    "labellingHeading": "Bagaimana klaim diberi label",
+    "labellingDescription": "Setiap kesimpulan riset dalam dokumentasi proyek ini membawa salah satu label ini. Sebuah dugaan tidak pernah diam-diam dinaikkan menjadi fakta.",
+    "neverHeading": "Apa yang tidak pernah diterbitkan situs ini",
+    "reviewHeading": "Jadwal peninjauan",
+    "labels": {
+      "verified": "Diverifikasi lewat sumber resmi",
+      "derived": "Diturunkan dari CSV yang diberikan",
+      "observed": "Diamati pada halaman publik pesaing",
+      "inference": "Dugaan yang masuk akal",
+      "decision": "Keputusan implementasi baru"
+    },
+    "never": {
+      "testimonials": "Testimoni, penilaian, jumlah ulasan, atau jumlah pengguna yang dikarang.",
+      "fakeAuthor": "Biografi atau kredensial penulis yang tidak berpadanan dengan orang nyata.",
+      "unsourcedRate": "Kurs tanpa sumber dan tanpa tanggal verifikasi.",
+      "snapshotAsLive": "Kurs valuta yang disajikan sebagai langsung padahal berasal dari cuplikan tersimpan.",
+      "countryTax": "Angka pajak untuk negara Anda.",
+      "approvalClaim": "Klaim bahwa sebuah permohonan DevEx akan disetujui."
+    },
+    "changedSoFar": "Apa yang sudah berubah sejauh ini",
+    "body": {
+      "sourcing": {
+        "p1": "Setiap klaim yang peka waktu — sebuah kurs, batas minimum, persentase biaya, aturan kelayakan — diikatkan pada sumber resmi dan membawa tanggal terakhir kali diperiksa.",
+        "p2": "Di mana sumber resmi diam, situs ini juga diam. Waktu pemrosesan adalah contoh paling jelas: Roblox tidak menerbitkan jaminan tenggat apa pun, jadi di sini pun tidak ada yang dinyatakan, meski sebuah angka akan lebih memuaskan untuk dibaca.",
+        "p3": "Halaman pesaing adalah bahan riset, bukan sumber. Tidak ada yang diulang hanya karena situs lain mengatakannya.",
+        "p4": "Contoh-contoh angka dihitung ulang dari registri kurs, bukan disalin dari mana pun."
+      },
+      "never": {
+        "p1": "Halaman yang dibuat hanya karena ada kata kuncinya. Sebuah halaman harus menjawab sesuatu yang tidak dijawab bagian lain situs ini.",
+        "p2": "Data terstruktur yang menggambarkan sesuatu yang tidak tampak ada di halamannya."
+      },
+      "review": {
+        "p1": "Konten yang peka terhadap kurs ditinjau setiap",
+        "p2": "hari, dan naik menjadi peninjauan manual wajib setelah",
+        "p3": "Sebuah angka tidak pernah dibiarkan daring hanya karena berkinerja baik di pencarian setelah ia berhenti akurat. Kalau salah, ia diubah, dan perubahannya dicatat.",
+        "p4": "Bagaimana koreksi bekerja"
+      }
+    }
+  },
+  "corrections": {
+    "intro": "Kurs berubah dan dokumentasi berpindah. Jika ada yang sudah usang di sini, memberi tahu kami benar-benar hal paling berguna yang bisa Anda lakukan.",
+    "reportHeading": "Melaporkan kekeliruan",
+    "cannotHelpTitle": "Hal yang tidak bisa dibantu situs ini",
+    "nextHeading": "Apa yang terjadi berikutnya",
+    "nextDescription": "Koreksi terhadap kurs, batas minimum, atau biaya mengikuti urutan yang tetap. Ini sengaja bukan suntingan kilat.",
+    "recordHeading": "Di mana koreksi dicatat",
+    "reportButton": "Laporkan koreksi",
+    "steps": {
+      "verify": "Verifikasi terhadap sumber resmi.",
+      "updateRegistry": "Perbarui registri kurs.",
+      "updateTests": "Perbarui pengujiannya.",
+      "reviewPages": "Tinjau halaman yang terdampak.",
+      "recordChangelog": "Catat di changelog.",
+      "updateDate": "Perbarui tanggal verifikasi."
+    },
+    "body": {
+      "report": {
+        "p1": "Laporan paling berguna menyertakan halaman yang sedang Anda buka, angka yang menurut Anda keliru, dan — kalau ada — tautan ke halaman resmi Roblox yang menyatakan sebaliknya. Bagian terakhir itu mengubah sebuah laporan menjadi sesuatu yang bisa langsung ditindaklanjuti alih-alih ditelusuri dari nol.",
+        "p2": "Apa pun tentang akun Anda sendiri, saldo Anda, atau permohonan DevEx yang sudah Anda ajukan. Situs ini tidak punya akses ke semua itu dan tidak punya hubungan dengan Roblox — hanya dukungan Roblox yang bisa menanganinya."
+      },
+      "process": {
+        "p1": "Kurs berada dalam satu berkas data yang tervalidasi. Mengubahnya di sana mengubah setiap halaman, tabel, dan kalkulator sekaligus — tidak ada salinan kedua yang bisa terlupakan.",
+        "p2": "Pengujian unitnya menegaskan nilai-nilai yang diharapkan secara spesifik. Perubahan kurs berarti harapan-harapan itu ikut berubah, dan itulah yang mencegah sebuah angka diperbarui di satu tempat tapi tidak di tempat lain.",
+        "p3": "Teks apa pun yang menyebut angka lama dengan kata-kata ditulis ulang, bukan hanya tabelnya.",
+        "p4": "Beserta tanggalnya, apa yang berubah, dan sumber yang membenarkannya.",
+        "p5": "Lencana yang muncul di setiap halaman yang peka terhadap kurs mencerminkan pemeriksaan yang baru.",
+        "p6": "Seluruh rangkaian pengujian harus lolos lebih dulu."
+      },
+      "record": {
+        "p1": "Perubahan kurs yang dilakukan Roblox juga tercermin di"
+      }
+    }
+  },
+  "changelog": {
+    "intro": "Apa yang berubah di situs ini, kapan, dan sumber mana yang membenarkannya.",
+    "jumpLabel": "Lihat entrinya",
+    "historyHeading": "Riwayat perubahan",
+    "subscribeTitle": "Berlangganan saja daripada memeriksa berulang kali",
+    "recordedHeading": "Apa yang dicatat di sini",
+    "recordedDescription": "Changelog ini melacak apa yang dilakukan situs ini. Apa yang dilakukan Roblox dilacak terpisah.",
+    "filterContent": "Konten",
+    "filterSite": "Site",
+    "jsonFeed": "JSON Feed",
+    "ratesApiLink": "API kurs",
+    "correctionsPolicyLink": "lihat kebijakan koreksi",
+    "entries": {
+      "registryEstablished": "Registri kurs dibuat dan diverifikasi",
+      "marketplaceRecorded": "Komisi marketplace dicatat",
+      "levRemoved": "Lev Bulgaria dihapus dari mata uang yang didukung",
+      "siteLaunched": "Situs diluncurkan"
+    },
+    "body": {
+      "entries": {
+        "p1": "Setiap entri di sini diterbitkan sebagai umpan:",
+        "p2": "untuk pembaca umpan, atau",
+        "p3": "untuk apa pun yang lebih suka tidak mengurai XML. Keduanya membawa entri yang sama dan tautan sumber yang sama. Jika Anda bergantung pada angka-angka ini,",
+        "p4": "menerbitkan nilai terkini beserta tanggal verifikasinya."
+      },
+      "scope": {
+        "p1": "Perubahan apa pun pada kurs, batas minimum, atau persentase biaya yang diterbitkan muncul di sini beserta tanggal dan sumbernya. Begitu pula koreksi terhadap angka yang ternyata keliru — itu tidak disunting diam-diam. Suntingan konten rutin dan perbaikan salah ketik tidak dicantumkan, karena changelog yang mencatat segalanya tidak mencatat apa pun yang berguna.",
+        "p2": "Untuk riwayat kurs DevEx itu sendiri, termasuk perubahan September 2025,",
+        "p3": "lihat halaman riwayat kurs"
+      }
+    }
+  },
+  "api": {
+    "intro": "Registri kurs yang dipakai situs ini untuk menghitung, diterbitkan sebagai JSON beserta setiap sumber dan tanggal verifikasinya.",
+    "jumpLabel": "Lihat endpoint-nya",
+    "ratesHeading": "GET /api/rates",
+    "ratesDescription": "Kurs DevEx saat ini, batas minimum, biaya marketplace, dan sumber yang dipakai memverifikasi masing-masing.",
+    "fxHeading": "GET /api/fx/latest",
+    "fxDescription": "Kurs acuan Bank Sentral Eropa, untuk menampilkan pembayaran dalam mata uang selain dolar AS.",
+    "statsHeading": "GET /api/stats",
+    "statsDescription": "Pembayaran kepada kreator dan keterlibatan yang dilaporkan Roblox, dalam bentuk baris, dengan tiap angka ditandai dilaporkan atau diturunkan.",
+    "platformHeading": "GET /api/platform",
+    "platformDescription": "Pengamatan jumlah pemain yang dikumpulkan situs ini, persis sebagaimana dikumpulkan.",
+    "usingHeading": "Cara memakainya",
+    "machineReadableTitle": "Sebuah deskripsi yang terbaca mesin",
+    "termsHeading": "Apa yang dijanjikan, dan apa yang tidak",
+    "robloxFiguresTitle": "Ini angka Roblox, bukan angka situs ini",
+    "fields": {
+      "rates": "id, label, nilai per Robux, status, dan sumber asalnya",
+      "minimum": "Saldo Earned Robux yang disyaratkan Roblox sebelum sebuah permohonan dapat diajukan",
+      "marketplaceFee": "Persentase biaya marketplace, untuk perhitungan di sisi penjualan",
+      "sources": "Penerbit, judul, URL, dan tanggal masing-masing terakhir diperiksa",
+      "statsRows": "metrik, periode, nilai, satuan, asal, sumber, dan URL laporannya",
+      "statsAbsences": "Metrik yang tidak diterbitkan Roblox, dengan alasan tiap ketiadaannya",
+      "statsCsv": "Baris yang sama sebagai CSV yang dapat diunduh",
+      "absencesCsv": "Ketiadaan itu sebagai CSV tersendiri",
+      "platformRows": "observed_at, jumlahnya, serta asal dan sumber tiap pengamatan",
+      "platformLimits": "Batas retensi, resolusi, dan cakupan, di dalam responsnya sendiri",
+      "platformExperiences": "Baris per experience, dicuplik tiap jam dan disimpan tujuh hari",
+      "platformCsv": "Salah satu deret sebagai CSV yang dapat diunduh"
+    },
+    "statisticsPageLink": "halaman statistik",
+    "platformPageLink": "halaman platform",
+    "changelogLink": "changelog",
+    "terms": {
+      "noKey": "Tanpa kunci, tanpa pendaftaran",
+      "callableFromBrowser": "Bisa dipanggil dari peramban",
+      "cacheIt": "Simpan dalam cache",
+      "attribution": "Atribusi",
+      "promised": "Dijanjikan:",
+      "notPromised": "Tidak dijanjikan:"
+    },
+    "endpointColumn": "Endpoint",
+    "contract": {
+      "ratesSummary": "Kurs DevEx saat ini dan batas minimum pengajuan",
+      "ratesResponse": "Registri kursnya.",
+      "rateCheckSummary": "Apakah halaman Roblox masih menyatakan kurs yang diterbitkan",
+      "rateCheckResponse": "Hasil pemeriksaan otomatis terakhir.",
+      "fxSummary": "Kurs acuan Bank Sentral Eropa",
+      "fxResponse": "Kurs acuan, langsung atau ditandai secara tegas sebagai cadangan.",
+      "statsSummary": "Angka pembayaran kreator dan keterlibatan Roblox",
+      "statsJson": "Angka-angkanya, sebagai JSON.",
+      "statsCsv": "Angka-angkanya, sebagai CSV.",
+      "platformSummary": "Jumlah pemain Roblox yang diamati",
+      "platformSeriesParam": "`totals` (bawaan) untuk jumlah seluruh platform, `experiences` untuk baris per experience.",
+      "platformFormatParam": "Kosongkan untuk JSON, atau `csv` untuk lembar kerja.",
+      "platformJson": "Pengamatan yang terkumpul.",
+      "platformCsv": "Pengamatan yang terkumpul, sebagai CSV.",
+      "healthSummary": "Kesehatan layanan dan kesegaran data",
+      "healthOk": "Sehat, atau usang tetapi belum kritis.",
+      "healthCritical": "Keusangan kritis yang perlu ditindak.",
+      "contactSummary": "Kiriman kontak",
+      "contactRejected": "Kiriman ditolak oleh validasi.",
+      "contactNotConfigured": "Tidak ada penyedia kontak yang dikonfigurasi.",
+      "asSent": "Sebagaimana dikirim oleh endpoint ini.",
+      "corsNote": "Dapat dibaca dari asal mana pun; respons ini tidak membawa kredensial.",
+      "description": "Data rujukan untuk pembayaran DevEx Roblox, diterbitkan agar bisa diperiksa."
+    },
+    "healthNoBinding": "Tidak ada ikatan riwayat di lingkungan ini, jadi tidak ada yang dikumpulkan di sini.",
+    "body": {
+      "stats": {
+        "p1": "Angka-angka yang digrafikkan di",
+        "p2": "Uang adalah untai desimal eksak, tidak pernah bilangan pecahan mesin. Angka yang dibaca dari sebuah laporan direproduksi persis sebagaimana tertulis."
+      },
+      "platform": {
+        "p1": "Tidak ada yang ditambal.",
+        "p2": "Sebuah celah berarti pengumpulnya tidak berjalan pada saat itu, dan celahnya dibiarkan — tanpa interpolasi, tanpa membawa nilai sebelumnya, tanpa pengisian mundur. Ketika tidak ada satu pun pengamatan yang bisa dibaca, endpoint-nya menjawab alih-alih mengembalikan daftar kosong, karena berkas kosong tak bisa dibedakan dari periode tanpa pemain."
+      },
+      "using": {
+        "p1": "menjelaskan setiap endpoint di sini sebagai OpenAPI 3.1 — parameter, kode status, tipe konten, dan yang tepat dikirim masing-masing. Ia dihasilkan dari deklarasi yang sama dengan yang dibaca halaman ini, dan sebuah pengujian membandingkan deklarasi itu dengan penangan rute yang benar-benar ada, sehingga sebuah endpoint tidak bisa ditambahkan tanpa muncul di sana ataupun dijelaskan setelah ia hilang.",
+        "p2": "Tidak ada yang perlu didaftarkan dan tidak ada token yang perlu dirahasiakan. Setiap endpoint rujukan adalah GET biasa, tidak memasang kuki, dan menjawab sama untuk setiap pemanggil.",
+        "p3": "Setiap endpoint rujukan mengirim, sehingga halaman dari asal mana pun bisa mengaksesnya langsung. Itu belum benar sampai belum lama ini, dan membuat endpoint-nya tidak berguna justru bagi orang-orang yang menjadi tujuan penerbitannya. Dua yang tidak begitu memang disengaja: yang kesehatan adalah infrastruktur bagi operator, dan yang kontak menerima kiriman serta memeriksa asalnya."
+      },
+      "terms": {
+        "p1": "bentuk responsnya tidak akan berubah tanpa itu berubah, setiap angka akan membawa sumber yang dipakai memverifikasinya, dan sebuah kurs tidak akan pernah diperbarui dari halaman yang dikeruk tanpa ada orang yang memeriksanya lebih dulu. Perubahan dicatat di",
+        "p2": "angka ketersediaan, komitmen dukungan, atau bahwa endpoint ini akan ada selamanya. Ini kemudahan gratis yang disajikan dari penerapan yang sama dengan situsnya, bukan produk dengan kontrak di belakangnya. Jika Anda membangun sesuatu yang tidak boleh rusak, simpan responsnya dalam cache dan sediakan salinan Anda sendiri sebagai cadangan.",
+        "p3": "Setiap kurs di sini adalah kurs yang saat ini didokumentasikan Roblox, dicatat pada tanggal verifikasi yang ditampilkan. Roblox menentukan kurs mana yang berlaku untuk saldo mana dan apakah sebuah permohonan DevEx disetujui. Baca",
+        "p4": "untuk mengetahui bagaimana tiap angka berpindah dari dokumentasi mereka ke dalam respons ini."
+      },
+      "related": {
+        "p1": "Membaca kurs standar"
+      }
+    }
+  },
+  "authors": {
+    "heading": "Siapa yang menulis situs ini",
+    "maintainerRole": "Pendiri & pengelola",
+    "reviewerRole": "Peninjau konten & pemeriksa fakta",
+    "contactLabel": "Kontak",
+    "profilesLabel": "Profil",
+    "pagesReviewed": "Halaman yang ditinjau",
+    "noPagesReviewed": "Saat ini tidak ada halaman yang membawa kredit peninjauan.",
+    "ahmadRazaPhotoAlt": "Ahmad Raza, pendiri dan pengelola DevExCalculator.org"
+  },
+  "relatedHeading": "Halaman terkait"
+}
