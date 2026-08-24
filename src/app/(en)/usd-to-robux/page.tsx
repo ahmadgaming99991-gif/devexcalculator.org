@@ -39,14 +39,6 @@ export default async function UsdToRobuxPage({
   const initialState = parseCalculatorState(await searchParams);
   const rate = getRateValue(standardRateId);
 
-  /*
-   * The day this page was rendered, handed to the planner as its starting
-   * point. This route is server-rendered per request, so it is today; the
-   * planner replaces it with the reader's own day during hydration either
-   * way, which is what keeps a prerendered date from going stale.
-   */
-  const today = new Date().toISOString().slice(0, 10);
-
   const rows = TARGETS.map((target) => {
     const targetUsd = Rational.fromInt(target);
     const exact = targetUsd.div(rate);
@@ -148,7 +140,7 @@ export default async function UsdToRobuxPage({
               DevEx processing time, so none is added.
             </p>
 
-            <Planner today={today} />
+            <Planner />
           </Section>
 
           <Section

@@ -70,7 +70,7 @@ import {
  * away. Both ends are then treated as plain calendar dates, which is what a
  * plan measured in days actually is.
  */
-function localDay(now: Date): string {
+export function localDay(now: Date): string {
   const month = `${now.getMonth() + 1}`.padStart(2, "0");
   const day = `${now.getDate()}`.padStart(2, "0");
   return `${now.getFullYear()}-${month}-${day}`;
@@ -82,8 +82,22 @@ const PERIOD_LABELS: Record<PacePeriod, string> = {
   month: "a month (30 days)",
 };
 
-export function Planner({ today }: { today: string }) {
+export function Planner() {
   const fieldId = useId();
+
+  /*
+   * The server's day, computed here so there is one definition of "today".
+   *
+   * It used to be computed by the page, in UTC, and handed down as a prop —
+   * while this module's own `localDay` exists precisely because a UTC day is
+   * the wrong anchor for a plan. Two contradictory definitions of the same
+   * thing in two files, and the one that rendered first was the wrong one.
+   *
+   * Read once per render rather than inside `getServerSnapshot`: that
+   * callback is invoked more than once and must return the same value each
+   * time, and `new Date()` would not.
+   */
+  const serverToday = localDay(new Date());
 
   /*
    * The plan starts from the reader's own day, not the build's.
@@ -93,7 +107,19 @@ export function Planner({ today }: { today: string }) {
    * render is neither pure nor safe to hydrate. The server's day renders
    * first and the browser's replaces it in the same commit.
    */
-  const startIso = useClientValue(() => localDay(new Date()), today);
+  const startIso = useClientValue(() => localDay(new Date()), serverToday);
+
+  /*
+   * Whether the reader's own calendar is known yet.
+   *
+   * Until it is, `startIso` is the server's day, and the server has no
+   * timezone to speak of — on Workers it is UTC. Using that as the date
+   * picker's floor rejects the reader's real today for everyone west of
+   * Greenwich after their afternoon, and with scripting off it rejects it
+   * permanently. A floor that is sometimes wrong is worse than no floor: a
+   * date in the past is caught by the plan itself, which says so.
+   */
+  const knowsReaderDay = useClientValue(() => true, false);
   const startDate = useMemo(() => new Date(`${startIso}T00:00:00Z`), [startIso]);
 
   const [targetUsd, setTargetUsd] = useState("500");
@@ -276,7 +302,7 @@ export function Planner({ today }: { today: string }) {
                 id={`${fieldId}-deadline`}
                 type="date"
                 value={deadline}
-                min={startIso}
+                min={knowsReaderDay ? startIso : undefined}
                 onChange={(event) => setDeadline(event.target.value)}
                 className="tabular mt-2 min-h-[44px] w-full rounded-(--radius-control) border border-(--color-border-strong) bg-(--color-surface) px-3 py-2.5 text-(--color-text) sm:w-64"
               />
