@@ -139,11 +139,7 @@
     "sevenDays": "7 hari"
   },
   "shell": {
-    "body": {
-      "intro": {
-        "p1": "Lewati ke konten utama"
-      }
-    }
+    "skipToContent": "Lewati ke konten utama"
   },
   "content": {
     "body": {

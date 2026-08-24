@@ -45,7 +45,8 @@
     "i18n:extract-prose": "tsx scripts/i18n/extract-page-prose.ts",
     "i18n:prune": "tsx scripts/i18n/prune-orphans.ts",
     "i18n:wiring": "tsx scripts/i18n/build-wiring-map.ts",
-    "i18n:extract-templates": "tsx scripts/i18n/extract-templates.ts"
+    "i18n:extract-templates": "tsx scripts/i18n/extract-templates.ts",
+    "i18n:rename": "tsx scripts/i18n/rename-keys.ts"
   },
   "dependencies": {
     "next": "16.3.1",

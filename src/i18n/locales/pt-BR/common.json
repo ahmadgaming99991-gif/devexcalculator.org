@@ -136,11 +136,7 @@
     "sevenDays": "7 dias"
   },
   "shell": {
-    "body": {
-      "intro": {
-        "p1": "Pular para o conteúdo principal"
-      }
-    }
+    "skipToContent": "Pular para o conteúdo principal"
   },
   "content": {
     "body": {

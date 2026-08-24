@@ -126,6 +126,60 @@ export function interpolate(
   });
 }
 
+/**
+ * A reader for one page's loaded namespaces.
+ *
+ * `t("rates.devexRates.body.changes.p1")` — the namespace, then the dotted
+ * path inside it. The namespace is part of the key rather than bound when the
+ * translator is made, because a page renders words from several of them and a
+ * key that names its own namespace can be grepped for from either side.
+ *
+ * **A missing key throws.** It does not return the key, and it does not fall
+ * back to English. Returning the key puts `rates.devexRates.body.changes.p1`
+ * in front of a reader; falling back puts an English sentence inside a
+ * Portuguese paragraph, which no test would ever see and which is the exact
+ * failure this whole system exists to prevent. Throwing fails the build,
+ * where somebody is looking.
+ */
+export type Translate = (
+  key: string,
+  values?: Readonly<Record<string, string | number>>,
+) => string;
+
+export function translator(dictionary: Partial<Dictionary>): Translate {
+  return (key, values) => {
+    const separator = key.indexOf(".");
+    const namespace = separator === -1 ? key : key.slice(0, separator);
+    const path = separator === -1 ? "" : key.slice(separator + 1);
+    const loaded = dictionary[namespace as DictionaryNamespace];
+    if (loaded === undefined) {
+      throw new Error(
+        `Key "${key}" needs the "${namespace}" namespace, which this page did not load.`,
+      );
+    }
+    const value = path
+      .split(".")
+      .reduce<unknown>(
+        (node, part) =>
+          node !== null && typeof node === "object"
+            ? (node as Record<string, unknown>)[part]
+            : undefined,
+        loaded,
+      );
+    if (typeof value !== "string") {
+      throw new Error(`No string at "${key}".`);
+    }
+    return values === undefined ? value : interpolate(value, values);
+  };
+}
+
+/** The namespaces a page needs, and a reader for them, in one await. */
+export async function getTranslator<K extends DictionaryNamespace>(
+  locale: Locale,
+  namespaces: readonly K[],
+): Promise<Translate> {
+  return translator(await getDictionary(locale, namespaces));
+}
 /** English, for the extraction scripts and for tests that need a baseline. */
 export async function getSourceNamespace<T = Record<string, unknown>>(
   namespace: DictionaryNamespace,
