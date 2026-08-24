@@ -1,0 +1,270 @@
+{
+  "$comment": "Machine-drafted. Not yet read by a native speaker. A mistranslated 'eligible' or 'minimum' can tell somebody they may cash out when they may not, so nothing here is shortened.",
+  "$identical": [
+    "results.total"
+  ],
+  "srHeading": "DevEx ödeme hesaplayıcısı",
+  "modes": {
+    "label": "Hesaplayıcı kipi",
+    "quick": {
+      "label": "Hızlı",
+      "description": "Tek tutar, tek kur"
+    },
+    "advanced": {
+      "label": "Bölünmüş",
+      "description": "Kur gruplarına dağılmış karışık bakiye"
+    },
+    "target": {
+      "label": "Hedef",
+      "description": "Bir ödeme hedefinden geriye doğru hesaplayın"
+    }
+  },
+  "inputs": {
+    "eligibleEarnedRobux": {
+      "label": "Uygun Earned Robux",
+      "hint": "Bir tutar yazın ya da yapıştırın. 100.000, 100k ve 1,5m hepsi çalışır."
+    },
+    "bucketSuffix": "{rate} grubu",
+    "standardBucketHint": "5 Eylül 2025'ten sonra kazanılan.",
+    "legacyBucketHint": "Eylül 2025 geçişinden önce kazanılan.",
+    "us18BucketHint": "Yalnızca Roblox'un bu kurda uygun saydığı bölüm.",
+    "payoutTarget": {
+      "label": "Ödeme hedefi",
+      "hint": "Ücretler ve vergiden önce almak istediğiniz tutar.",
+      "placeholder": "1.000"
+    },
+    "currentBalance": {
+      "label": "Şu anki bakiyeniz (isteğe bağlı)",
+      "hint": "Ne kadar yol aldığınızı görmek için ekleyin.",
+      "placeholder": "0"
+    },
+    "rateToApply": {
+      "label": "Uygulanacak kur",
+      "hint": "Bakiyenize hangi kurun uygulanacağına Roblox karar verir."
+    }
+  },
+  "deductions": {
+    "summary": "İsteğe bağlı: ödeme ücretleri ve kendi vergi tahmininiz",
+    "percentageFeeLabel": "Ödeme sağlayıcı ücreti",
+    "percentageFeePlaceholder": "2,9",
+    "flatFeeLabel": "Ödeme başına sabit ücret",
+    "flatFeePlaceholder": "0,30",
+    "taxLabel": "Kendi vergi tahmininiz",
+    "taxHint": "Size hangi oran uygulanıyorsa o. Yetkin bir danışmana sorun.",
+    "taxPlaceholder": "20",
+    "heading": "Tahmini kesintileriniz",
+    "grossPayout": "Brüt ödeme",
+    "percentageFee": "Yüzdelik ücret",
+    "flatFee": "Sabit ücret",
+    "taxEstimate": "Vergi tahmininiz",
+    "estimatedNet": "Tahmini net",
+    "yourFiguresNote": "Bunlar sizin rakamlarınız; Roblox'un ya da herhangi bir sağlayıcının verdiği tutarlar değil. Bu site vergi danışmanlığı vermez."
+  },
+  "results": {
+    "estimatedPayout": "Tahmini DevEx ödemesi",
+    "robuxNeeded": "Gereken uygun Earned Robux",
+    "meetsMinimum": "Belirtilen alt sınırı karşılıyor",
+    "belowMinimum": "Belirtilen alt sınırın altında",
+    "minimumProgressLabel": "{minimum} Earned Robux alt sınırına doğru ilerleme",
+    "comparisonTableLabel": "Bu tutar için her DevEx kurunun ödeyeceği miktar",
+    "columnPerRobux": "Robux başına",
+    "columnPayout": "Ödeme",
+    "columnVsStandard": "standarda göre",
+    "bucketTableLabel": "Kur grubuna göre ödeme dökümü",
+    "bucketTableCaption": "Kur grubuna göre DevEx ödemesi",
+    "columnBucket": "Grup",
+    "columnEarnedRobux": "Earned Robux",
+    "columnSubtotal": "Ara toplam",
+    "columnShare": "Pay",
+    "total": "Total",
+    "blendedRate": "Karma etkin kur",
+    "ifAllStandard": "Tamamı standart kurda olsaydı",
+    "copyResult": "Sonucu kopyala",
+    "copySummary": "Özeti kopyala",
+    "summaryTitle": "DevEx ödeme tahmini",
+    "saved": "Hesaplama bu tarayıcıya kaydedildi.",
+    "savedCleared": "Kaydedilmiş hesaplamalar silindi.",
+    "nothingSaved": "Henüz kaydedilmiş bir şey yok.",
+    "columnRate": "Kur",
+    "body": {
+      "intro": {
+        "p1": "Roblox şunu şart koşar:",
+        "p2": "Talep göndermek için Earned Robux. O sayıya ulaşmak bir koşuldur, onay değil — Roblox her talebi inceler ve hangi Robux'un uygun olduğuna karar verir.",
+        "p3": "Bunlar sizin girdiğiniz rakamlar; Roblox'un ya da herhangi bir sağlayıcının verdiği tutarlar değil. Bu site vergi danışmanlığı vermez.",
+        "p4": "tam Earned Robux. Bu şu kadar öder:",
+        "p5": "Earned Robux hedefinize aritmetik olarak ulaşırdı, ama Roblox şunu şart koşar:",
+        "p6": "bir talep gönderilebilmesi için. Uygulamada şu kadarına ihtiyacınız olurdu:",
+        "p7": "% yol alındı",
+        "p8": "rakamlar şunu kullanıyor:"
+      }
+    }
+  },
+  "target": {
+    "explanation": "{target} ÷ Robux başına {rate} $ = {exact}; yukarı yuvarlanarak {required} tam Earned Robux. Bu {payout} öder — hedefinize kıl payı yetişemeyen değil, ona ulaşan ilk tam Robux tutarı.",
+    "minimumAppliesFirstTitle": "Önce alt sınır geçerlidir",
+    "minimumAppliesFirstBody": "{required} Earned Robux hedefinize aritmetik olarak ulaşırdı, ama bir talep gönderilebilmesi için Roblox {minimum} şart koşar. Uygulamada {effective} gerekirdi.",
+    "progress": "%{percent} yol alındı",
+    "targetReached": "Hedefe ulaşıldı",
+    "toGo": "{remaining} kaldı",
+    "progressLabel": "Ödeme hedefinize doğru ilerleme"
+  },
+  "groupSplit": {
+    "memberName": "Üye {number}",
+    "unnamed": "Adsız",
+    "earnedOnlyNote": "Yalnızca Earned Robux takas edilebilir. Satın alınan ve hediye edilen Robux edilemez.",
+    "valuedAt": "Değeri",
+    "tableLabel": "Her üyenin grup bakiyesindeki payı",
+    "tableCaption": "Her üyenin grubun Earned Robux'undaki yüzdesi, bunun karşılığı olan Robux ve standart DevEx kurundaki ödeme.",
+    "columnMember": "Üye",
+    "columnShare": "Pay",
+    "columnEarnedRobux": "Earned Robux",
+    "columnEstimatedPayout": "Tahmini ödeme",
+    "columnCanCashOut": "Nakde çevirebilirler mi?",
+    "removeMember": "Kaldır",
+    "meetsMinimum": "Alt sınırı karşılıyor",
+    "sharesDoNotAddUpTitle": "Paylar %100 etmiyor",
+    "remainderTitle": "Artan bir bakiye kalıyor",
+    "cannotSubmitTitle": "{total} kişiden {below} tanesi DevEx talebi gönderemez",
+    "onePersonPaidTitle": "Roblox tek bir kişiye öder, paylaştırmaz",
+    "body": {
+      "intro": {
+        "p1": "uygun her Earned Robux için",
+        "p2": "Üyenin adı",
+        "p3": "Toplamları",
+        "p4": "Robux atanmadı. Sayılar tutsun diye burada hiçbir şey ölçeklenmedi: bunu sizin yerinize yapmak, kimsenin üzerinde anlaşmadığı rakamlar üretirdi. Yüzdeleri düzeltin ya da artan tutarın grup fonlarını elinde tutanda kaldığını kabul edin.",
+        "p5": "Bu yüzdelerle Robux eşit bölünemez. Robux tamdır; bu yüzden her pay aşağı yuvarlanır ve artan, listede rastgele ilk sırada olana verilmek yerine gösterilir."
+      }
+    }
+  },
+  "preparation": {
+    "earnedRobuxLink": "Neler Earned Robux sayılır",
+    "verifyEmail": "Roblox hesabındaki e-posta adresini doğrulayın.",
+    "portalAccount": "DevEx portal hesabını oluşturun ve erişebildiğinizi doğrulayın.",
+    "feesLink": "Ücretler ve vergiler açıklandı",
+    "progressLabel": "{total} hazırlık adımından {completed} tanesi tamam",
+    "preparedNotApprovedTitle": "Hazır olmak onaylanmak değildir",
+    "robloxDecides": "Kararı Roblox verir",
+    "body": {
+      "intro": {
+        "p1": "İşaretler yalnızca bu tarayıcıda tutulur — hiçbir yere gönderilmez ve bir hesap değildir. Site verilerini temizlemek onları siler.",
+        "p2": "Bu listedeki her adım tamamlandı; yani bariz gecikmeler yoldan kalktı. Bu, bir talebin kabul edileceği anlamına gelmez.",
+        "p3": "Roblox, gönderildikten sonra her talebi kendi ölçütlerine göre inceler ve bir talebin neden reddedileceğini yayımlamaz. Tarayıcıdaki bir kontrol listesinin o incelemede hiçbir hükmü yoktur.",
+        "p4": "Gönderim süreci neleri kapsar"
+      }
+    }
+  },
+  "currency": {
+    "loading": "Referans kurlar yükleniyor…",
+    "unavailable": "Yerel para birimi tahminleri geçici olarak kullanılamıyor.",
+    "usdUnaffected": "Yukarıdaki USD rakamı yerel olarak hesaplanır ve bundan etkilenmez.",
+    "staleHeading": "Kurlar güncelliğini yitirmiş.",
+    "provenance": "{currency} rakamları, {date} tarihinde gözlenen {provider} referans kurlarını kullanır. Bunlar referans kurlardır, banka kotasyonu değil — ödeme sağlayıcınız kendi kurunu uygular ve ücret ekleyebilir."
+  },
+  "home": {
+    "formulaOpen": "Burada gizlenen bir şey yok. Formül tek bir çarpma ve bunu siz de doğrulayabilirsiniz.",
+    "threeRates": "Üç kur belgelenmiştir. Bakiyenin hangi bölümüne hangisinin uygulanacağına Roblox karar verir.",
+    "earnedRobuxMatters": "Bu, DevEx hakkındaki en yaygın yanlış anlama ve bir ödemenin hiç mümkün olup olmadığını belirleyen şey.",
+    "generallyQualifies": "Genellikle sayılır",
+    "qualifies": {
+      "developerProducts": "Oyuncuların experience'ınızda developer product satın almasından gelen Robux",
+      "passesAndServers": "Pass ve özel sunucu alımlarından gelen Robux",
+      "avatarItems": "Oluşturup sattığınız avatar ürünlerinden size düşen pay"
+    },
+    "generallyDoesNot": "Genellikle sayılmaz",
+    "doesNot": {
+      "purchased": "Kendi satın aldığınız Robux, hangi fiyata olursa olsun",
+      "giftCards": "Hediye kartı bakiyesi ve tanıtım amaçlı verilenler",
+      "trades": "Takas yoluyla ya da başka oyunculardan alınan Robux"
+    },
+    "everyFigureNote": "Aşağıdaki her rakam, belgelenmiş üç kurun tamamında hesaplanmıştır. Alt sınırın altındaki tutarlar başvuru için gösterilir ve işaretlenir.",
+    "meetingAllNote": "Bunların hepsini karşılamak talep göndermenizi sağlar. Talebin onaylanacağını garanti etmez.",
+    "relatedCalculators": "İlgili hesaplayıcılar",
+    "relatedGuides": "İlgili rehberler",
+    "commonAmountsHeading": "Yaygın tutarlar",
+    "commonAmountsDescription": "Aşağıdaki her rakam, belgelenmiş üç kurun tamamında hesaplanmıştır. Alt sınırın altındaki tutarlar başvuru için gösterilir ve öyle işaretlenir.",
+    "body": {
+      "howItWorks": {
+        "p1": "Aritmetik neden tam olarak yapılıyor",
+        "p2": "0,0038 gibi bir kur ikili kayan noktada tam olarak temsil edilemez; bu yüzden dikkatsiz bir hesap kayar: ABD 18+ kurunda 17.000 Robux, 91,80 yerine 91.80000000000001 çıkar. Bu sitedeki her rakam tam kesir olarak hesaplanır ve yalnızca bir kez, gösterildiği anda yuvarlanır."
+      },
+      "currentRates": {
+        "p1": "Her kurun tam ayrıntısı; yürürlük tarihleri ve örnek hesaplamalarla",
+        "p2": "kurun Eylül 2025'te nasıl değiştiğine bakın"
+      },
+      "earnedRobux": {
+        "p1": "Belirli bir bakiye için nihai kararı Roblox verir.",
+        "p2": "Earned Robux'un tam açıklamasını okuyun"
+      },
+      "popularAmounts": {
+        "p1": "Dönüşüm merkezinin tamamına bakın ya da istediğiniz tutarı çevirin"
+      },
+      "requirements": {
+        "p1": "Her biri için resmî kaynağıyla birlikte tüm koşullar"
+      },
+      "relatedGuides": {
+        "p1": "Güncelliğini yitirmiş bir şey mi var?",
+        "p2": "Bize söyleyin, düzeltilsin"
+      }
+    }
+  },
+  "planner": {
+    "targetLabel": "Ulaşmak istediğiniz ödeme",
+    "currentBalanceLabel": "Hâlihazırda sahip olduğunuz uygun Earned Robux",
+    "modeEarn": "Ne kadar kazanıyorum",
+    "modeDate": "Ne zaman lazım",
+    "expectedEarningsLabel": "Kazanmayı beklediğiniz Earned Robux",
+    "feesAndTax": "Ücretler ve vergi (isteğe bağlı)",
+    "totalNeeded": "Toplamda gereken Earned Robux",
+    "stillToEarn": "Hâlâ kazanılacak",
+    "reductionHeading": "Ödemeyi azaltan kalemler",
+    "reductionDescription": "Tahmini ödeme, girdiğiniz ücretler ve vergi, ve geriye kalan.",
+    "columnStage": "Aşama",
+    "columnAmount": "Tutar",
+    "grossPayout": "Tahmini brüt ödeme",
+    "percentageFeeEntered": "Girdiğiniz yüzdelik ücret",
+    "flatFeeEntered": "Girdiğiniz sabit ücret",
+    "taxEntered": "Ücretlerden sonra kalan üzerinden kendi vergi tahmininiz",
+    "underEachRateHeading": "Aynı planın her belgelenmiş kurdaki hâli",
+    "underEachRateDescription": "Aynı hedefin neyi gerektireceği ve ne zaman ulaşılacağı; Roblox'un şu anda belgelediği her kur için.",
+    "columnRate": "Kur",
+    "columnRobuxNeeded": "Gereken Earned Robux",
+    "columnStillToEarn": "Hâlâ kazanılacak",
+    "planningAgainst": "Şuna göre planlanıyor",
+    "whatThisIsNot": "Bu plan ne değildir",
+    "zeroEarnings": "Dönem başına sıfır kazanmak hedefe hiç ulaşmaz. Kazanmayı beklediğinizi girin, plan tarihi hesaplasın.",
+    "alreadyThere": "Verdiğiniz tarihten önce başka bir şey kazanmanız gerekmiyor. Alt sınırı karşılamak onay değildir — buna Roblox karar verir.",
+    "pickFutureDate": "Gelecekte bir tarih seçin; plan, oraya ulaşmak için günde ne kadar kazanılması gerektiğini hesaplasın.",
+    "withADate": "Bir tarih verildiğinde plan, hedefe o zamana kadar ulaşmak için gün, hafta ve ay başına ne kazanılması gerektiğini hesaplar.",
+    "whatDoYouKnow": "Neyi biliyorsunuz?",
+    "earnedOnlyNote": "Yalnızca Earned Robux sayılır. Satın alınan ve hediye edilen Robux takas edilemez.",
+    "body": {
+      "intro": {
+        "p1": "Bir bakiyeye hangi kurun uygulanacağına Roblox karar verir. Bu plan, sizin seçtiğiniz kura göre yapılır.",
+        "p2": "Bu, bakiyeye ulaşmak istediğiniz tarihtir. Roblox bir DevEx talebinin işlenmesinin ne kadar sürdüğünü yayımlamaz; bu yüzden hiçbir işlem süresi eklenmez.",
+        "p3": "Üçünü de siz girersiniz. Bu site ne varsayılan bir ücret ne de bir vergi oranı yayımlar: ülkenizi, sağlayıcınızı ya da koşullarınızı bilmez ve burada sizin adınıza doldurulmuş bir sayı, hesap değil danışmanlık olurdu.",
+        "p4": "Elinizde kalacak tahmini tutar",
+        "p5": "Buradaki her rakam, girdiklerinizden üretilmiş bir tahmindir. Şuna ulaşmak:"
+      }
+    }
+  },
+  "actions": {},
+  "controls": {
+    "body": {
+      "intro": {
+        "p1": "Sonucu şu birimde göster:"
+      },
+      "presetsLabel": {
+        "p1": "Hızlı tutarlar"
+      }
+    }
+  },
+  "body": {
+    "intro": {
+      "p1": "Bakiyenizin her bölümünü ayrı ayrı girin. Hiçbir şey iki kez sayılmaz — her Robux tam olarak tek bir gruba aittir ve hangisi olduğuna siz karar verirsiniz. Gerçek ayrımı Roblox yapar.",
+      "p2": "Bakiyenizin hangi bölümüne hangi kurun uygulanacağına Roblox karar verir. Bu, sizin yapabileceğiniz bir seçim değildir.",
+      "p3": "Tahminler, Roblox'un şu anda belgelediği kurları kullanır. Şu alt sınır:",
+      "p4": "Earned Robux, talep göndermek için bir koşuldur, onay değil. Hangi Robux'un uygun olduğuna ve bir talebin sonuç verip vermeyeceğine Roblox karar verir.",
+      "p5": "Yalnızca bu tarayıcıya kaydedilir. Hiçbir şey yüklenmez ve tarayıcı verilerinizi temizlemek onları siler."
+    }
+  }
+}

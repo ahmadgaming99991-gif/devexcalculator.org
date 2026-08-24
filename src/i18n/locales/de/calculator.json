@@ -1,0 +1,270 @@
+{
+  "$comment": "Machine-drafted. Not yet read by a native speaker. A mistranslated 'eligible' or 'minimum' can tell somebody they may cash out when they may not, so nothing here is shortened.",
+  "$identical": [
+    "results.total"
+  ],
+  "srHeading": "DevEx-Auszahlungsrechner",
+  "modes": {
+    "label": "Rechnermodus",
+    "quick": {
+      "label": "Schnell",
+      "description": "Ein Betrag, ein Kurs"
+    },
+    "advanced": {
+      "label": "Aufgeteilt",
+      "description": "Gemischtes Guthaben über mehrere Kursgruppen"
+    },
+    "target": {
+      "label": "Ziel",
+      "description": "Von einem Auszahlungsziel rückwärts rechnen"
+    }
+  },
+  "inputs": {
+    "eligibleEarnedRobux": {
+      "label": "Anrechenbare Earned Robux",
+      "hint": "Tippe oder füge einen Betrag ein. 100.000, 100k und 1,5m funktionieren alle."
+    },
+    "bucketSuffix": "Gruppe {rate}",
+    "standardBucketHint": "Verdient nach dem 5. September 2025.",
+    "legacyBucketHint": "Verdient vor der Umstellung im September 2025.",
+    "us18BucketHint": "Nur der Anteil, den Roblox zu diesem Kurs anerkannt hat.",
+    "payoutTarget": {
+      "label": "Auszahlungsziel",
+      "hint": "Wie viel du erhalten möchtest, vor Gebühren und Steuern.",
+      "placeholder": "1.000"
+    },
+    "currentBalance": {
+      "label": "Dein aktuelles Guthaben (optional)",
+      "hint": "Trage es ein, um zu sehen, wie weit du bist.",
+      "placeholder": "0"
+    },
+    "rateToApply": {
+      "label": "Anzuwendender Kurs",
+      "hint": "Roblox entscheidet, welcher Kurs für dein Guthaben gilt."
+    }
+  },
+  "deductions": {
+    "summary": "Optional: Zahlungsgebühren und deine eigene Steuerschätzung",
+    "percentageFeeLabel": "Gebühr des Zahlungsdienstleisters",
+    "percentageFeePlaceholder": "2,9",
+    "flatFeeLabel": "Feste Gebühr pro Auszahlung",
+    "flatFeePlaceholder": "0,30",
+    "taxLabel": "Deine eigene Steuerschätzung",
+    "taxHint": "Welcher Satz auch immer für dich gilt. Frag eine qualifizierte Beratung.",
+    "taxPlaceholder": "20",
+    "heading": "Deine geschätzten Abzüge",
+    "grossPayout": "Bruttoauszahlung",
+    "percentageFee": "Prozentuale Gebühr",
+    "flatFee": "Feste Gebühr",
+    "taxEstimate": "Deine Steuerschätzung",
+    "estimatedNet": "Geschätzt netto",
+    "yourFiguresNote": "Das sind deine Zahlen, keine Beträge, die Roblox oder ein Dienstleister genannt hätte. Diese Website gibt keine Steuerberatung."
+  },
+  "results": {
+    "estimatedPayout": "Geschätzte DevEx-Auszahlung",
+    "robuxNeeded": "Benötigte anrechenbare Earned Robux",
+    "meetsMinimum": "Erreicht das angegebene Minimum",
+    "belowMinimum": "Unter dem angegebenen Minimum",
+    "minimumProgressLabel": "Fortschritt zum Minimum von {minimum} Earned Robux",
+    "comparisonTableLabel": "Was jeder DevEx-Kurs für diesen Betrag zahlen würde",
+    "columnPerRobux": "Pro Robux",
+    "columnPayout": "Auszahlung",
+    "columnVsStandard": "ggü. Standard",
+    "bucketTableLabel": "Auszahlung aufgeschlüsselt nach Kursgruppe",
+    "bucketTableCaption": "DevEx-Auszahlung nach Kursgruppe",
+    "columnBucket": "Gruppe",
+    "columnEarnedRobux": "Earned Robux",
+    "columnSubtotal": "Zwischensumme",
+    "columnShare": "Anteil",
+    "total": "Total",
+    "blendedRate": "Gemischter effektiver Kurs",
+    "ifAllStandard": "Wenn alles zum Standardkurs wäre",
+    "copyResult": "Ergebnis kopieren",
+    "copySummary": "Zusammenfassung kopieren",
+    "summaryTitle": "Geschätzte DevEx-Auszahlung",
+    "saved": "Berechnung in diesem Browser gespeichert.",
+    "savedCleared": "Gespeicherte Berechnungen gelöscht.",
+    "nothingSaved": "Noch nichts gespeichert.",
+    "columnRate": "Kurs",
+    "body": {
+      "intro": {
+        "p1": "Roblox verlangt",
+        "p2": "Earned Robux, um einen Antrag zu stellen. Diese Zahl zu erreichen ist eine Voraussetzung, keine Genehmigung — Roblox prüft jeden Antrag und entscheidet, welche Robux anrechenbar sind.",
+        "p3": "Das sind die Zahlen, die du eingegeben hast, keine Beträge, die Roblox oder ein Dienstleister genannt hätte. Diese Website gibt keine Steuerberatung.",
+        "p4": "ganze Earned Robux. Das zahlt",
+        "p5": "Earned Robux würden dein Ziel rechnerisch erreichen, aber Roblox verlangt",
+        "p6": "bevor ein Antrag gestellt werden kann. In der Praxis bräuchtest du",
+        "p7": "% des Wegs geschafft",
+        "p8": "die Zahlen verwenden"
+      }
+    }
+  },
+  "target": {
+    "explanation": "{target} ÷ {rate} $ pro Robux = {exact}, aufgerundet auf {required} ganze Earned Robux. Das zahlt {payout} — der erste ganzzahlige Robux-Betrag, der dein Ziel erreicht, statt knapp darunter zu bleiben.",
+    "minimumAppliesFirstTitle": "Zuerst gilt das Minimum",
+    "minimumAppliesFirstBody": "{required} Earned Robux würden dein Ziel rechnerisch erreichen, aber Roblox verlangt {minimum}, bevor ein Antrag gestellt werden kann. In der Praxis bräuchtest du {effective}.",
+    "progress": "{percent}% des Wegs geschafft",
+    "targetReached": "Ziel erreicht",
+    "toGo": "noch {remaining}",
+    "progressLabel": "Fortschritt zu deinem Auszahlungsziel"
+  },
+  "groupSplit": {
+    "memberName": "Mitglied {number}",
+    "unnamed": "Ohne Namen",
+    "earnedOnlyNote": "Nur Earned Robux können getauscht werden. Gekaufte und geschenkte Robux nicht.",
+    "valuedAt": "Bewertet mit",
+    "tableLabel": "Der Anteil jedes Mitglieds am Guthaben der Gruppe",
+    "tableCaption": "Der prozentuale Anteil jedes Mitglieds an den Earned Robux der Gruppe, die entsprechende Robux-Menge und die Auszahlung zum Standard-DevEx-Kurs.",
+    "columnMember": "Mitglied",
+    "columnShare": "Anteil",
+    "columnEarnedRobux": "Earned Robux",
+    "columnEstimatedPayout": "Geschätzte Auszahlung",
+    "columnCanCashOut": "Können sie auszahlen lassen?",
+    "removeMember": "Entfernen",
+    "meetsMinimum": "Erreicht das Minimum",
+    "sharesDoNotAddUpTitle": "Die Anteile ergeben nicht 100 %",
+    "remainderTitle": "Es bleibt ein Rest übrig",
+    "cannotSubmitTitle": "{below} von {total} können keinen DevEx-Antrag stellen",
+    "onePersonPaidTitle": "Roblox zahlt an eine Person, nicht anteilig",
+    "body": {
+      "intro": {
+        "p1": "pro anrechenbarem Earned Robux",
+        "p2": "Name des Mitglieds",
+        "p3": "Sie ergeben zusammen",
+        "p4": "Robux nicht zugeordnet. Hier wurde nichts hochskaliert, damit die Zahlen aufgehen: das für dich zu tun ergäbe Zahlen, denen niemand zugestimmt hat. Korrigiere die Prozentsätze, oder akzeptiere, dass ein Rest bei der Person bleibt, die das Gruppenguthaben hält.",
+        "p5": "Bei diesen Prozentsätzen lassen sich Robux nicht glatt aufteilen. Robux sind ganzzahlig, also wird jeder Anteil abgerundet und der Rest angezeigt, statt ihn dem zu geben, der zufällig zuerst in der Liste steht."
+      }
+    }
+  },
+  "preparation": {
+    "earnedRobuxLink": "Was als Earned Robux zählt",
+    "verifyEmail": "Bestätige die E-Mail-Adresse des Roblox-Kontos.",
+    "portalAccount": "Lege das DevEx-Portalkonto an und prüfe, dass du hineinkommst.",
+    "feesLink": "Gebühren und Steuern erklärt",
+    "progressLabel": "{completed} von {total} Vorbereitungsschritten erledigt",
+    "preparedNotApprovedTitle": "Vorbereitet heißt nicht genehmigt",
+    "robloxDecides": "Roblox entscheidet",
+    "body": {
+      "intro": {
+        "p1": "Die Haken bleiben nur in diesem Browser — sie werden nirgendwohin gesendet und sind kein Konto. Das Löschen der Websitedaten entfernt sie.",
+        "p2": "Jeder Schritt auf dieser Liste ist erledigt, damit sind die offensichtlichen Verzögerungen aus dem Weg. Es bedeutet nicht, dass ein Antrag angenommen wird.",
+        "p3": "Roblox prüft jeden Antrag nach eigenen Kriterien, nachdem er gestellt wurde, und veröffentlicht nicht, was zu einer Ablehnung führen würde. Eine abgehakte Liste im Browser hat in dieser Prüfung kein Gewicht.",
+        "p4": "Was das Antragsverfahren umfasst"
+      }
+    }
+  },
+  "currency": {
+    "loading": "Referenzkurse werden geladen…",
+    "unavailable": "Schätzungen in Landeswährung sind vorübergehend nicht verfügbar.",
+    "usdUnaffected": "Die USD-Zahl oben wird lokal berechnet und ist davon nicht betroffen.",
+    "staleHeading": "Veraltete Kurse.",
+    "provenance": "{currency}-Zahlen verwenden {provider}-Referenzkurse, beobachtet am {date}. Das sind Referenzkurse, keine Bankkurse — dein Zahlungsdienstleister wendet seinen eigenen an und kann eine Gebühr aufschlagen."
+  },
+  "home": {
+    "formulaOpen": "Hier wird nichts versteckt. Die Formel ist eine Multiplikation, und du kannst sie nachprüfen.",
+    "threeRates": "Drei Kurse sind dokumentiert. Roblox entscheidet, welcher für welchen Teil eines Guthabens gilt.",
+    "earnedRobuxMatters": "Das ist das häufigste Missverständnis rund um DevEx, und es entscheidet, ob eine Auszahlung überhaupt möglich ist.",
+    "generallyQualifies": "Zählt in der Regel",
+    "qualifies": {
+      "developerProducts": "Robux von Spielenden, die Developer Products in deiner Experience kaufen",
+      "passesAndServers": "Robux aus Pass- und Private-Server-Käufen",
+      "avatarItems": "Dein Anteil an Avatar-Artikeln, die du erstellt und verkauft hast"
+    },
+    "generallyDoesNot": "Zählt in der Regel nicht",
+    "doesNot": {
+      "purchased": "Robux, die du selbst gekauft hast, zu welchem Preis auch immer",
+      "giftCards": "Guthaben aus Geschenkkarten und Werbezuwendungen",
+      "trades": "Robux aus Tauschgeschäften oder von anderen Spielenden"
+    },
+    "everyFigureNote": "Jede Zahl unten ist zu allen drei dokumentierten Kursen berechnet. Beträge unter dem Minimum werden zur Orientierung gezeigt und sind gekennzeichnet.",
+    "meetingAllNote": "Wenn du all das erfüllst, kannst du einen Antrag stellen. Es garantiert nicht, dass er genehmigt wird.",
+    "relatedCalculators": "Verwandte Rechner",
+    "relatedGuides": "Verwandte Leitfäden",
+    "commonAmountsHeading": "Übliche Beträge",
+    "commonAmountsDescription": "Jede Zahl unten ist zu allen drei dokumentierten Kursen berechnet. Beträge unter dem Minimum werden zur Orientierung gezeigt und als solche gekennzeichnet.",
+    "body": {
+      "howItWorks": {
+        "p1": "Warum die Rechnung exakt geführt wird",
+        "p2": "Ein Kurs wie 0,0038 lässt sich in binärer Gleitkommadarstellung nicht exakt abbilden, deshalb driftet eine naive Rechnung ab: 17.000 Robux zum USA-18+-Kurs kommen als 91.80000000000001 heraus statt als 91,80. Jede Zahl auf dieser Website wird als exakter Bruch berechnet und genau einmal gerundet, im Moment der Anzeige."
+      },
+      "currentRates": {
+        "p1": "Alle Einzelheiten zu jedem Kurs, mit Gültigkeitsdaten und Rechenbeispielen",
+        "p2": "sieh dir an, wie sich der Kurs im September 2025 geändert hat"
+      },
+      "earnedRobux": {
+        "p1": "Roblox trifft die endgültige Entscheidung für jedes konkrete Guthaben.",
+        "p2": "Die vollständige Erklärung zu Earned Robux lesen"
+      },
+      "popularAmounts": {
+        "p1": "Den gesamten Umrechnungsbereich ansehen oder einen beliebigen Betrag umrechnen"
+      },
+      "requirements": {
+        "p1": "Alle Voraussetzungen, mit der offiziellen Quelle zu jeder"
+      },
+      "relatedGuides": {
+        "p1": "Etwas veraltet?",
+        "p2": "Sag Bescheid, dann wird es korrigiert"
+      }
+    }
+  },
+  "planner": {
+    "targetLabel": "Auszahlung, die du anstrebst",
+    "currentBalanceLabel": "Anrechenbare Earned Robux, die du schon hast",
+    "modeEarn": "Wie viel ich verdiene",
+    "modeDate": "Wann ich es brauche",
+    "expectedEarningsLabel": "Earned Robux, die du zu verdienen erwartest",
+    "feesAndTax": "Gebühren und Steuern (optional)",
+    "totalNeeded": "Insgesamt benötigte Earned Robux",
+    "stillToEarn": "Noch zu verdienen",
+    "reductionHeading": "Wodurch sich die Auszahlung verringert",
+    "reductionDescription": "Die geschätzte Auszahlung, die von dir eingetragenen Gebühren und Steuern, und was übrig bleibt.",
+    "columnStage": "Schritt",
+    "columnAmount": "Betrag",
+    "grossPayout": "Geschätzte Bruttoauszahlung",
+    "percentageFeeEntered": "Prozentuale Gebühr, die du eingetragen hast",
+    "flatFeeEntered": "Feste Gebühr, die du eingetragen hast",
+    "taxEntered": "Deine eigene Steuerschätzung, auf das, was nach den Gebühren bleibt",
+    "underEachRateHeading": "Derselbe Plan zu jedem dokumentierten Kurs",
+    "underEachRateDescription": "Was dasselbe Ziel erfordern würde und wann es erreicht wäre, zu jedem Kurs, den Roblox derzeit dokumentiert.",
+    "columnRate": "Kurs",
+    "columnRobuxNeeded": "Benötigte Earned Robux",
+    "columnStillToEarn": "Noch zu verdienen",
+    "planningAgainst": "Geplant mit diesem Kurs",
+    "whatThisIsNot": "Was dieser Plan nicht ist",
+    "zeroEarnings": "Null pro Zeitraum zu verdienen erreicht das Ziel nie. Trage ein, was du zu verdienen erwartest, und der Plan errechnet das Datum.",
+    "alreadyThere": "Bis zu dem von dir genannten Datum muss nichts mehr verdient werden. Das Minimum zu erreichen ist keine Genehmigung — das entscheidet Roblox.",
+    "pickFutureDate": "Wähle ein Datum in der Zukunft, und der Plan errechnet, was täglich verdient werden muss, um es zu erreichen.",
+    "withADate": "Mit einem Datum errechnet der Plan, was pro Tag, pro Woche und pro Monat verdient werden muss, um das Ziel bis dahin zu erreichen.",
+    "whatDoYouKnow": "Was weißt du?",
+    "earnedOnlyNote": "Nur Earned Robux zählen. Gekaufte und geschenkte Robux können nicht getauscht werden.",
+    "body": {
+      "intro": {
+        "p1": "Roblox entscheidet, welcher Kurs für ein Guthaben gilt. Dieser Plan rechnet mit dem, den du wählst.",
+        "p2": "Das ist das Datum, an dem du das Guthaben erreicht haben willst. Roblox veröffentlicht nicht, wie lange die Bearbeitung eines DevEx-Antrags dauert, deshalb wird keine Bearbeitungszeit aufgeschlagen.",
+        "p3": "Alle drei Angaben kommen von dir. Diese Website veröffentlicht weder eine Standardgebühr noch einen Steuersatz: sie kennt weder dein Land noch deinen Dienstleister noch deine Umstände, und eine hier für dich eingetragene Zahl wäre Beratung statt Rechnung.",
+        "p4": "Geschätzter Betrag, der dir bleibt",
+        "p5": "Jede Zahl hier ist eine Schätzung, erzeugt aus dem, was du eingetragen hast. Zu erreichen"
+      }
+    }
+  },
+  "actions": {},
+  "controls": {
+    "body": {
+      "intro": {
+        "p1": "Ergebnis anzeigen in"
+      },
+      "presetsLabel": {
+        "p1": "Schnellbeträge"
+      }
+    }
+  },
+  "body": {
+    "intro": {
+      "p1": "Trage jeden Teil deines Guthabens getrennt ein. Nichts wird doppelt gezählt — jeder Robux gehört genau zu einer Gruppe, und du entscheidest, zu welcher. Die tatsächliche Aufteilung nimmt Roblox vor.",
+      "p2": "Roblox entscheidet, welcher Kurs für welchen Teil deines Guthabens gilt. Das ist keine Wahl, die du treffen kannst.",
+      "p3": "Die Schätzungen verwenden die Kurse, die Roblox derzeit dokumentiert. Das Minimum von",
+      "p4": "Earned Robux ist eine Voraussetzung, um einen Antrag zu stellen, keine Genehmigung. Roblox entscheidet, welche Robux anrechenbar sind und ob ein Antrag Erfolg hat.",
+      "p5": "Nur in diesem Browser gespeichert. Nichts wird hochgeladen, und das Löschen deiner Browserdaten entfernt sie."
+    }
+  }
+}

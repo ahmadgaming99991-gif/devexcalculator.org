@@ -1,0 +1,271 @@
+{
+  "$comment": "Machine-drafted. Not yet read by a native speaker. A mistranslated 'eligible' or 'minimum' can tell somebody they may cash out when they may not, so nothing here is shortened. Group separators use U+202F.",
+  "$identical": [
+    "results.columnPerRobux",
+    "results.total"
+  ],
+  "srHeading": "Calculatrice de paiement DevEx",
+  "modes": {
+    "label": "Mode de la calculatrice",
+    "quick": {
+      "label": "Rapide",
+      "description": "Un montant, un taux"
+    },
+    "advanced": {
+      "label": "Réparti",
+      "description": "Solde mixte réparti entre les tranches de taux"
+    },
+    "target": {
+      "label": "Objectif",
+      "description": "Partir d’un objectif de paiement et remonter"
+    }
+  },
+  "inputs": {
+    "eligibleEarnedRobux": {
+      "label": "Earned Robux éligibles",
+      "hint": "Saisissez ou collez un montant. 100 000, 100k et 1,5m fonctionnent."
+    },
+    "bucketSuffix": "tranche {rate}",
+    "standardBucketHint": "Gagnés après le 5 septembre 2025.",
+    "legacyBucketHint": "Gagnés avant la transition de septembre 2025.",
+    "us18BucketHint": "Uniquement la part que Roblox a qualifiée à ce taux.",
+    "payoutTarget": {
+      "label": "Objectif de paiement",
+      "hint": "Ce que vous voulez recevoir, avant frais et impôt.",
+      "placeholder": "1 000"
+    },
+    "currentBalance": {
+      "label": "Votre solde actuel (facultatif)",
+      "hint": "Ajoutez-le pour voir où vous en êtes.",
+      "placeholder": "0"
+    },
+    "rateToApply": {
+      "label": "Taux à appliquer",
+      "hint": "C’est Roblox qui décide du taux applicable à votre solde."
+    }
+  },
+  "deductions": {
+    "summary": "Facultatif : frais de paiement et votre propre estimation d’impôt",
+    "percentageFeeLabel": "Frais du prestataire de paiement",
+    "percentageFeePlaceholder": "2,9",
+    "flatFeeLabel": "Frais fixes par paiement",
+    "flatFeePlaceholder": "0,30",
+    "taxLabel": "Votre propre estimation d’impôt",
+    "taxHint": "Le taux qui s’applique à vous. Vérifiez auprès d’un conseiller qualifié.",
+    "taxPlaceholder": "20",
+    "heading": "Vos prélèvements estimés",
+    "grossPayout": "Paiement brut",
+    "percentageFee": "Frais en pourcentage",
+    "flatFee": "Frais fixes",
+    "taxEstimate": "Votre estimation d’impôt",
+    "estimatedNet": "Net estimé",
+    "yourFiguresNote": "Ce sont vos chiffres, pas des montants annoncés par Roblox ni par un prestataire. Ce site ne donne aucun conseil fiscal."
+  },
+  "results": {
+    "estimatedPayout": "Paiement DevEx estimé",
+    "robuxNeeded": "Earned Robux éligibles nécessaires",
+    "meetsMinimum": "Atteint le minimum annoncé",
+    "belowMinimum": "En dessous du minimum annoncé",
+    "minimumProgressLabel": "Progression vers le minimum de {minimum} Earned Robux",
+    "comparisonTableLabel": "Ce que chaque taux DevEx paierait pour ce montant",
+    "columnPerRobux": "Par Robux",
+    "columnPayout": "Paiement",
+    "columnVsStandard": "par rapport au standard",
+    "bucketTableLabel": "Paiement détaillé par tranche de taux",
+    "bucketTableCaption": "Paiement DevEx par tranche de taux",
+    "columnBucket": "Tranche",
+    "columnEarnedRobux": "Earned Robux",
+    "columnSubtotal": "Sous-total",
+    "columnShare": "Part",
+    "total": "Total",
+    "blendedRate": "Taux effectif moyen",
+    "ifAllStandard": "Si tout était au taux standard",
+    "copyResult": "Copier le résultat",
+    "copySummary": "Copier le résumé",
+    "summaryTitle": "Estimation de paiement DevEx",
+    "saved": "Calcul enregistré dans ce navigateur.",
+    "savedCleared": "Calculs enregistrés effacés.",
+    "nothingSaved": "Rien d’enregistré pour l’instant.",
+    "columnRate": "Taux",
+    "body": {
+      "intro": {
+        "p1": "Roblox exige",
+        "p2": "Earned Robux pour déposer une demande. Atteindre ce nombre est une condition, pas une acceptation — Roblox examine chaque demande et décide quels Robux sont éligibles.",
+        "p3": "Ce sont les chiffres que vous avez saisis, pas des montants annoncés par Roblox ni par un prestataire. Ce site ne donne aucun conseil fiscal.",
+        "p4": "Earned Robux entiers. Cela paie",
+        "p5": "Earned Robux atteindraient votre objectif arithmétiquement, mais Roblox exige",
+        "p6": "avant qu’une demande puisse être déposée. En pratique il vous faudrait",
+        "p7": "% du chemin parcouru",
+        "p8": "les chiffres utilisent"
+      }
+    }
+  },
+  "target": {
+    "explanation": "{target} ÷ {rate} $ par Robux = {exact}, arrondi au supérieur à {required} Earned Robux entiers. Cela paie {payout}, soit le premier montant en Robux entiers qui atteint votre objectif au lieu de rester juste en dessous.",
+    "minimumAppliesFirstTitle": "Le minimum s’applique d’abord",
+    "minimumAppliesFirstBody": "{required} Earned Robux atteindraient votre objectif arithmétiquement, mais Roblox exige {minimum} avant qu’une demande puisse être déposée. En pratique il vous faudrait {effective}.",
+    "progress": "{percent}% du chemin parcouru",
+    "targetReached": "Objectif atteint",
+    "toGo": "il reste {remaining}",
+    "progressLabel": "Progression vers votre objectif de paiement"
+  },
+  "groupSplit": {
+    "memberName": "Membre {number}",
+    "unnamed": "Sans nom",
+    "earnedOnlyNote": "Seuls les Earned Robux peuvent être échangés. Les Robux achetés ou offerts ne le peuvent pas.",
+    "valuedAt": "Valorisé à",
+    "tableLabel": "La part de chaque membre dans le solde du groupe",
+    "tableCaption": "Le pourcentage de chaque membre sur les Earned Robux du groupe, les Robux que cela représente, et le paiement au taux DevEx standard.",
+    "columnMember": "Membre",
+    "columnShare": "Part",
+    "columnEarnedRobux": "Earned Robux",
+    "columnEstimatedPayout": "Paiement estimé",
+    "columnCanCashOut": "Peuvent-ils encaisser ?",
+    "removeMember": "Supprimer",
+    "meetsMinimum": "Atteint le minimum",
+    "sharesDoNotAddUpTitle": "Les parts ne font pas 100 %",
+    "remainderTitle": "Il reste un reliquat",
+    "cannotSubmitTitle": "{below} sur {total} ne peuvent pas déposer de demande DevEx",
+    "onePersonPaidTitle": "Roblox paie une personne, il ne répartit pas",
+    "body": {
+      "intro": {
+        "p1": "par Earned Robux éligible",
+        "p2": "Nom du membre",
+        "p3": "Leur total",
+        "p4": "Robux non attribués. Rien n’a été ajusté ici pour faire tomber les comptes juste : le faire à votre place produirait des chiffres que personne n’a acceptés. Corrigez les pourcentages, ou acceptez qu’un reliquat reste chez la personne qui détient les fonds du groupe.",
+        "p5": "Les Robux ne se divisent pas exactement à ces pourcentages. Les Robux sont entiers : chaque part est donc arrondie au inférieur et le reliquat est affiché plutôt que remis à celui qui figure en premier."
+      }
+    }
+  },
+  "preparation": {
+    "earnedRobuxLink": "Ce qui compte comme Earned Robux",
+    "verifyEmail": "Vérifiez l’adresse e-mail du compte Roblox.",
+    "portalAccount": "Créez le compte du portail DevEx et vérifiez que vous y accédez.",
+    "feesLink": "Frais et impôts expliqués",
+    "progressLabel": "{completed} étapes de préparation sur {total} effectuées",
+    "preparedNotApprovedTitle": "Préparé ne veut pas dire accepté",
+    "robloxDecides": "C’est Roblox qui décide",
+    "body": {
+      "intro": {
+        "p1": "Les coches restent dans ce navigateur uniquement — elles ne sont envoyées nulle part et ne constituent pas un compte. Effacer les données du site les supprime.",
+        "p2": "Toutes les étapes de cette liste sont faites, ce qui veut dire que les retards évidents sont écartés. Cela ne veut pas dire qu’une demande sera acceptée.",
+        "p3": "Roblox examine chaque demande selon ses propres critères après le dépôt, et ne publie pas ce qui entraînerait un refus. Une liste cochée dans un navigateur n’a aucune valeur dans cet examen.",
+        "p4": "Ce que comporte la procédure de dépôt"
+      }
+    }
+  },
+  "currency": {
+    "loading": "Chargement des taux de référence…",
+    "unavailable": "Les estimations en monnaie locale sont temporairement indisponibles.",
+    "usdUnaffected": "Le chiffre en USD ci-dessus est calculé localement et n’est pas affecté.",
+    "staleHeading": "Taux périmés.",
+    "provenance": "Les chiffres en {currency} utilisent des taux de référence {provider} observés le {date}. Ce sont des taux de référence, pas des cotations bancaires — votre prestataire de paiement appliquera le sien et pourra ajouter des frais."
+  },
+  "home": {
+    "formulaOpen": "Rien n’est caché ici. La formule est une multiplication, et vous pouvez la vérifier.",
+    "threeRates": "Trois taux sont documentés. Roblox décide lequel s’applique à quelle partie d’un solde.",
+    "earnedRobuxMatters": "C’est le malentendu le plus courant à propos de DevEx, et c’est lui qui détermine si un paiement est même possible.",
+    "generallyQualifies": "Est en général éligible",
+    "qualifies": {
+      "developerProducts": "Robux issus des joueurs qui achètent des produits développeur dans votre expérience",
+      "passesAndServers": "Robux issus des achats de pass et de serveurs privés",
+      "avatarItems": "Votre part sur les articles d’avatar que vous avez créés et vendus"
+    },
+    "generallyDoesNot": "N’est en général pas éligible",
+    "doesNot": {
+      "purchased": "Les Robux que vous avez achetés vous-même, à n’importe quel prix",
+      "giftCards": "Le crédit de carte cadeau et les dotations promotionnelles",
+      "trades": "Les Robux reçus par échange ou d’autres joueurs"
+    },
+    "everyFigureNote": "Chaque chiffre ci-dessous est calculé aux trois taux documentés. Les montants sous le minimum sont affichés à titre indicatif et signalés.",
+    "meetingAllNote": "Remplir tout cela vous permet de déposer une demande. Cela ne garantit pas qu’elle sera acceptée.",
+    "relatedCalculators": "Calculatrices liées",
+    "relatedGuides": "Guides liés",
+    "commonAmountsHeading": "Montants courants",
+    "commonAmountsDescription": "Chaque chiffre ci-dessous est calculé aux trois taux documentés. Les montants sous le minimum sont affichés à titre indicatif et signalés comme tels.",
+    "body": {
+      "howItWorks": {
+        "p1": "Pourquoi l’arithmétique est faite exactement",
+        "p2": "Un taux comme 0,0038 ne peut pas être représenté exactement en virgule flottante binaire : un calcul naïf dérive donc, et 17 000 Robux au taux États-Unis 18+ ressortent à 91.80000000000001 au lieu de 91,80. Chaque chiffre de ce site est calculé comme une fraction exacte et arrondi une seule fois, au moment de l’affichage."
+      },
+      "currentRates": {
+        "p1": "Le détail complet de chaque taux, avec dates d’entrée en vigueur et exemples chiffrés",
+        "p2": "voyez comment le taux a changé en septembre 2025"
+      },
+      "earnedRobux": {
+        "p1": "Roblox tranche en dernier ressort pour tout solde donné.",
+        "p2": "Lire l’explication complète des Earned Robux"
+      },
+      "popularAmounts": {
+        "p1": "Voir tout le centre de conversions, ou convertir le montant de votre choix"
+      },
+      "requirements": {
+        "p1": "Conditions complètes, avec la source officielle de chacune"
+      },
+      "relatedGuides": {
+        "p1": "Quelque chose d’obsolète ?",
+        "p2": "Dites-le-nous et ce sera corrigé"
+      }
+    }
+  },
+  "planner": {
+    "targetLabel": "Le paiement que vous visez",
+    "currentBalanceLabel": "Earned Robux éligibles que vous avez déjà",
+    "modeEarn": "Combien je gagne",
+    "modeDate": "Quand j’en ai besoin",
+    "expectedEarningsLabel": "Earned Robux que vous comptez gagner",
+    "feesAndTax": "Frais et impôt (facultatif)",
+    "totalNeeded": "Earned Robux nécessaires au total",
+    "stillToEarn": "Reste à gagner",
+    "reductionHeading": "Ce qui réduit le paiement",
+    "reductionDescription": "Le paiement estimé, les frais et l’impôt que vous avez saisis, et ce qu’il reste.",
+    "columnStage": "Étape",
+    "columnAmount": "Montant",
+    "grossPayout": "Paiement brut estimé",
+    "percentageFeeEntered": "Frais en pourcentage que vous avez saisis",
+    "flatFeeEntered": "Frais fixes que vous avez saisis",
+    "taxEntered": "Votre estimation d’impôt, sur ce qu’il reste après les frais",
+    "underEachRateHeading": "Le même plan à chaque taux documenté",
+    "underEachRateDescription": "Ce que le même objectif exigerait, et quand il serait atteint, à chaque taux que Roblox documente actuellement.",
+    "columnRate": "Taux",
+    "columnRobuxNeeded": "Earned Robux nécessaires",
+    "columnStillToEarn": "Reste à gagner",
+    "planningAgainst": "Plan établi sur ce taux",
+    "whatThisIsNot": "Ce que ce plan n’est pas",
+    "zeroEarnings": "Gagner zéro par période n’atteint jamais l’objectif. Indiquez ce que vous comptez gagner et le plan calculera la date.",
+    "alreadyThere": "Rien de plus n’a besoin d’être gagné avant la date indiquée. Atteindre le minimum n’est pas une acceptation — c’est Roblox qui en décide.",
+    "pickFutureDate": "Choisissez une date future et le plan calculera ce qu’il faut gagner chaque jour pour l’atteindre.",
+    "withADate": "Avec une date, le plan calcule ce qu’il faut gagner chaque jour, chaque semaine et chaque mois pour atteindre l’objectif d’ici là.",
+    "whatDoYouKnow": "Que savez-vous ?",
+    "earnedOnlyNote": "Seuls les Earned Robux comptent. Les Robux achetés ou offerts ne peuvent pas être échangés.",
+    "body": {
+      "intro": {
+        "p1": "Roblox décide du taux applicable à un solde. Ce plan se base sur celui que vous choisissez.",
+        "p2": "C’est la date à laquelle vous voulez atteindre le solde. Roblox ne publie pas le délai de traitement d’une demande DevEx : aucun délai de traitement n’est donc ajouté.",
+        "p3": "Ces trois valeurs viennent de vous. Ce site ne publie ni frais par défaut ni taux d’imposition : il ne connaît ni votre pays, ni votre prestataire, ni votre situation, et un nombre inscrit ici à votre place relèverait du conseil et non du calcul.",
+        "p4": "Montant estimé qu’il vous reste",
+        "p5": "Chaque chiffre présenté ici est une estimation produite à partir de ce que vous avez saisi. Atteindre"
+      }
+    }
+  },
+  "actions": {},
+  "controls": {
+    "body": {
+      "intro": {
+        "p1": "Afficher le résultat en"
+      },
+      "presetsLabel": {
+        "p1": "Montants rapides"
+      }
+    }
+  },
+  "body": {
+    "intro": {
+      "p1": "Saisissez chaque partie de votre solde séparément. Rien n’est compté deux fois — chaque Robux appartient à exactement une tranche, et c’est vous qui décidez laquelle. La vraie répartition, c’est Roblox qui la fait.",
+      "p2": "Roblox décide quel taux s’applique à quelle partie de votre solde. Ce n’est pas un choix qui vous appartient.",
+      "p3": "Les estimations utilisent les taux que Roblox documente actuellement. Le minimum de",
+      "p4": "Earned Robux est une condition pour déposer une demande, pas une acceptation. Roblox décide quels Robux sont éligibles et si une demande aboutit.",
+      "p5": "Enregistrés dans ce navigateur uniquement. Rien n’est envoyé, et effacer les données de votre navigateur les supprime."
+    }
+  }
+}
