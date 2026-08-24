@@ -50,7 +50,15 @@ export default defineConfig({
     : {
         webServer: {
           command: "npm run build && npx next start --port 3100",
-          url: "http://127.0.0.1:3100/api/health/",
+          /*
+           * The readiness probe asks whether the site is serving, so it asks
+           * the site. `/api/health/` answers 503 when the rate registry is due
+           * for review or the collector has stopped recording — its job, and
+           * true of any machine not running the cron. Playwright reads any
+           * non-2xx as "not up yet", so pointing the probe there meant the
+           * whole suite timed out after five minutes without running a test.
+           */
+          url: "http://127.0.0.1:3100/",
           reuseExistingServer: !process.env.CI,
           timeout: 300_000,
         },

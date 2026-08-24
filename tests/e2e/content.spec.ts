@@ -394,7 +394,6 @@ test.describe("crawl infrastructure", () => {
 
   test("API endpoints respond and stay out of the index", async ({ request }) => {
     const health = await request.get("/api/health/");
-    expect(health.status()).toBe(200);
     expect(health.headers()["x-robots-tag"]).toContain("noindex");
 
     const body = (await health.json()) as {
@@ -404,12 +403,25 @@ test.describe("crawl infrastructure", () => {
       collector: { state: string };
       build: { commit: string | null; builtAt: string | null };
     };
-    expect(body.ok).toBe(true);
     expect(body.rateRegistry.activeRates).toBeGreaterThan(0);
 
-    // The status code is derived from these rather than hardcoded, so the body
-    // has to agree with the 200 above.
-    expect(["fresh", "stale", "unknown"]).toContain(body.status);
+    /*
+     * The status code is derived from the body rather than hardcoded, so what
+     * is held here is that the two agree — stated independently of the code
+     * that decides it, which is the only version of this assertion worth
+     * running: only `critical` fails, and it fails with a 503.
+     *
+     * This used to demand a 200 while the paragraph below it accepted a
+     * critical collector, which cannot both be true. A machine with real
+     * observations in `.wrangler/state` and no cron running reports exactly
+     * that — a critical collector and a 503 — and it is the endpoint working,
+     * not failing. So the test could only pass where the stored data happened
+     * to be fresh, which is a report on the machine, not on the endpoint.
+     */
+    expect(["fresh", "stale", "critical", "unknown"]).toContain(body.status);
+    const healthy = body.status !== "critical";
+    expect(body.ok).toBe(healthy);
+    expect(health.status()).toBe(healthy ? 200 : 503);
 
     // Whether storage is reachable from this build depends on where it runs:
     // in CI there is no local Worker state and the answer is `unknown`, while a
