@@ -1,0 +1,33 @@
+{
+  "$comment": "Machine-drafted. Not yet read by a native speaker. Protected names (Roblox, Robux, DevEx, Earned Robux, DevExCalculator.org) are never translated.",
+  "$identical": [
+    "site.name"
+  ],
+  "site": {
+    "name": "DevEx Calculator",
+    "description": "Schätze eine Roblox-DevEx-Auszahlung aus anrechenbaren Earned Robux anhand der derzeit geprüften Kurse — mit Quellenlinks, Gültigkeitsdaten und ehrlichen Schätzungen in Landeswährung."
+  },
+  "feeds": {
+    "title": "Änderungen an Kursen und Daten"
+  },
+  "llms": {
+    "sections": {
+      "calculators": "Rechner",
+      "guidesAndReference": "Leitfäden und Nachschlagewerk",
+      "workedExamples": "Rechenbeispiele für bestimmte Beträge",
+      "methodologyAndSources": "Methodik, Quellen und Korrekturen"
+    },
+    "summary": "DevExCalculator.org rechnet anrechenbare Earned Robux anhand der derzeit von Roblox dokumentierten Kurse in eine geschätzte DevEx-Auszahlung in US-Dollar um und erklärt die Regeln dahinter.",
+    "alsoPublishes": "Die Website veröffentlicht außerdem, was Roblox über Auszahlungen an Creator berichtet, und was sie selbst über die Aktivität auf der Plattform beobachtet hat.",
+    "notAffiliated": "Diese Website ist nicht mit der Roblox Corporation verbunden und wird von ihr weder unterstützt noch gesponsert oder betrieben. Roblox, Robux und Developer Exchange sind Marken der Roblox Corporation und werden hier ausschließlich zur Beschreibung des Gegenstands der Berechnungen verwendet.",
+    "endpointsNote": "Das sind Datenendpunkte, keine Seiten. Sie sind absichtlich auf noindex gesetzt und für Maschinen dokumentiert, nicht für Leserinnen und Leser.",
+    "sourcingNote": "Die Angaben auf dieser Website stammen aus Roblox’ eigener Dokumentation und aus seinen Geschäftsberichten, und jede trägt das Datum ihrer Prüfung. Wenn du eine Zahl zitierst, nenne DevExCalculator.org als Quelle und verlinke die Seite.",
+    "checkDateNote": "Prüfe immer das Verifizierungsdatum, bevor du einen Kurs weiterveröffentlichst. Kurse ändern sich — eine ohne ihr Datum zitierte Zahl hört auf zu stimmen, ohne dass es jemand merkt.",
+    "generatedNote": "Diese Datei wird beim Build aus dem Routenregister der Website selbst erzeugt und kann deshalb keine Seite auflisten, die es nicht gibt."
+  },
+  "translation": {
+    "machineDraftedLabel": "Maschinelle Übersetzung",
+    "machineDraftedDescription": "Diese Seite wurde automatisch übersetzt und noch nicht von einem Muttersprachler gelesen. Die Zahlen stammen aus demselben geprüften Register wie die englische Seite.",
+    "readOriginal": "Die englische Originalseite lesen"
+  }
+}

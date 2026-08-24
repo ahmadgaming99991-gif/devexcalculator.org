@@ -1,0 +1,24 @@
+{
+  "$comment": "Machine-drafted. Not yet read by a native speaker. Protected names (Roblox, Robux, DevEx, Earned Robux, DevExCalculator.org) are never translated.",
+  "entities": {
+    "robloxCorporation": "Mengoperasikan platform Roblox dan program Developer Exchange. Tidak berafiliasi dengan situs ini.",
+    "developerExchangeProgram": "Program resmi Roblox yang mengubah Earned Robux yang memenuhi syarat menjadi uang.",
+    "robux": "Mata uang virtual Roblox. Hanya bagian saldo yang diperoleh yang memenuhi syarat untuk DevEx.",
+    "earnedRobux": "Robux yang terkumpul dari aktivitas sebagai kreator, dan satu-satunya kategori yang dikonversi DevEx.",
+    "creatorHub": "Menerbitkan dokumentasi DevEx resmi yang dikutip situs ini.",
+    "devexPortal": "Tempat permohonan DevEx diajukan. Akun portal yang sah adalah syarat yang terdokumentasi.",
+    "usd": "Mata uang yang dipakai untuk menyatakan kurs DevEx dan dasar setiap perhitungan di sini.",
+    "europeanCentralBank": "Menerbitkan kurs acuan euro yang dipakai untuk menurunkan perkiraan dalam mata uang lokal.",
+    "marketplaceFee": "Komisi yang ditahan Roblox saat Robux dibelanjakan, dikenakan sebelum DevEx dan tidak pernah dua kali.",
+    "ageVerification": "Bagian dari syarat kelayakan DevEx dan dari ketentuan kurs AS 18+.",
+    "taxForm": "Formulir IRS W-9 atau W-8 harus tercatat sebelum permohonan DevEx dapat diproses."
+  },
+  "labels": {
+    "breadcrumbHome": "Beranda",
+    "author": "Penulis",
+    "reviewedBy": "Ditinjau oleh",
+    "datePublished": "Diterbitkan",
+    "dateModified": "Terakhir diperbarui",
+    "inLanguage": "Bahasa"
+  }
+}

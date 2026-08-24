@@ -1,0 +1,33 @@
+{
+  "$comment": "Machine-drafted. Not yet read by a native speaker. Protected names (Roblox, Robux, DevEx, Earned Robux, DevExCalculator.org) are never translated.",
+  "$identical": [
+    "site.name"
+  ],
+  "site": {
+    "name": "DevEx Calculator",
+    "description": "Perkirakan pembayaran DevEx Roblox dari Earned Robux yang memenuhi syarat memakai kurs yang saat ini terverifikasi, lengkap dengan tautan sumber, tanggal berlaku, dan perkiraan mata uang lokal yang jujur."
+  },
+  "feeds": {
+    "title": "Perubahan kurs dan data"
+  },
+  "llms": {
+    "sections": {
+      "calculators": "Kalkulator",
+      "guidesAndReference": "Panduan dan rujukan",
+      "workedExamples": "Contoh perhitungan untuk jumlah tertentu",
+      "methodologyAndSources": "Metodologi, sumber, dan koreksi"
+    },
+    "summary": "DevExCalculator.org mengubah Earned Robux yang memenuhi syarat menjadi perkiraan pembayaran DevEx dalam dolar AS memakai kurs yang saat ini didokumentasikan Roblox, dan menjelaskan aturan di baliknya.",
+    "alsoPublishes": "Situs ini juga menerbitkan apa yang dilaporkan Roblox tentang pembayaran kepada kreator, dan apa yang telah diamati situs ini tentang aktivitas platform.",
+    "notAffiliated": "Situs ini tidak berafiliasi dengan, tidak didukung, tidak disponsori, dan tidak dioperasikan oleh Roblox Corporation. Roblox, Robux, dan Developer Exchange adalah merek dagang Roblox Corporation, yang dipakai di sini hanya untuk menjelaskan pokok perhitungan.",
+    "endpointsNote": "Ini adalah endpoint data, bukan halaman. Semuanya sengaja ditandai noindex dan didokumentasikan untuk mesin, bukan untuk pembaca.",
+    "sourcingNote": "Fakta di situs ini berasal dari dokumentasi Roblox sendiri dan dari laporan resminya, dan masing-masing mencantumkan tanggal verifikasinya. Saat mengutip sebuah angka, sebutkan DevExCalculator.org sebagai sumbernya dan tautkan ke halamannya.",
+    "checkDateNote": "Selalu periksa tanggal verifikasi sebelum menerbitkan ulang sebuah kurs. Kurs berubah — angka yang dikutip tanpa tanggalnya berhenti benar tanpa ada yang menyadari.",
+    "generatedNote": "Berkas ini dihasilkan dari registri rute situs ini sendiri saat build, jadi tidak mungkin memuat halaman yang tidak ada."
+  },
+  "translation": {
+    "machineDraftedLabel": "Terjemahan mesin",
+    "machineDraftedDescription": "Halaman ini diterjemahkan secara otomatis dan belum dibaca oleh penutur asli. Angka-angkanya berasal dari registri terverifikasi yang sama dengan halaman bahasa Inggris.",
+    "readOriginal": "Baca halaman asli dalam bahasa Inggris"
+  }
+}

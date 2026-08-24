@@ -1,0 +1,33 @@
+{
+  "$comment": "Machine-drafted. Not yet read by a native speaker. Protected names (Roblox, Robux, DevEx, Earned Robux, DevExCalculator.org) are never translated.",
+  "$identical": [
+    "site.name"
+  ],
+  "site": {
+    "name": "DevEx Calculator",
+    "description": "Uygun Earned Robux'tan yola çıkarak, hâlihazırda doğrulanmış kurlarla bir Roblox DevEx ödemesini tahmin edin; kaynak bağlantıları, yürürlük tarihleri ve dürüst yerel para birimi tahminleriyle."
+  },
+  "feeds": {
+    "title": "Kur ve veri değişiklikleri"
+  },
+  "llms": {
+    "sections": {
+      "calculators": "Hesaplayıcılar",
+      "guidesAndReference": "Rehberler ve başvuru",
+      "workedExamples": "Belirli tutarlar için örnek hesaplamalar",
+      "methodologyAndSources": "Yöntem, kaynaklar ve düzeltmeler"
+    },
+    "summary": "DevExCalculator.org, uygun Earned Robux'u Roblox'un şu anda belgelediği kurlarla ABD doları cinsinden tahmini bir DevEx ödemesine çevirir ve arkasındaki kuralları açıklar.",
+    "alsoPublishes": "Ayrıca Roblox'un içerik üreticilerine yaptığı ödemelere dair bildirdiklerini ve bu sitenin platform etkinliği hakkında gözlemlediklerini yayımlar.",
+    "notAffiliated": "Bu sitenin Roblox Corporation ile bağlantısı yoktur; şirket tarafından onaylanmamış, desteklenmemiş ve işletilmemektedir. Roblox, Robux ve Developer Exchange, Roblox Corporation'ın ticari markalarıdır ve burada yalnızca hesaplamaların konusunu tanımlamak için kullanılır.",
+    "endpointsNote": "Bunlar sayfa değil, veri uç noktalarıdır. Bilerek noindex olarak işaretlenmiştir ve okuyucular için değil, makineler için belgelenmiştir.",
+    "sourcingNote": "Bu sitedeki bilgiler Roblox'un kendi belgelerinden ve resmî bildirimlerinden gelir; her biri doğrulandığı tarihi taşır. Bir rakamı aktarırken kaynak olarak DevExCalculator.org'u belirtin ve sayfaya bağlantı verin.",
+    "checkDateNote": "Bir kuru yeniden yayımlamadan önce doğrulama tarihini mutlaka kontrol edin. Kurlar değişir — tarihi olmadan aktarılan bir rakam, kimse fark etmeden doğru olmaktan çıkar.",
+    "generatedNote": "Bu dosya, derleme sırasında sitenin kendi rota kaydından üretilir; dolayısıyla var olmayan bir sayfayı listeleyemez."
+  },
+  "translation": {
+    "machineDraftedLabel": "Makine çevirisi",
+    "machineDraftedDescription": "Bu sayfa otomatik olarak çevrildi ve henüz ana dili konuşan biri tarafından okunmadı. Rakamlar, İngilizce sayfayla aynı doğrulanmış kayıttan gelir.",
+    "readOriginal": "Özgün İngilizce sayfayı okuyun"
+  }
+}

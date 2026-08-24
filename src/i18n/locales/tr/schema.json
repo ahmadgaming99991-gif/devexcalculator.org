@@ -1,0 +1,24 @@
+{
+  "$comment": "Machine-drafted. Not yet read by a native speaker. Protected names (Roblox, Robux, DevEx, Earned Robux, DevExCalculator.org) are never translated.",
+  "entities": {
+    "robloxCorporation": "Roblox platformunu ve Developer Exchange programını işletir. Bu siteyle bağlantısı yoktur.",
+    "developerExchangeProgram": "Uygun Earned Robux'u paraya çeviren resmî Roblox programı.",
+    "robux": "Roblox'un sanal para birimi. Bakiyenin yalnızca kazanılmış kısmı DevEx için uygundur.",
+    "earnedRobux": "İçerik üreticisi faaliyetiyle biriken Robux; DevEx'in çevirdiği tek kategori.",
+    "creatorHub": "Bu sitenin alıntıladığı resmî DevEx belgelerini yayımlar.",
+    "devexPortal": "DevEx talebinin gönderildiği yer. Geçerli bir portal hesabı belgelenmiş bir koşuldur.",
+    "usd": "DevEx kurunun cinsinden ifade edildiği para birimi ve buradaki her hesaplamanın temeli.",
+    "europeanCentralBank": "Yerel para birimi tahminlerinin türetildiği euro referans kurlarını yayımlar.",
+    "marketplaceFee": "Robux harcandığında Roblox'un aldığı komisyon; DevEx'ten önce uygulanır ve asla iki kez alınmaz.",
+    "ageVerification": "DevEx uygunluk koşullarının ve ABD 18+ kurunun koşullarının bir parçası.",
+    "taxForm": "Bir DevEx talebinin ilerleyebilmesi için dosyada IRS W-9 ya da W-8 formu bulunmalıdır."
+  },
+  "labels": {
+    "breadcrumbHome": "Ana sayfa",
+    "author": "Yazar",
+    "reviewedBy": "Denetleyen",
+    "datePublished": "Yayımlandı",
+    "dateModified": "Son güncelleme",
+    "inLanguage": "Dil"
+  }
+}

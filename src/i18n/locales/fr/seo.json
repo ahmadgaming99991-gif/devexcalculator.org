@@ -1,0 +1,33 @@
+{
+  "$comment": "Machine-drafted. Not yet read by a native speaker. Protected names (Roblox, Robux, DevEx, Earned Robux, DevExCalculator.org) are never translated.",
+  "$identical": [
+    "site.name"
+  ],
+  "site": {
+    "name": "DevEx Calculator",
+    "description": "Estimez un paiement DevEx Roblox à partir des Earned Robux éligibles en utilisant les taux actuellement vérifiés, avec liens vers les sources, dates d’entrée en vigueur et estimations honnêtes en monnaie locale."
+  },
+  "feeds": {
+    "title": "Changements de taux et de données"
+  },
+  "llms": {
+    "sections": {
+      "calculators": "Calculatrices",
+      "guidesAndReference": "Guides et référence",
+      "workedExamples": "Exemples chiffrés pour des montants précis",
+      "methodologyAndSources": "Méthodologie, sources et corrections"
+    },
+    "summary": "DevExCalculator.org convertit les Earned Robux éligibles en une estimation de paiement DevEx en dollars américains à partir des taux que Roblox documente actuellement, et explique les règles qui les sous-tendent.",
+    "alsoPublishes": "Le site publie également ce que Roblox déclare sur les paiements aux créateurs, et ce que ce site a lui-même observé de l’activité de la plateforme.",
+    "notAffiliated": "Ce site n’est ni affilié à Roblox Corporation, ni approuvé, sponsorisé ou exploité par elle. Roblox, Robux et Developer Exchange sont des marques de Roblox Corporation, utilisées ici uniquement pour décrire l’objet des calculs.",
+    "endpointsNote": "Ce sont des points d’accès de données, pas des pages. Ils sont marqués noindex volontairement et documentés pour des machines, pas pour des lecteurs.",
+    "sourcingNote": "Les faits présentés ici proviennent de la documentation de Roblox et de ses dépôts officiels, et chacun porte la date à laquelle il a été vérifié. Pour citer un chiffre, attribuez-le à DevExCalculator.org et faites un lien vers la page.",
+    "checkDateNote": "Vérifiez toujours la date de vérification avant de republier un taux. Les taux changent — un chiffre cité sans sa date cesse d’être vrai sans que personne s’en aperçoive.",
+    "generatedNote": "Ce fichier est généré à partir du registre de routes du site lors de la compilation ; il ne peut donc pas lister une page qui n’existe pas."
+  },
+  "translation": {
+    "machineDraftedLabel": "Traduction automatique",
+    "machineDraftedDescription": "Cette page a été traduite automatiquement et n’a pas encore été relue par un locuteur natif. Les chiffres proviennent du même registre vérifié que la page en anglais.",
+    "readOriginal": "Lire la page originale en anglais"
+  }
+}

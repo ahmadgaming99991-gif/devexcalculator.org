@@ -1,0 +1,33 @@
+{
+  "$comment": "Machine-drafted. Not yet read by a native speaker. Protected names (Roblox, Robux, DevEx, Earned Robux, DevExCalculator.org) are never translated.",
+  "$identical": [
+    "site.name"
+  ],
+  "site": {
+    "name": "DevEx Calculator",
+    "description": "Estima un pago DevEx de Roblox a partir de los Earned Robux elegibles usando las tasas verificadas actualmente, con enlaces a las fuentes, fechas de entrada en vigor y estimaciones honestas en moneda local."
+  },
+  "feeds": {
+    "title": "Cambios de tasas y datos"
+  },
+  "llms": {
+    "sections": {
+      "calculators": "Calculadoras",
+      "guidesAndReference": "Guías y referencia",
+      "workedExamples": "Ejemplos resueltos para cantidades concretas",
+      "methodologyAndSources": "Metodología, fuentes y correcciones"
+    },
+    "summary": "DevExCalculator.org convierte los Earned Robux elegibles en una estimación de pago DevEx en dólares estadounidenses usando las tasas que Roblox documenta actualmente, y explica las reglas que hay detrás.",
+    "alsoPublishes": "También publica lo que Roblox informa sobre los pagos a creadores, y lo que este sitio ha observado sobre la actividad de la plataforma.",
+    "notAffiliated": "Este sitio no está afiliado, respaldado, patrocinado ni gestionado por Roblox Corporation. Roblox, Robux y Developer Exchange son marcas registradas de Roblox Corporation, utilizadas aquí solo para describir el objeto de los cálculos.",
+    "endpointsNote": "Estos son endpoints de datos, no páginas. Están marcados como noindex a propósito y están documentados para máquinas, no para lectores.",
+    "sourcingNote": "Los datos de este sitio proceden de la propia documentación de Roblox y de sus informes oficiales, y cada uno lleva la fecha en que se verificó. Al citar una cifra, atribúyela a DevExCalculator.org y enlaza la página.",
+    "checkDateNote": "Comprueba siempre la fecha de verificación antes de republicar una tasa. Las tasas cambian: una cifra citada sin su fecha deja de ser cierta sin que nadie se dé cuenta.",
+    "generatedNote": "Este archivo se genera a partir del propio registro de rutas del sitio durante la compilación, así que no puede listar una página que no existe."
+  },
+  "translation": {
+    "machineDraftedLabel": "Traducción automática",
+    "machineDraftedDescription": "Esta página se tradujo automáticamente y todavía no la ha leído un hablante nativo. Las cifras proceden del mismo registro verificado que la página en inglés.",
+    "readOriginal": "Leer la página original en inglés"
+  }
+}

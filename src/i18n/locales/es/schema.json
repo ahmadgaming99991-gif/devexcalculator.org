@@ -1,0 +1,24 @@
+{
+  "$comment": "Machine-drafted. Not yet read by a native speaker. Protected names (Roblox, Robux, DevEx, Earned Robux, DevExCalculator.org) are never translated.",
+  "entities": {
+    "robloxCorporation": "Opera la plataforma Roblox y el programa Developer Exchange. Sin afiliación con este sitio.",
+    "developerExchangeProgram": "El programa oficial de Roblox que convierte Earned Robux elegibles en dinero.",
+    "robux": "La moneda virtual de Roblox. Solo la parte ganada de un saldo es elegible para DevEx.",
+    "earnedRobux": "Robux acumulados por actividad de creador, y la única categoría que DevEx convierte.",
+    "creatorHub": "Publica la documentación oficial de DevEx que cita este sitio.",
+    "devexPortal": "Donde se envía una solicitud de DevEx. Una cuenta válida en el portal es un requisito documentado.",
+    "usd": "La moneda en la que está denominada la tasa de DevEx y la base de todos los cálculos de aquí.",
+    "europeanCentralBank": "Publica los tipos de referencia del euro que se usan para derivar estimaciones en moneda local.",
+    "marketplaceFee": "La comisión que retiene Roblox cuando se gastan Robux, aplicada antes de DevEx y nunca dos veces.",
+    "ageVerification": "Forma parte de los requisitos de elegibilidad de DevEx y de las condiciones de la tasa de EE. UU. 18+.",
+    "taxForm": "Debe constar un formulario W-9 del IRS o un W-8 antes de que una solicitud de DevEx pueda avanzar."
+  },
+  "labels": {
+    "breadcrumbHome": "Inicio",
+    "author": "Autor",
+    "reviewedBy": "Revisado por",
+    "datePublished": "Publicado",
+    "dateModified": "Última actualización",
+    "inLanguage": "Idioma"
+  }
+}
