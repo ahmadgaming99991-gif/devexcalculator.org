@@ -29,7 +29,18 @@
     "rateDataLabel": "Rate data",
     "verifiedOn": "verified {date}",
     "dueForReview": ", due for review",
-    "registryVersion": "registry {version}"
+    "registryVersion": "registry {version}",
+    "status": {
+      "intro": {
+        "p1": "· registry"
+      }
+    },
+    "body": {
+      "intro": {
+        "p1": "); } /* * The clock read once, at module scope rather than during render. * * These are the values a reader without JavaScript sees, and the ones shown * for the instant before hydration — deliberately real numbers rather than * placeholders. Reading a clock inside a component body is a render that is * not idempotent, which React's own lint rejects and which would make this * component produce a different tree on every re-render. * * For a prerendered page this is the build. For the few routes rendered per * request it is whenever the isolate started, which can drift a little — and * does not matter, because the browser replaces both during hydration. */ const BUILT_AT = Date.now(); const BUILT_YEAR = new Date(BUILT_AT).getUTCFullYear(); function ageAtBuild(iso: string): number",
+        "p2": "export function SiteFooter() { const standardRate = getRateValue(standardRateId); return ("
+      }
+    }
   },
   "sourceCheck": {
     "changedHeading": "Roblox’s page no longer matches these figures.",
@@ -47,8 +58,9 @@
     "body": {
       "intro": {
         "p1": "Found by the automatic check on",
-        "p2": ", so these figures are the ones from the last review rather than a fresh comparison.",
-        "p3": "Roblox last updated that page on"
+        "p2": "); } if (check.status === \"unreadable\") { return (",
+        "p3": "Roblox&rsquo;s page could not be read on",
+        "p4": "); } return ("
       }
     }
   },
@@ -115,7 +127,9 @@
     "accept": "Accept",
     "body": {
       "consentHeading": {
-        "p1": "We would like to measure which pages get used, which needs a cookie. The calculator works identically either way, and your calculations are never sent anywhere."
+        "p1": "Analytics cookies",
+        "p2": "We would like to measure which pages get used, which needs a cookie. The calculator works identically either way, and your calculations are never sent anywhere.",
+        "p3": "Decline"
       }
     }
   },
@@ -134,18 +148,181 @@
   "content": {
     "body": {
       "intro": {
-        "p1": "Rates and requirements change.",
-        "p2": "Figures here use the rates Roblox currently documents. Roblox alone decides which of your Robux count as Earned Robux, which rate applies to which part of your balance, and whether a DevEx request is approved. Payment-provider fees and your own tax obligations are not included unless you add them.",
-        "p3": "Robux you bought, received as a gift, or acquired outside creator earnings are not Earned Robux and cannot be cashed out. Retail Robux pricing is a separate thing entirely and is never mixed into these figures."
+        "p1": "In short",
+        "p2": "{jumpTo ? (",
+        "p3": ") : null}",
+        "p4": "); } // --------------------------------------------------------------------------- // Trust badges // --------------------------------------------------------------------------- /** * Shows when the rate data was last checked against official documentation, * and escalates its tone once the review cadence has lapsed. A stale badge is * more useful than a confident one that is quietly out of date. */ export function LastVerifiedBadge(",
+        "p5": ") { const freshness = registryFreshness(); const tone = freshness.state === \"critical\" ? \"warning\" : freshness.state === \"review-due\" ? \"info\" : \"success\"; return (",
+        "p6": "); } /** Compact strip of trust signals shown directly under the H1 on tool pages. */ export function TrustStrip() { return (",
+        "p7": "); } /** * Citations for the facts on a page. Every rate-sensitive page renders this, * and the publish-queue validator refuses to ship one that does not. */ export function SourceNote(",
+        "p8": ") { if (sourceIds.length === 0) return null; const sources = getSources(sourceIds); return (",
+        "p9": "Rates and requirements change.",
+        "p10": "); } /** * The estimate disclaimer. * * Stated plainly rather than buried: a creator planning around a payout needs * to know up front that this site cannot determine eligibility or approval. */ export function EstimateDisclaimer(",
+        "p11": ") { return (",
+        "p12": "Figures here use the rates Roblox currently documents. Roblox alone decides which of your Robux count as Earned Robux, which rate applies to which part of your balance, and whether a DevEx request is approved. Payment-provider fees and your own tax obligations are not included unless you add them.",
+        "p13": "); } /** The Earned Robux warning shown next to any conversion result. */ export function EarnedRobuxNote(",
+        "p14": ") { return (",
+        "p15": "Robux you bought, received as a gift, or acquired outside creator earnings are not Earned Robux and cannot be cashed out. Retail Robux pricing is a separate thing entirely and is never mixed into these figures.",
+        "p16": "); } export function MethodologyNote(",
+        "p17": ") { return (",
+        "p18": "Calculations use exact decimal arithmetic and round only at the point of display; required-Robux figures always round up.",
+        "p19": "); } export function LimitationsNote(",
+        "p20": ") { return (",
+        "p21": "); } // --------------------------------------------------------------------------- // Definitions // --------------------------------------------------------------------------- export function DefinitionBlock(",
+        "p22": ") { return (",
+        "p23": "); } // --------------------------------------------------------------------------- // FAQs // --------------------------------------------------------------------------- /** * Visible FAQs. * * Built on native `",
+        "p24": "`, so the answers stay in the DOM, remain * crawlable, and work without JavaScript. No FAQPage JSON-LD is emitted: * Google removed FAQ rich-result support for most sites, so adding the markup * would be schema for its own sake rather than for a reader. */ export function FAQAccordion(",
+        "p25": ") { if (faqs.length === 0) return null; return (",
+        "p26": ") : null}"
+      },
+      "tocHeading": {
+        "p1": "On this page",
+        "p2": "); } /** Page header: H1, one-line purpose, and trust signals. */ export function PageHeader(",
+        "p3": ") { return (",
+        "p4": "{record.rateSensitive ? (",
+        "p5": ") : null}"
       }
     }
   },
   "tables": {
     "body": {
       "intro": {
-        "p1": "Working backwards divides instead, and always rounds up: a target of",
-        "p2": "would fall a fraction short.",
-        "p3": "export const DEVEX_REQUIREMENTS: readonly"
+        "p1": "{showExamples ?",
+        "p2": ": null}",
+        "p3": "{showExamples ? (",
+        "p4": ") : null}",
+        "p5": "{rate.effectiveFrom ? (",
+        "p6": "From",
+        "p7": ") : null} {rate.effectiveTo ? (",
+        "p8": "Balances earned before",
+        "p9": ") : null}",
+        "p10": "); } // --------------------------------------------------------------------------- // Amount table // --------------------------------------------------------------------------- /** * Common amounts converted at all three rates. * * The list runs below the minimum on purpose. A creator with 10,000 Earned * Robux searches for what it is worth, and the honest answer includes that it * cannot be cashed out yet — so the row is shown and flagged rather than hidden. * * Every amount here is one people actually search for, taken from the keyword * dataset rather than chosen for roundness. The short list this replaced held * thirteen of the seventy-one amounts with recorded demand, and the rationale * recorded against the other fifty-eight said they were \"served by the * conversion hub\" — which was not true of a hub that did not list them. One * table answers all of them without a page per number, which is the pattern the * specification rules out. */ const DEFAULT_AMOUNTS: readonly number[] = [ // Below the 30,000 minimum: searched, and answerable, but not cashable. 1, 25, 50, 150, 200, 250, 300, 600, 700, 800, 1_000, 1_200, 1_500, 2_000, 2_300, 2_400, 2_500, 2_700, 3_000, 3_500, 4_000, 5_000, 6_000, 7_000, 8_000, 8_500, 9_000, 10_000, 11_000, 12_000, 13_000, 14_000, 15_000, 17_000, 18_000, 20_000, 25_000, // At or above the minimum. 30_000, 31_000, 35_000, 40_000, 48_000, 50_000, 60_000, 70_000, 75_000, 80_000, 90_000, 100_000, 130_000, 150_000, 160_000, 200_000, 300_000, 400_000, 500_000, 1_000_000, 1_500_000, 2_000_000, 3_000_000, 5_000_000, 7_000_000, 10_000_000, 14_000_000, 18_000_000, 100_000_000, 200_000_000, 600_000_000, 1_000_000_000, ]; /* * Two searched amounts are deliberately absent: 3.6 billion and one trillion * Robux. The arithmetic would be correct and the rows would be nonsense — no * balance of that size exists — and a reference table that answers a joke with * a billion-dollar figure reads as unserious. The converter above handles any * amount typed into it, including those, so the answer is available without the * table claiming they are ordinary cases. */ export function AmountTable(",
+        "p11": ") { const standard = getRateValue(standardRateId); const legacy = getRateValue(legacyRateId); const us18 = getRateValue(us18RateId); return (",
+        "p12": "{hasPage ? (",
+        "p13": "{meetsMinimum ? (",
+        "p14": "); } // --------------------------------------------------------------------------- // Formula // --------------------------------------------------------------------------- /** * The calculation, stated openly. * * Showing the arithmetic is the difference between a tool a creator can check * and one they have to trust. It is also the clearest possible answer to * \"how is this calculated\", which is a real query in the keyword data. */ export function FormulaBlock(",
+        "p15": ") { const standard = getRateValue(standardRateId); const example = Rational.fromInt(100_000).mul(standard); return (",
+        "p16": "eligible Earned Robux × rate per Robux = estimated USD payout",
+        "p17": "Working backwards divides instead, and always rounds up: a target of",
+        "p18": "Earned Robux, because",
+        "p19": "would fall a fraction short.",
+        "p20": "); } // --------------------------------------------------------------------------- // Requirements list // --------------------------------------------------------------------------- export const DEVEX_REQUIREMENTS: readonly",
+        "p21": "[] = [ { title: `At least $",
+        "p22": "Earned Robux`, detail: \"Earned Robux specifically — a balance made up of purchased Robux does not qualify however large it is.\", },",
+        "p23": ", ]; export function RequirementsList(",
+        "p24": ") { return ("
+      }
+    }
+  },
+  "charts": {
+    "body": {
+      "intro": {
+        "p1": "Values are",
+        "p2": "); } /** Wraps a chart and the table that carries the same numbers. */ export function ChartWithTable(",
+        "p3": ") { return (",
+        "p4": "more, unnamed",
+        "p5": ") : null}"
+      }
+    }
+  },
+  "download": {
+    "body": {
+      "intro": {
+        "p1": "` links to real endpoints — no client JavaScript, no * blob built in the browser, so they work with scripting off and the file is * the same whether a person or a script fetches it. * * The limitations are shown next to the links rather than inside the files. * A caveat that lives only in a header block stops travelling with the data * the first time someone opens it in a spreadsheet, and the point of stating * them here is that nobody downloads a range without reading what it covers. */ export function DataDownload(",
+        "p2": ": { heading: string; description: string; formats: readonly",
+        "p3": "[]; limitations: readonly string[]; }) { return ("
+      }
+    }
+  },
+  "diagrams": {
+    "body": {
+      "intro": {
+        "p1": "` scales with the viewBox, so a 720-wide drawing on * a 320px screen renders 12px labels at about five. These reflow instead. * - Real text honours the reader's own font size, can be selected, and is * translated by a browser's translator. Text in an SVG is none of those. * - A screen reader gets an ordered list describing the flow, because that is * literally what the markup is. Nothing has to be restated in a hidden * paragraph and kept in step by hand. * * No generated imagery, and specifically no depictions of the DevEx portal. An * invented screenshot of a real product is a fabricated record — the same thing * this site refuses to do with a rate, and worse, because a reader would try to * follow it. Every figure below comes from the rate registry rather than being * written into the drawing. */ type Tone = \"neutral\" | \"primary\" | \"warning\" | \"success\" | \"danger\"; const TONE_BORDER: Record",
+        "p2": "; const TONE_MARKER: Record",
+        "p3": "; /** * The connector between two stages. * * Rotated rather than swapped for a second glyph, so there is one shape to * keep consistent. It points down while the stages are stacked and right once * they sit in a row, which is the direction the reading order actually goes at * each width. */ function Connector() { return (",
+        "p4": "); } export interface FlowStage",
+        "p5": ") { return (",
+        "p6": "{stage.by ? (",
+        "p7": "Applied by",
+        "p8": ") : null}",
+        "p9": "; return (",
+        "p10": "{part.note ? (",
+        "p11": ") : null}",
+        "p12": "); } /** * What passes a gate and what is stopped by it. * * The prose version of this is two bulleted lists, which describe the sorting * without showing that there is one — and the sorting is the whole point. */ export function EligibilityGate(",
+        "p13": ": { readonly accepted:",
+        "p14": "; readonly rejected:",
+        "p15": "; readonly outcome: ReactNode; readonly caption: string; readonly className?: string; }) { return (",
+        "p16": "); } /** * A threshold on a scale, with what each side of it means. * * Drawn because a minimum is one of the few facts on this site that is genuinely * positional: a balance is on one side of it or the other, and no amount of * being close counts for anything. */ export function ThresholdScale(",
+        "p17": ") { return ("
+      }
+    }
+  },
+  "logo": {
+    "body": {
+      "intro": {
+        "p1": "); } /** * Full lockup used in the header and footer. * * \"DevEx\" carries the weight because that is the name people search for; * \"Calculator\" is set lighter so the lockup has a hierarchy rather than being * one undifferentiated string. The two are a single word visually, so there is * no space between them and the tracking is tightened to match. * * This is the accessible name of the link the mark sits in, which is why the * mark itself is marked decorative. */ export function Wordmark(",
+        "p2": ") { return ("
+      }
+    }
+  },
+  "header": {
+    "body": {
+      "intro": {
+        "p1": "{features.darkMode ?",
+        "p2": "{\"@media (max-width: 1023.98px){.site-header"
+      }
+    }
+  },
+  "analytics": {
+    "body": {
+      "ga4Init": {
+        "p1": "{` window.dataLayer=window.dataLayer||[]; function gtag()",
+        "p2": "gtag('js',new Date()); // Consent starts denied and is granted only by an explicit choice. gtag('consent','default',",
+        "p3": "); try{if(localStorage.getItem('devex:consent')==='granted'){gtag('consent','update',",
+        "p4": "); `.trim()}"
+      }
+    }
+  },
+  "ui": {
+    "body": {
+      "intro": {
+        "p1": "`, never a clickable `div`, so * keyboard operation and accessible names come from the platform rather than * from ARIA patched on afterwards. */ export function cx(...values: (string | false | null | undefined)[]): string",
+        "p2": ") { const widths =",
+        "p3": "; return (",
+        "p4": "); } export function Card(",
+        "p5": ") { const tones =",
+        "p6": "; return (",
+        "p7": "); } export function Section(",
+        "p8": ") { const Heading = headingLevel === 2 ? \"h2\" : \"h3\"; return (",
+        "p9": "{description ? (",
+        "p10": ") : null}",
+        "p11": "as const; export type ButtonVariant = keyof typeof buttonVariants; /** * Lifts the label above the primary variant's sweep. * * Cheap enough to apply to every variant rather than making the caller know * which one needs it, and it keeps the accessible name unchanged — a span * inside a button contributes its text exactly as a bare string does. */ function ButtonLabel(",
+        "p12": ") { return",
+        "p13": ") { return (",
+        "p14": "); } export function ButtonLink(",
+        "p15": ") { const classes = cx(buttonBase, buttonVariants[variant], className); if (external) { return (",
+        "p16": "); } return (",
+        "p17": "); } /** * A link to an official external source. * * Opens in a new tab with `noopener noreferrer`, but deliberately without * `nofollow`: these are authoritative citations, and marking them nofollow * would misrepresent the relationship. */ export function SourceLink(",
+        "p18": ") { return (",
+        "p19": "); } export function InlineLink(",
+        "p20": ") { return (",
+        "p21": "); } // --------------------------------------------------------------------------- // Badges and notes // --------------------------------------------------------------------------- export type BadgeTone = \"neutral\" | \"info\" | \"success\" | \"warning\" | \"danger\"; const badgeTones: Record",
+        "p22": "; export function Badge(",
+        "p23": ") { return (",
+        "p24": "); } /** * A callout. The tone is carried by a text label as well as by colour, so the * meaning survives for anyone who cannot distinguish the colours. */ export function Callout(",
+        "p25": ") { const borders: Record",
+        "p26": "; return (",
+        "p27": "); } // --------------------------------------------------------------------------- // Tables // --------------------------------------------------------------------------- /** * A data table with its own horizontal scroll container. * * The wrapper is focusable and labelled so a keyboard user can scroll a wide * table; without `tabIndex` the overflow region is unreachable without a mouse. */ export function TableWrapper(",
+        "p28": ") { return (",
+        "p29": "); } export function Table(",
+        "p30": ") { /* * The minimum width is in pixels, not rem, deliberately. A rem minimum * scales with the root font size, so a reader at 200% text zoom made this * table demand 1024px and pushed the page sideways — the exact failure * WCAG 1.4.4 is about. In pixels the columns still get the room they need to * stay readable, and zooming the text does not widen the table. */ return (",
+        "p31": "); } export function Th(",
+        "p32": ") { return (",
+        "p33": "); } export function Td(",
+        "p34": ") { return (",
+        "p35": "); } // --------------------------------------------------------------------------- // Disclosure // --------------------------------------------------------------------------- /** * A native `",
+        "p36": "` disclosure. * * Native elements give keyboard operation, the correct expanded state and * screen-reader semantics without any JavaScript, and the content inside stays * in the DOM so it remains crawlable and findable with in-page search. */ export function Disclosure(",
+        "p37": ") { return ("
       }
     }
   }

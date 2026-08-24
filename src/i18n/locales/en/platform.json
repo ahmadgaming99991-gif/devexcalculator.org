@@ -31,35 +31,100 @@
         "p2": "minutes. Your browser makes no request to Roblox, and no script from Roblox runs on this page.",
         "p3": "A scheduled job records one observation every",
         "p4": "minutes. Platform totals keep every one of them for",
-        "p5": "days, because that is one array per experience across several hundred of them. Both charts show what was actually recorded, gaps included — nothing is averaged to fill the runs not kept."
+        "p5": "days; per-experience counts keep one an hour for",
+        "p6": "days, because that is one array per experience across several hundred of them. Both charts show what was actually recorded, gaps included — nothing is averaged to fill the runs not kept.",
+        "p7": "Which experiences appear, how many players each has, and how each has been voted on all come from Roblox. This site does not rank experiences, does not estimate player counts, and does not publish a figure it did not either read from Roblox or observe itself and label as such. The approval share is the only arithmetic on this page, and it is Roblox&rsquo;s own up and down vote counts divided. For the money side of the platform, see",
+        "p8": ", which come from Roblox&rsquo;s filings."
       },
       "related": {
-        "p1": "Nothing is shown in their place, because a stale or invented number would be worse than none. The rest of this site does not depend on this endpoint — the",
-        "p2": "The endpoint answered, but its ranking was empty. That is unusual and probably temporary.",
-        "p3": "Visit counts, favourites and creator names are omitted: the endpoint that supplies them did not answer for this request. Player counts and votes above come from the ranking itself and are unaffected.",
-        "p4": "Per-experience counts are stored in a Cloudflare KV namespace bound to the deployed Worker. Without that binding there is nothing recorded to draw, which is why this says so rather than showing an empty axis.",
-        "p5": "A line needs at least two observations of the same experience, so the chart appears after the next collection run rather than joining a single point to itself.",
-        "p6": "so far. A chart needs",
-        "p7": "to be a line rather than a dot.",
-        "p8": "public rankings, counted once each even where a ranking lists the same experience twice, as read at"
+        "p1": "); } async function LiveExperiences(",
+        "p2": ") { // Both are wanted by the same section, and neither depends on the other. const [result, history] = await Promise.all([fetchRankings(requested), loadGameHistory()]); if (!result.ok) { return (",
+        "p3": "Nothing is shown in their place, because a stale or invented number would be worse than none. The rest of this site does not depend on this endpoint — the",
+        "p4": "works regardless.",
+        "p5": "); } const",
+        "p6": "= result.data; if (experiences.length === 0) { return (",
+        "p7": "The endpoint answered, but its ranking was empty. That is unusual and probably temporary.",
+        "p8": "{selected.subtitle ? `$",
+        "p9": "Roblox explore endpoint",
+        "p10": "Roblox games endpoint",
+        "p11": "{history ?",
+        "p12": ": null} {hasVisits ?",
+        "p13": ": null} {hasVotes ?",
+        "p14": ": null} {hasGenre ?",
+        "p15": ": null}",
+        "p16": "{history && experience !== undefined && history.players[String(experience)] ? (",
+        "p17": "Visit counts, favourites and creator names are omitted: the endpoint that supplies them did not answer for this request. Player counts and votes above come from the ranking itself and are unaffected.",
+        "p18": "Roblox publishes",
+        "p19": "; this shows the first",
+        "p20": "of whichever is selected. The order is Roblox&rsquo;s, not this site&rsquo;s.",
+        "p21": "); } /** * A shared, guarded read of the per-experience history. * * Three sections want it — the table's sparklines, the multi-series chart and * the busiest-experience record — and each states its own absence rather than * throwing: a missing binding or an unreadable store is a fact about this * deployment, not a reason for the page to fail. * * Wrapped in `cache` so those three are one read and one parse per request * rather than three. The stored value is tens of kilobytes now and grows * towards a couple of hundred as observations accumulate, so reading it three * times was work that would have got steadily worse. */ const loadGameHistory = cache(async (): Promise",
+        "p22": "Per-experience counts are stored in a Cloudflare KV namespace bound to the deployed Worker. Without that binding there is nothing recorded to draw, which is why this says so rather than showing an empty axis.",
+        "p23": "); } async function TopExperiencesOverTime(",
+        "p24": ") { const history = await loadGameHistory(); if (!history) return",
+        "p25": "{tracked.length === 0 ? \"No per-experience counts have been recorded yet.\" : `$",
+        "p26": "experiences have been seen once each.`} A line needs at least two observations of the same experience, so the chart appears after the next collection run rather than joining a single point to itself.",
+        "p27": "); } return (",
+        "p28": "); } async function LargestExperience(",
+        "p29": ") { const history = await loadGameHistory(); if (!history) return",
+        "p30": "so far. A chart needs",
+        "p31": "to be a line rather than a dot.",
+        "p32": "); } return (",
+        "p33": "); } /** * The platform-wide figure. * * The number a reader comes to a page like this for, and the one Roblox does * not publish. It is stated as exactly what it is — the sum across every * experience in every public Roblox ranking, each counted once — and described * as a floor rather than a total, because Roblox ranks a fraction of what it * hosts. Presenting it as \"players online right now\" would be a bigger, * rounder, wrong number, and the method is printed beside it so nobody has to * take this site's word for how it was reached. */ function PlatformFigure(",
+        "p34": ") { return (",
+        "p35": "Summed from",
+        "p36": "experiences across Roblox&rsquo;s",
+        "p37": "public rankings, counted once each even where a ranking lists the same experience twice, as read at",
+        "p38": "); } /** * One experience's own chart, shown when a reader asks for it. * * Rendered for a single experience rather than expanding every row, because * ninety full charts on one page is work the Worker does not have the budget * for and nobody reads. Selecting one is a link, so it survives without * JavaScript and can be shared. */ function ExperienceDetail(",
+        "p39": ") { const series = sliceSeries(gameSeries(history, universeId), days); const name = history.names[String(universeId)] ?? \"This experience\"; const summary = summarise(series); return ("
       },
       "experience": {
-        "p1": "been recorded, which is not enough to draw a line. Per-experience counts are kept for the last",
-        "p2": "days at one observation an hour, and an experience is only recorded while Roblox is ranking it.",
-        "p3": "— this experience has not been observed enough times to draw a line",
-        "p4": "Observations are stored in a Cloudflare KV namespace that is bound to the deployed Worker. Running locally without that binding, there is nothing to chart — which is why this says so rather than drawing an empty axis.",
-        "p5": "The store did not answer. Live figures above are unaffected.",
-        "p6": "Nothing has been stored for this range. Where the scheduled job is running, an observation is written every",
-        "p7": "minutes and the chart appears once there are",
-        "p8": ", the most recent showing",
-        "p9": "players. A chart needs at least",
-        "p10": "points to be a line rather than a dot, so the figures are listed instead.",
-        "p11": "This site has been observing for",
-        "p12": ", which is less than the",
-        "p13": "selected — so this range and every wider one chart the same",
-        "p14": "observations, and the figures do not change between them. They will diverge once there is more history than a range covers. Nothing is padded to fill the difference.",
-        "p15": "The window widens on its own as observations accumulate, up to",
-        "p16": "days. Older observations expire rather than being deleted by a job. Peak, low and average describe these recorded points only — the total may have been higher between two observations, and this site does not claim otherwise."
+        "p1": "Close this chart",
+        "p2": "Only",
+        "p3": "of this experience",
+        "p4": "been recorded, which is not enough to draw a line. Per-experience counts are kept for the last",
+        "p5": "days at one observation an hour, and an experience is only recorded while Roblox is ranking it.",
+        "p6": "); } function ExperienceRow(",
+        "p7": ") { const url = experienceUrl(experience); const approval = approvalPercent(experience); const trend = history ? gameSeries(history, experience.universeId) : null; return (",
+        "p8": "{url ? (",
+        "p9": "{history ? (",
+        "p10": "Chart the last",
+        "p11": "days for",
+        "p12": "not tracked yet",
+        "p13": "— this experience has not been observed enough times to draw a line",
+        "p14": ") : null} {showVisits ? (",
+        "p15": ") : null} {showVotes ? (",
+        "p16": ") : null} {showGenre ?",
+        "p17": ": null}",
+        "p18": "); } /** * The chart range switcher. * * Same technique as the ranking tabs: real links, server-rendered, no client * JavaScript. Selecting a range narrows which stored observations are plotted; * it never stretches a short history across a longer axis. Early on, \"14 days\" * and \"24 hours\" legitimately draw the same points, and the caption says how * much was actually collected so the axis cannot imply more. */ function ChartRangeTabs(",
+        "p19": ": { selected: ChartWindow; ranking?: string; /** Observations each range would chart, so a button that changes nothing says so. */ counts?: Record",
+        "p20": "; }) { return (",
+        "p21": ") : null}",
+        "p22": "{counts ? `, $",
+        "p23": "observations` : \"\"}",
+        "p24": "); } async function ObservedHistory(",
+        "p25": ") { const store = await getHistoryStore(); if (!store) { return (",
+        "p26": "Observations are stored in a Cloudflare KV namespace that is bound to the deployed Worker. Running locally without that binding, there is nothing to chart — which is why this says so rather than drawing an empty axis.",
+        "p27": "); } /* * Read once at the full retention window, then narrow in memory. * * Reading per range would be the obvious shape and would cost a store round * trip per view for no gain — the rollup is a single value, so every range is * already in hand. It also makes the counts below possible, which is what * stops the range buttons from looking broken. */ let full: HistorySeries; try",
+        "p28": "catch { return (",
+        "p29": "The store did not answer. Live figures above are unaffected.",
+        "p30": "Nothing has been stored for this range. Where the scheduled job is running, an observation is written every",
+        "p31": "minutes and the chart appears once there are",
+        "p32": "of them. A wider range may hold more; what it will never do is invent a point to fill this one.",
+        "p33": "); } const latest = series.points[series.points.length - 1]; const summary = summarise(series); if (!series.chartable) { return (",
+        "p34": "within the last",
+        "p35": ", the most recent showing",
+        "p36": "players. A chart needs at least",
+        "p37": "points to be a line rather than a dot, so the figures are listed instead.",
+        "p38": "); } return (",
+        "p39": ") : null}",
+        "p40": "{summary ? (",
+        "p41": ") : null}",
+        "p42": "The window widens on its own as observations accumulate, up to",
+        "p43": "days. Older observations expire rather than being deleted by a job. Peak, low and average describe these recorded points only — the total may have been higher between two observations, and this site does not claim otherwise.",
+        "p44": "); } function Stat(",
+        "p45": ") { return (",
+        "p46": "{note ?",
+        "p47": ": null}"
       }
     }
   },
@@ -165,12 +230,26 @@
     "configurationMissing": "The page is already wired for a provider. What is missing is only configuration: {names}. The reported results below are what a share price responds to, and they are published either way.",
     "body": {
       "results": {
-        "p1": ", not recomputed here. A fuller breakdown, including what Roblox pays creators each quarter, is on"
+        "p1": "Quoted from",
+        "p2": ", not recomputed here. A fuller breakdown, including what Roblox pays creators each quarter, is on"
       },
       "related": {
-        "p1": "This is the most recent quote this site received.",
-        "p2": "No figure is shown in its place. A stale price presented as current would be worse than none.",
-        "p3": "The page is already wired for a provider. What is missing is only configuration:"
+        "p1": "· via",
+        "p2": ", fetched server-side",
+        "p3": "{lastKnown ? ( /* * Shown, not hidden. The figure above is real and carries the time it * was taken, so it is not a stale price passed off as current — but a * reader is entitled to know that a newer one was asked for and * refused, rather than being left to infer it from the timestamp. */",
+        "p4": "This is the most recent quote this site received.",
+        "p5": "The price above is unchanged from when it was taken; nothing has been adjusted to look current.",
+        "p6": ") : null}",
+        "p7": "); } if (state.status === \"unavailable\") { return (",
+        "p8": "No figure is shown in its place. A stale price presented as current would be worse than none.",
+        "p9": "); } return (",
+        "p10": "))} . The reported results below are what a share price responds to, and they are published either way.",
+        "p11": "); } /** * Reads the provider configuration from the Worker environment where there is * one, falling back to the process environment so a local run behaves the same. */ async function readQuote(): Promise",
+        "p12": "{ let env: Record",
+        "p13": "= process.env; let store: QuoteStore | undefined; try { const",
+        "p14": "= await import(\"@opennextjs/cloudflare\"); const context = await getCloudflareContext(",
+        "p15": "); const cloudflareEnv = context.env as Record",
+        "p16": "; env = { ...process.env, ...(cloudflareEnv as Record"
       }
     }
   },
@@ -238,15 +317,21 @@
       "jsonEverything": "JSON — everything"
     },
     "body": {
+      "quarterly": {
+        "p1": "{period.origin === \"reported\" ? ("
+      },
       "engagement": {
         "p1": "Hours per active user, per day",
-        "p2": "days. Both inputs are rounded in the release, so this is approximate.",
-        "p3": "Every figure above except the last is quoted from",
-        "p4": ", for the three months ended 30 June 2026."
+        "p2": "billion Hours ÷",
+        "p3": "million DAUs ÷",
+        "p4": "days. Both inputs are rounded in the release, so this is approximate.",
+        "p5": "Every figure above except the last is quoted from",
+        "p6": ", for the three months ended 30 June 2026."
       },
       "business": {
-        "p1": "rather than recomputed here.",
-        "p2": "A live RBLX quote would need a paid market-data feed and a third-party script running in your browser. This site loads no third-party scripts, and a number it cannot trace to a document is a number it will not publish. The figures above come from the filing itself, which is the same source a share price ultimately reacts to. None of this is investment advice, and a quarterly result says nothing about what any individual will be paid."
+        "p1": "The line worth reading twice is the second one. Developer exchange fees are about a quarter of Roblox&rsquo;s revenue, so a meaningful share of what the platform takes in leaves again as creator payouts. Every figure in this table is quoted from",
+        "p2": "rather than recomputed here.",
+        "p3": "A live RBLX quote would need a paid market-data feed and a third-party script running in your browser. This site loads no third-party scripts, and a number it cannot trace to a document is a number it will not publish. The figures above come from the filing itself, which is the same source a share price ultimately reacts to. None of this is investment advice, and a quarterly result says nothing about what any individual will be paid."
       },
       "whatItMeans": {
         "p1": "Very little, directly — and that is worth saying plainly. The totals on this page describe the whole platform. They do not change what your own balance converts to, they are not a forecast, and a rising total does not mean a rising rate. What decides your payout is the rate applied to your eligible Earned Robux, which you can work out on",
@@ -254,7 +339,8 @@
         "p3": "in a single year, which is context worth having before deciding whether the 30,000 Robux minimum is worth working towards."
       },
       "noLiveData": {
-        "p1": "Roblox publishes these numbers once a quarter, in a filing. That is the finest resolution that exists, so a chart claiming to show them changing by the minute would be showing something invented. This site runs no data collection, samples nothing and estimates nothing — it reads the filings and links to them."
+        "p1": "Roblox publishes these numbers once a quarter, in a filing. That is the finest resolution that exists, so a chart claiming to show them changing by the minute would be showing something invented. This site runs no data collection, samples nothing and estimates nothing — it reads the filings and links to them.",
+        "p2": "Figures are recorded to the precision the filing used. Where Roblox reported in thousands the amount is exact to the dollar; where it reported in millions, it is exact to the million and no further. Two quarters are marked as derived because they come from subtracting a reported quarter from a reported six-month total. Read more about how this site handles figures in"
       }
     }
   }

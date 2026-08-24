@@ -36,10 +36,14 @@
   },
   "body": {
     "intro": {
-      "p1": "What are you selling?",
-      "p2": "Price as a multiple of the price floor",
-      "p3": "Price floors differ by item category, so this asks for the multiple rather than assuming one universal floor. An item priced at six times its floor or above reaches the top tier.",
-      "p4": "This commission is taken when the Robux are earned. Converting the Robux you keep into cash through DevEx is a separate step with its own rate — the 30% is not applied twice."
+      "p1": "(\"after\"); const [schemeId, setSchemeId] = useState",
+      "p2": "What are you selling?",
+      "p3": "Price as a multiple of the price floor",
+      "p4": "Price floors differ by item category, so this asks for the multiple rather than assuming one universal floor. An item priced at six times its floor or above reaches the top tier.",
+      "p5": ") : null}",
+      "p6": "{afterFee.experienceOwnerRobux !== null ? (",
+      "p7": ") : null}",
+      "p8": ") : null}"
     }
   }
 }

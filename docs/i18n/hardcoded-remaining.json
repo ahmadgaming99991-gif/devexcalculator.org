@@ -1,10 +1,10 @@
 {
   "$comment": "Reader-facing English still written into src, after subtracting anything that already exists verbatim in an English dictionary. Deterministic: no timestamp, so a diff means the code changed.",
   "totals": {
-    "scanned": 1652,
-    "covered": 1652,
+    "scanned": 1984,
+    "covered": 1984,
     "hardcoded": 0,
-    "coveredWords": 14277,
+    "coveredWords": 20211,
     "hardcodedWords": 0,
     "coveragePercent": 100
   },

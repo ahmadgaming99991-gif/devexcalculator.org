@@ -1,0 +1,46 @@
+{
+  "$comment": "Machine-drafted. Not yet read by a native speaker. Protected names (Roblox, Robux, DevEx, Marketplace) are never translated.",
+  "$identical": ["results.roblox", "results.total"],
+  "srHeading": "Kalkulator biaya marketplace",
+  "modes": {
+    "after": {
+      "label": "Yang saya terima",
+      "description": "Dari sebuah harga jual"
+    },
+    "before": {
+      "label": "Berapa harus dipasang",
+      "description": "Untuk mencapai target"
+    }
+  },
+  "inputs": {
+    "salePrice": "Harga jual",
+    "salePriceHint": "Yang dibayar pembeli.",
+    "amountToKeep": "Robux yang ingin Anda terima",
+    "amountToKeepHint": "Yang ingin tersisa setelah komisi."
+  },
+  "results": {
+    "robuxYouKeep": "Robux yang Anda terima",
+    "priceToCharge": "Harga yang dipasang",
+    "tableLabel": "Rincian penjualan",
+    "tableCaption": "Bagaimana Robux dari penjualan ini dibagi",
+    "columnGoesTo": "Diberikan kepada",
+    "columnRobux": "Robux",
+    "columnShare": "Bagian",
+    "experienceOwner": "Pemilik experience",
+    "roblox": "Roblox",
+    "total": "Total",
+    "chargeTheBuyer": "Tagihkan ke pembeli",
+    "youActuallyKeep": "Yang benar-benar Anda terima",
+    "copyResult": "Salin hasil",
+    "copySummary": "Salin ringkasan",
+    "estimateFrom": "Perkiraan dari devexcalculator.org"
+  },
+  "body": {
+    "intro": {
+      "p1": "Apa yang Anda jual?",
+      "p2": "Harga sebagai kelipatan dari harga dasar",
+      "p3": "Harga dasar berbeda menurut kategori item, jadi di sini yang diminta adalah kelipatannya, bukan mengandaikan satu harga dasar yang berlaku umum. Item yang dihargai enam kali harga dasarnya atau lebih masuk ke tingkat teratas.",
+      "p4": "Komisi ini dipotong saat Robux diperoleh. Menukar Robux yang Anda terima menjadi uang lewat DevEx adalah langkah terpisah dengan kursnya sendiri — 30% itu tidak dikenakan dua kali."
+    }
+  }
+}

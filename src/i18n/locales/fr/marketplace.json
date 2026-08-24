@@ -1,0 +1,46 @@
+{
+  "$comment": "Machine-drafted. Not yet read by a native speaker. Protected names (Roblox, Robux, DevEx, Marketplace) are never translated.",
+  "$identical": ["results.roblox", "results.total"],
+  "srHeading": "Calculatrice de commission du marketplace",
+  "modes": {
+    "after": {
+      "label": "Ce qu’il me reste",
+      "description": "À partir d’un prix de vente"
+    },
+    "before": {
+      "label": "Quel prix demander",
+      "description": "Pour atteindre un objectif"
+    }
+  },
+  "inputs": {
+    "salePrice": "Prix de vente",
+    "salePriceHint": "Ce que paie l’acheteur.",
+    "amountToKeep": "Robux que vous voulez garder",
+    "amountToKeepHint": "Ce que vous voulez qu’il reste après la commission."
+  },
+  "results": {
+    "robuxYouKeep": "Robux que vous gardez",
+    "priceToCharge": "Prix à demander",
+    "tableLabel": "Détail de la vente",
+    "tableCaption": "Comment les Robux de cette vente sont répartis",
+    "columnGoesTo": "Revient à",
+    "columnRobux": "Robux",
+    "columnShare": "Part",
+    "experienceOwner": "Propriétaire de l’expérience",
+    "roblox": "Roblox",
+    "total": "Total",
+    "chargeTheBuyer": "Demander à l’acheteur",
+    "youActuallyKeep": "Ce que vous gardez réellement",
+    "copyResult": "Copier le résultat",
+    "copySummary": "Copier le résumé",
+    "estimateFrom": "Estimation de devexcalculator.org"
+  },
+  "body": {
+    "intro": {
+      "p1": "Que vendez-vous ?",
+      "p2": "Prix exprimé en multiple du prix plancher",
+      "p3": "Les prix planchers varient selon la catégorie de l’article ; on demande donc le multiple plutôt que de supposer un plancher universel. Un article dont le prix atteint six fois son plancher ou plus se situe dans la tranche la plus élevée.",
+      "p4": "Cette commission est prélevée au moment où les Robux sont gagnés. Convertir en argent, via DevEx, les Robux qui vous restent est une étape distincte, avec son propre taux : les 30 % ne sont pas appliqués deux fois."
+    }
+  }
+}

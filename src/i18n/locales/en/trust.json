@@ -23,18 +23,20 @@
         "p3": "This site exists to be the version that is correct, says where each figure came from, and admits what it cannot tell you."
       },
       "principles": {
-        "p1": "Money is calculated as exact fractions rather than floating-point numbers, and rounded once, at the moment it is displayed.",
-        "p2": "Rates, formulas, examples and explanations are all server rendered. Only live recalculation needs scripts.",
-        "p3": "Calculations run in your browser and are never sent anywhere.",
-        "p4": "When a figure here turns out to be wrong, the fix is recorded with a date in the",
-        "p5": "rather than quietly edited."
+        "p1": "Not &ldquo;current as of recently&rdquo; — a link to the official Roblox documentation and the date it was last checked, shown on the page.",
+        "p2": "Money is calculated as exact fractions rather than floating-point numbers, and rounded once, at the moment it is displayed.",
+        "p3": "Rates, formulas, examples and explanations are all server rendered. Only live recalculation needs scripts.",
+        "p4": "Calculations run in your browser and are never sent anywhere.",
+        "p5": "When a figure here turns out to be wrong, the fix is recorded with a date in the",
+        "p6": "rather than quietly edited."
       },
       "limits": {
         "p1": "Tell you whether your DevEx request will be approved. Roblox decides that, and no third party can predict it.",
-        "p2": "Give tax advice, or state a tax rate for your country.",
-        "p3": "Ask for your Roblox credentials, for any reason. No legitimate tool needs them.",
-        "p4": "Publish a page for every number just because people search for it. Amount pages exist only where there is something specific to say.",
-        "p5": "Invent review counts, user numbers, testimonials or an author biography to look more established than it is."
+        "p2": "Publish a universal Robux purchase price. There isn&rsquo;t one — it varies by package, region and platform.",
+        "p3": "Give tax advice, or state a tax rate for your country.",
+        "p4": "Ask for your Roblox credentials, for any reason. No legitimate tool needs them.",
+        "p5": "Publish a page for every number just because people search for it. Amount pages exist only where there is something specific to say.",
+        "p6": "Invent review counts, user numbers, testimonials or an author biography to look more established than it is."
       },
       "affiliation": {
         "p1": "DevExCalculator.org is not affiliated with, endorsed by, sponsored by or operated by Roblox Corporation. Roblox, Robux and Developer Exchange are trademarks of Roblox Corporation, used here only to describe what these calculations are about. For anything about your account, your balance or your DevEx request, Roblox is the only party who can help."
@@ -85,13 +87,15 @@
     },
     "body": {
       "arithmetic": {
-        "p1": "Every money value on this site is held as an exact fraction — a pair of arbitrary-precision integers — from the moment a rate is read until the moment a figure is printed. Addition, multiplication and division are exact throughout. Nothing is rounded partway, so a total always equals the sum of the parts shown above it.",
-        "p2": "The same approach handles very large balances. Robux counts are stored as arbitrary-precision integers rather than as double-precision numbers, so a ten-figure balance stays exact rather than losing its last digits."
+        "p1": "A rate like 0.0038 cannot be represented exactly in binary floating point, which is how JavaScript stores ordinary numbers. Multiply 17,000 by 0.0054 in a browser console and you get 91.80000000000001 rather than 91.80. At small amounts that hides behind rounding; across a large balance, or a chain of fee and tax calculations, the drift compounds.",
+        "p2": "Every money value on this site is held as an exact fraction — a pair of arbitrary-precision integers — from the moment a rate is read until the moment a figure is printed. Addition, multiplication and division are exact throughout. Nothing is rounded partway, so a total always equals the sum of the parts shown above it.",
+        "p3": "The same approach handles very large balances. Robux counts are stored as arbitrary-precision integers rather than as double-precision numbers, so a ten-figure balance stays exact rather than losing its last digits."
       },
       "rounding": {
-        "p1": "Rounding to nearest would sometimes return a figure that falls short of the target you asked for.",
-        "p2": "Better to under-promise what you keep than to show a figure a Robux above what arrives.",
-        "p3": "Rounding a subtotal and then using it would let a displayed total disagree with its own breakdown."
+        "p1": "to the currency&rsquo;s own minor units — two decimal places for dollars, none for yen or won.",
+        "p2": "Rounding to nearest would sometimes return a figure that falls short of the target you asked for.",
+        "p3": "Better to under-promise what you keep than to show a figure a Robux above what arrives.",
+        "p4": "Rounding a subtotal and then using it would let a displayed total disagree with its own breakdown."
       },
       "currency": {
         "p1": "The DevEx rate is denominated in US dollars, so every calculation is performed in USD and converted afterwards. Conversion uses European Central Bank euro reference rates, published once each working day at around 16:00 CET.",
@@ -99,6 +103,10 @@
         "p3": "These are reference rates. No bank trades at them. Your payment provider will apply its own rate with a margin, so treat a converted figure as an indication of scale rather than a prediction.",
         "p4": "More on currency conversion and fees",
         "p5": "If the provider is unreachable, a stored snapshot is shown and explicitly labelled stale. A stale rate is never presented as current, and the USD calculation never depends on the provider being available."
+      },
+      "limits": {
+        "p1": "Which of your Robux Roblox counts as Earned Robux. That is Roblox&rsquo;s internal accounting and is not visible from outside.",
+        "p2": "How your balance divides between the standard, legacy and conditional rates. The split calculator models whatever division you supply; it cannot discover the real one."
       }
     }
   },
@@ -118,10 +126,14 @@
     "escalatesAfter": "Escalates to critical after",
     "body": {
       "registry": {
-        "p1": "Facts this source establishes"
+        "p1": "Facts this source establishes",
+        "p2": "{source.effectiveDate ? (",
+        "p3": ") : null}"
       },
       "cadence": {
-        "p1": "Rate data is never updated automatically from a scraped page. A change to a published rate requires the source to be verified by hand, the registry updated, the unit tests updated to the new expected values, the affected pages reviewed, an entry added to the changelog, and a redeploy. That sequence is deliberately slow — a wrong rate published quickly is worse than a right one published a day later."
+        "p1": "days ago)",
+        "p2": "Between reviews, a scheduled job re-reads the markdown Roblox publishes for its DevEx page four times a day and compares the rates and the minimum to the ones published here. It can confirm that nothing has moved; it cannot change a figure. A difference raises a flag for a person to read, and a document it cannot recognise — an outage, or a redesign — is reported as unreadable rather than treated as a rate that has been withdrawn. The result is published at",
+        "p3": "Rate data is never updated automatically from a scraped page. A change to a published rate requires the source to be verified by hand, the registry updated, the unit tests updated to the new expected values, the affected pages reviewed, an entry added to the changelog, and a redeploy. That sequence is deliberately slow — a wrong rate published quickly is worse than a right one published a day later."
       }
     }
   },
@@ -162,7 +174,8 @@
       "review": {
         "p1": "Rate-sensitive content is reviewed every",
         "p2": "days, and escalates to a required manual review after",
-        "p3": "A figure is never left online because it performs well in search after it stops being accurate. If it is wrong, it changes, and the change is recorded."
+        "p3": "A figure is never left online because it performs well in search after it stops being accurate. If it is wrong, it changes, and the change is recorded.",
+        "p4": "How corrections work"
       }
     }
   },
@@ -188,16 +201,18 @@
         "p2": "Anything about your own account, your balance, or a DevEx request you have submitted. This site has no access to any of that and no relationship with Roblox — only Roblox support can look into it."
       },
       "process": {
-        "p1": "Rates live in one validated data file. Changing them there changes every page, table and calculator at once — there is no second copy to forget.",
-        "p2": "The unit tests assert specific expected values. A rate change means those expectations change too, which is what stops a figure being updated in one place and not another.",
-        "p3": "Any prose that states the old figure in words is rewritten, not just the tables.",
-        "p4": "With the date, what changed, and the source that justified it.",
-        "p5": "The badge shown on every rate-sensitive page reflects the new check.",
-        "p6": "The full test suite has to pass first."
+        "p1": "The claim is checked directly against Roblox&rsquo;s own documentation, not against another site that repeated it.",
+        "p2": "Rates live in one validated data file. Changing them there changes every page, table and calculator at once — there is no second copy to forget.",
+        "p3": "The unit tests assert specific expected values. A rate change means those expectations change too, which is what stops a figure being updated in one place and not another.",
+        "p4": "Any prose that states the old figure in words is rewritten, not just the tables.",
+        "p5": "With the date, what changed, and the source that justified it.",
+        "p6": "The badge shown on every rate-sensitive page reflects the new check.",
+        "p7": "The full test suite has to pass first."
       },
       "record": {
-        "p1": "Rate changes made by Roblox are also reflected in the",
-        "p2": ", which is a separate record: the changelog tracks what this site did, the rate history tracks what Roblox did."
+        "p1": "Publicly, in the",
+        "p2": "Rate changes made by Roblox are also reflected in the",
+        "p3": ", which is a separate record: the changelog tracks what this site did, the rate history tracks what Roblox did."
       }
     }
   },
@@ -224,7 +239,9 @@
         "p1": "Every entry here is published as a feed:",
         "p2": "for a feed reader, or",
         "p3": "for anything that would rather not parse XML. Both carry the same entries and the same source links. If you depend on these figures,",
-        "p4": "publishes the current values with their verification date attached."
+        "p4": "publishes the current values with their verification date attached.",
+        "p5": "{entry.sourceUrl && entry.sourceLabel ? (",
+        "p6": ") : null}"
       },
       "scope": {
         "p1": "Any change to a published rate, minimum or fee percentage appears here with its date and source. So does any correction to a figure that turned out to be wrong — those are not quietly edited away. Routine content edits and typo fixes are not listed, because a changelog that records everything records nothing useful.",
@@ -301,19 +318,29 @@
     },
     "healthNoBinding": "No history binding in this environment, so nothing is collected here.",
     "body": {
+      "rates": {
+        "p1": "The response carries a and a . Those two fields are the point: a rate on its own is a number that may already be wrong, and this site changed rate once already — the September 2025 move from $0.0035 to $0.0038 per Robux, which is why rates are published rather than one. Read the version, and you can tell whether what you cached is still what this site is serving."
+      },
+      "fx": {
+        "p1": "These are reference rates, not a dealing rate: nobody converts money at them. They are published by the ECB once per working day, and the response says which day it is reporting. If the provider cannot be reached, a bundled snapshot is returned and marked rather than passed off as current — so check before treating a figure as today&rsquo;s."
+      },
       "stats": {
         "p1": "The figures charted on",
         "p2": ", published as data so a chart can be checked rather than believed. Add for a spreadsheet. Every row names its filing and links to it, and every row says whether Roblox reported the figure or this site derived it — a distinction that disappears the moment two numbers sit in the same column without it.",
         "p3": "Money is an exact decimal string, never a floating-point number. A figure read from a filing is reproduced as written."
       },
       "platform": {
-        "p1": "Nothing is filled in.",
-        "p2": "A gap means the collector did not run at that moment, and the gap is left in — no interpolation, no carry-forward, no back-fill. When no observations can be read at all the endpoint answers rather than an empty list, because an empty file is indistinguishable from a period with no players."
+        "p1": "What",
+        "p2": "charts. Add for a spreadsheet, or for per-experience rows rather than totals. Reading it makes no request to Roblox: the collector does that on its own schedule, and an export that triggered an upstream fetch would let anyone raise this site&rsquo;s request rate against Roblox by reloading a URL.",
+        "p3": "Nothing is filled in.",
+        "p4": "A gap means the collector did not run at that moment, and the gap is left in — no interpolation, no carry-forward, no back-fill. When no observations can be read at all the endpoint answers rather than an empty list, because an empty file is indistinguishable from a period with no players."
       },
       "using": {
         "p1": "describes every endpoint here as OpenAPI 3.1 — parameters, status codes, content types and the exact each one sends. It is generated from the same declaration this page reads, and a test compares that declaration against the route handlers that actually exist, so an endpoint cannot be added without appearing in it or described after it has gone.",
         "p2": "There is nothing to register for and no token to keep secret. Every reference endpoint is a plain GET, sets no cookie, and answers identically for every caller.",
-        "p3": "Every reference endpoint sends , so a page on any origin can it directly. That was not true until recently, and it made the endpoints useless to exactly the people they were published for. The two that do not are deliberate: health is infrastructure for an operator, and contact accepts submissions and is origin-checked."
+        "p3": "Every reference endpoint sends , so a page on any origin can it directly. That was not true until recently, and it made the endpoints useless to exactly the people they were published for. The two that do not are deliberate: health is infrastructure for an operator, and contact accepts submissions and is origin-checked.",
+        "p4": "Rates change rarely — twice in the programme&rsquo;s history at the time of writing. The responses carry and are safe to hold for an hour or a day. Please do not poll them every second; there is no rate limit and it would be a waste of both our bandwidth.",
+        "p5": "Not required, and appreciated. If you cite a figure, cite the source in alongside it — that is Roblox&rsquo;s own documentation, and it is what makes the number checkable rather than borrowed."
       },
       "terms": {
         "p1": "the shape of the response will not change without the changing, every figure will carry the source it was verified against, and a rate will never be updated from a scraped page without a person checking it first. Changes are recorded in",
@@ -322,7 +349,9 @@
         "p4": "for how each figure gets from their documentation into this response."
       },
       "related": {
-        "p1": "Reading the standard rate"
+        "p1": "); } function Field(",
+        "p2": ") { return (",
+        "p3": "Reading the standard rate"
       }
     }
   },

@@ -57,5 +57,31 @@
     "machineDrafted": "Machine-drafted — awaiting native review",
     "machineDraftedExplained": "This translation was drafted automatically and has not yet been checked by a native speaker. Figures come from the same verified registry as the English page.",
     "readInEnglish": "Read this page in English"
+  },
+  "desktop": {
+    "body": {
+      "intro": {
+        "p1": "` in the delivered * HTML, open panel or not, so the crawl surface does not depend on anything * running in the browser. * * Built on `",
+        "p2": "` rather than on a button and a state hook. The native * element is a disclosure already: it opens on click and on Enter or Space, * exposes its expanded state to assistive technology, and — the part that * decided it — keeps working with JavaScript disabled, which no hand-built * dropdown does. `NavDisclosures` adds Escape, outside-click and mutual * exclusion on top; none of those are needed for the menu to open. * * Deliberately not an ARIA menu. `role=\"menu\"` commits to arrow-key roving * focus and to treating these as commands rather than links, and a partial * implementation of that pattern is worse for a screen reader than the plain * disclosure-of-links this actually is. */ export function DesktopNavigation() { return ("
+      }
+    }
+  },
+  "mobile": {
+    "body": {
+      "intro": {
+        "p1": "` elements the * desktop navigation renders, so nothing about the site's crawl surface * depends on this component running. * * The groups are passed in as plain data rather than imported here, so the * route registry stays out of the browser bundle. * * Behaviour required by the accessibility contract: * - Escape closes the panel and returns focus to the trigger. * - Focus is trapped inside the panel while it is open. * - Background scrolling is locked, without the layout shifting. * - The trigger reports its expanded state and the panel it controls. * * One accordion level inside, and no more: twenty-one destinations on a phone * is a scroll either way, and a second level of nesting would hide the thing * a reader is looking for behind two taps instead of one. */ export function MobileNavigation(",
+        "p2": ") { const [open, setOpen] = useState(false); const panelId = useId(); const triggerRef = useRef",
+        "p3": "(null); const panelRef = useRef"
+      }
+    }
+  },
+  "disclosures": {
+    "body": {
+      "intro": {
+        "p1": "` elements rendered on the server, * so they open, close and take keyboard focus with no JavaScript at all. That * is the whole reason for building them that way: a reader with scripts * blocked gets working navigation rather than a dead button, and a crawler * sees every destination in the HTML whether a panel is open or not. * * Three things a bare `",
+        "p2": "` still does not do, which this adds: * * - Escape closes the open menu and returns focus to its own trigger. * - A pointer press anywhere outside closes it. Without this a menu opened * by accident follows the reader down the page. * - Opening one closes the others. The `name` attribute already does this in * current browsers; this covers the ones where it does not, and is the * reason the exclusive behaviour can be relied on rather than hoped for. * * It wraps server-rendered children and touches them through the DOM instead * of owning them, so nothing here re-renders and no page content is pulled * into the client bundle to get this behaviour. */ export function NavDisclosures(",
+        "p3": ") { const ref = useRef"
+      }
+    }
   }
 }

@@ -1,0 +1,46 @@
+{
+  "$comment": "Machine-drafted. Not yet read by a native speaker. Protected names (Roblox, Robux, DevEx, Marketplace) are never translated.",
+  "$identical": ["results.roblox"],
+  "srHeading": "Calculadora de taxa do marketplace",
+  "modes": {
+    "after": {
+      "label": "O que eu fico",
+      "description": "A partir de um preço de venda"
+    },
+    "before": {
+      "label": "Quanto cobrar",
+      "description": "Para alcançar uma meta"
+    }
+  },
+  "inputs": {
+    "salePrice": "Preço de venda",
+    "salePriceHint": "O que o comprador paga.",
+    "amountToKeep": "Robux que você quer ficar",
+    "amountToKeepHint": "O que você quer que sobre depois da comissão."
+  },
+  "results": {
+    "robuxYouKeep": "Robux que você fica",
+    "priceToCharge": "Preço a cobrar",
+    "tableLabel": "Detalhamento da venda",
+    "tableCaption": "Como os Robux desta venda são divididos",
+    "columnGoesTo": "Vai para",
+    "columnRobux": "Robux",
+    "columnShare": "Participação",
+    "experienceOwner": "Dono da experiência",
+    "roblox": "Roblox",
+    "total": "Total",
+    "chargeTheBuyer": "Cobrar do comprador",
+    "youActuallyKeep": "O que você realmente fica",
+    "copyResult": "Copiar resultado",
+    "copySummary": "Copiar resumo",
+    "estimateFrom": "Estimativa do devexcalculator.org"
+  },
+  "body": {
+    "intro": {
+      "p1": "O que você está vendendo?",
+      "p2": "Preço como múltiplo do piso de preço",
+      "p3": "Os pisos de preço variam por categoria de item, então isto pede o múltiplo em vez de supor um piso universal. Um item com preço igual ou superior a seis vezes o seu piso alcança a faixa mais alta.",
+      "p4": "Esta comissão é retida no momento em que os Robux são ganhos. Converter em dinheiro os Robux que você ficou, pelo DevEx, é uma etapa separada com sua própria taxa — os 30% não são aplicados duas vezes."
+    }
+  }
+}

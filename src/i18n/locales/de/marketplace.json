@@ -1,0 +1,46 @@
+{
+  "$comment": "Machine-drafted. Not yet read by a native speaker. Protected names (Roblox, Robux, DevEx, Marketplace) are never translated.",
+  "$identical": ["results.roblox", "results.total"],
+  "srHeading": "Marketplace-Gebührenrechner",
+  "modes": {
+    "after": {
+      "label": "Was mir bleibt",
+      "description": "Ausgehend von einem Verkaufspreis"
+    },
+    "before": {
+      "label": "Was ich verlangen muss",
+      "description": "Um ein Ziel zu erreichen"
+    }
+  },
+  "inputs": {
+    "salePrice": "Verkaufspreis",
+    "salePriceHint": "Was die Käuferin oder der Käufer zahlt.",
+    "amountToKeep": "Robux, die dir bleiben sollen",
+    "amountToKeepHint": "Was nach der Provision übrig bleiben soll."
+  },
+  "results": {
+    "robuxYouKeep": "Robux, die dir bleiben",
+    "priceToCharge": "Zu verlangender Preis",
+    "tableLabel": "Aufschlüsselung des Verkaufs",
+    "tableCaption": "Wie die Robux aus diesem Verkauf aufgeteilt werden",
+    "columnGoesTo": "Geht an",
+    "columnRobux": "Robux",
+    "columnShare": "Anteil",
+    "experienceOwner": "Inhaber der Experience",
+    "roblox": "Roblox",
+    "total": "Total",
+    "chargeTheBuyer": "Vom Käufer verlangen",
+    "youActuallyKeep": "Was dir tatsächlich bleibt",
+    "copyResult": "Ergebnis kopieren",
+    "copySummary": "Zusammenfassung kopieren",
+    "estimateFrom": "Schätzung von devexcalculator.org"
+  },
+  "body": {
+    "intro": {
+      "p1": "Was verkaufst du?",
+      "p2": "Preis als Vielfaches des Mindestpreises",
+      "p3": "Die Mindestpreise unterscheiden sich je nach Artikelkategorie, deshalb wird hier nach dem Vielfachen gefragt statt von einem einheitlichen Mindestpreis auszugehen. Ein Artikel, der das Sechsfache seines Mindestpreises oder mehr kostet, erreicht die oberste Stufe.",
+      "p4": "Diese Provision wird einbehalten, sobald die Robux verdient sind. Die dir verbleibenden Robux über DevEx in Geld umzuwandeln, ist ein eigener Schritt mit eigenem Kurs — die 30 % werden nicht zweimal abgezogen."
+    }
+  }
+}

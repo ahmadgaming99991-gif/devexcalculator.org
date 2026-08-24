@@ -236,116 +236,75 @@ function scan(file: string): Finding[] {
       });
     }
 
-    // Only a .tsx file can hold JSX. In a .ts file a generic type argument
-    // reads as a tag: `ParseResult<T> = ParseSuccess<T>` has a `>`, some
-    // characters and a `<`, and is a declaration rather than a sentence.
-    if (!file.endsWith(".tsx")) return;
-
-    /*
-     * JSX text nodes: between a closing bracket and an opening tag.
-     *
-     * The lookarounds are what keep this from reading TypeScript as markup.
-     * `if (value >= "0" && char < x)` contains a `>`, four characters, and a
-     * `<`, and an earlier version of this pattern happily reported `= "0" &&
-     * char` as a sentence somebody had forgotten to translate. A real tag ends
-     * with a name, a quote or a brace before the `>`, and the next tag opens
-     * with a letter or a slash.
-     */
-    const jsxText = /(?<=[A-Za-z0-9"'\}\]])>([^<>{}]{4,})<(?=[/A-Za-z])/g;
-    while ((match = jsxText.exec(line)) !== null) {
-      const value = match[1];
-      if (!value || !looksTranslatable(value)) continue;
-      findings.push({
-        file: rel,
-        line: index + 1,
-        category: "jsx-text",
-        words: countWords(value),
-        hasTokens: hasInterpolation(value),
-        text: value.trim(),
-      });
-    }
   });
 
-  findings.push(...scanWrappedProse(file, source, rel, isRegistry));
+  findings.push(...scanJsxText(file, source, rel, isRegistry));
   return findings;
 }
 
 /**
- * Prose that runs across several lines, which the line scan cannot see.
+ * Every JSX text node in the file, including the ones that wrap.
  *
- * The scan above reads one line at a time, and most of this site's real
- * sentences do not fit on one. A paragraph wraps, and an inline link lands in
- * the middle of it:
+ * A text node is what sits between a tag that closes and a tag that opens, and
+ * most of this site's real sentences do not fit on one line:
  *
  *     <p>
  *       Roblox decides which rate applies. See{" "}
  *       <Link href="/devex-rates/">the current rates</Link> for the detail.
  *     </p>
  *
- * To the line scan that is three fragments, two of them too short to look like
- * anything. To a reader it is one sentence, and to a translator it is one
- * string. Without this pass the inventory would report a page as fully
- * extracted while most of its words were still in the component — which is
- * the exact failure the inventory exists to make impossible.
+ * Read line by line that is three fragments, two of them too short to look
+ * like anything. Read as spans it is two sentences and a link label, which is
+ * what a translator is given.
  *
- * Tags and expressions are removed repeatedly rather than once, because they
- * nest; what survives is text. The filters that follow drop anything still
- * carrying code punctuation, which is what a partially-stripped expression
- * looks like.
+ * Tags are the boundary here, deliberately. Masking braces instead — the
+ * obvious alternative — fails in both directions: exclude the characters
+ * already masked and an outer brace can never match its own pattern, so
+ * `export const metadata = { title: "…" }` comes back as a paragraph; include
+ * them and the mask eats whole function bodies.
+ *
+ * `{" "}` becomes a space because that is the only reason it is ever written.
+ * Every other interpolation ends the run: a value is not part of the sentence
+ * around it, and welding across one produced sentences that appear on no page
+ * and that no dictionary could ever match.
  */
-function scanWrappedProse(
+function scanJsxText(
   file: string,
   source: string,
   rel: string,
   isRegistry: boolean,
 ): Finding[] {
+  // Only a .tsx file can hold JSX. In a .ts file a generic type argument reads
+  // as a tag: `ParseResult<T> = ParseSuccess<T>` has a `>`, some characters
+  // and a `<`, and is a declaration rather than a sentence.
   if (!file.endsWith(".tsx")) return [];
 
-  // Line numbers are lost once tags are removed, so the offset of each run is
-  // recovered by counting newlines up to it in the masked text — which has the
-  // same length as the original, because masking preserves it.
-  let masked = source.replace(/\/\*[\s\S]*?\*\//g, (w) => w.replace(/[^\n]/g, " "));
-  masked = masked.replace(/^\s*\/\/.*$/gm, (w) => " ".repeat(w.length));
-  /*
-   * Tags and interpolations become a separator, not a space.
-   *
-   * Filling them with spaces would weld two neighbouring elements into one
-   * run: a hint ending "...the one you pick." followed by a legend reading
-   * "What do you know?" came back as a single 19-word sentence that appears
-   * nowhere on the page, and no dictionary could ever match it. The one
-   * exception is `{" "}`, which exists precisely to hold a sentence together
-   * across a line break and so really is a space.
-   */
-  masked = masked.replace(/\{\s*"\s*"\s*\}/g, (w) => ` ${" ".repeat(w.length - 1)}`);
-  for (let pass = 0; pass < 12; pass += 1) {
-    const next = masked
-      .replace(/<[^<>\0]*>/g, (w) => w.replace(/[^\n]/g, "\0"))
-      .replace(/\{[^{}\0]*\}/g, (w) => w.replace(/[^\n]/g, "\0"));
-    if (next === masked) break;
-    masked = next;
-  }
-
   const findings: Finding[] = [];
-  const run = /[^<>{}\0]{12,}/g;
+  /*
+   * The lookarounds are what keep this from reading TypeScript as markup.
+   * `if (value >= "0" && char < x)` also has a `>`, some text and a `<`. A
+   * real tag ends with a name, a quote or a brace, and the next one opens with
+   * a letter or a slash.
+   */
+  const span = /(?<=[A-Za-z0-9"'}\]])>([^<>]{4,}?)<(?=[/A-Za-z])/gs;
   let match: RegExpExecArray | null;
-  while ((match = run.exec(masked)) !== null) {
-    const text = match[0].split(/\s+/).filter(Boolean).join(" ");
-    if (text.length < 12) continue;
-    // Two lowercase words in a row is the shortest thing that reads as prose
-    // rather than as a label, an identifier or a stripped expression.
-    if (!/[a-z]{3}\s+[a-z]{2}/.test(text)) continue;
-    if (/[=;()[\]`$]|=>/.test(text)) continue;
-    if (!looksTranslatable(text)) continue;
-    // Anything the line scan already reported. Reported once, not twice.
-    if (!text.includes(" ") || text.split(" ").length < 4) continue;
-    findings.push({
-      file: rel,
-      line: (masked.slice(0, match.index).match(/\n/g)?.length ?? 0) + 1,
-      category: isRegistry ? "registry-prose" : "jsx-text",
-      words: countWords(text),
-      hasTokens: hasInterpolation(text),
-      text: text,
-    });
+  while ((match = span.exec(source)) !== null) {
+    const line = (source.slice(0, match.index).match(/\n/g)?.length ?? 0) + 1;
+    const raw = match[1] ?? "";
+    for (const part of raw
+      .replace(/\{\s*"\s*"\s*\}/g, " ")
+      .split(/\{[^{}]*\}/)) {
+      const value = part.split(/\s+/).filter(Boolean).join(" ");
+      if (!value || !looksTranslatable(value)) continue;
+      findings.push({
+        file: rel,
+        line,
+        category: isRegistry ? "registry-prose" : "jsx-text",
+        words: countWords(value),
+        hasTokens: hasInterpolation(value),
+        text: value,
+      });
+    }
   }
   return findings;
 }
