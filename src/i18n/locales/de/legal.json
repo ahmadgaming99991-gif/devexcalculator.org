@@ -1,0 +1,177 @@
+{
+  "$comment": "Machine-drafted. Not yet read by a native speaker. These pages describe this deployment specifically, not a generic template, so nothing here may be generalised back into boilerplate.",
+  "$identical": [
+    "privacy.cloudflareAnalytics",
+    "privacy.googleAnalytics"
+  ],
+  "privacy": {
+    "intro": "Was diese Website speichert, was nicht, und welche Dritten beteiligt sind — beschrieben für dieses Deployment und nicht als allgemeine Vorlage.",
+    "calculationsHeading": "Deine Berechnungen",
+    "localStorageHeading": "Lokaler Speicher",
+    "analyticsHeading": "Analyse",
+    "noAnalyticsTitle": "Auf diesem Deployment läuft keine Analyse",
+    "contactHeading": "Kontaktformular-Einsendungen",
+    "noContactFormTitle": "Auf diesem Deployment ist kein Kontaktformular aktiv",
+    "infrastructureHeading": "Hosting und Serverprotokolle",
+    "externalHeading": "Externe Links",
+    "rightsHeading": "Deine Möglichkeiten",
+    "stored": {
+      "currency": "Deine bevorzugte Anzeigewährung",
+      "theme": "Deine Wahl des Farbschemas, falls du sie änderst",
+      "feeControls": "Ob du die Gebühren- und Steuerfelder geöffnet hattest",
+      "savedCalculations": "Berechnungen, die du ausdrücklich gespeichert hast, bis zu zehn"
+    },
+    "clearHistory": "Verlauf löschen",
+    "cloudflareAnalytics": "Cloudflare Web Analytics",
+    "googleAnalytics": "Google Analytics 4",
+    "declineNote": "Lehne Analyse-Cookies ab, wenn du gefragt wirst, oder lösche die Websitedaten, um erneut gefragt zu werden.",
+    "contactPageLink": "Kontaktseite",
+    "body": {
+      "intro": {
+        "p1": "Zuletzt geprüft"
+      },
+      "calculations": {
+        "p1": "Jede Berechnung läuft in deinem Browser. Die Beträge, die du eintippst, der gewählte Kurs und die Ergebnisse werden nie an einen Server übertragen, weil die Rechnung dafür keinen Server braucht.",
+        "p2": "Eine Folge, die man kennen sollte: Wenn du den Teilen-Knopf benutzt, landen deine Zahlen in der URL. Dieser Link ist unbedenklich zu teilen — er enthält einen Betrag und einen Kurs, nichts über dich — aber er ist trotzdem ein Link mit deinen Zahlen darin, also behandle ihn wie jeden anderen Link, den du jemandem schickst."
+      },
+      "localStorage": {
+        "p1": "Nichts davon verlässt dein Gerät. Es gibt kein Konto, nichts wird synchronisiert, und das Löschen deiner Browserdaten entfernt alles. Der Rechner hat außerdem einen Knopf",
+        "p2": "der gespeicherte Berechnungen sofort entfernt. Ist der lokale Speicher nicht verfügbar — privates Fenster oder blockierter Speicher — funktioniert weiterhin alles; die Seite vergisst nur zwischen den Besuchen."
+      },
+      "analytics": {
+        "p1": "Auf diesem Deployment ist Analyse aktiviert:",
+        "p2": "— ohne Cookies, und erfasst Seitenaufrufe statt Personen. Es wird keine Einwilligung abgefragt, weil kein Cookie gesetzt wird.",
+        "p3": "— setzt Cookies und lädt deshalb erst, nachdem du zugestimmt hast. Es startet im abgelehnten Zustand und bleibt dort, sofern du dich nicht anders entscheidest."
+      },
+      "contact": {
+        "p1": "Das Formular ist durch Cloudflare Turnstile geschützt, das prüft, ob eine Einsendung von einem Menschen und nicht von einem Skript stammt. Turnstile wird von Cloudflare bereitgestellt und verarbeitet für diese Prüfung ein Token zusammen mit deiner IP-Adresse.",
+        "p2": "Es ist kein Versanddienst eingerichtet, es gibt also kein Formular zum Absenden, und es werden keine Nachrichtendaten erhoben oder gespeichert."
+      },
+      "infrastructure": {
+        "p1": "Diese Website betreibt keine Datenbank. Es gibt keinen Ort, an dem sich personenbezogene Daten ansammeln könnten, weil ein solcher Speicher nicht existiert."
+      },
+      "external": {
+        "p1": "Die Seiten hier verlinken auf die offizielle Roblox-Dokumentation, auf die Europäische Zentralbank und auf weitere Quellen, aufgeführt in den"
+      },
+      "rights": {
+        "p1": "Lösche gespeicherte Berechnungen jederzeit mit dem Knopf „Verlauf löschen“ im Rechner.",
+        "p2": "Lösche alle Einstellungen, indem du die Websitedaten für",
+        "p3": "in deinen Browsereinstellungen löschst.",
+        "p4": "Nutze die Website mit vollständig blockiertem lokalem Speicher — alles funktioniert, nichts wird gemerkt.",
+        "p5": "Schreib uns zu allem in dieser Erklärung über die"
+      }
+    }
+  },
+  "terms": {
+    "intro": "Die Bedingungen für die Nutzung dieser Website. Kurz, weil nicht mehr dahintersteckt: du benutzt einen Rechner, und er gibt dir eine Schätzung.",
+    "useHeading": "Diese Website nutzen",
+    "estimatesHeading": "Schätzungen, keine Beratung",
+    "affiliationHeading": "Keine Verbindung zu Roblox",
+    "liabilityHeading": "Haftungsbeschränkung",
+    "changesHeading": "Änderungen dieser Bedingungen",
+    "body": {
+      "intro": {
+        "p1": "Zuletzt geprüft"
+      },
+      "use": {
+        "p1": "Du darfst",
+        "p2": "frei nutzen, um DevEx-Auszahlungen zu schätzen — für dich selbst oder im Rahmen deiner Arbeit als Creator. Es ist kein Konto nötig, und es fallen keine Kosten an.",
+        "p3": "Was im Gegenzug erwartet wird: versuche nicht, die Website oder die Infrastruktur dahinter zu stören, greife sie nicht so ab, dass sie für andere schlechter wird, und wenn du Zahlen von hier weiterveröffentlichst, nenne die Quelle und das Verifizierungsdatum. Ein ohne Datum zitierter Kurs wird ohne Vorwarnung falsch, und das führt die nächste Leserin in die Irre."
+      },
+      "estimates": {
+        "p1": "Jede Zahl auf dieser Website ist eine Schätzung, die entsteht, indem öffentlich dokumentierte Kurse auf Zahlen angewandt werden, die du eingegeben hast. Nichts davon ist Finanz-, Steuer- oder Rechtsberatung oder eine fachliche Stellungnahme irgendeiner Art.",
+        "p2": "Auf Genauigkeit wird erheblich geachtet — jeder Kurs hat eine Quelle, ein Datum und Tests, die ihn abdecken — aber Kurse ändern sich, Dokumentation wandert, und Fehler sind möglich. Prüfe alles, worauf du dich verlässt, gegen die offizielle Roblox-Dokumentation, verlinkt von den",
+        "p3": "bevor du eine Entscheidung triffst, die zählt."
+      },
+      "affiliation": {
+        "p1": "Diese Website ist unabhängig. Sie ist nicht mit der Roblox Corporation verbunden und wird von ihr weder unterstützt noch gesponsert oder betrieben. Roblox, Robux und Developer Exchange sind Marken der Roblox Corporation und werden hier beschreibend genannt, um zu benennen, worum es bei diesen Berechnungen geht.",
+        "p2": "Diese Website kann den Ausgang eines DevEx-Antrags weder beeinflussen noch beschleunigen, vorhersagen oder garantieren, und sie hat keinen Zugriff auf ein Roblox-Konto oder -Guthaben."
+      },
+      "liability": {
+        "p1": "Diese Website wird so bereitgestellt, wie sie ist, ohne Gewährleistung jeder Art. Soweit gesetzlich zulässig, wird keine Haftung für Verluste oder Schäden aus ihrer Nutzung übernommen — einschließlich Entscheidungen auf Grundlage einer hier gezeigten Schätzung, einer seither geänderten Zahl oder einer Nichtverfügbarkeit der Website.",
+        "p2": "Nichts in diesen Bedingungen beschränkt eine Haftung, die rechtlich nicht beschränkt werden darf."
+      },
+      "changes": {
+        "p1": "Diese Bedingungen können aktualisiert werden. Das Prüfdatum oben auf dieser Seite steht für die jüngste Änderung, und wesentliche Änderungen werden im",
+        "p2": "festgehalten, zusammen mit allem anderen, was sich hier ändert."
+      }
+    }
+  },
+  "disclaimer": {
+    "intro": "Die ehrliche Grenze dessen, was dir diese Website sagen kann — einmal zu lesen, bevor du um eine Zahl von hier herum planst.",
+    "estimatesHeading": "Alles hier ist eine Schätzung",
+    "cannotDetermineHeading": "Was diese Website nicht feststellen kann",
+    "noCalculatorTitle": "Kein Rechner kann das beantworten",
+    "trademarksHeading": "Marken",
+    "accuracyHeading": "Richtigkeit und Aktualität der Angaben",
+    "cannot": {
+      "approval": "Ob ein DevEx-Antrag genehmigt wird.",
+      "timing": "Wie lange ein Antrag dauert oder wann die Zahlung ankommt.",
+      "providerCharges": "Was dein Zahlungsdienstleister dir berechnen wird.",
+      "tax": "Was du an Steuern schuldest, oder wann.",
+      "futureRate": "Wie der DevEx-Kurs künftig aussieht."
+    },
+    "correctionsProcessLink": "Korrekturprozess",
+    "body": {
+      "estimates": {
+        "p1": "Beide Annahmen triffst du selbst. Keine davon lässt sich von außerhalb Roblox’ überprüfen."
+      },
+      "cannotDetermine": {
+        "p1": "Wie sich dein Guthaben auf den Standard-, den Alt- und den bedingten Kurs verteilt.",
+        "p2": "Das ist keine Schwäche gerade dieser Website. Jedes Werkzeug, das behauptet zu wissen, ob deine Robux anrechenbar sind, oder das eine bestimmte Auszahlung verspricht, behauptet Wissen, das es nicht hat. Roblox ist die einzige Stelle, die diese Fragen beantworten kann."
+      },
+      "trademarks": {
+        "p1": "Roblox, Robux und Developer Exchange sind Marken der Roblox Corporation. Sie erscheinen auf dieser Website nur, um zu beschreiben, worum es bei diesen Berechnungen geht — gewöhnlicher beschreibender Gebrauch. Diese Website ist nicht mit der Roblox Corporation verbunden und wird von ihr weder unterstützt noch gesponsert oder betrieben; Erscheinungsbild, Grafiken und Texte hier sind eigene."
+      },
+      "accuracy": {
+        "p1": "Die Kursdaten dieser Website wurden zuletzt gegen die offizielle Dokumentation geprüft am",
+        "p2": "Falls eine Zahl hier zurückgefallen ist: die",
+        "p3": "verlinkt direkt auf die offizielle Seite, aus der sie stammt, sodass du den aktuellen Wert in wenigen Sekunden selbst prüfen kannst. Sie über den",
+        "p4": "zu melden sorgt dafür, dass sie auch für alle anderen korrigiert wird."
+      }
+    }
+  },
+  "accessibility": {
+    "intro": "Was diese Website anstrebt, was tatsächlich getestet wurde, und was noch unvollkommen ist.",
+    "standardHeading": "Der angestrebte Standard",
+    "testedHeading": "Was getestet wurde",
+    "featuresHeading": "Barrierefreiheitsfunktionen",
+    "limitationsHeading": "Bekannte Einschränkungen",
+    "feedbackHeading": "Ein Problem melden",
+    "features": {
+      "keyboard": "Durchgehend mit der Tastatur bedienbar",
+      "focus": "Überall sichtbarer Fokus",
+      "announced": "Ergebnisse werden angesagt",
+      "errorsTied": "Fehler sind mit ihrem Feld verknüpft",
+      "notColourAlone": "Nichts hängt allein an der Farbe",
+      "targets": "Zielflächen sind mindestens 44 Pixel groß",
+      "targetsDetail": "Schaltflächen, Voreinstellungs-Chips, Navigationslinks und Formularfelder erfüllen alle dieses Mindestmaß.",
+      "mobileMenu": "Das mobile Menü verhält sich richtig",
+      "tablesScroll": "Breite Tabellen scrollen barrierefrei",
+      "zoom": "Zoom wird nie blockiert",
+      "zoomDetail": "Der Viewport legt keinen Maximalmaßstab fest, Pinch-Zoom funktioniert also überall.",
+      "noJs": "Funktioniert ohne JavaScript"
+    },
+    "aboutPageLink": "Über-Seite",
+    "body": {
+      "intro": {
+        "p1": "Zuletzt geprüft"
+      },
+      "standard": {
+        "p1": "Diese Website will erfüllen:"
+      },
+      "tested": {
+        "p1": "Automatisierte Prüfungen finden nur eine Minderheit der echten Barrieren, deshalb zählen der Tastaturdurchgang und die manuellen Layoutprüfungen mehr als die axe-Ergebnisse."
+      },
+      "limitations": {
+        "p1": "Es gab keinen Test mit einem echten Screenreader durch jemanden, der täglich einen benutzt. Die Semantik wurde sorgfältig gebaut und geprüft, aber das ist nicht dasselbe, und Rückmeldungen tatsächlicher Nutzerinnen und Nutzer sind ausdrücklich erwünscht.",
+        "p2": "Sehr lange Zahlen in einem Ergebnis brechen um, statt zu schrumpfen. Bei 320 Pixeln und 200 % Zoom kann eine zehnstellige Auszahlung drei Zeilen einnehmen. Umbrechen wurde dem Abschneiden vorgezogen, denn ein abgeschnittener Geldbetrag ist schlimmer als ein hoher.",
+        "p3": "Die Kursvergleichs- und Aufschlüsselungstabellen scrollen auf schmalen Bildschirmen waagerecht. Der Scrollbereich ist per Tastatur erreichbar und beschriftet, aber eine Tabelle bleibt so schwerer zu lesen als bei einem breiteren Viewport."
+      },
+      "feedback": {
+        "p1": "Wenn dich hier etwas blockiert, ist es der schnellste Weg zur Behebung, es uns zu sagen. Nenne die Seite, was du tun wolltest, und — falls relevant — Browser und assistive Technik. Barrierefreiheitsmeldungen haben dieselbe Priorität wie ein falscher Kurs: beides lässt die Website an ihrer Aufgabe scheitern.",
+        "p2": "Wie die Website allgemein gebaut ist, steht auf der"
+      }
+    }
+  }
+}

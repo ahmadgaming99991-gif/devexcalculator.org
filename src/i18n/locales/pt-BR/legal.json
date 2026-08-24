@@ -1,0 +1,177 @@
+{
+  "$comment": "Machine-drafted. Not yet read by a native speaker. These pages describe this deployment specifically, not a generic template, so nothing here may be generalised back into boilerplate.",
+  "$identical": [
+    "privacy.cloudflareAnalytics",
+    "privacy.googleAnalytics"
+  ],
+  "privacy": {
+    "intro": "O que este site armazena, o que não armazena e quais terceiros estão envolvidos — descrevendo esta implantação especificamente, não um modelo genérico.",
+    "calculationsHeading": "Seus cálculos",
+    "localStorageHeading": "Armazenamento local",
+    "analyticsHeading": "Análise de uso",
+    "noAnalyticsTitle": "Nenhuma análise de uso está ativa nesta implantação",
+    "contactHeading": "Envios de contato",
+    "noContactFormTitle": "Nenhum formulário de contato está ativo nesta implantação",
+    "infrastructureHeading": "Hospedagem e logs de servidor",
+    "externalHeading": "Links externos",
+    "rightsHeading": "Suas escolhas",
+    "stored": {
+      "currency": "Sua moeda de exibição preferida",
+      "theme": "Sua escolha de tema de cor, se você mudar",
+      "feeControls": "Se você deixou abertos os controles de taxas e imposto",
+      "savedCalculations": "Cálculos que você escolheu salvar explicitamente, até dez"
+    },
+    "clearHistory": "Limpar histórico",
+    "cloudflareAnalytics": "Cloudflare Web Analytics",
+    "googleAnalytics": "Google Analytics 4",
+    "declineNote": "Recuse os cookies de análise quando for perguntado, ou limpe os dados do site para ser perguntado de novo.",
+    "contactPageLink": "página de contato",
+    "body": {
+      "intro": {
+        "p1": "Revisado pela última vez"
+      },
+      "calculations": {
+        "p1": "Todo cálculo roda no seu navegador. As quantias que você digita, a taxa que você seleciona e os resultados nunca são transmitidos a um servidor, porque a aritmética não precisa de servidor para acontecer.",
+        "p2": "Uma consequência que vale entender: ao usar o botão de compartilhar, seus números vão para a URL. Esse link é seguro para compartilhar — contém uma quantia e uma taxa, nada sobre você — mas ainda é um link com os seus números, então trate-o como trataria qualquer link que você envia a alguém."
+      },
+      "localStorage": {
+        "p1": "Nada disso sai do seu dispositivo. Não há conta, nada é sincronizado, e limpar os dados do navegador remove tudo. A calculadora também tem um botão",
+        "p2": "que remove os cálculos salvos na hora. Se o armazenamento local não estiver disponível — navegação privativa, ou armazenamento bloqueado — tudo continua funcionando; ele simplesmente esquece entre as visitas."
+      },
+      "analytics": {
+        "p1": "Esta implantação tem análise de uso ativada:",
+        "p2": "— sem cookies, e registra visualizações de página em vez de pessoas. Nenhum aviso de consentimento é exibido porque nenhum cookie é definido.",
+        "p3": "— define cookies, então só carrega depois que você aceita o aviso. Começa em estado negado e permanece assim a menos que você escolha o contrário."
+      },
+      "contact": {
+        "p1": "O formulário é protegido pelo Cloudflare Turnstile, que verifica se um envio vem de uma pessoa e não de um script. O Turnstile é fornecido pela Cloudflare e processa um token junto com o seu endereço IP para essa verificação.",
+        "p2": "Nenhum provedor de envio está configurado, então não há formulário para enviar e nenhum dado de mensagem é coletado ou armazenado."
+      },
+      "infrastructure": {
+        "p1": "Este site não opera um banco de dados. Não há onde dados pessoais se acumularem porque tal armazenamento não existe."
+      },
+      "external": {
+        "p1": "As páginas aqui levam à documentação oficial do Roblox, ao Banco Central Europeu e a outras fontes listadas em"
+      },
+      "rights": {
+        "p1": "Limpe os cálculos salvos a qualquer momento com o botão Limpar histórico na calculadora.",
+        "p2": "Limpe todas as preferências apagando os dados do site de",
+        "p3": "nas configurações do seu navegador.",
+        "p4": "Use o site com o armazenamento local totalmente bloqueado — tudo funciona, nada é lembrado.",
+        "p5": "Fale conosco sobre qualquer ponto desta política pela"
+      }
+    }
+  },
+  "terms": {
+    "intro": "Os termos que cobrem o uso deste site. Curtos, porque não há muito nisso — você usa uma calculadora e ela lhe dá uma estimativa.",
+    "useHeading": "Usando este site",
+    "estimatesHeading": "Estimativas, não aconselhamento",
+    "affiliationHeading": "Sem afiliação com o Roblox",
+    "liabilityHeading": "Limitação de responsabilidade",
+    "changesHeading": "Mudanças nestes termos",
+    "body": {
+      "intro": {
+        "p1": "Revisado pela última vez"
+      },
+      "use": {
+        "p1": "Você pode usar o",
+        "p2": "livremente para estimar pagamentos DevEx, para si mesmo ou como parte do seu trabalho como criador. Não é preciso conta e nada é cobrado.",
+        "p3": "O que se pede em troca: não tente atrapalhar o site nem a infraestrutura em que ele roda, não faça raspagem de um jeito que o degrade para os outros e, se republicar números daqui, cite a fonte e inclua a data de verificação. Uma taxa citada sem sua data se torna errada sem aviso, e isso engana quem a lê depois."
+      },
+      "estimates": {
+        "p1": "Todo número neste site é uma estimativa produzida aplicando taxas publicamente documentadas a números que você inseriu. Nada disso é aconselhamento financeiro, fiscal, jurídico ou opinião profissional de qualquer tipo.",
+        "p2": "Há um cuidado considerável com a exatidão — toda taxa tem fonte, data e testes que a cobrem — mas taxas mudam, a documentação se move e erros são possíveis. Confira qualquer coisa da qual você dependa contra a documentação oficial do Roblox linkada em",
+        "p3": "antes de tomar uma decisão que importe."
+      },
+      "affiliation": {
+        "p1": "Este site é independente. Não é afiliado, endossado, patrocinado nem operado pela Roblox Corporation. Roblox, Robux e Developer Exchange são marcas registradas da Roblox Corporation, referidas aqui de forma descritiva para identificar do que tratam estes cálculos.",
+        "p2": "Este site não pode influenciar, acelerar, prever nem garantir o resultado de um pedido de DevEx, e não tem acesso a nenhuma conta ou saldo do Roblox."
+      },
+      "liability": {
+        "p1": "Este site é fornecido como está, sem garantia de qualquer tipo. Na máxima extensão permitida por lei, nenhuma responsabilidade é aceita por perda ou dano decorrente do seu uso — incluindo decisões tomadas com base em uma estimativa mostrada aqui, um número que mudou desde então, ou o site estar indisponível.",
+        "p2": "Nada nestes termos limita responsabilidade que não possa ser legalmente limitada."
+      },
+      "changes": {
+        "p1": "Estes termos podem ser atualizados. A data de revisão no topo desta página reflete a mudança mais recente, e mudanças relevantes são registradas no",
+        "p2": "junto com tudo o mais que muda aqui."
+      }
+    }
+  },
+  "disclaimer": {
+    "intro": "O limite honesto do que este site pode lhe dizer — vale ler uma vez antes de planejar em cima de algum número daqui.",
+    "estimatesHeading": "Tudo aqui é uma estimativa",
+    "cannotDetermineHeading": "O que este site não pode determinar",
+    "noCalculatorTitle": "Nenhuma calculadora pode responder a isto",
+    "trademarksHeading": "Marcas registradas",
+    "accuracyHeading": "Exatidão e atualidade das informações",
+    "cannot": {
+      "approval": "Se um pedido de DevEx será aprovado.",
+      "timing": "Quanto tempo um pedido vai levar, ou quando o pagamento chegará.",
+      "providerCharges": "Quanto o seu provedor de pagamento vai cobrar de você.",
+      "tax": "Quanto você vai dever de imposto, ou quando.",
+      "futureRate": "Qual será a taxa do DevEx no futuro."
+    },
+    "correctionsProcessLink": "processo de correções",
+    "body": {
+      "estimates": {
+        "p1": "As duas suposições são suas. Nenhuma pode ser verificada de fora do Roblox."
+      },
+      "cannotDetermine": {
+        "p1": "Como o seu saldo se divide entre as taxas padrão, antiga e condicional.",
+        "p2": "Isto não é uma limitação deste site em particular. Qualquer ferramenta que afirme saber se os seus Robux qualificam, ou que prometa um pagamento específico, está afirmando um conhecimento que não tem. O Roblox é a única parte que pode responder a essas perguntas."
+      },
+      "trademarks": {
+        "p1": "Roblox, Robux e Developer Exchange são marcas registradas da Roblox Corporation. Aparecem neste site apenas para descrever do que tratam estes cálculos, o que é uso descritivo comum. Este site não é afiliado, endossado, patrocinado nem operado pela Roblox Corporation, e a marca, a arte e os textos daqui são próprios."
+      },
+      "accuracy": {
+        "p1": "Os dados de taxa deste site foram verificados pela última vez contra a documentação oficial em",
+        "p2": "Se algum número aqui ficou para trás, a",
+        "p3": "leva direto à página oficial de onde ele veio, então você pode conferir o valor atual em segundos. Relatar pelo",
+        "p4": "faz com que seja corrigido para todos os outros também."
+      }
+    }
+  },
+  "accessibility": {
+    "intro": "O que este site busca atingir, o que de fato foi testado e o que ainda é imperfeito.",
+    "standardHeading": "O padrão buscado",
+    "testedHeading": "O que foi testado",
+    "featuresHeading": "Recursos de acessibilidade",
+    "limitationsHeading": "Limitações conhecidas",
+    "feedbackHeading": "Relatar um problema",
+    "features": {
+      "keyboard": "Operável por teclado em toda parte",
+      "focus": "Foco visível em todo lugar",
+      "announced": "Os resultados são anunciados",
+      "errorsTied": "Erros estão ligados aos seus campos",
+      "notColourAlone": "Nada depende só da cor",
+      "targets": "Os alvos têm ao menos 44 pixels",
+      "targetsDetail": "Botões, chips de predefinição, links de navegação e controles de formulário atendem a esse mínimo.",
+      "mobileMenu": "O menu móvel se comporta bem",
+      "tablesScroll": "Tabelas largas rolam de forma acessível",
+      "zoom": "O zoom nunca é bloqueado",
+      "zoomDetail": "A viewport não define escala máxima, então o zoom por pinça funciona em toda parte.",
+      "noJs": "Funciona sem JavaScript"
+    },
+    "aboutPageLink": "página sobre",
+    "body": {
+      "intro": {
+        "p1": "Revisado pela última vez"
+      },
+      "standard": {
+        "p1": "Este site busca atender a"
+      },
+      "tested": {
+        "p1": "Verificações automatizadas pegam uma minoria dos problemas reais de acessibilidade, então o percurso por teclado e as checagens manuais de layout importam mais do que os resultados do axe."
+      },
+      "limitations": {
+        "p1": "Nenhum teste foi feito com um leitor de tela ao vivo por alguém que o usa diariamente. A semântica foi construída e inspecionada com cuidado, mas isso não é a mesma coisa, e relatos de usuários reais são genuinamente bem-vindos.",
+        "p2": "Números muito longos em um resultado quebram a linha em vez de encolher. A 320 pixels com 200% de zoom, um pagamento de dez dígitos pode ocupar três linhas. Quebrar foi escolhido em vez de truncar, já que um valor monetário truncado é pior que um alto.",
+        "p3": "As tabelas de comparação de taxas e de detalhamento rolam horizontalmente em telas estreitas. O contêiner de rolagem é alcançável por teclado e rotulado, mas uma tabela ainda é mais difícil de ler assim do que em uma viewport mais larga."
+      },
+      "feedback": {
+        "p1": "Se algo aqui bloqueia você, nos avisar é o jeito mais rápido de consertar. Inclua a página, o que você estava tentando fazer e, se for relevante, o navegador e a tecnologia assistiva que usava. Relatos de acessibilidade têm a mesma prioridade que uma taxa errada — ambos fazem o site falhar no seu trabalho.",
+        "p2": "Para saber como o site é construído de forma mais geral, veja a"
+      }
+    }
+  }
+}

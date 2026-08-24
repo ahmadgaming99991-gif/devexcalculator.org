@@ -1,0 +1,178 @@
+{
+  "$comment": "Machine-drafted. Not yet read by a native speaker. These pages describe this deployment specifically, not a generic template, so nothing here may be generalised back into boilerplate.",
+  "$identical": [
+    "privacy.analyticsHeading",
+    "privacy.cloudflareAnalytics",
+    "privacy.googleAnalytics"
+  ],
+  "privacy": {
+    "intro": "Bu sitenin neyi sakladığı, neyi saklamadığı ve hangi üçüncü tarafların işin içinde olduğu — genel bir şablonu değil, tam olarak bu dağıtımı anlatıyor.",
+    "calculationsHeading": "Hesaplamalarınız",
+    "localStorageHeading": "Yerel depolama",
+    "analyticsHeading": "Analitik",
+    "noAnalyticsTitle": "Bu dağıtımda hiçbir analitik çalışmıyor",
+    "contactHeading": "İletişim gönderileri",
+    "noContactFormTitle": "Bu dağıtımda etkin bir iletişim formu yok",
+    "infrastructureHeading": "Barındırma ve sunucu kayıtları",
+    "externalHeading": "Dış bağlantılar",
+    "rightsHeading": "Seçimleriniz",
+    "stored": {
+      "currency": "Tercih ettiğiniz görüntüleme para birimi",
+      "theme": "Değiştirdiyseniz, renk teması seçiminiz",
+      "feeControls": "Ücret ve vergi denetimlerini açık bırakıp bırakmadığınız",
+      "savedCalculations": "Açıkça kaydetmeyi seçtiğiniz hesaplamalar, en fazla on tane"
+    },
+    "clearHistory": "Geçmişi temizle",
+    "cloudflareAnalytics": "Cloudflare Web Analytics",
+    "googleAnalytics": "Google Analytics 4",
+    "declineNote": "Sorulduğunda analitik çerezlerini reddedin ya da yeniden sorulmak için site verilerini temizleyin.",
+    "contactPageLink": "iletişim sayfası",
+    "body": {
+      "intro": {
+        "p1": "Son inceleme"
+      },
+      "calculations": {
+        "p1": "Her hesaplama tarayıcınızda çalışır. Yazdığınız tutarlar, seçtiğiniz kur ve sonuçlar hiçbir zaman bir sunucuya iletilmez; çünkü bu aritmetiğin gerçekleşmesi için sunucuya gerek yoktur.",
+        "p2": "Bilinmesinde yarar olan bir sonuç: paylaş düğmesini kullandığınızda rakamlarınız adresin içine yerleştirilir. O bağlantıyı paylaşmak güvenlidir — içinde bir tutar ve bir kur vardır, sizinle ilgili hiçbir şey yoktur — ama yine de rakamlarınızı taşıyan bir bağlantıdır; birine gönderdiğiniz her bağlantıya nasıl davranıyorsanız ona da öyle davranın."
+      },
+      "localStorage": {
+        "p1": "Bunların hiçbiri cihazınızdan çıkmaz. Hesap yoktur, hiçbir şey eşitlenmez ve tarayıcı verilerinizi temizlemek hepsini siler. Hesaplayıcıda ayrıca",
+        "p2": "düğmesi vardır; kaydedilmiş hesaplamaları anında siler. Yerel depolama kullanılamıyorsa — gizli pencere ya da engellenmiş depolama — her şey yine çalışır; site yalnızca ziyaretler arasında unutur."
+      },
+      "analytics": {
+        "p1": "Bu dağıtımda analitik etkin:",
+        "p2": "— çerezsizdir ve kişileri değil, sayfa görüntülemelerini kaydeder. Hiçbir çerez konmadığı için onay istemi gösterilmez.",
+        "p3": "— çerez koyar, bu yüzden yalnızca siz istemi kabul ettikten sonra yüklenir. Reddedilmiş durumda başlar ve siz aksini seçmedikçe öyle kalır."
+      },
+      "contact": {
+        "p1": "Form, bir gönderinin bir betikten değil bir kişiden geldiğini denetleyen Cloudflare Turnstile ile korunur. Turnstile, Cloudflare tarafından sağlanır ve bu denetim için IP adresinizle birlikte bir belirteç işler.",
+        "p2": "Yapılandırılmış bir gönderim sağlayıcısı yok; dolayısıyla gönderilecek bir form da yok ve hiçbir mesaj verisi toplanmıyor ya da saklanmıyor."
+      },
+      "infrastructure": {
+        "p1": "Bu site bir veritabanı işletmez. Kişisel verinin birikeceği bir yer yoktur, çünkü böyle bir depo mevcut değildir."
+      },
+      "external": {
+        "p1": "Buradaki sayfalar Roblox'un resmî belgelerine, Avrupa Merkez Bankası'na ve şurada listelenen diğer kaynaklara bağlantı verir:"
+      },
+      "rights": {
+        "p1": "Kaydedilmiş hesaplamaları hesaplayıcıdaki Geçmişi temizle düğmesiyle istediğiniz zaman silin.",
+        "p2": "Şunun site verilerini temizleyerek tüm tercihleri silin:",
+        "p3": "tarayıcı ayarlarınızdan.",
+        "p4": "Siteyi yerel depolama tamamen engelliyken kullanın — her şey çalışır, hiçbir şey hatırlanmaz.",
+        "p5": "Bu politikadaki her konuda bize şuradan ulaşın:"
+      }
+    }
+  },
+  "terms": {
+    "intro": "Bu sitenin kullanımını kapsayan koşullar. Kısa, çünkü fazlası yok: bir hesaplayıcı kullanıyorsunuz ve o size bir tahmin veriyor.",
+    "useHeading": "Bu siteyi kullanmak",
+    "estimatesHeading": "Tahmin, danışmanlık değil",
+    "affiliationHeading": "Roblox ile bağlantı yok",
+    "liabilityHeading": "Sorumluluğun sınırlandırılması",
+    "changesHeading": "Bu koşullardaki değişiklikler",
+    "body": {
+      "intro": {
+        "p1": "Son inceleme"
+      },
+      "use": {
+        "p1": "Şunu kullanabilirsiniz:",
+        "p2": "DevEx ödemelerini tahmin etmek için serbestçe; kendiniz için ya da içerik üreticiliği işinizin parçası olarak. Hesap gerekmez ve hiçbir ücret alınmaz.",
+        "p3": "Karşılığında istenen: siteyi ya da üzerinde çalıştığı altyapıyı aksatmaya çalışmayın, başkaları için bozacak biçimde kazımayın ve buradaki rakamları yeniden yayımlarsanız kaynağı belirtin ve doğrulama tarihini ekleyin. Tarihi olmadan aktarılan bir kur, uyarı vermeden yanlış hâle gelir ve bu, onu bir sonraki okuyanı yanıltır."
+      },
+      "estimates": {
+        "p1": "Bu sitedeki her rakam, kamuya açık belgelenmiş kurların sizin girdiğiniz sayılara uygulanmasıyla üretilen bir tahmindir. Bunların hiçbiri finansal danışmanlık, vergi danışmanlığı, hukuki danışmanlık ya da herhangi bir türden meslekî görüş değildir.",
+        "p2": "Doğruluk için epey emek harcanır — her kurun kaynağı, tarihi ve onu kapsayan testleri vardır — ama kurlar değişir, belgeler yer değiştirir ve hatalar olabilir. Dayandığınız her şeyi, şuradan bağlantı verilen resmî Roblox belgeleriyle karşılaştırın:",
+        "p3": "önemli bir karar vermeden önce."
+      },
+      "affiliation": {
+        "p1": "Bu site bağımsızdır. Roblox Corporation ile bağlantılı değildir; onun tarafından onaylanmamış, desteklenmemiş ya da işletilmemektedir. Roblox, Robux ve Developer Exchange, Roblox Corporation'ın ticari markalarıdır ve burada bu hesaplamaların neyle ilgili olduğunu belirtmek için tanımlayıcı biçimde anılır.",
+        "p2": "Bu site, bir DevEx talebinin sonucunu etkileyemez, hızlandıramaz, öngöremez ya da garanti edemez; hiçbir Roblox hesabına veya bakiyesine erişimi yoktur."
+      },
+      "liability": {
+        "p1": "Bu site olduğu gibi, hiçbir tür garanti verilmeksizin sunulur. Yasanın izin verdiği azami ölçüde, kullanımından doğan kayıp ya da zarar için hiçbir sorumluluk kabul edilmez — burada gösterilen bir tahmine dayanarak alınan kararlar, o günden bu yana değişmiş bir rakam ya da sitenin erişilemez olması dâhil.",
+        "p2": "Bu koşullardaki hiçbir hüküm, yasal olarak sınırlandırılamayacak bir sorumluluğu sınırlandırmaz."
+      },
+      "changes": {
+        "p1": "Bu koşullar güncellenebilir. Sayfanın başındaki inceleme tarihi en son değişikliği gösterir ve esaslı değişiklikler şurada kaydedilir:",
+        "p2": "burada değişen her şeyle birlikte."
+      }
+    }
+  },
+  "disclaimer": {
+    "intro": "Bu sitenin size söyleyebileceklerinin dürüst sınırı — buradaki bir rakama göre plan yapmadan önce bir kez okumaya değer.",
+    "estimatesHeading": "Buradaki her şey bir tahmindir",
+    "cannotDetermineHeading": "Bu sitenin belirleyemedikleri",
+    "noCalculatorTitle": "Hiçbir hesaplayıcı bunları yanıtlayamaz",
+    "trademarksHeading": "Ticari markalar",
+    "accuracyHeading": "Bilgilerin doğruluğu ve güncelliği",
+    "cannot": {
+      "approval": "Bir DevEx talebinin onaylanıp onaylanmayacağı.",
+      "timing": "Bir talebin ne kadar süreceği ya da ödemenin ne zaman geleceği.",
+      "providerCharges": "Ödeme sağlayıcınızın sizden ne kadar keseceği.",
+      "tax": "Ne kadar vergi borçlanacağınız ya da ne zaman.",
+      "futureRate": "Gelecekte DevEx kurunun ne olacağı."
+    },
+    "correctionsProcessLink": "düzeltme süreci",
+    "body": {
+      "estimates": {
+        "p1": "Her iki varsayım da size ait. Hiçbiri Roblox'un dışından doğrulanamaz."
+      },
+      "cannotDetermine": {
+        "p1": "Bakiyenizin standart, eski ve koşullu kurlar arasında nasıl bölündüğü.",
+        "p2": "Bu, yalnızca bu siteye özgü bir sınırlama değil. Robux'unuzun uygun olup olmadığını bildiğini öne süren ya da belirli bir ödeme vaat eden her araç, sahip olmadığı bir bilgiyi iddia ediyordur. Bu soruları yanıtlayabilecek tek taraf Roblox'tur."
+      },
+      "trademarks": {
+        "p1": "Roblox, Robux ve Developer Exchange, Roblox Corporation'ın ticari markalarıdır. Bu sitede yalnızca bu hesaplamaların neyle ilgili olduğunu anlatmak için görünürler; bu, olağan tanımlayıcı kullanımdır. Bu sitenin Roblox Corporation ile bağlantısı yoktur; onun tarafından onaylanmamış, desteklenmemiş ya da işletilmemektedir ve buradaki marka, görseller ve metinler siteye aittir."
+      },
+      "accuracy": {
+        "p1": "Bu sitedeki kur verileri, resmî belgelere karşı en son şu tarihte doğrulandı:",
+        "p2": "Buradaki bir rakam geride kaldıysa,",
+        "p3": "doğrudan geldiği resmî sayfaya bağlantı verir; böylece güncel değeri birkaç saniyede kendiniz kontrol edebilirsiniz. Şu yolla bildirmek",
+        "p4": "onu herkes için de düzeltilmiş hâle getirir."
+      }
+    }
+  },
+  "accessibility": {
+    "intro": "Bu sitenin hedeflediği standart, gerçekte neyin test edildiği ve neyin hâlâ kusurlu olduğu.",
+    "standardHeading": "Hedeflenen standart",
+    "testedHeading": "Neler test edildi",
+    "featuresHeading": "Erişilebilirlik özellikleri",
+    "limitationsHeading": "Bilinen sınırlamalar",
+    "feedbackHeading": "Sorun bildirme",
+    "features": {
+      "keyboard": "Baştan sona klavyeyle kullanılabilir",
+      "focus": "Her yerde görünür odak",
+      "announced": "Sonuçlar seslendirilir",
+      "errorsTied": "Hatalar kendi alanlarına bağlıdır",
+      "notColourAlone": "Hiçbir şey yalnızca renge dayanmaz",
+      "targets": "Hedefler en az 44 piksel",
+      "targetsDetail": "Düğmeler, hazır ayar rozetleri, gezinti bağlantıları ve form denetimlerinin tümü bu alt sınırı karşılar.",
+      "mobileMenu": "Mobil menü gerektiği gibi davranır",
+      "tablesScroll": "Geniş tablolar erişilebilir biçimde kaydırılır",
+      "zoom": "Yakınlaştırma hiçbir zaman engellenmez",
+      "zoomDetail": "Görüntü alanı azami ölçek tanımlamaz; bu yüzden parmakla yakınlaştırma her yerde çalışır.",
+      "noJs": "JavaScript olmadan çalışır"
+    },
+    "aboutPageLink": "hakkında sayfası",
+    "body": {
+      "intro": {
+        "p1": "Son inceleme"
+      },
+      "standard": {
+        "p1": "Bu site şunu karşılamayı hedefler:"
+      },
+      "tested": {
+        "p1": "Otomatik denetimler gerçek erişilebilirlik sorunlarının azınlığını yakalar; bu yüzden klavyeyle baştan sona gezinme ve elle yapılan yerleşim denetimleri, axe sonuçlarından daha önemlidir."
+      },
+      "limitations": {
+        "p1": "Ekran okuyucuyu her gün kullanan biriyle, canlı bir ekran okuyucu üzerinde test yapılmadı. Anlamsal yapı dikkatle kuruldu ve incelendi, ama bu aynı şey değildir; gerçek kullanıcılardan gelen bildirimler içtenlikle bekleniyor.",
+        "p2": "Bir sonuçtaki çok uzun sayılar küçülmek yerine alt satıra taşar. 320 piksel genişlikte %200 yakınlaştırmada on haneli bir ödeme üç satır kaplayabilir. Kırpmak yerine taşırmak seçildi; çünkü kırpılmış bir para tutarı, uzun olanından daha kötüdür.",
+        "p3": "Kur karşılaştırma ve döküm tabloları dar ekranlarda yatay kayar. Kaydırma kabı klavyeyle erişilebilir ve etiketlidir; yine de bir tabloyu böyle okumak, daha geniş bir görüntü alanındakinden zordur."
+      },
+      "feedback": {
+        "p1": "Burada bir şey sizi engelliyorsa, bunu bize söylemek düzeltmenin en hızlı yoludur. Sayfayı, ne yapmaya çalıştığınızı ve ilgiliyse kullandığınız tarayıcı ile yardımcı teknolojiyi belirtin. Erişilebilirlik bildirimleri, yanlış bir kurla aynı öncelikte ele alınır — ikisi de sitenin işini yapamamasına yol açar.",
+        "p2": "Sitenin genel olarak nasıl kurulduğunu görmek için bakınız:"
+      }
+    }
+  }
+}
