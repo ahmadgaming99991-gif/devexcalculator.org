@@ -35,6 +35,13 @@ export function SiteDocument({ locale, skipToContent, children }: SiteDocumentPr
 
   return (
     <html lang={htmlLang} dir={direction} suppressHydrationWarning>
+      {/*
+        eslint-disable-next-line @next/next/no-head-element --
+        `next/head` is the Pages Router's API and does nothing here. A root
+        layout in the App Router writes `<head>` itself; the rule only skips it
+        when the file sits at `app/layout.tsx`, and this shell is shared by two
+        of those rather than being either one.
+      */}
       <head>
         {/*
           Applies the stored theme before first paint. Anything later — an

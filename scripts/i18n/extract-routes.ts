@@ -28,27 +28,10 @@ import { writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { routeRegistry } from "../../src/lib/content/route-registry";
 import type { RouteRecord } from "../../src/types/content";
+import { routeKey } from "../../src/i18n/route-key";
 
 const OUT = join(process.cwd(), "src/i18n/locales/en/routes.json");
 
-/**
- * A route path as a dictionary key.
- *
- * `/` is `home`; everything else is its segments in camelCase joined by a dot,
- * so `/platform/stock/` becomes `platform.stock` and the shape of the file
- * mirrors the shape of the site. Readable in a diff, and stable: it changes
- * only when the URL does, which is exactly when a translation needs revisiting.
- */
-export function routeKey(route: string): string {
-  if (route === "/") return "home";
-  return route
-    .replace(/^\/|\/$/g, "")
-    .split("/")
-    .map((segment) =>
-      segment.replace(/-([a-z0-9])/g, (_, c: string) => c.toUpperCase()).replace(/[^a-zA-Z0-9]/g, ""),
-    )
-    .join(".");
-}
 
 interface RouteStrings {
   readonly title: string;
