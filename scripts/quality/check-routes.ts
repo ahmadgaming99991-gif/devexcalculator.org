@@ -31,6 +31,8 @@ async function main(): Promise<void> {
 
     const titles = new Map<string, string[]>();
     const descriptions = new Map<string, string[]>();
+    // One fetch per distinct card rather than one per page that advertises it.
+    const checkedCards = new Set<string>();
 
     for (const record of indexableRoutes) {
       const url = `${server.baseUrl}${record.route}`;
@@ -82,6 +84,33 @@ async function main(): Promise<void> {
         if (!extractMeta(html, key)) fail(`${record.route} is missing ${key}.`);
       }
       if (!extractMeta(html, "twitter:card")) fail(`${record.route} is missing twitter:card.`);
+
+      /*
+       * The card has to exist, not just be advertised.
+       *
+       * Next generates that URL from a file convention, and the tag was built
+       * from a copy of the path written out by hand — so the two agreed only
+       * as long as nobody moved the file. Moving every page into a route group
+       * renamed it, every page kept advertising the old address, and a check
+       * that only looked for the presence of the tag stayed green while the
+       * card 404'd everywhere it is actually fetched.
+       */
+      const cardUrl = extractMeta(html, "og:image");
+      if (cardUrl && !checkedCards.has(cardUrl)) {
+        checkedCards.add(cardUrl);
+        /*
+         * The tag carries the production origin, because that is what a
+         * crawler needs to see. What is being checked is whether this build
+         * serves it, so only the path travels.
+         */
+        const advertised = new URL(cardUrl, server.baseUrl);
+        const card = await fetch(new URL(`${advertised.pathname}${advertised.search}`, server.baseUrl), {
+          redirect: "follow",
+        });
+        if (!card.ok) {
+          fail(`og:image ${cardUrl} (from ${record.route}) returned ${card.status}.`);
+        }
+      }
 
       // An indexable page must not carry a noindex directive.
       const robots = extractMeta(html, "robots");
