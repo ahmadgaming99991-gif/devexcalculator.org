@@ -8,7 +8,7 @@ import {
 } from "../src/lib/platform/history";
 import { recordHeartbeat, type RunReport } from "../src/lib/platform/heartbeat";
 import { checkRateSource } from "../src/lib/rates/source-check";
-import { edgeCachePolicy } from "../src/lib/cache/edge-policy";
+import { edgeCachePolicy, staticCachePolicy } from "../src/lib/cache/edge-policy";
 
 /**
  * The deployed Worker.
@@ -68,9 +68,16 @@ const handler = {
      * default and wrong for the handful of pages here that render from the URL
      * and the rate registry alone. `edgeCachePolicy` owns that judgement and
      * returns null for everything else, so this is a narrow relaxation rather
-     * than a caching layer. See src/lib/cache/edge-policy.ts.
+     * than a caching layer.
+     *
+     * `staticCachePolicy` is the opposite correction on the opposite input: a
+     * prerendered page leaves Next with a year at the edge, which is wrong for
+     * every page that quotes a rate or a verification date. Only one of the two
+     * can match a given response — one requires `no-store`, the other requires
+     * Next's static default — so the order here is readability, not precedence.
+     * See src/lib/cache/edge-policy.ts.
      */
-    const policy = edgeCachePolicy(request, response);
+    const policy = edgeCachePolicy(request, response) ?? staticCachePolicy(request, response);
     if (!policy) return response;
 
     // Headers on a returned Response are immutable, so this is a copy.

@@ -1,3 +1,5 @@
+import { routeRegistry } from "@/lib/content/route-registry";
+
 /**
  * Letting the edge hold pages that Next renders per request.
  *
@@ -73,6 +75,46 @@ export const EXCLUDED_FOR_RENDERING_A_DATE: readonly string[] = ["/usd-to-robux/
 export const EDGE_POLICY =
   "public, max-age=0, s-maxage=600, stale-while-revalidate=86400, must-revalidate";
 
+/**
+ * An hour at the edge for anything whose figures can go out of date.
+ *
+ * A statically prerendered page leaves Next with `s-maxage=31536000` — a
+ * year — which is correct for a page that is a fixed document and wrong for
+ * every page here that quotes a rate or a verification date. `/sources/` was
+ * the one that made it obvious: it exists to say when each source was last
+ * checked, and it was cached for a year at the edge, so the date it displayed
+ * could be a year older than the date it was describing.
+ *
+ * An hour rather than the ten minutes the dynamic routes get, because these
+ * pages are prerendered and a rate changes a few times a year. The deploy's
+ * own purge is what makes a correction immediate; this is the ceiling on how
+ * long a missed purge can be wrong for.
+ */
+export const RATE_SENSITIVE_EDGE_POLICY =
+  "public, max-age=0, s-maxage=3600, stale-while-revalidate=86400, must-revalidate";
+
+/**
+ * Which routes that is, taken from the registry rather than listed here.
+ *
+ * `rateSensitive` already decides whether a page shows a last-verified badge,
+ * so it already means "the figures on this page expire". A second list would
+ * be a second answer to the same question, and the one that drifted would be
+ * this one — the badge is visible on the page and a cache header is not.
+ */
+const RATE_SENSITIVE_ROUTES: ReadonlySet<string> = new Set(
+  routeRegistry.filter((record) => record.rateSensitive).map((record) => record.route),
+);
+
+/**
+ * Next's static default, and the only value this will overwrite.
+ *
+ * Matching the exact number rather than "a large s-maxage" keeps this to the
+ * one header Next generates without being asked. Anything set deliberately —
+ * by a route handler, by the dynamic policy above — is left alone, so this
+ * cannot quietly become the site's cache policy.
+ */
+const NEXT_STATIC_FOREVER = "s-maxage=31536000";
+
 /** Methods whose response may be relaxed. Never a mutation. */
 const SAFE_METHODS: readonly string[] = ["GET", "HEAD"];
 
@@ -121,4 +163,38 @@ export function edgeCachePolicy(
   if (!CACHEABLE_DYNAMIC_ROUTES.includes(url.pathname)) return null;
 
   return EDGE_POLICY;
+}
+
+/**
+ * The same question for a page Next prerendered rather than rendered.
+ *
+ * Separate from `edgeCachePolicy` because it is the opposite operation on the
+ * opposite input: that one relaxes `no-store` on a dynamic page, this one
+ * tightens a year on a static one. Sharing a function would mean one set of
+ * guards doing two jobs, and the guard that matters here — that the header is
+ * Next's untouched default — is not the guard that matters there.
+ */
+export function staticCachePolicy(
+  request: { method: string; url: string },
+  response: { status: number; headers: { get(name: string): string | null } },
+): string | null {
+  if (!SAFE_METHODS.includes(request.method)) return null;
+  if (response.status !== 200) return null;
+
+  const contentType = response.headers.get("content-type");
+  if (!contentType?.includes("text/html")) return null;
+
+  const current = response.headers.get("cache-control");
+  if (current === null || !current.includes(NEXT_STATIC_FOREVER)) return null;
+
+  let url: URL;
+  try {
+    url = new URL(request.url);
+  } catch {
+    return null;
+  }
+
+  if (!RATE_SENSITIVE_ROUTES.has(url.pathname)) return null;
+
+  return RATE_SENSITIVE_EDGE_POLICY;
 }
