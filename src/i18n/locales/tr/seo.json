@@ -29,5 +29,19 @@
     "machineDraftedLabel": "Makine çevirisi",
     "machineDraftedDescription": "Bu sayfa otomatik olarak çevrildi ve henüz ana dili konuşan biri tarafından okunmadı. Rakamlar, İngilizce sayfayla aynı doğrulanmış kayıttan gelir.",
     "readOriginal": "Özgün İngilizce sayfayı okuyun"
+  },
+  "schema": {
+    "datasets": {
+      "stats": {
+        "name": "Roblox yaratıcı ödemeleri ve etkileşim rakamları",
+        "description": "Roblox'un SEC dosyalamalarında bildirdiği biçimiyle Developer Exchange ücretleri, gelir ve etkileşim; her satır bildirilmiş ya da türetilmiş olarak etiketlenmiş ve geldiği dosyalamaya bağlanmıştır. Roblox'un yayımlamadığı ölçütleri de gerekçeli boşluklar olarak içerir.",
+        "measurementTechnique": "Roblox Corporation'ın SEC dosyalamalarından ve hissedar mektuplarından aktarıldı. Türetilmiş rakamlar, bildirilmiş olanlardan kod içinde hesaplanır ve bu şekilde etiketlenir."
+      },
+      "platform": {
+        "name": "Gözlemlenen Roblox oyuncu sayıları",
+        "description": "Roblox'un kendi herkese açık uç noktalarından on beş dakikada bir gözlemlenen oyuncu sayıları; o sırada Roblox'un sıraladığı deneyimler için. Hiçbir şey aradeğerlenmez ve eksik bir gözlem doldurulmaz; bir boşluk, toplayıcının çalışmadığı anlamına gelir. Bu yalnızca sıralanan deneyimleri kapsar, Roblox'un tamamını değil.",
+        "measurementTechnique": "Roblox'un herkese açık oyun uç noktalarından on beş dakikalık bir programla sunucu tarafında kaydedilir. Platform toplamları on dört gün, deneyim başına seriler saatlik örneklenerek yedi gün saklanır."
+      }
+    }
   }
 }

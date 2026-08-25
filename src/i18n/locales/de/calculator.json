@@ -153,10 +153,11 @@
   },
   "currency": {
     "loading": "Referenzkurse werden geladen…",
-    "unavailable": "Schätzungen in Landeswährung sind vorübergehend nicht verfügbar.",
+    "unavailable": "Schätzungen in Landeswährung sind vorübergehend nicht verfügbar. Die USD-Beträge oben sind davon nicht betroffen.",
     "usdUnaffected": "Die USD-Zahl oben wird lokal berechnet und ist davon nicht betroffen.",
     "staleHeading": "Veraltete Kurse.",
-    "provenance": "{currency}-Zahlen verwenden {provider}-Referenzkurse, beobachtet am {date}. Das sind Referenzkurse, keine Bankkurse — dein Zahlungsdienstleister wendet seinen eigenen an und kann eine Gebühr aufschlagen."
+    "provenance": "{currency}-Zahlen verwenden {provider}-Referenzkurse, beobachtet am {date}. Das sind Referenzkurse, keine Bankkurse — dein Zahlungsdienstleister wendet seinen eigenen an und kann eine Gebühr aufschlagen.",
+    "staleSnapshot": "Aktuelle Referenzkurse sind nicht verfügbar, daher wird eine gespeicherte Momentaufnahme gezeigt. Betrachten Sie diese Zahlen nur als Anhaltspunkt."
   },
   "home": {
     "formulaOpen": "Hier wird nichts versteckt. Die Formel ist eine Multiplikation, und du kannst sie nachprüfen.",
@@ -203,7 +204,9 @@
         "p1": "Etwas veraltet?",
         "p2": "Sag Bescheid, dann wird es korrigiert"
       }
-    }
+    },
+    "intro": "Rechnen Sie berechtigte Earned Robux in eine geschätzte Auszahlung in US-Dollar um — mit den Sätzen, die Roblox derzeit dokumentiert, und mit Quelle und Prüfdatum neben jeder Zahl.",
+    "jumpLabel": "So funktioniert die Berechnung"
   },
   "planner": {
     "targetLabel": "Auszahlung, die du anstrebst",
@@ -243,7 +246,11 @@
         "p4": "Geschätzter Betrag, der dir bleibt",
         "p5": "Jede Zahl hier ist eine Schätzung, erzeugt aus dem, was du eingetragen hast. Zu erreichen"
       }
-    }
+    },
+    "alreadyEnoughHeadline": "Sie haben bereits genug für dieses Ziel.",
+    "zeroEarningsHeadline": "Kein Datum, in diesem Tempo.",
+    "datePassedHeadline": "Dieses Datum ist bereits erreicht.",
+    "pickDateHeadline": "Wählen Sie ein Datum."
   },
   "controls": {
     "body": {

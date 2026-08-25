@@ -149,7 +149,15 @@
       "tablesScroll": "Geniş tablolar erişilebilir biçimde kaydırılır",
       "zoom": "Yakınlaştırma hiçbir zaman engellenmez",
       "zoomDetail": "Görüntü alanı azami ölçek tanımlamaz; bu yüzden parmakla yakınlaştırma her yerde çalışır.",
-      "noJs": "JavaScript olmadan çalışır"
+      "noJs": "JavaScript olmadan çalışır",
+      "keyboardDetail": "Her denetim gerçek bir düğme, bağlantı, giriş alanı ya da seçim kutusudur. Tıklanabilir div yoktur; klavye davranışı onu taklit eden betiklerden değil, tarayıcıdan gelir.",
+      "focusDetail": "İki piksel boşluklu, üç piksel kalınlığında kehribar rengi bir dış çizgi; sitedeki her yüzeye karşı yaklaşık 5:1 ölçtüğü için seçildi — standardın istediği 3:1'in rahatça üzerinde.",
+      "announcedDetail": "Hesaplama sonuçları, kopyalama onayları ve hata iletileri \"polite\" bir canlı bölge üzerinden duyurulur; siz yazarken rakam rakam okunmak yerine özetlenir.",
+      "errorsTiedDetail": "Doğrulama iletileri aria-describedby ile bağlanır ve alan geçersiz olarak işaretlenir; böylece ekran okuyucu sorunu yakındaki başıboş bir metin olarak değil, alanla birlikte bildirir.",
+      "notColourAloneDetail": "Eşik göstergesi, oran karşılaştırmaları ve eskimiş oran uyarılarının her biri, rengin söylediğini söyleyen bir metin etiketi taşır.",
+      "mobileMenuDetail": "Escape menüyü kapatır ve odağı onu açan düğmeye geri verir, menü açıkken odak içeride tutulur ve sayfa kaymadan arka plan kaydırması kilitlenir.",
+      "tablesScrollDetail": "Her tablo, odaklanılabilir ve etiketli bir kaydırma kabının içindedir; böylece klavye kullanan biri fareye gerek kalmadan tabloya ulaşıp kaydırabilir.",
+      "noJsDetail": "Oranlar, formüller, çözümlü örnekler, tablolar, gezinme ve her açıklama sunucuda oluşturulur. Yalnızca canlı yeniden hesaplama betik gerektirir."
     },
     "aboutPageLink": "hakkında sayfası",
     "body": {

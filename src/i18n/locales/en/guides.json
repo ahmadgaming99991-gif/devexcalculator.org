@@ -13,6 +13,32 @@
       "calculators": {
         "p1": "DevEx payout, Robux to USD, payout targets and marketplace fees."
       }
+    },
+    "readingOrder": {
+      "earnedRobux": {
+        "answers": "Which of my Robux can actually be cashed out?",
+        "assumes": "Nothing. Start here — it decides whether the rest applies to you."
+      },
+      "requirements": {
+        "answers": "What do I need before I can submit a request?",
+        "assumes": "That you know the difference between Earned Robux and your balance."
+      },
+      "rates": {
+        "answers": "What does Roblox pay per Earned Robux?",
+        "assumes": "That you know which part of your balance qualifies."
+      },
+      "rateHistory": {
+        "answers": "Why does part of my balance convert at a different rate?",
+        "assumes": "That you have read the rates page."
+      },
+      "cashOut": {
+        "answers": "What is the actual process?",
+        "assumes": "That you meet the requirements and know what your balance is worth."
+      },
+      "feesAndTaxes": {
+        "answers": "What comes off the payout before it reaches me?",
+        "assumes": "That you have a payout figure to work from."
+      }
     }
   },
   "calculators": {
@@ -28,6 +54,24 @@
       },
       "guides": {
         "p1": "Rates, requirements, what counts as Earned Robux, and how the cash-out process works."
+      }
+    },
+    "tools": {
+      "devex": {
+        "answers": "What are my Earned Robux worth in dollars?",
+        "useWhen": "You have a balance and want a payout estimate. Handles a mixed balance across the standard, legacy and conditional rates."
+      },
+      "robuxToUsd": {
+        "answers": "What is Robux worth in dollars?",
+        "useWhen": "You are not sure whether you want the creator payout or the retail purchase price. This page separates the two."
+      },
+      "usdToRobux": {
+        "answers": "How many Earned Robux do I need for a payout of X?",
+        "useWhen": "You have a figure in mind and want to know what it takes to reach it, including whether the minimum gets in the way."
+      },
+      "robuxTax": {
+        "answers": "What do I keep after the Roblox commission?",
+        "useWhen": "You are pricing an item or a developer product and want to know your share, or what to charge to clear a target."
       }
     }
   },
@@ -55,7 +99,11 @@
       "submitPortal": "Submit through the portal",
       "submitPortalDetail": "The official DevEx portal, and nowhere else.",
       "robloxReviews": "Roblox reviews it",
-      "paymentIssued": "Payment is issued"
+      "paymentIssued": "Payment is issued",
+      "meetRequirementsDetail": "Verified email, minimum age of 13, a DevEx portal account, a tax form on file, good standing.",
+      "robloxReviewsDetail": "It decides which Robux qualify and whether to approve. This can end here, and no third party changes that.",
+      "robloxReviewsBy": "Roblox alone",
+      "paymentIssuedDetail": "Your provider and bank apply their own handling and fees from there."
     },
     "list": {
       "meetRequirements": "Meet the account requirements.",

@@ -148,7 +148,15 @@
       "tablesScroll": "Les tableaux larges défilent de façon accessible",
       "zoom": "Le zoom n’est jamais bloqué",
       "zoomDetail": "La zone d’affichage ne fixe aucune échelle maximale : le zoom par pincement fonctionne partout.",
-      "noJs": "Fonctionne sans JavaScript"
+      "noJs": "Fonctionne sans JavaScript",
+      "keyboardDetail": "Chaque contrôle est un vrai bouton, lien, champ ou menu déroulant. Il n’y a pas de div cliquable, si bien que le comportement au clavier vient du navigateur et non de scripts qui l’imitent.",
+      "focusDetail": "Un contour ambre de trois pixels avec un décalage de deux pixels, choisi parce qu’il atteint environ 5:1 sur toutes les surfaces du site — largement au-dessus du 3:1 exigé par la norme.",
+      "announcedDetail": "Les résultats de calcul, les confirmations de copie et les messages d’erreur sont annoncés par une zone dynamique « polite », sous forme de résumé plutôt que chiffre par chiffre pendant la saisie.",
+      "errorsTiedDetail": "Les messages de validation sont reliés par aria-describedby et le champ est marqué comme invalide, si bien qu’un lecteur d’écran signale le problème avec le champ plutôt que comme un texte isolé à côté.",
+      "notColourAloneDetail": "L’indicateur de seuil, les comparaisons de taux et les avertissements de taux périmé portent chacun une étiquette textuelle disant ce que dit la couleur.",
+      "mobileMenuDetail": "Échap le referme et rend le focus au bouton qui l’a ouvert, le focus reste piégé tant qu’il est ouvert, et le défilement de l’arrière-plan est verrouillé sans décalage de la page.",
+      "tablesScrollDetail": "Chaque tableau se trouve dans un conteneur de défilement étiqueté et focalisable, si bien qu’un utilisateur au clavier peut l’atteindre et le faire défiler sans souris.",
+      "noJsDetail": "Les taux, les formules, les exemples chiffrés, les tableaux, la navigation et toutes les explications sont rendus côté serveur. Seul le recalcul en direct nécessite des scripts."
     },
     "aboutPageLink": "page à propos",
     "body": {

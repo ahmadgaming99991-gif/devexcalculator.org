@@ -79,7 +79,15 @@
       "currencyTerm": "Mata uang lokal",
       "currencyDetail": "ECB menerbitkan kurs berbasis euro, jadi kurs silang USD diturunkan. Arah pembagiannya dipatok oleh pengujian.",
       "marketplaceTerm": "Biaya marketplace",
-      "marketplaceDetail": "Membulatkan ke bawah, sehingga angka yang ditampilkan tidak pernah lebih besar daripada yang benar-benar Anda terima."
+      "marketplaceDetail": "Membulatkan ke bawah, sehingga angka yang ditampilkan tidak pernah lebih besar daripada yang benar-benar Anda terima.",
+      "payoutFormula": "USD kotor = Earned Robux yang memenuhi syarat × tarif per Robux",
+      "mixedFormula": "USD kotor = (standar × 0,0038) + (lama × 0,0035) + (AS 18+ × 0,0054)",
+      "blendedFormula": "tarif gabungan = USD kotor ÷ total Earned Robux",
+      "feesFormula": "neto sebelum pajak = kotor − (kotor × biaya%) − biaya tetap",
+      "taxFormula": "neto setelah perkiraan = neto sebelum pajak − (neto sebelum pajak × pajak Anda%)",
+      "reverseFormula": "Earned Robux yang diperlukan = pembulatan ke atas(USD target ÷ tarif per Robux)",
+      "currencyFormula": "nilai lokal = nilai USD × (EUR→tujuan ÷ EUR→USD)",
+      "marketplaceFormula": "yang Anda terima = pembulatan ke bawah(harga jual × bagian kreator%)"
     },
     "rounding": {
       "moneyHalfUp": "Uang dibulatkan setengah ke atas",
@@ -174,6 +182,13 @@
         "p3": "Sebuah angka tidak pernah dibiarkan daring hanya karena berkinerja baik di pencarian setelah ia berhenti akurat. Kalau salah, ia diubah, dan perubahannya dicatat.",
         "p4": "Bagaimana koreksi bekerja"
       }
+    },
+    "meanings": {
+      "verified": "Dibaca langsung dari dokumentasi Roblox, Cloudflare, Google, atau ECB, dengan URL dan tanggalnya dicatat dalam daftar sumber.",
+      "derived": "Dihitung dari ekspor kata kunci yang dipakai saat situs ini dibangun. Ini perkiraan pihak ketiga, bukan trafik terukur.",
+      "observed": "Terlihat pada halaman yang dapat diakses publik. Dicatat sebagai pengamatan, tidak pernah diterbitkan ulang sebagai fakta.",
+      "inference": "Kesimpulan yang ditarik dari bukti, bukan dinyatakan oleh sebuah sumber. Ditandai sebagai inferensi di mana pun muncul.",
+      "decision": "Pilihan yang dibuat oleh situs ini, dengan alasannya dicatat alih-alih disajikan sebagai persyaratan dari luar."
     }
   },
   "corrections": {
@@ -226,7 +241,11 @@
       "registryEstablished": "Registri kurs dibuat dan diverifikasi",
       "marketplaceRecorded": "Komisi marketplace dicatat",
       "levRemoved": "Lev Bulgaria dihapus dari mata uang yang didukung",
-      "siteLaunched": "Situs diluncurkan"
+      "siteLaunched": "Situs diluncurkan",
+      "registryEstablishedDetail": "Tarif standar dicatat sebesar 0,0038 USD per Earned Robux yang memenuhi syarat (114 USD per 30.000), tarif lama sebesar 0,0035 untuk saldo yang diperoleh sebelum 5 September 2025 pukul 10:00 PT, dan tarif bersyarat AS 18+ sebesar 0,0054. Batas minimum 30.000 Earned Robux dan daftar kelayakan lengkap diverifikasi pada waktu yang sama. Semuanya diperiksa langsung terhadap dokumentasi DevEx di Roblox Creator Hub.",
+      "marketplaceRecordedDetail": "Pembelian di dalam experience dicatat sebagai 70% untuk kreator dan 30% untuk Roblox. Penjualan item avatar di Marketplace dicatat dengan tabel bagi hasil progresif, dari 30% pada harga terendah hingga 70% pada enam kali harga terendah itu. Item avatar yang terjual di dalam sebuah experience dicatat sebagai 30% kreator, 40% pemilik experience, 30% Roblox.",
+      "levRemovedDetail": "Bank Sentral Eropa berhenti menerbitkan kurs referensi BGN setelah 31 Desember 2025. Alih-alih terus menampilkan kurs yang beku pada tanggal itu, BGN dihapus dari pemilih mata uang. Mencantumkan mata uang yang tidak lagi dipasok oleh penyedia terkonfigurasi akan menyesatkan soal seberapa mutakhir angka tersebut.",
+      "siteLaunchedDetail": "Rilis awal: kalkulator DevEx dengan mode cepat, terpisah, dan target; halaman Robux ke USD serta target pembayaran; kalkulator biaya marketplace; pusat konversi dengan delapan halaman nominal pilihan; dan rangkaian lengkap panduan serta halaman transparansi. Setiap halaman yang bergantung pada tarif memuat kutipan sumber dan tanggal verifikasi sejak peluncuran."
     },
     "body": {
       "entries": {
@@ -342,7 +361,15 @@
     "profilesLabel": "Profil",
     "pagesReviewed": "Halaman yang ditinjau",
     "noPagesReviewed": "Saat ini tidak ada halaman yang membawa kredit peninjauan.",
-    "ahmadRazaPhotoAlt": "Ahmad Raza, pendiri dan pengelola DevExCalculator.org"
+    "ahmadRazaPhotoAlt": "Ahmad Raza, pendiri dan pengelola DevExCalculator.org",
+    "ahmadRaza": {
+      "role": "Pendiri & Pengelola",
+      "bio": "Ahmad Raza adalah penerbit web independen dan spesialis SEO asal Pakistan yang membangun dan memelihara perkakas rujukan serta situs informasi. Ia membangun DevExCalculator.org setelah mendapati bahwa kreator Roblox yang mencari angka pembayaran terus-menerus mendarat di halaman yang mengutip tarif DevEx yang usang atau keliru. Ia memelihara data tarif di situs ini dengan mengacu pada dokumentasi resmi Developer Exchange dari Roblox dan laporan SEC yang diterbitkan Roblox Corporation, serta mencatat setiap perubahan angka yang dipublikasikan di changelog situs. Ia tidak berafiliasi dengan Roblox Corporation dan tidak memiliki akses ke data internal Roblox."
+    },
+    "saeedAhmed": {
+      "role": "Peninjau Konten & Pemeriksa Fakta",
+      "bio": "Saeed Ahmed adalah pengembang full-stack sekaligus spesialis SEO. Di DevExCalculator.org ia meninjau angka-angka yang dipublikasikan sebelum tayang: ia memeriksa setiap tarif, pembagian komisi, dan ambang batas terhadap sumber primer yang dikutip, memastikan tanggal verifikasi yang tertera di halaman sesuai dengan kapan sumber itu terakhir diperiksa, dan menandai apa pun yang sudah melenceng. Ia tidak bekerja untuk Roblox dan tidak memiliki akses ke data internal Roblox."
+    }
   },
   "relatedHeading": "Halaman terkait"
 }

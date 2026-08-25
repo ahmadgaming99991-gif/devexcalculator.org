@@ -13,6 +13,32 @@
       "calculators": {
         "p1": "DevEx ödemesi, Robux'tan USD'ye, ödeme hedefleri ve marketplace ücretleri."
       }
+    },
+    "readingOrder": {
+      "earnedRobux": {
+        "answers": "Robux'larımın hangileri gerçekten nakde çevrilebilir?",
+        "assumes": "Hiçbir şey. Buradan başlayın — geri kalanının sizi ilgilendirip ilgilendirmediğine bu karar verir."
+      },
+      "requirements": {
+        "answers": "Bir talep gönderebilmek için neye ihtiyacım var?",
+        "assumes": "Earned Robux ile bakiyeniz arasındaki farkı bildiğinizi."
+      },
+      "rates": {
+        "answers": "Roblox, Earned Robux başına ne kadar ödüyor?",
+        "assumes": "Bakiyenizin hangi bölümünün uygun olduğunu bildiğinizi."
+      },
+      "rateHistory": {
+        "answers": "Bakiyemin bir bölümü neden farklı bir oranla dönüştürülüyor?",
+        "assumes": "Oranlar sayfasını okuduğunuzu."
+      },
+      "cashOut": {
+        "answers": "Süreç gerçekte nasıl işliyor?",
+        "assumes": "Koşulları karşıladığınızı ve bakiyenizin ne ettiğini bildiğinizi."
+      },
+      "feesAndTaxes": {
+        "answers": "Ödeme bana ulaşmadan önce üzerinden neler kesiliyor?",
+        "assumes": "Üzerinden gidebileceğiniz bir ödeme tutarınızın olduğunu."
+      }
     }
   },
   "calculators": {
@@ -28,6 +54,24 @@
       },
       "guides": {
         "p1": "Kurlar, koşullar, neyin Earned Robux sayıldığı ve nakde çevirme sürecinin nasıl işlediği."
+      }
+    },
+    "tools": {
+      "devex": {
+        "answers": "Earned Robux'larım dolar cinsinden ne eder?",
+        "useWhen": "Bir bakiyeniz var ve ödeme tahmini istiyorsunuz. Standart, eski ve koşullu oranlara dağılmış karma bir bakiyeyi hesaplar."
+      },
+      "robuxToUsd": {
+        "answers": "Robux dolar cinsinden ne eder?",
+        "useWhen": "Yaratıcıya yapılan ödemeyi mi yoksa perakende satın alma fiyatını mı istediğinizden emin değilsiniz. Bu sayfa ikisini ayırır."
+      },
+      "usdToRobux": {
+        "answers": "X tutarında bir ödeme için kaç Earned Robux gerekir?",
+        "useWhen": "Aklınızda bir tutar var ve ona ulaşmak için neyin gerektiğini, alt sınırın engel olup olmadığı dahil, bilmek istiyorsunuz."
+      },
+      "robuxTax": {
+        "answers": "Roblox komisyonundan sonra elimde ne kalır?",
+        "useWhen": "Bir ürünün ya da bir developer product'ın fiyatını belirliyorsunuz ve payınızı, ya da bir hedefe ulaşmak için ne kadar isteyeceğinizi bilmek istiyorsunuz."
       }
     }
   },
@@ -55,7 +99,11 @@
       "submitPortal": "Portal üzerinden gönderin",
       "submitPortalDetail": "Resmî DevEx portalı; başka hiçbir yer değil.",
       "robloxReviews": "Roblox inceler",
-      "paymentIssued": "Ödeme yapılır"
+      "paymentIssued": "Ödeme yapılır",
+      "meetRequirementsDetail": "Doğrulanmış e-posta, en az 13 yaş, bir DevEx portalı hesabı, dosyada bir vergi formu ve kurallara uygun bir hesap.",
+      "robloxReviewsDetail": "Hangi Robux'ların uygun olduğuna ve talebin onaylanıp onaylanmayacağına Roblox karar verir. Süreç burada bitebilir ve bunu hiçbir üçüncü taraf değiştiremez.",
+      "robloxReviewsBy": "yalnızca Roblox",
+      "paymentIssuedDetail": "Oradan sonra sağlayıcınız ve bankanız kendi işlem süreçlerini ve ücretlerini uygular."
     },
     "list": {
       "meetRequirements": "Hesap koşullarını karşılayın.",

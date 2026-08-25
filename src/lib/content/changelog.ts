@@ -17,6 +17,14 @@ export interface ChangeEntry {
   readonly title: string;
   readonly detail: string;
   readonly sourceUrl?: string;
+  /**
+   * The external document this entry was checked against, named as that
+   * document names itself.
+   *
+   * Not translated, in any locale. A citation points at a specific English
+   * page; renaming it in Turkish would send a reader looking for a title that
+   * does not exist. The surrounding sentence is translated, the title is not.
+   */
   readonly sourceLabel?: string;
 }
 

@@ -82,7 +82,15 @@
       "currencyTerm": "Monnaie locale",
       "currencyDetail": "La BCE publie des taux en base euro : les taux croisés en USD sont donc dérivés. Le sens de la division est fixé par des tests.",
       "marketplaceTerm": "Commission du marketplace",
-      "marketplaceDetail": "Arrondit au inférieur, de sorte qu’un chiffre affiché n’est jamais supérieur à ce que vous recevriez réellement."
+      "marketplaceDetail": "Arrondit au inférieur, de sorte qu’un chiffre affiché n’est jamais supérieur à ce que vous recevriez réellement.",
+      "payoutFormula": "USD brut = Earned Robux éligibles × taux par Robux",
+      "mixedFormula": "USD brut = (standard × 0,0038) + (ancien × 0,0035) + (É.-U. 18+ × 0,0054)",
+      "blendedFormula": "taux mixte = USD brut ÷ total des Earned Robux",
+      "feesFormula": "net avant impôt = brut − (brut × frais%) − frais fixes",
+      "taxFormula": "net après estimation = net avant impôt − (net avant impôt × votre impôt%)",
+      "reverseFormula": "Earned Robux nécessaires = plafond(USD visé ÷ taux par Robux)",
+      "currencyFormula": "valeur locale = valeur en USD × (EUR→cible ÷ EUR→USD)",
+      "marketplaceFormula": "vous conservez = plancher(prix de vente × part du créateur%)"
     },
     "rounding": {
       "moneyHalfUp": "L’argent s’arrondit au plus proche, moitié vers le haut",
@@ -177,6 +185,13 @@
         "p3": "Un chiffre n’est jamais laissé en ligne parce qu’il fonctionne bien dans la recherche après avoir cessé d’être exact. S’il est faux, il change, et le changement est consigné.",
         "p4": "Comment fonctionnent les corrections"
       }
+    },
+    "meanings": {
+      "verified": "Lu directement dans la documentation de Roblox, Cloudflare, Google ou de la BCE, avec l’URL et la date consignées dans le registre des sources.",
+      "derived": "Calculé à partir des exports de mots-clés sur lesquels ce site a été construit. Ce sont des estimations tierces, pas du trafic mesuré.",
+      "observed": "Constaté sur une page accessible au public. Consigné comme observation, jamais republié comme un fait.",
+      "inference": "Une conclusion tirée d’indices plutôt qu’affirmée par une source. Signalée comme une inférence partout où elle apparaît.",
+      "decision": "Un choix propre à ce site, dont le raisonnement est consigné plutôt que présenté comme une exigence extérieure."
     }
   },
   "corrections": {
@@ -229,7 +244,11 @@
       "registryEstablished": "Registre des taux établi et vérifié",
       "marketplaceRecorded": "Commissions du marketplace consignées",
       "levRemoved": "Lev bulgare retiré des devises prises en charge",
-      "siteLaunched": "Site lancé"
+      "siteLaunched": "Site lancé",
+      "registryEstablishedDetail": "Taux standard consigné à 0,0038 USD par Earned Robux éligible (114 USD pour 30 000), taux ancien à 0,0035 pour les soldes gagnés avant le 5 septembre 2025 à 10 h 00 PT, et taux conditionnel É.-U. 18+ à 0,0054. Le minimum de 30 000 Earned Robux et la liste complète des conditions ont été vérifiés en même temps. Le tout contrôlé directement dans la documentation DevEx du Roblox Creator Hub.",
+      "marketplaceRecordedDetail": "Achats en expérience consignés à 70 % pour le créateur et 30 % pour Roblox. Ventes d’objets d’avatar sur le Marketplace consignées avec le barème progressif de partage des revenus, de 30 % au prix plancher à 70 % à six fois ce plancher. Objets d’avatar vendus au sein d’une expérience consignés à 30 % créateur, 40 % propriétaire de l’expérience, 30 % Roblox.",
+      "levRemovedDetail": "La Banque centrale européenne a cessé de publier un taux de référence pour le BGN après le 31 décembre 2025. Plutôt que de continuer à afficher un taux figé à cette date, le BGN a été retiré du sélecteur de devises. Répertorier une devise que le fournisseur configuré ne fournit plus donnerait une fausse idée de l’actualité du chiffre.",
+      "siteLaunchedDetail": "Version initiale : calculatrice DevEx avec les modes rapide, réparti et objectif ; pages Robux vers USD et objectif de versement ; calculatrice de commission du marketplace ; centre de conversion avec huit pages de montants sélectionnées ; et l’ensemble complet des guides et des pages de transparence. Chaque page sensible aux taux porte une citation de source et une date de vérification depuis le lancement."
     },
     "body": {
       "entries": {
@@ -345,7 +364,15 @@
     "profilesLabel": "Profils",
     "pagesReviewed": "Pages relues",
     "noPagesReviewed": "Aucune page ne porte actuellement de mention de relecture.",
-    "ahmadRazaPhotoAlt": "Ahmad Raza, fondateur et mainteneur de DevExCalculator.org"
+    "ahmadRazaPhotoAlt": "Ahmad Raza, fondateur et mainteneur de DevExCalculator.org",
+    "ahmadRaza": {
+      "role": "Fondateur et mainteneur",
+      "bio": "Ahmad Raza est un éditeur web indépendant et spécialiste du référencement, basé au Pakistan, qui conçoit et maintient des outils de référence et des sites d’information. Il a créé DevExCalculator.org après avoir constaté que les créateurs Roblox à la recherche de montants de versement tombaient sans cesse sur des pages citant des taux DevEx périmés ou erronés. Il tient à jour les données de taux de ce site en les confrontant à la documentation officielle du Developer Exchange de Roblox et aux dépôts publiés par Roblox Corporation auprès de la SEC, et consigne dans le changelog du site chaque modification d’un chiffre publié. Il n’est pas affilié à Roblox Corporation et n’a accès à aucune donnée interne de Roblox."
+    },
+    "saeedAhmed": {
+      "role": "Relecteur de contenu et vérificateur des faits",
+      "bio": "Saeed Ahmed est développeur full-stack et spécialiste du référencement. Sur DevExCalculator.org, il relit les chiffres publiés avant leur mise en ligne : il vérifie chaque taux, chaque partage de commission et chaque seuil au regard de la source primaire citée, s’assure que la date de vérification affichée correspond à la dernière consultation de cette source, et signale tout ce qui a dérivé. Il ne travaille pas pour Roblox et n’a accès à aucune donnée interne de Roblox."
+    }
   },
   "relatedHeading": "Pages liées"
 }

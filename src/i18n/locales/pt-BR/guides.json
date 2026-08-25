@@ -13,6 +13,32 @@
       "calculators": {
         "p1": "Pagamento DevEx, Robux para USD, metas de pagamento e taxas do marketplace."
       }
+    },
+    "readingOrder": {
+      "earnedRobux": {
+        "answers": "Quais dos meus Robux podem realmente ser sacados?",
+        "assumes": "Nada. Comece por aqui — é o que decide se o resto se aplica a você."
+      },
+      "requirements": {
+        "answers": "O que eu preciso ter antes de poder enviar uma solicitação?",
+        "assumes": "Que você saiba a diferença entre Earned Robux e o seu saldo."
+      },
+      "rates": {
+        "answers": "Quanto o Roblox paga por Earned Robux?",
+        "assumes": "Que você saiba qual parte do seu saldo se qualifica."
+      },
+      "rateHistory": {
+        "answers": "Por que parte do meu saldo é convertida a uma taxa diferente?",
+        "assumes": "Que você tenha lido a página de taxas."
+      },
+      "cashOut": {
+        "answers": "Qual é o processo, na prática?",
+        "assumes": "Que você atenda aos requisitos e saiba quanto vale o seu saldo."
+      },
+      "feesAndTaxes": {
+        "answers": "O que é descontado do pagamento antes de chegar até mim?",
+        "assumes": "Que você já tenha um valor de pagamento como ponto de partida."
+      }
     }
   },
   "calculators": {
@@ -28,6 +54,24 @@
       },
       "guides": {
         "p1": "Taxas, requisitos, o que conta como Earned Robux e como funciona o processo de saque."
+      }
+    },
+    "tools": {
+      "devex": {
+        "answers": "Quanto valem meus Earned Robux em dólares?",
+        "useWhen": "Você tem um saldo e quer uma estimativa de pagamento. Dá conta de um saldo misto entre as taxas padrão, antiga e condicional."
+      },
+      "robuxToUsd": {
+        "answers": "Quanto vale Robux em dólares?",
+        "useWhen": "Você não tem certeza se quer o pagamento ao criador ou o preço de compra no varejo. Esta página separa os dois."
+      },
+      "usdToRobux": {
+        "answers": "De quantos Earned Robux eu preciso para um pagamento de X?",
+        "useWhen": "Você tem um valor em mente e quer saber o que é preciso para alcançá-lo, inclusive se o mínimo atrapalha."
+      },
+      "robuxTax": {
+        "answers": "Com quanto eu fico depois da comissão do Roblox?",
+        "useWhen": "Você está precificando um item ou um produto de desenvolvedor e quer saber a sua parte, ou quanto cobrar para atingir uma meta."
       }
     }
   },
@@ -55,7 +99,11 @@
       "submitPortal": "Enviar pelo portal",
       "submitPortalDetail": "O portal oficial do DevEx, e nenhum outro lugar.",
       "robloxReviews": "O Roblox analisa",
-      "paymentIssued": "O pagamento é emitido"
+      "paymentIssued": "O pagamento é emitido",
+      "meetRequirementsDetail": "E-mail verificado, idade mínima de 13 anos, uma conta no portal do DevEx, um formulário fiscal arquivado e situação regular.",
+      "robloxReviewsDetail": "Ele decide quais Robux se qualificam e se aprova ou não. Pode terminar aqui, e nenhum terceiro muda isso.",
+      "robloxReviewsBy": "somente o Roblox",
+      "paymentIssuedDetail": "A partir daí, o seu provedor e o seu banco aplicam o próprio processamento e as próprias tarifas."
     },
     "list": {
       "meetRequirements": "Cumpra os requisitos da conta.",

@@ -144,7 +144,15 @@
       "tablesScroll": "Wide tables scroll accessibly",
       "zoom": "Zoom is never blocked",
       "zoomDetail": "The viewport sets no maximum scale, so pinch-zoom works everywhere.",
-      "noJs": "Works without JavaScript"
+      "noJs": "Works without JavaScript",
+      "keyboardDetail": "Every control is a real button, link, input or select. There are no clickable divs, so keyboard behaviour comes from the browser rather than from scripts imitating it.",
+      "focusDetail": "A three-pixel amber outline with a two-pixel offset, chosen because it measures about 5:1 against every surface on the site — comfortably above the 3:1 the standard requires.",
+      "announcedDetail": "Calculation results, copy confirmations and error messages are announced through a polite live region, summarised rather than read digit by digit as you type.",
+      "errorsTiedDetail": "Validation messages are linked with aria-describedby and the field is marked invalid, so a screen reader reports the problem with the field rather than as loose text nearby.",
+      "notColourAloneDetail": "The threshold meter, rate comparisons and stale-rate warnings each carry a text label saying what the colour says.",
+      "mobileMenuDetail": "Escape closes it and returns focus to the button that opened it, focus is trapped while it is open, and background scrolling is locked without the page shifting.",
+      "tablesScrollDetail": "Each table sits in a focusable, labelled scroll container, so a keyboard user can reach and scroll it without a mouse.",
+      "noJsDetail": "Rates, formulas, worked examples, tables, navigation and every explanation are server rendered. Only live recalculation needs scripts."
     },
     "aboutPageLink": "about page",
     "body": {

@@ -150,10 +150,11 @@
   },
   "currency": {
     "loading": "Loading reference rates…",
-    "unavailable": "Local-currency estimates are temporarily unavailable.",
+    "unavailable": "Local-currency estimates are temporarily unavailable. The USD figures above are unaffected.",
     "usdUnaffected": "The USD figure above is calculated locally and is unaffected.",
     "staleHeading": "Stale rates.",
-    "provenance": "{currency} figures use {provider} reference rates observed {date}. These are reference rates, not bank quotes — your payment provider will apply its own rate and may add a fee."
+    "provenance": "{currency} figures use {provider} reference rates observed {date}. These are reference rates, not bank quotes — your payment provider will apply its own rate and may add a fee.",
+    "staleSnapshot": "Live reference rates are unavailable, so a stored snapshot is being shown. Treat these figures as indicative only."
   },
   "home": {
     "formulaOpen": "Nothing here is hidden. The formula is one multiplication, and you can check it.",
@@ -200,7 +201,9 @@
         "p1": "Something out of date?",
         "p2": "Tell us and it gets fixed"
       }
-    }
+    },
+    "intro": "Convert eligible Earned Robux into an estimated US dollar payout using the rates Roblox currently documents, with the source and verification date shown alongside every figure.",
+    "jumpLabel": "See how the calculation works"
   },
   "planner": {
     "targetLabel": "Payout you are aiming for",
@@ -240,7 +243,11 @@
         "p4": "Estimated amount you keep",
         "p5": "Every figure here is an estimate produced from what you entered. Reaching"
       }
-    }
+    },
+    "alreadyEnoughHeadline": "You already hold enough for this target.",
+    "zeroEarningsHeadline": "No date, at this pace.",
+    "datePassedHeadline": "That date has already arrived.",
+    "pickDateHeadline": "Pick a date."
   },
   "actions": {},
   "controls": {

@@ -148,7 +148,15 @@
       "tablesScroll": "Breite Tabellen scrollen barrierefrei",
       "zoom": "Zoom wird nie blockiert",
       "zoomDetail": "Der Viewport legt keinen Maximalmaßstab fest, Pinch-Zoom funktioniert also überall.",
-      "noJs": "Funktioniert ohne JavaScript"
+      "noJs": "Funktioniert ohne JavaScript",
+      "keyboardDetail": "Jedes Bedienelement ist ein echter Button, Link, Eingabefeld oder Auswahlfeld. Es gibt keine klickbaren Divs, das Tastaturverhalten kommt also vom Browser und nicht von Skripten, die es nachahmen.",
+      "focusDetail": "Ein drei Pixel breiter bernsteinfarbener Rahmen mit zwei Pixeln Abstand, gewählt, weil er auf jeder Fläche der Website etwa 5:1 erreicht — deutlich über den 3:1, die der Standard verlangt.",
+      "announcedDetail": "Rechenergebnisse, Kopierbestätigungen und Fehlermeldungen werden über einen „polite“ Live-Bereich angesagt — zusammengefasst und nicht Ziffer für Ziffer während der Eingabe.",
+      "errorsTiedDetail": "Validierungsmeldungen sind über aria-describedby verknüpft und das Feld wird als ungültig markiert, sodass ein Screenreader das Problem zum Feld meldet und nicht als losen Text daneben.",
+      "notColourAloneDetail": "Die Schwellenanzeige, die Satzvergleiche und die Warnungen zu veralteten Sätzen tragen jeweils eine Textbeschriftung, die dasselbe sagt wie die Farbe.",
+      "mobileMenuDetail": "Escape schließt es und gibt den Fokus an den Button zurück, der es geöffnet hat; der Fokus bleibt im Menü gefangen, solange es offen ist, und das Scrollen im Hintergrund ist gesperrt, ohne dass die Seite verspringt.",
+      "tablesScrollDetail": "Jede Tabelle sitzt in einem fokussierbaren, beschrifteten Scroll-Container, sodass Tastaturnutzer sie ohne Maus erreichen und scrollen können.",
+      "noJsDetail": "Sätze, Formeln, durchgerechnete Beispiele, Tabellen, Navigation und jede Erläuterung werden serverseitig gerendert. Nur die Neuberechnung in Echtzeit braucht Skripte."
     },
     "aboutPageLink": "Über-Seite",
     "body": {

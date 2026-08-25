@@ -78,7 +78,15 @@
       "currencyTerm": "Moneda local",
       "currencyDetail": "El BCE publica tipos basados en el euro, así que los tipos cruzados en USD se derivan. La dirección de la división está fijada por pruebas.",
       "marketplaceTerm": "Comisión del marketplace",
-      "marketplaceDetail": "Redondea hacia abajo, así que una cifra mostrada nunca es mayor de lo que recibirías realmente."
+      "marketplaceDetail": "Redondea hacia abajo, así que una cifra mostrada nunca es mayor de lo que recibirías realmente.",
+      "payoutFormula": "USD bruto = Earned Robux elegibles × tasa por Robux",
+      "mixedFormula": "USD bruto = (estándar × 0,0038) + (antiguo × 0,0035) + (EE. UU. 18+ × 0,0054)",
+      "blendedFormula": "tasa combinada = USD bruto ÷ total de Earned Robux",
+      "feesFormula": "neto antes de impuestos = bruto − (bruto × comisión%) − comisión fija",
+      "taxFormula": "neto tras la estimación = neto antes de impuestos − (neto antes de impuestos × tu impuesto%)",
+      "reverseFormula": "Earned Robux necesarios = techo(USD objetivo ÷ tasa por Robux)",
+      "currencyFormula": "valor local = valor en USD × (EUR→destino ÷ EUR→USD)",
+      "marketplaceFormula": "te quedas con = suelo(precio de venta × parte del creador%)"
     },
     "rounding": {
       "moneyHalfUp": "El dinero redondea a la mitad hacia arriba",
@@ -173,6 +181,13 @@
         "p3": "Una cifra nunca se deja publicada porque funcione bien en las búsquedas después de dejar de ser exacta. Si está mal, cambia, y el cambio queda registrado.",
         "p4": "Cómo funcionan las correcciones"
       }
+    },
+    "meanings": {
+      "verified": "Leído directamente de la documentación de Roblox, Cloudflare, Google o el BCE, con la URL y la fecha anotadas en el registro de fuentes.",
+      "derived": "Calculado a partir de las exportaciones de palabras clave con las que se construyó este sitio. Son estimaciones de terceros, no tráfico medido.",
+      "observed": "Visto en una página de acceso público. Registrado como observación, nunca republicado como hecho.",
+      "inference": "Una conclusión extraída de la evidencia, no afirmada por una fuente. Se etiqueta como inferencia allí donde aparece.",
+      "decision": "Una decisión de este sitio, con el razonamiento registrado en lugar de presentarse como un requisito externo."
     }
   },
   "corrections": {
@@ -225,7 +240,11 @@
       "registryEstablished": "Registro de tasas establecido y verificado",
       "marketplaceRecorded": "Comisiones del marketplace registradas",
       "levRemoved": "Lev búlgaro retirado de las monedas admitidas",
-      "siteLaunched": "Sitio lanzado"
+      "siteLaunched": "Sitio lanzado",
+      "registryEstablishedDetail": "Tasa estándar registrada en 0,0038 USD por Earned Robux elegible (114 USD por cada 30.000), la tasa antigua en 0,0035 para saldos ganados antes del 5 de septiembre de 2025 a las 10:00 PT, y la tasa condicional EE. UU. 18+ en 0,0054. El mínimo de 30.000 Earned Robux y la lista completa de requisitos se verificaron al mismo tiempo. Todo comprobado directamente en la documentación de DevEx del Roblox Creator Hub.",
+      "marketplaceRecordedDetail": "Compras dentro de la experiencia registradas como 70% para el creador y 30% para Roblox. Ventas de artículos de avatar en el Marketplace registradas con la tabla progresiva de reparto de ingresos, del 30% en el precio mínimo al 70% a seis veces ese mínimo. Artículos de avatar vendidos dentro de una experiencia registrados como 30% creador, 40% propietario de la experiencia, 30% Roblox.",
+      "levRemovedDetail": "El Banco Central Europeo dejó de publicar una tasa de referencia para el BGN después del 31 de diciembre de 2025. En lugar de seguir mostrando una tasa congelada en esa fecha, se retiró el BGN del selector de monedas. Listar una moneda que el proveedor configurado ya no suministra daría una idea falsa de lo actual que es la cifra.",
+      "siteLaunchedDetail": "Versión inicial: calculadora de DevEx con los modos rápido, dividido y por objetivo; páginas de Robux a USD y de objetivo de pago; calculadora de comisión del marketplace; centro de conversión con ocho páginas de importes seleccionadas; y el conjunto completo de guías y páginas de transparencia. Cada página sensible a las tasas lleva una cita de la fuente y una fecha de verificación desde el lanzamiento."
     },
     "body": {
       "entries": {
@@ -341,7 +360,15 @@
     "profilesLabel": "Perfiles",
     "pagesReviewed": "Páginas revisadas",
     "noPagesReviewed": "Ninguna página lleva actualmente un crédito de revisión.",
-    "ahmadRazaPhotoAlt": "Ahmad Raza, fundador y responsable de DevExCalculator.org"
+    "ahmadRazaPhotoAlt": "Ahmad Raza, fundador y responsable de DevExCalculator.org",
+    "ahmadRaza": {
+      "role": "Fundador y responsable de mantenimiento",
+      "bio": "Ahmad Raza es un editor web independiente y especialista en SEO de Pakistán que crea y mantiene herramientas de referencia y sitios informativos. Creó DevExCalculator.org tras comprobar que los creadores de Roblox que buscaban cifras de pago acababan una y otra vez en páginas que citaban tasas de DevEx obsoletas o incorrectas. Mantiene los datos de tasas de este sitio contrastados con la documentación oficial del Developer Exchange de Roblox y con los informes que Roblox Corporation presenta ante la SEC, y registra en el changelog del sitio cada cambio de una cifra publicada. No está afiliado a Roblox Corporation y no tiene acceso a datos internos de Roblox."
+    },
+    "saeedAhmed": {
+      "role": "Revisor de contenidos y verificador de datos",
+      "bio": "Saeed Ahmed es desarrollador full-stack y especialista en SEO. En DevExCalculator.org revisa las cifras publicadas antes de que se publiquen: coteja cada tasa, reparto de comisión y umbral con la fuente primaria de la que se cita, confirma que la fecha de verificación indicada en la página coincide con la última consulta de esa fuente y señala todo lo que se haya desviado. No trabaja para Roblox y no tiene acceso a datos internos de Roblox."
+    }
   },
   "relatedHeading": "Páginas relacionadas"
 }

@@ -121,6 +121,28 @@
         "p3": "Hesabınızın Kullanım Koşulları ve Topluluk Standartları karşısında kurallara uygun olduğunu kontrol edin.",
         "p4": "Paranın nereye gideceğine karar verin ve bankanızın ya da ödeme sağlayıcınızın bunu almak için ne kadar keseceğini kontrol edin."
       }
+    },
+    "misunderstandings": {
+      "minimum10k": {
+        "claim": "Alt sınır 10.000 Robux'tur.",
+        "reality": "Doğrusu 30.000 Earned Robux. Daha düşük rakam, güncellenmemiş üçüncü taraf sitelerinde dolaşıyor ve Roblox'un güncel belgelerinde yazan bu değil."
+      },
+      "anyBalance": {
+        "claim": "Herhangi bir Robux bakiyesi alt sınıra sayılır.",
+        "reality": "Yalnızca Earned Robux sayılır. Satın alınmış Robux'tan oluşan bir bakiye, ne kadar büyük olursa olsun uygun değildir."
+      },
+      "reaching30k": {
+        "claim": "30.000'e ulaşmak, ödeme alacağınız anlamına gelir.",
+        "reality": "Talep gönderebileceğiniz anlamına gelir. Roblox her talebi inceler ve hangi Robux'ların kazanılmış sayıldığına karar verir."
+      },
+      "age18": {
+        "claim": "DevEx'i kullanmak için 18 yaşında olmak gerekir.",
+        "reality": "Roblox asgari yaşı 13 olarak belgeliyor. Ayrı bir koşul olan 18+ şartı, Robux'ları harcayan oyuncuların yaş doğrulamasıyla ilgilidir ve uygunluğunuzu değil, oranı etkiler."
+      }
+    },
+    "threshold": {
+      "below": "Bu çizginin altında hiçbir DevEx talebi gönderilemez. Sınıra yakın olmak hiçbir şey ifade etmez ve eksik kısım kazanılmak zorundadır — satın alınamaz.",
+      "above": "Çizgide ya da üzerindeyken talep gönderilebilir. Talep ardından incelenir ve eşiği aşmak, onaylanmakla aynı şey değildir."
     }
   },
   "earnedRobux": {
@@ -188,7 +210,16 @@
       "toYouAsEarned": "size, Earned Robux olarak",
       "balanceDevExConverts": "DevEx'in daha sonra çevirdiği bakiye budur.",
       "platformCommission": "platform komisyonu",
-      "takenOnceHere": "Bir kez, burada alınır — nakde çevirmede yeniden değil."
+      "takenOnceHere": "Bir kez, burada alınır — nakde çevirmede yeniden değil.",
+      "devexPayoutNote": "Belgelenmiş oranın, uygun Earned Robux'ınızdan ürettiği tutar. Hesaplayıcının tahmin ettiği rakam budur.",
+      "providerFeeNote": "Çoğu zaman bir yüzde artı sabit bir tutar; parayı size ulaştırmak için alınır.",
+      "providerFeeBy": "ödeme sağlayıcınız",
+      "conversionNote": "Yalnızca ABD doları dışında bir para biriminde ödeme alıyorsanız, kendi kurlarına bir marj eklenerek uygulanır.",
+      "conversionBy": "dönüşümü kim yapıyorsa",
+      "incomeTaxNote": "Bir ödeme gelirdir. Neyin, ne zaman geçerli olduğu ülkenize ve koşullarınıza bağlıdır.",
+      "incomeTaxBy": "vergi daireniz",
+      "whatReachesYouNote": "Yukarıdaki tahminden daha düşük; farkı yalnızca kendi sağlayıcınız ve vergi durumunuz söyleyebilir.",
+      "marketplaceTotal": "Bir oyuncunun deneyiminizde harcadığı 100 Robux"
     },
     "ogImageAlt": "Önce sağlayıcı ücretleri, sonra çevrim, sonra gelir vergisi — hiçbiri Roblox'un değil",
     "body": {
@@ -401,6 +432,16 @@
         "p1": "Tüm dönüşümlere dön",
         "p2": "Farklı bir tutarı çevir"
       }
+    },
+    "context": {
+      "robux30000": "En çok önem taşıyan tutar 30.000'dir, çünkü bir DevEx talebinin gönderilebilmesi için Roblox'un istediği asgari Earned Robux bakiyesi budur. Bu rakamın altında soru, ödemenin ne kadar olacağı değil, talebin gönderilip gönderilemeyeceğidir.",
+      "robux50000": "50.000 Earned Robux alt sınırı rahatça aşar; bu yüzden deneyimi yeni yeni düzenli kazanç getirmeye başlayan bir yaratıcı için sık görülen ilk nakde çevirme tutarıdır.",
+      "robux100000": "100.000, bu aralıkta en çok aranan yuvarlak rakamdır ve güncel oranla eski oran arasındaki farkın fark edilir hâle geldiği noktadır: aralarında otuz dolar vardır.",
+      "robux200000": "200.000 Earned Robux'ta bir yaratıcı genellikle tek seferlik değil, düzenli aralıklarla nakde çevirir; bu da oran dilimleri arasındaki farkı tahmin etmek yerine izlemeye değer kılar.",
+      "robux300000": "300.000 Earned Robux, DevEx alt sınırının on katıdır. Bir yıllık kazancın kaç nakde çevirme döngüsüne denk geldiğini hesaplayan bir yaratıcı için kullanışlı bir referans noktasıdır.",
+      "robux500000": "Yarım milyon Earned Robux, ödeme sağlayıcısı ücretlerinin ve kişisel vergi yükümlülüklerinin artık yuvarlama hatası olmaktan çıktığı ölçektir; bu sayfanın doğrudan ücretler ve vergiler rehberine bağlanmasının nedeni budur.",
+      "robux1000000": "Bir milyon Robux, yaratıcıların gerçekten aradığı dönüm noktasıdır ve satın alma fiyatı ile DevEx ödemesinin neden aynı rakam olmadığının en açık örneğidir.",
+      "robux10000000": "On milyon Earned Robux, büyük bir deneyimden gelen sürekli kazancı temsil eder. Bu ölçekte, standart ve eski bakiyeler arasındaki dağılım ile ABD 18+ koşulunu karşılayan pay, toplamı binlerce dolar değiştirir."
     }
   }
 }

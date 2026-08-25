@@ -39,6 +39,43 @@ const EXTENSIONS = [".ts", ".tsx"];
 /** Directories whose strings never reach a reader. */
 const SKIP_SEGMENTS = ["__tests__", "node_modules"];
 
+/**
+ * Files whose strings reach somebody, but never as page copy in a language.
+ *
+ * Each is here for its own reason, and each reason is a claim that can be
+ * checked by opening the file:
+ *
+ *   `src/app/api/` — a JSON response is a machine contract. Its `message`
+ *   and `disclaimer` fields are quoted in the documentation on `/api/`, and
+ *   a client that switched language would be a different API. The prose a
+ *   reader sees about these endpoints lives in `src/lib/api/contract.ts`,
+ *   which is not on this list.
+ *
+ *   `heartbeat.ts` and `exports.ts` — read only by `/api/health/` and by the
+ *   CSV exports. Operator diagnostics and column values, not sentences on a
+ *   page.
+ *
+ *   `opengraph-image.tsx` — the social card is a rendered image, and the
+ *   generator runs once per route, not once per route per language. The
+ *   cards are English. This is a real limitation and it is written down in
+ *   `docs/i18n/` as a blocker on publishing any locale, rather than hidden
+ *   behind a detector that stopped looking. The `og:image:alt` a reader's
+ *   screen reader announces *is* translated — it comes from the route
+ *   registry, through `localizedRoute`.
+ */
+const NOT_PAGE_COPY = [
+  "src/app/api/",
+  // The OpenAPI document and llms.txt. Both describe the endpoints to a
+  // machine, in one file, at one URL. `/api/` — the page a person reads
+  // about the same endpoints — is written separately in `views/api.tsx`
+  // and is translated like any other page.
+  "src/lib/api/contract.ts",
+  "src/lib/content/llms.ts",
+  "src/lib/platform/heartbeat.ts",
+  "src/lib/api/exports.ts",
+  "opengraph-image.tsx",
+];
+
 /** Attributes whose value is shown or read aloud to a person. */
 const READER_FACING_ATTRIBUTES = [
   "alt",
@@ -66,6 +103,34 @@ const READER_FACING_ATTRIBUTES = [
   "ogImageAlt",
   "eligibilitySummary",
   "conditionNote",
+  /*
+   * Found by sweeping every `name = "..."` in the source for a value that
+   * reads as a sentence and checking it against this list. A detector that
+   * does not know an attribute reports full coverage of the strings it can
+   * see, which is the most convincing way to be wrong.
+   */
+  "intro",
+  "jumpLabel",
+  "hint",
+  "term",
+  "headline",
+  "useWhen",
+  "claim",
+  "reality",
+  "meaning",
+  "assumes",
+  "answers",
+  "context",
+  "what",
+  "above",
+  "below",
+  "total",
+  "bio",
+  "formula",
+  "by",
+  "error",
+  "staleReason",
+  "role",
 ];
 
 /**
@@ -233,27 +298,63 @@ const JSX_COMMENT = /\{\/\*[\s\S]*?\*\/\}/g;
 const BLOCK_COMMENT = /\/\*[\s\S]*?\*\//g;
 const LINE_COMMENT = /^[^\S\n]*\/\/.*$/gm;
 
+/**
+ * A source string as the reader will see it.
+ *
+ * The scan matches source text, so what it captures still carries the
+ * escapes the author wrote: `\\"` around a quoted phrase, and `\\u2014` where
+ * the page shows an em dash. Compared against a dictionary — which holds the
+ * decoded characters — neither can ever match, and the report calls a string
+ * that was extracted correctly missing.
+ */
+function decodeSource(value: string): string {
+  return value
+    .replace(/\\u([0-9a-fA-F]{4})/g, (_, hex: string) =>
+      String.fromCharCode(Number.parseInt(hex, 16)),
+    )
+    .replace(/\\n/g, "\n")
+    .replace(/\\t/g, "\t")
+    .replace(/\\(.)/g, "$1");
+}
+
 function scan(file: string): Finding[] {
+  const path = relative(ROOT, file).split(sep).join("/");
+  if (NOT_PAGE_COPY.some((fragment) => path.includes(fragment))) return [];
   const raw = readFileSync(file, "utf8");
   const source = blank(
     blank(blank(blank(raw, CODE_ELEMENT), JSX_COMMENT), BLOCK_COMMENT),
     LINE_COMMENT,
   );
   const lines = source.split(/\r?\n/);
-  const rel = relative(ROOT, file).split(sep).join("/");
+  const rel = path;
   const isRegistry = rel.includes("route-registry") || rel.includes("amount-pages");
   const findings: Finding[] = [];
 
-  lines.forEach((line, index) => {
-    // Skip comment-only lines: prose in a comment is not shipped.
-    const bare = line.trim();
-    if (bare.startsWith("//") || bare.startsWith("*") || bare.startsWith("/*")) return;
-
-    // Reader-facing attributes and registry prose fields.
-    const attribute = /(?:^|[\s{,])([a-zA-Z-]+)\s*[=:]\s*(?:\{?)"([^"]{4,})"/g;
+  /*
+   * Reader-facing attributes and registry prose fields.
+   *
+   * Scanned across the whole file rather than line by line, because the
+   * formatter puts a long value on its own line:
+   *
+   *     meaning:
+   *       "Seen on a publicly accessible page..."
+   *
+   * Line by line that is a name with no string followed by a string with no
+   * name, and neither half is reported. The values that wrap are the long
+   * ones, so the strings this missed were the densest prose in the file.
+   */
+  {
+    const attribute =
+      /(?:^|[\s{,])([a-zA-Z-]+)\s*[=:]\s*(?:\{?)\s*"((?:[^"\\]|\\.){4,})"/g;
     let match: RegExpExecArray | null;
-    while ((match = attribute.exec(line)) !== null) {
-      const [, name, value] = match;
+    while ((match = attribute.exec(source)) !== null) {
+      const [, name, raw] = match;
+      const value = raw === undefined ? undefined : decodeSource(raw);
+      const index = source.slice(0, match.index).split("\n").length - 1;
+      const line = lines[index] ?? "";
+      const bare = line.trim();
+      // Prose in a comment is not shipped.
+      if (bare.startsWith("//") || bare.startsWith("*") || bare.startsWith("/*")) continue;
       if (!name || !value) continue;
       if (!READER_FACING_ATTRIBUTES.includes(name)) continue;
       if (!looksTranslatable(value)) continue;
@@ -274,8 +375,7 @@ function scan(file: string): Finding[] {
         text: value,
       });
     }
-
-  });
+  }
 
   findings.push(...scanJsxText(file, source, rel, isRegistry));
   return findings;

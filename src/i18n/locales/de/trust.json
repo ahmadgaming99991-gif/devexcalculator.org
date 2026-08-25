@@ -81,7 +81,15 @@
       "currencyTerm": "Landeswährung",
       "currencyDetail": "Die EZB veröffentlicht euro-basierte Kurse, USD-Kreuzkurse werden daher abgeleitet. Die Richtung der Division ist durch Tests festgeschrieben.",
       "marketplaceTerm": "Marketplace-Gebühr",
-      "marketplaceDetail": "Rundet ab, damit eine angezeigte Zahl nie höher ist als das, was tatsächlich ankommt."
+      "marketplaceDetail": "Rundet ab, damit eine angezeigte Zahl nie höher ist als das, was tatsächlich ankommt.",
+      "payoutFormula": "USD brutto = berechtigte Earned Robux × Satz pro Robux",
+      "mixedFormula": "USD brutto = (Standard × 0,0038) + (alt × 0,0035) + (USA 18+ × 0,0054)",
+      "blendedFormula": "Mischsatz = USD brutto ÷ Earned Robux gesamt",
+      "feesFormula": "netto vor Steuer = brutto − (brutto × Gebühr%) − Pauschalgebühr",
+      "taxFormula": "netto nach Schätzung = netto vor Steuer − (netto vor Steuer × Ihre Steuer%)",
+      "reverseFormula": "benötigte Earned Robux = Aufrundung(Ziel-USD ÷ Satz pro Robux)",
+      "currencyFormula": "lokaler Wert = USD-Wert × (EUR→Ziel ÷ EUR→USD)",
+      "marketplaceFormula": "Sie behalten = Abrundung(Verkaufspreis × Creator-Anteil%)"
     },
     "rounding": {
       "moneyHalfUp": "Geld rundet kaufmännisch auf",
@@ -176,6 +184,13 @@
         "p3": "Eine Zahl bleibt nie online, weil sie in der Suche gut läuft, nachdem sie aufgehört hat zu stimmen. Ist sie falsch, wird sie geändert, und die Änderung wird festgehalten.",
         "p4": "Wie Korrekturen ablaufen"
       }
+    },
+    "meanings": {
+      "verified": "Direkt aus der Dokumentation von Roblox, Cloudflare, Google oder der EZB gelesen, mit URL und Datum im Quellenregister vermerkt.",
+      "derived": "Aus den Keyword-Exporten berechnet, gegen die diese Website gebaut wurde. Schätzungen Dritter, kein gemessener Traffic.",
+      "observed": "Auf einer öffentlich zugänglichen Seite gesehen. Als Beobachtung festgehalten, nie als Tatsache weiterveröffentlicht.",
+      "inference": "Ein aus Belegen gezogener Schluss, nicht die Aussage einer Quelle. Überall, wo er auftaucht, als Schlussfolgerung gekennzeichnet.",
+      "decision": "Eine Entscheidung dieser Website, deren Begründung festgehalten und nicht als externe Vorgabe ausgegeben wird."
     }
   },
   "corrections": {
@@ -228,7 +243,11 @@
       "registryEstablished": "Kursregister eingerichtet und geprüft",
       "marketplaceRecorded": "Marketplace-Provisionen erfasst",
       "levRemoved": "Bulgarischer Lew aus den unterstützten Währungen entfernt",
-      "siteLaunched": "Website gestartet"
+      "siteLaunched": "Website gestartet",
+      "registryEstablishedDetail": "Standardsatz mit 0,0038 USD je berechtigtem Earned Robux erfasst (114 USD je 30.000), der alte Satz mit 0,0035 für Guthaben, das vor dem 5. September 2025 um 10:00 PT verdient wurde, und der bedingte USA-18+-Satz mit 0,0054. Das Minimum von 30.000 Earned Robux und die vollständige Liste der Voraussetzungen wurden zur gleichen Zeit geprüft. Alles direkt anhand der DevEx-Dokumentation im Roblox Creator Hub kontrolliert.",
+      "marketplaceRecordedDetail": "Käufe innerhalb einer Experience mit 70 % für den Creator und 30 % für Roblox erfasst. Verkäufe von Avatar-Artikeln im Marketplace mit der progressiven Umsatzbeteiligungstabelle erfasst, von 30 % beim Mindestpreis bis 70 % beim Sechsfachen davon. In einer Experience verkaufte Avatar-Artikel erfasst mit 30 % Creator, 40 % Experience-Inhaber, 30 % Roblox.",
+      "levRemovedDetail": "Die Europäische Zentralbank hat nach dem 31. Dezember 2025 keinen BGN-Referenzkurs mehr veröffentlicht. Statt weiterhin einen auf dieses Datum eingefrorenen Kurs zu zeigen, wurde BGN aus der Währungsauswahl entfernt. Eine Währung zu listen, die der konfigurierte Anbieter nicht mehr liefert, würde falsch darstellen, wie aktuell die Zahl ist.",
+      "siteLaunchedDetail": "Erstveröffentlichung: DevEx-Rechner mit den Modi Schnell, Aufteilung und Ziel; Seiten für Robux zu USD und für ein Auszahlungsziel; Marketplace-Gebührenrechner; Umrechnungszentrale mit acht kuratierten Betragsseiten; sowie der vollständige Satz an Leitfäden und Transparenzseiten. Jede satzabhängige Seite trägt seit dem Start eine Quellenangabe und ein Prüfdatum."
     },
     "body": {
       "entries": {
@@ -344,7 +363,15 @@
     "profilesLabel": "Profile",
     "pagesReviewed": "Geprüfte Seiten",
     "noPagesReviewed": "Derzeit trägt keine Seite einen Prüfvermerk.",
-    "ahmadRazaPhotoAlt": "Ahmad Raza, Gründer und Betreiber von DevExCalculator.org"
+    "ahmadRazaPhotoAlt": "Ahmad Raza, Gründer und Betreiber von DevExCalculator.org",
+    "ahmadRaza": {
+      "role": "Gründer und Betreuer",
+      "bio": "Ahmad Raza ist ein unabhängiger Web-Publisher und SEO-Spezialist aus Pakistan, der Nachschlagewerkzeuge und Informationsseiten baut und pflegt. Er hat DevExCalculator.org gebaut, nachdem er festgestellt hatte, dass Roblox-Creator auf der Suche nach Auszahlungszahlen immer wieder auf Seiten landeten, die veraltete oder falsche DevEx-Sätze nannten. Er pflegt die Satzdaten dieser Website anhand der offiziellen Developer-Exchange-Dokumentation von Roblox und der veröffentlichten SEC-Einreichungen der Roblox Corporation und hält jede Änderung an einer veröffentlichten Zahl im Changelog der Website fest. Er steht in keiner Verbindung zur Roblox Corporation und hat keinen Zugang zu internen Roblox-Daten."
+    },
+    "saeedAhmed": {
+      "role": "Inhaltsprüfer und Faktenchecker",
+      "bio": "Saeed Ahmed ist Full-Stack-Entwickler und SEO-Spezialist. Auf DevExCalculator.org prüft er veröffentlichte Zahlen, bevor sie live gehen: Er gleicht jeden Satz, jede Gebührenaufteilung und jede Schwelle mit der zitierten Primärquelle ab, bestätigt, dass das auf der Seite genannte Prüfdatum mit der letzten Sichtung dieser Quelle übereinstimmt, und markiert alles, was abgewichen ist. Er arbeitet nicht für Roblox und hat keinen Zugang zu internen Roblox-Daten."
+    }
   },
   "relatedHeading": "Verwandte Seiten"
 }

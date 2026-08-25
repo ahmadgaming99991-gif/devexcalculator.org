@@ -29,5 +29,19 @@
     "machineDraftedLabel": "Tradução automática",
     "machineDraftedDescription": "Esta página foi traduzida automaticamente e ainda não foi lida por um falante nativo. Os números vêm do mesmo registro verificado da página em inglês.",
     "readOriginal": "Ler a página original em inglês"
+  },
+  "schema": {
+    "datasets": {
+      "stats": {
+        "name": "Números de pagamentos a criadores e de engajamento do Roblox",
+        "description": "Tarifas do Developer Exchange, receita e engajamento conforme o Roblox os informa em seus registros na SEC, com cada linha marcada como informada ou derivada e ligada ao documento de origem. Inclui as métricas que o Roblox não publica, como ausências com justificativa.",
+        "measurementTechnique": "Transcrito dos registros da Roblox Corporation na SEC e das cartas aos acionistas. Os números derivados são calculados em código a partir dos informados e marcados como tal."
+      },
+      "platform": {
+        "name": "Contagens observadas de jogadores do Roblox",
+        "description": "Contagens de jogadores observadas a cada quinze minutos nos próprios endpoints públicos do Roblox, para as experiências que o Roblox estava ranqueando no momento. Nada é interpolado e nenhuma observação faltante é preenchida; uma lacuna significa que o coletor não rodou. Isso cobre apenas experiências ranqueadas e não é todo o Roblox.",
+        "measurementTechnique": "Registrado no servidor a partir dos endpoints públicos de jogos do Roblox em uma programação de quinze minutos. Os totais da plataforma são mantidos por catorze dias; as séries por experiência são amostradas de hora em hora e mantidas por sete dias."
+      }
+    }
   }
 }

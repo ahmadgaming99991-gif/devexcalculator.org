@@ -121,6 +121,28 @@
         "p3": "Check your account is in good standing against the Terms of Use and Community Standards.",
         "p4": "Decide where the money is going, and check what your bank or payment provider will charge to receive it."
       }
+    },
+    "misunderstandings": {
+      "minimum10k": {
+        "claim": "The minimum is 10,000 Robux.",
+        "reality": "It is 30,000 Earned Robux. The lower figure circulates on third-party sites that have not been updated, and it is not what current Roblox documentation says."
+      },
+      "anyBalance": {
+        "claim": "Any Robux balance counts toward the minimum.",
+        "reality": "Only Earned Robux count. A balance made up of purchased Robux does not qualify however large it is."
+      },
+      "reaching30k": {
+        "claim": "Reaching 30,000 means you will be paid.",
+        "reality": "It means you can submit a request. Roblox reviews each one and decides which Robux qualify as earned."
+      },
+      "age18": {
+        "claim": "You need to be 18 to use DevEx.",
+        "reality": "Roblox documents a minimum age of 13. The separate 18+ condition concerns the age verification of the players who spent the Robux, and affects the rate rather than your eligibility."
+      }
+    },
+    "threshold": {
+      "below": "Below the line, a DevEx request cannot be submitted at all. Being close to it counts for nothing, and the shortfall has to be earned — it cannot be bought.",
+      "above": "At or above the line, a request can be submitted. It is then reviewed, and meeting the threshold is not the same as being approved."
     }
   },
   "earnedRobux": {
@@ -188,7 +210,16 @@
       "toYouAsEarned": "to you, as Earned Robux",
       "balanceDevExConverts": "This is the balance DevEx later converts.",
       "platformCommission": "platform commission",
-      "takenOnceHere": "Taken once, here — not again at cash-out."
+      "takenOnceHere": "Taken once, here — not again at cash-out.",
+      "devexPayoutNote": "What the documented rate produces from your eligible Earned Robux. This is the figure the calculator estimates.",
+      "providerFeeNote": "Often a percentage plus a fixed amount, charged for delivering the money.",
+      "providerFeeBy": "your payment provider",
+      "conversionNote": "Applied only if you are paid in something other than US dollars, at their rate plus a margin.",
+      "conversionBy": "whoever converts it",
+      "incomeTaxNote": "A payout is income. What applies, and when, depends on your country and your circumstances.",
+      "incomeTaxBy": "your tax authority",
+      "whatReachesYouNote": "Lower than the estimate above, by an amount only your own provider and tax position can tell you.",
+      "marketplaceTotal": "100 Robux spent by a player inside your experience"
     },
     "ogImageAlt": "Provider fees, then conversion, then income tax — none of them Roblox’s",
     "body": {
@@ -401,6 +432,16 @@
         "p1": "Back to all conversions",
         "p2": "Convert a different amount"
       }
+    },
+    "context": {
+      "robux30000": "30,000 is the amount that matters most, because it is the minimum Earned Robux balance Roblox requires before a DevEx request can be submitted at all. Below this figure the question is not what the payout would be but whether a request can be made.",
+      "robux50000": "50,000 Earned Robux clears the minimum with room to spare, so it is a common first cash-out for a creator whose experience has just started earning consistently.",
+      "robux100000": "100,000 is the most searched round figure in this range, and it is the point where the gap between the current and legacy rates becomes large enough to notice: thirty dollars separates them.",
+      "robux200000": "At 200,000 Earned Robux a creator is usually cashing out on a schedule rather than as a one-off, which makes the difference between rate buckets worth tracking rather than estimating.",
+      "robux300000": "300,000 Earned Robux is ten times the DevEx minimum. It is a useful reference point for a creator working out how many cash-out cycles a year of earnings represents.",
+      "robux500000": "Half a million Earned Robux is the scale at which payment-provider fees and personal tax obligations stop being rounding errors, which is why this page links directly to the fees and taxes guide.",
+      "robux1000000": "A million Robux is the headline milestone creators actually search for, and it is the clearest illustration of why purchase price and DevEx payout are not the same number.",
+      "robux10000000": "Ten million Earned Robux represents sustained earnings from a large experience. At this scale the split between standard and legacy balances, and any qualifying U.S. 18+ portion, changes the total by thousands of dollars."
     }
   }
 }

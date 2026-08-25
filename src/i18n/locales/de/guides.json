@@ -13,6 +13,32 @@
       "calculators": {
         "p1": "DevEx-Auszahlung, Robux zu USD, Auszahlungsziele und Marketplace-Gebühren."
       }
+    },
+    "readingOrder": {
+      "earnedRobux": {
+        "answers": "Welche meiner Robux lassen sich tatsächlich auszahlen?",
+        "assumes": "Nichts. Fangen Sie hier an — daran entscheidet sich, ob der Rest Sie überhaupt betrifft."
+      },
+      "requirements": {
+        "answers": "Was brauche ich, bevor ich einen Antrag stellen kann?",
+        "assumes": "Dass Sie den Unterschied zwischen Earned Robux und Ihrem Guthaben kennen."
+      },
+      "rates": {
+        "answers": "Was zahlt Roblox pro Earned Robux?",
+        "assumes": "Dass Sie wissen, welcher Teil Ihres Guthabens infrage kommt."
+      },
+      "rateHistory": {
+        "answers": "Warum wird ein Teil meines Guthabens zu einem anderen Satz umgerechnet?",
+        "assumes": "Dass Sie die Seite mit den Sätzen gelesen haben."
+      },
+      "cashOut": {
+        "answers": "Wie läuft das Verfahren tatsächlich ab?",
+        "assumes": "Dass Sie die Voraussetzungen erfüllen und wissen, was Ihr Guthaben wert ist."
+      },
+      "feesAndTaxes": {
+        "answers": "Was wird von der Auszahlung abgezogen, bevor sie bei mir ankommt?",
+        "assumes": "Dass Sie bereits einen Auszahlungsbetrag haben, von dem Sie ausgehen können."
+      }
     }
   },
   "calculators": {
@@ -28,6 +54,24 @@
       },
       "guides": {
         "p1": "Kurse, Voraussetzungen, was als Earned Robux zählt und wie die Auszahlung abläuft."
+      }
+    },
+    "tools": {
+      "devex": {
+        "answers": "Was sind meine Earned Robux in Dollar wert?",
+        "useWhen": "Sie haben ein Guthaben und wollen eine Auszahlungsschätzung. Verarbeitet ein gemischtes Guthaben über den Standardsatz, den alten Satz und den bedingten Satz hinweg."
+      },
+      "robuxToUsd": {
+        "answers": "Was sind Robux in Dollar wert?",
+        "useWhen": "Sie sind unsicher, ob Sie die Auszahlung an den Creator oder den Kaufpreis im Handel meinen. Diese Seite trennt beides."
+      },
+      "usdToRobux": {
+        "answers": "Wie viele Earned Robux brauche ich für eine Auszahlung von X?",
+        "useWhen": "Sie haben einen Betrag im Kopf und wollen wissen, was nötig ist, um ihn zu erreichen — auch, ob das Minimum im Weg steht."
+      },
+      "robuxTax": {
+        "answers": "Was bleibt mir nach der Roblox-Provision?",
+        "useWhen": "Sie legen den Preis für einen Artikel oder ein Developer Product fest und wollen Ihren Anteil wissen — oder was Sie verlangen müssen, um ein Ziel zu erreichen."
       }
     }
   },
@@ -55,7 +99,11 @@
       "submitPortal": "Über das Portal einreichen",
       "submitPortalDetail": "Das offizielle DevEx-Portal, und sonst nirgends.",
       "robloxReviews": "Roblox prüft den Antrag",
-      "paymentIssued": "Die Zahlung wird ausgelöst"
+      "paymentIssued": "Die Zahlung wird ausgelöst",
+      "meetRequirementsDetail": "Bestätigte E-Mail-Adresse, Mindestalter 13, ein DevEx-Portalkonto, ein hinterlegtes Steuerformular, ein Konto in gutem Stand.",
+      "robloxReviewsDetail": "Roblox entscheidet, welche Robux infrage kommen und ob bewilligt wird. Hier kann alles enden, und kein Dritter ändert daran etwas.",
+      "robloxReviewsBy": "allein Roblox",
+      "paymentIssuedDetail": "Ab da wenden Ihr Anbieter und Ihre Bank ihre eigene Abwicklung und ihre eigenen Gebühren an."
     },
     "list": {
       "meetRequirements": "Erfülle die Kontovoraussetzungen.",

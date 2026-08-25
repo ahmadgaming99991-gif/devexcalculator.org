@@ -154,10 +154,11 @@
   },
   "currency": {
     "loading": "Chargement des taux de référence…",
-    "unavailable": "Les estimations en monnaie locale sont temporairement indisponibles.",
+    "unavailable": "Les estimations en monnaie locale sont temporairement indisponibles. Les montants en USD ci-dessus ne sont pas affectés.",
     "usdUnaffected": "Le chiffre en USD ci-dessus est calculé localement et n’est pas affecté.",
     "staleHeading": "Taux périmés.",
-    "provenance": "Les chiffres en {currency} utilisent des taux de référence {provider} observés le {date}. Ce sont des taux de référence, pas des cotations bancaires — votre prestataire de paiement appliquera le sien et pourra ajouter des frais."
+    "provenance": "Les chiffres en {currency} utilisent des taux de référence {provider} observés le {date}. Ce sont des taux de référence, pas des cotations bancaires — votre prestataire de paiement appliquera le sien et pourra ajouter des frais.",
+    "staleSnapshot": "Les taux de référence en direct sont indisponibles ; un instantané enregistré est donc affiché. Ne considérez ces chiffres qu’à titre indicatif."
   },
   "home": {
     "formulaOpen": "Rien n’est caché ici. La formule est une multiplication, et vous pouvez la vérifier.",
@@ -204,7 +205,9 @@
         "p1": "Quelque chose d’obsolète ?",
         "p2": "Dites-le-nous et ce sera corrigé"
       }
-    }
+    },
+    "intro": "Convertissez les Earned Robux éligibles en une estimation de versement en dollars américains à partir des taux que Roblox documente actuellement, avec la source et la date de vérification affichées à côté de chaque chiffre.",
+    "jumpLabel": "Voir comment le calcul fonctionne"
   },
   "planner": {
     "targetLabel": "Le paiement que vous visez",
@@ -244,7 +247,11 @@
         "p4": "Montant estimé qu’il vous reste",
         "p5": "Chaque chiffre présenté ici est une estimation produite à partir de ce que vous avez saisi. Atteindre"
       }
-    }
+    },
+    "alreadyEnoughHeadline": "Vous détenez déjà assez pour cet objectif.",
+    "zeroEarningsHeadline": "Aucune date, à ce rythme.",
+    "datePassedHeadline": "Cette date est déjà arrivée.",
+    "pickDateHeadline": "Choisissez une date."
   },
   "controls": {
     "body": {

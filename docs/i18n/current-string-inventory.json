@@ -1,81 +1,74 @@
 {
   "$comment": "Deterministic inventory of translatable English. No timestamp: a diff here should mean the content changed, not that the script ran again.",
   "totals": {
-    "strings": 793,
-    "words": 6899,
-    "files": 54,
+    "strings": 1025,
+    "words": 12826,
+    "files": 55,
     "filesScanned": 226
   },
   "byCategory": {
-    "attribute": 268,
+    "attribute": 385,
     "jsx-text": 137,
-    "registry-prose": 388
+    "registry-prose": 503
   },
   "byFile": {
-    "src/lib/content/route-registry.ts": 388,
-    "src/views/methodology.tsx": 26,
-    "src/views/platform.tsx": 26,
-    "src/lib/api/contract.ts": 23,
-    "src/views/api.tsx": 23,
-    "src/views/roblox-stats.tsx": 21,
-    "src/views/how-to-cash-out-robux.tsx": 20,
-    "src/views/devex-fees-and-taxes.tsx": 18,
-    "src/views/accessibility.tsx": 16,
-    "src/views/usd-to-robux.tsx": 12,
+    "src/lib/content/route-registry.ts": 495,
+    "src/views/methodology.tsx": 36,
+    "src/views/devex-fees-and-taxes.tsx": 32,
+    "src/views/platform.tsx": 30,
+    "src/views/how-to-cash-out-robux.tsx": 26,
+    "src/views/accessibility.tsx": 25,
+    "src/views/api.tsx": 25,
+    "src/views/roblox-stats.tsx": 23,
+    "src/views/devex-requirements.tsx": 22,
+    "src/views/guides.tsx": 16,
+    "src/views/editorial-policy.tsx": 15,
+    "src/features/devex/calculator.tsx": 14,
+    "src/views/usd-to-robux.tsx": 14,
+    "src/views/earned-robux.tsx": 13,
+    "src/components/content/tables.tsx": 12,
+    "src/views/devex-rates.tsx": 12,
+    "src/views/robux-to-usd.tsx": 12,
     "src/app/(en)/not-found.tsx": 11,
-    "src/views/devex-rates.tsx": 10,
-    "src/views/devex-requirements.tsx": 10,
-    "src/views/earned-robux.tsx": 10,
-    "src/views/robux-to-usd.tsx": 10,
-    "src/components/content/tables.tsx": 9,
-    "src/views/editorial-policy.tsx": 9,
-    "src/views/changelog.tsx": 8,
-    "src/views/corrections.tsx": 8,
-    "src/views/home.tsx": 8,
-    "src/features/devex/calculator.tsx": 7,
-    "src/views/conversion-amount.tsx": 7,
-    "src/views/conversions.tsx": 7,
-    "src/views/devex-rate-history.tsx": 7,
-    "src/features/devex/components/results.tsx": 6,
-    "src/features/devex/planner.tsx": 6,
-    "src/views/contact.tsx": 6,
-    "src/views/disclaimer.tsx": 6,
-    "src/views/privacy.tsx": 6,
-    "src/views/terms.tsx": 6,
-    "src/lib/content/llms.ts": 5,
-    "src/views/about.tsx": 5,
-    "src/views/robux-tax-calculator.tsx": 5,
+    "src/features/devex/planner.tsx": 11,
+    "src/views/calculators.tsx": 11,
+    "src/views/changelog.tsx": 10,
+    "src/views/home.tsx": 10,
+    "src/views/conversions.tsx": 9,
+    "src/views/corrections.tsx": 9,
+    "src/views/devex-rate-history.tsx": 9,
+    "src/features/devex/components/results.tsx": 8,
+    "src/lib/content/amount-pages.ts": 8,
+    "src/lib/content/changelog.ts": 8,
+    "src/views/conversion-amount.tsx": 8,
+    "src/views/contact.tsx": 7,
+    "src/views/disclaimer.tsx": 7,
+    "src/views/privacy.tsx": 7,
+    "src/views/robux-tax-calculator.tsx": 7,
+    "src/views/terms.tsx": 7,
+    "src/views/about.tsx": 6,
+    "src/views/platform-stock.tsx": 6,
+    "src/views/sources.tsx": 6,
+    "src/lib/content/authors.ts": 5,
     "src/app/(en)/error.tsx": 4,
     "src/features/marketplace/calculator.tsx": 4,
-    "src/lib/content/changelog.ts": 4,
-    "src/views/platform-stock.tsx": 4,
-    "src/views/sources.tsx": 4,
     "src/features/devex/group-split.tsx": 3,
     "src/lib/platform/history.ts": 3,
-    "src/views/guides.tsx": 3,
     "src/components/layout/social-links.tsx": 2,
+    "src/components/seo/json-ld.tsx": 2,
     "src/features/devex/components/controls.tsx": 2,
     "src/features/devex/preparation-checklist.tsx": 2,
     "src/lib/rates/source-check.ts": 2,
     "src/lib/seo/metadata.ts": 2,
-    "src/views/calculators.tsx": 2,
-    "src/app/(en)/devex-fees-and-taxes/opengraph-image.tsx": 1,
-    "src/app/(en)/usd-to-robux/opengraph-image.tsx": 1,
-    "src/app/api/health/route.ts": 1,
     "src/components/charts/index.tsx": 1,
     "src/components/diagrams/index.tsx": 1,
     "src/components/ui/ad-slot.tsx": 1,
-    "src/lib/content/authors.ts": 1
+    "src/config/site.ts": 1,
+    "src/features/contact/contact-form.tsx": 1,
+    "src/features/fx/ecb-provider.ts": 1,
+    "src/features/fx/use-fx.ts": 1
   },
   "findings": [
-    {
-      "file": "src/app/(en)/devex-fees-and-taxes/opengraph-image.tsx",
-      "line": 25,
-      "category": "attribute",
-      "words": 12,
-      "hasTokens": false,
-      "text": "Provider fees, then conversion, then income tax — none of them Roblox's"
-    },
     {
       "file": "src/app/(en)/error.tsx",
       "line": 28,
@@ -197,22 +190,6 @@
       "text": "Browse every guide"
     },
     {
-      "file": "src/app/(en)/usd-to-robux/opengraph-image.tsx",
-      "line": 23,
-      "category": "attribute",
-      "words": 11,
-      "hasTokens": false,
-      "text": "Rounded up, because a partial Robux cannot be earned or exchanged"
-    },
-    {
-      "file": "src/app/api/health/route.ts",
-      "line": 68,
-      "category": "attribute",
-      "words": 11,
-      "hasTokens": false,
-      "text": "No history binding in this environment, so nothing is collected here."
-    },
-    {
       "file": "src/components/charts/index.tsx",
       "line": 167,
       "category": "jsx-text",
@@ -227,6 +204,14 @@
       "words": 4,
       "hasTokens": true,
       "text": "Balances earned before {effectiveTo}."
+    },
+    {
+      "file": "src/components/content/tables.tsx",
+      "line": 257,
+      "category": "attribute",
+      "words": 18,
+      "hasTokens": false,
+      "text": "Earned Robux specifically — a balance made up of purchased Robux does not qualify however large it is."
     },
     {
       "file": "src/components/content/tables.tsx",
@@ -286,11 +271,27 @@
     },
     {
       "file": "src/components/content/tables.tsx",
+      "line": 274,
+      "category": "attribute",
+      "words": 15,
+      "hasTokens": false,
+      "text": "An IRS form W-9 for United States taxpayers, or a W-8 for non-United States taxpayers."
+    },
+    {
+      "file": "src/components/content/tables.tsx",
       "line": 278,
       "category": "attribute",
       "words": 5,
       "hasTokens": false,
       "text": "Compliance with the Roblox rules"
+    },
+    {
+      "file": "src/components/content/tables.tsx",
+      "line": 279,
+      "category": "attribute",
+      "words": 13,
+      "hasTokens": false,
+      "text": "The account must comply with the Roblox Terms of Use and Community Standards."
     },
     {
       "file": "src/components/diagrams/index.tsx",
@@ -317,12 +318,44 @@
       "text": "Pinterest"
     },
     {
+      "file": "src/components/seo/json-ld.tsx",
+      "line": 181,
+      "category": "attribute",
+      "words": 40,
+      "hasTokens": false,
+      "text": "Developer exchange fees, revenue and engagement as Roblox reports them in its SEC filings, with each row labelled reported or derived and linked to the filing it came from. Includes the metrics Roblox does not publish, as absences with reasons."
+    },
+    {
+      "file": "src/components/seo/json-ld.tsx",
+      "line": 194,
+      "category": "attribute",
+      "words": 49,
+      "hasTokens": false,
+      "text": "Player counts observed every fifteen minutes from Roblox's own public endpoints, for the experiences Roblox was ranking at the time. Nothing is interpolated and no missing observation is filled in; a gap means the collector did not run. This covers only ranked experiences and is not all of Roblox."
+    },
+    {
       "file": "src/components/ui/ad-slot.tsx",
       "line": 27,
       "category": "attribute",
       "words": 1,
       "hasTokens": false,
       "text": "Advertisement"
+    },
+    {
+      "file": "src/config/site.ts",
+      "line": 46,
+      "category": "attribute",
+      "words": 23,
+      "hasTokens": false,
+      "text": "Estimate a Roblox DevEx payout from eligible Earned Robux using the currently verified rates, with source links, effective dates and honest local-currency estimates."
+    },
+    {
+      "file": "src/features/contact/contact-form.tsx",
+      "line": 119,
+      "category": "attribute",
+      "words": 6,
+      "hasTokens": false,
+      "text": "Only used to reply to you."
     },
     {
       "file": "src/features/devex/calculator.tsx",
@@ -374,6 +407,62 @@
     },
     {
       "file": "src/features/devex/calculator.tsx",
+      "line": 436,
+      "category": "attribute",
+      "words": 11,
+      "hasTokens": false,
+      "text": "Type or paste an amount. 100,000, 100k and 1.5m all work."
+    },
+    {
+      "file": "src/features/devex/calculator.tsx",
+      "line": 461,
+      "category": "attribute",
+      "words": 5,
+      "hasTokens": false,
+      "text": "Earned after 5 September 2025."
+    },
+    {
+      "file": "src/features/devex/calculator.tsx",
+      "line": 468,
+      "category": "attribute",
+      "words": 6,
+      "hasTokens": false,
+      "text": "Earned before the September 2025 transition."
+    },
+    {
+      "file": "src/features/devex/calculator.tsx",
+      "line": 475,
+      "category": "attribute",
+      "words": 9,
+      "hasTokens": false,
+      "text": "Only the portion Roblox has qualified at this rate."
+    },
+    {
+      "file": "src/features/devex/calculator.tsx",
+      "line": 487,
+      "category": "attribute",
+      "words": 10,
+      "hasTokens": false,
+      "text": "How much you want to receive, before fees and tax."
+    },
+    {
+      "file": "src/features/devex/calculator.tsx",
+      "line": 500,
+      "category": "attribute",
+      "words": 9,
+      "hasTokens": false,
+      "text": "Add this to see how far along you are."
+    },
+    {
+      "file": "src/features/devex/calculator.tsx",
+      "line": 540,
+      "category": "attribute",
+      "words": 10,
+      "hasTokens": false,
+      "text": "Whatever rate applies to you. Check with a qualified adviser."
+    },
+    {
+      "file": "src/features/devex/calculator.tsx",
       "line": 637,
       "category": "jsx-text",
       "words": 32,
@@ -403,6 +492,22 @@
       "words": 28,
       "hasTokens": true,
       "text": "Roblox requires {minimumRobux} Earned Robux to submit a request. Reaching that number is a requirement, not an approval — Roblox reviews every request and decides which Robux qualify."
+    },
+    {
+      "file": "src/features/devex/components/results.tsx",
+      "line": 254,
+      "category": "attribute",
+      "words": 3,
+      "hasTokens": false,
+      "text": "Blended effective rate"
+    },
+    {
+      "file": "src/features/devex/components/results.tsx",
+      "line": 258,
+      "category": "attribute",
+      "words": 6,
+      "hasTokens": false,
+      "text": "If it were all standard rate"
     },
     {
       "file": "src/features/devex/components/results.tsx",
@@ -486,11 +591,35 @@
     },
     {
       "file": "src/features/devex/planner.tsx",
+      "line": 512,
+      "category": "attribute",
+      "words": 7,
+      "hasTokens": false,
+      "text": "You already hold enough for this target."
+    },
+    {
+      "file": "src/features/devex/planner.tsx",
+      "line": 521,
+      "category": "attribute",
+      "words": 5,
+      "hasTokens": false,
+      "text": "No date, at this pace."
+    },
+    {
+      "file": "src/features/devex/planner.tsx",
       "line": 522,
       "category": "attribute",
       "words": 22,
       "hasTokens": false,
       "text": "Earning nothing per period never reaches the target. Enter what you expect to earn and the plan will work out the date."
+    },
+    {
+      "file": "src/features/devex/planner.tsx",
+      "line": 542,
+      "category": "attribute",
+      "words": 7,
+      "hasTokens": false,
+      "text": "You already hold enough for this target."
     },
     {
       "file": "src/features/devex/planner.tsx",
@@ -502,11 +631,27 @@
     },
     {
       "file": "src/features/devex/planner.tsx",
+      "line": 551,
+      "category": "attribute",
+      "words": 5,
+      "hasTokens": false,
+      "text": "That date has already arrived."
+    },
+    {
+      "file": "src/features/devex/planner.tsx",
       "line": 552,
       "category": "attribute",
       "words": 22,
       "hasTokens": false,
       "text": "Pick a date in the future and the plan will work out what has to be earned each day to reach it."
+    },
+    {
+      "file": "src/features/devex/planner.tsx",
+      "line": 561,
+      "category": "attribute",
+      "words": 3,
+      "hasTokens": false,
+      "text": "Pick a date."
     },
     {
       "file": "src/features/devex/planner.tsx",
@@ -531,6 +676,22 @@
       "words": 35,
       "hasTokens": false,
       "text": "Roblox reviews each request against its own criteria after it is submitted, and it does not publish what would cause one to be refused. A checklist in a browser has no standing in that review."
+    },
+    {
+      "file": "src/features/fx/ecb-provider.ts",
+      "line": 198,
+      "category": "attribute",
+      "words": 18,
+      "hasTokens": false,
+      "text": "Live reference rates are unavailable, so a stored snapshot is being shown. Treat these figures as indicative only."
+    },
+    {
+      "file": "src/features/fx/use-fx.ts",
+      "line": 63,
+      "category": "attribute",
+      "words": 11,
+      "hasTokens": false,
+      "text": "Local-currency estimates are temporarily unavailable. The USD figures above are unaffected."
     },
     {
       "file": "src/features/marketplace/calculator.tsx",
@@ -565,188 +726,84 @@
       "text": "To clear a target"
     },
     {
-      "file": "src/lib/api/contract.ts",
-      "line": 58,
-      "category": "attribute",
-      "words": 7,
+      "file": "src/lib/content/amount-pages.ts",
+      "line": 32,
+      "category": "registry-prose",
+      "words": 45,
       "hasTokens": false,
-      "text": "Current DevEx rates and the submission minimum"
+      "text": "30,000 is the amount that matters most, because it is the minimum Earned Robux balance Roblox requires before a DevEx request can be submitted at all. Below this figure the question is not what the payout would be but whether a request can be made."
     },
     {
-      "file": "src/lib/api/contract.ts",
+      "file": "src/lib/content/amount-pages.ts",
+      "line": 38,
+      "category": "registry-prose",
+      "words": 27,
+      "hasTokens": false,
+      "text": "50,000 Earned Robux clears the minimum with room to spare, so it is a common first cash-out for a creator whose experience has just started earning consistently."
+    },
+    {
+      "file": "src/lib/content/amount-pages.ts",
+      "line": 44,
+      "category": "registry-prose",
+      "words": 33,
+      "hasTokens": false,
+      "text": "100,000 is the most searched round figure in this range, and it is the point where the gap between the current and legacy rates becomes large enough to notice: thirty dollars separates them."
+    },
+    {
+      "file": "src/lib/content/amount-pages.ts",
+      "line": 50,
+      "category": "registry-prose",
+      "words": 30,
+      "hasTokens": false,
+      "text": "At 200,000 Earned Robux a creator is usually cashing out on a schedule rather than as a one-off, which makes the difference between rate buckets worth tracking rather than estimating."
+    },
+    {
+      "file": "src/lib/content/amount-pages.ts",
+      "line": 56,
+      "category": "registry-prose",
+      "words": 29,
+      "hasTokens": false,
+      "text": "300,000 Earned Robux is ten times the DevEx minimum. It is a useful reference point for a creator working out how many cash-out cycles a year of earnings represents."
+    },
+    {
+      "file": "src/lib/content/amount-pages.ts",
       "line": 62,
+      "category": "registry-prose",
+      "words": 33,
+      "hasTokens": false,
+      "text": "Half a million Earned Robux is the scale at which payment-provider fees and personal tax obligations stop being rounding errors, which is why this page links directly to the fees and taxes guide."
+    },
+    {
+      "file": "src/lib/content/amount-pages.ts",
+      "line": 68,
+      "category": "registry-prose",
+      "words": 29,
+      "hasTokens": false,
+      "text": "A million Robux is the headline milestone creators actually search for, and it is the clearest illustration of why purchase price and DevEx payout are not the same number."
+    },
+    {
+      "file": "src/lib/content/amount-pages.ts",
+      "line": 74,
+      "category": "registry-prose",
+      "words": 34,
+      "hasTokens": false,
+      "text": "Ten million Earned Robux represents sustained earnings from a large experience. At this scale the split between standard and legacy balances, and any qualifying U.S. 18+ portion, changes the total by thousands of dollars."
+    },
+    {
+      "file": "src/lib/content/authors.ts",
+      "line": 67,
       "category": "attribute",
       "words": 3,
       "hasTokens": false,
-      "text": "The rate registry."
+      "text": "Founder & Maintainer"
     },
     {
-      "file": "src/lib/api/contract.ts",
-      "line": 71,
+      "file": "src/lib/content/authors.ts",
+      "line": 69,
       "category": "attribute",
-      "words": 8,
+      "words": 90,
       "hasTokens": false,
-      "text": "Whether Roblox's page still states the published rates"
-    },
-    {
-      "file": "src/lib/api/contract.ts",
-      "line": 76,
-      "category": "attribute",
-      "words": 7,
-      "hasTokens": false,
-      "text": "The result of the last automatic check."
-    },
-    {
-      "file": "src/lib/api/contract.ts",
-      "line": 86,
-      "category": "attribute",
-      "words": 5,
-      "hasTokens": false,
-      "text": "European Central Bank reference rates"
-    },
-    {
-      "file": "src/lib/api/contract.ts",
-      "line": 91,
-      "category": "attribute",
-      "words": 9,
-      "hasTokens": false,
-      "text": "Reference rates, live or explicitly marked as a fallback."
-    },
-    {
-      "file": "src/lib/api/contract.ts",
-      "line": 101,
-      "category": "attribute",
-      "words": 6,
-      "hasTokens": false,
-      "text": "Roblox creator payout and engagement figures"
-    },
-    {
-      "file": "src/lib/api/contract.ts",
-      "line": 113,
-      "category": "attribute",
-      "words": 4,
-      "hasTokens": false,
-      "text": "The figures, as JSON."
-    },
-    {
-      "file": "src/lib/api/contract.ts",
-      "line": 114,
-      "category": "attribute",
-      "words": 4,
-      "hasTokens": false,
-      "text": "The figures, as CSV."
-    },
-    {
-      "file": "src/lib/api/contract.ts",
-      "line": 124,
-      "category": "attribute",
-      "words": 4,
-      "hasTokens": false,
-      "text": "Observed Roblox player counts"
-    },
-    {
-      "file": "src/lib/api/contract.ts",
-      "line": 130,
-      "category": "attribute",
-      "words": 9,
-      "hasTokens": false,
-      "text": "`totals` (default) for platform-wide counts, `experiences` for per-experience rows."
-    },
-    {
-      "file": "src/lib/api/contract.ts",
-      "line": 133,
-      "category": "attribute",
-      "words": 8,
-      "hasTokens": false,
-      "text": "Omit for JSON, or `csv` for a spreadsheet."
-    },
-    {
-      "file": "src/lib/api/contract.ts",
-      "line": 136,
-      "category": "attribute",
-      "words": 3,
-      "hasTokens": false,
-      "text": "The collected observations."
-    },
-    {
-      "file": "src/lib/api/contract.ts",
-      "line": 137,
-      "category": "attribute",
-      "words": 5,
-      "hasTokens": false,
-      "text": "The collected observations, as CSV."
-    },
-    {
-      "file": "src/lib/api/contract.ts",
-      "line": 153,
-      "category": "attribute",
-      "words": 4,
-      "hasTokens": false,
-      "text": "Service and data freshness"
-    },
-    {
-      "file": "src/lib/api/contract.ts",
-      "line": 158,
-      "category": "attribute",
-      "words": 6,
-      "hasTokens": false,
-      "text": "Healthy, or stale but not critical."
-    },
-    {
-      "file": "src/lib/api/contract.ts",
-      "line": 159,
-      "category": "attribute",
-      "words": 6,
-      "hasTokens": false,
-      "text": "A critical staleness that needs action."
-    },
-    {
-      "file": "src/lib/api/contract.ts",
-      "line": 169,
-      "category": "attribute",
-      "words": 2,
-      "hasTokens": false,
-      "text": "Contact submission"
-    },
-    {
-      "file": "src/lib/api/contract.ts",
-      "line": 175,
-      "category": "attribute",
-      "words": 6,
-      "hasTokens": false,
-      "text": "The submission was rejected by validation."
-    },
-    {
-      "file": "src/lib/api/contract.ts",
-      "line": 176,
-      "category": "attribute",
-      "words": 5,
-      "hasTokens": false,
-      "text": "No contact provider is configured."
-    },
-    {
-      "file": "src/lib/api/contract.ts",
-      "line": 219,
-      "category": "attribute",
-      "words": 5,
-      "hasTokens": false,
-      "text": "As sent by this endpoint."
-    },
-    {
-      "file": "src/lib/api/contract.ts",
-      "line": 225,
-      "category": "attribute",
-      "words": 9,
-      "hasTokens": false,
-      "text": "Readable from any origin; these responses carry no credentials."
-    },
-    {
-      "file": "src/lib/api/contract.ts",
-      "line": 245,
-      "category": "attribute",
-      "words": 12,
-      "hasTokens": false,
-      "text": "Reference data for Roblox DevEx payouts, published so it can be checked."
+      "text": "Ahmad Raza is an independent web publisher and SEO specialist from Pakistan who builds and maintains reference tools and informational sites. He built DevExCalculator.org after finding that Roblox creators searching for payout figures kept landing on pages quoting stale or incorrect DevEx rates. He maintains the rate data on this site against Roblox's official Developer Exchange documentation and Roblox Corporation's published SEC filings, and records every change to a published figure in the site changelog. He is not affiliated with Roblox Corporation and has no access to internal Roblox data."
     },
     {
       "file": "src/lib/content/authors.ts",
@@ -757,8 +814,24 @@
       "text": "Ahmad Raza, founder and maintainer of DevExCalculator.org"
     },
     {
+      "file": "src/lib/content/authors.ts",
+      "line": 90,
+      "category": "attribute",
+      "words": 4,
+      "hasTokens": false,
+      "text": "Content Reviewer & Fact-Checker"
+    },
+    {
+      "file": "src/lib/content/authors.ts",
+      "line": 92,
+      "category": "attribute",
+      "words": 68,
+      "hasTokens": false,
+      "text": "Saeed Ahmed is a full-stack developer and SEO specialist. On DevExCalculator.org he reviews published figures before they go live: he checks each rate, fee split and threshold against the primary source it is cited from, confirms the page's stated verification date matches when that source was last checked, and flags anything that has drifted. He does not work for Roblox and has no access to internal Roblox data."
+    },
+    {
       "file": "src/lib/content/changelog.ts",
-      "line": 27,
+      "line": 35,
       "category": "attribute",
       "words": 5,
       "hasTokens": false,
@@ -768,6 +841,14 @@
       "file": "src/lib/content/changelog.ts",
       "line": 36,
       "category": "attribute",
+      "words": 63,
+      "hasTokens": false,
+      "text": "Standard rate recorded at 0.0038 USD per eligible Earned Robux (114 USD per 30,000), the legacy rate at 0.0035 for balances earned before 5 September 2025 at 10:00 PT, and the conditional U.S. 18+ rate at 0.0054. The 30,000 Earned Robux minimum and the full eligibility list were verified at the same time. All checked directly against the Roblox Creator Hub DevEx documentation."
+    },
+    {
+      "file": "src/lib/content/changelog.ts",
+      "line": 44,
+      "category": "attribute",
       "words": 4,
       "hasTokens": false,
       "text": "Marketplace commission rates recorded"
@@ -775,6 +856,14 @@
     {
       "file": "src/lib/content/changelog.ts",
       "line": 45,
+      "category": "attribute",
+      "words": 51,
+      "hasTokens": false,
+      "text": "In-experience purchases recorded at 70% to the creator and 30% to Roblox. Marketplace avatar item sales recorded with the progressive revenue share table from 30% at the price floor to 70% at six times the floor. Avatar items sold inside an experience recorded as 30% creator, 40% experience owner, 30% Roblox."
+    },
+    {
+      "file": "src/lib/content/changelog.ts",
+      "line": 53,
       "category": "attribute",
       "words": 6,
       "hasTokens": false,
@@ -784,49 +873,25 @@
       "file": "src/lib/content/changelog.ts",
       "line": 54,
       "category": "attribute",
+      "words": 47,
+      "hasTokens": false,
+      "text": "The European Central Bank stopped publishing a BGN reference rate after 31 December 2025. Rather than continue showing a rate frozen at that date, BGN was removed from the currency selector. Listing a currency the configured provider no longer supplies would misrepresent how current the figure is."
+    },
+    {
+      "file": "src/lib/content/changelog.ts",
+      "line": 62,
+      "category": "attribute",
       "words": 2,
       "hasTokens": false,
       "text": "Site launched"
     },
     {
-      "file": "src/lib/content/llms.ts",
-      "line": 31,
+      "file": "src/lib/content/changelog.ts",
+      "line": 63,
       "category": "attribute",
-      "words": 1,
+      "words": 46,
       "hasTokens": false,
-      "text": "Calculators"
-    },
-    {
-      "file": "src/lib/content/llms.ts",
-      "line": 32,
-      "category": "attribute",
-      "words": 3,
-      "hasTokens": false,
-      "text": "Guides and reference"
-    },
-    {
-      "file": "src/lib/content/llms.ts",
-      "line": 33,
-      "category": "attribute",
-      "words": 5,
-      "hasTokens": false,
-      "text": "Worked examples for specific amounts"
-    },
-    {
-      "file": "src/lib/content/llms.ts",
-      "line": 34,
-      "category": "attribute",
-      "words": 4,
-      "hasTokens": false,
-      "text": "Methodology, sources and corrections"
-    },
-    {
-      "file": "src/lib/content/llms.ts",
-      "line": 35,
-      "category": "attribute",
-      "words": 1,
-      "hasTokens": false,
-      "text": "Legal"
+      "text": "Initial release: DevEx calculator with quick, split and target modes; Robux to USD and payout target pages; marketplace fee calculator; conversion hub with eight curated amount pages; and the full guide and trust set. Every rate-sensitive page carries a source citation and verification date from launch."
     },
     {
       "file": "src/lib/content/route-registry.ts",
@@ -838,11 +903,27 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
+      "line": 29,
+      "category": "registry-prose",
+      "words": 27,
+      "hasTokens": false,
+      "text": "What your eligible Earned Robux are worth in USD at the current 0.0038 DevEx rate, with legacy and U.S. 18+ comparisons and a source for every figure."
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
       "line": 32,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
       "text": "Calculator"
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
+      "line": 50,
+      "category": "registry-prose",
+      "words": 57,
+      "hasTokens": false,
+      "text": "At the current DevEx rate of 0.0038 USD per eligible Earned Robux, 30,000 Earned Robux converts to about 114 US dollars and 100,000 converts to about 380. Only Earned Robux qualify, 30,000 is the minimum Roblox accepts, and every figure here is an estimate — Roblox alone decides which Robux qualify and whether a request is approved."
     },
     {
       "file": "src/lib/content/route-registry.ts",
@@ -918,11 +999,27 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
+      "line": 65,
+      "category": "registry-prose",
+      "words": 33,
+      "hasTokens": false,
+      "text": "Roblox documents a standard rate of 0.0038 USD per eligible Earned Robux, which it states as 114 USD for 30,000 Earned Robux. This rate took effect on 5 September 2025 at 10:00 PT."
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
       "line": 70,
       "category": "registry-prose",
       "words": 8,
       "hasTokens": false,
       "text": "How much is 100,000 Earned Robux in DevEx?"
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
+      "line": 71,
+      "category": "registry-prose",
+      "words": 33,
+      "hasTokens": false,
+      "text": "100,000 eligible Earned Robux is about 380 US dollars at the standard rate before any payment-provider fees or tax. The same amount would have been 350 US dollars under the older 0.0035 rate."
     },
     {
       "file": "src/lib/content/route-registry.ts",
@@ -934,11 +1031,27 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
+      "line": 77,
+      "category": "registry-prose",
+      "words": 32,
+      "hasTokens": false,
+      "text": "Roblox requires a minimum of 30,000 Earned Robux in your account before you can participate in DevEx. Reaching that number is a requirement, not an approval — Roblox still reviews every request."
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
       "line": 82,
       "category": "registry-prose",
       "words": 7,
       "hasTokens": false,
       "text": "Does every Robux balance qualify for DevEx?"
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
+      "line": 83,
+      "category": "registry-prose",
+      "words": 35,
+      "hasTokens": false,
+      "text": "No. DevEx applies to Earned Robux, which Roblox describes as Robux earned through creator activity. Purchased balances, gift card credit and other categories are treated differently, and Roblox decides which portion of a balance qualifies."
     },
     {
       "file": "src/lib/content/route-registry.ts",
@@ -950,11 +1063,27 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
+      "line": 89,
+      "category": "registry-prose",
+      "words": 40,
+      "hasTokens": false,
+      "text": "They are two different transactions. Buying Robux is a retail purchase with platform pricing applied; DevEx is Roblox paying a creator for eligible earnings. Neither number predicts the other, which is why this site never mixes them in one result."
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
       "line": 93,
       "category": "registry-prose",
       "words": 9,
       "hasTokens": false,
       "text": "Can I choose which rate applies to my balance?"
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
+      "line": 94,
+      "category": "registry-prose",
+      "words": 55,
+      "hasTokens": false,
+      "text": "No. Roblox determines which portion of a balance falls under the standard rate, the legacy rate for balances earned before 5 September 2025, and the higher rate for qualifying spending by verified United States players aged 18 or over. The comparison here shows what each rate would pay, not a menu you can pick from."
     },
     {
       "file": "src/lib/content/route-registry.ts",
@@ -1030,6 +1159,14 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
+      "line": 114,
+      "category": "registry-prose",
+      "words": 12,
+      "hasTokens": false,
+      "text": "DevEx Calculator: convert eligible Earned Robux into an estimated US dollar payout."
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
       "line": 126,
       "category": "registry-prose",
       "words": 8,
@@ -1038,11 +1175,27 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
+      "line": 127,
+      "category": "registry-prose",
+      "words": 24,
+      "hasTokens": false,
+      "text": "Two numbers answer this. Compare what DevEx pays a creator against what buying Robux costs, and convert any amount with the rate stated openly."
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
       "line": 130,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
       "text": "Robux to USD"
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
+      "line": 148,
+      "category": "registry-prose",
+      "words": 56,
+      "hasTokens": false,
+      "text": "\"Robux to USD\" has two honest answers depending on who is asking. A creator cashing out eligible Earned Robux receives 0.0038 USD per Robux through DevEx, so 100,000 Robux is about 380 dollars. A player buying Robux pays a retail price set by Roblox, which is a different transaction entirely. This page keeps the two apart."
     },
     {
       "file": "src/lib/content/route-registry.ts",
@@ -1102,11 +1255,27 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
+      "line": 161,
+      "category": "registry-prose",
+      "words": 35,
+      "hasTokens": false,
+      "text": "For a creator cashing out eligible Earned Robux, 1,000 Robux is 3.80 US dollars at the current DevEx rate. That figure is a payout rate, not the price a player pays to buy 1,000 Robux."
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
       "line": 166,
       "category": "registry-prose",
       "words": 7,
       "hasTokens": false,
       "text": "Can I convert any Robux to USD?"
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
+      "line": 167,
+      "category": "registry-prose",
+      "words": 26,
+      "hasTokens": false,
+      "text": "No. Only eligible Earned Robux can be converted through DevEx, and only once your balance reaches 30,000. Robux you bought cannot be converted back into money."
     },
     {
       "file": "src/lib/content/route-registry.ts",
@@ -1118,11 +1287,27 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
+      "line": 173,
+      "category": "registry-prose",
+      "words": 35,
+      "hasTokens": false,
+      "text": "Roblox prices Robux by package, region and platform, and those prices change. Publishing one universal purchase rate would be inventing a number, so this page explains the distinction and links to the official pricing instead."
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
       "line": 177,
       "category": "registry-prose",
       "words": 8,
       "hasTokens": false,
       "text": "Is the conversion the same in every country?"
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
+      "line": 178,
+      "category": "registry-prose",
+      "words": 35,
+      "hasTokens": false,
+      "text": "The DevEx rate itself is stated in US dollars. Local-currency figures on this site are reference-rate estimates from the European Central Bank, and your bank or payment provider will apply its own rate and fees."
     },
     {
       "file": "src/lib/content/route-registry.ts",
@@ -1182,11 +1367,27 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
+      "line": 206,
+      "category": "registry-prose",
+      "words": 23,
+      "hasTokens": false,
+      "text": "Set a payout goal in dollars and see how many eligible Earned Robux it takes, rounded up, with progress against your current balance."
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
       "line": 209,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
       "text": "Payout target"
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
+      "line": 224,
+      "category": "registry-prose",
+      "words": 54,
+      "hasTokens": false,
+      "text": "To reach a 1,000 US dollar DevEx payout at the current rate you need 263,158 eligible Earned Robux. The figure always rounds up, because a fraction of a Robux does not exist and rounding down would leave you short of your target. Below 30,000 Earned Robux no payout is possible regardless of the goal."
     },
     {
       "file": "src/lib/content/route-registry.ts",
@@ -1254,11 +1455,27 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
+      "line": 238,
+      "category": "registry-prose",
+      "words": 27,
+      "hasTokens": false,
+      "text": "263,158 eligible Earned Robux at the current 0.0038 rate. Dividing 1,000 by 0.0038 gives 263,157.89, and the result rounds up so the payout actually reaches the target."
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
       "line": 243,
       "category": "registry-prose",
       "words": 10,
       "hasTokens": false,
       "text": "How many Earned Robux do I need for 100 USD?"
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
+      "line": 244,
+      "category": "registry-prose",
+      "words": 34,
+      "hasTokens": false,
+      "text": "26,316 Earned Robux would reach 100 dollars arithmetically, but that is below the 30,000 minimum, so you would need 30,000 before a request can be submitted at all — which pays about 114 dollars."
     },
     {
       "file": "src/lib/content/route-registry.ts",
@@ -1270,11 +1487,27 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
+      "line": 250,
+      "category": "registry-prose",
+      "words": 35,
+      "hasTokens": false,
+      "text": "No. This page answers the creator question: how much you need to earn to receive a given payout. Buying Robux is priced separately by Roblox and this site does not invent a universal purchase rate."
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
       "line": 254,
       "category": "registry-prose",
       "words": 11,
       "hasTokens": false,
       "text": "Does the answer change if part of my balance is legacy?"
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
+      "line": 255,
+      "category": "registry-prose",
+      "words": 27,
+      "hasTokens": false,
+      "text": "Yes. Legacy balances convert at 0.0035, so reaching the same dollar target takes more Robux. Use the split mode on the calculator to model a mixed balance."
     },
     {
       "file": "src/lib/content/route-registry.ts",
@@ -1334,11 +1567,27 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
+      "line": 283,
+      "category": "registry-prose",
+      "words": 18,
+      "hasTokens": false,
+      "text": "The three DevEx rates Roblox documents, what each pays per 1,000 and 30,000 Robux, and when each applies."
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
       "line": 286,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
       "text": "Rates"
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
+      "line": 303,
+      "category": "registry-prose",
+      "words": 57,
+      "hasTokens": false,
+      "text": "Roblox documents three DevEx rates. The standard rate is 0.0038 USD per eligible Earned Robux, or 114 dollars for 30,000. Balances earned before 5 September 2025 at 10:00 PT convert at the older 0.0035 rate. Certain Earned Robux from verified United States players aged 18 or over convert at 0.0054. Roblox, not the creator, decides which applies."
     },
     {
       "file": "src/lib/content/route-registry.ts",
@@ -1398,11 +1647,27 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
+      "line": 316,
+      "category": "registry-prose",
+      "words": 25,
+      "hasTokens": false,
+      "text": "3.80 US dollars per 1,000 eligible Earned Robux at the standard rate. The legacy rate paid 3.50 and the conditional U.S. 18+ rate pays 5.40."
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
       "line": 321,
       "category": "registry-prose",
       "words": 8,
       "hasTokens": false,
       "text": "When did the DevEx rate change to 0.0038?"
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
+      "line": 322,
+      "category": "registry-prose",
+      "words": 25,
+      "hasTokens": false,
+      "text": "On 5 September 2025 at 10:00 PT. Balances earned before that moment are cashed out at the previous 0.0035 rate first, under Roblox's own accounting."
     },
     {
       "file": "src/lib/content/route-registry.ts",
@@ -1414,11 +1679,27 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
+      "line": 328,
+      "category": "registry-prose",
+      "words": 42,
+      "hasTokens": false,
+      "text": "Roblox applies it to certain Earned Robux from purchases of developer products, passes, subscriptions and private servers made by United States players who have verified that they are at least 18 years old. It is not a rate a creator can select."
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
       "line": 333,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
       "text": "Will the DevEx rate change again?"
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
+      "line": 334,
+      "category": "registry-prose",
+      "words": 35,
+      "hasTokens": false,
+      "text": "Roblox has changed it before and could change it again. This page records only what current official documentation states; it makes no forecast. The date it was last checked against the source is shown above."
     },
     {
       "file": "src/lib/content/route-registry.ts",
@@ -1486,11 +1767,27 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
+      "line": 365,
+      "category": "registry-prose",
+      "words": 25,
+      "hasTokens": false,
+      "text": "Live player counts for the experiences Roblox is ranking, read from its own public endpoints, plus a growing record of what this site has observed."
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
       "line": 368,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
       "text": "Platform"
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
+      "line": 382,
+      "category": "registry-prose",
+      "words": 49,
+      "hasTokens": false,
+      "text": "Player counts on this page are read from Roblox's own public endpoints when the page is served, and the ranking is Roblox's rather than this site's. Alongside them is a record of what this site has observed since it began watching, charted over whatever period has actually been collected."
     },
     {
       "file": "src/lib/content/route-registry.ts",
@@ -1542,6 +1839,14 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
+      "line": 394,
+      "category": "registry-prose",
+      "words": 38,
+      "hasTokens": false,
+      "text": "The table totals the players in the experiences Roblox currently ranks, at the moment the page was served. It is not a platform-wide figure: Roblox does not publish a live total, and this site will not estimate one."
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
       "line": 399,
       "category": "registry-prose",
       "words": 9,
@@ -1550,11 +1855,27 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
+      "line": 400,
+      "category": "registry-prose",
+      "words": 41,
+      "hasTokens": false,
+      "text": "Because that is how long this site has been recording. The window widens on its own as observations accumulate, up to fourteen days. Showing a fourteen-day axis before fourteen days of data exist would be drawing something that was never measured."
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
       "line": 404,
       "category": "registry-prose",
       "words": 8,
       "hasTokens": false,
       "text": "Do these player counts affect my DevEx payout?"
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
+      "line": 405,
+      "category": "registry-prose",
+      "words": 20,
+      "hasTokens": false,
+      "text": "No. A payout depends on your eligible Earned Robux and the documented rate, not on how busy the platform is."
     },
     {
       "file": "src/lib/content/route-registry.ts",
@@ -1598,11 +1919,27 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
+      "line": 428,
+      "category": "registry-prose",
+      "words": 24,
+      "hasTokens": false,
+      "text": "Roblox's reported quarterly results — revenue, bookings growth, creator payouts — with a plain explanation of why no third-party price widget is embedded here."
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
       "line": 431,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
       "text": "Stock"
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
+      "line": 445,
+      "category": "registry-prose",
+      "words": 58,
+      "hasTokens": false,
+      "text": "Roblox reported revenue of 1,469 million US dollars for the quarter ended 30 June 2026, against a consolidated net loss of 185 million, and paid creators 363 million through the Developer Exchange. There is no live share price here: this site embeds no third-party market widget, and it will not print a figure it cannot fetch and attribute."
     },
     {
       "file": "src/lib/content/route-registry.ts",
@@ -1646,6 +1983,14 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
+      "line": 456,
+      "category": "registry-prose",
+      "words": 38,
+      "hasTokens": false,
+      "text": "Because showing one usually means embedding a market vendor's script, which would run in your browser on a site that loads no third-party scripts. The page is wired to fetch a price server-side once a provider is configured."
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
       "line": 460,
       "category": "registry-prose",
       "words": 3,
@@ -1654,11 +1999,27 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
+      "line": 461,
+      "category": "registry-prose",
+      "words": 39,
+      "hasTokens": false,
+      "text": "It reported a consolidated net loss of 185 million US dollars for the quarter ended 30 June 2026, narrower than the 280 million loss a year earlier, with adjusted EBITDA of 152 million. Those are the company's own figures."
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
       "line": 466,
       "category": "registry-prose",
       "words": 8,
       "hasTokens": false,
       "text": "Does the share price affect the DevEx rate?"
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
+      "line": 467,
+      "category": "registry-prose",
+      "words": 29,
+      "hasTokens": false,
+      "text": "There is no documented link. Roblox sets the DevEx rate and publishes it; nothing in its documentation ties that rate to the share price. Nothing here is investment advice."
     },
     {
       "file": "src/lib/content/route-registry.ts",
@@ -1702,11 +2063,27 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
+      "line": 493,
+      "category": "registry-prose",
+      "words": 24,
+      "hasTokens": false,
+      "text": "What Roblox actually pays creators through DevEx, charted from its SEC filings: 1.50 billion USD in 2025, quarter by quarter, with every figure sourced."
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
       "line": 496,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
       "text": "Stats"
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
+      "line": 515,
+      "category": "registry-prose",
+      "words": 54,
+      "hasTokens": false,
+      "text": "Roblox paid creators 1.503 billion USD through the Developer Exchange in 2025, up from 922.8 million in 2024, and 363 million in the second quarter of 2026 alone. Every figure on this page is read from a Roblox filing with the SEC and linked to it. These are quarterly reported numbers, not live measurements."
     },
     {
       "file": "src/lib/content/route-registry.ts",
@@ -1790,11 +2167,27 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
+      "line": 531,
+      "category": "registry-prose",
+      "words": 29,
+      "hasTokens": false,
+      "text": "1,503,106 thousand US dollars in 2025, reported as developer exchange fees on its income statement, against 922,821 thousand in 2024. Both figures come from Roblox's filing with the SEC."
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
       "line": 536,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
       "text": "Is this data live?"
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
+      "line": 537,
+      "category": "registry-prose",
+      "words": 33,
+      "hasTokens": false,
+      "text": "No, and no page can honestly claim it is. Roblox publishes these figures once a quarter, so quarterly is the finest resolution that exists. This site runs no data collection and estimates nothing."
     },
     {
       "file": "src/lib/content/route-registry.ts",
@@ -1806,11 +2199,27 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
+      "line": 543,
+      "category": "registry-prose",
+      "words": 42,
+      "hasTokens": false,
+      "text": "Not here. A live quote needs a paid market-data feed and a third-party script, and this site publishes no figure it cannot trace to a document. The reported results it reacts to are on this page instead. Nothing here is investment advice."
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
       "line": 548,
       "category": "registry-prose",
       "words": 10,
       "hasTokens": false,
       "text": "Does a bigger payout total mean a better DevEx rate?"
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
+      "line": 549,
+      "category": "registry-prose",
+      "words": 30,
+      "hasTokens": false,
+      "text": "No. The total reflects how much creators cashed out, not what each Robux was worth. The rate per Robux is documented separately and has changed once in the period shown."
     },
     {
       "file": "src/lib/content/route-registry.ts",
@@ -1846,6 +2255,14 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
+      "line": 564,
+      "category": "registry-prose",
+      "words": 10,
+      "hasTokens": false,
+      "text": "Roblox developer exchange payouts by quarter, charted from SEC filings."
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
       "line": 576,
       "category": "registry-prose",
       "words": 6,
@@ -1854,11 +2271,27 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
+      "line": 577,
+      "category": "registry-prose",
+      "words": 24,
+      "hasTokens": false,
+      "text": "What Roblox requires for DevEx: 30,000 Earned Robux, a verified email, a portal account, a W-9 or W-8, and an account in good standing."
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
       "line": 580,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
       "text": "Requirements"
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
+      "line": 594,
+      "category": "registry-prose",
+      "words": 60,
+      "hasTokens": false,
+      "text": "Roblox documents five requirements for DevEx: at least 30,000 Earned Robux, a minimum age of 13, a Roblox-verified email address, a valid DevEx portal account, and an IRS form W-9 or W-8 on file. You must also comply with the Roblox Terms of Use and Community Standards. Meeting all five is a condition of applying, not a guarantee of approval."
     },
     {
       "file": "src/lib/content/route-registry.ts",
@@ -1918,11 +2351,27 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
+      "line": 607,
+      "category": "registry-prose",
+      "words": 21,
+      "hasTokens": false,
+      "text": "30,000 Earned Robux. Older figures such as 10,000 or 100,000 circulate on third-party sites but do not match current official documentation."
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
       "line": 612,
       "category": "registry-prose",
       "words": 9,
       "hasTokens": false,
       "text": "How old do you have to be for DevEx?"
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
+      "line": 613,
+      "category": "registry-prose",
+      "words": 31,
+      "hasTokens": false,
+      "text": "Roblox documents a minimum age of 13 to participate. Separately, the higher 0.0054 rate depends on the age verification of the players who spent the Robux, not on the creator's age."
     },
     {
       "file": "src/lib/content/route-registry.ts",
@@ -1934,11 +2383,27 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
+      "line": 619,
+      "category": "registry-prose",
+      "words": 28,
+      "hasTokens": false,
+      "text": "Yes. Roblox requires an IRS form W-9 for United States taxpayers or a W-8 for non-United States taxpayers to be on file before a DevEx request can proceed."
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
       "line": 624,
       "category": "registry-prose",
       "words": 10,
       "hasTokens": false,
       "text": "Does reaching 30,000 Earned Robux mean I will be paid?"
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
+      "line": 625,
+      "category": "registry-prose",
+      "words": 32,
+      "hasTokens": false,
+      "text": "No. The threshold lets you submit a request. Roblox reviews each request against its own criteria and decides which Robux qualify as Earned Robux. No calculator, including this one, can determine eligibility."
     },
     {
       "file": "src/lib/content/route-registry.ts",
@@ -1990,11 +2455,27 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
+      "line": 652,
+      "category": "registry-prose",
+      "words": 22,
+      "hasTokens": false,
+      "text": "Earned Robux is not your whole balance. What counts, what does not, and why the distinction decides whether a payout is possible."
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
       "line": 655,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
       "text": "Earned Robux"
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
+      "line": 668,
+      "category": "registry-prose",
+      "words": 55,
+      "hasTokens": false,
+      "text": "Earned Robux is the portion of your balance that came from creator activity — players spending Robux in your experience or on your items — as opposed to Robux you bought, received as a gift, or acquired another way. Only Earned Robux can go through DevEx, and Roblox decides which portion of a balance qualifies."
     },
     {
       "file": "src/lib/content/route-registry.ts",
@@ -2054,11 +2535,27 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
+      "line": 681,
+      "category": "registry-prose",
+      "words": 32,
+      "hasTokens": false,
+      "text": "Almost certainly not. A balance can mix Robux you earned as a creator with Robux you bought or received. Only the earned portion is eligible for DevEx, and Roblox makes that determination."
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
       "line": 686,
       "category": "registry-prose",
       "words": 9,
       "hasTokens": false,
       "text": "Do Robux I bought count toward the 30,000 minimum?"
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
+      "line": 687,
+      "category": "registry-prose",
+      "words": 23,
+      "hasTokens": false,
+      "text": "Purchased Robux are not Earned Robux, so they do not make a balance eligible for DevEx. The minimum refers specifically to Earned Robux."
     },
     {
       "file": "src/lib/content/route-registry.ts",
@@ -2070,11 +2567,27 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
+      "line": 693,
+      "category": "registry-prose",
+      "words": 27,
+      "hasTokens": false,
+      "text": "Roblox pays creators 70% of the Robux spent on in-experience purchases such as developer products and passes, retaining 30%. That 70% is what accumulates as Earned Robux."
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
       "line": 698,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
       "text": "Can group funds be cashed out?"
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
+      "line": 699,
+      "category": "registry-prose",
+      "words": 36,
+      "hasTokens": false,
+      "text": "Group funds are held by the group rather than by an individual account, and payouts have to reach a personal account before DevEx applies. Check the current official documentation for how your specific case is treated."
     },
     {
       "file": "src/lib/content/route-registry.ts",
@@ -2126,11 +2639,27 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
+      "line": 726,
+      "category": "registry-prose",
+      "words": 20,
+      "hasTokens": false,
+      "text": "The official steps for converting eligible Earned Robux into real money, what to prepare first, and which services to avoid."
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
       "line": 729,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
       "text": "Cashing out"
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
+      "line": 743,
+      "category": "registry-prose",
+      "words": 51,
+      "hasTokens": false,
+      "text": "Cashing out Robux means submitting a DevEx request through the official Roblox DevEx portal once you hold at least 30,000 Earned Robux, have a verified email, and have a W-9 or W-8 on file. Roblox reviews each request and decides the outcome. There is no legitimate route outside the official programme."
     },
     {
       "file": "src/lib/content/route-registry.ts",
@@ -2198,11 +2727,27 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
+      "line": 757,
+      "category": "registry-prose",
+      "words": 22,
+      "hasTokens": false,
+      "text": "Through the official DevEx portal linked from the Roblox Creator Hub. A valid DevEx portal account is one of the documented requirements."
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
       "line": 762,
       "category": "registry-prose",
       "words": 7,
       "hasTokens": false,
       "text": "How long does a DevEx payout take?"
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
+      "line": 763,
+      "category": "registry-prose",
+      "words": 30,
+      "hasTokens": false,
+      "text": "Roblox does not publish a guaranteed processing time, so this site does not state one. Any specific number you see quoted elsewhere is someone's anecdote rather than an official commitment."
     },
     {
       "file": "src/lib/content/route-registry.ts",
@@ -2214,11 +2759,27 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
+      "line": 769,
+      "category": "registry-prose",
+      "words": 39,
+      "hasTokens": false,
+      "text": "No legitimate one. Services offering to buy Robux or convert a balance outside DevEx generally violate the Roblox Terms of Use and put your account at risk. Never share your Roblox credentials with any third party, including this site."
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
       "line": 773,
       "category": "registry-prose",
       "words": 8,
       "hasTokens": false,
       "text": "Do I pay tax on a DevEx payout?"
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
+      "line": 774,
+      "category": "registry-prose",
+      "words": 35,
+      "hasTokens": false,
+      "text": "A DevEx payout is income, and how it is taxed depends on where you live. This site gives no tax advice and provides an optional estimate field only so you can model your own figure."
     },
     {
       "file": "src/lib/content/route-registry.ts",
@@ -2270,11 +2831,27 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
+      "line": 800,
+      "category": "registry-prose",
+      "words": 22,
+      "hasTokens": false,
+      "text": "A dated record of verified DevEx rates, including the September 2025 rise from 0.0035 to 0.0038 and how legacy balances are treated."
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
       "line": 803,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
       "text": "Rate history"
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
+      "line": 817,
+      "category": "registry-prose",
+      "words": 52,
+      "hasTokens": false,
+      "text": "The documented change is from 0.0035 to 0.0038 USD per Earned Robux, effective 5 September 2025 at 10:00 PT. For 30,000 Earned Robux that moved the payout from 105 to 114 dollars. Balances earned before the change are cashed out at the older rate first, so a single balance can span both."
     },
     {
       "file": "src/lib/content/route-registry.ts",
@@ -2326,6 +2903,14 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
+      "line": 829,
+      "category": "registry-prose",
+      "words": 15,
+      "hasTokens": false,
+      "text": "0.0035 USD per Earned Robux, which Roblox stated as 105 dollars for 30,000 Earned Robux."
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
       "line": 834,
       "category": "registry-prose",
       "words": 9,
@@ -2334,11 +2919,27 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
+      "line": 835,
+      "category": "registry-prose",
+      "words": 30,
+      "hasTokens": false,
+      "text": "Robux earned before 5 September 2025 at 10:00 PT are cashed out at 0.0035 first, according to Roblox's transition rules. The split is Roblox's accounting, not something a creator selects."
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
       "line": 840,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
       "text": "Will the rate go up again?"
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
+      "line": 841,
+      "category": "registry-prose",
+      "words": 23,
+      "hasTokens": false,
+      "text": "Nobody outside Roblox knows, and this page will not guess. It records only changes that official documentation confirms, each with its effective date."
     },
     {
       "file": "src/lib/content/route-registry.ts",
@@ -2382,11 +2983,27 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
+      "line": 866,
+      "category": "registry-prose",
+      "words": 23,
+      "hasTokens": false,
+      "text": "Provider fees, currency spreads and income tax all sit between the DevEx rate and your bank account. Model each with your own figures."
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
       "line": 869,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
       "text": "Fees and taxes"
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
+      "line": 882,
+      "category": "registry-prose",
+      "words": 54,
+      "hasTokens": false,
+      "text": "Three separate things reduce a DevEx payout and none of them is the DevEx rate: your payment provider's fees, the currency conversion spread if you are paid outside the United States, and income tax in your own country. This page lets you model each one with your own numbers. It is not tax advice."
     },
     {
       "file": "src/lib/content/route-registry.ts",
@@ -2446,6 +3063,14 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
+      "line": 895,
+      "category": "registry-prose",
+      "words": 34,
+      "hasTokens": false,
+      "text": "The DevEx rate is what Roblox pays per eligible Earned Robux. The 30% platform commission was already applied earlier, when the Robux were earned — it is not applied a second time at cash-out."
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
       "line": 900,
       "category": "registry-prose",
       "words": 8,
@@ -2454,11 +3079,27 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
+      "line": 901,
+      "category": "registry-prose",
+      "words": 33,
+      "hasTokens": false,
+      "text": "That depends entirely on your country and circumstances, and this site does not state a figure for you. The estimator here uses whatever percentage you enter so you can model your own situation."
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
       "line": 905,
       "category": "registry-prose",
       "words": 9,
       "hasTokens": false,
       "text": "Why is my bank's conversion different from this site's?"
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
+      "line": 906,
+      "category": "registry-prose",
+      "words": 32,
+      "hasTokens": false,
+      "text": "Local-currency figures here use European Central Bank reference rates, which are published once each working day and are not tradable quotes. Banks and payment providers apply their own rate plus a margin."
     },
     {
       "file": "src/lib/content/route-registry.ts",
@@ -2510,11 +3151,27 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
+      "line": 933,
+      "category": "registry-prose",
+      "words": 21,
+      "hasTokens": false,
+      "text": "What you keep after the Roblox platform commission, or what to charge to clear a target. Covers in-experience and Marketplace sales."
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
       "line": 936,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
       "text": "Roblox tax"
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
+      "line": 950,
+      "category": "registry-prose",
+      "words": 57,
+      "hasTokens": false,
+      "text": "The \"Roblox tax\" is the platform commission, and it depends on what you sold. On in-experience purchases such as developer products and passes you keep 70% and Roblox takes 30%. On Marketplace avatar items the creator share starts at 30% and rises with price, reaching 70% at six times the price floor. This is separate from DevEx."
     },
     {
       "file": "src/lib/content/route-registry.ts",
@@ -2574,6 +3231,14 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
+      "line": 963,
+      "category": "registry-prose",
+      "words": 41,
+      "hasTokens": false,
+      "text": "On in-experience purchases the creator keeps 70% and Roblox retains 30%. On Marketplace avatar item sales the base creator share is 30%, rising through a documented tier table to 70% for items priced at six times the price floor or above."
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
       "line": 968,
       "category": "registry-prose",
       "words": 10,
@@ -2582,11 +3247,27 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
+      "line": 969,
+      "category": "registry-prose",
+      "words": 28,
+      "hasTokens": false,
+      "text": "No. The commission applies once, when the Robux are earned. DevEx then converts the Earned Robux you kept. Applying both to the same figure would understate your payout."
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
       "line": 974,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
       "text": "What is the price floor?"
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
+      "line": 975,
+      "category": "registry-prose",
+      "words": 31,
+      "hasTokens": false,
+      "text": "The minimum price for an item category, which the progressive tiers are measured against. Because floors differ by category, this calculator asks for the multiple rather than assuming one universal floor."
     },
     {
       "file": "src/lib/content/route-registry.ts",
@@ -2638,11 +3319,27 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
+      "line": 1002,
+      "category": "registry-prose",
+      "words": 18,
+      "hasTokens": false,
+      "text": "Four working calculators covering DevEx payouts, Robux conversions, payout targets and marketplace fees, and which to reach for."
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
       "line": 1005,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
       "text": "Calculators"
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
+      "line": 1013,
+      "category": "registry-prose",
+      "words": 44,
+      "hasTokens": false,
+      "text": "Four calculators, each answering one question. The DevEx calculator converts Earned Robux to dollars. Robux to USD separates creator payout from purchase price. The payout target calculator works backwards from a dollar goal. The Roblox tax calculator handles the platform commission on a sale."
     },
     {
       "file": "src/lib/content/route-registry.ts",
@@ -2710,11 +3407,27 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
+      "line": 1036,
+      "category": "registry-prose",
+      "words": 18,
+      "hasTokens": false,
+      "text": "Six guides in a reading order, from what Earned Robux means through to what comes off a payout."
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
       "line": 1039,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
       "text": "Guides"
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
+      "line": 1047,
+      "category": "registry-prose",
+      "words": 45,
+      "hasTokens": false,
+      "text": "Six guides, in the order they make sense to read. Start with what Earned Robux means, then the rates and requirements, then the cash-out process, and finish with what comes off the payout. Each one states its sources and the date it was last checked."
     },
     {
       "file": "src/lib/content/route-registry.ts",
@@ -2806,11 +3519,27 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
+      "line": 1073,
+      "category": "registry-prose",
+      "words": 21,
+      "hasTokens": false,
+      "text": "Common Earned Robux amounts valued at the current, legacy and U.S. 18+ rates, plus an input for any amount you like."
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
       "line": 1076,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
       "text": "Conversions"
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
+      "line": 1088,
+      "category": "registry-prose",
+      "words": 45,
+      "hasTokens": false,
+      "text": "Every amount below is converted at the current DevEx rate of 0.0038 USD per eligible Earned Robux, with the legacy and conditional rates shown alongside for comparison. Amounts under 30,000 are included for reference but cannot be cashed out, because that is the documented minimum."
     },
     {
       "file": "src/lib/content/route-registry.ts",
@@ -2886,11 +3615,27 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
+      "line": 1118,
+      "category": "registry-prose",
+      "words": 23,
+      "hasTokens": false,
+      "text": "Who runs this site, what it is for, what it deliberately does not do, and why it is not affiliated with Roblox Corporation."
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
       "line": 1121,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
       "text": "About"
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
+      "line": 1129,
+      "category": "registry-prose",
+      "words": 40,
+      "hasTokens": false,
+      "text": "DevExCalculator.org is an independent calculator and reference for Roblox creators working out what a DevEx payout is worth. It is not affiliated with, endorsed by or operated by Roblox Corporation, and it cannot determine whether any request will be approved."
     },
     {
       "file": "src/lib/content/route-registry.ts",
@@ -2982,11 +3727,27 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
+      "line": 1157,
+      "category": "registry-prose",
+      "words": 21,
+      "hasTokens": false,
+      "text": "How every figure here is produced: the formulas, the exact arithmetic, the rounding policy, and what an estimate cannot tell you."
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
       "line": 1160,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
       "text": "Methodology"
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
+      "line": 1168,
+      "category": "registry-prose",
+      "words": 46,
+      "hasTokens": false,
+      "text": "Every payout figure is Robux multiplied by an exact decimal rate held as a fraction rather than a floating-point number, rounded once at the moment it is displayed. Required-Robux figures always round up. Local-currency values are European Central Bank reference rates with the observation date shown."
     },
     {
       "file": "src/lib/content/route-registry.ts",
@@ -3086,11 +3847,27 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
+      "line": 1197,
+      "category": "registry-prose",
+      "words": 24,
+      "hasTokens": false,
+      "text": "Every official source behind the rates, minimums and fee percentages on this site, what each one supports, and the date it was last checked."
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
       "line": 1200,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
       "text": "Sources"
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
+      "line": 1210,
+      "category": "registry-prose",
+      "words": 46,
+      "hasTokens": false,
+      "text": "Every time-sensitive claim on this site is tied to one of the sources listed below, each with the facts it supports and the date it was last checked. Where a source says nothing on a question, this site says nothing either rather than filling the gap."
     },
     {
       "file": "src/lib/content/route-registry.ts",
@@ -3166,11 +3943,27 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
+      "line": 1236,
+      "category": "registry-prose",
+      "words": 25,
+      "hasTokens": false,
+      "text": "The rules this site writes under: what counts as a source, how claims are labelled, what is never published, and how time-sensitive content is reviewed."
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
       "line": 1239,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
       "text": "Editorial policy"
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
+      "line": 1247,
+      "category": "registry-prose",
+      "words": 43,
+      "hasTokens": false,
+      "text": "Every time-sensitive claim is tied to an official source and dated. Nothing is published as fact that has not been verified, inferences are labelled as inferences, and no figure is kept online because it performs well in search once it stops being accurate."
     },
     {
       "file": "src/lib/content/route-registry.ts",
@@ -3246,11 +4039,27 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
+      "line": 1273,
+      "category": "registry-prose",
+      "words": 25,
+      "hasTokens": false,
+      "text": "How to report an error on this site, what happens when a rate or requirement turns out to be wrong, and where corrections are recorded."
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
       "line": 1276,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
       "text": "Corrections"
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
+      "line": 1284,
+      "category": "registry-prose",
+      "words": 47,
+      "hasTokens": false,
+      "text": "If a figure here is wrong, it gets fixed rather than quietly left. A correction to a rate, minimum or fee follows a fixed sequence: verify against the official source, update the data, update the tests, update the affected pages, record it in the changelog, and redeploy."
     },
     {
       "file": "src/lib/content/route-registry.ts",
@@ -3323,6 +4132,22 @@
       "words": 7,
       "hasTokens": false,
       "text": "Rates API: The DevEx Registry as JSON"
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
+      "line": 1313,
+      "category": "registry-prose",
+      "words": 24,
+      "hasTokens": false,
+      "text": "A free, versioned JSON endpoint for the current DevEx rates, the minimum and the marketplace fee, each with the source it was verified against."
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
+      "line": 1324,
+      "category": "registry-prose",
+      "words": 61,
+      "hasTokens": false,
+      "text": "The same rate registry this site calculates from is published as JSON at /api/rates, with the source and verification date attached to every figure. It needs no key, sets no cookie and may be called from a browser on any origin. If you are building your own calculator, read it rather than copying a number that will go out of date."
     },
     {
       "file": "src/lib/content/route-registry.ts",
@@ -3422,11 +4247,27 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
+      "line": 1353,
+      "category": "registry-prose",
+      "words": 24,
+      "hasTokens": false,
+      "text": "A dated record of every change to the rates, requirements and calculations published on this site, including what was verified and against which source."
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
       "line": 1356,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
       "text": "Changelog"
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
+      "line": 1364,
+      "category": "registry-prose",
+      "words": 39,
+      "hasTokens": false,
+      "text": "Every change to a published rate, minimum or fee percentage is recorded here with its date and the source that justified it. Rate data is never updated automatically from a scraped page; each change is verified by hand first."
     },
     {
       "file": "src/lib/content/route-registry.ts",
@@ -3486,11 +4327,27 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
+      "line": 1386,
+      "category": "registry-prose",
+      "words": 17,
+      "hasTokens": false,
+      "text": "How to reach DevExCalculator.org about a factual correction, an accessibility problem, or a question about the calculations."
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
       "line": 1389,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
       "text": "Contact"
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
+      "line": 1397,
+      "category": "registry-prose",
+      "words": 50,
+      "hasTokens": false,
+      "text": "Corrections to a rate or requirement are the most useful thing you can send, especially with a link to the official page that contradicts what is published here. This site cannot help with your Roblox account, your DevEx request, or a payout that has not arrived — only Roblox can."
     },
     {
       "file": "src/lib/content/route-registry.ts",
@@ -3550,11 +4407,27 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
+      "line": 1425,
+      "category": "registry-prose",
+      "words": 26,
+      "hasTokens": false,
+      "text": "What this site stores, what it does not, where your calculator inputs go, and which third parties are involved — describing only what is actually configured."
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
       "line": 1428,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
       "text": "Privacy"
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
+      "line": 1436,
+      "category": "registry-prose",
+      "words": 48,
+      "hasTokens": false,
+      "text": "Calculations run in your browser and are never sent to a server. Anything you save — recent calculations, preferred currency, theme — stays in your own browser's local storage and can be cleared from the calculator at any time. This page describes only what is actually switched on."
     },
     {
       "file": "src/lib/content/route-registry.ts",
@@ -3654,11 +4527,27 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
+      "line": 1466,
+      "category": "registry-prose",
+      "words": 22,
+      "hasTokens": false,
+      "text": "The terms covering use of DevExCalculator.org, including the estimate-only nature of every figure and the absence of any affiliation with Roblox Corporation."
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
       "line": 1469,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
       "text": "Terms"
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
+      "line": 1477,
+      "category": "registry-prose",
+      "words": 44,
+      "hasTokens": false,
+      "text": "You may use this site freely to estimate DevEx payouts. Every figure is an estimate and none of it is financial, legal or tax advice. This site is independent of Roblox Corporation and cannot influence, predict or guarantee the outcome of a DevEx request."
     },
     {
       "file": "src/lib/content/route-registry.ts",
@@ -3742,11 +4631,27 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
+      "line": 1504,
+      "category": "registry-prose",
+      "words": 22,
+      "hasTokens": false,
+      "text": "Why every figure here is an estimate, what this site cannot determine about your DevEx request, and its independence from Roblox Corporation."
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
       "line": 1507,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
       "text": "Disclaimer"
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
+      "line": 1515,
+      "category": "registry-prose",
+      "words": 45,
+      "hasTokens": false,
+      "text": "This site estimates. It cannot tell you whether your Robux qualify as Earned Robux, whether a DevEx request will be approved, when a payout will arrive, or what you will receive after your own bank and tax authority are done. Roblox decides all of that."
     },
     {
       "file": "src/lib/content/route-registry.ts",
@@ -3830,11 +4735,27 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
+      "line": 1542,
+      "category": "registry-prose",
+      "words": 21,
+      "hasTokens": false,
+      "text": "The accessibility standard this site targets, what has been tested, known limitations, and how to report a barrier you run into."
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
       "line": 1545,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
       "text": "Accessibility"
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
+      "line": 1553,
+      "category": "registry-prose",
+      "words": 42,
+      "hasTokens": false,
+      "text": "This site targets WCAG 2.2 level AA. The calculator is fully keyboard operable, results are announced to screen readers, nothing scrolls sideways at 320 pixels, and the layout holds at 200% text zoom. If something blocks you, reporting it is genuinely useful."
     },
     {
       "file": "src/lib/content/route-registry.ts",
@@ -3990,6 +4911,14 @@
     },
     {
       "file": "src/views/about.tsx",
+      "line": 23,
+      "category": "attribute",
+      "words": 17,
+      "hasTokens": false,
+      "text": "What this site is for, how it is built, and the things it deliberately refuses to do."
+    },
+    {
+      "file": "src/views/about.tsx",
       "line": 45,
       "category": "jsx-text",
       "words": 19,
@@ -4038,11 +4967,27 @@
     },
     {
       "file": "src/views/accessibility.tsx",
+      "line": 26,
+      "category": "attribute",
+      "words": 28,
+      "hasTokens": false,
+      "text": "Every control is a real button, link, input or select. There are no clickable divs, so keyboard behaviour comes from the browser rather than from scripts imitating it."
+    },
+    {
+      "file": "src/views/accessibility.tsx",
       "line": 30,
       "category": "attribute",
       "words": 3,
       "hasTokens": false,
       "text": "Visible focus everywhere"
+    },
+    {
+      "file": "src/views/accessibility.tsx",
+      "line": 31,
+      "category": "attribute",
+      "words": 28,
+      "hasTokens": false,
+      "text": "A three-pixel amber outline with a two-pixel offset, chosen because it measures about 5:1 against every surface on the site — comfortably above the 3:1 the standard requires."
     },
     {
       "file": "src/views/accessibility.tsx",
@@ -4054,6 +4999,14 @@
     },
     {
       "file": "src/views/accessibility.tsx",
+      "line": 36,
+      "category": "attribute",
+      "words": 24,
+      "hasTokens": false,
+      "text": "Calculation results, copy confirmations and error messages are announced through a polite live region, summarised rather than read digit by digit as you type."
+    },
+    {
+      "file": "src/views/accessibility.tsx",
       "line": 40,
       "category": "attribute",
       "words": 6,
@@ -4062,11 +5015,27 @@
     },
     {
       "file": "src/views/accessibility.tsx",
+      "line": 41,
+      "category": "attribute",
+      "words": 28,
+      "hasTokens": false,
+      "text": "Validation messages are linked with aria-describedby and the field is marked invalid, so a screen reader reports the problem with the field rather than as loose text nearby."
+    },
+    {
+      "file": "src/views/accessibility.tsx",
       "line": 45,
       "category": "attribute",
       "words": 5,
       "hasTokens": false,
       "text": "Nothing depends on colour alone"
+    },
+    {
+      "file": "src/views/accessibility.tsx",
+      "line": 46,
+      "category": "attribute",
+      "words": 18,
+      "hasTokens": false,
+      "text": "The threshold meter, rate comparisons and stale-rate warnings each carry a text label saying what the colour says."
     },
     {
       "file": "src/views/accessibility.tsx",
@@ -4094,11 +5063,27 @@
     },
     {
       "file": "src/views/accessibility.tsx",
+      "line": 55,
+      "category": "attribute",
+      "words": 28,
+      "hasTokens": false,
+      "text": "Escape closes it and returns focus to the button that opened it, focus is trapped while it is open, and background scrolling is locked without the page shifting."
+    },
+    {
+      "file": "src/views/accessibility.tsx",
       "line": 59,
       "category": "attribute",
       "words": 4,
       "hasTokens": false,
       "text": "Wide tables scroll accessibly"
+    },
+    {
+      "file": "src/views/accessibility.tsx",
+      "line": 60,
+      "category": "attribute",
+      "words": 21,
+      "hasTokens": false,
+      "text": "Each table sits in a focusable, labelled scroll container, so a keyboard user can reach and scroll it without a mouse."
     },
     {
       "file": "src/views/accessibility.tsx",
@@ -4123,6 +5108,22 @@
       "words": 3,
       "hasTokens": false,
       "text": "Works without JavaScript"
+    },
+    {
+      "file": "src/views/accessibility.tsx",
+      "line": 69,
+      "category": "attribute",
+      "words": 17,
+      "hasTokens": false,
+      "text": "Rates, formulas, worked examples, tables, navigation and every explanation are server rendered. Only live recalculation needs scripts."
+    },
+    {
+      "file": "src/views/accessibility.tsx",
+      "line": 85,
+      "category": "attribute",
+      "words": 14,
+      "hasTokens": false,
+      "text": "What this site targets, what has actually been tested, and what is still imperfect."
     },
     {
       "file": "src/views/accessibility.tsx",
@@ -4155,6 +5156,22 @@
       "words": 2,
       "hasTokens": false,
       "text": "Related pages"
+    },
+    {
+      "file": "src/views/api.tsx",
+      "line": 45,
+      "category": "attribute",
+      "words": 17,
+      "hasTokens": false,
+      "text": "The rate registry this site calculates from, published as JSON with every source and verification date attached."
+    },
+    {
+      "file": "src/views/api.tsx",
+      "line": 49,
+      "category": "attribute",
+      "words": 3,
+      "hasTokens": false,
+      "text": "See the endpoint"
     },
     {
       "file": "src/views/api.tsx",
@@ -4342,6 +5359,78 @@
     },
     {
       "file": "src/views/calculators.tsx",
+      "line": 24,
+      "category": "attribute",
+      "words": 8,
+      "hasTokens": false,
+      "text": "What are my Earned Robux worth in dollars?"
+    },
+    {
+      "file": "src/views/calculators.tsx",
+      "line": 25,
+      "category": "attribute",
+      "words": 20,
+      "hasTokens": false,
+      "text": "You have a balance and want a payout estimate. Handles a mixed balance across the standard, legacy and conditional rates."
+    },
+    {
+      "file": "src/views/calculators.tsx",
+      "line": 30,
+      "category": "attribute",
+      "words": 6,
+      "hasTokens": false,
+      "text": "What is Robux worth in dollars?"
+    },
+    {
+      "file": "src/views/calculators.tsx",
+      "line": 31,
+      "category": "attribute",
+      "words": 20,
+      "hasTokens": false,
+      "text": "You are not sure whether you want the creator payout or the retail purchase price. This page separates the two."
+    },
+    {
+      "file": "src/views/calculators.tsx",
+      "line": 36,
+      "category": "attribute",
+      "words": 12,
+      "hasTokens": false,
+      "text": "How many Earned Robux do I need for a payout of X?"
+    },
+    {
+      "file": "src/views/calculators.tsx",
+      "line": 37,
+      "category": "attribute",
+      "words": 24,
+      "hasTokens": false,
+      "text": "You have a figure in mind and want to know what it takes to reach it, including whether the minimum gets in the way."
+    },
+    {
+      "file": "src/views/calculators.tsx",
+      "line": 42,
+      "category": "attribute",
+      "words": 8,
+      "hasTokens": false,
+      "text": "What do I keep after the Roblox commission?"
+    },
+    {
+      "file": "src/views/calculators.tsx",
+      "line": 43,
+      "category": "attribute",
+      "words": 23,
+      "hasTokens": false,
+      "text": "You are pricing an item or a developer product and want to know your share, or what to charge to clear a target."
+    },
+    {
+      "file": "src/views/calculators.tsx",
+      "line": 59,
+      "category": "attribute",
+      "words": 15,
+      "hasTokens": false,
+      "text": "Four calculators, each answering one question properly rather than one tool trying to answer everything."
+    },
+    {
+      "file": "src/views/calculators.tsx",
       "line": 95,
       "category": "attribute",
       "words": 14,
@@ -4382,6 +5471,22 @@
     },
     {
       "file": "src/views/changelog.tsx",
+      "line": 40,
+      "category": "attribute",
+      "words": 11,
+      "hasTokens": false,
+      "text": "What changed on this site, when, and which source justified it."
+    },
+    {
+      "file": "src/views/changelog.tsx",
+      "line": 44,
+      "category": "attribute",
+      "words": 3,
+      "hasTokens": false,
+      "text": "See the entries"
+    },
+    {
+      "file": "src/views/changelog.tsx",
       "line": 58,
       "category": "jsx-text",
       "words": 8,
@@ -4419,6 +5524,14 @@
       "words": 2,
       "hasTokens": false,
       "text": "Related pages"
+    },
+    {
+      "file": "src/views/contact.tsx",
+      "line": 30,
+      "category": "attribute",
+      "words": 23,
+      "hasTokens": false,
+      "text": "Corrections are the most valuable thing you can send, especially with a link to the official page that contradicts what is published here."
     },
     {
       "file": "src/views/contact.tsx",
@@ -4467,6 +5580,14 @@
       "words": 2,
       "hasTokens": false,
       "text": "Related pages"
+    },
+    {
+      "file": "src/views/conversion-amount.tsx",
+      "line": 83,
+      "category": "attribute",
+      "words": 4,
+      "hasTokens": false,
+      "text": "Compare all three rates"
     },
     {
       "file": "src/views/conversion-amount.tsx",
@@ -4526,6 +5647,22 @@
     },
     {
       "file": "src/views/conversions.tsx",
+      "line": 43,
+      "category": "attribute",
+      "words": 18,
+      "hasTokens": false,
+      "text": "A server-rendered table of common amounts across all three documented rates, plus an input for anything not listed."
+    },
+    {
+      "file": "src/views/conversions.tsx",
+      "line": 47,
+      "category": "attribute",
+      "words": 4,
+      "hasTokens": false,
+      "text": "Jump to the table"
+    },
+    {
+      "file": "src/views/conversions.tsx",
       "line": 54,
       "category": "attribute",
       "words": 15,
@@ -4579,6 +5716,14 @@
       "words": 2,
       "hasTokens": false,
       "text": "Related pages"
+    },
+    {
+      "file": "src/views/corrections.tsx",
+      "line": 23,
+      "category": "attribute",
+      "words": 23,
+      "hasTokens": false,
+      "text": "Rates change and documentation moves. If something here is out of date, telling us is genuinely the most useful thing you can do."
     },
     {
       "file": "src/views/corrections.tsx",
@@ -4646,6 +5791,22 @@
     },
     {
       "file": "src/views/devex-fees-and-taxes.tsx",
+      "line": 48,
+      "category": "attribute",
+      "words": 21,
+      "hasTokens": false,
+      "text": "Three separate things sit between the DevEx conversion and the money reaching your account. None of them is the DevEx rate."
+    },
+    {
+      "file": "src/views/devex-fees-and-taxes.tsx",
+      "line": 52,
+      "category": "attribute",
+      "words": 5,
+      "hasTokens": false,
+      "text": "See what each one is"
+    },
+    {
+      "file": "src/views/devex-fees-and-taxes.tsx",
       "line": 63,
       "category": "attribute",
       "words": 19,
@@ -4662,11 +5823,35 @@
     },
     {
       "file": "src/views/devex-fees-and-taxes.tsx",
+      "line": 71,
+      "category": "attribute",
+      "words": 17,
+      "hasTokens": false,
+      "text": "What the documented rate produces from your eligible Earned Robux. This is the figure the calculator estimates."
+    },
+    {
+      "file": "src/views/devex-fees-and-taxes.tsx",
       "line": 77,
       "category": "attribute",
       "words": 2,
       "hasTokens": false,
       "text": "Payment-provider fee"
+    },
+    {
+      "file": "src/views/devex-fees-and-taxes.tsx",
+      "line": 78,
+      "category": "attribute",
+      "words": 12,
+      "hasTokens": false,
+      "text": "Often a percentage plus a fixed amount, charged for delivering the money."
+    },
+    {
+      "file": "src/views/devex-fees-and-taxes.tsx",
+      "line": 80,
+      "category": "attribute",
+      "words": 3,
+      "hasTokens": false,
+      "text": "your payment provider"
     },
     {
       "file": "src/views/devex-fees-and-taxes.tsx",
@@ -4678,6 +5863,22 @@
     },
     {
       "file": "src/views/devex-fees-and-taxes.tsx",
+      "line": 85,
+      "category": "attribute",
+      "words": 18,
+      "hasTokens": false,
+      "text": "Applied only if you are paid in something other than US dollars, at their rate plus a margin."
+    },
+    {
+      "file": "src/views/devex-fees-and-taxes.tsx",
+      "line": 87,
+      "category": "attribute",
+      "words": 3,
+      "hasTokens": false,
+      "text": "whoever converts it"
+    },
+    {
+      "file": "src/views/devex-fees-and-taxes.tsx",
       "line": 91,
       "category": "attribute",
       "words": 2,
@@ -4686,11 +5887,59 @@
     },
     {
       "file": "src/views/devex-fees-and-taxes.tsx",
+      "line": 92,
+      "category": "attribute",
+      "words": 15,
+      "hasTokens": false,
+      "text": "A payout is income. What applies, and when, depends on your country and your circumstances."
+    },
+    {
+      "file": "src/views/devex-fees-and-taxes.tsx",
+      "line": 94,
+      "category": "attribute",
+      "words": 3,
+      "hasTokens": false,
+      "text": "your tax authority"
+    },
+    {
+      "file": "src/views/devex-fees-and-taxes.tsx",
       "line": 98,
       "category": "attribute",
       "words": 3,
       "hasTokens": false,
       "text": "What reaches you"
+    },
+    {
+      "file": "src/views/devex-fees-and-taxes.tsx",
+      "line": 99,
+      "category": "attribute",
+      "words": 18,
+      "hasTokens": false,
+      "text": "Lower than the estimate above, by an amount only your own provider and tax position can tell you."
+    },
+    {
+      "file": "src/views/devex-fees-and-taxes.tsx",
+      "line": 107,
+      "category": "attribute",
+      "words": 3,
+      "hasTokens": false,
+      "text": "1. Payment-provider fees"
+    },
+    {
+      "file": "src/views/devex-fees-and-taxes.tsx",
+      "line": 113,
+      "category": "attribute",
+      "words": 3,
+      "hasTokens": false,
+      "text": "2. Currency conversion"
+    },
+    {
+      "file": "src/views/devex-fees-and-taxes.tsx",
+      "line": 119,
+      "category": "attribute",
+      "words": 3,
+      "hasTokens": false,
+      "text": "3. Income tax"
     },
     {
       "file": "src/views/devex-fees-and-taxes.tsx",
@@ -4742,6 +5991,14 @@
     },
     {
       "file": "src/views/devex-fees-and-taxes.tsx",
+      "line": 180,
+      "category": "attribute",
+      "words": 9,
+      "hasTokens": false,
+      "text": "100 Robux spent by a player inside your experience"
+    },
+    {
+      "file": "src/views/devex-fees-and-taxes.tsx",
       "line": 184,
       "category": "attribute",
       "words": 5,
@@ -4787,6 +6044,22 @@
       "words": 2,
       "hasTokens": false,
       "text": "Related pages"
+    },
+    {
+      "file": "src/views/devex-rate-history.tsx",
+      "line": 38,
+      "category": "attribute",
+      "words": 21,
+      "hasTokens": false,
+      "text": "A dated record of the rate changes this site has verified against official documentation — and nothing that has not been."
+    },
+    {
+      "file": "src/views/devex-rate-history.tsx",
+      "line": 42,
+      "category": "attribute",
+      "words": 3,
+      "hasTokens": false,
+      "text": "See the timeline"
     },
     {
       "file": "src/views/devex-rate-history.tsx",
@@ -4843,6 +6116,22 @@
       "words": 2,
       "hasTokens": false,
       "text": "Related pages"
+    },
+    {
+      "file": "src/views/devex-rates.tsx",
+      "line": 40,
+      "category": "attribute",
+      "words": 20,
+      "hasTokens": false,
+      "text": "What Roblox pays per eligible Earned Robux, when each rate applies, and what the September 2025 change was actually worth."
+    },
+    {
+      "file": "src/views/devex-rates.tsx",
+      "line": 44,
+      "category": "attribute",
+      "words": 5,
+      "hasTokens": false,
+      "text": "See the full rate table"
     },
     {
       "file": "src/views/devex-rates.tsx",
@@ -4926,11 +6215,107 @@
     },
     {
       "file": "src/views/devex-requirements.tsx",
+      "line": 31,
+      "category": "attribute",
+      "words": 5,
+      "hasTokens": false,
+      "text": "The minimum is 10,000 Robux."
+    },
+    {
+      "file": "src/views/devex-requirements.tsx",
+      "line": 32,
+      "category": "attribute",
+      "words": 26,
+      "hasTokens": false,
+      "text": "It is 30,000 Earned Robux. The lower figure circulates on third-party sites that have not been updated, and it is not what current Roblox documentation says."
+    },
+    {
+      "file": "src/views/devex-requirements.tsx",
+      "line": 36,
+      "category": "attribute",
+      "words": 7,
+      "hasTokens": false,
+      "text": "Any Robux balance counts toward the minimum."
+    },
+    {
+      "file": "src/views/devex-requirements.tsx",
+      "line": 37,
+      "category": "attribute",
+      "words": 18,
+      "hasTokens": false,
+      "text": "Only Earned Robux count. A balance made up of purchased Robux does not qualify however large it is."
+    },
+    {
+      "file": "src/views/devex-requirements.tsx",
+      "line": 41,
+      "category": "attribute",
+      "words": 7,
+      "hasTokens": false,
+      "text": "Reaching 30,000 means you will be paid."
+    },
+    {
+      "file": "src/views/devex-requirements.tsx",
+      "line": 42,
+      "category": "attribute",
+      "words": 18,
+      "hasTokens": false,
+      "text": "It means you can submit a request. Roblox reviews each one and decides which Robux qualify as earned."
+    },
+    {
+      "file": "src/views/devex-requirements.tsx",
+      "line": 46,
+      "category": "attribute",
+      "words": 8,
+      "hasTokens": false,
+      "text": "You need to be 18 to use DevEx."
+    },
+    {
+      "file": "src/views/devex-requirements.tsx",
+      "line": 47,
+      "category": "attribute",
+      "words": 30,
+      "hasTokens": false,
+      "text": "Roblox documents a minimum age of 13. The separate 18+ condition concerns the age verification of the players who spent the Robux, and affects the rate rather than your eligibility."
+    },
+    {
+      "file": "src/views/devex-requirements.tsx",
+      "line": 64,
+      "category": "attribute",
+      "words": 22,
+      "hasTokens": false,
+      "text": "What Roblox actually requires before a DevEx request can be submitted, taken from its own documentation rather than from repeated third-party summaries."
+    },
+    {
+      "file": "src/views/devex-requirements.tsx",
+      "line": 68,
+      "category": "attribute",
+      "words": 5,
+      "hasTokens": false,
+      "text": "See each requirement in detail"
+    },
+    {
+      "file": "src/views/devex-requirements.tsx",
       "line": 81,
       "category": "attribute",
       "words": 15,
       "hasTokens": false,
       "text": "The number everybody looks up first, and the one most often quoted out of date."
+    },
+    {
+      "file": "src/views/devex-requirements.tsx",
+      "line": 86,
+      "category": "attribute",
+      "words": 30,
+      "hasTokens": false,
+      "text": "Below the line, a DevEx request cannot be submitted at all. Being close to it counts for nothing, and the shortfall has to be earned — it cannot be bought."
+    },
+    {
+      "file": "src/views/devex-requirements.tsx",
+      "line": 87,
+      "category": "attribute",
+      "words": 25,
+      "hasTokens": false,
+      "text": "At or above the line, a request can be submitted. It is then reviewed, and meeting the threshold is not the same as being approved."
     },
     {
       "file": "src/views/devex-requirements.tsx",
@@ -5006,6 +6391,14 @@
     },
     {
       "file": "src/views/disclaimer.tsx",
+      "line": 25,
+      "category": "attribute",
+      "words": 21,
+      "hasTokens": false,
+      "text": "The honest boundary of what this site can tell you — worth reading once before you plan around a number here."
+    },
+    {
+      "file": "src/views/disclaimer.tsx",
       "line": 65,
       "category": "jsx-text",
       "words": 40,
@@ -5051,6 +6444,30 @@
       "words": 2,
       "hasTokens": false,
       "text": "Related pages"
+    },
+    {
+      "file": "src/views/earned-robux.tsx",
+      "line": 52,
+      "category": "attribute",
+      "words": 24,
+      "hasTokens": false,
+      "text": "The distinction that decides whether a DevEx payout is possible at all — and the one most often missed until a request is refused."
+    },
+    {
+      "file": "src/views/earned-robux.tsx",
+      "line": 56,
+      "category": "attribute",
+      "words": 4,
+      "hasTokens": false,
+      "text": "Read the full definition"
+    },
+    {
+      "file": "src/views/earned-robux.tsx",
+      "line": 63,
+      "category": "attribute",
+      "words": 2,
+      "hasTokens": false,
+      "text": "Earned Robux"
     },
     {
       "file": "src/views/earned-robux.tsx",
@@ -5142,11 +6559,27 @@
     },
     {
       "file": "src/views/editorial-policy.tsx",
+      "line": 16,
+      "category": "attribute",
+      "words": 19,
+      "hasTokens": false,
+      "text": "Read directly from Roblox, Cloudflare, Google or ECB documentation, with the URL and date recorded in the source registry."
+    },
+    {
+      "file": "src/views/editorial-policy.tsx",
       "line": 20,
       "category": "attribute",
       "words": 4,
       "hasTokens": false,
       "text": "Derived from supplied CSV"
+    },
+    {
+      "file": "src/views/editorial-policy.tsx",
+      "line": 21,
+      "category": "attribute",
+      "words": 15,
+      "hasTokens": false,
+      "text": "Computed from the keyword exports this site was built against. Third-party estimates, not measured traffic."
     },
     {
       "file": "src/views/editorial-policy.tsx",
@@ -5158,6 +6591,14 @@
     },
     {
       "file": "src/views/editorial-policy.tsx",
+      "line": 26,
+      "category": "attribute",
+      "words": 14,
+      "hasTokens": false,
+      "text": "Seen on a publicly accessible page. Recorded as an observation, never republished as fact."
+    },
+    {
+      "file": "src/views/editorial-policy.tsx",
       "line": 29,
       "category": "attribute",
       "words": 2,
@@ -5166,11 +6607,35 @@
     },
     {
       "file": "src/views/editorial-policy.tsx",
+      "line": 30,
+      "category": "attribute",
+      "words": 17,
+      "hasTokens": false,
+      "text": "A conclusion drawn from evidence rather than stated by a source. Labelled as inference wherever it appears."
+    },
+    {
+      "file": "src/views/editorial-policy.tsx",
       "line": 34,
       "category": "attribute",
       "words": 3,
       "hasTokens": false,
       "text": "New implementation decision"
+    },
+    {
+      "file": "src/views/editorial-policy.tsx",
+      "line": 35,
+      "category": "attribute",
+      "words": 17,
+      "hasTokens": false,
+      "text": "A choice made by this site, with the reasoning recorded rather than presented as an external requirement."
+    },
+    {
+      "file": "src/views/editorial-policy.tsx",
+      "line": 50,
+      "category": "attribute",
+      "words": 14,
+      "hasTokens": false,
+      "text": "The rules this site writes under, stated so you can hold it to them."
     },
     {
       "file": "src/views/editorial-policy.tsx",
@@ -5206,6 +6671,110 @@
     },
     {
       "file": "src/views/guides.tsx",
+      "line": 31,
+      "category": "attribute",
+      "words": 9,
+      "hasTokens": false,
+      "text": "Which of my Robux can actually be cashed out?"
+    },
+    {
+      "file": "src/views/guides.tsx",
+      "line": 32,
+      "category": "attribute",
+      "words": 12,
+      "hasTokens": false,
+      "text": "Nothing. Start here — it decides whether the rest applies to you."
+    },
+    {
+      "file": "src/views/guides.tsx",
+      "line": 36,
+      "category": "attribute",
+      "words": 10,
+      "hasTokens": false,
+      "text": "What do I need before I can submit a request?"
+    },
+    {
+      "file": "src/views/guides.tsx",
+      "line": 37,
+      "category": "attribute",
+      "words": 11,
+      "hasTokens": false,
+      "text": "That you know the difference between Earned Robux and your balance."
+    },
+    {
+      "file": "src/views/guides.tsx",
+      "line": 41,
+      "category": "attribute",
+      "words": 7,
+      "hasTokens": false,
+      "text": "What does Roblox pay per Earned Robux?"
+    },
+    {
+      "file": "src/views/guides.tsx",
+      "line": 42,
+      "category": "attribute",
+      "words": 9,
+      "hasTokens": false,
+      "text": "That you know which part of your balance qualifies."
+    },
+    {
+      "file": "src/views/guides.tsx",
+      "line": 46,
+      "category": "attribute",
+      "words": 11,
+      "hasTokens": false,
+      "text": "Why does part of my balance convert at a different rate?"
+    },
+    {
+      "file": "src/views/guides.tsx",
+      "line": 47,
+      "category": "attribute",
+      "words": 7,
+      "hasTokens": false,
+      "text": "That you have read the rates page."
+    },
+    {
+      "file": "src/views/guides.tsx",
+      "line": 51,
+      "category": "attribute",
+      "words": 5,
+      "hasTokens": false,
+      "text": "What is the actual process?"
+    },
+    {
+      "file": "src/views/guides.tsx",
+      "line": 52,
+      "category": "attribute",
+      "words": 12,
+      "hasTokens": false,
+      "text": "That you meet the requirements and know what your balance is worth."
+    },
+    {
+      "file": "src/views/guides.tsx",
+      "line": 56,
+      "category": "attribute",
+      "words": 9,
+      "hasTokens": false,
+      "text": "What comes off the payout before it reaches me?"
+    },
+    {
+      "file": "src/views/guides.tsx",
+      "line": 57,
+      "category": "attribute",
+      "words": 9,
+      "hasTokens": false,
+      "text": "That you have a payout figure to work from."
+    },
+    {
+      "file": "src/views/guides.tsx",
+      "line": 72,
+      "category": "attribute",
+      "words": 24,
+      "hasTokens": false,
+      "text": "Six guides covering everything between earning a Robux and having the money in your account, in the order that makes sense to read them."
+    },
+    {
+      "file": "src/views/guides.tsx",
       "line": 81,
       "category": "attribute",
       "words": 13,
@@ -5227,6 +6796,22 @@
       "words": 14,
       "hasTokens": false,
       "text": "Every guide links to the tool it supports, but you can go straight there."
+    },
+    {
+      "file": "src/views/home.tsx",
+      "line": 51,
+      "category": "attribute",
+      "words": 26,
+      "hasTokens": false,
+      "text": "Convert eligible Earned Robux into an estimated US dollar payout using the rates Roblox currently documents, with the source and verification date shown alongside every figure."
+    },
+    {
+      "file": "src/views/home.tsx",
+      "line": 57,
+      "category": "attribute",
+      "words": 5,
+      "hasTokens": false,
+      "text": "See how the calculation works"
     },
     {
       "file": "src/views/home.tsx",
@@ -5294,6 +6879,22 @@
     },
     {
       "file": "src/views/how-to-cash-out-robux.tsx",
+      "line": 37,
+      "category": "attribute",
+      "words": 22,
+      "hasTokens": false,
+      "text": "The official process, what to have ready before you start, and how to recognise the services that are not worth the risk."
+    },
+    {
+      "file": "src/views/how-to-cash-out-robux.tsx",
+      "line": 41,
+      "category": "attribute",
+      "words": 3,
+      "hasTokens": false,
+      "text": "See the process"
+    },
+    {
+      "file": "src/views/how-to-cash-out-robux.tsx",
       "line": 50,
       "category": "attribute",
       "words": 12,
@@ -5315,6 +6916,14 @@
       "words": 4,
       "hasTokens": false,
       "text": "Meet the account requirements"
+    },
+    {
+      "file": "src/views/how-to-cash-out-robux.tsx",
+      "line": 63,
+      "category": "attribute",
+      "words": 17,
+      "hasTokens": false,
+      "text": "Verified email, minimum age of 13, a DevEx portal account, a tax form on file, good standing."
     },
     {
       "file": "src/views/how-to-cash-out-robux.tsx",
@@ -5342,11 +6951,35 @@
     },
     {
       "file": "src/views/how-to-cash-out-robux.tsx",
+      "line": 74,
+      "category": "attribute",
+      "words": 19,
+      "hasTokens": false,
+      "text": "It decides which Robux qualify and whether to approve. This can end here, and no third party changes that."
+    },
+    {
+      "file": "src/views/how-to-cash-out-robux.tsx",
+      "line": 76,
+      "category": "attribute",
+      "words": 2,
+      "hasTokens": false,
+      "text": "Roblox alone"
+    },
+    {
+      "file": "src/views/how-to-cash-out-robux.tsx",
       "line": 81,
       "category": "attribute",
       "words": 3,
       "hasTokens": false,
       "text": "Payment is issued"
+    },
+    {
+      "file": "src/views/how-to-cash-out-robux.tsx",
+      "line": 82,
+      "category": "attribute",
+      "words": 12,
+      "hasTokens": false,
+      "text": "Your provider and bank apply their own handling and fees from there."
     },
     {
       "file": "src/views/how-to-cash-out-robux.tsx",
@@ -5462,6 +7095,14 @@
     },
     {
       "file": "src/views/methodology.tsx",
+      "line": 22,
+      "category": "attribute",
+      "words": 10,
+      "hasTokens": false,
+      "text": "gross USD = eligible Earned Robux × rate per Robux"
+    },
+    {
+      "file": "src/views/methodology.tsx",
       "line": 23,
       "category": "attribute",
       "words": 17,
@@ -5475,6 +7116,14 @@
       "words": 2,
       "hasTokens": false,
       "text": "Mixed balance"
+    },
+    {
+      "file": "src/views/methodology.tsx",
+      "line": 27,
+      "category": "attribute",
+      "words": 15,
+      "hasTokens": false,
+      "text": "gross USD = (standard × 0.0038) + (legacy × 0.0035) + (U.S. 18+ × 0.0054)"
     },
     {
       "file": "src/views/methodology.tsx",
@@ -5494,6 +7143,14 @@
     },
     {
       "file": "src/views/methodology.tsx",
+      "line": 32,
+      "category": "attribute",
+      "words": 9,
+      "hasTokens": false,
+      "text": "blended rate = gross USD ÷ total Earned Robux"
+    },
+    {
+      "file": "src/views/methodology.tsx",
       "line": 33,
       "category": "attribute",
       "words": 8,
@@ -5507,6 +7164,14 @@
       "words": 2,
       "hasTokens": false,
       "text": "Optional fees"
+    },
+    {
+      "file": "src/views/methodology.tsx",
+      "line": 37,
+      "category": "attribute",
+      "words": 12,
+      "hasTokens": false,
+      "text": "net before tax = gross − (gross × fee%) − flat fee"
     },
     {
       "file": "src/views/methodology.tsx",
@@ -5526,6 +7191,14 @@
     },
     {
       "file": "src/views/methodology.tsx",
+      "line": 42,
+      "category": "attribute",
+      "words": 14,
+      "hasTokens": false,
+      "text": "net after estimate = net before tax − (net before tax × your tax%)"
+    },
+    {
+      "file": "src/views/methodology.tsx",
       "line": 43,
       "category": "attribute",
       "words": 16,
@@ -5539,6 +7212,14 @@
       "words": 2,
       "hasTokens": false,
       "text": "Reverse target"
+    },
+    {
+      "file": "src/views/methodology.tsx",
+      "line": 47,
+      "category": "attribute",
+      "words": 10,
+      "hasTokens": false,
+      "text": "required Earned Robux = ceiling(target USD ÷ rate per Robux)"
     },
     {
       "file": "src/views/methodology.tsx",
@@ -5558,6 +7239,14 @@
     },
     {
       "file": "src/views/methodology.tsx",
+      "line": 52,
+      "category": "attribute",
+      "words": 9,
+      "hasTokens": false,
+      "text": "local value = USD value × (EUR→target ÷ EUR→USD)"
+    },
+    {
+      "file": "src/views/methodology.tsx",
       "line": 53,
       "category": "attribute",
       "words": 18,
@@ -5574,11 +7263,35 @@
     },
     {
       "file": "src/views/methodology.tsx",
+      "line": 57,
+      "category": "attribute",
+      "words": 8,
+      "hasTokens": false,
+      "text": "you keep = floor(sale price × creator share%)"
+    },
+    {
+      "file": "src/views/methodology.tsx",
       "line": 58,
       "category": "attribute",
       "words": 14,
       "hasTokens": false,
       "text": "Rounds down, so a figure shown is never more than you would actually receive."
+    },
+    {
+      "file": "src/views/methodology.tsx",
+      "line": 73,
+      "category": "attribute",
+      "words": 16,
+      "hasTokens": false,
+      "text": "Every formula this site uses, how the arithmetic is done, and where precision is deliberately dropped."
+    },
+    {
+      "file": "src/views/methodology.tsx",
+      "line": 77,
+      "category": "attribute",
+      "words": 3,
+      "hasTokens": false,
+      "text": "See the formulas"
     },
     {
       "file": "src/views/methodology.tsx",
@@ -5662,6 +7375,22 @@
     },
     {
       "file": "src/views/platform-stock.tsx",
+      "line": 54,
+      "category": "attribute",
+      "words": 17,
+      "hasTokens": false,
+      "text": "Roblox's reported results, and an honest account of why there is no live share price here yet."
+    },
+    {
+      "file": "src/views/platform-stock.tsx",
+      "line": 58,
+      "category": "attribute",
+      "words": 4,
+      "hasTokens": false,
+      "text": "See what is shown"
+    },
+    {
+      "file": "src/views/platform-stock.tsx",
       "line": 92,
       "category": "jsx-text",
       "words": 2,
@@ -5691,6 +7420,22 @@
       "words": 19,
       "hasTokens": true,
       "text": "{reason} No figure is shown in its place. A stale price presented as current would be worse than none."
+    },
+    {
+      "file": "src/views/platform.tsx",
+      "line": 106,
+      "category": "attribute",
+      "words": 26,
+      "hasTokens": false,
+      "text": "Live player counts from Roblox's own public endpoints, across every ranking Roblox publishes, and a record of what this site has observed since it started watching."
+    },
+    {
+      "file": "src/views/platform.tsx",
+      "line": 110,
+      "category": "attribute",
+      "words": 4,
+      "hasTokens": false,
+      "text": "See the live figures"
     },
     {
       "file": "src/views/platform.tsx",
@@ -5822,6 +7567,22 @@
     },
     {
       "file": "src/views/platform.tsx",
+      "line": 488,
+      "category": "attribute",
+      "words": 2,
+      "hasTokens": false,
+      "text": "Per-experience history"
+    },
+    {
+      "file": "src/views/platform.tsx",
+      "line": 561,
+      "category": "attribute",
+      "words": 3,
+      "hasTokens": false,
+      "text": "The busiest-experience record"
+    },
+    {
+      "file": "src/views/platform.tsx",
       "line": 570,
       "category": "jsx-text",
       "words": 14,
@@ -5902,6 +7663,14 @@
     },
     {
       "file": "src/views/privacy.tsx",
+      "line": 41,
+      "category": "attribute",
+      "words": 24,
+      "hasTokens": false,
+      "text": "What this site stores, what it does not, and which third parties are involved — describing this deployment specifically rather than a generic template."
+    },
+    {
+      "file": "src/views/privacy.tsx",
       "line": 47,
       "category": "jsx-text",
       "words": 3,
@@ -5971,6 +7740,22 @@
       "words": 3,
       "hasTokens": false,
       "text": "Conditional U.S. 18+"
+    },
+    {
+      "file": "src/views/roblox-stats.tsx",
+      "line": 110,
+      "category": "attribute",
+      "words": 23,
+      "hasTokens": false,
+      "text": "What Roblox actually pays creators, taken from its own filings with the SEC. Every figure below links to the document it came from."
+    },
+    {
+      "file": "src/views/roblox-stats.tsx",
+      "line": 114,
+      "category": "attribute",
+      "words": 4,
+      "hasTokens": false,
+      "text": "See the payout figures"
     },
     {
       "file": "src/views/roblox-stats.tsx",
@@ -6118,6 +7903,22 @@
     },
     {
       "file": "src/views/robux-tax-calculator.tsx",
+      "line": 37,
+      "category": "attribute",
+      "words": 19,
+      "hasTokens": false,
+      "text": "Work out what you keep after the Roblox platform commission, or what to charge to clear a target amount."
+    },
+    {
+      "file": "src/views/robux-tax-calculator.tsx",
+      "line": 41,
+      "category": "attribute",
+      "words": 4,
+      "hasTokens": false,
+      "text": "See which commission applies"
+    },
+    {
+      "file": "src/views/robux-tax-calculator.tsx",
       "line": 52,
       "category": "attribute",
       "words": 14,
@@ -6155,6 +7956,22 @@
       "words": 2,
       "hasTokens": false,
       "text": "Related pages"
+    },
+    {
+      "file": "src/views/robux-to-usd.tsx",
+      "line": 43,
+      "category": "attribute",
+      "words": 21,
+      "hasTokens": false,
+      "text": "Two different questions hide behind the same search. This page answers both separately rather than blending them into one misleading number."
+    },
+    {
+      "file": "src/views/robux-to-usd.tsx",
+      "line": 47,
+      "category": "attribute",
+      "words": 5,
+      "hasTokens": false,
+      "text": "Why there are two answers"
     },
     {
       "file": "src/views/robux-to-usd.tsx",
@@ -6238,6 +8055,22 @@
     },
     {
       "file": "src/views/sources.tsx",
+      "line": 29,
+      "category": "attribute",
+      "words": 19,
+      "hasTokens": false,
+      "text": "Every official source behind the figures on this site, what each one establishes, and when it was last checked."
+    },
+    {
+      "file": "src/views/sources.tsx",
+      "line": 33,
+      "category": "attribute",
+      "words": 3,
+      "hasTokens": false,
+      "text": "See the registry"
+    },
+    {
+      "file": "src/views/sources.tsx",
       "line": 40,
       "category": "attribute",
       "words": 21,
@@ -6267,6 +8100,14 @@
       "words": 2,
       "hasTokens": false,
       "text": "Related pages"
+    },
+    {
+      "file": "src/views/terms.tsx",
+      "line": 25,
+      "category": "attribute",
+      "words": 26,
+      "hasTokens": false,
+      "text": "The terms covering use of this site. Short, because there is not much to it — you use a calculator, and it gives you an estimate."
     },
     {
       "file": "src/views/terms.tsx",
@@ -6315,6 +8156,22 @@
       "words": 2,
       "hasTokens": false,
       "text": "Related pages"
+    },
+    {
+      "file": "src/views/usd-to-robux.tsx",
+      "line": 69,
+      "category": "attribute",
+      "words": 20,
+      "hasTokens": false,
+      "text": "Set the payout you are aiming for and see exactly how many eligible Earned Robux it takes to get there."
+    },
+    {
+      "file": "src/views/usd-to-robux.tsx",
+      "line": 73,
+      "category": "attribute",
+      "words": 5,
+      "hasTokens": false,
+      "text": "Why the answer rounds up"
     },
     {
       "file": "src/views/usd-to-robux.tsx",

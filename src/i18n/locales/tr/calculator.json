@@ -153,10 +153,11 @@
   },
   "currency": {
     "loading": "Referans kurlar yükleniyor…",
-    "unavailable": "Yerel para birimi tahminleri geçici olarak kullanılamıyor.",
+    "unavailable": "Yerel para birimi tahminleri geçici olarak kullanılamıyor. Yukarıdaki USD rakamları bundan etkilenmez.",
     "usdUnaffected": "Yukarıdaki USD rakamı yerel olarak hesaplanır ve bundan etkilenmez.",
     "staleHeading": "Kurlar güncelliğini yitirmiş.",
-    "provenance": "{currency} rakamları, {date} tarihinde gözlenen {provider} referans kurlarını kullanır. Bunlar referans kurlardır, banka kotasyonu değil — ödeme sağlayıcınız kendi kurunu uygular ve ücret ekleyebilir."
+    "provenance": "{currency} rakamları, {date} tarihinde gözlenen {provider} referans kurlarını kullanır. Bunlar referans kurlardır, banka kotasyonu değil — ödeme sağlayıcınız kendi kurunu uygular ve ücret ekleyebilir.",
+    "staleSnapshot": "Canlı referans kurları kullanılamıyor, bu yüzden kayıtlı bir anlık görüntü gösteriliyor. Bu rakamları yalnızca gösterge olarak değerlendirin."
   },
   "home": {
     "formulaOpen": "Burada gizlenen bir şey yok. Formül tek bir çarpma ve bunu siz de doğrulayabilirsiniz.",
@@ -203,7 +204,9 @@
         "p1": "Güncelliğini yitirmiş bir şey mi var?",
         "p2": "Bize söyleyin, düzeltilsin"
       }
-    }
+    },
+    "intro": "Uygun Earned Robux'ı, Roblox'un şu anda belgelediği oranlarla tahmini bir ABD doları ödemesine çevirin; her rakamın yanında kaynağı ve doğrulama tarihi gösterilir.",
+    "jumpLabel": "Hesaplamanın nasıl işlediğini görün"
   },
   "planner": {
     "targetLabel": "Ulaşmak istediğiniz ödeme",
@@ -243,7 +246,11 @@
         "p4": "Elinizde kalacak tahmini tutar",
         "p5": "Buradaki her rakam, girdiklerinizden üretilmiş bir tahmindir. Şuna ulaşmak:"
       }
-    }
+    },
+    "alreadyEnoughHeadline": "Bu hedef için elinizde zaten yeterince var.",
+    "zeroEarningsHeadline": "Bu hızla hiçbir tarih yok.",
+    "datePassedHeadline": "O tarih çoktan geldi.",
+    "pickDateHeadline": "Bir tarih seçin."
   },
   "controls": {
     "body": {

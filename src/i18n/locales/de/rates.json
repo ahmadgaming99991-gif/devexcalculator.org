@@ -124,6 +124,28 @@
         "p3": "Prüfe, dass dein Konto gegenüber den Nutzungsbedingungen und Community-Standards in Ordnung ist.",
         "p4": "Entscheide, wohin das Geld geht, und prüfe, was deine Bank oder dein Zahlungsdienstleister für den Empfang berechnet."
       }
+    },
+    "misunderstandings": {
+      "minimum10k": {
+        "claim": "Das Minimum liegt bei 10.000 Robux.",
+        "reality": "Es sind 30.000 Earned Robux. Die niedrigere Zahl kursiert auf Drittanbieterseiten, die nicht aktualisiert wurden, und steht so nicht in der aktuellen Roblox-Dokumentation."
+      },
+      "anyBalance": {
+        "claim": "Jedes Robux-Guthaben zählt für das Minimum.",
+        "reality": "Nur Earned Robux zählen. Ein Guthaben aus gekauften Robux kommt nicht infrage, wie hoch es auch ist."
+      },
+      "reaching30k": {
+        "claim": "30.000 zu erreichen bedeutet, dass ausgezahlt wird.",
+        "reality": "Es bedeutet, dass Sie einen Antrag stellen können. Roblox prüft jeden einzelnen und entscheidet, welche Robux als verdient gelten."
+      },
+      "age18": {
+        "claim": "Man muss 18 sein, um DevEx zu nutzen.",
+        "reality": "Roblox dokumentiert ein Mindestalter von 13 Jahren. Die davon getrennte 18+-Bedingung betrifft die Altersverifizierung der Spieler, die die Robux ausgegeben haben, und wirkt sich auf den Satz aus, nicht auf Ihre Berechtigung."
+      }
+    },
+    "threshold": {
+      "below": "Unterhalb der Linie lässt sich überhaupt kein DevEx-Antrag stellen. Knapp darunter zu liegen zählt nicht, und der Fehlbetrag muss verdient werden — kaufen lässt er sich nicht.",
+      "above": "Auf oder über der Linie kann ein Antrag gestellt werden. Er wird dann geprüft, und die Schwelle zu erreichen ist nicht dasselbe wie bewilligt zu werden."
     }
   },
   "earnedRobux": {
@@ -191,7 +213,16 @@
       "toYouAsEarned": "an dich, als Earned Robux",
       "balanceDevExConverts": "Das ist das Guthaben, das DevEx später umwandelt.",
       "platformCommission": "Plattformprovision",
-      "takenOnceHere": "Einmal genommen, hier — nicht noch einmal bei der Auszahlung."
+      "takenOnceHere": "Einmal genommen, hier — nicht noch einmal bei der Auszahlung.",
+      "devexPayoutNote": "Was der dokumentierte Satz aus Ihren berechtigten Earned Robux ergibt. Das ist die Zahl, die der Rechner schätzt.",
+      "providerFeeNote": "Oft ein Prozentsatz plus ein fester Betrag, berechnet für die Auszahlung des Geldes.",
+      "providerFeeBy": "Ihr Zahlungsdienstleister",
+      "conversionNote": "Fällt nur an, wenn Sie in einer anderen Währung als US-Dollar bezahlt werden — zu deren Kurs plus Aufschlag.",
+      "conversionBy": "wer auch immer umrechnet",
+      "incomeTaxNote": "Eine Auszahlung ist Einkommen. Was gilt und wann, hängt von Ihrem Land und Ihren Umständen ab.",
+      "incomeTaxBy": "Ihre Steuerbehörde",
+      "whatReachesYouNote": "Niedriger als die Schätzung oben — um einen Betrag, den nur Ihr eigener Anbieter und Ihre Steuersituation beziffern können.",
+      "marketplaceTotal": "100 Robux, die ein Spieler in Ihrer Experience ausgibt"
     },
     "ogImageAlt": "Erst Anbietergebühren, dann Umrechnung, dann Einkommensteuer — keine davon von Roblox",
     "body": {
@@ -404,6 +435,16 @@
         "p1": "Zurück zu allen Umrechnungen",
         "p2": "Einen anderen Betrag umrechnen"
       }
+    },
+    "context": {
+      "robux30000": "30.000 ist der wichtigste Betrag, denn es ist das Mindestguthaben an Earned Robux, das Roblox verlangt, bevor überhaupt ein DevEx-Antrag gestellt werden kann. Unterhalb dieser Zahl lautet die Frage nicht, wie hoch die Auszahlung wäre, sondern ob sich ein Antrag stellen lässt.",
+      "robux50000": "50.000 Earned Robux überschreiten das Minimum mit Spielraum und sind deshalb häufig die erste Auszahlung eines Creators, dessen Experience gerade begonnen hat, regelmäßig einzubringen.",
+      "robux100000": "100.000 ist die meistgesuchte runde Zahl in diesem Bereich, und hier wird der Abstand zwischen dem aktuellen und dem alten Satz groß genug, um aufzufallen: dreißig Dollar liegen dazwischen.",
+      "robux200000": "Bei 200.000 Earned Robux zahlt ein Creator meist regelmäßig aus statt einmalig, weshalb es sich lohnt, den Unterschied zwischen den Satzgruppen zu verfolgen statt ihn zu schätzen.",
+      "robux300000": "300.000 Earned Robux sind das Zehnfache des DevEx-Minimums. Ein nützlicher Bezugspunkt für Creator, die ausrechnen, wie vielen Auszahlungszyklen ein Jahr an Einnahmen entspricht.",
+      "robux500000": "Eine halbe Million Earned Robux ist die Größenordnung, ab der Gebühren des Zahlungsdienstleisters und persönliche Steuerpflichten keine Rundungsfehler mehr sind — deshalb verweist diese Seite direkt auf den Leitfaden zu Gebühren und Steuern.",
+      "robux1000000": "Eine Million Robux ist der Meilenstein, nach dem Creator tatsächlich suchen, und das deutlichste Beispiel dafür, warum Kaufpreis und DevEx-Auszahlung nicht dieselbe Zahl sind.",
+      "robux10000000": "Zehn Millionen Earned Robux stehen für dauerhafte Einnahmen aus einer großen Experience. In dieser Größenordnung verändert die Aufteilung zwischen Standard- und Altguthaben sowie jeder qualifizierende USA-18+-Anteil die Summe um Tausende von Dollar."
     }
   }
 }

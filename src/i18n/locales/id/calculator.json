@@ -156,10 +156,11 @@
   },
   "currency": {
     "loading": "Memuat kurs acuan…",
-    "unavailable": "Perkiraan dalam mata uang lokal sementara tidak tersedia.",
+    "unavailable": "Perkiraan dalam mata uang lokal untuk sementara tidak tersedia. Angka USD di atas tidak terpengaruh.",
     "usdUnaffected": "Angka USD di atas dihitung secara lokal dan tidak terpengaruh.",
     "staleHeading": "Kurs sudah usang.",
-    "provenance": "Angka {currency} memakai kurs acuan {provider} yang diamati pada {date}. Ini kurs acuan, bukan kutipan bank — penyedia pembayaran Anda akan memakai kursnya sendiri dan mungkin menambahkan biaya."
+    "provenance": "Angka {currency} memakai kurs acuan {provider} yang diamati pada {date}. Ini kurs acuan, bukan kutipan bank — penyedia pembayaran Anda akan memakai kursnya sendiri dan mungkin menambahkan biaya.",
+    "staleSnapshot": "Kurs referensi langsung tidak tersedia, jadi yang ditampilkan adalah cuplikan tersimpan. Anggap angka-angka ini hanya sebagai indikasi."
   },
   "home": {
     "formulaOpen": "Tidak ada yang disembunyikan di sini. Rumusnya satu perkalian, dan Anda bisa memeriksanya.",
@@ -206,7 +207,9 @@
         "p1": "Ada yang sudah usang?",
         "p2": "Beri tahu kami dan itu akan diperbaiki"
       }
-    }
+    },
+    "intro": "Ubah Earned Robux yang memenuhi syarat menjadi perkiraan pembayaran dalam dolar AS memakai tarif yang saat ini didokumentasikan Roblox, dengan sumber dan tanggal verifikasi ditampilkan di samping setiap angka.",
+    "jumpLabel": "Lihat cara perhitungannya bekerja"
   },
   "planner": {
     "targetLabel": "Pembayaran yang Anda tuju",
@@ -246,7 +249,11 @@
         "p4": "Perkiraan jumlah yang Anda terima",
         "p5": "Setiap angka di sini adalah perkiraan yang dihasilkan dari yang Anda masukkan. Mencapai"
       }
-    }
+    },
+    "alreadyEnoughHeadline": "Anda sudah punya cukup untuk target ini.",
+    "zeroEarningsHeadline": "Tidak ada tanggal, dengan laju ini.",
+    "datePassedHeadline": "Tanggal itu sudah lewat.",
+    "pickDateHeadline": "Pilih sebuah tanggal."
   },
   "controls": {
     "body": {

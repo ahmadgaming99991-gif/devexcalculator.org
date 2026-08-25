@@ -13,6 +13,32 @@
       "calculators": {
         "p1": "Pembayaran DevEx, Robux ke USD, target pembayaran, dan biaya marketplace."
       }
+    },
+    "readingOrder": {
+      "earnedRobux": {
+        "answers": "Robux saya yang mana yang sebenarnya bisa dicairkan?",
+        "assumes": "Tidak ada. Mulailah di sini — bagian ini menentukan apakah sisanya berlaku untuk Anda."
+      },
+      "requirements": {
+        "answers": "Apa yang saya perlukan sebelum bisa mengajukan permintaan?",
+        "assumes": "Bahwa Anda tahu perbedaan antara Earned Robux dan saldo Anda."
+      },
+      "rates": {
+        "answers": "Berapa yang dibayar Roblox per Earned Robux?",
+        "assumes": "Bahwa Anda tahu bagian mana dari saldo Anda yang memenuhi syarat."
+      },
+      "rateHistory": {
+        "answers": "Mengapa sebagian saldo saya dikonversi dengan tarif yang berbeda?",
+        "assumes": "Bahwa Anda sudah membaca halaman tarif."
+      },
+      "cashOut": {
+        "answers": "Bagaimana prosesnya sebenarnya?",
+        "assumes": "Bahwa Anda memenuhi persyaratan dan tahu berapa nilai saldo Anda."
+      },
+      "feesAndTaxes": {
+        "answers": "Apa saja yang dipotong dari pembayaran sebelum sampai ke saya?",
+        "assumes": "Bahwa Anda sudah punya angka pembayaran sebagai titik awal."
+      }
     }
   },
   "calculators": {
@@ -28,6 +54,24 @@
       },
       "guides": {
         "p1": "Kurs, persyaratan, apa yang dihitung sebagai Earned Robux, dan bagaimana proses pencairan berjalan."
+      }
+    },
+    "tools": {
+      "devex": {
+        "answers": "Berapa nilai Earned Robux saya dalam dolar?",
+        "useWhen": "Anda punya saldo dan ingin perkiraan pembayaran. Menangani saldo campuran di antara tarif standar, lama, dan bersyarat."
+      },
+      "robuxToUsd": {
+        "answers": "Berapa nilai Robux dalam dolar?",
+        "useWhen": "Anda belum yakin apakah yang Anda cari itu pembayaran untuk kreator atau harga beli eceran. Halaman ini memisahkan keduanya."
+      },
+      "usdToRobux": {
+        "answers": "Berapa banyak Earned Robux yang saya butuhkan untuk pembayaran sebesar X?",
+        "useWhen": "Anda sudah punya angka di kepala dan ingin tahu apa yang dibutuhkan untuk mencapainya, termasuk apakah batas minimum menghalangi."
+      },
+      "robuxTax": {
+        "answers": "Berapa yang saya terima setelah komisi Roblox?",
+        "useWhen": "Anda sedang menentukan harga sebuah item atau developer product dan ingin tahu bagian Anda, atau berapa yang harus dipatok untuk mencapai target."
       }
     }
   },
@@ -55,7 +99,11 @@
       "submitPortal": "Ajukan lewat portal",
       "submitPortalDetail": "Portal DevEx resmi, dan tidak di tempat lain.",
       "robloxReviews": "Roblox meninjaunya",
-      "paymentIssued": "Pembayaran diterbitkan"
+      "paymentIssued": "Pembayaran diterbitkan",
+      "meetRequirementsDetail": "Email terverifikasi, usia minimal 13 tahun, akun portal DevEx, formulir pajak yang sudah diserahkan, dan status akun yang baik.",
+      "robloxReviewsDetail": "Roblox memutuskan Robux mana yang memenuhi syarat dan apakah permintaan disetujui. Prosesnya bisa berhenti di sini, dan tidak ada pihak ketiga yang bisa mengubahnya.",
+      "robloxReviewsBy": "hanya Roblox",
+      "paymentIssuedDetail": "Sejak titik itu, penyedia dan bank Anda menerapkan penanganan dan biaya mereka sendiri."
     },
     "list": {
       "meetRequirements": "Penuhi persyaratan akun.",

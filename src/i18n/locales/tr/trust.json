@@ -79,7 +79,15 @@
       "currencyTerm": "Yerel para birimi",
       "currencyDetail": "AMB euro tabanlı kurlar yayımlar; bu yüzden USD çapraz kurları türetilir. Bölme yönü testlerle sabitlenmiştir.",
       "marketplaceTerm": "Marketplace ücreti",
-      "marketplaceDetail": "Aşağı yuvarlar; böylece gösterilen bir rakam, gerçekte alacağınızdan asla fazla olmaz."
+      "marketplaceDetail": "Aşağı yuvarlar; böylece gösterilen bir rakam, gerçekte alacağınızdan asla fazla olmaz.",
+      "payoutFormula": "brüt USD = uygun Earned Robux × Robux başına oran",
+      "mixedFormula": "brüt USD = (standart × 0,0038) + (eski × 0,0035) + (ABD 18+ × 0,0054)",
+      "blendedFormula": "harmanlanmış oran = brüt USD ÷ toplam Earned Robux",
+      "feesFormula": "vergi öncesi net = brüt − (brüt × ücret%) − sabit ücret",
+      "taxFormula": "tahmin sonrası net = vergi öncesi net − (vergi öncesi net × sizin vergi%)",
+      "reverseFormula": "gereken Earned Robux = yukarı yuvarla(hedef USD ÷ Robux başına oran)",
+      "currencyFormula": "yerel değer = USD değeri × (EUR→hedef ÷ EUR→USD)",
+      "marketplaceFormula": "elinizde kalan = aşağı yuvarla(satış fiyatı × yaratıcı payı%)"
     },
     "rounding": {
       "moneyHalfUp": "Para yarımdan yukarı yuvarlanır",
@@ -174,6 +182,13 @@
         "p3": "Bir rakam, doğru olmaktan çıktıktan sonra aramalarda iyi gidiyor diye çevrimiçi bırakılmaz. Yanlışsa değiştirilir ve değişiklik kaydedilir.",
         "p4": "Düzeltmeler nasıl işliyor"
       }
+    },
+    "meanings": {
+      "verified": "Doğrudan Roblox, Cloudflare, Google veya ECB belgelerinden okundu; URL ve tarih kaynak kütüğüne yazıldı.",
+      "derived": "Bu sitenin üzerine kurulduğu anahtar kelime dışa aktarımlarından hesaplandı. Ölçülmüş trafik değil, üçüncü taraf tahminleridir.",
+      "observed": "Herkese açık bir sayfada görüldü. Gözlem olarak kaydedildi, hiçbir zaman olgu diye yeniden yayımlanmadı.",
+      "inference": "Bir kaynağın söylediği değil, kanıtlardan çıkarılan bir sonuç. Göründüğü her yerde çıkarım olarak etiketlenir.",
+      "decision": "Bu sitenin verdiği bir karar; gerekçesi dışarıdan gelen bir zorunluluk gibi sunulmak yerine kayda geçirilir."
     }
   },
   "corrections": {
@@ -226,7 +241,11 @@
       "registryEstablished": "Kur kaydı oluşturuldu ve doğrulandı",
       "marketplaceRecorded": "Marketplace komisyonları kaydedildi",
       "levRemoved": "Bulgar levası desteklenen para birimlerinden çıkarıldı",
-      "siteLaunched": "Site yayına alındı"
+      "siteLaunched": "Site yayına alındı",
+      "registryEstablishedDetail": "Standart oran, uygun Earned Robux başına 0,0038 USD olarak kaydedildi (30.000 için 114 USD); eski oran, 5 Eylül 2025 saat 10:00 PT'den önce kazanılmış bakiyeler için 0,0035; koşullu ABD 18+ oranı ise 0,0054. 30.000 Earned Robux alt sınırı ve uygunluk listesinin tamamı aynı anda doğrulandı. Hepsi doğrudan Roblox Creator Hub'daki DevEx belgelerinden kontrol edildi.",
+      "marketplaceRecordedDetail": "Deneyim içi satın almalar yaratıcıya %70, Roblox'a %30 olarak kaydedildi. Marketplace avatar ürünü satışları, taban fiyatta %30'dan tabanın altı katında %70'e çıkan kademeli gelir paylaşımı tablosuyla kaydedildi. Bir deneyim içinde satılan avatar ürünleri %30 yaratıcı, %40 deneyim sahibi, %30 Roblox olarak kaydedildi.",
+      "levRemovedDetail": "Avrupa Merkez Bankası, 31 Aralık 2025'ten sonra BGN referans kuru yayımlamayı bıraktı. O tarihte donmuş bir kuru göstermeyi sürdürmek yerine BGN, para birimi seçicisinden kaldırıldı. Yapılandırılmış sağlayıcının artık sunmadığı bir para birimini listelemek, rakamın ne kadar güncel olduğu konusunda yanıltıcı olurdu.",
+      "siteLaunchedDetail": "İlk sürüm: hızlı, bölünmüş ve hedef modlarıyla DevEx hesaplayıcısı; Robux'tan USD'ye ve ödeme hedefi sayfaları; marketplace komisyon hesaplayıcısı; sekiz seçilmiş tutar sayfasıyla dönüştürme merkezi; ve rehber ile şeffaflık sayfalarının tamamı. Orana duyarlı her sayfa, lansmandan itibaren bir kaynak künyesi ve doğrulama tarihi taşır."
     },
     "body": {
       "entries": {
@@ -342,7 +361,15 @@
     "profilesLabel": "Profiller",
     "pagesReviewed": "Denetlenen sayfalar",
     "noPagesReviewed": "Şu anda hiçbir sayfa denetim künyesi taşımıyor.",
-    "ahmadRazaPhotoAlt": "Ahmad Raza, DevExCalculator.org'un kurucusu ve yürütücüsü"
+    "ahmadRazaPhotoAlt": "Ahmad Raza, DevExCalculator.org'un kurucusu ve yürütücüsü",
+    "ahmadRaza": {
+      "role": "Kurucu ve Sürdürücü",
+      "bio": "Ahmad Raza, Pakistan'dan bağımsız bir web yayıncısı ve SEO uzmanıdır; başvuru araçları ve bilgi siteleri kurup sürdürür. DevExCalculator.org'u, ödeme rakamlarını arayan Roblox yaratıcılarının sürekli olarak eskimiş ya da yanlış DevEx oranları aktaran sayfalara düştüğünü fark ettikten sonra kurdu. Bu sitedeki oran verilerini Roblox'un resmi Developer Exchange belgeleri ve Roblox Corporation'ın yayımlanmış SEC dosyalamaları karşısında sürdürür ve yayımlanmış bir rakamdaki her değişikliği sitenin changelog'una kaydeder. Roblox Corporation ile bir bağı yoktur ve Roblox'un iç verilerine erişimi bulunmamaktadır."
+    },
+    "saeedAhmed": {
+      "role": "İçerik Denetçisi ve Doğruluk Kontrolcüsü",
+      "bio": "Saeed Ahmed full-stack geliştirici ve SEO uzmanıdır. DevExCalculator.org'da yayımlanan rakamları yayına girmeden önce denetler: her oranı, ücret paylaşımını ve eşiği alıntılandığı birincil kaynakla karşılaştırır, sayfada belirtilen doğrulama tarihinin o kaynağın en son ne zaman kontrol edildiğiyle örtüştüğünü teyit eder ve sapan her şeyi işaretler. Roblox için çalışmaz ve Roblox'un iç verilerine erişimi yoktur."
+    }
   },
   "relatedHeading": "İlgili sayfalar"
 }

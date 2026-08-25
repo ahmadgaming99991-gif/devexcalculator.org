@@ -70,7 +70,15 @@
       "currencyTerm": "Local currency",
       "currencyDetail": "The ECB publishes euro-based rates, so USD cross rates are derived. The division direction is pinned by tests.",
       "marketplaceTerm": "Marketplace fee",
-      "marketplaceDetail": "Rounds down, so a figure shown is never more than you would actually receive."
+      "marketplaceDetail": "Rounds down, so a figure shown is never more than you would actually receive.",
+      "payoutFormula": "gross USD = eligible Earned Robux × rate per Robux",
+      "mixedFormula": "gross USD = (standard × 0.0038) + (legacy × 0.0035) + (U.S. 18+ × 0.0054)",
+      "blendedFormula": "blended rate = gross USD ÷ total Earned Robux",
+      "feesFormula": "net before tax = gross − (gross × fee%) − flat fee",
+      "taxFormula": "net after estimate = net before tax − (net before tax × your tax%)",
+      "reverseFormula": "required Earned Robux = ceiling(target USD ÷ rate per Robux)",
+      "currencyFormula": "local value = USD value × (EUR→target ÷ EUR→USD)",
+      "marketplaceFormula": "you keep = floor(sale price × creator share%)"
     },
     "rounding": {
       "moneyHalfUp": "Money rounds half-up",
@@ -165,6 +173,13 @@
         "p3": "A figure is never left online because it performs well in search after it stops being accurate. If it is wrong, it changes, and the change is recorded.",
         "p4": "How corrections work"
       }
+    },
+    "meanings": {
+      "verified": "Read directly from Roblox, Cloudflare, Google or ECB documentation, with the URL and date recorded in the source registry.",
+      "derived": "Computed from the keyword exports this site was built against. Third-party estimates, not measured traffic.",
+      "observed": "Seen on a publicly accessible page. Recorded as an observation, never republished as fact.",
+      "inference": "A conclusion drawn from evidence rather than stated by a source. Labelled as inference wherever it appears.",
+      "decision": "A choice made by this site, with the reasoning recorded rather than presented as an external requirement."
     }
   },
   "corrections": {
@@ -217,7 +232,11 @@
       "registryEstablished": "Rate registry established and verified",
       "marketplaceRecorded": "Marketplace commission rates recorded",
       "levRemoved": "Bulgarian lev removed from supported currencies",
-      "siteLaunched": "Site launched"
+      "siteLaunched": "Site launched",
+      "registryEstablishedDetail": "Standard rate recorded at 0.0038 USD per eligible Earned Robux (114 USD per 30,000), the legacy rate at 0.0035 for balances earned before 5 September 2025 at 10:00 PT, and the conditional U.S. 18+ rate at 0.0054. The 30,000 Earned Robux minimum and the full eligibility list were verified at the same time. All checked directly against the Roblox Creator Hub DevEx documentation.",
+      "marketplaceRecordedDetail": "In-experience purchases recorded at 70% to the creator and 30% to Roblox. Marketplace avatar item sales recorded with the progressive revenue share table from 30% at the price floor to 70% at six times the floor. Avatar items sold inside an experience recorded as 30% creator, 40% experience owner, 30% Roblox.",
+      "levRemovedDetail": "The European Central Bank stopped publishing a BGN reference rate after 31 December 2025. Rather than continue showing a rate frozen at that date, BGN was removed from the currency selector. Listing a currency the configured provider no longer supplies would misrepresent how current the figure is.",
+      "siteLaunchedDetail": "Initial release: DevEx calculator with quick, split and target modes; Robux to USD and payout target pages; marketplace fee calculator; conversion hub with eight curated amount pages; and the full guide and trust set. Every rate-sensitive page carries a source citation and verification date from launch."
     },
     "body": {
       "entries": {
@@ -333,7 +352,15 @@
     "profilesLabel": "Profiles",
     "pagesReviewed": "Pages reviewed",
     "noPagesReviewed": "No page currently carries a review credit.",
-    "ahmadRazaPhotoAlt": "Ahmad Raza, founder and maintainer of DevExCalculator.org"
+    "ahmadRazaPhotoAlt": "Ahmad Raza, founder and maintainer of DevExCalculator.org",
+    "ahmadRaza": {
+      "role": "Founder & Maintainer",
+      "bio": "Ahmad Raza is an independent web publisher and SEO specialist from Pakistan who builds and maintains reference tools and informational sites. He built DevExCalculator.org after finding that Roblox creators searching for payout figures kept landing on pages quoting stale or incorrect DevEx rates. He maintains the rate data on this site against Roblox's official Developer Exchange documentation and Roblox Corporation's published SEC filings, and records every change to a published figure in the site changelog. He is not affiliated with Roblox Corporation and has no access to internal Roblox data."
+    },
+    "saeedAhmed": {
+      "role": "Content Reviewer & Fact-Checker",
+      "bio": "Saeed Ahmed is a full-stack developer and SEO specialist. On DevExCalculator.org he reviews published figures before they go live: he checks each rate, fee split and threshold against the primary source it is cited from, confirms the page's stated verification date matches when that source was last checked, and flags anything that has drifted. He does not work for Roblox and has no access to internal Roblox data."
+    }
   },
   "relatedHeading": "Related pages"
 }

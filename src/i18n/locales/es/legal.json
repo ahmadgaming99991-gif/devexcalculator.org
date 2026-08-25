@@ -148,7 +148,15 @@
       "tablesScroll": "Las tablas anchas se desplazan de forma accesible",
       "zoom": "El zoom nunca se bloquea",
       "zoomDetail": "La viewport no fija una escala máxima, así que el zoom con dos dedos funciona en todas partes.",
-      "noJs": "Funciona sin JavaScript"
+      "noJs": "Funciona sin JavaScript",
+      "keyboardDetail": "Cada control es un botón, un enlace, un campo o un selector de verdad. No hay divs clicables, así que el comportamiento del teclado lo aporta el navegador y no scripts que lo imitan.",
+      "focusDetail": "Un contorno ámbar de tres píxeles con dos píxeles de separación, elegido porque mide unos 5:1 frente a todas las superficies del sitio, holgadamente por encima del 3:1 que exige la norma.",
+      "announcedDetail": "Los resultados del cálculo, las confirmaciones de copia y los mensajes de error se anuncian mediante una región dinámica «polite», resumidos en lugar de leerse dígito a dígito mientras escribes.",
+      "errorsTiedDetail": "Los mensajes de validación se enlazan con aria-describedby y el campo se marca como no válido, de modo que un lector de pantalla informa del problema junto con el campo y no como texto suelto al lado.",
+      "notColourAloneDetail": "El medidor de umbral, las comparaciones de tasas y los avisos de tasa desactualizada llevan cada uno una etiqueta de texto que dice lo mismo que el color.",
+      "mobileMenuDetail": "Escape lo cierra y devuelve el foco al botón que lo abrió, el foco queda atrapado mientras está abierto y el desplazamiento de fondo se bloquea sin que la página se mueva.",
+      "tablesScrollDetail": "Cada tabla vive en un contenedor de desplazamiento enfocable y etiquetado, de modo que quien usa el teclado puede alcanzarla y desplazarla sin ratón.",
+      "noJsDetail": "Las tasas, las fórmulas, los ejemplos resueltos, las tablas, la navegación y todas las explicaciones se renderizan en el servidor. Solo el recálculo en vivo necesita scripts."
     },
     "aboutPageLink": "página «acerca de»",
     "body": {

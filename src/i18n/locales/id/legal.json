@@ -149,7 +149,15 @@
       "tablesScroll": "Tabel lebar dapat digulir secara aksesibel",
       "zoom": "Perbesaran tidak pernah diblokir",
       "zoomDetail": "Viewport tidak menetapkan skala maksimum, jadi perbesaran cubit berfungsi di mana saja.",
-      "noJs": "Berfungsi tanpa JavaScript"
+      "noJs": "Berfungsi tanpa JavaScript",
+      "keyboardDetail": "Setiap kontrol adalah tombol, tautan, input, atau select yang sebenarnya. Tidak ada div yang bisa diklik, sehingga perilaku papan ketik datang dari peramban, bukan dari skrip yang menirunya.",
+      "focusDetail": "Garis luar berwarna kuning kecokelatan setebal tiga piksel dengan jarak dua piksel, dipilih karena rasionya sekitar 5:1 terhadap setiap permukaan di situs ini — jauh di atas 3:1 yang disyaratkan standar.",
+      "announcedDetail": "Hasil perhitungan, konfirmasi penyalinan, dan pesan galat diumumkan lewat live region \"polite\", diringkas alih-alih dibacakan angka demi angka saat Anda mengetik.",
+      "errorsTiedDetail": "Pesan validasi ditautkan dengan aria-describedby dan bidangnya ditandai tidak valid, sehingga pembaca layar melaporkan masalah itu bersama bidangnya, bukan sebagai teks lepas di dekatnya.",
+      "notColourAloneDetail": "Meteran ambang batas, perbandingan tarif, dan peringatan tarif usang masing-masing membawa label teks yang menyatakan apa yang dinyatakan warnanya.",
+      "mobileMenuDetail": "Escape menutupnya dan mengembalikan fokus ke tombol yang membukanya, fokus terkunci selama menu terbuka, dan gulir latar dikunci tanpa membuat halaman bergeser.",
+      "tablesScrollDetail": "Setiap tabel berada dalam wadah gulir berlabel yang bisa difokuskan, sehingga pengguna papan ketik dapat mencapainya dan menggulirnya tanpa tetikus.",
+      "noJsDetail": "Tarif, rumus, contoh terhitung, tabel, navigasi, dan semua penjelasan dirender di server. Hanya penghitungan ulang langsung yang memerlukan skrip."
     },
     "aboutPageLink": "halaman tentang",
     "body": {

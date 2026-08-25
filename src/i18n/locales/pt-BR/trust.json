@@ -79,7 +79,15 @@
       "currencyTerm": "Moeda local",
       "currencyDetail": "O BCE publica taxas com base no euro, então as taxas cruzadas em USD são derivadas. A direção da divisão é fixada por testes.",
       "marketplaceTerm": "Taxa do marketplace",
-      "marketplaceDetail": "Arredonda para baixo, então um número exibido nunca é maior do que você realmente receberia."
+      "marketplaceDetail": "Arredonda para baixo, então um número exibido nunca é maior do que você realmente receberia.",
+      "payoutFormula": "USD bruto = Earned Robux elegíveis × taxa por Robux",
+      "mixedFormula": "USD bruto = (padrão × 0,0038) + (antigo × 0,0035) + (EUA 18+ × 0,0054)",
+      "blendedFormula": "taxa combinada = USD bruto ÷ total de Earned Robux",
+      "feesFormula": "líquido antes do imposto = bruto − (bruto × taxa%) − tarifa fixa",
+      "taxFormula": "líquido após a estimativa = líquido antes do imposto − (líquido antes do imposto × seu imposto%)",
+      "reverseFormula": "Earned Robux necessários = teto(USD alvo ÷ taxa por Robux)",
+      "currencyFormula": "valor local = valor em USD × (EUR→destino ÷ EUR→USD)",
+      "marketplaceFormula": "você fica com = piso(preço de venda × parte do criador%)"
     },
     "rounding": {
       "moneyHalfUp": "O dinheiro arredonda meio para cima",
@@ -174,6 +182,13 @@
         "p3": "Um número nunca é deixado no ar porque tem bom desempenho na busca depois de deixar de ser exato. Se está errado, muda, e a mudança é registrada.",
         "p4": "Como funcionam as correções"
       }
+    },
+    "meanings": {
+      "verified": "Lido diretamente da documentação do Roblox, da Cloudflare, do Google ou do BCE, com a URL e a data registradas no registro de fontes.",
+      "derived": "Calculado a partir das exportações de palavras-chave usadas na construção deste site. São estimativas de terceiros, não tráfego medido.",
+      "observed": "Visto em uma página de acesso público. Registrado como observação, nunca republicado como fato.",
+      "inference": "Uma conclusão tirada de evidências, e não afirmada por uma fonte. Marcada como inferência onde quer que apareça.",
+      "decision": "Uma escolha feita por este site, com o raciocínio registrado em vez de apresentado como uma exigência externa."
     }
   },
   "corrections": {
@@ -226,7 +241,11 @@
       "registryEstablished": "Registro de taxas estabelecido e verificado",
       "marketplaceRecorded": "Comissões do marketplace registradas",
       "levRemoved": "Lev búlgaro removido das moedas suportadas",
-      "siteLaunched": "Site lançado"
+      "siteLaunched": "Site lançado",
+      "registryEstablishedDetail": "Taxa padrão registrada em 0,0038 USD por Earned Robux elegível (114 USD por 30.000), a taxa antiga em 0,0035 para saldos ganhos antes de 5 de setembro de 2025 às 10:00 PT, e a taxa condicional EUA 18+ em 0,0054. O mínimo de 30.000 Earned Robux e a lista completa de elegibilidade foram verificados ao mesmo tempo. Tudo conferido diretamente na documentação de DevEx do Roblox Creator Hub.",
+      "marketplaceRecordedDetail": "Compras dentro da experiência registradas como 70% para o criador e 30% para o Roblox. Vendas de itens de avatar no Marketplace registradas com a tabela progressiva de repartição de receita, de 30% no preço mínimo a 70% em seis vezes esse piso. Itens de avatar vendidos dentro de uma experiência registrados como 30% criador, 40% dono da experiência, 30% Roblox.",
+      "levRemovedDetail": "O Banco Central Europeu deixou de publicar uma taxa de referência para o BGN depois de 31 de dezembro de 2025. Em vez de continuar exibindo uma taxa congelada nessa data, o BGN foi removido do seletor de moedas. Listar uma moeda que o provedor configurado não fornece mais daria uma ideia falsa de quão atual o número é.",
+      "siteLaunchedDetail": "Lançamento inicial: calculadora de DevEx com os modos rápido, dividido e por meta; páginas de Robux para USD e de meta de pagamento; calculadora de comissão do marketplace; central de conversão com oito páginas de valores selecionadas; e o conjunto completo de guias e páginas de transparência. Toda página sensível a taxas traz citação da fonte e data de verificação desde o lançamento."
     },
     "body": {
       "entries": {
@@ -342,7 +361,15 @@
     "profilesLabel": "Perfis",
     "pagesReviewed": "Páginas revisadas",
     "noPagesReviewed": "Nenhuma página carrega crédito de revisão no momento.",
-    "ahmadRazaPhotoAlt": "Ahmad Raza, fundador e mantenedor do DevExCalculator.org"
+    "ahmadRazaPhotoAlt": "Ahmad Raza, fundador e mantenedor do DevExCalculator.org",
+    "ahmadRaza": {
+      "role": "Fundador e mantenedor",
+      "bio": "Ahmad Raza é um publicador web independente e especialista em SEO do Paquistão que cria e mantém ferramentas de referência e sites informativos. Ele criou o DevExCalculator.org depois de perceber que criadores do Roblox que procuravam valores de pagamento continuavam caindo em páginas que citavam taxas de DevEx desatualizadas ou incorretas. Ele mantém os dados de taxas deste site em conformidade com a documentação oficial do Developer Exchange do Roblox e com os registros públicos da Roblox Corporation junto à SEC, e anota no changelog do site toda alteração em um número publicado. Ele não tem vínculo com a Roblox Corporation e não tem acesso a dados internos do Roblox."
+    },
+    "saeedAhmed": {
+      "role": "Revisor de conteúdo e verificador de fatos",
+      "bio": "Saeed Ahmed é desenvolvedor full-stack e especialista em SEO. No DevExCalculator.org, ele revisa os números publicados antes de entrarem no ar: confere cada taxa, divisão de comissão e limite contra a fonte primária citada, confirma que a data de verificação declarada na página corresponde à última vez em que aquela fonte foi consultada e sinaliza tudo o que tiver saído do lugar. Ele não trabalha para o Roblox e não tem acesso a dados internos do Roblox."
+    }
   },
   "relatedHeading": "Páginas relacionadas"
 }

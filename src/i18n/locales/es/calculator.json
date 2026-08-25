@@ -155,10 +155,11 @@
   },
   "currency": {
     "loading": "Cargando tipos de referencia…",
-    "unavailable": "Las estimaciones en moneda local no están disponibles temporalmente.",
+    "unavailable": "Las estimaciones en moneda local no están disponibles temporalmente. Las cifras en USD de arriba no se ven afectadas.",
     "usdUnaffected": "La cifra en USD de arriba se calcula localmente y no se ve afectada.",
     "staleHeading": "Tipos desactualizados.",
-    "provenance": "Las cifras en {currency} usan tipos de referencia de {provider} observados el {date}. Son tipos de referencia, no cotizaciones bancarias: tu proveedor de pagos aplicará el suyo y puede añadir una comisión."
+    "provenance": "Las cifras en {currency} usan tipos de referencia de {provider} observados el {date}. Son tipos de referencia, no cotizaciones bancarias: tu proveedor de pagos aplicará el suyo y puede añadir una comisión.",
+    "staleSnapshot": "Las tasas de referencia en vivo no están disponibles, así que se muestra una instantánea almacenada. Toma estas cifras solo como orientativas."
   },
   "home": {
     "formulaOpen": "Aquí no se oculta nada. La fórmula es una multiplicación, y puedes comprobarla.",
@@ -205,7 +206,9 @@
         "p1": "¿Algo desactualizado?",
         "p2": "Avísanos y se corrige"
       }
-    }
+    },
+    "intro": "Convierte los Earned Robux elegibles en una estimación de pago en dólares estadounidenses con las tasas que Roblox documenta actualmente, mostrando la fuente y la fecha de verificación junto a cada cifra.",
+    "jumpLabel": "Ver cómo funciona el cálculo"
   },
   "planner": {
     "targetLabel": "Pago al que aspiras",
@@ -245,7 +248,11 @@
         "p4": "Importe estimado que te quedas",
         "p5": "Cada cifra de aquí es una estimación producida a partir de lo que has introducido. Alcanzar"
       }
-    }
+    },
+    "alreadyEnoughHeadline": "Ya tienes lo suficiente para este objetivo.",
+    "zeroEarningsHeadline": "Ninguna fecha, a este ritmo.",
+    "datePassedHeadline": "Esa fecha ya ha llegado.",
+    "pickDateHeadline": "Elige una fecha."
   },
   "controls": {
     "body": {

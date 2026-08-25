@@ -121,6 +121,28 @@
         "p3": "Periksa bahwa akun Anda berstatus baik menurut Ketentuan Penggunaan dan Standar Komunitas.",
         "p4": "Tentukan ke mana uangnya akan pergi, dan periksa berapa yang akan dikenakan bank atau penyedia pembayaran Anda untuk menerimanya."
       }
+    },
+    "misunderstandings": {
+      "minimum10k": {
+        "claim": "Batas minimumnya adalah 10.000 Robux.",
+        "reality": "Angkanya 30.000 Earned Robux. Angka yang lebih rendah beredar di situs pihak ketiga yang belum diperbarui, dan bukan itu yang tertulis dalam dokumentasi Roblox saat ini."
+      },
+      "anyBalance": {
+        "claim": "Saldo Robux apa pun dihitung untuk memenuhi batas minimum.",
+        "reality": "Hanya Earned Robux yang dihitung. Saldo yang terdiri dari Robux hasil pembelian tidak memenuhi syarat, sebesar apa pun jumlahnya."
+      },
+      "reaching30k": {
+        "claim": "Mencapai 30.000 berarti Anda pasti dibayar.",
+        "reality": "Artinya Anda bisa mengajukan permintaan. Roblox meninjau setiap permintaan dan memutuskan Robux mana yang dianggap hasil pendapatan."
+      },
+      "age18": {
+        "claim": "Anda harus berusia 18 tahun untuk memakai DevEx.",
+        "reality": "Roblox mendokumentasikan usia minimum 13 tahun. Ketentuan 18+ yang terpisah menyangkut verifikasi usia pemain yang membelanjakan Robux tersebut, dan memengaruhi tarifnya, bukan kelayakan Anda."
+      }
+    },
+    "threshold": {
+      "below": "Di bawah garis ini, permohonan DevEx sama sekali tidak bisa diajukan. Mendekati angka itu tidak berarti apa-apa, dan kekurangannya harus dihasilkan sendiri — tidak bisa dibeli.",
+      "above": "Pada garis itu atau di atasnya, permohonan bisa diajukan. Setelah itu permohonan ditinjau, dan mencapai ambang batas tidak sama dengan disetujui."
     }
   },
   "earnedRobux": {
@@ -188,7 +210,16 @@
       "toYouAsEarned": "untuk Anda, sebagai Earned Robux",
       "balanceDevExConverts": "Inilah saldo yang nantinya dikonversi DevEx.",
       "platformCommission": "komisi platform",
-      "takenOnceHere": "Diambil sekali, di sini — bukan lagi saat pencairan."
+      "takenOnceHere": "Diambil sekali, di sini — bukan lagi saat pencairan.",
+      "devexPayoutNote": "Hasil dari tarif yang terdokumentasi atas Earned Robux Anda yang memenuhi syarat. Inilah angka yang diperkirakan kalkulator.",
+      "providerFeeNote": "Sering berupa persentase ditambah jumlah tetap, dikenakan untuk mengirimkan uangnya.",
+      "providerFeeBy": "penyedia pembayaran Anda",
+      "conversionNote": "Hanya berlaku jika Anda dibayar dalam mata uang selain dolar AS, dengan kurs mereka ditambah margin.",
+      "conversionBy": "siapa pun yang mengonversinya",
+      "incomeTaxNote": "Pembayaran adalah penghasilan. Apa yang berlaku, dan kapan, tergantung pada negara dan keadaan Anda.",
+      "incomeTaxBy": "otoritas pajak Anda",
+      "whatReachesYouNote": "Lebih rendah daripada perkiraan di atas, dengan selisih yang hanya bisa diberitahukan oleh penyedia Anda sendiri dan posisi pajak Anda.",
+      "marketplaceTotal": "100 Robux yang dibelanjakan seorang pemain di dalam experience Anda"
     },
     "ogImageAlt": "Biaya penyedia, lalu konversi, lalu pajak penghasilan — tidak satu pun milik Roblox",
     "body": {
@@ -401,6 +432,16 @@
         "p1": "Kembali ke semua konversi",
         "p2": "Konversikan jumlah yang berbeda"
       }
+    },
+    "context": {
+      "robux30000": "30.000 adalah jumlah yang paling menentukan, karena itulah saldo Earned Robux minimum yang disyaratkan Roblox sebelum sebuah permohonan DevEx bisa diajukan sama sekali. Di bawah angka ini, pertanyaannya bukan berapa pembayarannya, melainkan apakah permohonan bisa diajukan.",
+      "robux50000": "50.000 Earned Robux melampaui batas minimum dengan cukup longgar, sehingga ini sering menjadi pencairan pertama bagi kreator yang experience-nya baru mulai menghasilkan secara konsisten.",
+      "robux100000": "100.000 adalah angka bulat yang paling banyak dicari pada rentang ini, dan di titik inilah selisih antara tarif saat ini dan tarif lama menjadi cukup besar untuk terasa: tiga puluh dolar memisahkan keduanya.",
+      "robux200000": "Pada 200.000 Earned Robux, seorang kreator biasanya mencairkan dana secara terjadwal, bukan sekali saja, sehingga selisih antar kelompok tarif layak dicatat alih-alih sekadar diperkirakan.",
+      "robux300000": "300.000 Earned Robux adalah sepuluh kali lipat batas minimum DevEx. Ini titik acuan yang berguna bagi kreator yang menghitung berapa siklus pencairan yang diwakili oleh penghasilan setahun.",
+      "robux500000": "Setengah juta Earned Robux adalah skala saat biaya penyedia pembayaran dan kewajiban pajak pribadi berhenti menjadi selisih pembulatan, dan itulah sebabnya halaman ini menautkan langsung ke panduan biaya dan pajak.",
+      "robux1000000": "Satu juta Robux adalah tonggak yang benar-benar dicari para kreator, dan itu adalah gambaran paling jelas mengapa harga beli dan pembayaran DevEx bukan angka yang sama.",
+      "robux10000000": "Sepuluh juta Earned Robux mencerminkan penghasilan berkelanjutan dari experience berskala besar. Pada skala ini, pembagian antara saldo standar dan saldo lama, serta bagian yang memenuhi syarat AS 18+, mengubah totalnya sebesar ribuan dolar."
     }
   }
 }

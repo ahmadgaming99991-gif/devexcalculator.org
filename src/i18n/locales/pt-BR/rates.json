@@ -121,6 +121,28 @@
         "p3": "Verifique se sua conta está regular perante os Termos de Uso e os Padrões da Comunidade.",
         "p4": "Decida para onde o dinheiro vai e confira quanto seu banco ou provedor de pagamento cobrará para recebê-lo."
       }
+    },
+    "misunderstandings": {
+      "minimum10k": {
+        "claim": "O mínimo é 10.000 Robux.",
+        "reality": "São 30.000 Earned Robux. O número menor circula em sites de terceiros que não foram atualizados e não é o que a documentação atual do Roblox diz."
+      },
+      "anyBalance": {
+        "claim": "Qualquer saldo de Robux conta para o mínimo.",
+        "reality": "Só contam os Earned Robux. Um saldo formado por Robux comprados não se qualifica, por maior que seja."
+      },
+      "reaching30k": {
+        "claim": "Chegar a 30.000 significa que você será pago.",
+        "reality": "Significa que você pode enviar uma solicitação. O Roblox analisa cada uma e decide quais Robux contam como ganhos."
+      },
+      "age18": {
+        "claim": "É preciso ter 18 anos para usar o DevEx.",
+        "reality": "O Roblox documenta uma idade mínima de 13 anos. A condição separada de 18+ diz respeito à verificação de idade dos jogadores que gastaram os Robux e afeta a taxa, não a sua elegibilidade."
+      }
+    },
+    "threshold": {
+      "below": "Abaixo da linha, não é possível enviar nenhuma solicitação de DevEx. Chegar perto não vale de nada, e a diferença precisa ser ganha — não dá para comprá-la.",
+      "above": "Na linha ou acima dela, é possível enviar uma solicitação. Ela então passa por análise, e atingir o limite não é o mesmo que ser aprovado."
     }
   },
   "earnedRobux": {
@@ -188,7 +210,16 @@
       "toYouAsEarned": "para você, como Earned Robux",
       "balanceDevExConverts": "Este é o saldo que o DevEx converte depois.",
       "platformCommission": "comissão da plataforma",
-      "takenOnceHere": "Retirada uma vez, aqui — não de novo no saque."
+      "takenOnceHere": "Retirada uma vez, aqui — não de novo no saque.",
+      "devexPayoutNote": "O que a taxa documentada produz a partir dos seus Earned Robux elegíveis. É este o número que a calculadora estima.",
+      "providerFeeNote": "Muitas vezes uma porcentagem mais um valor fixo, cobrado para entregar o dinheiro.",
+      "providerFeeBy": "seu provedor de pagamento",
+      "conversionNote": "Aplicada apenas se você for pago em algo diferente de dólares americanos, à taxa deles mais uma margem.",
+      "conversionBy": "quem fizer a conversão",
+      "incomeTaxNote": "Um pagamento é renda. O que se aplica, e quando, depende do seu país e da sua situação.",
+      "incomeTaxBy": "sua autoridade fiscal",
+      "whatReachesYouNote": "Menor que a estimativa acima, por um valor que só o seu próprio provedor e a sua situação fiscal podem dizer.",
+      "marketplaceTotal": "100 Robux gastos por um jogador dentro da sua experiência"
     },
     "ogImageAlt": "Taxas do provedor, depois conversão, depois imposto de renda — nenhuma delas do Roblox",
     "body": {
@@ -401,6 +432,16 @@
         "p1": "Voltar a todas as conversões",
         "p2": "Converter uma quantia diferente"
       }
+    },
+    "context": {
+      "robux30000": "30.000 é o valor que mais importa, porque é o saldo mínimo de Earned Robux que o Roblox exige antes que uma solicitação de DevEx sequer possa ser enviada. Abaixo desse número, a pergunta não é qual seria o pagamento, mas se é possível fazer uma solicitação.",
+      "robux50000": "50.000 Earned Robux superam o mínimo com folga, então esse costuma ser o primeiro saque de um criador cuja experiência acabou de começar a render de forma constante.",
+      "robux100000": "100.000 é o número redondo mais pesquisado nessa faixa, e é o ponto em que a diferença entre a taxa atual e a antiga fica grande o suficiente para se notar: trinta dólares separam as duas.",
+      "robux200000": "Com 200.000 Earned Robux, um criador normalmente saca com regularidade, e não uma vez só, o que faz com que valha a pena acompanhar a diferença entre as faixas de taxa em vez de estimá-la.",
+      "robux300000": "300.000 Earned Robux é dez vezes o mínimo do DevEx. É um bom ponto de referência para um criador calcular quantos ciclos de saque um ano de ganhos representa.",
+      "robux500000": "Meio milhão de Earned Robux é a escala em que as tarifas do provedor de pagamento e as obrigações fiscais pessoais deixam de ser erros de arredondamento, e é por isso que esta página leva direto ao guia de tarifas e impostos.",
+      "robux1000000": "Um milhão de Robux é o marco que os criadores realmente pesquisam, e é a ilustração mais clara de por que o preço de compra e o pagamento do DevEx não são o mesmo número.",
+      "robux10000000": "Dez milhões de Earned Robux representam ganhos sustentados de uma experiência grande. Nessa escala, a divisão entre saldos padrão e antigos, e qualquer parcela que se qualifique como EUA 18+, altera o total em milhares de dólares."
     }
   }
 }

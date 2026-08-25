@@ -148,7 +148,15 @@
       "tablesScroll": "Tabelas largas rolam de forma acessível",
       "zoom": "O zoom nunca é bloqueado",
       "zoomDetail": "A viewport não define escala máxima, então o zoom por pinça funciona em toda parte.",
-      "noJs": "Funciona sem JavaScript"
+      "noJs": "Funciona sem JavaScript",
+      "keyboardDetail": "Todo controle é um botão, link, campo ou seletor de verdade. Não há divs clicáveis, então o comportamento de teclado vem do navegador e não de scripts que o imitam.",
+      "focusDetail": "Um contorno âmbar de três pixels com deslocamento de dois pixels, escolhido por medir cerca de 5:1 contra todas as superfícies do site — folgadamente acima do 3:1 que o padrão exige.",
+      "announcedDetail": "Resultados de cálculo, confirmações de cópia e mensagens de erro são anunciados por uma região dinâmica \"polite\", resumidos em vez de lidos dígito a dígito enquanto você digita.",
+      "errorsTiedDetail": "As mensagens de validação são ligadas com aria-describedby e o campo é marcado como inválido, então um leitor de tela informa o problema junto com o campo, e não como um texto solto ao lado.",
+      "notColourAloneDetail": "O medidor de limite, as comparações de taxas e os avisos de taxa desatualizada trazem, cada um, um rótulo de texto dizendo o que a cor diz.",
+      "mobileMenuDetail": "Escape fecha o menu e devolve o foco ao botão que o abriu, o foco fica preso enquanto ele está aberto e a rolagem de fundo é travada sem que a página se desloque.",
+      "tablesScrollDetail": "Cada tabela fica em um contêiner de rolagem focalizável e rotulado, então quem usa teclado consegue alcançá-la e rolá-la sem mouse.",
+      "noJsDetail": "Taxas, fórmulas, exemplos resolvidos, tabelas, navegação e todas as explicações são renderizados no servidor. Só o recálculo ao vivo precisa de scripts."
     },
     "aboutPageLink": "página sobre",
     "body": {
