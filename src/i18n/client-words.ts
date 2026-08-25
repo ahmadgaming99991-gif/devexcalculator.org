@@ -1,5 +1,15 @@
-import { getTranslator, interpolate, type Translate } from "@/i18n/get-dictionary";
-import type { DictionaryNamespace, Locale } from "@/i18n/types";
+import { interpolate } from "@/i18n/interpolate";
+import type { Translate } from "@/i18n/get-dictionary";
+
+/*
+ * A type-only import, and it has to stay one.
+ *
+ * `get-dictionary` names every locale file. Importing a *value* from it
+ * here would put all seven languages of every namespace in the browser
+ * bundle, because every Client Component imports this module. A type is
+ * erased; `getTranslator` is not, and moving it out is why
+ * `server-words.ts` exists.
+ */
 
 /**
  * The handful of strings one Client Component renders, and nothing else.
@@ -16,36 +26,6 @@ import type { DictionaryNamespace, Locale } from "@/i18n/types";
  * drifted from what the component reads.
  */
 export type LocaleWords = Readonly<Record<string, string>>;
-
-/**
- * Copies exactly the named keys out of a dictionary.
- *
- * Throws through `t` for a key the dictionary does not have, at render time on
- * the server, where a build is watching.
- */
-export function pickWords(t: Translate, keys: readonly string[]): LocaleWords {
-  const words: Record<string, string> = {};
-  for (const key of keys) words[key] = t(key);
-  return words;
-}
-
-/**
- * The same, working out for itself which namespaces to load.
- *
- * Preferred over handing it the page's translator. The keys name their own
- * namespaces, so a component's words cannot depend on what the page around it
- * happened to need — which they did, and the symptom was a prerender error
- * naming a key the page never mentions.
- */
-export async function loadWords(
-  locale: Locale,
-  keys: readonly string[],
-): Promise<LocaleWords> {
-  const namespaces = [
-    ...new Set(keys.map((key) => key.slice(0, key.indexOf(".")))),
-  ] as DictionaryNamespace[];
-  return pickWords(await getTranslator(locale, namespaces), keys);
-}
 
 /**
  * The same `t(key, values)` shape, reading from the copied words.

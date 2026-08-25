@@ -1,6 +1,7 @@
 "use client";
 
 import type { Translate } from "@/i18n/get-dictionary";
+import { currencyName } from "@/i18n/currency-name";
 import { useId } from "react";
 import { selectableRates } from "@/lib/calculations/rate-registry";
 import { supportedCurrencies, formatCompactRobux, formatRate } from "@/lib/calculations/format";
@@ -157,11 +158,14 @@ export function CurrencySelector({
   onChange,
   disabled = false,
   t,
+  locale,
 }: {
   value: string;
   onChange: (value: string) => void;
   disabled?: boolean;
   readonly t: Translate;
+  /** BCP 47 tag, for the currency names. `pt-BR`, not the `/pt-br` prefix. */
+  readonly locale: string;
 }) {
   const id = useId();
 
@@ -177,7 +181,7 @@ export function CurrencySelector({
       >
         {supportedCurrencies.map((currency) => (
           <option key={currency.code} value={currency.code}>
-            {currency.code} — {currency.name}
+            {currency.code} — {currencyName(locale, currency.code, currency.name)}
           </option>
         ))}
       </select>

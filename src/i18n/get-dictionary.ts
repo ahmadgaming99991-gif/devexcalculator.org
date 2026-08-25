@@ -1,4 +1,5 @@
 import { DEFAULT_LOCALE } from "./config";
+import { interpolate } from "./interpolate";
 import { isRenderable } from "./visibility";
 import type { Dictionary, DictionaryNamespace, Locale } from "./types";
 
@@ -116,15 +117,7 @@ export async function getDictionary<K extends DictionaryNamespace>(
  * runtime, a visible `{amount}` is a bug report, and the word "undefined" in a
  * payout sentence is a wrong figure.
  */
-export function interpolate(
-  template: string,
-  values: Readonly<Record<string, string | number>>,
-): string {
-  return template.replace(/\{([a-zA-Z_][a-zA-Z0-9_]*)\}/g, (whole, token: string) => {
-    const value = values[token];
-    return value === undefined ? whole : String(value);
-  });
-}
+export { interpolate };
 
 /**
  * A reader for one page's loaded namespaces.

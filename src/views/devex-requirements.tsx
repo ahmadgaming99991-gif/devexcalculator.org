@@ -1,5 +1,5 @@
 import { rich } from "@/i18n/rich";
-import { loadWords } from "@/i18n/client-words";
+import { loadWords } from "@/i18n/server-words";
 import { getTranslator, type Translate } from "@/i18n/get-dictionary";
 import { localizedPath } from "@/i18n/locale-path";
 import { localizedRoute } from "@/i18n/localized-route";

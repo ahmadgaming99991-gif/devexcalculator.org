@@ -101,6 +101,8 @@ export interface CalculatorProps {
   readonly lockedMode?: CalculatorMode;
   readonly showHistory?: boolean;
   readonly words: LocaleWords;
+  /** BCP 47 tag. Reaches `Intl` for currency names and number formats. */
+  readonly locale: string;
 }
 
 export function Calculator({
@@ -109,6 +111,7 @@ export function Calculator({
   lockedMode,
   showHistory = true,
   words,
+  locale,
 }: CalculatorProps) {
   const t = useMemo(() => translatorFor(words), [words]);
   const [state, setState] = useState<CalculatorState>(initialState);
@@ -563,7 +566,12 @@ export function Calculator({
             </>
           ) : null}
 
-          <CurrencySelector t={t} value={currency} onChange={selectCurrency} />
+          <CurrencySelector
+            t={t}
+            locale={locale}
+            value={currency}
+            onChange={selectCurrency}
+          />
 
           <Disclosure
             summary={t("calculator.deductions.summary")}

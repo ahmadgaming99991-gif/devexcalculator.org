@@ -1,4 +1,4 @@
-import { loadWords } from "@/i18n/client-words";
+import { loadWords } from "@/i18n/server-words";
 import { getTranslator } from "@/i18n/get-dictionary";
 import { localizedRoute } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
@@ -52,7 +52,7 @@ export async function HomeView({
         />
 
         <div className="flex flex-col gap-10">
-          <Calculator words={await loadWords(locale, CALCULATOR_WORDS)} initialState={initialState} pathname={ROUTE} />
+          <Calculator locale={locale} words={await loadWords(locale, CALCULATOR_WORDS)} initialState={initialState} pathname={ROUTE} />
 
           <QuickAnswer locale={locale} jumpTo="how-it-works" jumpLabel={t("calculator.home.jumpLabel")}>
             {record.quickAnswer}

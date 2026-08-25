@@ -1,6 +1,6 @@
 import { localizedPath } from "@/i18n/locale-path";
 import { rich } from "@/i18n/rich";
-import { loadWords } from "@/i18n/client-words";
+import { loadWords } from "@/i18n/server-words";
 import { getTranslator } from "@/i18n/get-dictionary";
 import { localizedRoute } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
@@ -50,7 +50,7 @@ export async function RobuxToUsdView({
             {record.quickAnswer}
           </QuickAnswer>
 
-          <Calculator words={await loadWords(locale, CALCULATOR_WORDS)} initialState={initialState} pathname={ROUTE} lockedMode="quick" />
+          <Calculator locale={locale} words={await loadWords(locale, CALCULATOR_WORDS)} initialState={initialState} pathname={ROUTE} lockedMode="quick" />
 
           <TableOfContents locale={locale} sections={record.sections} />
 
