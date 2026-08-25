@@ -37,10 +37,6 @@ import {
 
 const ROUTE = "/platform/stock/";
 
-
-/** A quote is per-request when configured; unconfigured costs nothing. */
-export const revalidate = 0;
-
 export async function StockView({ locale }: { readonly locale: Locale }) {
   const t = await getTranslator(locale, ["platform"]);
   const record = await localizedRoute(locale, ROUTE);

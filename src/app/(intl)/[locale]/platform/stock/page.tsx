@@ -18,4 +18,17 @@ export default async function Page({ params }: Params) {
   const locale = resolveRenderableLocale((await params).locale);
   if (!locale) notFound();
   return <StockView locale={locale} />;
-}
+}/**
+ * Rendered per request, never prerendered.
+ *
+ * This page reports live figures. Baked at build time it would report a
+ * state from whenever the build ran, which is the one thing a page about
+ * live data must not do.
+ *
+ * Declared here rather than beside the component: Next reads route-segment
+ * config from the route file only, so the export that used to sit in
+ * `src/views/` did nothing at all once the body moved there.
+ */
+export const revalidate = 0;
+
+

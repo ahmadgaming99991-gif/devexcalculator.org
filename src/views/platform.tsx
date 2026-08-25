@@ -80,7 +80,6 @@ const ROUTE = "/platform/";
  * The upstream response is edge-cached for the collection interval, so this is a
  * cache read for almost every visitor rather than a call to Roblox.
  */
-export const revalidate = 0;
 
 const numberFormat = new Intl.NumberFormat("en-US");
 
