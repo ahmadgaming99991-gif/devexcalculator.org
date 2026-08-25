@@ -328,7 +328,10 @@
     "requiredDetail": "Isso dá {perWeek} por semana, ou {perMonth} ao longo de 30 dias. Cada número é arredondado para cima: ganhar o valor arredondado para baixo perderia a data.",
     "columnReachedIn": "Alcançado em",
     "columnNeededEachDay": "Necessário por dia",
-    "payoutNote": "Com {rate}, antes de taxas e impostos."
+    "payoutNote": "Com {rate}, antes de taxas e impostos.",
+    "targetHint": "Antes de qualquer taxa do provedor de pagamento ou imposto.",
+    "worksOutDate": "O plano calcula a data.",
+    "worksOutPace": "O plano calcula o ritmo."
   },
   "controls": {
     "body": {
@@ -368,6 +371,7 @@
     "savedAnnouncement": "Cálculo salvo neste navegador.",
     "clearedAnnouncement": "Cálculos salvos apagados.",
     "targetLabel": "Meta de {amount}",
-    "robuxLabel": "{robux} Robux"
+    "robuxLabel": "{robux} Robux",
+    "saveButton": "Salvar este cálculo"
   }
 }

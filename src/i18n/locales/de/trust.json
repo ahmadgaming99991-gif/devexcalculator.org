@@ -287,7 +287,8 @@
       "scope": {
         "p1": "Jede Änderung an einem veröffentlichten Kurs, Minimum oder Gebührensatz erscheint hier mit Datum und Quelle. Ebenso jede Korrektur einer Zahl, die sich als falsch erwiesen hat — die werden nicht still wegretuschiert. Gewöhnliche Inhaltsänderungen und Tippfehlerkorrekturen stehen nicht drin, denn ein Changelog, der alles festhält, hält nichts Nützliches fest.",
         "p2": "Zur Geschichte des DevEx-Kurses selbst, einschließlich der Änderung im September 2025,",
-        "p3": "siehe die Seite zur Kurshistorie"
+        "p3": "siehe die Seite zur Kurshistorie",
+        "p4": "Wie Korrekturen gehandhabt werden: {correctionsLink}."
       }
     },
     "prose": {

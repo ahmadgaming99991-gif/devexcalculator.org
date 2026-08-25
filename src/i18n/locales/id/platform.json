@@ -76,7 +76,10 @@
     },
     "unknownTime": "waktu yang tidak diketahui",
     "unknownObservationTime": "waktu yang tidak diketahui",
-    "sponsored": "Bersponsor"
+    "sponsored": "Bersponsor",
+    "byCreator": "oleh {creator}",
+    "verifiedSuffix": "(terverifikasi)",
+    "favouritesCount": "{count} favorit"
   },
   "platformFigure": {
     "label": "Pemain di seluruh experience yang sedang diperingkat Roblox",

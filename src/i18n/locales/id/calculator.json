@@ -332,7 +332,10 @@
     "requiredDetail": "Itu berarti {perWeek} per minggu, atau {perMonth} selama 30 hari. Setiap angka dibulatkan ke atas: menghasilkan angka yang dibulatkan ke bawah akan melewatkan tanggalnya.",
     "columnReachedIn": "Tercapai dalam",
     "columnNeededEachDay": "Dibutuhkan tiap hari",
-    "payoutNote": "Pada {rate}, sebelum biaya dan pajak."
+    "payoutNote": "Pada {rate}, sebelum biaya dan pajak.",
+    "targetHint": "Sebelum biaya penyedia pembayaran atau pajak apa pun.",
+    "worksOutDate": "Rencana ini menghitung tanggalnya.",
+    "worksOutPace": "Rencana ini menghitung lajunya."
   },
   "controls": {
     "body": {
@@ -372,6 +375,7 @@
     "savedAnnouncement": "Perhitungan disimpan di peramban ini.",
     "clearedAnnouncement": "Perhitungan tersimpan dihapus.",
     "targetLabel": "Target {amount}",
-    "robuxLabel": "{robux} Robux"
+    "robuxLabel": "{robux} Robux",
+    "saveButton": "Simpan perhitungan ini"
   }
 }

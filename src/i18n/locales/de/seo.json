@@ -29,5 +29,12 @@
     "machineDraftedLabel": "Maschinelle Übersetzung",
     "machineDraftedDescription": "Diese Seite wurde automatisch übersetzt und noch nicht von einem Muttersprachler gelesen. Die Zahlen stammen aus demselben geprüften Register wie die englische Seite.",
     "readOriginal": "Die englische Originalseite lesen"
+  },
+  "og": {
+    "headlineFirst": "Earned Robux umrechnen",
+    "headlineSecond": "in eine Auszahlung in US-Dollar",
+    "detail": "{robux} Earned Robux ≈ {usd} bei {rate} je Robux",
+    "footnote": "Mindestens {minimum} Robux · nur Schätzungen",
+    "alt": "DevEx Calculator: anrechenbare Earned Robux in eine geschätzte Auszahlung in US-Dollar umrechnen."
   }
 }

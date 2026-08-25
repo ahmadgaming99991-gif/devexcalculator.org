@@ -1,0 +1,11 @@
+{
+  "$comment": "Fingerprints of what each card was drawn from. Regenerate with npm run og:localized; validate:localized-og fails when a card no longer matches the figures on the site.",
+  "cards": {
+    "pt-BR": "653089b815cebc1f",
+    "es": "99e0cd0b8ca35c4f",
+    "id": "d22c783bc4aeb709",
+    "fr": "933cdf095ed7896e",
+    "de": "3657e739e542a0ff",
+    "tr": "55aea6ca181cef9f"
+  }
+}

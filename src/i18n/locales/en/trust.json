@@ -276,7 +276,8 @@
       "scope": {
         "p1": "Any change to a published rate, minimum or fee percentage appears here with its date and source. So does any correction to a figure that turned out to be wrong — those are not quietly edited away. Routine content edits and typo fixes are not listed, because a changelog that records everything records nothing useful.",
         "p2": "For the history of the DevEx rate itself, including the September 2025 change,",
-        "p3": "see the rate history page"
+        "p3": "see the rate history page",
+        "p4": "For how corrections are handled, {correctionsLink}."
       }
     },
     "prose": {

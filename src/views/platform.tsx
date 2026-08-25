@@ -815,8 +815,8 @@ function ExperienceRow({
         <span className="block text-sm text-(--color-text-muted)">
           {experience.creatorName ? (
             <>
-              by {experience.creatorName}
-              {experience.creatorVerified ? " (verified)" : ""}
+              {t("platform.live.byCreator", { creator: experience.creatorName })}
+              {experience.creatorVerified ? ` ${t("platform.live.verifiedSuffix")}` : ""}
             </>
           ) : null}
           {experience.creatorName && experience.maturity ? " · " : null}
@@ -824,7 +824,9 @@ function ExperienceRow({
           {experience.favourites !== null ? (
             <>
               {experience.creatorName || experience.maturity ? " · " : null}
-              {numberFormat.format(experience.favourites)} favourites
+              {t("platform.live.favouritesCount", {
+                count: numberFormat.format(experience.favourites),
+              })}
             </>
           ) : null}
         </span>

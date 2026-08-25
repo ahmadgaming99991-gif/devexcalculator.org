@@ -327,7 +327,10 @@
     "requiredDetail": "Das sind {perWeek} pro Woche oder {perMonth} über 30 Tage. Jede Zahl ist aufgerundet: Wer den abgerundeten Betrag verdient, verfehlt das Datum.",
     "columnReachedIn": "Erreicht in",
     "columnNeededEachDay": "Täglich nötig",
-    "payoutNote": "Zu {rate}, vor Gebühren und Steuern."
+    "payoutNote": "Zu {rate}, vor Gebühren und Steuern.",
+    "targetHint": "Vor Gebühren des Zahlungsdienstleisters und vor Steuern.",
+    "worksOutDate": "Der Plan errechnet das Datum.",
+    "worksOutPace": "Der Plan errechnet das Tempo."
   },
   "controls": {
     "body": {
@@ -367,6 +370,7 @@
     "savedAnnouncement": "Berechnung in diesem Browser gespeichert.",
     "clearedAnnouncement": "Gespeicherte Berechnungen gelöscht.",
     "targetLabel": "Ziel {amount}",
-    "robuxLabel": "{robux} Robux"
+    "robuxLabel": "{robux} Robux",
+    "saveButton": "Diese Berechnung speichern"
   }
 }

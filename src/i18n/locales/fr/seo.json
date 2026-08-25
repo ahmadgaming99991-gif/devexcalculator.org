@@ -29,5 +29,12 @@
     "machineDraftedLabel": "Traduction automatique",
     "machineDraftedDescription": "Cette page a été traduite automatiquement et n’a pas encore été relue par un locuteur natif. Les chiffres proviennent du même registre vérifié que la page en anglais.",
     "readOriginal": "Lire la page originale en anglais"
+  },
+  "og": {
+    "headlineFirst": "Convertissez vos Earned Robux",
+    "headlineSecond": "en versement en dollars",
+    "detail": "{robux} Earned Robux ≈ {usd} à {rate} par Robux",
+    "footnote": "minimum de {minimum} Robux · estimations seulement",
+    "alt": "DevEx Calculator : convertissez des Earned Robux éligibles en une estimation de versement en dollars."
   }
 }

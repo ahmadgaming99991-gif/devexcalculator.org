@@ -327,7 +327,10 @@
     "requiredDetail": "Bu, haftada {perWeek} ya da 30 günde {perMonth} eder. Her rakam yukarı yuvarlanır: aşağı yuvarlanmış tutarı kazanmak tarihi kaçırırdı.",
     "columnReachedIn": "Ulaşma süresi",
     "columnNeededEachDay": "Her gün gereken",
-    "payoutNote": "{rate} ile, ücretler ve vergi öncesi."
+    "payoutNote": "{rate} ile, ücretler ve vergi öncesi.",
+    "targetHint": "Ödeme sağlayıcısı ücretleri ve vergiler öncesi.",
+    "worksOutDate": "Plan tarihi hesaplar.",
+    "worksOutPace": "Plan hızı hesaplar."
   },
   "controls": {
     "body": {
@@ -367,6 +370,7 @@
     "savedAnnouncement": "Hesaplama bu tarayıcıya kaydedildi.",
     "clearedAnnouncement": "Kaydedilen hesaplamalar silindi.",
     "targetLabel": "Hedef {amount}",
-    "robuxLabel": "{robux} Robux"
+    "robuxLabel": "{robux} Robux",
+    "saveButton": "Bu hesaplamayı kaydet"
   }
 }

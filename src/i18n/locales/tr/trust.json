@@ -285,7 +285,8 @@
       "scope": {
         "p1": "Yayımlanmış bir kur, alt sınır ya da ücret yüzdesindeki her değişiklik burada tarihi ve kaynağıyla görünür. Yanlış çıkmış bir rakamın düzeltmesi de öyle — bunlar sessizce silinmez. Rutin içerik düzenlemeleri ve yazım düzeltmeleri listelenmez; çünkü her şeyi kaydeden bir changelog işe yarar hiçbir şey kaydetmez.",
         "p2": "DevEx kurunun kendi geçmişi için, Eylül 2025 değişikliği de dâhil,",
-        "p3": "kur geçmişi sayfasına bakın"
+        "p3": "kur geçmişi sayfasına bakın",
+        "p4": "Düzeltmelerin nasıl ele alındığı için {correctionsLink}."
       }
     },
     "prose": {

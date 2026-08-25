@@ -773,7 +773,7 @@ function HistoryPanel({
             disabled={!canSave}
             className="min-h-[44px] rounded-(--radius-control) border border-(--color-border-strong) px-3 text-sm font-semibold text-(--color-text) disabled:opacity-50"
           >
-            Save this calculation
+            {t("calculator.history.saveButton")}
           </button>
           <button
             type="button"

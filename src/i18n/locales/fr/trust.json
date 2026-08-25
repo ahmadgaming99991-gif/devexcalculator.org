@@ -289,7 +289,8 @@
       "scope": {
         "p1": "Tout changement d’un taux, d’un minimum ou d’un pourcentage de frais publié apparaît ici avec sa date et sa source. Toute correction d’un chiffre qui s’est révélé faux aussi — celles-là ne sont pas effacées en silence. Les modifications de contenu courantes et les corrections de coquilles ne sont pas listées, car un changelog qui consigne tout ne consigne rien d’utile.",
         "p2": "Pour l’historique du taux DevEx lui-même, y compris le changement de septembre 2025,",
-        "p3": "voyez la page d’historique des taux"
+        "p3": "voyez la page d’historique des taux",
+        "p4": "Pour savoir comment les corrections sont traitées, {correctionsLink}."
       }
     },
     "prose": {

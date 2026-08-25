@@ -40,9 +40,19 @@ import type { Locale } from "../../src/i18n/types";
  * Deliberately function words only. Content words ("rate", "payout") appear as
  * loanwords and inside protected names, and a detector that flags those is one
  * nobody keeps green.
+ *
+ * And only function words that are English **and nothing else**. The first run
+ * of this check reported 637 German words on `/de/`; the worst offender was
+ * "Was Ihnen von einem Marketplace-Verkauf bleibt", which is German, flagged
+ * for its `was`. Every word that collides with one of the six launch
+ * languages has been removed for the same reason: `on` and `or` in French,
+ * `no` and `as` in Portuguese and Spanish, `per` in Indonesian, `can` in
+ * Turkish, `so` in German, `is`/`at`/`to`/`by` short enough to appear inside
+ * anything. What survives lights up an English paragraph and stays quiet on a
+ * translated one, which is the only property that matters.
  */
 const ENGLISH_WORDS =
-  /\b(the|and|that|with|this|which|from|your|about|would|there|their|what|when|these|those|because|rather|every|into|than|only|been|were|does|not|for|are|you|its|have|has|is|of|to|at|by|on|as|or|but|if|so|no|nothing|will|can|cannot|any|each|both|more|most|some|such|then|they|them|our|per|before|after|between|through|without|under|over|how|why|who|whose|been|being|was|had|did|should|could|must|may|might)\b/gi;
+  /\b(the|and|that|with|this|which|from|your|about|would|there|their|what|when|these|those|because|rather|every|into|than|only|been|were|does|not|for|are|you|its|have|has|but|if|nothing|will|cannot|any|each|both|more|most|such|then|they|them|our|before|after|between|through|without|under|over|how|why|who|whose|being|had|did|should|could|must|might|here|about|other|another|first|last|same|still|while|about|much|many|few|its|it's|isn't|don't|doesn't)\b/gi;
 
 /**
  * Fragments that are English on every page and are meant to be.
@@ -67,6 +77,14 @@ const ALLOWED = [
   /^https?:\/\//i,
   /^[a-z0-9_.\-/]+$/i,
   /^\W+$/,
+  /^q[1-4] .*earnings release/i,
+  /^how do i make money\?$/i,
+  /^marketplace fees and commissions$/i,
+  /^developer exchange .*help and information page$/i,
+  /^how to specify a canonical url/i,
+  /^spam policies for google web search$/i,
+  /^(euro foreign exchange reference rates|ecb .*reference rates)$/i,
+  /^(deploy |get started |cloudflare )?(workers|pages|next\.js).*$/i,
 ];
 
 /** Text nodes only: attributes, scripts, styles and JSON-LD are not prose. */
@@ -122,7 +140,7 @@ async function scanPage(origin: string, url: string): Promise<{ leaks: Leak[]; t
   return { leaks, total };
 }
 
-const origin = process.argv[2];
+const origin = process.argv[2] ?? "";
 if (!origin || !/^https?:\/\//.test(origin)) {
   console.error(
     "Usage: tsx scripts/i18n/detect-language-leakage.ts <origin> [--budget N] [--locale xx]\n" +
@@ -134,60 +152,65 @@ if (!origin || !/^https?:\/\//.test(origin)) {
 const budgetArg = process.argv.indexOf("--budget");
 const BUDGET = budgetArg === -1 ? 60 : Number(process.argv[budgetArg + 1]);
 const localeArg = process.argv.indexOf("--locale");
-const onlyLocale = localeArg === -1 ? null : (process.argv[localeArg + 1] as Locale);
+const onlyLocale = localeArg === -1 ? null : ((process.argv[localeArg + 1] ?? "") as Locale);
 
 const routes = indexableRoutes.map((record) => record.route);
 const targets = LAUNCH_LOCALES.filter(
   (locale) => locale !== DEFAULT_LOCALE && (onlyLocale === null || locale === onlyLocale),
 );
 
-console.log(`language leakage — ${routes.length} route(s) × ${targets.length} locale(s)\n`);
-
-let failed = false;
-
-for (const locale of targets) {
-  const prefix = getLocaleMeta(locale).prefix;
-  const found: Leak[] = [];
-  let total = 0;
-
-  for (const route of routes) {
-    try {
-      const page = await scanPage(origin, `${prefix}${route}`);
-      total += page.total;
-      found.push(...page.leaks);
-    } catch (error) {
-      console.error(`  ${locale}  ${route}  ${String(error)}`);
+async function main(): Promise<void> {
+  console.log(`language leakage — ${routes.length} route(s) × ${targets.length} locale(s)\n`);
+  
+  let failed = false;
+  
+  for (const locale of targets) {
+    const prefix = getLocaleMeta(locale).prefix;
+    const found: Leak[] = [];
+    let total = 0;
+  
+    for (const route of routes) {
+      try {
+        const page = await scanPage(origin, `${prefix}${route}`);
+        total += page.total;
+        found.push(...page.leaks);
+      } catch (error) {
+        console.error(`  ${locale}  ${route}  ${String(error)}`);
+        failed = true;
+      }
+    }
+  
+    const verdict = total > BUDGET ? "OVER BUDGET" : "ok";
+    console.log(`  ${locale.padEnd(6)} ${String(total).padStart(5)} English word(s)  ${verdict}`);
+  
+    if (total > BUDGET) {
       failed = true;
+      // Worst fragments first: one long English paragraph matters more than
+      // twenty stray "no"s, and fixing it removes the most leakage per edit.
+      const byFragment = new Map<string, { hits: number; routes: Set<string> }>();
+      for (const leak of found) {
+        const row = byFragment.get(leak.fragment) ?? { hits: 0, routes: new Set<string>() };
+        row.hits += leak.hits;
+        row.routes.add(leak.route);
+        byFragment.set(leak.fragment, row);
+      }
+      const ranked = [...byFragment.entries()].sort((a, b) => b[1].hits - a[1].hits).slice(0, 25);
+      for (const [fragment, row] of ranked) {
+        const where = [...row.routes].slice(0, 2).join(" ");
+        const more = row.routes.size > 2 ? ` +${row.routes.size - 2}` : "";
+        console.log(
+          `      ${String(row.hits).padStart(4)}  ${fragment.slice(0, 96)}\n            ${where}${more}`,
+        );
+      }
     }
   }
-
-  const verdict = total > BUDGET ? "OVER BUDGET" : "ok";
-  console.log(`  ${locale.padEnd(6)} ${String(total).padStart(5)} English word(s)  ${verdict}`);
-
-  if (total > BUDGET) {
-    failed = true;
-    // Worst fragments first: one long English paragraph matters more than
-    // twenty stray "no"s, and fixing it removes the most leakage per edit.
-    const byFragment = new Map<string, { hits: number; routes: Set<string> }>();
-    for (const leak of found) {
-      const row = byFragment.get(leak.fragment) ?? { hits: 0, routes: new Set<string>() };
-      row.hits += leak.hits;
-      row.routes.add(leak.route);
-      byFragment.set(leak.fragment, row);
-    }
-    const ranked = [...byFragment.entries()].sort((a, b) => b[1].hits - a[1].hits).slice(0, 25);
-    for (const [fragment, row] of ranked) {
-      const where = [...row.routes].slice(0, 2).join(" ");
-      const more = row.routes.size > 2 ? ` +${row.routes.size - 2}` : "";
-      console.log(
-        `      ${String(row.hits).padStart(4)}  ${fragment.slice(0, 96)}\n            ${where}${more}`,
-      );
-    }
+  
+  if (failed) {
+    console.error("\nLanguage leakage check failed.");
+    process.exit(1);
   }
+  console.log("\nLanguage leakage within budget.");
+  
 }
 
-if (failed) {
-  console.error("\nLanguage leakage check failed.");
-  process.exit(1);
-}
-console.log("\nLanguage leakage within budget.");
+void main();

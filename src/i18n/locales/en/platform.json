@@ -69,7 +69,10 @@
     },
     "unknownTime": "an unknown time",
     "unknownObservationTime": "an unknown time",
-    "sponsored": "Sponsored"
+    "sponsored": "Sponsored",
+    "byCreator": "by {creator}",
+    "verifiedSuffix": "(verified)",
+    "favouritesCount": "{count} favourites"
   },
   "platformFigure": {
     "label": "Players across every experience Roblox is ranking",

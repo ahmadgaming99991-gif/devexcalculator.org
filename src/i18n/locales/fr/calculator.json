@@ -326,7 +326,10 @@
     "requiredDetail": "Cela fait {perWeek} par semaine, ou {perMonth} sur 30 jours. Chaque chiffre est arrondi au supérieur : gagner le montant arrondi à l’inférieur manquerait la date.",
     "columnReachedIn": "Atteint en",
     "columnNeededEachDay": "Nécessaire chaque jour",
-    "payoutNote": "Au {rate}, avant frais et impôts."
+    "payoutNote": "Au {rate}, avant frais et impôts.",
+    "targetHint": "Avant tout frais de prestataire de paiement ou impôt.",
+    "worksOutDate": "Le plan calcule la date.",
+    "worksOutPace": "Le plan calcule le rythme."
   },
   "controls": {
     "body": {
@@ -366,6 +369,7 @@
     "savedAnnouncement": "Calcul enregistré dans ce navigateur.",
     "clearedAnnouncement": "Calculs enregistrés effacés.",
     "targetLabel": "Objectif de {amount}",
-    "robuxLabel": "{robux} Robux"
+    "robuxLabel": "{robux} Robux",
+    "saveButton": "Enregistrer ce calcul"
   }
 }

@@ -29,5 +29,12 @@
     "machineDraftedLabel": "Terjemahan mesin",
     "machineDraftedDescription": "Halaman ini diterjemahkan secara otomatis dan belum dibaca oleh penutur asli. Angka-angkanya berasal dari registri terverifikasi yang sama dengan halaman bahasa Inggris.",
     "readOriginal": "Baca halaman asli dalam bahasa Inggris"
+  },
+  "og": {
+    "headlineFirst": "Ubah Earned Robux",
+    "headlineSecond": "menjadi pembayaran dolar AS",
+    "detail": "{robux} Earned Robux ≈ {usd} pada {rate} per Robux",
+    "footnote": "minimum {minimum} Robux · hanya perkiraan",
+    "alt": "DevEx Calculator: ubah Earned Robux yang memenuhi syarat menjadi perkiraan pembayaran dolar AS."
   }
 }

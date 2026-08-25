@@ -287,7 +287,8 @@
       "scope": {
         "p1": "Perubahan apa pun pada kurs, batas minimum, atau persentase biaya yang diterbitkan muncul di sini beserta tanggal dan sumbernya. Begitu pula koreksi terhadap angka yang ternyata keliru — itu tidak disunting diam-diam. Suntingan konten rutin dan perbaikan salah ketik tidak dicantumkan, karena changelog yang mencatat segalanya tidak mencatat apa pun yang berguna.",
         "p2": "Untuk riwayat kurs DevEx itu sendiri, termasuk perubahan September 2025,",
-        "p3": "lihat halaman riwayat kurs"
+        "p3": "lihat halaman riwayat kurs",
+        "p4": "Untuk mengetahui bagaimana koreksi ditangani, {correctionsLink}."
       }
     },
     "prose": {

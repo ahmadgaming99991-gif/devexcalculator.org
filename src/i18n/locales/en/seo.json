@@ -26,5 +26,12 @@
     "machineDraftedLabel": "Machine-drafted translation",
     "machineDraftedDescription": "This page was translated automatically and has not yet been read by a native speaker. The figures come from the same verified registry as the English page.",
     "readOriginal": "Read the original English page"
+  },
+  "og": {
+    "headlineFirst": "Convert Earned Robux",
+    "headlineSecond": "into a US dollar payout",
+    "detail": "{robux} Earned Robux ≈ {usd} at {rate} per Robux",
+    "footnote": "{minimum} Robux minimum · estimates only",
+    "alt": "DevEx Calculator: convert eligible Earned Robux into an estimated US dollar payout."
   }
 }

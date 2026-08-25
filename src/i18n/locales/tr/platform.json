@@ -73,7 +73,10 @@
     },
     "unknownTime": "bilinmeyen bir zaman",
     "unknownObservationTime": "bilinmeyen bir zaman",
-    "sponsored": "Sponsorlu"
+    "sponsored": "Sponsorlu",
+    "byCreator": "{creator} tarafından",
+    "verifiedSuffix": "(doğrulanmış)",
+    "favouritesCount": "{count} favori"
   },
   "platformFigure": {
     "label": "Roblox'un sıraladığı bütün experience'lardaki oyuncular",

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { absoluteUrl, siteConfig } from "@/config/site";
 import { requireRoute } from "@/lib/content/route-registry";
-import { getLocaleMeta } from "@/i18n/config";
+import { DEFAULT_LOCALE, getLocaleMeta } from "@/i18n/config";
 import { getNamespace } from "@/i18n/get-dictionary";
 import { localizedPath } from "@/i18n/locale-path";
 import { routeKey } from "@/i18n/route-key";
@@ -33,6 +33,29 @@ import { MAX_TITLE_LENGTH } from "@/lib/seo/metadata";
  */
 
 const TITLE_SUFFIX = ` | ${siteConfig.name}`;
+
+/**
+ * The Open Graph card this page should name.
+ *
+ * English has the site card at the root and eight routes with one of their
+ * own; those pass `inheritImage` and let Next's file convention answer.
+ *
+ * Every other language names a PNG under `public/og/`, built by
+ * `scripts/og/build-localized-cards.ts`. Next's convention was tried twice and
+ * neither arrangement works here: an `opengraph-image.tsx` at the `[locale]`
+ * segment is not inherited by the routes nested under it, and one per segment
+ * put 0.76 MB of `@vercel/og` into the Worker — over Cloudflare's 3 MB limit,
+ * for images that are prerendered and never generated at request time.
+ *
+ * All localized pages share one card per language rather than one per route.
+ * The English per-route cards each state that page's figure; reproducing that
+ * across six languages is forty-eight images to keep in step with a rate that
+ * moves, and the thing that was actually wrong was the language.
+ */
+function ogImageUrl(locale: Locale, inherit: boolean | undefined): string | null {
+  if (locale !== DEFAULT_LOCALE) return absoluteUrl(`/og/${locale}.png`);
+  return inherit ? null : absoluteUrl("/opengraph-image");
+}
 
 interface RouteStrings {
   readonly title: string;
@@ -76,6 +99,8 @@ export async function buildLocalizedMetadata(
     record.indexation === "index" &&
     record.status === "published" &&
     isPubliclyVisible(locale);
+
+  const ogImage = ogImageUrl(locale, options?.inheritImage);
 
   const languages: Record<string, string> = {};
   for (const other of publicLocales()) {
@@ -129,12 +154,12 @@ export async function buildLocalizedMetadata(
       url: canonical,
       title: strings.title,
       description: strings.metaDescription,
-      ...(options?.inheritImage
+      ...(ogImage === null
         ? {}
         : {
             images: [
               {
-                url: absoluteUrl("/opengraph-image"),
+                url: ogImage,
                 width: 1200,
                 height: 630,
                 alt: strings.ogImageAlt,
@@ -146,7 +171,7 @@ export async function buildLocalizedMetadata(
       card: "summary_large_image",
       title: strings.title,
       description: strings.metaDescription,
-      ...(options?.inheritImage ? {} : { images: [absoluteUrl("/opengraph-image")] }),
+      ...(ogImage === null ? {} : { images: [ogImage] }),
     },
     other: record.rateSensitive ? { "article:modified_time": record.dateModified } : {},
   };

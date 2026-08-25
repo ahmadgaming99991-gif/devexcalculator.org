@@ -69,7 +69,10 @@
     },
     "unknownTime": "um horário desconhecido",
     "unknownObservationTime": "um horário desconhecido",
-    "sponsored": "Patrocinado"
+    "sponsored": "Patrocinado",
+    "byCreator": "por {creator}",
+    "verifiedSuffix": "(verificado)",
+    "favouritesCount": "{count} favoritos"
   },
   "platformFigure": {
     "label": "Jogadores em todas as experiências que o Roblox está rankeando",

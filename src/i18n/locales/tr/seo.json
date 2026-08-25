@@ -29,5 +29,12 @@
     "machineDraftedLabel": "Makine çevirisi",
     "machineDraftedDescription": "Bu sayfa otomatik olarak çevrildi ve henüz ana dili konuşan biri tarafından okunmadı. Rakamlar, İngilizce sayfayla aynı doğrulanmış kayıttan gelir.",
     "readOriginal": "Özgün İngilizce sayfayı okuyun"
+  },
+  "og": {
+    "headlineFirst": "Earned Robux'u çevirin",
+    "headlineSecond": "ABD doları ödemesine",
+    "detail": "{robux} Earned Robux ≈ {usd}, Robux başına {rate}",
+    "footnote": "en az {minimum} Robux · yalnızca tahmin",
+    "alt": "DevEx Calculator: uygun Earned Robux'u tahmini ABD doları ödemesine çevirin."
   }
 }

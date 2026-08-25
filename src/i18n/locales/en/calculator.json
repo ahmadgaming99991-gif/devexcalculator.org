@@ -320,7 +320,10 @@
     "requiredDetail": "That is {perWeek} a week, or {perMonth} over 30 days. Each figure is rounded up: earning the rounded-down amount would miss the date.",
     "columnReachedIn": "Reached in",
     "columnNeededEachDay": "Needed each day",
-    "payoutNote": "At {rate}, before fees and tax."
+    "payoutNote": "At {rate}, before fees and tax.",
+    "targetHint": "Before any payment-provider fee or tax.",
+    "worksOutDate": "The plan works out the date.",
+    "worksOutPace": "The plan works out the pace."
   },
   "actions": {
     "copied": "{label} copied to the clipboard.",
@@ -360,6 +363,7 @@
     "savedAnnouncement": "Calculation saved to this browser.",
     "clearedAnnouncement": "Saved calculations cleared.",
     "targetLabel": "Target {amount}",
-    "robuxLabel": "{robux} Robux"
+    "robuxLabel": "{robux} Robux",
+    "saveButton": "Save this calculation"
   }
 }

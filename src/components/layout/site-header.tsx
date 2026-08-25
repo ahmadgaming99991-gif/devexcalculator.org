@@ -10,6 +10,9 @@ import { DesktopNavigation } from "./desktop-navigation";
 import { MobileNavigation } from "./mobile-navigation";
 import { ThemeToggle } from "./theme-toggle";
 import { THEME_TOGGLE_WORDS } from "./theme-toggle.words";
+import { LanguageSelector } from "./language-selector";
+import { LANGUAGE_SELECTOR_WORDS } from "./language-selector.words";
+import { publicLocales } from "@/i18n/visibility";
 import { loadWords } from "@/i18n/server-words";
 
 /**
@@ -24,6 +27,18 @@ export async function SiteHeader({ locale }: { readonly locale: Locale }) {
   const { primary, headerGroups } = await getNavigation(locale);
   const t = await getTranslator(locale, ["navigation"]);
   const themeWords = await loadWords(locale, THEME_TOGGLE_WORDS);
+  const languageWords = await loadWords(locale, LANGUAGE_SELECTOR_WORDS);
+  /*
+   * Resolved on the server so the switch that hides an unreviewed language
+   * from the sitemap is the same switch that hides it from this menu. A
+   * client component deciding for itself would be a second answer to a
+   * question that must have one.
+   */
+  const languages = publicLocales().map((meta) => ({
+    locale: meta.locale,
+    nativeName: meta.nativeName,
+    bcp47: meta.bcp47,
+  }));
 
   return (
     <header className="site-header sticky top-0 z-30 border-b border-(--color-border) bg-(--color-surface)/95 backdrop-blur supports-[backdrop-filter]:bg-(--color-surface)/80">
@@ -47,6 +62,7 @@ export async function SiteHeader({ locale }: { readonly locale: Locale }) {
           />
 
           <div className="flex items-center gap-2">
+            <LanguageSelector current={locale} locales={languages} words={languageWords} />
             {features.darkMode ? <ThemeToggle words={themeWords} /> : null}
             <MobileNavigation
               primary={primary}

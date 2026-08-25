@@ -33,6 +33,7 @@ export const CALCULATOR_WORDS: readonly string[] = [
   "calculator.deductions.yourFiguresNote",
   "calculator.history.clearedAnnouncement",
   "calculator.history.robuxLabel",
+  "calculator.history.saveButton",
   "calculator.history.savedAnnouncement",
   "calculator.history.summary",
   "calculator.history.targetLabel",

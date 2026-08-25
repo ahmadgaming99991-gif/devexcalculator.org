@@ -185,7 +185,7 @@ export function Planner({ words }: { readonly words: LocaleWords }) {
             hint={
               targetInvalid
                 ? (parseMessage(t, parsedTarget) ?? undefined)
-                : "Before any payment-provider fee or tax."
+                : t("calculator.planner.targetHint")
             }
           />
 
@@ -249,8 +249,8 @@ export function Planner({ words }: { readonly words: LocaleWords }) {
             </div>
             <p className="mt-2 text-sm text-(--color-text-muted)">
               {mode === "pace"
-                ? "The plan works out the date."
-                : "The plan works out the pace."}
+                ? t("calculator.planner.worksOutDate")
+                : t("calculator.planner.worksOutPace")}
             </p>
           </fieldset>
 

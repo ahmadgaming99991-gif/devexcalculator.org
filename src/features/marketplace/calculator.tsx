@@ -162,13 +162,15 @@ export function MarketplaceCalculator({ words }: { readonly words: LocaleWords }
           </div>
 
           <AmountInput
-            label={mode === "after" ? "Sale price" : "Robux you want to keep"}
+            label={t(
+              mode === "after" ? "marketplace.inputs.salePrice" : "marketplace.inputs.amountToKeep",
+            )}
             value={amount}
             onChange={setAmount}
             error={parseMessage(t, parsed)}
             hint={
               mode === "after"
-                ? "What the buyer pays."
+                ? t("marketplace.inputs.salePriceHint")
                 : t("marketplace.inputs.afterCommissionHint")
             }
           />

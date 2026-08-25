@@ -285,7 +285,8 @@
       "scope": {
         "p1": "Cualquier cambio en una tasa, un mínimo o un porcentaje de comisión publicado aparece aquí con su fecha y su fuente. También cualquier corrección de una cifra que resultó estar mal: esas no se editan en silencio. Las ediciones rutinarias de contenido y las erratas no se listan, porque un changelog que registra todo no registra nada útil.",
         "p2": "Para el historial de la propia tasa de DevEx, incluido el cambio de septiembre de 2025,",
-        "p3": "consulta la página de historial de tasas"
+        "p3": "consulta la página de historial de tasas",
+        "p4": "Para saber cómo se gestionan las correcciones, {correctionsLink}."
       }
     },
     "prose": {
