@@ -68,10 +68,7 @@ export async function AboutView({ locale }: { readonly locale: Locale }) {
           <Section id="limits" heading={t("trust.about.limitsHeading")}>
             <ul className="flex list-disc flex-col gap-2 pl-5 text-(--color-text-muted)">
               <li>{t("trust.about.body.limits.p1")}</li>
-              <li>
-                Publish a universal Robux purchase price. There isn&rsquo;t one — it
-                varies by package, region and platform.
-              </li>
+              <li>{" "}{t("trust.about.limits.noUniversalPrice")}{" "}</li>
               <li>{t("trust.about.body.limits.p2")}</li>
               <li>{t("trust.about.body.limits.p3")}</li>
               <li>{t("trust.about.body.limits.p4")}</li>

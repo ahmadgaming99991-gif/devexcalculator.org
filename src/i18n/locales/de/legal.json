@@ -59,6 +59,12 @@
         "p4": "Nutze die Website mit vollständig blockiertem lokalem Speicher — alles funktioniert, nichts wird gemerkt.",
         "p5": "Schreib uns zu allem in dieser Erklärung über die"
       }
+    },
+    "prose": {
+      "localStorageIntro": "Auf Ihre Aktion hin speichert diese Website einige Dinge im lokalen Speicher Ihres eigenen Browsers:",
+      "noAnalytics": "Es ist kein Analyseanbieter konfiguriert, diese Website lädt also kein Tracking-Skript und setzt kein Analyse-Cookie. Unser Hoster fügt ebenfalls keines hinzu: Cloudflares Web Analytics hat beim Ausliefern ein Skript in die Seiten eingefügt, und das ist für diese Website abgeschaltet worden. Nach der Änderung überprüft — beim Laden einer Seite geht keine Anfrage an einen Analyse-Host.",
+      "contactForm": "Wenn Sie über das Kontaktformular eine Nachricht senden, werden Name, E-Mail-Adresse, Betreff und Nachricht an den Server dieser Website übermittelt und an das konfigurierte Ziel weitergeleitet, damit sie gelesen und beantwortet werden können. Sie werden für nichts anderes verwendet, und der Nachrichteninhalt wird nicht in Server-Logs geschrieben.",
+      "infrastructure": "Diese Website läuft auf Cloudflare Workers. Wie bei jedem Webhoster verarbeitet Cloudflare die Anfragen, die zum Ausliefern der Seiten nötig sind — das umfasst Ihre IP-Adresse und den Browser-User-Agent — und wendet eigene Sicherheitsmaßnahmen auf Netzwerkebene an. Für diese Verarbeitung gelten die Datenschutzbedingungen von Cloudflare, nicht die dieser Website."
     }
   },
   "terms": {
@@ -127,6 +133,9 @@
         "p3": "verlinkt direkt auf die offizielle Seite, aus der sie stammt, sodass du den aktuellen Wert in wenigen Sekunden selbst prüfen kannst. Sie über den",
         "p4": "zu melden sorgt dafür, dass sie auch für alle anderen korrigiert wird."
       }
+    },
+    "prose": {
+      "exactButEstimate": "Der Rechner multipliziert die von Ihnen eingegebene Robux-Zahl mit einem Satz aus der veröffentlichten Roblox-Dokumentation. Diese Arithmetik ist exakt und durch Tests abgedeckt. Was dabei herauskommt, ist trotzdem eine Schätzung, denn die Eingaben sind Annahmen: dass die eingegebenen Robux berechtigte Earned Robux sind und dass der gewählte Satz derjenige ist, den Roblox darauf anwendet."
     }
   },
   "accessibility": {
@@ -187,6 +196,9 @@
       "contrast": "Farbkontrast für jedes Text- und Oberflächenfarbpaar, im hellen wie im dunklen Thema",
       "reducedMotion": "Einstellung für reduzierte Bewegung auf der ganzen Website beachtet",
       "highContrast": "Windows-Modus für hohen Kontrast, in dem Rahmen die Struktur sichtbar halten"
+    },
+    "thirdParty": {
+      "turnstile": "Cloudflare Turnstile ist, wo eine Bereitstellung es im Kontaktformular aktiviert, ein Widget eines Dritten, dessen innere Barrierefreiheit außerhalb der Kontrolle dieser Website liegt."
     }
   }
 }

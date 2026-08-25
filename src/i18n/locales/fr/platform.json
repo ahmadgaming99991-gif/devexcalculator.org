@@ -287,6 +287,9 @@
         "p1": "Roblox publie ces chiffres une fois par trimestre, dans un dépôt officiel. C’est la résolution la plus fine qui existe : un graphique prétendant les montrer évoluer à la minute montrerait donc quelque chose d’inventé. Ce site ne collecte aucune donnée, n’échantillonne rien et n’estime rien — il lit les dépôts et y renvoie."
       }
     },
-    "usDollarsLabel": "dollars américains"
+    "usDollarsLabel": "dollars américains",
+    "prose": {
+      "quarterOfRevenue": "La ligne qui mérite d’être lue deux fois est la seconde. Les frais du Developer Exchange représentent environ un quart des revenus de Roblox : une part non négligeable de ce que la plateforme encaisse en ressort donc sous forme de versements aux créateurs. Chaque chiffre de ce tableau est tiré de {filings}."
+    }
   }
 }

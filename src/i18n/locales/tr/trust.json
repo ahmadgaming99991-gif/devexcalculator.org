@@ -23,7 +23,8 @@
       "worksWithoutJs": "Sayfa JavaScript olmadan çalışır.",
       "nothingCollected": "Hiçbir şey toplanmaz.",
       "privacyIsSpecific": "Gizlilik politikası bu konuda açıktır",
-      "correctionsPublished": "Düzeltmeler yayımlanır."
+      "correctionsPublished": "Düzeltmeler yayımlanır.",
+      "rateHasSourceBody": "“Yakın zamana kadar güncel” değil — resmi Roblox belgelerine bir bağlantı ve en son ne zaman denetlendiği; sayfada gösterilir."
     },
     "body": {
       "purpose": {
@@ -48,6 +49,9 @@
       "affiliation": {
         "p1": "DevExCalculator.org, Roblox Corporation ile bağlantılı değildir; şirket tarafından onaylanmamış, desteklenmemiş ya da işletilmemektedir. Roblox, Robux ve Developer Exchange, Roblox Corporation'ın ticari markalarıdır ve burada yalnızca bu hesaplamaların neyle ilgili olduğunu anlatmak için kullanılır. Hesabınız, bakiyeniz ya da DevEx talebinizle ilgili her şey için yardımcı olabilecek tek taraf Roblox'tur."
       }
+    },
+    "limits": {
+      "noUniversalPrice": "Evrensel bir Robux satın alma fiyatı yayımlamak. Böyle bir fiyat yok — pakete, bölgeye ve platforma göre değişir."
     }
   },
   "methodology": {
@@ -93,12 +97,14 @@
       "moneyHalfUp": "Para yarımdan yukarı yuvarlanır",
       "robuxUp": "Gereken Robux yukarı yuvarlanır.",
       "sharesDown": "Marketplace payları aşağı yuvarlanır.",
-      "intermediateNever": "Ara değerler asla yuvarlanmaz."
+      "intermediateNever": "Ara değerler asla yuvarlanmaz.",
+      "moneyHalfUpBody": "para biriminin kendi alt birimlerine — dolar için iki ondalık basamak, yen ya da won için hiç."
     },
     "cannot": {
       "approvalOrTiming": "Bir talebin onaylanıp onaylanmayacağı ya da ne zaman ödeneceği.",
       "providerCharges": "Bankanızın ya da ödeme sağlayıcınızın ne kadar keseceği.",
-      "taxOwed": "Ne kadar vergi borçlandığınız."
+      "taxOwed": "Ne kadar vergi borçlandığınız.",
+      "eligibility": "Robux'larınızın hangilerini Roblox'un Earned Robux saydığı. Bu, Roblox'un iç muhasebesidir ve dışarıdan görünmez."
     },
     "body": {
       "arithmetic": {
@@ -205,7 +211,8 @@
       "updateTests": "Testleri güncelle.",
       "reviewPages": "Etkilenen sayfaları gözden geçir.",
       "recordChangelog": "Changelog'a kaydet.",
-      "updateDate": "Doğrulama tarihini güncelle."
+      "updateDate": "Doğrulama tarihini güncelle.",
+      "verifyBody": "İddia, onu yineleyen başka bir siteye karşı değil, doğrudan Roblox'un kendi belgelerine karşı denetlenir."
     },
     "body": {
       "report": {
@@ -299,7 +306,11 @@
       "cacheIt": "Önbelleğe alın",
       "attribution": "Kaynak gösterme",
       "promised": "Vaat edilen:",
-      "notPromised": "Vaat edilmeyen:"
+      "notPromised": "Vaat edilmeyen:",
+      "noKeyHeading": "Anahtar yok, kayıt yok",
+      "attributionHeading": "Atıf",
+      "promisedLabel": "Söz verilen:",
+      "notPromisedLabel": "Söz verilmeyen:"
     },
     "endpointColumn": "Endpoint",
     "contract": {
@@ -351,6 +362,19 @@
       "related": {
         "p1": "Standart kuru okumak"
       }
+    },
+    "prose": {
+      "ratesVersion": "Yanıt bir {registryVersion} ve bir {lastVerifiedAt} taşır. Asıl mesele bu iki alandır: tek başına bir oran, çoktan yanlış olabilecek bir sayıdır ve bu site bir kez oran değiştirdi — Eylül 2025'te Robux başına 0,0035'ten 0,0038 USD'ye geçiş; tek bir oran yerine {rateCount} oranın yayımlanmasının nedeni budur. Sürümü okuyun, önbelleğe aldığınızın hâlâ bu sitenin sunduğu şey olup olmadığını anlarsınız.",
+      "fxReference": "Bunlar referans kurlarıdır, işlem kuru değil: kimse parayı bu kurlardan çevirmez. ECB bunları her iş günü bir kez yayımlar ve yanıt, hangi güne ait olduğunu söyler. Sağlayıcıya ulaşılamazsa, güncelmiş gibi sunulmak yerine paket içindeki bir anlık görüntü döndürülür ve {fallback} olarak işaretlenir — bir rakamı bugünün rakamı saymadan önce {metaCache} alanını kontrol edin.",
+      "stats": "{statisticsPage} sayfasında grafiğe dökülen rakamlar; bir grafiğin inanılması değil denetlenebilmesi için veri olarak yayımlandı. Elektronik tablo için {formatCsv} ekleyin. Her satır kaynak dosyalamasını adlandırır ve ona bağlanır; her satır, rakamı Roblox'un mu bildirdiğini yoksa bu sitenin mi türettiğini söyler — iki sayı bu ayrım olmadan aynı sütuna oturduğu anda kaybolan bir ayrım.",
+      "platform": "{platformPage} sayfasının çizdiği şey. Elektronik tablo için {formatCsv}, toplamlar yerine deneyim başına satırlar için {seriesExperiences} ekleyin. Bunu okumak Roblox'a hiçbir istek göndermez: toplayıcı bunu kendi programına göre yapar ve yukarı akışta bir çağrı tetikleyen bir dışa aktarım, herkesin bir URL'yi yeniden yükleyerek bu sitenin Roblox'a giden istek hızını artırmasına izin verirdi.",
+      "platformGaps": "Bir boşluk, toplayıcının o anda çalışmadığı anlamına gelir ve boşluk olduğu gibi bırakılır — aradeğerleme yok, önceki değeri taşıma yok, geriye dönük doldurma yok. Hiçbir gözlem okunamadığında uç nokta, boş bir liste yerine {status503} yanıtı verir; çünkü boş bir dosya, oyuncusuz bir dönemden ayırt edilemez.",
+      "openapi": "{openapiLink}, buradaki her uç noktayı OpenAPI 3.1 olarak tanımlar — parametreler, durum kodları, içerik türleri ve her birinin gönderdiği tam {cacheControl}. Bu sayfanın okuduğu bildirimin aynısından üretilir ve bir test, o bildirimi gerçekten var olan rota işleyicileriyle karşılaştırır; böylece bir uç nokta ne orada görünmeden eklenebilir ne de kaldırıldıktan sonra tanımlı kalabilir.",
+      "cors": "Her referans uç noktası {allowOrigin} gönderir; böylece herhangi bir kaynaktaki bir sayfa doğrudan {fetch} yapabilir. Yakın zamana kadar durum böyle değildi ve bu, uç noktaları tam da yayımlandıkları kişiler için işe yaramaz kılıyordu. Bunu yapmayan ikisi kasıtlıdır: health, işletmeci için altyapıdır; contact ise gönderim kabul eder ve kaynağı denetlenir.",
+      "cacheIt": "Oranlar nadiren değişir — bu yazının yazıldığı sırada programın tarihinde iki kez. Yanıtlar {cacheControl} taşır ve bir saat ya da bir gün tutulmaları güvenlidir. Lütfen saniyede bir sorgulamayın; herhangi bir hız sınırı yok ve bu, ikimizin de bant genişliğini boşa harcar.",
+      "attribution": "Zorunlu değil, ama makbule geçer. Bir rakamı alıntılıyorsanız, yanında {sources} içindeki kaynağı da anın — o, Roblox'un kendi belgeleridir ve rakamı ödünç alınmış değil denetlenebilir kılan şeydir.",
+      "promised": "yanıtın biçimi, {registryVersion} değişmeden değişmeyecek; her rakam, karşısında doğrulandığı kaynağı taşıyacak; ve bir oran, önce bir kişi denetlemeden kazınmış bir sayfadan asla güncellenmeyecek. Değişiklikler {changelog} içinde kayda geçer.",
+      "robloxFigures": "Buradaki her oran, Roblox'un şu anda belgelediği orandır ve gösterilen doğrulama tarihinde kaydedilmiştir. Hangi oranın hangi bakiyeye uygulanacağına ve bir DevEx talebinin onaylanıp onaylanmayacağına Roblox karar verir. Her rakamın onların belgelerinden bu yanıta nasıl geldiğini görmek için {methodology} sayfasını okuyun."
     }
   },
   "authors": {

@@ -71,6 +71,9 @@
       "noForecast": {
         "p1": "Roblox kuru daha önce değiştirdi ve yine değiştirebilir. Roblox dışında kimse bunun olup olmayacağını ya da ne zaman olacağını bilmez; analiz kılığına sokulmuş bir öngörü ise kendinden emin bir tonda söylenmiş bir tahmindir. Bu sayfa yalnızca resmî belgelerin doğruladığı değişiklikleri, her birini yürürlük tarihiyle birlikte kaydeder. Bir değişiklik olduğunda burada ve şurada görünür:"
       }
+    },
+    "prose": {
+      "legacySplit": "Roblox, bakiyenin geçiş öncesi bölümünü önce 0,0035'ten, kalanını ise 0,0038'den nakde çevirir. Bu ayrım, her Robux'un ne zaman kazanıldığına dair Roblox'un kendi muhasebesidir — bir yaratıcının seçtiği ya da ayarlayabildiği bir şey değildir."
     }
   },
   "requirements": {
@@ -206,6 +209,9 @@
         "membership": "Aylık üyelik tahsisleri",
         "trade": "Bir takasta alınan Robux"
       }
+    },
+    "prose": {
+      "groupFunds": "Bir gruba ait bir deneyimden gelen kazançlar, herhangi bir bireysel hesapta değil, grubun fonlarında birikir. DevEx kişisel bir hesap üzerinde çalışır; bu yüzden grup fonlarının bir DevEx talebi için anlam taşıması, önce bir ödemeyle kişisel bir bakiyeye ulaşmalarına bağlıdır. Geliri işbirlikçilerle paylaşıyorsanız, bunun nasıl işleyeceğini para geldikten sonra değil önce kararlaştırın — ve grup ödemelerinin nasıl ele alındığını güncel resmi belgelerden kontrol edin, çünkü bu, Roblox'un daha önce değiştirdiği bir alandır."
     }
   },
   "feesAndTaxes": {
@@ -269,6 +275,9 @@
         "p2": "Marketplace ücretini ayrıca hesaplayın",
         "p3": "Marketplace ücret hesaplayıcısını aç"
       }
+    },
+    "prose": {
+      "currencyMargin": "DevEx oranı ABD doları cinsinden belirtilir. Başka bir para biriminde ödeme alıyorsanız birileri bunu çevirir ve kendi kurunu bir marjla birlikte uygular. Bankanızın rakamının bir referans kuruyla örtüşmemesinin nedeni o marjdır."
     }
   },
   "robuxToUsd": {
@@ -412,6 +421,9 @@
       "groupSplits": "İşbirlikçiler arasında kararlaştırılan grup gelir paylaşımları; bunlar Roblox komisyonundan sonra gerçekleşir.",
       "promotional": "Roblox'un belirli bir kategoriye uygulayabileceği promosyona ya da programa özgü herhangi bir oran.",
       "devexConversion": "DevEx dönüşümü; bu, ana hesaplayıcının üstlendiği ayrı bir adımdır."
+    },
+    "prose": {
+      "priceFloors": "Taban fiyatlar ürün kategorisine göre değişir ve Roblox bunları zaman içinde ayarlamıştır; bu yüzden tek bir evrensel tabanı koda gömmek çoğu ürün için yanlış yanıt üretirdi. Katsayıyı girmek, kategorinizin tabanı ne olursa olsun sonucu doğru tutar."
     }
   },
   "conversions": {
@@ -434,6 +446,9 @@
       "rounding": {
         "p1": "Her rakam, Robux ile tam bir ondalık kurun çarpımıdır; baştan sona kesir olarak tutulur ve yalnızca yazdırılırken sente yuvarlanır. Yolun ortasında hiçbir şey yuvarlanmaz; bu yüzden bir toplam, parçalarının toplamıyla asla çelişmez."
       }
+    },
+    "prose": {
+      "notRoundNumbers": "Bu liste yuvarlak sayılardan yapılmış bir seçki değil: gerçekten aranan tutarlar. Burada olmayan her şey — tablonun son satırından büyük rakamlar dahil — yukarıdaki dönüştürücüye girilir; o da aynı oranları ve aynı aritmetiği kullanır."
     }
   },
   "amountPage": {

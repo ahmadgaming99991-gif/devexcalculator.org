@@ -74,6 +74,9 @@
       "noForecast": {
         "p1": "Roblox hat den Kurs schon geändert und kann ihn wieder ändern. Niemand außerhalb von Roblox weiß, ob oder wann, und eine als Analyse verkleidete Vorhersage wäre eine Vermutung in selbstsicherem Ton. Diese Seite hält nur Änderungen fest, die die offizielle Dokumentation bestätigt, jede mit ihrem Gültigkeitsdatum. Wenn eine Änderung kommt, erscheint sie hier und im"
       }
+    },
+    "prose": {
+      "legacySplit": "Roblox zahlt zuerst den vor dem Übergang verdienten Teil eines Guthabens zu 0,0035 aus, dann den Rest zu 0,0038. Die Aufteilung ist Roblox’ eigene Buchführung darüber, wann jeder Robux verdient wurde — nichts, was ein Creator auswählt oder anpassen kann."
     }
   },
   "requirements": {
@@ -209,6 +212,9 @@
         "membership": "Monatliche Zuteilungen aus der Mitgliedschaft",
         "trade": "Robux, die in einem Tausch erhalten wurden"
       }
+    },
+    "prose": {
+      "groupFunds": "Einnahmen aus einer Experience, die einer Gruppe gehört, sammeln sich in den Gruppenmitteln und nicht auf einem persönlichen Konto. DevEx arbeitet auf einem persönlichen Konto, Gruppenmittel müssen also erst über eine Auszahlung auf ein persönliches Guthaben gelangen, bevor sie für einen DevEx-Antrag überhaupt eine Rolle spielen. Wenn Sie Einnahmen mit Mitwirkenden teilen, einigen Sie sich darauf, bevor das Geld ankommt, nicht danach — und prüfen Sie die aktuelle offizielle Dokumentation dazu, wie Gruppenauszahlungen behandelt werden, denn das ist ein Bereich, den Roblox schon einmal geändert hat."
     }
   },
   "feesAndTaxes": {
@@ -272,6 +278,9 @@
         "p2": "Berechne die Marketplace-Gebühr getrennt",
         "p3": "Den Marketplace-Gebührenrechner öffnen"
       }
+    },
+    "prose": {
+      "currencyMargin": "Der DevEx-Satz wird in US-Dollar angegeben. Werden Sie in einer anderen Währung bezahlt, rechnet jemand um und wendet dabei seinen eigenen Kurs plus Aufschlag an. Dieser Aufschlag ist der Grund, warum die Zahl Ihrer Bank nicht zu einem Referenzkurs passt."
     }
   },
   "robuxToUsd": {
@@ -415,6 +424,9 @@
       "groupSplits": "Zwischen Mitwirkenden vereinbarte Gruppenaufteilungen, die erst nach der Roblox-Provision greifen.",
       "promotional": "Jeder Aktions- oder programmspezifische Satz, den Roblox auf eine bestimmte Kategorie anwenden kann.",
       "devexConversion": "Die DevEx-Umrechnung — ein eigener Schritt, den der Hauptrechner übernimmt."
+    },
+    "prose": {
+      "priceFloors": "Preisuntergrenzen unterscheiden sich je nach Artikelkategorie, und Roblox hat sie im Lauf der Zeit angepasst; eine einzige fest verdrahtete Untergrenze ergäbe daher für die meisten Artikel falsche Antworten. Das Vielfache einzugeben hält das Ergebnis richtig, wie hoch die Untergrenze Ihrer Kategorie auch ist."
     }
   },
   "conversions": {
@@ -437,6 +449,9 @@
       "rounding": {
         "p1": "Jede Zahl ist Robux mal einem exakten Dezimalkurs, durchgehend als Bruch gehalten und erst beim Ausgeben auf den Cent gerundet. Nichts wird zwischendurch gerundet, deshalb widerspricht eine Summe nie der Summe ihrer Teile."
       }
+    },
+    "prose": {
+      "notRoundNumbers": "Die Liste ist keine Auswahl runder Zahlen: Es sind die Beträge, nach denen tatsächlich gesucht wird. Alles, was nicht hier steht — auch Zahlen jenseits der letzten Tabellenzeile — gehört in den Umrechner oben, der dieselben Sätze und dieselbe Arithmetik verwendet."
     }
   },
   "amountPage": {

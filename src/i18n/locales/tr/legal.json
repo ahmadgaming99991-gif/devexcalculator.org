@@ -60,6 +60,12 @@
         "p4": "Siteyi yerel depolama tamamen engelliyken kullanın — her şey çalışır, hiçbir şey hatırlanmaz.",
         "p5": "Bu politikadaki her konuda bize şuradan ulaşın:"
       }
+    },
+    "prose": {
+      "localStorageIntro": "Sizin bir eyleminizle bu site, kendi tarayıcınızın yerel depolamasına birkaç şey kaydeder:",
+      "noAnalytics": "Yapılandırılmış bir analitik sağlayıcı yok; bu yüzden bu site hiçbir izleme betiği yüklemez ve hiçbir analitik çerezi ayarlamaz. Barındırıcımız da bir tane eklemez: Cloudflare'in Web Analytics'i sayfalara sunulurken bir betik enjekte ediyordu ve bu, bu site için kapatıldı. Değişiklikten sonra doğrulandı — bir sayfa yüklenirken hiçbir analitik sunucusuna istek gönderilmiyor.",
+      "contactForm": "İletişim formundan bir mesaj gönderirseniz, girdiğiniz ad, e-posta adresi, konu ve mesaj bu sitenin sunucusuna iletilir ve okunup yanıtlanabilmesi için yapılandırılmış hedefe yönlendirilir. Başka hiçbir şey için kullanılmaz ve mesaj içeriği sunucu günlüklerine yazılmaz.",
+      "infrastructure": "Bu site Cloudflare Workers üzerinde çalışır. Herhangi bir web barındırıcısında olduğu gibi Cloudflare, sayfaların sunulması için gereken istekleri işler — buna IP adresiniz ve tarayıcı kullanıcı aracınız dahildir — ve kendi ağ düzeyindeki güvenlik işlemlerini uygular. Bu işleme, bu sitenin değil, Cloudflare'in kendi gizlilik koşullarına tabidir."
     }
   },
   "terms": {
@@ -128,6 +134,9 @@
         "p3": "doğrudan geldiği resmî sayfaya bağlantı verir; böylece güncel değeri birkaç saniyede kendiniz kontrol edebilirsiniz. Şu yolla bildirmek",
         "p4": "onu herkes için de düzeltilmiş hâle getirir."
       }
+    },
+    "prose": {
+      "exactButEstimate": "Hesaplayıcı, girdiğiniz Robux rakamını Roblox'un yayımladığı belgelerden alınan bir oranla çarpar. Bu aritmetik kesindir ve testlerle kapsanır. Ürettiği şey yine de bir tahmindir, çünkü girdiler birer varsayımdır: girdiğiniz Robux'ın uygun Earned Robux olduğu ve seçtiğiniz oranın Roblox'un onlara uygulayacağı oran olduğu."
     }
   },
   "accessibility": {
@@ -188,6 +197,9 @@
       "contrast": "Hem açık hem koyu temada, her metin ve arayüz renk çifti için renk karşıtlığı",
       "reducedMotion": "Azaltılmış hareket tercihine sitenin tamamında uyulur",
       "highContrast": "Kenarlıkların yapıyı görünür tuttuğu Windows Yüksek Karşıtlık Modu"
+    },
+    "thirdParty": {
+      "turnstile": "Cloudflare Turnstile, bir dağıtım onu iletişim formunda etkinleştirdiğinde, iç erişilebilirliği bu sitenin denetimi dışında olan üçüncü taraf bir bileşendir."
     }
   }
 }

@@ -1,4 +1,6 @@
 import { getTranslator, type Translate } from "@/i18n/get-dictionary";
+import { rich } from "@/i18n/rich";
+import { localizedPath } from "@/i18n/locale-path";
 import { localizedRoute } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -58,14 +60,11 @@ export async function ApiView({ locale }: { readonly locale: Locale }) {
             <Endpoint url={`${base}/api/rates`} />
 
             <p className="mt-4 text-(--color-text-muted)">
-              The response carries a <Code>registryVersion</Code> and a{" "}
-              <Code>lastVerifiedAt</Code>. Those two fields are the point: a rate
-              on its own is a number that may already be wrong, and this site
-              changed rate once already — the September 2025 move from $0.0035 to
-              $0.0038 per Robux, which is why{" "}
-              <Code>{rateRegistry.rates.length}</Code> rates are published rather
-              than one. Read the version, and you can tell whether what you
-              cached is still what this site is serving.
+              {rich(t("trust.api.prose.ratesVersion"), {
+                registryVersion: <Code>registryVersion</Code>,
+                lastVerifiedAt: <Code>lastVerifiedAt</Code>,
+                rateCount: <Code>{rateRegistry.rates.length}</Code>,
+              })}
             </p>
 
             <div className="mt-4 grid gap-4 sm:grid-cols-2">
@@ -84,12 +83,10 @@ export async function ApiView({ locale }: { readonly locale: Locale }) {
             <Endpoint url={`${base}/api/fx/latest`} />
 
             <p className="mt-4 text-(--color-text-muted)">
-              These are reference rates, not a dealing rate: nobody converts
-              money at them. They are published by the ECB once per working day,
-              and the response says which day it is reporting. If the provider
-              cannot be reached, a bundled snapshot is returned and marked{" "}
-              <Code>FALLBACK</Code> rather than passed off as current — so check{" "}
-              <Code>meta.cache</Code> before treating a figure as today&rsquo;s.
+              {rich(t("trust.api.prose.fxReference"), {
+                fallback: <Code>FALLBACK</Code>,
+                metaCache: <Code>meta.cache</Code>,
+              })}
             </p>
           </Section>
 
@@ -101,13 +98,14 @@ export async function ApiView({ locale }: { readonly locale: Locale }) {
             <Endpoint url={`${base}/api/stats`} />
 
             <p className="mt-4 text-(--color-text-muted)">
-              The figures charted on{" "}
-              <InlineLink href="/roblox-stats/">{t("trust.api.statisticsPageLink")}</InlineLink>,
-              published as data so a chart can be checked rather than believed.
-              Add <Code>?format=csv</Code> for a spreadsheet. Every row names its
-              filing and links to it, and every row says whether Roblox reported
-              the figure or this site derived it — a distinction that disappears
-              the moment two numbers sit in the same column without it.
+              {rich(t("trust.api.prose.stats"), {
+                statisticsPage: (
+                  <InlineLink href={localizedPath(locale, "/roblox-stats/")}>
+                    {t("trust.api.statisticsPageLink")}
+                  </InlineLink>
+                ),
+                formatCsv: <Code>?format=csv</Code>,
+              })}
             </p>
 
             <div className="mt-4 grid gap-4 sm:grid-cols-2">
@@ -128,23 +126,24 @@ export async function ApiView({ locale }: { readonly locale: Locale }) {
             <Endpoint url={`${base}/api/platform`} />
 
             <p className="mt-4 text-(--color-text-muted)">
-              What{" "}
-              <InlineLink href="/platform/">{t("trust.api.platformPageLink")}</InlineLink> charts.
-              Add <Code>?format=csv</Code> for a spreadsheet, or{" "}
-              <Code>?series=experiences</Code> for per-experience rows rather than
-              totals. Reading it makes no request to Roblox: the collector does
-              that on its own schedule, and an export that triggered an upstream
-              fetch would let anyone raise this site&rsquo;s request rate against
-              Roblox by reloading a URL.
+              {rich(t("trust.api.prose.platform"), {
+                platformPage: (
+                  <InlineLink href={localizedPath(locale, "/platform/")}>
+                    {t("trust.api.platformPageLink")}
+                  </InlineLink>
+                ),
+                formatCsv: <Code>?format=csv</Code>,
+                seriesExperiences: <Code>?series=experiences</Code>,
+              })}
             </p>
 
             <p className="mt-4 text-(--color-text-muted)">
-              <strong className="font-semibold text-(--color-text)">{t("trust.api.body.platform.p1")}</strong>{" "}
-              A gap means the collector did not run at that moment, and the gap
-              is left in — no interpolation, no carry-forward, no back-fill. When
-              no observations can be read at all the endpoint answers{" "}
-              <Code>503</Code> rather than an empty list, because an empty file
-              is indistinguishable from a period with no players.
+              <strong className="font-semibold text-(--color-text)">
+                {t("trust.api.body.platform.p1")}
+              </strong>{" "}
+              {rich(t("trust.api.prose.platformGaps"), {
+                status503: <Code>503</Code>,
+              })}
             </p>
 
             <div className="mt-4 grid gap-4 sm:grid-cols-2">
@@ -158,53 +157,49 @@ export async function ApiView({ locale }: { readonly locale: Locale }) {
           <Section id="using" heading={t("trust.api.usingHeading")}>
             <Callout tone="info" title={t("trust.api.machineReadableTitle")}>
               <p>
-                <a href="/api/openapi.json">
-                  <Code>/api/openapi.json</Code>
-                </a>{" "}
-                describes every endpoint here as OpenAPI 3.1 — parameters,
-                status codes, content types and the exact{" "}
-                <Code>Cache-Control</Code> each one sends. It is generated from
-                the same declaration this page reads, and a test compares that
-                declaration against the route handlers that actually exist, so
-                an endpoint cannot be added without appearing in it or described
-                after it has gone.
+                {rich(t("trust.api.prose.openapi"), {
+                  openapiLink: (
+                    <a href="/api/openapi.json">
+                      <Code>/api/openapi.json</Code>
+                    </a>
+                  ),
+                  cacheControl: <Code>Cache-Control</Code>,
+                })}
               </p>
             </Callout>
 
             <div className="mt-6 grid gap-4 sm:grid-cols-2">
               <Card tone="subtle">
-                <h3 className="font-semibold text-(--color-text)">No key, no sign-up</h3>
+                <h3 className="font-semibold text-(--color-text)">
+                  {t("trust.api.terms.noKeyHeading")}
+                </h3>
                 <p className="mt-2 text-sm text-(--color-text-muted)">{t("trust.api.body.using.p2")}</p>
               </Card>
               <Card tone="subtle">
                 <h3 className="font-semibold text-(--color-text)">{t("trust.api.terms.callableFromBrowser")}</h3>
                 <p className="mt-2 text-sm text-(--color-text-muted)">
-                  Every reference endpoint sends{" "}
-                  <Code>Access-Control-Allow-Origin: *</Code>, so a page on any
-                  origin can <Code>fetch</Code> it directly. That was not true
-                  until recently, and it made the endpoints useless to exactly
-                  the people they were published for. The two that do not are
-                  deliberate: health is infrastructure for an operator, and
-                  contact accepts submissions and is origin-checked.
+                  {rich(t("trust.api.prose.cors"), {
+                    allowOrigin: <Code>Access-Control-Allow-Origin: *</Code>,
+                    fetch: <Code>fetch</Code>,
+                  })}
                 </p>
               </Card>
               <Card tone="subtle">
                 <h3 className="font-semibold text-(--color-text)">{t("trust.api.terms.cacheIt")}</h3>
                 <p className="mt-2 text-sm text-(--color-text-muted)">
-                  Rates change rarely — twice in the programme&rsquo;s history at
-                  the time of writing. The responses carry{" "}
-                  <Code>Cache-Control</Code> and are safe to hold for an hour or
-                  a day. Please do not poll them every second; there is no rate
-                  limit and it would be a waste of both our bandwidth.
+                  {rich(t("trust.api.prose.cacheIt"), {
+                    cacheControl: <Code>Cache-Control</Code>,
+                  })}
                 </p>
               </Card>
               <Card tone="subtle">
-                <h3 className="font-semibold text-(--color-text)">Attribution</h3>
+                <h3 className="font-semibold text-(--color-text)">
+                  {t("trust.api.terms.attributionHeading")}
+                </h3>
                 <p className="mt-2 text-sm text-(--color-text-muted)">
-                  Not required, and appreciated. If you cite a figure, cite the
-                  source in <Code>sources[]</Code> alongside it — that is
-                  Roblox&rsquo;s own documentation, and it is what makes the
-                  number checkable rather than borrowed.
+                  {rich(t("trust.api.prose.attribution"), {
+                    sources: <Code>sources[]</Code>,
+                  })}
                 </p>
               </Card>
             </div>
@@ -216,22 +211,34 @@ export async function ApiView({ locale }: { readonly locale: Locale }) {
 
           <Section id="terms" heading={t("trust.api.termsHeading")}>
             <p className="text-(--color-text-muted)">
-              <strong className="text-(--color-text)">Promised:</strong> the
-              shape of the response will not change without the{" "}
-              <Code>registryVersion</Code> changing, every figure will carry the
-              source it was verified against, and a rate will never be updated
-              from a scraped page without a person checking it first. Changes are
-              recorded in{" "}
-              <InlineLink href="/changelog/">{t("trust.api.changelogLink")}</InlineLink>.
+              <strong className="text-(--color-text)">
+                {t("trust.api.terms.promisedLabel")}
+              </strong>{" "}
+              {rich(t("trust.api.prose.promised"), {
+                registryVersion: <Code>registryVersion</Code>,
+                changelog: (
+                  <InlineLink href={localizedPath(locale, "/changelog/")}>
+                    {t("trust.api.changelogLink")}
+                  </InlineLink>
+                ),
+              })}
             </p>
             <p className="mt-3 text-(--color-text-muted)">
-              <strong className="text-(--color-text)">Not promised:</strong>{t("trust.api.body.terms.p2")}</p>
+              <strong className="text-(--color-text)">
+                {t("trust.api.terms.notPromisedLabel")}
+              </strong>{" "}
+              {t("trust.api.body.terms.p2")}
+            </p>
 
             <Callout tone="info" title={t("trust.api.robloxFiguresTitle")}>
-              Every rate here is what Roblox currently documents, recorded on the
-              verification date shown. Roblox decides which rate applies to which
-              balance and whether any DevEx request is approved. Read{" "}
-              <InlineLink href="/methodology/">{t("platform.stats.methodologyLink")}</InlineLink>{t("trust.api.body.terms.p4")}</Callout>
+              {rich(t("trust.api.prose.robloxFigures"), {
+                methodology: (
+                  <InlineLink href={localizedPath(locale, "/methodology/")}>
+                    {t("platform.stats.methodologyLink")}
+                  </InlineLink>
+                ),
+              })}
+            </Callout>
           </Section>
 
           <RelatedLinks locale={locale}

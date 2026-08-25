@@ -637,6 +637,44 @@ function tokenName(expression: string): string | null {
   return last;
 }
 
+/**
+ * The characters a reader sees, from the entities an author wrote.
+ *
+ * `&rsquo;` ends in a semicolon, and the shape tests below treat a semicolon
+ * as proof that a span is code rather than prose. Every sentence containing
+ * an apostrophe — which on this site means most of them — was discarded on
+ * that basis and never counted. Decoding first also means the dictionary
+ * holds the character rather than the escape, which is what a translator
+ * needs to see.
+ */
+const ENTITIES: Readonly<Record<string, string>> = {
+  rsquo: "’",
+  lsquo: "‘",
+  ldquo: "“",
+  rdquo: "”",
+  mdash: "—",
+  ndash: "–",
+  hellip: "…",
+  nbsp: " ",
+  times: "×",
+  divide: "÷",
+  minus: "−",
+  uarr: "↑",
+  darr: "↓",
+  amp: "&",
+  lt: "<",
+  gt: ">",
+};
+
+function decodeEntities(value: string): string {
+  return value
+    .replace(/&#(\d+);/g, (_, code: string) => String.fromCharCode(Number(code)))
+    .replace(/&#x([0-9a-fA-F]+);/g, (_, hex: string) =>
+      String.fromCharCode(Number.parseInt(hex, 16)),
+    )
+    .replace(/&([a-z]+);/g, (whole, name: string) => ENTITIES[name] ?? whole);
+}
+
 function scanJsxText(
   file: string,
   source: string,
@@ -664,7 +702,7 @@ function scanJsxText(
       // Removing an interpolation leaves the space that sat before it, so
       // `quote reference {digest}.` would end `reference .`. The sentence is
       // the same one either way; this just does not write the gap down.
-      const value = part
+      const value = decodeEntities(part)
         .split(/\s+/)
         .filter(Boolean)
         .join(" ")

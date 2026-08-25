@@ -59,6 +59,12 @@
         "p4": "Utilisez le site avec le stockage local entièrement bloqué : tout fonctionne, rien n’est retenu.",
         "p5": "Écrivez-nous à propos de n’importe quel point de cette politique via la"
       }
+    },
+    "prose": {
+      "localStorageIntro": "Sur une action de votre part, ce site enregistre quelques éléments dans le stockage local de votre propre navigateur :",
+      "noAnalytics": "Aucun fournisseur d’analyse n’est configuré : ce site ne charge donc aucun script de suivi et ne dépose aucun cookie d’analyse. Notre hébergeur n’en ajoute pas non plus : Web Analytics de Cloudflare injectait un script dans les pages au moment de leur diffusion, et il a été désactivé pour ce site. Vérifié après le changement — aucune requête vers un hôte d’analyse n’est émise au chargement d’une page.",
+      "contactForm": "Si vous envoyez un message via le formulaire de contact, le nom, l’adresse e-mail, l’objet et le message que vous saisissez sont transmis au serveur de ce site et acheminés vers la destination configurée afin de pouvoir être lus et recevoir une réponse. Ils ne servent à rien d’autre, et le contenu du message n’est pas écrit dans les journaux du serveur.",
+      "infrastructure": "Ce site fonctionne sur Cloudflare Workers. Comme chez tout hébergeur web, Cloudflare traite les requêtes nécessaires pour servir les pages, ce qui implique votre adresse IP et l’agent utilisateur de votre navigateur, et applique son propre traitement de sécurité au niveau réseau. Ce traitement est régi par les conditions de confidentialité de Cloudflare, et non par celles de ce site."
     }
   },
   "terms": {
@@ -127,6 +133,9 @@
         "p3": "renvoie directement à la page officielle dont il provient : vous pouvez donc vérifier la valeur actuelle vous-même en quelques secondes. Le signaler via le",
         "p4": "le fait corriger pour tout le monde également."
       }
+    },
+    "prose": {
+      "exactButEstimate": "La calculatrice multiplie le nombre de Robux que vous saisissez par un taux tiré de la documentation publiée par Roblox. Cette arithmétique est exacte et couverte par des tests. Ce qu’elle produit reste une estimation, car les entrées sont des hypothèses : que les Robux saisis sont des Earned Robux éligibles, et que le taux choisi est celui que Roblox leur appliquera."
     }
   },
   "accessibility": {
@@ -187,6 +196,9 @@
       "contrast": "Contraste de couleur pour chaque paire de couleurs de texte et d’interface, dans les thèmes clair et sombre",
       "reducedMotion": "Préférence de mouvement réduit respectée sur tout le site",
       "highContrast": "Mode contraste élevé de Windows, où les bordures gardent la structure visible"
+    },
+    "thirdParty": {
+      "turnstile": "Cloudflare Turnstile, lorsqu’un déploiement l’active sur le formulaire de contact, est un widget tiers dont l’accessibilité interne échappe au contrôle de ce site."
     }
   }
 }

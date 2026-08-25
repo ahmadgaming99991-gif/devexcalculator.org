@@ -145,6 +145,13 @@
         "p1": "Ödeme bir gelirdir ve nasıl vergilendirileceği tamamen yaşadığınız yere bağlıdır. Ödeme sağlayıcınız bir ücret alabilir ve ABD doları dışında bir para biriminde ödeme alıyorsanız bunun üzerine bir de dönüşüm farkı biner.",
         "p2": "Bu kesintileri kendi rakamlarınızla modelleyin"
       }
+    },
+    "prose": {
+      "noGuaranteedTime": "Roblox garantili bir işlem süresi yayımlamaz, bu yüzden bu sayfa da bir süre belirtmez. Başka yerlerde geçen belirli gün sayıları, taahhüt değil, diğer yaratıcıların deneyimleridir — ve bir kişinin süresi, sizinki hakkında güvenilir hiçbir şey söylemez. Bir talep takılmış görünüyorsa, ona gerçekten bakabilecek tek taraf Roblox destek ekibidir."
+    },
+    "avoid": {
+      "phishing": "“Uygunluğunuzu kontrol etmek” için Roblox hesabınızla giriş yapmanızı isteyen bir site kimlik avı yapıyordur.",
+      "generators": "Robux “üreticileri” diye bir şey yoktur. Hepsi ya dolandırıcılıktır ya da anket çiftliğidir."
     }
   }
 }

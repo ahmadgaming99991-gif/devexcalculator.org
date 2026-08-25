@@ -126,12 +126,7 @@ export async function RobuxTaxView({ locale }: { readonly locale: Locale }) {
               </Table>
             </TableWrapper>
 
-            <Callout tone="info" title={t("rates.robuxTax.multipleTitle")} className="mt-4">
-              Price floors differ by item category and Roblox has adjusted them
-              over time, so hardcoding one universal floor would produce wrong
-              answers for most items. Entering the multiple keeps the result
-              correct whatever your category&rsquo;s floor happens to be.
-            </Callout>
+            <Callout tone="info" title={t("rates.robuxTax.multipleTitle")} className="mt-4">{" "}{t("rates.robuxTax.prose.priceFloors")}{" "}</Callout>
           </Section>
 
           <Section

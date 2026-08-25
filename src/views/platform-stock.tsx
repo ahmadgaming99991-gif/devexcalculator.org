@@ -101,19 +101,9 @@ export async function StockView({ locale }: { readonly locale: Locale }) {
           </Section>
 
           <Section id="why" heading={t("platform.stock.noChartHeading")}>
-            <p className="text-(--color-text-muted)">
-              Sites that show a live Roblox chart are almost always embedding one from a
-              market data vendor, which means that vendor&rsquo;s script runs in your
-              browser and can see your visit. This site loads no third-party scripts on
-              any page, and adding one here would quietly undo that for everyone.
-            </p>
+            <p className="text-(--color-text-muted)">{" "}{t("platform.stock.noChartBody")}{" "}</p>
             <p className="mt-3 text-(--color-text-muted)">{t("platform.stock.whenConnected")}</p>
-            <Callout tone="warning" title={t("platform.stock.notAdviceTitle")}>
-              Nothing on this page is a recommendation to buy or sell anything. A
-              company&rsquo;s results say nothing about what any individual creator will
-              be paid, and the DevEx rate is set by Roblox independently of its share
-              price.
-            </Callout>
+            <Callout tone="warning" title={t("platform.stock.notAdviceTitle")}>{" "}{t("platform.stock.notAdviceBody")}{" "}</Callout>
           </Section>
 
           <Section id="faqs" heading={t("platform.stock.questionsHeading")}>

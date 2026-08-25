@@ -145,6 +145,13 @@
         "p1": "Eine Auszahlung ist Einkommen, und wie sie besteuert wird, hängt ganz davon ab, wo du lebst. Dein Zahlungsdienstleister kann eine Gebühr erheben, und wenn du in einer anderen Währung als US-Dollar bezahlt wirst, kommt eine Umrechnungsspanne obendrauf.",
         "p2": "Rechne diese Abzüge mit deinen eigenen Zahlen durch"
       }
+    },
+    "prose": {
+      "noGuaranteedTime": "Roblox veröffentlicht keine garantierte Bearbeitungszeit, also nennt diese Seite auch keine. Konkrete Tageszahlen, die anderswo genannt werden, sind Erfahrungen anderer Creator, keine Zusagen — und der Zeitraum einer Person sagt nichts Verlässliches über Ihren. Wirkt ein Antrag festgefahren, ist der Roblox-Support die einzige Stelle, die tatsächlich hineinsehen kann."
+    },
+    "avoid": {
+      "phishing": "Eine Seite, die Sie auffordert, sich mit Ihrem Roblox-Konto anzumelden, um die „Berechtigung zu prüfen“, ist Phishing.",
+      "generators": "Robux-„Generatoren“ gibt es nicht. Jeder einzelne davon ist Betrug oder eine Umfragefarm."
     }
   }
 }

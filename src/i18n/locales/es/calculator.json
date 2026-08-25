@@ -134,6 +134,9 @@
         "p3": "Suman {allocatedPercent}%, lo que deja {unallocatedRobux} Robux sin asignar. Aquí no se ha escalado nada para cuadrar los números: ajustarlos por ti produciría cifras que nadie acordó. Corrige los porcentajes o acepta que un resto quede con quien controla los fondos del grupo.",
         "p5": "{unallocatedRobux} Robux no se pueden repartir de forma exacta con estos porcentajes. Los Robux son unidades enteras, así que cada parte se redondea hacia abajo y el resto se muestra en lugar de entregarse a quien casualmente figure primero."
       }
+    },
+    "prose": {
+      "robloxDoesNotDivide": "Una solicitud de DevEx la envía una cuenta individual y se paga a esa cuenta. Roblox no reparte un pago entre colaboradores, y un acuerdo de reparto de ingresos dentro de un grupo es cosa de las personas que lo forman. Lo que esto calcula es a cuánto asciende la parte acordada de cada persona: no algo que Roblox vaya a hacer en su nombre, ni una cifra que Roblox haya aceptado."
     }
   },
   "preparation": {

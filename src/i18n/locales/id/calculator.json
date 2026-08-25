@@ -135,6 +135,9 @@
         "p3": "Totalnya {allocatedPercent}%, sehingga {unallocatedRobux} Robux tidak teralokasi. Tidak ada yang diskalakan di sini agar angkanya pas: menyesuaikannya untuk Anda akan menghasilkan angka yang tidak disepakati siapa pun. Perbaiki persentasenya, atau terima bahwa sisanya tetap berada pada pemegang dana grup.",
         "p5": "{unallocatedRobux} Robux tidak dapat dibagi rata pada persentase ini. Robux adalah satuan bulat, jadi setiap bagian dibulatkan ke bawah dan sisanya ditampilkan, bukan diberikan kepada siapa pun yang kebetulan tercantum pertama."
       }
+    },
+    "prose": {
+      "robloxDoesNotDivide": "Permohonan DevEx diajukan oleh satu akun pribadi dan dibayarkan ke akun itu. Roblox tidak membagi pembayaran di antara kolaborator, dan kesepakatan bagi hasil di dalam sebuah grup adalah urusan orang-orang di dalamnya. Yang dihitung di sini adalah berapa jumlah bagian yang disepakati tiap orang — bukan sesuatu yang akan dilakukan Roblox atas nama mereka, dan bukan angka yang telah disetujui Roblox."
     }
   },
   "preparation": {

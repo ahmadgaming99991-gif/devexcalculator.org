@@ -71,6 +71,9 @@
       "noForecast": {
         "p1": "Roblox pernah mengubah kursnya dan bisa mengubahnya lagi. Tidak ada di luar Roblox yang tahu apakah atau kapan, dan ramalan yang dibungkus sebagai analisis hanyalah tebakan bernada percaya diri. Halaman ini hanya mencatat perubahan yang dikonfirmasi dokumentasi resmi, masing-masing dengan tanggal berlakunya. Ketika sebuah perubahan terjadi, ia muncul di sini dan di"
       }
+    },
+    "prose": {
+      "legacySplit": "Roblox mencairkan bagian saldo dari sebelum transisi lebih dulu dengan tarif 0,0035, lalu sisanya dengan 0,0038. Pembagian itu adalah pembukuan Roblox sendiri tentang kapan tiap Robux diperoleh — bukan sesuatu yang dipilih atau bisa diatur oleh kreator."
     }
   },
   "requirements": {
@@ -206,6 +209,9 @@
         "membership": "Jatah keanggotaan bulanan",
         "trade": "Robux yang diterima lewat pertukaran"
       }
+    },
+    "prose": {
+      "groupFunds": "Penghasilan dari experience yang dimiliki sebuah grup menumpuk di dana grup, bukan di akun perorangan mana pun. DevEx bekerja pada akun pribadi, jadi dana grup harus sampai ke saldo pribadi lewat sebuah pembayaran sebelum relevan bagi permohonan DevEx. Jika Anda membagi pendapatan dengan kolaborator, sepakati cara kerjanya sebelum uangnya datang, bukan sesudahnya — dan periksa dokumentasi resmi terkini tentang bagaimana pembayaran grup diperlakukan, karena ini bidang yang pernah diubah Roblox."
     }
   },
   "feesAndTaxes": {
@@ -269,6 +275,9 @@
         "p2": "Hitung biaya marketplace secara terpisah",
         "p3": "Buka kalkulator biaya marketplace"
       }
+    },
+    "prose": {
+      "currencyMargin": "Tarif DevEx dinyatakan dalam dolar AS. Jika Anda dibayar dalam mata uang lain, ada pihak yang mengonversinya dan menerapkan kursnya sendiri ditambah margin. Margin itulah sebabnya angka dari bank Anda tidak akan cocok dengan kurs referensi."
     }
   },
   "robuxToUsd": {
@@ -412,6 +421,9 @@
       "groupSplits": "Pembagian pendapatan grup yang disepakati antar-kolaborator, yang terjadi setelah komisi Roblox.",
       "promotional": "Tarif promosi atau tarif khusus program apa pun yang mungkin diterapkan Roblox pada kategori tertentu.",
       "devexConversion": "Konversi DevEx, yang merupakan langkah terpisah dan ditangani oleh kalkulator utama."
+    },
+    "prose": {
+      "priceFloors": "Harga dasar berbeda menurut kategori item dan Roblox pernah menyesuaikannya dari waktu ke waktu, jadi menetapkan satu harga dasar universal di dalam kode akan menghasilkan jawaban yang salah untuk sebagian besar item. Memasukkan kelipatannya menjaga hasilnya tetap benar, berapa pun harga dasar kategori Anda."
     }
   },
   "conversions": {
@@ -434,6 +446,9 @@
       "rounding": {
         "p1": "Tiap angka adalah Robux dikalikan kurs desimal yang eksak, ditahan sebagai pecahan sepanjang jalan dan dibulatkan ke sen hanya ketika dicetak. Tidak ada yang dibulatkan di tengah, jadi sebuah total tidak pernah bertentangan dengan jumlah bagian-bagiannya."
       }
+    },
+    "prose": {
+      "notRoundNumbers": "Daftar ini bukan pilihan angka bulat: ini adalah jumlah-jumlah yang benar-benar dicari orang. Apa pun yang tidak ada di sini — termasuk angka yang lebih besar daripada baris terakhir tabel — dimasukkan ke pengonversi di atas, yang memakai tarif dan aritmetika yang sama."
     }
   },
   "amountPage": {

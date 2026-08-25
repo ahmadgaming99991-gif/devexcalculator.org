@@ -54,10 +54,7 @@ export async function PrivacyView({ locale }: { readonly locale: Locale }) {
           </Section>
 
           <Section id="local-storage" heading={t("legal.privacy.localStorageHeading")}>
-            <p className="text-(--color-text-muted)">
-              With your action, this site stores a few things in your own
-              browser&rsquo;s local storage:
-            </p>
+            <p className="text-(--color-text-muted)">{" "}{t("legal.privacy.prose.localStorageIntro")}{" "}</p>
             <ul className="mt-3 flex list-disc flex-col gap-2 pl-5 text-(--color-text-muted)">
               <li>{t("legal.privacy.stored.currency")}</li>
               <li>{t("legal.privacy.stored.theme")}</li>
@@ -87,27 +84,14 @@ export async function PrivacyView({ locale }: { readonly locale: Locale }) {
                 </p>
               </>
             ) : (
-              <Callout tone="info" title={t("legal.privacy.noAnalyticsTitle")}>
-                No analytics provider is configured, so this site loads no tracking
-                script and sets no analytics cookie. Our host does not add one either:
-                Cloudflare&rsquo;s Web Analytics was injecting a script into pages as
-                they were served, and it has been turned off for this site. Verified
-                after the change &mdash; no request to any analytics host is made when
-                a page loads.
-              </Callout>
+              <Callout tone="info" title={t("legal.privacy.noAnalyticsTitle")}>{" "}{t("legal.privacy.prose.noAnalytics")}{" "}</Callout>
             )}
           </Section>
 
           <Section id="contact" heading={t("legal.privacy.contactHeading")}>
             {contactEnabled ? (
               <>
-                <p className="text-(--color-text-muted)">
-                  If you send a message through the contact form, the name, email
-                  address, subject and message you enter are transmitted to this
-                  site&rsquo;s server and forwarded to the configured destination so it
-                  can be read and replied to. They are used for nothing else, and
-                  message content is not written to server logs.
-                </p>
+                <p className="text-(--color-text-muted)">{" "}{t("legal.privacy.prose.contactForm")}{" "}</p>
                 {isTurnstileEnabled ? (
                   <p className="mt-3 text-(--color-text-muted)">{t("legal.privacy.body.contact.p1")}</p>
                 ) : null}
@@ -118,13 +102,7 @@ export async function PrivacyView({ locale }: { readonly locale: Locale }) {
           </Section>
 
           <Section id="infrastructure" heading={t("legal.privacy.infrastructureHeading")}>
-            <p className="text-(--color-text-muted)">
-              This site runs on Cloudflare Workers. As with any web host,
-              Cloudflare processes the requests needed to serve pages, which
-              involves your IP address and browser user agent, and it applies its
-              own network-level security handling. That processing is governed by
-              Cloudflare&rsquo;s own privacy terms rather than by this site.
-            </p>
+            <p className="text-(--color-text-muted)">{" "}{t("legal.privacy.prose.infrastructure")}{" "}</p>
             <p className="mt-3 text-(--color-text-muted)">{t("legal.privacy.body.infrastructure.p1")}</p>
           </Section>
 

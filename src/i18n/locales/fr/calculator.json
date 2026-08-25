@@ -133,6 +133,9 @@
         "p3": "Elles totalisent {allocatedPercent} %, laissant {unallocatedRobux} Robux non attribués. Rien n'a été mis à l'échelle ici pour que les nombres tombent juste : les ajuster à votre place produirait des chiffres que personne n'a acceptés. Corrigez les pourcentages, ou acceptez qu'un reliquat reste chez la personne qui détient les fonds du groupe.",
         "p5": "{unallocatedRobux} Robux ne peuvent pas être répartis exactement avec ces pourcentages. Les Robux sont des unités entières : chaque part est arrondie à l'inférieur et le reliquat est affiché plutôt que remis à la personne qui figure en premier dans la liste."
       }
+    },
+    "prose": {
+      "robloxDoesNotDivide": "Une demande DevEx est déposée par un compte individuel et versée sur ce compte. Roblox ne répartit pas un versement entre collaborateurs, et un accord de partage des revenus au sein d’un groupe ne concerne que les personnes qui en font partie. Ce qui est calculé ici, c’est ce à quoi revient la part convenue de chacun — pas quelque chose que Roblox fera à leur place, ni un montant que Roblox a validé."
     }
   },
   "preparation": {

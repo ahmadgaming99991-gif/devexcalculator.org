@@ -281,6 +281,9 @@
         "p1": "Roblox publica estas cifras una vez por trimestre, en un informe. Esa es la resolución más fina que existe, así que un gráfico que dijera mostrarlas cambiando minuto a minuto estaría mostrando algo inventado. Este sitio no realiza ninguna recogida de datos, no muestrea nada y no estima nada: lee los informes y enlaza a ellos."
       }
     },
-    "usDollarsLabel": "dólares estadounidenses"
+    "usDollarsLabel": "dólares estadounidenses",
+    "prose": {
+      "quarterOfRevenue": "La línea que merece leerse dos veces es la segunda. Las comisiones del Developer Exchange suponen alrededor de una cuarta parte de los ingresos de Roblox, así que una parte importante de lo que ingresa la plataforma vuelve a salir como pagos a creadores. Cada cifra de esta tabla está tomada de {filings}."
+    }
   }
 }

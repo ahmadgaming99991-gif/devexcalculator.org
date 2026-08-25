@@ -281,6 +281,9 @@
         "p1": "Roblox publishes these numbers once a quarter, in a filing. That is the finest resolution that exists, so a chart claiming to show them changing by the minute would be showing something invented. This site runs no data collection, samples nothing and estimates nothing — it reads the filings and links to them."
       }
     },
-    "usDollarsLabel": "US dollars"
+    "usDollarsLabel": "US dollars",
+    "prose": {
+      "quarterOfRevenue": "The line worth reading twice is the second one. Developer exchange fees are about a quarter of Roblox’s revenue, so a meaningful share of what the platform takes in leaves again as creator payouts. Every figure in this table is quoted from {filings}."
+    }
   }
 }

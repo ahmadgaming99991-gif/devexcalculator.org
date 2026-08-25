@@ -127,10 +127,7 @@ export async function MethodologyView({ locale }: { readonly locale: Locale }) {
           >
             <ul className="flex flex-col gap-3 text-(--color-text-muted)">
               <li>
-                <strong className="text-(--color-text)">{t("trust.methodology.rounding.moneyHalfUp")}</strong> to the
-                currency&rsquo;s own minor units — two decimal places for dollars, none
-                for yen or won.
-              </li>
+                <strong className="text-(--color-text)">{t("trust.methodology.rounding.moneyHalfUp")}</strong>{" "}{t("trust.methodology.rounding.moneyHalfUpBody")}{" "}</li>
               <li>
                 <strong className="text-(--color-text)">{t("trust.methodology.rounding.robuxUp")}</strong>{" "}
                 Rounding to nearest would sometimes return a figure that falls
@@ -175,10 +172,7 @@ export async function MethodologyView({ locale }: { readonly locale: Locale }) {
             description={t("trust.methodology.cannotDescription")}
           >
             <ul className="flex list-disc flex-col gap-2 pl-5 text-(--color-text-muted)">
-              <li>
-                Which of your Robux Roblox counts as Earned Robux. That is
-                Roblox&rsquo;s internal accounting and is not visible from outside.
-              </li>
+              <li>{" "}{t("trust.methodology.cannot.eligibility")}{" "}</li>
               <li>
                 How your balance divides between the standard, legacy and
                 conditional rates. The split calculator models whatever division

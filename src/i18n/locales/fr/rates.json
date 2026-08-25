@@ -71,6 +71,9 @@
       "noForecast": {
         "p1": "Roblox a déjà modifié le taux et pourra le refaire. Personne en dehors de Roblox ne sait si ni quand, et une prédiction déguisée en analyse serait une supposition au ton assuré. Cette page ne consigne que les changements confirmés par la documentation officielle, chacun avec sa date d’entrée en vigueur. Quand un changement survient, il apparaît ici et dans le"
       }
+    },
+    "prose": {
+      "legacySplit": "Roblox convertit d’abord la part du solde antérieure à la transition à 0,0035, puis le reste à 0,0038. La répartition relève de la comptabilité propre de Roblox quant au moment où chaque Robux a été gagné — ce n’est pas quelque chose qu’un créateur choisit ou peut ajuster."
     }
   },
   "requirements": {
@@ -206,6 +209,9 @@
         "membership": "Dotations mensuelles d’abonnement",
         "trade": "Robux reçus lors d’un échange"
       }
+    },
+    "prose": {
+      "groupFunds": "Les revenus d’une expérience détenue par un groupe s’accumulent dans les fonds du groupe, et non sur un compte individuel. DevEx fonctionne sur un compte personnel : les fonds du groupe doivent donc atteindre un solde personnel par un versement avant d’être pertinents pour une demande DevEx. Si vous partagez des revenus avec des collaborateurs, convenez du fonctionnement avant que l’argent n’arrive plutôt qu’après — et consultez la documentation officielle en vigueur sur le traitement des versements de groupe, car c’est un domaine que Roblox a déjà modifié."
     }
   },
   "feesAndTaxes": {
@@ -269,6 +275,9 @@
         "p2": "Calculez la commission du marketplace séparément",
         "p3": "Ouvrir la calculatrice de commission du marketplace"
       }
+    },
+    "prose": {
+      "currencyMargin": "Le taux DevEx est exprimé en dollars américains. Si vous êtes payé dans une autre devise, quelqu’un la convertit et applique son propre taux, majoré d’une marge. C’est cette marge qui explique que le chiffre de votre banque ne corresponde pas à un taux de référence."
     }
   },
   "robuxToUsd": {
@@ -412,6 +421,9 @@
       "groupSplits": "Les partages de revenus de groupe convenus entre collaborateurs, qui interviennent après la commission de Roblox.",
       "promotional": "Tout taux promotionnel ou propre à un programme que Roblox pourrait appliquer à une catégorie donnée.",
       "devexConversion": "La conversion DevEx, une étape distincte prise en charge par la calculatrice principale."
+    },
+    "prose": {
+      "priceFloors": "Les prix planchers diffèrent selon la catégorie d’objet et Roblox les a ajustés au fil du temps ; coder en dur un plancher universel donnerait donc de mauvaises réponses pour la plupart des objets. Saisir le multiple garde le résultat exact, quel que soit le plancher de votre catégorie."
     }
   },
   "conversions": {
@@ -434,6 +446,9 @@
       "rounding": {
         "p1": "Chaque chiffre est un nombre de Robux multiplié par un taux décimal exact, conservé sous forme de fraction tout du long et arrondi au centime seulement à l’affichage. Rien n’est arrondi en cours de route : un total ne contredit donc jamais la somme de ses éléments."
       }
+    },
+    "prose": {
+      "notRoundNumbers": "Cette liste n’est pas une sélection de nombres ronds : ce sont les montants réellement recherchés. Tout ce qui n’y figure pas — y compris des chiffres supérieurs à la dernière ligne du tableau — se saisit dans le convertisseur ci-dessus, qui emploie les mêmes taux et la même arithmétique."
     }
   },
   "amountPage": {

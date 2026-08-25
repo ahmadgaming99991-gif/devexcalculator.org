@@ -160,16 +160,7 @@ export async function EarnedRobuxView({ locale }: { readonly locale: Locale }) {
             heading={t("rates.earnedRobux.groupFundsHeading")}
             description={t("rates.earnedRobux.groupFundsDescription")}
           >
-            <p className="text-(--color-text-muted)">
-              Earnings from an experience owned by a group accumulate in the
-              group&rsquo;s funds rather than in any individual account. DevEx operates
-              on a personal account, so group funds have to reach a personal
-              balance through a payout before they are relevant to a DevEx
-              request. If you are splitting revenue with collaborators, agree how
-              that works before the money arrives rather than after — and check
-              the current official documentation for how group payouts are
-              treated, since this is an area Roblox has changed before.
-            </p>
+            <p className="text-(--color-text-muted)">{" "}{t("rates.earnedRobux.prose.groupFunds")}{" "}</p>
           </Section>
 
           <FAQAccordion locale={locale} faqs={record.faqs} heading={t("rates.earnedRobux.faqsHeading")} />

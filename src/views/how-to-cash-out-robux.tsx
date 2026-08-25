@@ -147,13 +147,7 @@ export async function CashOutView({ locale }: { readonly locale: Locale }) {
             heading={t("guides.cashOut.howLongHeading")}
             description={t("guides.cashOut.howLongDescription")}
           >
-            <p className="text-(--color-text-muted)">
-              Roblox does not publish a guaranteed processing time, so this page
-              does not state one. Specific numbers of days quoted elsewhere are
-              other creators&rsquo; experiences, not commitments — and one person&rsquo;s
-              timeline says nothing reliable about yours. If a request seems
-              stuck, Roblox support is the only party who can actually look at it.
-            </p>
+            <p className="text-(--color-text-muted)">{" "}{t("guides.cashOut.prose.noGuaranteedTime")}{" "}</p>
           </Section>
 
           <Section
@@ -165,15 +159,9 @@ export async function CashOutView({ locale }: { readonly locale: Locale }) {
 
             <ul className="mt-4 flex list-disc flex-col gap-2 pl-5 text-(--color-text-muted)">
               <li>{t("guides.cashOut.body.safety.p2")}</li>
-              <li>
-                A site asking you to sign in with your Roblox account to
-                &ldquo;check eligibility&rdquo; is phishing.
-              </li>
+              <li>{" "}{t("guides.cashOut.avoid.phishing")}{" "}</li>
               <li>{t("guides.cashOut.body.safety.p3")}</li>
-              <li>
-                Robux &ldquo;generators&rdquo; do not exist. Every one of them is
-                a scam or a survey farm.
-              </li>
+              <li>{" "}{t("guides.cashOut.avoid.generators")}{" "}</li>
             </ul>
           </Section>
 

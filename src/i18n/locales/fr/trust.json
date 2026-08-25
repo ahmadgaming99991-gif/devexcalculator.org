@@ -8,6 +8,7 @@
     "api.ratesHeading",
     "api.statsHeading",
     "api.terms.attribution",
+    "api.terms.attributionHeading",
     "authors.contactLabel",
     "changelog.filterSite",
     "changelog.jsonFeed"
@@ -26,7 +27,8 @@
       "worksWithoutJs": "La page fonctionne sans JavaScript.",
       "nothingCollected": "Rien n’est collecté.",
       "privacyIsSpecific": "La politique de confidentialité est précise là-dessus",
-      "correctionsPublished": "Les corrections sont publiées."
+      "correctionsPublished": "Les corrections sont publiées.",
+      "rateHasSourceBody": "Pas « à jour depuis peu » : un lien vers la documentation officielle de Roblox et la date du dernier contrôle, affichée sur la page."
     },
     "body": {
       "purpose": {
@@ -51,6 +53,9 @@
       "affiliation": {
         "p1": "DevExCalculator.org n’est ni affilié à Roblox Corporation, ni approuvé, sponsorisé ou exploité par elle. Roblox, Robux et Developer Exchange sont des marques de Roblox Corporation, utilisées ici uniquement pour décrire l’objet de ces calculs. Pour tout ce qui concerne votre compte, votre solde ou votre demande DevEx, Roblox est la seule partie qui puisse aider."
       }
+    },
+    "limits": {
+      "noUniversalPrice": "Publier un prix d’achat universel des Robux. Il n’en existe pas : il varie selon le pack, la région et la plateforme."
     }
   },
   "methodology": {
@@ -96,12 +101,14 @@
       "moneyHalfUp": "L’argent s’arrondit au plus proche, moitié vers le haut",
       "robuxUp": "Les Robux requis s’arrondissent au supérieur.",
       "sharesDown": "Les parts du marketplace s’arrondissent au inférieur.",
-      "intermediateNever": "Les valeurs intermédiaires ne sont jamais arrondies."
+      "intermediateNever": "Les valeurs intermédiaires ne sont jamais arrondies.",
+      "moneyHalfUpBody": "aux subdivisions propres à la devise — deux décimales pour les dollars, aucune pour le yen ou le won."
     },
     "cannot": {
       "approvalOrTiming": "Si une demande sera acceptée, ni quand elle sera payée.",
       "providerCharges": "Ce que votre banque ou votre prestataire de paiement facturera.",
-      "taxOwed": "Ce que vous devez en impôts."
+      "taxOwed": "Ce que vous devez en impôts.",
+      "eligibility": "Lesquels de vos Robux Roblox compte comme Earned Robux. Cela relève de la comptabilité interne de Roblox et n’est pas visible de l’extérieur."
     },
     "body": {
       "arithmetic": {
@@ -208,7 +215,8 @@
       "updateTests": "Mettre à jour les tests.",
       "reviewPages": "Relire les pages concernées.",
       "recordChangelog": "Le consigner dans le changelog.",
-      "updateDate": "Mettre à jour la date de vérification."
+      "updateDate": "Mettre à jour la date de vérification.",
+      "verifyBody": "L’affirmation est vérifiée directement dans la documentation de Roblox, et non auprès d’un autre site qui l’a reprise."
     },
     "body": {
       "report": {
@@ -302,7 +310,11 @@
       "cacheIt": "Mettez-le en cache",
       "attribution": "Attribution",
       "promised": "Promis :",
-      "notPromised": "Non promis :"
+      "notPromised": "Non promis :",
+      "noKeyHeading": "Sans clé, sans inscription",
+      "attributionHeading": "Attribution",
+      "promisedLabel": "Promis :",
+      "notPromisedLabel": "Non promis :"
     },
     "endpointColumn": "Endpoint",
     "contract": {
@@ -354,6 +366,19 @@
       "related": {
         "p1": "Lire le taux standard"
       }
+    },
+    "prose": {
+      "ratesVersion": "La réponse porte un {registryVersion} et un {lastVerifiedAt}. Ces deux champs sont l’essentiel : un taux isolé est un nombre qui peut déjà être faux, et ce site a déjà changé de taux une fois — le passage de septembre 2025 de 0,0035 à 0,0038 USD par Robux, raison pour laquelle {rateCount} taux sont publiés plutôt qu’un seul. Lisez la version et vous saurez si ce que vous avez mis en cache est encore ce que ce site sert.",
+      "fxReference": "Ce sont des taux de référence, pas un taux de transaction : personne ne convertit d’argent à ces taux. Ils sont publiés par la BCE une fois par jour ouvré, et la réponse indique de quel jour elle rend compte. Si le fournisseur est injoignable, un instantané embarqué est renvoyé et marqué {fallback} plutôt que présenté comme courant — vérifiez donc {metaCache} avant de traiter un chiffre comme celui du jour.",
+      "stats": "Les chiffres tracés sur {statisticsPage}, publiés sous forme de données afin qu’un graphique puisse être vérifié plutôt que cru. Ajoutez {formatCsv} pour un tableur. Chaque ligne nomme le document dont elle provient et y renvoie, et chaque ligne indique si Roblox a déclaré le chiffre ou si ce site l’a dérivé — une distinction qui disparaît dès que deux nombres partagent une colonne sans elle.",
+      "platform": "Ce que trace {platformPage}. Ajoutez {formatCsv} pour un tableur, ou {seriesExperiences} pour des lignes par expérience plutôt que des totaux. Le lire n’envoie aucune requête à Roblox : le collecteur s’en charge selon son propre calendrier, et un export qui déclencherait un appel en amont permettrait à n’importe qui d’augmenter le taux de requêtes de ce site vers Roblox en rechargeant une URL.",
+      "platformGaps": "Un trou signifie que le collecteur ne s’est pas exécuté à ce moment-là, et le trou reste — pas d’interpolation, pas de report de la valeur précédente, pas de remplissage rétroactif. Lorsqu’aucune observation ne peut être lue, le point d’accès répond {status503} plutôt qu’une liste vide, car un fichier vide est indiscernable d’une période sans joueurs.",
+      "openapi": "{openapiLink} décrit chaque point d’accès ici en OpenAPI 3.1 — paramètres, codes d’état, types de contenu et le {cacheControl} exact que chacun envoie. Il est généré à partir de la même déclaration que lit cette page, et un test compare cette déclaration aux gestionnaires de route qui existent réellement : un point d’accès ne peut donc pas être ajouté sans y figurer, ni décrit après avoir disparu.",
+      "cors": "Chaque point d’accès de référence envoie {allowOrigin}, si bien qu’une page de n’importe quelle origine peut y faire un {fetch} directement. Ce n’était pas le cas jusqu’à récemment, et cela rendait les points d’accès inutiles précisément aux personnes pour qui ils avaient été publiés. Les deux qui ne le font pas sont délibérés : health est de l’infrastructure pour un exploitant, et contact accepte des envois et vérifie l’origine.",
+      "cacheIt": "Les taux changent rarement — deux fois dans l’histoire du programme à l’heure où ceci est écrit. Les réponses portent {cacheControl} et peuvent sans risque être conservées une heure ou un jour. Merci de ne pas les interroger chaque seconde ; il n’y a pas de limite de débit et ce serait un gaspillage de bande passante des deux côtés.",
+      "attribution": "Pas obligatoire, et appréciée. Si vous citez un chiffre, citez à côté la source figurant dans {sources} : c’est la documentation de Roblox elle-même, et c’est ce qui rend le nombre vérifiable plutôt qu’emprunté.",
+      "promised": "la forme de la réponse ne changera pas sans que le {registryVersion} change, chaque chiffre portera la source au regard de laquelle il a été vérifié, et un taux ne sera jamais mis à jour depuis une page extraite automatiquement sans qu’une personne l’ait d’abord contrôlé. Les changements sont consignés dans {changelog}.",
+      "robloxFigures": "Chaque taux ici est ce que Roblox documente actuellement, consigné à la date de vérification affichée. C’est Roblox qui décide quel taux s’applique à quel solde et si une demande DevEx est approuvée. Lisez {methodology} pour voir comment chaque chiffre passe de leur documentation à cette réponse."
     }
   },
   "authors": {

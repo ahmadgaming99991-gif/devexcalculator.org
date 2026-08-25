@@ -129,11 +129,7 @@ export async function AccessibilityView({ locale }: { readonly locale: Locale })
               <li>{t("legal.accessibility.body.limitations.p1")}</li>
               <li>{t("legal.accessibility.body.limitations.p2")}</li>
               <li>{t("legal.accessibility.body.limitations.p3")}</li>
-              <li>
-                Cloudflare Turnstile, where a deployment enables it on the
-                contact form, is a third-party widget whose internal
-                accessibility is outside this site&rsquo;s control.
-              </li>
+              <li>{" "}{t("legal.accessibility.thirdParty.turnstile")}{" "}</li>
             </ul>
           </Section>
 

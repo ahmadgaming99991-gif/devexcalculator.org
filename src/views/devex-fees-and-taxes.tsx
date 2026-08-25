@@ -106,12 +106,7 @@ export async function FeesAndTaxesView({
                 between you and that provider; Roblox does not set it and neither
                 does this site.
               </DefinitionBlock>
-              <DefinitionBlock term={t("rates.feesAndTaxes.term2")}>
-                The DevEx rate is stated in US dollars. If you are paid in
-                another currency, someone converts it, and they apply their own
-                rate plus a margin. That margin is why your bank&rsquo;s figure will
-                not match a reference rate.
-              </DefinitionBlock>
+              <DefinitionBlock term={t("rates.feesAndTaxes.term2")}>{" "}{t("rates.feesAndTaxes.prose.currencyMargin")}{" "}</DefinitionBlock>
               <DefinitionBlock term={t("rates.feesAndTaxes.term3")}>{t("rates.feesAndTaxes.body.threeLayers.p1")}</DefinitionBlock>
             </div>
           </Section>

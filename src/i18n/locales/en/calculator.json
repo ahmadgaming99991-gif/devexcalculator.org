@@ -129,6 +129,9 @@
         "p3": "They total {allocatedPercent}%, leaving {unallocatedRobux} Robux unassigned. Nothing here has been scaled to make the numbers meet: adjusting them for you would produce figures nobody agreed to. Fix the percentages, or accept that a remainder stays with whoever holds the group funds.",
         "p5": "{unallocatedRobux} Robux cannot be divided evenly at these percentages. Robux are whole, so each share is rounded down and the remainder is shown rather than handed to whoever happens to be listed first."
       }
+    },
+    "prose": {
+      "robloxDoesNotDivide": "A DevEx request is submitted by an individual account and paid to that account. Roblox does not divide a payout between collaborators, and a revenue-share arrangement inside a group is between the people in it. What this works out is what each person’s agreed share comes to — not something Roblox will do on their behalf, and not a figure Roblox has agreed to."
     }
   },
   "preparation": {

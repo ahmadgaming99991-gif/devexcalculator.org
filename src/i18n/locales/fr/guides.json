@@ -145,6 +145,13 @@
         "p1": "Un paiement est un revenu, et sa fiscalité dépend entièrement de l’endroit où vous vivez. Votre prestataire de paiement peut prélever des frais, et si vous êtes payé dans une devise autre que le dollar américain, un écart de conversion s’ajoute.",
         "p2": "Modélisez ces prélèvements avec vos propres chiffres"
       }
+    },
+    "prose": {
+      "noGuaranteedTime": "Roblox ne publie pas de délai de traitement garanti ; cette page n’en annonce donc aucun. Les nombres de jours cités ailleurs sont l’expérience d’autres créateurs, pas des engagements — et le délai d’une personne ne dit rien de fiable sur le vôtre. Si une demande semble bloquée, l’assistance Roblox est la seule à pouvoir réellement l’examiner."
+    },
+    "avoid": {
+      "phishing": "Un site qui vous demande de vous connecter avec votre compte Roblox pour « vérifier votre éligibilité » fait du hameçonnage.",
+      "generators": "Les « générateurs » de Robux n’existent pas. Ce sont tous des arnaques ou des fermes à sondages."
     }
   }
 }

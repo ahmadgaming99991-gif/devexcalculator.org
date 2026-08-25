@@ -132,6 +132,9 @@
         "p3": "Sie ergeben zusammen {allocatedPercent} % und lassen {unallocatedRobux} Robux unzugeordnet. Hier wurde nichts skaliert, damit die Zahlen aufgehen: eine Anpassung für Sie würde Beträge erzeugen, denen niemand zugestimmt hat. Korrigieren Sie die Prozentsätze, oder akzeptieren Sie, dass ein Rest bei der Person bleibt, die die Gruppengelder verwaltet.",
         "p5": "{unallocatedRobux} Robux lassen sich bei diesen Prozentsätzen nicht gleichmäßig aufteilen. Robux sind ganze Einheiten, daher wird jeder Anteil abgerundet und der Rest angezeigt, statt an die Person zu gehen, die zufällig zuerst aufgeführt ist."
       }
+    },
+    "prose": {
+      "robloxDoesNotDivide": "Ein DevEx-Antrag wird von einem einzelnen Konto gestellt und an dieses Konto ausgezahlt. Roblox teilt eine Auszahlung nicht unter Mitwirkenden auf, und eine Umsatzbeteiligung innerhalb einer Gruppe ist Sache der Beteiligten. Berechnet wird hier, wie viel der vereinbarte Anteil jeder Person ausmacht — nicht etwas, das Roblox für sie erledigt, und keine Zahl, der Roblox zugestimmt hätte."
     }
   },
   "preparation": {

@@ -241,14 +241,7 @@ export function GroupSplit({ words }: { readonly words: LocaleWords }) {
         </Callout>
       ) : null}
 
-      <Callout tone="info" title={t("calculator.groupSplit.onePersonPaidTitle")} className="mt-4">
-        A DevEx request is submitted by an individual account and paid to that
-        account. Roblox does not divide a payout between collaborators, and a
-        revenue-share arrangement inside a group is between the people in it. What
-        this works out is what each person&rsquo;s agreed share comes to — not
-        something Roblox will do on their behalf, and not a figure Roblox has
-        agreed to.
-      </Callout>
+      <Callout tone="info" title={t("calculator.groupSplit.onePersonPaidTitle")} className="mt-4">{" "}{t("calculator.groupSplit.prose.robloxDoesNotDivide")}{" "}</Callout>
     </div>
   );
 }

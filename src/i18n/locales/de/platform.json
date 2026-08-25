@@ -285,6 +285,9 @@
         "p1": "Roblox veröffentlicht diese Zahlen einmal pro Quartal, in einem Bericht. Das ist die feinste Auflösung, die es gibt — ein Diagramm, das behauptet, sie sich minütlich ändern zu sehen, würde also etwas Erfundenes zeigen. Diese Website betreibt keine Datenerhebung, tastet nichts ab und schätzt nichts — sie liest die Berichte und verlinkt sie."
       }
     },
-    "usDollarsLabel": "US-Dollar"
+    "usDollarsLabel": "US-Dollar",
+    "prose": {
+      "quarterOfRevenue": "Die Zeile, die zweimal zu lesen lohnt, ist die zweite. Developer-Exchange-Gebühren machen etwa ein Viertel von Roblox’ Umsatz aus; ein erheblicher Teil dessen, was die Plattform einnimmt, verlässt sie also wieder als Creator-Auszahlungen. Jede Zahl in dieser Tabelle stammt aus {filings}."
+    }
   }
 }

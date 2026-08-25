@@ -25,7 +25,8 @@
       "worksWithoutJs": "Die Seite funktioniert ohne JavaScript.",
       "nothingCollected": "Es wird nichts erhoben.",
       "privacyIsSpecific": "Die Datenschutzerklärung wird dazu konkret",
-      "correctionsPublished": "Korrekturen werden veröffentlicht."
+      "correctionsPublished": "Korrekturen werden veröffentlicht.",
+      "rateHasSourceBody": "Nicht „vor Kurzem noch aktuell“ — sondern ein Link zur offiziellen Roblox-Dokumentation und das Datum der letzten Prüfung, auf der Seite sichtbar."
     },
     "body": {
       "purpose": {
@@ -50,6 +51,9 @@
       "affiliation": {
         "p1": "DevExCalculator.org ist nicht mit der Roblox Corporation verbunden und wird von ihr weder unterstützt noch gesponsert oder betrieben. Roblox, Robux und Developer Exchange sind Marken der Roblox Corporation und werden hier nur verwendet, um zu beschreiben, worum es bei diesen Berechnungen geht. Für alles rund um dein Konto, dein Guthaben oder deinen DevEx-Antrag ist Roblox die einzige Stelle, die helfen kann."
       }
+    },
+    "limits": {
+      "noUniversalPrice": "Einen allgemeingültigen Kaufpreis für Robux veröffentlichen. Den gibt es nicht — er hängt von Paket, Region und Plattform ab."
     }
   },
   "methodology": {
@@ -95,12 +99,14 @@
       "moneyHalfUp": "Geld rundet kaufmännisch auf",
       "robuxUp": "Benötigte Robux runden auf.",
       "sharesDown": "Marketplace-Anteile runden ab.",
-      "intermediateNever": "Zwischenwerte werden nie gerundet."
+      "intermediateNever": "Zwischenwerte werden nie gerundet.",
+      "moneyHalfUpBody": "auf die jeweiligen Untereinheiten der Währung — zwei Nachkommastellen bei Dollar, keine bei Yen oder Won."
     },
     "cannot": {
       "approvalOrTiming": "Ob ein Antrag genehmigt wird oder wann ausgezahlt wird.",
       "providerCharges": "Was deine Bank oder dein Zahlungsdienstleister berechnet.",
-      "taxOwed": "Was du an Steuern schuldest."
+      "taxOwed": "Was du an Steuern schuldest.",
+      "eligibility": "Welche Ihrer Robux Roblox als Earned Robux zählt. Das ist Roblox’ interne Buchführung und von außen nicht einsehbar."
     },
     "body": {
       "arithmetic": {
@@ -207,7 +213,8 @@
       "updateTests": "Die Tests aktualisieren.",
       "reviewPages": "Die betroffenen Seiten prüfen.",
       "recordChangelog": "Im Changelog festhalten.",
-      "updateDate": "Das Prüfdatum aktualisieren."
+      "updateDate": "Das Prüfdatum aktualisieren.",
+      "verifyBody": "Die Behauptung wird direkt anhand der Dokumentation von Roblox geprüft, nicht anhand einer anderen Seite, die sie wiederholt hat."
     },
     "body": {
       "report": {
@@ -301,7 +308,11 @@
       "cacheIt": "Cache es",
       "attribution": "Attribution",
       "promised": "Zugesagt:",
-      "notPromised": "Nicht zugesagt:"
+      "notPromised": "Nicht zugesagt:",
+      "noKeyHeading": "Kein Schlüssel, keine Anmeldung",
+      "attributionHeading": "Namensnennung",
+      "promisedLabel": "Zugesagt:",
+      "notPromisedLabel": "Nicht zugesagt:"
     },
     "endpointColumn": "Endpoint",
     "contract": {
@@ -353,6 +364,19 @@
       "related": {
         "p1": "Den Standardkurs lesen"
       }
+    },
+    "prose": {
+      "ratesVersion": "Die Antwort führt ein {registryVersion} und ein {lastVerifiedAt} mit. Auf diese beiden Felder kommt es an: Ein Satz für sich genommen ist eine Zahl, die schon falsch sein kann, und diese Website hat den Satz bereits einmal gewechselt — der Schritt vom September 2025 von 0,0035 auf 0,0038 USD je Robux, weshalb {rateCount} Sätze veröffentlicht werden statt einem. Lesen Sie die Version, und Sie erkennen, ob das, was Sie zwischengespeichert haben, noch das ist, was diese Website ausliefert.",
+      "fxReference": "Das sind Referenzkurse, kein Handelskurs: Niemand tauscht Geld zu ihnen. Die EZB veröffentlicht sie einmal je Werktag, und die Antwort nennt den Tag, über den sie berichtet. Ist der Anbieter nicht erreichbar, wird eine mitgelieferte Momentaufnahme zurückgegeben und als {fallback} gekennzeichnet, statt sie als aktuell auszugeben — prüfen Sie also {metaCache}, bevor Sie eine Zahl als die von heute behandeln.",
+      "stats": "Die auf {statisticsPage} dargestellten Zahlen, als Daten veröffentlicht, damit ein Diagramm geprüft und nicht geglaubt werden muss. Hängen Sie {formatCsv} an für eine Tabelle. Jede Zeile nennt ihre Einreichung und verlinkt sie, und jede Zeile sagt, ob Roblox die Zahl berichtet oder diese Website sie abgeleitet hat — ein Unterschied, der in dem Moment verschwindet, in dem zwei Zahlen ohne ihn in derselben Spalte stehen.",
+      "platform": "Was {platformPage} darstellt. Hängen Sie {formatCsv} an für eine Tabelle oder {seriesExperiences} für Zeilen je Experience statt Summen. Das Lesen stellt keine Anfrage an Roblox: Das erledigt der Sammler nach eigenem Zeitplan, und ein Export, der einen Abruf stromaufwärts auslöste, ließe jeden die Anfragerate dieser Website gegenüber Roblox durch Neuladen einer URL hochtreiben.",
+      "platformGaps": "Eine Lücke bedeutet, dass der Sammler in diesem Moment nicht lief, und die Lücke bleibt — keine Interpolation, kein Fortschreiben, kein nachträgliches Auffüllen. Lässt sich überhaupt keine Messung lesen, antwortet der Endpunkt mit {status503} statt mit einer leeren Liste, denn eine leere Datei ist von einem Zeitraum ohne Spieler nicht zu unterscheiden.",
+      "openapi": "{openapiLink} beschreibt jeden Endpunkt hier als OpenAPI 3.1 — Parameter, Statuscodes, Inhaltstypen und das genaue {cacheControl}, das jeder sendet. Sie wird aus derselben Deklaration erzeugt, die diese Seite liest, und ein Test vergleicht diese Deklaration mit den tatsächlich vorhandenen Route-Handlern; ein Endpunkt kann also weder hinzugefügt werden, ohne darin aufzutauchen, noch beschrieben bleiben, nachdem er weg ist.",
+      "cors": "Jeder Referenz-Endpunkt sendet {allowOrigin}, sodass eine Seite beliebigen Ursprungs ihn direkt per {fetch} abrufen kann. Bis vor Kurzem war das nicht so, und es machte die Endpunkte genau für die Leute nutzlos, für die sie veröffentlicht wurden. Die beiden, die es nicht tun, sind Absicht: health ist Infrastruktur für den Betrieb, und contact nimmt Einsendungen an und prüft die Herkunft.",
+      "cacheIt": "Sätze ändern sich selten — zum Zeitpunkt des Schreibens zweimal in der Geschichte des Programms. Die Antworten führen {cacheControl} mit und lassen sich bedenkenlos eine Stunde oder einen Tag halten. Bitte fragen Sie sie nicht im Sekundentakt ab; es gibt kein Ratenlimit, und es wäre eine Verschwendung unserer beider Bandbreite.",
+      "attribution": "Nicht erforderlich, aber willkommen. Wenn Sie eine Zahl zitieren, zitieren Sie daneben die Quelle in {sources} — das ist Roblox’ eigene Dokumentation, und sie ist es, die die Zahl überprüfbar statt geborgt macht.",
+      "promised": "Die Form der Antwort ändert sich nicht, ohne dass sich {registryVersion} ändert, jede Zahl führt die Quelle mit, gegen die sie geprüft wurde, und ein Satz wird nie aus einer abgegriffenen Seite aktualisiert, ohne dass zuvor ein Mensch ihn geprüft hat. Änderungen werden in {changelog} festgehalten.",
+      "robloxFigures": "Jeder Satz hier ist das, was Roblox derzeit dokumentiert, erfasst zum angezeigten Prüfdatum. Roblox entscheidet, welcher Satz für welches Guthaben gilt und ob ein DevEx-Antrag bewilligt wird. Lesen Sie {methodology}, um zu sehen, wie jede Zahl aus deren Dokumentation in diese Antwort gelangt."
     }
   },
   "authors": {

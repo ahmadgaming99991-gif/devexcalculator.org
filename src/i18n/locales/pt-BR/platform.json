@@ -281,6 +281,9 @@
         "p1": "O Roblox publica estes números uma vez por trimestre, em um registro oficial. Essa é a resolução mais fina que existe, então um gráfico que alegasse mostrá-los mudando a cada minuto estaria mostrando algo inventado. Este site não faz coleta de dados, não amostra nada e não estima nada — ele lê os registros oficiais e leva a eles."
       }
     },
-    "usDollarsLabel": "dólares americanos"
+    "usDollarsLabel": "dólares americanos",
+    "prose": {
+      "quarterOfRevenue": "A linha que vale a pena ler duas vezes é a segunda. As taxas do Developer Exchange são cerca de um quarto da receita do Roblox, então uma parcela significativa do que a plataforma arrecada sai de novo como pagamentos a criadores. Todo número desta tabela é citado de {filings}."
+    }
   }
 }

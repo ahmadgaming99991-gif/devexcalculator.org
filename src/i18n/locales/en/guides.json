@@ -145,6 +145,13 @@
         "p1": "A payout is income, and how it is taxed depends entirely on where you live. Your payment provider may charge a fee, and if you are paid in a currency other than US dollars there will be a conversion spread on top.",
         "p2": "Model those deductions with your own figures"
       }
+    },
+    "prose": {
+      "noGuaranteedTime": "Roblox does not publish a guaranteed processing time, so this page does not state one. Specific numbers of days quoted elsewhere are other creators’ experiences, not commitments — and one person’s timeline says nothing reliable about yours. If a request seems stuck, Roblox support is the only party who can actually look at it."
+    },
+    "avoid": {
+      "phishing": "A site asking you to sign in with your Roblox account to “check eligibility” is phishing.",
+      "generators": "Robux “generators” do not exist. Every one of them is a scam or a survey farm."
     }
   }
 }

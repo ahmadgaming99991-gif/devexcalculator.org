@@ -67,13 +67,7 @@ export async function ConversionsView({
             description={t("rates.conversions.everyAmountDescription")}
           >
             <AmountTable t={t} />
-            <p className="mt-4 text-sm text-(--color-text-muted)">
-              The list is not a selection of round numbers: it is the amounts
-              that are actually searched for. Anything not here — including
-              figures larger than the table&rsquo;s last row — goes into the
-              converter above, which uses the same rates and the same
-              arithmetic.
-            </p>
+            <p className="mt-4 text-sm text-(--color-text-muted)">{" "}{t("rates.conversions.prose.notRoundNumbers")}{" "}</p>
           </Section>
 
           <Section

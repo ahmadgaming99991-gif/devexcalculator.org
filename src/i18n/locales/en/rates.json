@@ -71,6 +71,9 @@
       "noForecast": {
         "p1": "Roblox has changed the rate before and may change it again. Nobody outside Roblox knows whether or when, and a prediction dressed up as analysis would be a guess with a confident tone. This page records only changes that official documentation confirms, each with its effective date. When a change happens it appears here and in the"
       }
+    },
+    "prose": {
+      "legacySplit": "Roblox cashes out the pre-transition portion of a balance at 0.0035 first, then the rest at 0.0038. The split is Roblox’s own accounting of when each Robux was earned — it is not something a creator selects or can adjust."
     }
   },
   "requirements": {
@@ -206,6 +209,9 @@
         "membership": "Monthly membership grants",
         "trade": "Robux received in a trade"
       }
+    },
+    "prose": {
+      "groupFunds": "Earnings from an experience owned by a group accumulate in the group’s funds rather than in any individual account. DevEx operates on a personal account, so group funds have to reach a personal balance through a payout before they are relevant to a DevEx request. If you are splitting revenue with collaborators, agree how that works before the money arrives rather than after — and check the current official documentation for how group payouts are treated, since this is an area Roblox has changed before."
     }
   },
   "feesAndTaxes": {
@@ -269,6 +275,9 @@
         "p2": "Work out the marketplace fee separately",
         "p3": "Open the marketplace fee calculator"
       }
+    },
+    "prose": {
+      "currencyMargin": "The DevEx rate is stated in US dollars. If you are paid in another currency, someone converts it, and they apply their own rate plus a margin. That margin is why your bank’s figure will not match a reference rate."
     }
   },
   "robuxToUsd": {
@@ -412,6 +421,9 @@
       "groupSplits": "Group revenue splits agreed between collaborators, which happen after Roblox's commission.",
       "promotional": "Any promotional or programme-specific rate Roblox may apply to a particular category.",
       "devexConversion": "The DevEx conversion, which is a separate step handled by the main calculator."
+    },
+    "prose": {
+      "priceFloors": "Price floors differ by item category and Roblox has adjusted them over time, so hardcoding one universal floor would produce wrong answers for most items. Entering the multiple keeps the result correct whatever your category’s floor happens to be."
     }
   },
   "conversions": {
@@ -434,6 +446,9 @@
       "rounding": {
         "p1": "Each figure is Robux multiplied by an exact decimal rate, held as a fraction throughout and rounded to the cent only when it is printed. Nothing is rounded partway through, so a total never disagrees with the sum of its parts."
       }
+    },
+    "prose": {
+      "notRoundNumbers": "The list is not a selection of round numbers: it is the amounts that are actually searched for. Anything not here — including figures larger than the table’s last row — goes into the converter above, which uses the same rates and the same arithmetic."
     }
   },
   "amountPage": {

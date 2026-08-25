@@ -23,7 +23,8 @@
       "worksWithoutJs": "Halamannya berfungsi tanpa JavaScript.",
       "nothingCollected": "Tidak ada yang dikumpulkan.",
       "privacyIsSpecific": "Kebijakan privasinya spesifik soal ini",
-      "correctionsPublished": "Koreksi diterbitkan."
+      "correctionsPublished": "Koreksi diterbitkan.",
+      "rateHasSourceBody": "Bukan “terkini sampai belum lama ini” — melainkan tautan ke dokumentasi resmi Roblox beserta tanggal terakhir kali diperiksa, yang ditampilkan di halaman."
     },
     "body": {
       "purpose": {
@@ -48,6 +49,9 @@
       "affiliation": {
         "p1": "DevExCalculator.org tidak berafiliasi dengan, tidak didukung, tidak disponsori, dan tidak dioperasikan oleh Roblox Corporation. Roblox, Robux, dan Developer Exchange adalah merek dagang Roblox Corporation, yang dipakai di sini hanya untuk menjelaskan pokok perhitungan ini. Untuk apa pun yang menyangkut akun, saldo, atau permohonan DevEx Anda, hanya Roblox yang dapat membantu."
       }
+    },
+    "limits": {
+      "noUniversalPrice": "Menerbitkan satu harga beli Robux yang berlaku universal. Harga seperti itu tidak ada — ia berbeda menurut paket, wilayah, dan platform."
     }
   },
   "methodology": {
@@ -93,12 +97,14 @@
       "moneyHalfUp": "Uang dibulatkan setengah ke atas",
       "robuxUp": "Robux yang dibutuhkan dibulatkan ke atas.",
       "sharesDown": "Bagian marketplace dibulatkan ke bawah.",
-      "intermediateNever": "Nilai antara tidak pernah dibulatkan."
+      "intermediateNever": "Nilai antara tidak pernah dibulatkan.",
+      "moneyHalfUpBody": "ke satuan kecil milik mata uang itu sendiri — dua angka desimal untuk dolar, nol untuk yen atau won."
     },
     "cannot": {
       "approvalOrTiming": "Apakah sebuah permohonan akan disetujui, atau kapan akan dibayarkan.",
       "providerCharges": "Berapa yang akan dikenakan bank atau penyedia pembayaran Anda.",
-      "taxOwed": "Berapa pajak yang Anda tanggung."
+      "taxOwed": "Berapa pajak yang Anda tanggung.",
+      "eligibility": "Robux Anda yang mana yang dihitung Roblox sebagai Earned Robux. Itu pembukuan internal Roblox dan tidak terlihat dari luar."
     },
     "body": {
       "arithmetic": {
@@ -205,7 +211,8 @@
       "updateTests": "Perbarui pengujiannya.",
       "reviewPages": "Tinjau halaman yang terdampak.",
       "recordChangelog": "Catat di changelog.",
-      "updateDate": "Perbarui tanggal verifikasi."
+      "updateDate": "Perbarui tanggal verifikasi.",
+      "verifyBody": "Klaimnya diperiksa langsung terhadap dokumentasi Roblox sendiri, bukan terhadap situs lain yang mengulanginya."
     },
     "body": {
       "report": {
@@ -299,7 +306,11 @@
       "cacheIt": "Simpan dalam cache",
       "attribution": "Atribusi",
       "promised": "Dijanjikan:",
-      "notPromised": "Tidak dijanjikan:"
+      "notPromised": "Tidak dijanjikan:",
+      "noKeyHeading": "Tanpa kunci, tanpa pendaftaran",
+      "attributionHeading": "Atribusi",
+      "promisedLabel": "Yang dijanjikan:",
+      "notPromisedLabel": "Yang tidak dijanjikan:"
     },
     "endpointColumn": "Endpoint",
     "contract": {
@@ -351,6 +362,19 @@
       "related": {
         "p1": "Membaca kurs standar"
       }
+    },
+    "prose": {
+      "ratesVersion": "Responsnya membawa {registryVersion} dan {lastVerifiedAt}. Kedua bidang itulah intinya: sebuah tarif yang berdiri sendiri adalah angka yang mungkin sudah keliru, dan situs ini sudah pernah sekali berganti tarif — perpindahan September 2025 dari 0,0035 ke 0,0038 USD per Robux, dan karena itulah {rateCount} tarif diterbitkan, bukan satu. Baca versinya, dan Anda tahu apakah yang Anda simpan di cache masih sama dengan yang disajikan situs ini.",
+      "fxReference": "Ini adalah kurs referensi, bukan kurs transaksi: tidak ada yang menukar uang dengan kurs ini. Kurs ini diterbitkan ECB sekali tiap hari kerja, dan responsnya menyebutkan hari mana yang dilaporkan. Jika penyedianya tidak dapat dihubungi, sebuah cuplikan bawaan dikembalikan dan ditandai {fallback} alih-alih disodorkan sebagai kurs terkini — jadi periksa {metaCache} sebelum menganggap sebuah angka sebagai angka hari ini.",
+      "stats": "Angka-angka yang digambarkan di {statisticsPage}, diterbitkan sebagai data supaya sebuah grafik bisa diperiksa alih-alih dipercaya begitu saja. Tambahkan {formatCsv} untuk lembar kerja. Setiap baris menyebutkan dokumen sumbernya dan menautkannya, dan setiap baris menyatakan apakah Roblox melaporkan angka itu atau situs ini yang menurunkannya — pembedaan yang lenyap begitu dua angka duduk di kolom yang sama tanpanya.",
+      "platform": "Apa yang digambarkan {platformPage}. Tambahkan {formatCsv} untuk lembar kerja, atau {seriesExperiences} untuk baris per experience alih-alih total. Membacanya tidak membuat permintaan apa pun ke Roblox: pengumpul data melakukannya menurut jadwalnya sendiri, dan ekspor yang memicu pengambilan ke hulu akan memungkinkan siapa pun menaikkan laju permintaan situs ini ke Roblox hanya dengan memuat ulang sebuah URL.",
+      "platformGaps": "Sebuah celah berarti pengumpul data tidak berjalan pada saat itu, dan celah itu dibiarkan — tanpa interpolasi, tanpa membawa nilai sebelumnya, tanpa pengisian mundur. Ketika tidak ada pengamatan yang bisa dibaca sama sekali, endpoint menjawab {status503} alih-alih daftar kosong, karena berkas kosong tidak bisa dibedakan dari periode tanpa pemain.",
+      "openapi": "{openapiLink} menjelaskan setiap endpoint di sini sebagai OpenAPI 3.1 — parameter, kode status, tipe konten, dan {cacheControl} persis yang dikirim masing-masing. Berkas itu dihasilkan dari deklarasi yang sama dengan yang dibaca halaman ini, dan sebuah pengujian membandingkan deklarasi tersebut dengan penangan rute yang benar-benar ada, sehingga sebuah endpoint tidak bisa ditambahkan tanpa muncul di sana, atau dijelaskan setelah ia hilang.",
+      "cors": "Setiap endpoint rujukan mengirim {allowOrigin}, sehingga halaman dari asal mana pun bisa melakukan {fetch} langsung ke sana. Sampai belum lama ini hal itu tidak berlaku, dan justru membuat endpoint-nya tak berguna bagi orang-orang yang menjadi tujuan penerbitannya. Dua yang tidak mengirimnya memang disengaja: health adalah infrastruktur untuk operator, dan contact menerima kiriman serta diperiksa asalnya.",
+      "cacheIt": "Tarif jarang berubah — dua kali sepanjang sejarah program ini sampai tulisan ini dibuat. Responsnya membawa {cacheControl} dan aman disimpan selama satu jam atau satu hari. Mohon jangan menjajaknya tiap detik; tidak ada batas laju permintaan dan itu hanya memboroskan lebar pita kita berdua.",
+      "attribution": "Tidak diwajibkan, dan dihargai. Jika Anda mengutip sebuah angka, kutip pula sumbernya di {sources} — itu adalah dokumentasi Roblox sendiri, dan itulah yang membuat angkanya dapat diperiksa alih-alih sekadar dipinjam.",
+      "promised": "bentuk responsnya tidak akan berubah tanpa {registryVersion} ikut berubah, setiap angka akan membawa sumber tempat ia diverifikasi, dan sebuah tarif tidak akan pernah diperbarui dari halaman hasil pengikisan tanpa ada orang yang memeriksanya lebih dulu. Perubahan dicatat di {changelog}.",
+      "robloxFigures": "Setiap tarif di sini adalah apa yang saat ini didokumentasikan Roblox, dicatat pada tanggal verifikasi yang ditampilkan. Roblox yang memutuskan tarif mana berlaku untuk saldo mana dan apakah sebuah permohonan DevEx disetujui. Baca {methodology} untuk melihat bagaimana setiap angka berpindah dari dokumentasi mereka ke respons ini."
     }
   },
   "authors": {

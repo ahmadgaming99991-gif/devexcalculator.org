@@ -29,14 +29,7 @@ export async function DisclaimerView({ locale }: { readonly locale: Locale }) {
           <QuickAnswer locale={locale}>{record.quickAnswer}</QuickAnswer>
 
           <Section id="estimates" heading={t("legal.disclaimer.estimatesHeading")}>
-            <p className="text-(--color-text-muted)">
-              The calculator multiplies the Robux figure you enter by a rate taken
-              from Roblox&rsquo;s published documentation. That arithmetic is exact and
-              covered by tests. What it produces is still an estimate, because the
-              inputs are assumptions: that the Robux you entered are eligible
-              Earned Robux, and that the rate you selected is the one Roblox will
-              apply to them.
-            </p>
+            <p className="text-(--color-text-muted)">{" "}{t("legal.disclaimer.prose.exactButEstimate")}{" "}</p>
             <p className="mt-3 text-(--color-text-muted)">{t("legal.disclaimer.body.estimates.p1")}</p>
           </Section>
 

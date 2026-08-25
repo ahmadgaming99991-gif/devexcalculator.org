@@ -132,6 +132,9 @@
         "p3": "Toplamları %{allocatedPercent}, bu da {unallocatedRobux} Robux'ı atanmamış bırakıyor. Sayıların tutması için burada hiçbir şey ölçeklenmedi: bunları sizin yerinize ayarlamak, kimsenin kabul etmediği rakamlar üretirdi. Yüzdeleri düzeltin ya da artan kısmın grup fonlarını elinde tutan kişide kalmasını kabul edin.",
         "p5": "{unallocatedRobux} Robux bu yüzdelerle eşit olarak bölünemez. Robux tam birimlerdir; bu nedenle her pay aşağı yuvarlanır ve artan kısım, listede rastgele ilk sırada yer alan kişiye verilmek yerine gösterilir."
       }
+    },
+    "prose": {
+      "robloxDoesNotDivide": "Bir DevEx talebi bireysel bir hesap tarafından gönderilir ve o hesaba ödenir. Roblox bir ödemeyi işbirlikçiler arasında bölmez; bir grup içindeki gelir paylaşımı düzenlemesi, gruptaki kişiler arasındadır. Burada hesaplanan şey, her kişinin üzerinde anlaşılan payının ne ettiğidir — Roblox'un onlar adına yapacağı bir şey değil ve Roblox'un onayladığı bir rakam da değil."
     }
   },
   "preparation": {

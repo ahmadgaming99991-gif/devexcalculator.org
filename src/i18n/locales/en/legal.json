@@ -55,6 +55,12 @@
         "p4": "Use the site with local storage blocked entirely — everything works, nothing is remembered.",
         "p5": "Contact us about anything in this policy through the"
       }
+    },
+    "prose": {
+      "localStorageIntro": "With your action, this site stores a few things in your own browser’s local storage:",
+      "noAnalytics": "No analytics provider is configured, so this site loads no tracking script and sets no analytics cookie. Our host does not add one either: Cloudflare’s Web Analytics was injecting a script into pages as they were served, and it has been turned off for this site. Verified after the change — no request to any analytics host is made when a page loads.",
+      "contactForm": "If you send a message through the contact form, the name, email address, subject and message you enter are transmitted to this site’s server and forwarded to the configured destination so it can be read and replied to. They are used for nothing else, and message content is not written to server logs.",
+      "infrastructure": "This site runs on Cloudflare Workers. As with any web host, Cloudflare processes the requests needed to serve pages, which involves your IP address and browser user agent, and it applies its own network-level security handling. That processing is governed by Cloudflare’s own privacy terms rather than by this site."
     }
   },
   "terms": {
@@ -123,6 +129,9 @@
         "p3": "links directly to the official page it came from, so you can check the current value yourself in a few seconds. Reporting it through the",
         "p4": "gets it fixed for everyone else too."
       }
+    },
+    "prose": {
+      "exactButEstimate": "The calculator multiplies the Robux figure you enter by a rate taken from Roblox’s published documentation. That arithmetic is exact and covered by tests. What it produces is still an estimate, because the inputs are assumptions: that the Robux you entered are eligible Earned Robux, and that the rate you selected is the one Roblox will apply to them."
     }
   },
   "accessibility": {
@@ -183,6 +192,9 @@
       "contrast": "Colour contrast for every text and interface colour pair in both light and dark themes",
       "reducedMotion": "Reduced-motion preference honoured across the site",
       "highContrast": "Windows High Contrast Mode, where borders keep structure visible"
+    },
+    "thirdParty": {
+      "turnstile": "Cloudflare Turnstile, where a deployment enables it on the contact form, is a third-party widget whose internal accessibility is outside this site’s control."
     }
   }
 }

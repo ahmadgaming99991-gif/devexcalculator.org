@@ -22,7 +22,8 @@
       "worksWithoutJs": "La página funciona sin JavaScript.",
       "nothingCollected": "No se recopila nada.",
       "privacyIsSpecific": "La política de privacidad es concreta al respecto",
-      "correctionsPublished": "Las correcciones se publican."
+      "correctionsPublished": "Las correcciones se publican.",
+      "rateHasSourceBody": "No «actual hasta hace poco»: un enlace a la documentación oficial de Roblox y la fecha en que se comprobó por última vez, mostrada en la página."
     },
     "body": {
       "purpose": {
@@ -47,6 +48,9 @@
       "affiliation": {
         "p1": "DevExCalculator.org no está afiliado, respaldado, patrocinado ni gestionado por Roblox Corporation. Roblox, Robux y Developer Exchange son marcas registradas de Roblox Corporation, usadas aquí solo para describir de qué tratan estos cálculos. Para cualquier cosa sobre tu cuenta, tu saldo o tu solicitud de DevEx, Roblox es la única parte que puede ayudarte."
       }
+    },
+    "limits": {
+      "noUniversalPrice": "Publicar un precio universal de compra de Robux. No existe: varía según el paquete, la región y la plataforma."
     }
   },
   "methodology": {
@@ -92,12 +96,14 @@
       "moneyHalfUp": "El dinero redondea a la mitad hacia arriba",
       "robuxUp": "Los Robux necesarios redondean hacia arriba.",
       "sharesDown": "Las partes del marketplace redondean hacia abajo.",
-      "intermediateNever": "Los valores intermedios nunca se redondean."
+      "intermediateNever": "Los valores intermedios nunca se redondean.",
+      "moneyHalfUpBody": "a las subunidades propias de la moneda: dos decimales para los dólares, ninguno para los yenes o los wones."
     },
     "cannot": {
       "approvalOrTiming": "Si se aprobará una solicitud, ni cuándo se pagará.",
       "providerCharges": "Cuánto te cobrará tu banco o tu proveedor de pagos.",
-      "taxOwed": "Cuánto debes en impuestos."
+      "taxOwed": "Cuánto debes en impuestos.",
+      "eligibility": "Cuáles de tus Robux cuenta Roblox como Earned Robux. Eso es contabilidad interna de Roblox y no se ve desde fuera."
     },
     "body": {
       "arithmetic": {
@@ -204,7 +210,8 @@
       "updateTests": "Actualizar las pruebas.",
       "reviewPages": "Revisar las páginas afectadas.",
       "recordChangelog": "Registrarlo en el changelog.",
-      "updateDate": "Actualizar la fecha de verificación."
+      "updateDate": "Actualizar la fecha de verificación.",
+      "verifyBody": "La afirmación se comprueba directamente con la documentación del propio Roblox, no con otro sitio que la repitió."
     },
     "body": {
       "report": {
@@ -298,7 +305,11 @@
       "cacheIt": "Guárdalo en caché",
       "attribution": "Atribución",
       "promised": "Prometido:",
-      "notPromised": "No prometido:"
+      "notPromised": "No prometido:",
+      "noKeyHeading": "Sin clave, sin registro",
+      "attributionHeading": "Atribución",
+      "promisedLabel": "Prometido:",
+      "notPromisedLabel": "No prometido:"
     },
     "endpointColumn": "Endpoint",
     "contract": {
@@ -350,6 +361,19 @@
       "related": {
         "p1": "Leer la tasa estándar"
       }
+    },
+    "prose": {
+      "ratesVersion": "La respuesta incluye un {registryVersion} y un {lastVerifiedAt}. Esos dos campos son lo importante: una tasa por sí sola es una cifra que puede estar ya equivocada, y este sitio ya cambió de tasa una vez: el cambio de septiembre de 2025, de 0,0035 a 0,0038 USD por Robux, y por eso se publican {rateCount} tasas en lugar de una. Lee la versión y sabrás si lo que has cacheado sigue siendo lo que este sitio sirve.",
+      "fxReference": "Estas son tasas de referencia, no una tasa de negociación: nadie convierte dinero con ellas. Las publica el BCE una vez por día hábil, y la respuesta indica de qué día informa. Si no se puede contactar con el proveedor, se devuelve una instantánea incorporada marcada como {fallback} en lugar de hacerla pasar por actual, así que comprueba {metaCache} antes de tratar una cifra como de hoy.",
+      "stats": "Las cifras representadas en {statisticsPage}, publicadas como datos para que un gráfico pueda comprobarse en vez de creerse. Añade {formatCsv} para una hoja de cálculo. Cada fila nombra su informe y enlaza a él, y cada fila indica si Roblox declaró la cifra o si este sitio la derivó: una distinción que desaparece en cuanto dos números comparten columna sin ella.",
+      "platform": "Lo que representa {platformPage}. Añade {formatCsv} para una hoja de cálculo, o {seriesExperiences} para filas por experiencia en lugar de totales. Leerlo no hace ninguna petición a Roblox: el recolector lo hace según su propio calendario, y una exportación que disparara una petición externa permitiría a cualquiera elevar la tasa de peticiones de este sitio contra Roblox recargando una URL.",
+      "platformGaps": "Un hueco significa que el recolector no se ejecutó en ese momento, y el hueco se deja — sin interpolación, sin arrastrar el valor anterior, sin rellenar hacia atrás. Cuando no puede leerse ninguna observación, el endpoint responde {status503} en lugar de una lista vacía, porque un archivo vacío es indistinguible de un periodo sin jugadores.",
+      "openapi": "{openapiLink} describe cada endpoint de aquí como OpenAPI 3.1: parámetros, códigos de estado, tipos de contenido y el {cacheControl} exacto que envía cada uno. Se genera a partir de la misma declaración que lee esta página, y una prueba compara esa declaración con los manejadores de ruta que existen de verdad, así que no se puede añadir un endpoint sin que aparezca en ella ni describir uno que ya no está.",
+      "cors": "Cada endpoint de referencia envía {allowOrigin}, de modo que una página de cualquier origen puede hacerle {fetch} directamente. Eso no era así hasta hace poco, y volvía los endpoints inútiles justo para las personas para las que se publicaron. Los dos que no lo hacen es a propósito: health es infraestructura para quien opera el sitio, y contact acepta envíos y comprueba el origen.",
+      "cacheIt": "Las tasas cambian rara vez: dos veces en la historia del programa hasta el momento de escribir esto. Las respuestas llevan {cacheControl} y se pueden guardar sin problema durante una hora o un día. Por favor, no las consultes cada segundo; no hay límite de peticiones y sería un desperdicio del ancho de banda de ambos.",
+      "attribution": "No es obligatoria, y se agradece. Si citas una cifra, cita junto a ella la fuente en {sources}: es la documentación del propio Roblox, y es lo que hace que el número sea comprobable en vez de prestado.",
+      "promised": "la forma de la respuesta no cambiará sin que cambie el {registryVersion}, cada cifra llevará la fuente con la que se verificó, y una tasa nunca se actualizará desde una página raspada sin que una persona la compruebe antes. Los cambios se registran en {changelog}.",
+      "robloxFigures": "Cada tasa aquí es lo que Roblox documenta actualmente, registrada en la fecha de verificación mostrada. Roblox decide qué tasa se aplica a qué saldo y si se aprueba una solicitud de DevEx. Lee {methodology} para ver cómo llega cada cifra desde su documentación hasta esta respuesta."
     }
   },
   "authors": {

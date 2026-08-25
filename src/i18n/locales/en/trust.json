@@ -14,7 +14,8 @@
       "worksWithoutJs": "The page works without JavaScript.",
       "nothingCollected": "Nothing is collected.",
       "privacyIsSpecific": "The privacy policy is specific about this",
-      "correctionsPublished": "Corrections are published."
+      "correctionsPublished": "Corrections are published.",
+      "rateHasSourceBody": "Not “current as of recently” — a link to the official Roblox documentation and the date it was last checked, shown on the page."
     },
     "body": {
       "purpose": {
@@ -39,6 +40,9 @@
       "affiliation": {
         "p1": "DevExCalculator.org is not affiliated with, endorsed by, sponsored by or operated by Roblox Corporation. Roblox, Robux and Developer Exchange are trademarks of Roblox Corporation, used here only to describe what these calculations are about. For anything about your account, your balance or your DevEx request, Roblox is the only party who can help."
       }
+    },
+    "limits": {
+      "noUniversalPrice": "Publish a universal Robux purchase price. There isn’t one — it varies by package, region and platform."
     }
   },
   "methodology": {
@@ -84,12 +88,14 @@
       "moneyHalfUp": "Money rounds half-up",
       "robuxUp": "Required Robux round up.",
       "sharesDown": "Marketplace shares round down.",
-      "intermediateNever": "Intermediate values are never rounded."
+      "intermediateNever": "Intermediate values are never rounded.",
+      "moneyHalfUpBody": "to the currency’s own minor units — two decimal places for dollars, none for yen or won."
     },
     "cannot": {
       "approvalOrTiming": "Whether a request will be approved, or when it will be paid.",
       "providerCharges": "What your bank or payment provider will charge.",
-      "taxOwed": "What you owe in tax."
+      "taxOwed": "What you owe in tax.",
+      "eligibility": "Which of your Robux Roblox counts as Earned Robux. That is Roblox’s internal accounting and is not visible from outside."
     },
     "body": {
       "arithmetic": {
@@ -196,7 +202,8 @@
       "updateTests": "Update the tests.",
       "reviewPages": "Review the affected pages.",
       "recordChangelog": "Record it in the changelog.",
-      "updateDate": "Update the verification date."
+      "updateDate": "Update the verification date.",
+      "verifyBody": "The claim is checked directly against Roblox’s own documentation, not against another site that repeated it."
     },
     "body": {
       "report": {
@@ -290,7 +297,11 @@
       "cacheIt": "Cache it",
       "attribution": "Attribution",
       "promised": "Promised:",
-      "notPromised": "Not promised:"
+      "notPromised": "Not promised:",
+      "noKeyHeading": "No key, no sign-up",
+      "attributionHeading": "Attribution",
+      "promisedLabel": "Promised:",
+      "notPromisedLabel": "Not promised:"
     },
     "endpointColumn": "Endpoint",
     "contract": {
@@ -342,6 +353,19 @@
       "related": {
         "p1": "Reading the standard rate"
       }
+    },
+    "prose": {
+      "ratesVersion": "The response carries a {registryVersion} and a {lastVerifiedAt}. Those two fields are the point: a rate on its own is a number that may already be wrong, and this site changed rate once already — the September 2025 move from $0.0035 to $0.0038 per Robux, which is why {rateCount} rates are published rather than one. Read the version, and you can tell whether what you cached is still what this site is serving.",
+      "fxReference": "These are reference rates, not a dealing rate: nobody converts money at them. They are published by the ECB once per working day, and the response says which day it is reporting. If the provider cannot be reached, a bundled snapshot is returned and marked {fallback} rather than passed off as current — so check {metaCache} before treating a figure as today's.",
+      "stats": "The figures charted on {statisticsPage}, published as data so a chart can be checked rather than believed. Add {formatCsv} for a spreadsheet. Every row names its filing and links to it, and every row says whether Roblox reported the figure or this site derived it — a distinction that disappears the moment two numbers sit in the same column without it.",
+      "platform": "What {platformPage} charts. Add {formatCsv} for a spreadsheet, or {seriesExperiences} for per-experience rows rather than totals. Reading it makes no request to Roblox: the collector does that on its own schedule, and an export that triggered an upstream fetch would let anyone raise this site's request rate against Roblox by reloading a URL.",
+      "platformGaps": "A gap means the collector did not run at that moment, and the gap is left in — no interpolation, no carry-forward, no back-fill. When no observations can be read at all the endpoint answers {status503} rather than an empty list, because an empty file is indistinguishable from a period with no players.",
+      "openapi": "{openapiLink} describes every endpoint here as OpenAPI 3.1 — parameters, status codes, content types and the exact {cacheControl} each one sends. It is generated from the same declaration this page reads, and a test compares that declaration against the route handlers that actually exist, so an endpoint cannot be added without appearing in it or described after it has gone.",
+      "cors": "Every reference endpoint sends {allowOrigin}, so a page on any origin can {fetch} it directly. That was not true until recently, and it made the endpoints useless to exactly the people they were published for. The two that do not are deliberate: health is infrastructure for an operator, and contact accepts submissions and is origin-checked.",
+      "cacheIt": "Rates change rarely — twice in the programme's history at the time of writing. The responses carry {cacheControl} and are safe to hold for an hour or a day. Please do not poll them every second; there is no rate limit and it would be a waste of both our bandwidth.",
+      "attribution": "Not required, and appreciated. If you cite a figure, cite the source in {sources} alongside it — that is Roblox's own documentation, and it is what makes the number checkable rather than borrowed.",
+      "promised": "the shape of the response will not change without the {registryVersion} changing, every figure will carry the source it was verified against, and a rate will never be updated from a scraped page without a person checking it first. Changes are recorded in {changelog}.",
+      "robloxFigures": "Every rate here is what Roblox currently documents, recorded on the verification date shown. Roblox decides which rate applies to which balance and whether any DevEx request is approved. Read {methodology} for how each figure gets from their documentation into this response."
     }
   },
   "authors": {

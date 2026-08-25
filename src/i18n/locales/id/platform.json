@@ -287,6 +287,9 @@
         "p1": "Roblox menerbitkan angka-angka ini sekali per kuartal, dalam sebuah laporan. Itulah resolusi terhalus yang ada, jadi grafik yang mengeklaim menampilkannya berubah tiap menit sedang menampilkan sesuatu yang dikarang. Situs ini tidak menjalankan pengumpulan data, tidak mencuplik apa pun, dan tidak memperkirakan apa pun — ia membaca laporannya dan menautkan ke sana."
       }
     },
-    "usDollarsLabel": "dolar AS"
+    "usDollarsLabel": "dolar AS",
+    "prose": {
+      "quarterOfRevenue": "Baris yang layak dibaca dua kali adalah yang kedua. Biaya Developer Exchange kira-kira seperempat dari pendapatan Roblox, jadi bagian yang cukup berarti dari apa yang diterima platform ini keluar lagi sebagai pembayaran kepada kreator. Setiap angka dalam tabel ini dikutip dari {filings}."
+    }
   }
 }

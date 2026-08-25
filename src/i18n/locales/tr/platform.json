@@ -284,6 +284,9 @@
         "p1": "Roblox bu rakamları çeyrekte bir kez, bir bildirimle yayımlar. Var olan en ince çözünürlük budur; dolayısıyla bunları dakika dakika değişiyormuş gibi gösterdiğini iddia eden bir grafik, uydurulmuş bir şey gösteriyor olurdu. Bu site hiçbir veri toplama işletmez, hiçbir şey örneklemez ve hiçbir şey tahmin etmez — bildirimleri okur ve onlara bağlantı verir."
       }
     },
-    "usDollarsLabel": "ABD doları"
+    "usDollarsLabel": "ABD doları",
+    "prose": {
+      "quarterOfRevenue": "İki kez okunmayı hak eden satır ikincisidir. Developer Exchange ücretleri, Roblox'un gelirinin yaklaşık dörtte biridir; yani platformun aldığının kayda değer bir bölümü, yaratıcı ödemeleri olarak yeniden dışarı çıkar. Bu tablodaki her rakam {filings} kaynağından alınmıştır."
+    }
   }
 }
