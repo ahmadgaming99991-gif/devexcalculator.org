@@ -1,4 +1,8 @@
 import Link from "next/link";
+import type { Translate } from "@/i18n/get-dictionary";
+import { rich } from "@/i18n/rich";
+import { localizedPath } from "@/i18n/locale-path";
+import type { Locale } from "@/i18n/types";
 import { AHMAD_RAZA, findPerson, personRoute } from "@/lib/content/authors";
 import { rateRegistry } from "@/lib/calculations/rate-registry";
 import { formatDate } from "@/lib/calculations/format";
@@ -23,8 +27,16 @@ import { formatDate } from "@/lib/calculations/format";
  *
  * The date comes from the rate registry, never from page copy. That is the
  * single source of truth every "verified" date on this site derives from.
+ *
+ * Nothing renders this today — the page header carries the byline instead. It
+ * is kept because the separation it draws between "maintained" and "reviewed"
+ * is the part that matters and would have to be rebuilt; it takes a translator
+ * and a locale like any other component so that using it again is wiring
+ * rather than a second extraction pass.
  */
 export function MaintainerLine({
+  locale,
+  t,
   /** From the route registry. Both required together, or neither. */
   reviewedBy,
   reviewedAt,
@@ -32,6 +44,8 @@ export function MaintainerLine({
   showsRate,
   className,
 }: {
+  readonly locale: Locale;
+  readonly t: Translate;
   reviewedBy?: string;
   reviewedAt?: string;
   showsRate: boolean;
@@ -50,32 +64,46 @@ export function MaintainerLine({
         .filter(Boolean)
         .join(" ")}
     >
-      Maintained by{" "}
-      <Link
-        href={personRoute(AHMAD_RAZA)}
-        className="font-medium text-(--color-primary) underline underline-offset-2"
-        rel="author"
-      >
-        {AHMAD_RAZA.name}
-      </Link>
+      {rich(t("common.byline.maintainedBy"), {
+        maintainer: (
+          <Link
+            href={localizedPath(locale, personRoute(AHMAD_RAZA))}
+            className="font-medium text-(--color-primary) underline underline-offset-2"
+            rel="author"
+          >
+            {AHMAD_RAZA.name}
+          </Link>
+        ),
+      })}
       {reviewer ? (
         <>
-          {" · Reviewed by "}
-          <Link
-            href={personRoute(reviewer)}
-            className="font-medium text-(--color-primary) underline underline-offset-2"
-          >
-            {reviewer.name}
-          </Link>
+          {" · "}
+          {rich(t("common.byline.reviewedBy"), {
+            reviewer: (
+              <Link
+                href={localizedPath(locale, personRoute(reviewer))}
+                className="font-medium text-(--color-primary) underline underline-offset-2"
+              >
+                {reviewer.name}
+              </Link>
+            ),
+          })}
         </>
       ) : null}
-      {showsRate ? <> · Rates verified {formatDate(rateRegistry.lastVerifiedAt)}</> : null}
+      {showsRate ? (
+        <>
+          {" · "}
+          {t("common.byline.ratesVerified", {
+            date: formatDate(t.locale, rateRegistry.lastVerifiedAt),
+          })}
+        </>
+      ) : null}
       {" · "}
       <Link
-        href="/methodology/"
+        href={localizedPath(locale, "/methodology/")}
         className="text-(--color-primary) underline underline-offset-2"
       >
-        Methodology
+        {t("common.byline.methodology")}
       </Link>
     </p>
   );

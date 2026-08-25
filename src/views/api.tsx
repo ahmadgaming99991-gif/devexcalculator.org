@@ -57,7 +57,7 @@ export async function ApiView({ locale }: { readonly locale: Locale }) {
             heading={t("trust.api.ratesHeading")}
             description={t("trust.api.ratesDescription")}
           >
-            <Endpoint url={`${base}/api/rates`} />
+            <Endpoint t={t} url={`${base}/api/rates`} />
 
             <p className="mt-4 text-(--color-text-muted)">
               {rich(t("trust.api.prose.ratesVersion"), {
@@ -80,7 +80,7 @@ export async function ApiView({ locale }: { readonly locale: Locale }) {
             heading={t("trust.api.fxHeading")}
             description={t("trust.api.fxDescription")}
           >
-            <Endpoint url={`${base}/api/fx/latest`} />
+            <Endpoint t={t} url={`${base}/api/fx/latest`} />
 
             <p className="mt-4 text-(--color-text-muted)">
               {rich(t("trust.api.prose.fxReference"), {
@@ -95,7 +95,7 @@ export async function ApiView({ locale }: { readonly locale: Locale }) {
             heading={t("trust.api.statsHeading")}
             description={t("trust.api.statsDescription")}
           >
-            <Endpoint url={`${base}/api/stats`} />
+            <Endpoint t={t} url={`${base}/api/stats`} />
 
             <p className="mt-4 text-(--color-text-muted)">
               {rich(t("trust.api.prose.stats"), {
@@ -123,7 +123,7 @@ export async function ApiView({ locale }: { readonly locale: Locale }) {
             heading={t("trust.api.platformHeading")}
             description={t("trust.api.platformDescription")}
           >
-            <Endpoint url={`${base}/api/platform`} />
+            <Endpoint t={t} url={`${base}/api/platform`} />
 
             <p className="mt-4 text-(--color-text-muted)">
               {rich(t("trust.api.prose.platform"), {
@@ -266,10 +266,12 @@ function Code({ children }: { children: React.ReactNode }) {
  * A URL a reader can click and immediately see the JSON is worth more than a
  * styled box they have to copy out by hand.
  */
-function Endpoint({ url }: { url: string }) {
+function Endpoint({ url, t }: { url: string; readonly t: Translate }) {
   return (
     <Card>
-      <p className="text-sm font-semibold text-(--color-text-muted)">Endpoint</p>
+      <p className="text-sm font-semibold text-(--color-text-muted)">
+        {t("trust.api.endpointLabel")}
+      </p>
       <p className="mt-1 break-all">
         <a
           href={url}

@@ -149,7 +149,7 @@ describe("currency conversion", () => {
   it("formats a zero-decimal currency without a fractional part", () => {
     const usd = Rational.fromDecimalString("380");
     const jpy = convertToCurrency(usd, "JPY", rates);
-    expect(formatCurrency(jpy!, "JPY")).not.toContain(".");
+    expect(formatCurrency("en", jpy!, "JPY")).not.toContain(".");
   });
 
   it("returns null when rates are unavailable, so the caller can fall back to USD", () => {

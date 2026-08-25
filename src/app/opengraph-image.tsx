@@ -1,6 +1,6 @@
 import { getRateValue, minimumEarnedRobux } from "@/lib/calculations/rate-registry";
 import { standardRateId } from "@/lib/calculations/devex";
-import { formatRate, formatRobux } from "@/lib/calculations/format";
+import { DISPLAY_LOCALE, formatRate, formatRobux } from "@/lib/calculations/format";
 import { Rational } from "@/lib/calculations/rational";
 import { OG_CONTENT_TYPE, OG_SIZE, renderOgImage } from "@/lib/og/template";
 
@@ -25,7 +25,7 @@ export default function OpengraphImage() {
 
   return renderOgImage({
     headline: ["Convert Earned Robux", "into a US dollar payout"],
-    detail: `100,000 Earned Robux ≈ $${example.toFixed(2)} at $${formatRate(rate)} per Robux`,
-    footnote: `${formatRobux(minimumEarnedRobux)} Robux minimum · estimates only`,
+    detail: `100,000 Earned Robux ≈ $${example.toFixed(2)} at $${formatRate(DISPLAY_LOCALE, rate)} per Robux`,
+    footnote: `${formatRobux(DISPLAY_LOCALE, minimumEarnedRobux)} Robux minimum · estimates only`,
   });
 }

@@ -1,5 +1,5 @@
 import { getTranslator, type Translate } from "@/i18n/get-dictionary";
-import type { LocaleWords } from "@/i18n/client-words";
+import { LOCALE_KEY, type LocaleWords } from "@/i18n/client-words";
 import type { DictionaryNamespace, Locale } from "@/i18n/types";
 
 /**
@@ -18,7 +18,7 @@ import type { DictionaryNamespace, Locale } from "@/i18n/types";
  * on the server, where a build is watching.
  */
 export function pickWords(t: Translate, keys: readonly string[]): LocaleWords {
-  const words: Record<string, string> = {};
+  const words: Record<string, string> = { [LOCALE_KEY]: t.locale };
   for (const key of keys) words[key] = t(key);
   return words;
 }

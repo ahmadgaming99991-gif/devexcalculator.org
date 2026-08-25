@@ -108,7 +108,7 @@ export async function GuidesView({ locale }: { readonly locale: Locale }) {
                         </span>
                         <span className="mt-1.5 block text-xs text-(--color-text-muted)">
                           {t("guides.index.body.readingOrder.p1", {
-                            lastReviewedAt: formatDate(target.lastReviewedAt),
+                            lastReviewedAt: formatDate(t.locale, target.lastReviewedAt),
                           })}
                         </span>
                       </span>

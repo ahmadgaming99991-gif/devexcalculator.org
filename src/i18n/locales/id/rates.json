@@ -78,7 +78,10 @@
     "prose": {
       "legacySplit": "Roblox mencairkan bagian saldo dari sebelum transisi lebih dulu dengan tarif 0,0035, lalu sisanya dengan 0,0038. Pembagian itu adalah pembukuan Roblox sendiri tentang kapan tiap Robux diperoleh — bukan sesuatu yang dipilih atau bisa diatur oleh kreator.",
       "whenItChanges": "Roblox pernah mengubah tarifnya dan bisa mengubahnya lagi. Tidak ada pihak di luar Roblox yang tahu apakah dan kapan, dan sebuah ramalan yang dikemas sebagai analisis hanyalah tebakan dengan nada percaya diri. Halaman ini hanya mencatat perubahan yang dikonfirmasi dokumentasi resmi, masing-masing dengan tanggal berlakunya. Ketika sebuah perubahan terjadi, ia muncul di sini dan di {changelog}, beserta tanggal verifikasinya."
-    }
+    },
+    "comparisonAtRate": "Pada {rate}",
+    "untilDate": "Sampai {date}",
+    "changedAt": "{date}, 10.00 PT"
   },
   "requirements": {
     "intro": "Apa yang sebenarnya disyaratkan Roblox sebelum sebuah permohonan DevEx dapat diajukan, diambil dari dokumentasinya sendiri, bukan dari ringkasan pihak ketiga yang diulang-ulang.",
@@ -153,7 +156,9 @@
     },
     "prose": {
       "earnedOnly": "Kata yang menentukan adalah {earned}. Robux yang Anda beli tidak dihitung untuk itu, begitu pula kredit kartu hadiah. {earnedRobuxLink}"
-    }
+    },
+    "minimumHeading": "Minimum {robux} Earned Robux",
+    "thresholdLabel": "{robux} Earned Robux yang memenuhi syarat"
   },
   "earnedRobux": {
     "intro": "Perbedaan yang menentukan apakah pembayaran DevEx mungkin sama sekali — dan yang paling sering terlewat sampai sebuah permohonan ditolak.",
@@ -220,7 +225,9 @@
     "prose": {
       "groupFunds": "Penghasilan dari experience yang dimiliki sebuah grup menumpuk di dana grup, bukan di akun perorangan mana pun. DevEx bekerja pada akun pribadi, jadi dana grup harus sampai ke saldo pribadi lewat sebuah pembayaran sebelum relevan bagi permohonan DevEx. Jika Anda membagi pendapatan dengan kolaborator, sepakati cara kerjanya sebelum uangnya datang, bukan sesudahnya — dan periksa dokumentasi resmi terkini tentang bagaimana pembayaran grup diperlakukan, karena ini bidang yang pernah diubah Roblox.",
       "retailUnrelated": "Inilah juga sebabnya harga eceran Robux dan tarif DevEx adalah dua angka yang tidak berhubungan. Membeli Robux adalah pembelian; DevEx adalah Roblox membayar seorang kreator."
-    }
+    },
+    "eligibleOutcome": "Hanya sisi kiri yang menjadi {eligible}",
+    "eligibleTerm": "Earned Robux yang memenuhi syarat"
   },
   "feesAndTaxes": {
     "intro": "Ada tiga hal berbeda di antara konversi DevEx dan uang yang sampai ke rekening Anda. Tidak satu pun dari ketiganya adalah kurs DevEx.",
@@ -310,20 +317,27 @@
       "buyingRobux": "Membeli Robux",
       "directionRow": "Arah",
       "directionPayout": "Roblox membayar Anda",
-      "directionPurchase": "Anda membayar Roblox",
+      "directionPurchase": "Kamu membayar Roblox",
       "rateRow": "Kurs",
       "ratePayout": "Terdokumentasi dan tetap pada 0,0038 USD per Earned Robux yang memenuhi syarat",
       "ratePurchase": "Berbeda menurut paket, wilayah, platform, dan promosi",
       "whichRobuxRow": "Robux yang mana",
       "whichRobuxPayout": "Hanya Earned Robux yang memenuhi syarat",
       "whichRobuxPurchase": "Pembelian apa pun, tanpa urusan kelayakan",
-      "minimumPayout": "30.000 Earned Robux",
+      "minimumPayout": "{robux} Earned Robux",
       "minimumPurchase": "Tidak ada selain paket terkecil",
       "speedPayout": "Roblox meninjau tiap permohonan",
       "speedPurchase": "Seketika",
       "reversibleRow": "Dapat dibalik",
       "reversiblePayout": "Satu arah — pencairan tidak bisa dibatalkan",
-      "reversiblePurchase": "Satu arah — Robux yang dibeli tidak bisa dijual kembali"
+      "reversiblePurchase": "Satu arah — Robux yang dibeli tidak bisa dijual kembali",
+      "columnBuying": "Membeli Robux",
+      "rowDirection": "Arah",
+      "rowRate": "Tarif",
+      "rowWhichRobux": "Robux yang mana",
+      "rowMinimum": "Minimum",
+      "rowApproval": "Persetujuan",
+      "rowReversible": "Bisa dibatalkan"
     },
     "body": {
       "twoAnswers": {
@@ -443,7 +457,8 @@
     },
     "prose": {
       "priceFloors": "Harga dasar berbeda menurut kategori item dan Roblox pernah menyesuaikannya dari waktu ke waktu, jadi menetapkan satu harga dasar universal di dalam kode akan menghasilkan jawaban yang salah untuk sebagian besar item. Memasukkan kelipatannya menjaga hasilnya tetap benar, berapa pun harga dasar kategori Anda."
-    }
+    },
+    "columnRoblox": "Roblox"
   },
   "conversions": {
     "intro": "Tabel yang dirender di server berisi jumlah-jumlah umum pada ketiga kurs yang didokumentasikan, ditambah kolom isian untuk apa pun yang tidak tercantum.",
@@ -468,7 +483,9 @@
     },
     "prose": {
       "notRoundNumbers": "Daftar ini bukan pilihan angka bulat: ini adalah jumlah-jumlah yang benar-benar dicari orang. Apa pun yang tidak ada di sini — termasuk angka yang lebih besar daripada baris terakhir tabel — dimasukkan ke pengonversi di atas, yang memakai tarif dan aritmetika yang sama."
-    }
+    },
+    "multipleOfMinimum": "{multiple}× minimum DevEx",
+    "belowMinimum": "Di bawah minimum DevEx"
   },
   "amountPage": {
     "jumpLabel": "Bandingkan ketiga kurs",
@@ -516,6 +533,15 @@
     "eligibleLabel": "{display} Earned Robux yang memenuhi syarat",
     "clearsMinimum": "Itu {multiple} kali batas minimum {minimum} Earned Robux, jadi sudah melewati ambang untuk mengajukan permohonan. Melewati ambang bukan berarti disetujui — Roblox meninjau setiap permohonan.",
     "belowMinimum": "Ini di bawah batas minimum {minimum} Earned Robux, jadi permohonan DevEx belum bisa diajukan dengan saldo sebesar ini.",
-    "reachingCaption": "Apakah {display} Earned Robux mencukupi target pembayaran yang umum"
-  }
+    "reachingCaption": "Apakah {display} Earned Robux mencukupi target pembayaran yang umum",
+    "rateTableLabel": "{display} Robux dinilai pada setiap tarif DevEx",
+    "rateTableCaption": "Pembayaran untuk {display} Earned Robux pada setiap tarif DevEx yang terdokumentasi",
+    "faqHeading": "Pertanyaan tentang {display} Robux",
+    "notYetMore": "Belum — kurang {shortfall}"
+  },
+  "$identical": [
+    "robuxTax.columnRoblox",
+    "robuxToUsd.comparison.minimumPayout",
+    "robuxToUsd.comparison.rowMinimum"
+  ]
 }

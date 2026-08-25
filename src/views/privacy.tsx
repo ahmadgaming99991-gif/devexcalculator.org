@@ -48,7 +48,7 @@ export async function PrivacyView({ locale }: { readonly locale: Locale }) {
 
           <p className="text-sm text-(--color-text-muted)">
             {t("legal.privacy.body.intro.p1", {
-              lastReviewedAt: formatDate(record.lastReviewedAt),
+              lastReviewedAt: formatDate(t.locale, record.lastReviewedAt),
             })}
           </p>
 

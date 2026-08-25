@@ -219,7 +219,8 @@
       "reviewPages": "Review the affected pages.",
       "recordChangelog": "Record it in the changelog.",
       "updateDate": "Update the verification date.",
-      "verifyBody": "The claim is checked directly against Roblox’s own documentation, not against another site that repeated it."
+      "verifyBody": "The claim is checked directly against Roblox’s own documentation, not against another site that repeated it.",
+      "deploy": "Deploy."
     },
     "body": {
       "report": {
@@ -281,7 +282,8 @@
     "prose": {
       "feeds": "Every entry here is published as a feed: {atom} for a feed reader, or {jsonFeed} for anything that would rather not parse XML. Both carry the same entries and the same source links. If you depend on these figures, {ratesApi} publishes the current values with their verification date attached.",
       "scopeLinks": "For the history of the DevEx rate itself, including the September 2025 change, {rateHistory}. For how corrections are handled, {correctionsPolicy}."
-    }
+    },
+    "registryVersionDescription": "Rate registry version {version}, last verified {lastVerifiedAt}."
   },
   "api": {
     "intro": "The rate registry this site calculates from, published as JSON with every source and verification date attached.",
@@ -390,7 +392,8 @@
       "attribution": "Not required, and appreciated. If you cite a figure, cite the source in {sources} alongside it — that is Roblox's own documentation, and it is what makes the number checkable rather than borrowed.",
       "promised": "the shape of the response will not change without the {registryVersion} changing, every figure will carry the source it was verified against, and a rate will never be updated from a scraped page without a person checking it first. Changes are recorded in {changelog}.",
       "robloxFigures": "Every rate here is what Roblox currently documents, recorded on the verification date shown. Roblox decides which rate applies to which balance and whether any DevEx request is approved. Read {methodology} for how each figure gets from their documentation into this response."
-    }
+    },
+    "endpointLabel": "Endpoint"
   },
   "authors": {
     "heading": "Who writes this site",

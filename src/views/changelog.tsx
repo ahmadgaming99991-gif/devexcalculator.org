@@ -51,7 +51,10 @@ export async function ChangelogView({ locale }: { readonly locale: Locale }) {
           <Section
             id="entries"
             heading={t("trust.changelog.historyHeading")}
-            description={`Rate registry version ${rateRegistry.registryVersion}, last verified ${formatDate(rateRegistry.lastVerifiedAt)}.`}
+            description={t("trust.changelog.registryVersionDescription", {
+              version: rateRegistry.registryVersion,
+              lastVerifiedAt: formatDate(t.locale, rateRegistry.lastVerifiedAt),
+            })}
           >
             {/*
               A rate change is the one event on this site worth being told
@@ -78,7 +81,7 @@ export async function ChangelogView({ locale }: { readonly locale: Locale }) {
                                 dateTime={entry.date}
                                 className="text-sm font-medium text-(--color-text-muted)"
                               >
-                                {formatDate(entry.date)}
+                                {formatDate(t.locale, entry.date)}
                               </time>
                             </div>
                             <h3 className="mt-2 text-base font-semibold text-(--color-text)">

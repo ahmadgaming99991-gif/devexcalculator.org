@@ -365,19 +365,19 @@ export function Planner({ words }: { readonly words: LocaleWords }) {
         <div className="mt-4 grid gap-5 sm:grid-cols-3">
           <Figure
             label={t("calculator.planner.totalNeeded")}
-            value={`${formatRobux(requirement.effectiveRobuxNeeded)} R$`}
+            value={`${formatRobux(t.locale, requirement.effectiveRobuxNeeded)} R$`}
             note={
               requirement.requirementIsBelowMinimum
                 ? t("calculator.planner.belowMinimumNote", {
-                    required: formatRobux(requirement.requiredRobux),
-                    minimum: formatRobux(BigInt(requirement.minimumRobux)),
+                    required: formatRobux(t.locale, requirement.requiredRobux),
+                    minimum: formatRobux(t.locale, BigInt(requirement.minimumRobux)),
                   })
                 : undefined
             }
           />
           <Figure
             label={t("calculator.planner.stillToEarn")}
-            value={`${formatRobux(requirement.remainingRobux)} R$`}
+            value={`${formatRobux(t.locale, requirement.remainingRobux)} R$`}
             note={
               requirement.alreadyReached
                 ? t("calculator.planner.alreadyEnoughHeadline")
@@ -388,7 +388,7 @@ export function Planner({ words }: { readonly words: LocaleWords }) {
           />
           <Figure
             label={t("calculator.groupSplit.columnEstimatedPayout")}
-            value={formatCurrency(payout.grossUsd, "USD")}
+            value={formatCurrency(t.locale, payout.grossUsd, "USD")}
             note={t("calculator.planner.payoutNote", {
               rate: rateLabel(t, requirement.rate),
             })}
@@ -413,7 +413,7 @@ export function Planner({ words }: { readonly words: LocaleWords }) {
                 <tr>
                   <Td>{t("calculator.planner.grossPayout")}</Td>
                   <Td numeric className="tabular">
-                    {formatCurrency(payout.grossUsd, "USD")}
+                    {formatCurrency(t.locale, payout.grossUsd, "USD")}
                   </Td>
                 </tr>
                 {payout.feesApplied && (
@@ -421,13 +421,13 @@ export function Planner({ words }: { readonly words: LocaleWords }) {
                     <tr>
                       <Td>{t("calculator.planner.percentageFeeEntered")}</Td>
                       <Td numeric className="tabular">
-                        −{formatCurrency(payout.percentageFeeUsd, "USD")}
+                        −{formatCurrency(t.locale, payout.percentageFeeUsd, "USD")}
                       </Td>
                     </tr>
                     <tr>
                       <Td>{t("calculator.planner.flatFeeEntered")}</Td>
                       <Td numeric className="tabular">
-                        −{formatCurrency(payout.flatFeeUsd, "USD")}
+                        −{formatCurrency(t.locale, payout.flatFeeUsd, "USD")}
                       </Td>
                     </tr>
                   </>
@@ -436,7 +436,7 @@ export function Planner({ words }: { readonly words: LocaleWords }) {
                   <tr>
                     <Td>{t("calculator.planner.taxEntered")}{" "}</Td>
                     <Td numeric className="tabular">
-                      −{formatCurrency(payout.estimatedTaxUsd, "USD")}
+                      −{formatCurrency(t.locale, payout.estimatedTaxUsd, "USD")}
                     </Td>
                   </tr>
                 )}
@@ -445,7 +445,7 @@ export function Planner({ words }: { readonly words: LocaleWords }) {
                     <strong className="font-semibold text-(--color-text)">{t("calculator.planner.body.intro.p4")}</strong>
                   </Td>
                   <Td numeric className="tabular font-semibold">
-                    {formatCurrency(payout.netAfterEstimateUsd, "USD")}
+                    {formatCurrency(t.locale, payout.netAfterEstimateUsd, "USD")}
                   </Td>
                 </tr>
               </tbody>
@@ -480,10 +480,10 @@ export function Planner({ words }: { readonly words: LocaleWords }) {
                     ) : null}
                   </Td>
                   <Td numeric className="tabular">
-                    {formatRobux(row.effectiveRobuxNeeded)}
+                    {formatRobux(t.locale, row.effectiveRobuxNeeded)}
                   </Td>
                   <Td numeric className="tabular">
-                    {formatRobux(row.remainingRobux)}
+                    {formatRobux(t.locale, row.remainingRobux)}
                   </Td>
                   <Td className="tabular">
                     {mode === "pace"
@@ -496,7 +496,7 @@ export function Planner({ words }: { readonly words: LocaleWords }) {
                         ? "Pick a future date"
                         : row.remainingRobux === 0n
                           ? "Already reached"
-                          : `${formatRobux(row.requiredPace.perDayRobux)} R$`}
+                          : `${formatRobux(t.locale, row.requiredPace.perDayRobux)} R$`}
                   </Td>
                 </tr>
               ))}
@@ -507,7 +507,7 @@ export function Planner({ words }: { readonly words: LocaleWords }) {
         <Callout tone="warning" title={t("calculator.planner.whatThisIsNot")} className="mt-6">
           <p>
             {t("calculator.planner.prose.estimateNotice", {
-              minimumRobux: formatRobux(BigInt(requirement.minimumRobux)),
+              minimumRobux: formatRobux(t.locale, BigInt(requirement.minimumRobux)),
             })}
           </p>
         </Callout>
@@ -556,8 +556,8 @@ function PaceOutcome({
       <Outcome
         headline={t("calculator.planner.alreadyEnoughHeadline")}
         detail={t("calculator.planner.alreadyEnoughDetail", {
-          current: formatRobux(requirement.currentRobux),
-          needed: formatRobux(requirement.effectiveRobuxNeeded),
+          current: formatRobux(t.locale, requirement.currentRobux),
+          needed: formatRobux(t.locale, requirement.effectiveRobuxNeeded),
         })}
       />
     );
@@ -580,7 +580,7 @@ function PaceOutcome({
         date: formatPlanDate(projected.date),
       })}
       detail={t("calculator.planner.paceDetail", {
-        perDay: formatRobux(suppliedPerDayRobux ?? 0n),
+        perDay: formatRobux(t.locale, suppliedPerDayRobux ?? 0n),
         weeks: weeks(t, projected.weeks),
         months: months(t, projected.months),
       })}
@@ -629,11 +629,11 @@ function DeadlineOutcome({
   return (
     <Outcome
       headline={t("calculator.planner.requiredHeadline", {
-        perDay: formatRobux(required.perDayRobux),
+        perDay: formatRobux(t.locale, required.perDayRobux),
       })}
       detail={t("calculator.planner.requiredDetail", {
-        perWeek: formatRobux(required.perWeekRobux),
-        perMonth: formatRobux(required.perMonthRobux),
+        perWeek: formatRobux(t.locale, required.perWeekRobux),
+        perMonth: formatRobux(t.locale, required.perMonthRobux),
       })}
     />
   );

@@ -75,7 +75,7 @@ function CheckedOn({
   const now = useNow();
   return (
     <>
-      <span className="tabular">{formatDate(checkedAt, words.dateLocale)}</span> (
+      <span className="tabular">{formatDate(words.dateLocale, checkedAt)}</span> (
       {describeAge(ageInDays(checkedAt, now), words.relativeDay)})
     </>
   );
@@ -143,7 +143,7 @@ export function RateSourceCheck({
         <>
           {" "}
           {fill(words.sourceUpdatedAt, {
-            date: formatDate(check.sourceUpdatedAt, words.dateLocale),
+            date: formatDate(words.dateLocale, check.sourceUpdatedAt),
           })}
         </>
       ) : null}

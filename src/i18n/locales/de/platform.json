@@ -2,7 +2,8 @@
   "$comment": "Machine-drafted. Not yet read by a native speaker. Every sentence here draws a line between what Roblox published, what this site observed, and what nobody knows — none may be shortened into a claim the data does not support.",
   "$identical": [
     "live.table.experience",
-    "live.table.genre"
+    "live.table.genre",
+    "stats.workedAmountColumn"
   ],
   "live": {
     "intro": "Live-Spielerzahlen aus Roblox’ eigenen öffentlichen Endpunkten, über alle Ranglisten hinweg, die Roblox veröffentlicht, und eine Aufzeichnung dessen, was diese Website seit Beobachtungsbeginn gesehen hat.",
@@ -72,7 +73,8 @@
       "other": "Roblox veröffentlicht {rankingsCount} Rankings; hier stehen die ersten {displayLimit} des jeweils ausgewählten. Die Reihenfolge ist die von Roblox, nicht die dieser Website."
     },
     "unknownTime": "einem unbekannten Zeitpunkt",
-    "unknownObservationTime": "einem unbekannten Zeitpunkt"
+    "unknownObservationTime": "einem unbekannten Zeitpunkt",
+    "sponsored": "Gesponsert"
   },
   "platformFigure": {
     "label": "Spielende über alle Experiences, die Roblox in einer Rangliste führt",
@@ -115,7 +117,9 @@
       "highestObserved": "Höchster beobachteter Wert",
       "lowestObserved": "Niedrigster beobachteter Wert",
       "overSpan": "Über {span}",
-      "meanNoteText": "Mittel aus {points} erfassten Punkten, kein Plattformdurchschnitt"
+      "meanNoteText": "Mittel aus {points} erfassten Punkten, kein Plattformdurchschnitt",
+      "observationsNote": "Eine pro Stunde, {days} Tage aufbewahrt",
+      "busiestNote": "{players} Spieler bei der letzten Beobachtung"
     },
     "charts": {
       "busiestCaption": "Die höchste Spielerzahl, die eine einzelne Experience bei jeder Beobachtung gehalten hat, über die aufgezeichneten {span}. Die führende Experience wechselt; diese Linie folgt der Zahl, nicht einem Titel.",
@@ -210,7 +214,8 @@
       "notRecomputed": "Zitiert aus {source}, hier nicht neu berechnet. Eine ausführlichere Aufschlüsselung, auch dazu, was Roblox Creatorn je Quartal zahlt, steht auf {payoutStatistics}.",
       "onlyConfiguration": "Die Seite ist für einen Anbieter bereits vorbereitet. Es fehlt nur die Konfiguration: {missing}. Die unten berichteten Ergebnisse sind das, worauf ein Aktienkurs reagiert, und sie werden ohnehin veröffentlicht."
     },
-    "andSeparator": " und "
+    "andSeparator": " und ",
+    "quoteHeading": "Aktienkurs {symbol}"
   },
   "stats": {
     "intro": "Was Roblox Creators tatsächlich auszahlt, entnommen seinen eigenen Berichten an die SEC. Jede Zahl unten verlinkt auf das Dokument, aus dem sie stammt.",
@@ -299,7 +304,12 @@
       "quarterOfRevenue": "Die Zeile, die zweimal zu lesen lohnt, ist die zweite. Developer-Exchange-Gebühren machen etwa ein Viertel von Roblox’ Umsatz aus; ein erheblicher Teil dessen, was die Plattform einnimmt, verlässt sie also wieder als Creator-Auszahlungen. Jede Zahl in dieser Tabelle stammt aus {filings}.",
       "precision": "Zahlen werden in der Genauigkeit erfasst, die die Einreichung verwendet hat. Wo Roblox in Tausenden berichtete, ist der Betrag auf den Dollar genau; wo in Millionen, auf die Million genau und nicht weiter. Zwei Quartale sind als abgeleitet gekennzeichnet, weil sie aus der Differenz eines berichteten Quartals zu einer berichteten Halbjahressumme stammen. Mehr dazu, wie diese Website mit Zahlen umgeht, steht in {methodology}.",
       "whatItMeansIntro": "Sehr wenig, unmittelbar — und das gehört klar gesagt. Die Summen auf dieser Seite beschreiben die ganze Plattform. Sie ändern nichts daran, was Ihr eigenes Guthaben ergibt, sie sind keine Prognose, und eine steigende Summe bedeutet keinen steigenden Satz. Über Ihre Auszahlung entscheidet der Satz auf Ihre berechtigten Earned Robux, den Sie auf {calculator} ausrechnen können.",
-      "whatItMeans": "Was diese Zahlen tatsächlich zeigen, ist die Größenordnung: DevEx ist ein Programm, über das Roblox in einem einzigen Jahr {amount} ausgezahlt hat — ein Zusammenhang, den man kennen sollte, bevor man entscheidet, ob das Minimum von 30.000 Robux die Mühe wert ist."
-    }
+      "whatItMeans": "Was diese Zahlen tatsächlich zeigen, ist die Größenordnung: DevEx ist ein Programm, über das Roblox in einem einzigen Jahr {amount} ausgezahlt hat — ein Zusammenhang, den man kennen sollte, bevor man entscheidet, ob das Minimum von 30.000 Robux die Mühe wert ist.",
+      "engagementSource": "Alle Zahlen oben außer der letzten stammen aus {filings}, für die drei Monate bis zum 30. Juni 2026."
+    },
+    "yearOnYearNote": "{from} auf {to}",
+    "latestQuarterLabel": "Jüngstes Quartal ({quarter})",
+    "workedAmountColumn": "{robux} Earned Robux",
+    "aboutValue": "etwa {value}"
   }
 }

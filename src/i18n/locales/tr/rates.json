@@ -78,7 +78,10 @@
     "prose": {
       "legacySplit": "Roblox, bakiyenin geçiş öncesi bölümünü önce 0,0035'ten, kalanını ise 0,0038'den nakde çevirir. Bu ayrım, her Robux'un ne zaman kazanıldığına dair Roblox'un kendi muhasebesidir — bir yaratıcının seçtiği ya da ayarlayabildiği bir şey değildir.",
       "whenItChanges": "Roblox oranı daha önce değiştirdi ve yeniden değiştirebilir. Roblox'un dışında hiç kimse bunun olup olmayacağını ya da ne zaman olacağını bilmez; analiz kılığına sokulmuş bir tahmin, kendinden emin bir tonda söylenmiş bir varsayım olurdu. Bu sayfa yalnızca resmi belgelerin doğruladığı değişiklikleri, her birini yürürlük tarihiyle birlikte kaydeder. Bir değişiklik olduğunda burada ve {changelog} içinde, doğrulandığı tarihle birlikte görünür."
-    }
+    },
+    "comparisonAtRate": "{rate} oranında",
+    "untilDate": "{date} tarihine kadar",
+    "changedAt": "{date}, 10.00 PT"
   },
   "requirements": {
     "intro": "Bir DevEx talebi gönderilebilmeden önce Roblox'un gerçekte ne istediği; üçüncü tarafların yinelediği özetlerden değil, kendi belgelerinden alındı.",
@@ -153,7 +156,9 @@
     },
     "prose": {
       "earnedOnly": "Önemli olan sözcük {earned}. Satın aldığınız Robux buna sayılmaz, hediye kartı bakiyesi de sayılmaz. {earnedRobuxLink}"
-    }
+    },
+    "minimumHeading": "{robux} Earned Robux asgari tutarı",
+    "thresholdLabel": "{robux} uygun Earned Robux"
   },
   "earnedRobux": {
     "intro": "Bir DevEx ödemesinin hiç mümkün olup olmadığını belirleyen ayrım — ve bir talep reddedilene kadar en sık gözden kaçan ayrım.",
@@ -220,7 +225,9 @@
     "prose": {
       "groupFunds": "Bir gruba ait bir deneyimden gelen kazançlar, herhangi bir bireysel hesapta değil, grubun fonlarında birikir. DevEx kişisel bir hesap üzerinde çalışır; bu yüzden grup fonlarının bir DevEx talebi için anlam taşıması, önce bir ödemeyle kişisel bir bakiyeye ulaşmalarına bağlıdır. Geliri işbirlikçilerle paylaşıyorsanız, bunun nasıl işleyeceğini para geldikten sonra değil önce kararlaştırın — ve grup ödemelerinin nasıl ele alındığını güncel resmi belgelerden kontrol edin, çünkü bu, Roblox'un daha önce değiştirdiği bir alandır.",
       "retailUnrelated": "Robux'un perakende fiyatı ile DevEx oranının birbiriyle ilgisiz sayılar olmasının nedeni de budur. Robux almak bir satın almadır; DevEx ise Roblox'un bir yaratıcıya ödeme yapmasıdır."
-    }
+    },
+    "eligibleOutcome": "Yalnızca soldaki taraf {eligible} olur",
+    "eligibleTerm": "uygun Earned Robux"
   },
   "feesAndTaxes": {
     "intro": "DevEx çevrimiyle paranın hesabınıza ulaşması arasında üç ayrı şey vardır. Hiçbiri DevEx kuru değildir.",
@@ -310,20 +317,27 @@
       "buyingRobux": "Robux satın almak",
       "directionRow": "Yön",
       "directionPayout": "Roblox size öder",
-      "directionPurchase": "Siz Roblox'a ödersiniz",
+      "directionPurchase": "Roblox'a siz ödersiniz",
       "rateRow": "Kur",
       "ratePayout": "Belgelenmiş ve uygun Earned Robux başına 0,0038 USD olarak sabit",
       "ratePurchase": "Pakete, bölgeye, platforma ve kampanyaya göre değişir",
       "whichRobuxRow": "Hangi Robux",
       "whichRobuxPayout": "Yalnızca uygun Earned Robux",
       "whichRobuxPurchase": "Herhangi bir satın alma; uygunluk söz konusu değil",
-      "minimumPayout": "30.000 Earned Robux",
+      "minimumPayout": "{robux} Earned Robux",
       "minimumPurchase": "En küçük paketin ötesinde bir alt sınır yok",
       "speedPayout": "Roblox her talebi inceler",
       "speedPurchase": "Anında",
       "reversibleRow": "Geri alınabilir mi",
       "reversiblePayout": "Tek yönlü — nakde çevirmeyi geri alamazsınız",
-      "reversiblePurchase": "Tek yönlü — satın alınan Robux geri satılamaz"
+      "reversiblePurchase": "Tek yönlü — satın alınan Robux geri satılamaz",
+      "columnBuying": "Robux satın almak",
+      "rowDirection": "Yön",
+      "rowRate": "Oran",
+      "rowWhichRobux": "Hangi Robux",
+      "rowMinimum": "Asgari",
+      "rowApproval": "Onay",
+      "rowReversible": "Geri alınabilir"
     },
     "body": {
       "twoAnswers": {
@@ -414,7 +428,7 @@
     "notDevExDescription": "İki hesaplama farklı zamanlarda olur ve arka arkaya bağlanmamalıdır.",
     "faqsHeading": "Roblox ücreti hakkında sorular",
     "columnSaleType": "Satış türü",
-    "columnCreator": "İçerik üreticisi",
+    "columnCreator": "Yaratıcı",
     "columnPriceOverFloor": "Fiyat ÷ taban fiyat",
     "columnCreatorShare": "İçerik üreticisi payı",
     "columnRobloxShare": "Roblox payı",
@@ -443,7 +457,8 @@
     },
     "prose": {
       "priceFloors": "Taban fiyatlar ürün kategorisine göre değişir ve Roblox bunları zaman içinde ayarlamıştır; bu yüzden tek bir evrensel tabanı koda gömmek çoğu ürün için yanlış yanıt üretirdi. Katsayıyı girmek, kategorinizin tabanı ne olursa olsun sonucu doğru tutar."
-    }
+    },
+    "columnRoblox": "Roblox"
   },
   "conversions": {
     "intro": "Belgelenmiş üç kurun tamamında yaygın tutarları içeren, sunucuda oluşturulmuş bir tablo; ayrıca listede olmayanlar için bir giriş alanı.",
@@ -468,7 +483,9 @@
     },
     "prose": {
       "notRoundNumbers": "Bu liste yuvarlak sayılardan yapılmış bir seçki değil: gerçekten aranan tutarlar. Burada olmayan her şey — tablonun son satırından büyük rakamlar dahil — yukarıdaki dönüştürücüye girilir; o da aynı oranları ve aynı aritmetiği kullanır."
-    }
+    },
+    "multipleOfMinimum": "DevEx asgari tutarının {multiple}× katı",
+    "belowMinimum": "DevEx asgari tutarının altında"
   },
   "amountPage": {
     "jumpLabel": "Üç kurun tümünü karşılaştır",
@@ -516,6 +533,14 @@
     "eligibleLabel": "{display} uygun Earned Robux",
     "clearsMinimum": "Bu, {minimum} Earned Robux'luk alt sınırın {multiple} katıdır; yani talep göndermek için gereken eşiği aşar. Eşiği aşmak onay demek değildir — Roblox her talebi inceler.",
     "belowMinimum": "Bu, {minimum} Earned Robux'luk alt sınırın altındadır; dolayısıyla bu bakiyeyle henüz bir DevEx talebi gönderilemez.",
-    "reachingCaption": "{display} Earned Robux'ın yaygın ödeme hedeflerini karşılayıp karşılamadığı"
-  }
+    "reachingCaption": "{display} Earned Robux'ın yaygın ödeme hedeflerini karşılayıp karşılamadığı",
+    "rateTableLabel": "Her DevEx oranına göre değerlenen {display} Robux",
+    "rateTableCaption": "Belgelenen her DevEx oranında {display} Earned Robux için ödeme",
+    "faqHeading": "{display} Robux hakkında sorular",
+    "notYetMore": "Henüz değil — {shortfall} daha"
+  },
+  "$identical": [
+    "robuxTax.columnRoblox",
+    "robuxToUsd.comparison.minimumPayout"
+  ]
 }

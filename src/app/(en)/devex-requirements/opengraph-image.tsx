@@ -1,6 +1,6 @@
 import { getRateValue, minimumEarnedRobux } from "@/lib/calculations/rate-registry";
 import { standardRateId } from "@/lib/calculations/devex";
-import { formatCurrency, formatRobux } from "@/lib/calculations/format";
+import { DISPLAY_LOCALE, formatCurrency, formatRobux } from "@/lib/calculations/format";
 import { Rational } from "@/lib/calculations/rational";
 import { OG_CONTENT_TYPE, OG_SIZE, renderOgImage } from "@/lib/og/template";
 
@@ -17,8 +17,8 @@ export default function RequirementsOgImage() {
   const worth = Rational.fromInt(minimumEarnedRobux).mul(getRateValue(standardRateId));
 
   return renderOgImage({
-    headline: [`${formatRobux(minimumEarnedRobux)} Earned Robux`, "before you can apply"],
-    detail: `About ${formatCurrency(worth, "USD")} at the standard rate · Earned Robux only`,
+    headline: [`${formatRobux(DISPLAY_LOCALE, minimumEarnedRobux)} Earned Robux`, "before you can apply"],
+    detail: `About ${formatCurrency(DISPLAY_LOCALE, worth, "USD")} at the standard rate · Earned Robux only`,
     // The line the whole site is built on, on the card as well as the page.
     footnote: "Meeting the minimum is not approval",
   });

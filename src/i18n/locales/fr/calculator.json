@@ -2,6 +2,7 @@
   "$comment": "Machine-drafted. Not yet read by a native speaker. A mistranslated 'eligible' or 'minimum' can tell somebody they may cash out when they may not, so nothing here is shortened. Group separators use U+202F.",
   "$identical": [
     "groupSplit.columnEarnedRobux",
+    "history.robuxLabel",
     "results.columnPerRobux",
     "results.total"
   ],
@@ -361,6 +362,10 @@
     "meterLabel": "{completed} étapes de préparation sur {total} effectuées"
   },
   "history": {
-    "summary": "Calculs enregistrés ({count})"
+    "summary": "Calculs enregistrés ({count})",
+    "savedAnnouncement": "Calcul enregistré dans ce navigateur.",
+    "clearedAnnouncement": "Calculs enregistrés effacés.",
+    "targetLabel": "Objectif de {amount}",
+    "robuxLabel": "{robux} Robux"
   }
 }

@@ -4,6 +4,7 @@
     "history.stats.observations",
     "live.table.genre",
     "stats.columnSource",
+    "stats.workedAmountColumn",
     "stock.questionsHeading"
   ],
   "live": {
@@ -25,9 +26,9 @@
     "table": {
       "experience": "Expérience",
       "playersNow": "Joueurs actuellement",
-      "last24h": "24 dernières h",
+      "last24h": "24 dernières heures",
       "lifetimeVisits": "Visites cumulées",
-      "approval": "Approbation",
+      "approval": "Taux d'approbation",
       "sponsored": "Sponsorisé",
       "genre": "Genre",
       "wrapperLabel": "Expériences dans le classement {ranking} de Roblox",
@@ -74,7 +75,8 @@
       "other": "Roblox publie {rankingsCount} classements ; on voit ici les {displayLimit} premiers de celui qui est sélectionné. L’ordre est celui de Roblox, pas celui de ce site."
     },
     "unknownTime": "une heure inconnue",
-    "unknownObservationTime": "une heure inconnue"
+    "unknownObservationTime": "une heure inconnue",
+    "sponsored": "Sponsorisé"
   },
   "platformFigure": {
     "label": "Joueurs sur l’ensemble des expériences que Roblox classe",
@@ -117,7 +119,9 @@
       "highestObserved": "Maximum observé",
       "lowestObserved": "Minimum observé",
       "overSpan": "Sur {span}",
-      "meanNoteText": "Moyenne de {points} points enregistrés, pas une moyenne de la plateforme"
+      "meanNoteText": "Moyenne de {points} points enregistrés, pas une moyenne de la plateforme",
+      "observationsNote": "Une par heure, conservée {days} jours",
+      "busiestNote": "{players} joueurs lors de la dernière observation"
     },
     "charts": {
       "busiestCaption": "Le plus grand nombre de joueurs atteint par une seule expérience à chaque observation, sur les {span} enregistrés. L’expérience en tête change ; cette courbe suit le comptage, pas un titre.",
@@ -212,7 +216,8 @@
       "notRecomputed": "Extrait de {source}, non recalculé ici. Un détail plus complet, y compris ce que Roblox verse aux créateurs chaque trimestre, se trouve sur {payoutStatistics}.",
       "onlyConfiguration": "La page est déjà prête pour un fournisseur. Il ne manque que la configuration : {missing}. Les résultats publiés ci-dessous sont ce à quoi réagit un cours de bourse, et ils sont publiés dans tous les cas."
     },
-    "andSeparator": " et "
+    "andSeparator": " et ",
+    "quoteHeading": "Cours de l'action {symbol}"
   },
   "stats": {
     "intro": "Ce que Roblox verse réellement aux créateurs, tiré de ses propres dépôts auprès de la SEC. Chaque chiffre ci-dessous renvoie au document dont il provient.",
@@ -301,7 +306,12 @@
       "quarterOfRevenue": "La ligne qui mérite d’être lue deux fois est la seconde. Les frais du Developer Exchange représentent environ un quart des revenus de Roblox : une part non négligeable de ce que la plateforme encaisse en ressort donc sous forme de versements aux créateurs. Chaque chiffre de ce tableau est tiré de {filings}.",
       "precision": "Les chiffres sont consignés à la précision employée par le dépôt. Là où Roblox a déclaré en milliers, le montant est exact au dollar près ; là où il a déclaré en millions, il est exact au million près et pas au-delà. Deux trimestres sont marqués comme dérivés parce qu’ils proviennent de la soustraction d’un trimestre déclaré à un total semestriel déclaré. Pour savoir comment ce site traite les chiffres, voyez {methodology}.",
       "whatItMeansIntro": "Très peu, directement — et cela mérite d’être dit franchement. Les totaux de cette page décrivent l’ensemble de la plateforme. Ils ne changent rien à ce que votre propre solde donne, ne sont pas une prévision, et un total en hausse ne signifie pas un taux en hausse. Ce qui détermine votre versement, c’est le taux appliqué à vos Earned Robux éligibles, que vous pouvez calculer sur {calculator}.",
-      "whatItMeans": "La seule chose que ces chiffres montrent vraiment, c’est l’échelle : DevEx est un programme par lequel Roblox a versé {amount} en une seule année, un contexte utile avant de décider si le minimum de 30 000 Robux vaut la peine d’être visé."
-    }
+      "whatItMeans": "La seule chose que ces chiffres montrent vraiment, c’est l’échelle : DevEx est un programme par lequel Roblox a versé {amount} en une seule année, un contexte utile avant de décider si le minimum de 30 000 Robux vaut la peine d’être visé.",
+      "engagementSource": "Tous les chiffres ci-dessus, sauf le dernier, proviennent de {filings}, pour les trois mois clos le 30 juin 2026."
+    },
+    "yearOnYearNote": "de {from} à {to}",
+    "latestQuarterLabel": "Dernier trimestre ({quarter})",
+    "workedAmountColumn": "{robux} Earned Robux",
+    "aboutValue": "environ {value}"
   }
 }

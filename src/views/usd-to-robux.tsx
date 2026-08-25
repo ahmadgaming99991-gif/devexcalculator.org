@@ -90,8 +90,8 @@ export async function UsdToRobuxView({
               </p>
               <p className="mt-3 text-sm text-(--color-text-muted)">
                 {t("rates.usdToRobux.body.rounding.p1", {
-                  rate: formatCurrency(Rational.of(263_157n).mul(rate), "USD"),
-                  rate2: formatCurrency(Rational.of(263_158n).mul(rate), "USD"),
+                  rate: formatCurrency(t.locale, Rational.of(263_157n).mul(rate), "USD"),
+                  rate2: formatCurrency(t.locale, Rational.of(263_158n).mul(rate), "USD"),
                 })}
               </p>
               <MethodologyNote locale={locale} className="mt-3" />
@@ -105,8 +105,8 @@ export async function UsdToRobuxView({
           >
             <Callout tone="warning" title={t("rates.usdToRobux.smallTargetTitle")}>
               {t("rates.usdToRobux.body.minimum.p1", {
-                minimumEarnedRobux: formatRobux(minimumEarnedRobux),
-                rate: formatCurrency(Rational.fromInt(minimumEarnedRobux).mul(rate), "USD"),
+                minimumEarnedRobux: formatRobux(t.locale, minimumEarnedRobux),
+                rate: formatCurrency(t.locale, Rational.fromInt(minimumEarnedRobux).mul(rate), "USD"),
               })}
             <Link href="/devex-requirements/">{t("rates.usdToRobux.seeRequirementsLink")}{" "}</Link>.
                     </Callout>
@@ -159,22 +159,22 @@ export async function UsdToRobuxView({
                         <tbody>
                           {rows.map((row) => (
                             <tr key={row.target}>
-                              <Th scope="row">{formatCurrency(row.targetUsd, "USD")}</Th>
+                              <Th scope="row">{formatCurrency(t.locale, row.targetUsd, "USD")}</Th>
                               <Td numeric className="text-(--color-text-muted)">
                                 {row.exact.toFixed(2)}
                               </Td>
                               <Td numeric className="font-semibold">
-                                {formatRobux(row.required)}
+                                {formatRobux(t.locale, row.required)}
                               </Td>
                               <Td>
                                 {row.belowMinimum ? (
                                   <span className="text-(--color-warning)">
               {t("rates.usdToRobux.body.examples.p1", {
-                effective: formatRobux(row.effective),
+                effective: formatRobux(t.locale, row.effective),
               })}
             </span>
                         ) : (
-                          <span className="text-(--color-text-muted)">No</span>
+                          <span className="text-(--color-text-muted)">{t("common.units.no")}</span>
                         )}
                       </Td>
                     </tr>

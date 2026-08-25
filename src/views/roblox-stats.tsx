@@ -1,5 +1,18 @@
 import { getTranslator } from "@/i18n/get-dictionary";
 import { rich } from "@/i18n/rich";
+import {
+  contextDescription,
+  contextFigureLabel,
+  contextFigureNote,
+  engagementDescription,
+  engagementFigureChange,
+  engagementFigureLabel,
+  engagementFigureNote,
+  engagementFigureValue,
+  periodDerivation,
+  unpublishedLabel,
+  unpublishedReason,
+} from "@/i18n/data-text";
 import { localizedPath } from "@/i18n/locale-path";
 import { localizedRoute } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
@@ -42,6 +55,7 @@ import { getRateValue, getSource } from "@/lib/calculations/rate-registry";
 import { legacyRateId, standardRateId, us18RateId } from "@/lib/calculations/devex";
 import { Rational } from "@/lib/calculations/rational";
 import { formatCurrency } from "@/lib/calculations/format";
+import { formatRobux } from "@/lib/calculations/format";
 
 const ROUTE = "/roblox-stats/";
 
@@ -136,10 +150,15 @@ export async function RobloxStatsView({ locale }: { readonly locale: Locale }) {
               <Stat
                 label={t("platform.stats.yearOnYearChange")}
                 value={percentChange(fy2024?.amountUsd ?? "0", fy2025?.amountUsd ?? "0")}
-                note="2024 to 2025"
+                note={t("platform.stats.yearOnYearNote", {
+                  from: fy2024?.label ?? "",
+                  to: fy2025?.label ?? "",
+                })}
               />
               <Stat
-                label={`Latest quarter (${latestQuarter?.label ?? ""})`}
+                label={t("platform.stats.latestQuarterLabel", {
+                  quarter: latestQuarter?.label ?? "",
+                })}
                 value={formatUsdMagnitude(latestQuarter?.amountUsd ?? "0")}
                 note={t("platform.stats.quarterNote")}
               />
@@ -161,10 +180,10 @@ export async function RobloxStatsView({ locale }: { readonly locale: Locale }) {
                   <Table caption={t("platform.stats.byYearTableCaption")}>
                     <thead>
                       <tr>
-                        <Th>Year</Th>
+                        <Th>{t("common.columns.year")}</Th>
                         <Th>{t("platform.stats.columnPaidToCreators")}{" "}</Th>
-                        <Th>Revenue</Th>
-                        <Th>Source</Th>
+                        <Th>{t("common.columns.revenue")}</Th>
+                        <Th>{t("common.columns.source")}</Th>
                       </tr>
                     </thead>
                     <tbody>
@@ -214,10 +233,10 @@ export async function RobloxStatsView({ locale }: { readonly locale: Locale }) {
                 <Table caption={t("platform.stats.byQuarterTableCaption")}>
                   <thead>
                     <tr>
-                      <Th>Quarter</Th>
+                      <Th>{t("common.columns.quarter")}</Th>
                       <Th>{t("platform.stats.columnPaidToCreators")}{" "}</Th>
-                      <Th>How we know</Th>
-                      <Th>Source</Th>
+                      <Th>{t("common.origin.howWeKnow")}</Th>
+                      <Th>{t("common.columns.source")}</Th>
                     </tr>
                   </thead>
                   <tbody>
@@ -227,12 +246,12 @@ export async function RobloxStatsView({ locale }: { readonly locale: Locale }) {
                         <Td className="tabular">{formatUsdMagnitude(period.amountUsd ?? "0")}</Td>
                         <Td>
                           {period.origin === "reported" ? (
-                            <Badge tone="success">Reported</Badge>
+                            <Badge tone="success">{t("common.origin.reported")}</Badge>
                           ) : (
                             <>
-                              <Badge tone="warning">Derived</Badge>{" "}
+                              <Badge tone="warning">{t("common.origin.derived")}</Badge>{" "}
                               <span className="text-sm text-(--color-text-muted)">
-                                {period.derivation}
+                                {periodDerivation(t, "developerExchangeFees", period)}
                               </span>
                             </>
                           )}
@@ -274,9 +293,13 @@ export async function RobloxStatsView({ locale }: { readonly locale: Locale }) {
                 <Table caption={t("platform.stats.rateTableCaption")}>
                   <thead>
                     <tr>
-                      <Th>Rate</Th>
-                      <Th>Per Robux</Th>
-                      <Th>{WORKED_AMOUNT.toLocaleString("en-US")} Earned Robux</Th>
+                      <Th>{t("common.columns.rate")}</Th>
+                      <Th>{t("common.columns.perRobux")}</Th>
+                      <Th>
+                        {t("platform.stats.workedAmountColumn", {
+                          robux: formatRobux(t.locale, WORKED_AMOUNT),
+                        })}
+                      </Th>
                     </tr>
                   </thead>
                   <tbody>
@@ -284,7 +307,7 @@ export async function RobloxStatsView({ locale }: { readonly locale: Locale }) {
                       <tr key={rate.label}>
                         <Td>{rate.label}</Td>
                         <Td className="tabular">{rate.display}</Td>
-                        <Td className="tabular">{formatCurrency(rate.payout, "USD")}</Td>
+                        <Td className="tabular">{formatCurrency(t.locale, rate.payout, "USD")}</Td>
                       </tr>
                     ))}
                   </tbody>
@@ -296,17 +319,23 @@ export async function RobloxStatsView({ locale }: { readonly locale: Locale }) {
           <Section
             id="engagement"
             heading={t("platform.stats.usageHeading")}
-            description={engagement.description}
+            description={engagementDescription(t)}
           >
             <div className="grid gap-4 sm:grid-cols-3">
               {engagement.figures.map((figure) => (
                 <Card key={figure.id} tone="subtle" className="min-w-0">
-                  <p className="text-sm text-(--color-text-muted)">{figure.label}</p>
-                  <p className="tabular mt-1 text-2xl font-bold break-words text-(--color-text)">
-                    {figure.value}
+                  <p className="text-sm text-(--color-text-muted)">
+                    {engagementFigureLabel(t, figure)}
                   </p>
-                  <p className="mt-1 text-sm text-(--color-text-muted)">{figure.change}</p>
-                  <p className="mt-2 text-xs text-(--color-text-muted)">{figure.note}</p>
+                  <p className="tabular mt-1 text-2xl font-bold break-words text-(--color-text)">
+                    {engagementFigureValue(t, figure)}
+                  </p>
+                  <p className="mt-1 text-sm text-(--color-text-muted)">
+                    {engagementFigureChange(t, figure)}
+                  </p>
+                  <p className="mt-2 text-xs text-(--color-text-muted)">
+                    {engagementFigureNote(t, figure)}
+                  </p>
                 </Card>
               ))}
 
@@ -319,7 +348,7 @@ export async function RobloxStatsView({ locale }: { readonly locale: Locale }) {
               <Card tone="subtle" className="min-w-0">
                 <p className="text-sm text-(--color-text-muted)">{t("platform.stats.body.engagement.p1")}</p>
                 <p className="tabular mt-1 text-2xl font-bold break-words text-(--color-text)">
-                  about {hoursPerDauPerDay()}
+                  {t("platform.stats.aboutValue", { value: hoursPerDauPerDay() })}
                 </p>
                 <p className="mt-1 text-sm text-(--color-text-muted)">
                   <Badge tone="neutral">{t("platform.stats.derivedHere")}</Badge>
@@ -335,19 +364,23 @@ export async function RobloxStatsView({ locale }: { readonly locale: Locale }) {
             </div>
 
             <p className="mt-4 text-(--color-text-muted)">
-              {t("platform.stats.body.engagement.p3")}
-            <SourceLink t={t} href={getSource(engagement.sourceId).url}>
-                        {getSource(engagement.sourceId).title}
-                      </SourceLink>
-                      , for the three months ended 30 June 2026.
+              {rich(t("platform.stats.prose.engagementSource"), {
+                filings: (
+                  <SourceLink t={t} href={getSource(engagement.sourceId).url}>
+                    {getSource(engagement.sourceId).title}
+                  </SourceLink>
+                ),
+              })}
                     </p>
         
                     <Callout tone="info" title={t("platform.stats.twoFiguresTitle")}>
                       <ul className="mt-1 flex list-none flex-col gap-3 p-0">
                         {engagement.notPublished.map((entry) => (
                           <li key={entry.id}>
-                            <span className="font-semibold text-(--color-text)">{entry.label}</span>
-                            <span className="block text-sm">{entry.reason}</span>
+                            <span className="font-semibold text-(--color-text)">
+                              {unpublishedLabel(t, entry)}
+                            </span>
+                            <span className="block text-sm">{unpublishedReason(t, entry)}</span>
                           </li>
                         ))}
                       </ul>
@@ -357,25 +390,27 @@ export async function RobloxStatsView({ locale }: { readonly locale: Locale }) {
                   <Section
                     id="business"
                     heading={t("platform.stats.businessHeading")}
-                    description={companyContext.description}
+                    description={contextDescription(t)}
                   >
                     <TableWrapper label={t("platform.stock.reportedResultsLabel")}>
                       <Table caption={t("platform.stock.reportedResultsCaption")}>
                         <thead>
                           <tr>
-                            <Th>Measure</Th>
+                            <Th>{t("common.columns.measure")}</Th>
                             <Th>{companyContext.period}</Th>
                             <Th>{companyContext.comparedWith}</Th>
-                            <Th>Note</Th>
+                            <Th>{t("common.columns.note")}</Th>
                           </tr>
                         </thead>
                         <tbody>
                           {companyContext.figures.map((figure) => (
                             <tr key={figure.id}>
-                              <Td>{figure.label}</Td>
+                              <Td>{contextFigureLabel(t, figure)}</Td>
                               <Td className="tabular">{figure.current}</Td>
                               <Td className="tabular">{figure.previous}</Td>
-                              <Td className="text-sm text-(--color-text-muted)">{figure.note}</Td>
+                              <Td className="text-sm text-(--color-text-muted)">
+                                {contextFigureNote(t, figure)}
+                              </Td>
                             </tr>
                           ))}
                         </tbody>

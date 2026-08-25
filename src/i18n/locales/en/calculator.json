@@ -356,6 +356,10 @@
     "meterLabel": "{completed} of {total} preparation steps done"
   },
   "history": {
-    "summary": "Saved calculations ({count})"
+    "summary": "Saved calculations ({count})",
+    "savedAnnouncement": "Calculation saved to this browser.",
+    "clearedAnnouncement": "Saved calculations cleared.",
+    "targetLabel": "Target {amount}",
+    "robuxLabel": "{robux} Robux"
   }
 }

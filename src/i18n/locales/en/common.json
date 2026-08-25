@@ -45,8 +45,8 @@
     "unchanged": "Checked against {link} on {checked} — unchanged."
   },
   "byline": {
-    "maintainedBy": "Maintained by",
-    "reviewedBy": "Reviewed by",
+    "maintainedBy": "Maintained by {maintainer}",
+    "reviewedBy": "Reviewed by {reviewer}",
     "ratesVerified": "Rates verified {date}",
     "methodology": "Methodology"
   },

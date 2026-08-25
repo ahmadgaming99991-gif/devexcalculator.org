@@ -1,5 +1,6 @@
 import { localizedPath } from "@/i18n/locale-path";
 import { rich } from "@/i18n/rich";
+import { contextDescription, contextFigureLabel } from "@/i18n/data-text";
 import { getTranslator, type Translate } from "@/i18n/get-dictionary";
 import { localizedRoute } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
@@ -57,20 +58,20 @@ export async function StockView({ locale }: { readonly locale: Locale }) {
             {record.quickAnswer}
           </QuickAnswer>
 
-          <Section id="quote" heading={`${STOCK_SYMBOL} share price`}>
+          <Section id="quote" heading={t("platform.stock.quoteHeading", { symbol: STOCK_SYMBOL })}>
             <QuoteBlock t={t} state={quote} />
           </Section>
 
           <Section
             id="results"
             heading={t("platform.stock.respondsToHeading")}
-            description={companyContext.description}
+            description={contextDescription(t)}
           >
             <TableWrapper label={t("platform.stock.reportedResultsLabel")}>
               <Table caption={t("platform.stock.reportedResultsCaption")}>
                 <thead>
                   <tr>
-                    <Th>Measure</Th>
+                    <Th>{t("common.columns.measure")}</Th>
                     <Th>{companyContext.period}</Th>
                     <Th>{companyContext.comparedWith}</Th>
                   </tr>
@@ -78,7 +79,7 @@ export async function StockView({ locale }: { readonly locale: Locale }) {
                 <tbody>
                   {companyContext.figures.map((figure) => (
                     <tr key={figure.id}>
-                      <Td>{figure.label}</Td>
+                      <Td>{contextFigureLabel(t, figure)}</Td>
                       <Td className="tabular">{figure.current}</Td>
                       <Td className="tabular">{figure.previous}</Td>
                     </tr>

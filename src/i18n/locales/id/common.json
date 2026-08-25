@@ -64,8 +64,8 @@
     "unchanged": "Diperiksa terhadap {link} pada {checked} — tidak berubah."
   },
   "byline": {
-    "maintainedBy": "Dikelola oleh",
-    "reviewedBy": "Ditinjau oleh",
+    "maintainedBy": "Dikelola oleh {maintainer}",
+    "reviewedBy": "Ditinjau oleh {reviewer}",
     "ratesVerified": "Kurs diverifikasi {date}",
     "methodology": "Metodologi"
   },

@@ -136,7 +136,7 @@ export function RateSelector({
           <option key={rate.id} value={rate.id}>
             {t("calculator.controls.rateOption", {
               rate: rateLabel(t, rate),
-              rateValue: formatRate(Rational.fromDecimalString(rate.usdPerRobux)),
+              rateValue: formatRate(t.locale, Rational.fromDecimalString(rate.usdPerRobux)),
             })}
           </option>
         ))}
@@ -246,7 +246,7 @@ export function QuickPresets({
                   : "border-(--color-border-strong) bg-(--color-surface) text-(--color-text) hover:border-(--color-primary) hover:bg-(--color-primary-soft) hover:shadow-sm",
               )}
             >
-              {formatCompactRobux(preset)}
+              {formatCompactRobux(t.locale, preset)}
               <span className="sr-only"> Robux</span>
             </button>
           );

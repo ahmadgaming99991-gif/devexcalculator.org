@@ -2,6 +2,7 @@
   "$comment": "Machine-drafted. Not yet read by a native speaker. A translation that softens 'this site cannot determine' into 'this site does not usually determine' turns a limit into a habit.",
   "$identical": [
     "api.endpointColumn",
+    "api.endpointLabel",
     "api.fxHeading",
     "api.platformHeading",
     "api.ratesHeading",
@@ -227,7 +228,8 @@
       "reviewPages": "Revisar las páginas afectadas.",
       "recordChangelog": "Registrarlo en el changelog.",
       "updateDate": "Actualizar la fecha de verificación.",
-      "verifyBody": "La afirmación se comprueba directamente con la documentación del propio Roblox, no con otro sitio que la repitió."
+      "verifyBody": "La afirmación se comprueba directamente con la documentación del propio Roblox, no con otro sitio que la repitió.",
+      "deploy": "Desplegar."
     },
     "body": {
       "report": {
@@ -289,7 +291,8 @@
     "prose": {
       "feeds": "Cada entrada de aquí se publica como canal: {atom} para lectores de feeds, o {jsonFeed} para lo que prefiera no analizar XML. Ambos llevan las mismas entradas y los mismos enlaces a fuentes. Si dependes de estas cifras, {ratesApi} publica los valores actuales con su fecha de verificación adjunta.",
       "scopeLinks": "Para el historial de la propia tasa de DevEx, incluido el cambio de septiembre de 2025, {rateHistory}. Para saber cómo se gestionan las correcciones, {correctionsPolicy}."
-    }
+    },
+    "registryVersionDescription": "Versión {version} del registro de tasas, verificada por última vez el {lastVerifiedAt}."
   },
   "api": {
     "intro": "El registro de tasas con el que calcula este sitio, publicado como JSON con cada fuente y fecha de verificación adjuntas.",
@@ -398,7 +401,8 @@
       "attribution": "No es obligatoria, y se agradece. Si citas una cifra, cita junto a ella la fuente en {sources}: es la documentación del propio Roblox, y es lo que hace que el número sea comprobable en vez de prestado.",
       "promised": "la forma de la respuesta no cambiará sin que cambie el {registryVersion}, cada cifra llevará la fuente con la que se verificó, y una tasa nunca se actualizará desde una página raspada sin que una persona la compruebe antes. Los cambios se registran en {changelog}.",
       "robloxFigures": "Cada tasa aquí es lo que Roblox documenta actualmente, registrada en la fecha de verificación mostrada. Roblox decide qué tasa se aplica a qué saldo y si se aprueba una solicitud de DevEx. Lee {methodology} para ver cómo llega cada cifra desde su documentación hasta esta respuesta."
-    }
+    },
+    "endpointLabel": "Endpoint"
   },
   "authors": {
     "heading": "Quién escribe este sitio",

@@ -57,7 +57,7 @@ export async function CashOutView({ locale }: { readonly locale: Locale }) {
                 {
                   label: t("guides.cashOut.steps.reachMinimum"),
                   detail: t("guides.cashOut.steps.reachMinimumDetail", {
-                    minimum: formatRobux(minimumEarnedRobux),
+                    minimum: formatRobux(t.locale, minimumEarnedRobux),
                   }),
                   tone: "primary",
                 },
@@ -90,7 +90,7 @@ export async function CashOutView({ locale }: { readonly locale: Locale }) {
               <li>
                 <strong className="text-(--color-text)">
                   {t("guides.cashOut.body.process.p1", {
-                    minimumEarnedRobux: formatRobux(minimumEarnedRobux),
+                    minimumEarnedRobux: formatRobux(t.locale, minimumEarnedRobux),
                   })}
                 </strong>
                   {t("guides.cashOut.body.process.p2")}

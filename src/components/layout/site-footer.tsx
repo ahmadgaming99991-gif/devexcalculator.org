@@ -134,17 +134,17 @@ export async function SiteFooter({ locale }: { readonly locale: Locale }) {
           <div className="flex flex-wrap items-center justify-center gap-2">
             <Fact
               label={t("common.footer.facts.standardRate")}
-              value={`$${formatRate(standardRate)}`}
+              value={`$${formatRate(t.locale, standardRate)}`}
               href={at("/devex-rates/")}
             />
             <Fact
               label={t("common.footer.facts.minimumToCashOut")}
-              value={`${formatRobux(minimumEarnedRobux)} R$`}
+              value={`${formatRobux(t.locale, minimumEarnedRobux)} R$`}
               href={at("/devex-requirements/")}
             />
             <Fact
               label={t("common.footer.facts.ratesVerified")}
-              value={formatDate(rateRegistry.lastVerifiedAt)}
+              value={formatDate(t.locale, rateRegistry.lastVerifiedAt)}
               href={at("/sources/")}
             />
           </div>

@@ -222,7 +222,7 @@
     "nextHeading": "Was als Nächstes passiert",
     "nextDescription": "Eine Korrektur an einem Kurs, einem Minimum oder einer Gebühr folgt einer festen Abfolge. Sie ist bewusst keine schnelle Änderung.",
     "recordHeading": "Wo Korrekturen festgehalten werden",
-    "reportButton": "Eine Korrektur melden",
+    "reportButton": "Korrektur melden",
     "steps": {
       "verify": "Gegen die offizielle Quelle prüfen.",
       "updateRegistry": "Das Kursregister aktualisieren.",
@@ -230,7 +230,8 @@
       "reviewPages": "Die betroffenen Seiten prüfen.",
       "recordChangelog": "Im Changelog festhalten.",
       "updateDate": "Das Prüfdatum aktualisieren.",
-      "verifyBody": "Die Behauptung wird direkt anhand der Dokumentation von Roblox geprüft, nicht anhand einer anderen Seite, die sie wiederholt hat."
+      "verifyBody": "Die Behauptung wird direkt anhand der Dokumentation von Roblox geprüft, nicht anhand einer anderen Seite, die sie wiederholt hat.",
+      "deploy": "Ausrollen."
     },
     "body": {
       "report": {
@@ -292,7 +293,8 @@
     "prose": {
       "feeds": "Jeder Eintrag hier erscheint auch als Feed: {atom} für einen Feedreader oder {jsonFeed} für alles, was lieber kein XML parst. Beide führen dieselben Einträge und dieselben Quellenlinks. Wenn Sie sich auf diese Zahlen stützen, veröffentlicht {ratesApi} die aktuellen Werte samt Prüfdatum.",
       "scopeLinks": "Zur Geschichte des DevEx-Satzes selbst, einschließlich der Änderung vom September 2025, {rateHistory}. Dazu, wie Korrekturen gehandhabt werden, {correctionsPolicy}."
-    }
+    },
+    "registryVersionDescription": "Satzregister Version {version}, zuletzt geprüft am {lastVerifiedAt}."
   },
   "api": {
     "intro": "Das Kursregister, mit dem diese Website rechnet, veröffentlicht als JSON, mit jeder Quelle und jedem Prüfdatum dabei.",
@@ -401,7 +403,8 @@
       "attribution": "Nicht erforderlich, aber willkommen. Wenn Sie eine Zahl zitieren, zitieren Sie daneben die Quelle in {sources} — das ist Roblox’ eigene Dokumentation, und sie ist es, die die Zahl überprüfbar statt geborgt macht.",
       "promised": "Die Form der Antwort ändert sich nicht, ohne dass sich {registryVersion} ändert, jede Zahl führt die Quelle mit, gegen die sie geprüft wurde, und ein Satz wird nie aus einer abgegriffenen Seite aktualisiert, ohne dass zuvor ein Mensch ihn geprüft hat. Änderungen werden in {changelog} festgehalten.",
       "robloxFigures": "Jeder Satz hier ist das, was Roblox derzeit dokumentiert, erfasst zum angezeigten Prüfdatum. Roblox entscheidet, welcher Satz für welches Guthaben gilt und ob ein DevEx-Antrag bewilligt wird. Lesen Sie {methodology}, um zu sehen, wie jede Zahl aus deren Dokumentation in diese Antwort gelangt."
-    }
+    },
+    "endpointLabel": "Endpunkt"
   },
   "authors": {
     "heading": "Wer diese Website schreibt",

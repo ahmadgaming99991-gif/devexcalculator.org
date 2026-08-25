@@ -78,7 +78,10 @@
     "prose": {
       "legacySplit": "Roblox convertit d’abord la part du solde antérieure à la transition à 0,0035, puis le reste à 0,0038. La répartition relève de la comptabilité propre de Roblox quant au moment où chaque Robux a été gagné — ce n’est pas quelque chose qu’un créateur choisit ou peut ajuster.",
       "whenItChanges": "Roblox a déjà changé le taux et pourrait le changer encore. Personne hors de Roblox ne sait si ni quand, et une prédiction déguisée en analyse serait une supposition au ton assuré. Cette page ne consigne que les changements confirmés par la documentation officielle, chacun avec sa date d’effet. Quand un changement survient, il apparaît ici et dans le {changelog}, avec la date de sa vérification."
-    }
+    },
+    "comparisonAtRate": "À {rate}",
+    "untilDate": "Jusqu'au {date}",
+    "changedAt": "{date}, 10h00 PT"
   },
   "requirements": {
     "intro": "Ce que Roblox exige réellement avant qu’une demande DevEx puisse être déposée, tiré de sa propre documentation et non de résumés recopiés par des tiers.",
@@ -153,7 +156,9 @@
     },
     "prose": {
       "earnedOnly": "Le mot qui compte est {earned}. Les Robux que vous avez achetés n’y comptent pas, et le crédit d’une carte cadeau non plus. {earnedRobuxLink}"
-    }
+    },
+    "minimumHeading": "Le minimum de {robux} Earned Robux",
+    "thresholdLabel": "{robux} Earned Robux éligibles"
   },
   "earnedRobux": {
     "intro": "La distinction qui décide si un paiement DevEx est seulement possible — et celle qu’on manque le plus souvent jusqu’au refus d’une demande.",
@@ -220,7 +225,9 @@
     "prose": {
       "groupFunds": "Les revenus d’une expérience détenue par un groupe s’accumulent dans les fonds du groupe, et non sur un compte individuel. DevEx fonctionne sur un compte personnel : les fonds du groupe doivent donc atteindre un solde personnel par un versement avant d’être pertinents pour une demande DevEx. Si vous partagez des revenus avec des collaborateurs, convenez du fonctionnement avant que l’argent n’arrive plutôt qu’après — et consultez la documentation officielle en vigueur sur le traitement des versements de groupe, car c’est un domaine que Roblox a déjà modifié.",
       "retailUnrelated": "C’est aussi pourquoi le prix de détail des Robux et le taux DevEx sont des nombres sans rapport. Acheter des Robux est un achat ; DevEx, c’est Roblox qui paie un créateur."
-    }
+    },
+    "eligibleOutcome": "Seule la partie de gauche devient des {eligible}",
+    "eligibleTerm": "Earned Robux éligibles"
   },
   "feesAndTaxes": {
     "intro": "Trois choses distinctes se placent entre la conversion DevEx et l’argent qui arrive sur votre compte. Aucune n’est le taux DevEx.",
@@ -317,13 +324,20 @@
       "whichRobuxRow": "Quels Robux",
       "whichRobuxPayout": "Uniquement des Earned Robux éligibles",
       "whichRobuxPurchase": "N’importe quel achat, sans question d’éligibilité",
-      "minimumPayout": "30 000 Earned Robux",
+      "minimumPayout": "{robux} Earned Robux",
       "minimumPurchase": "Aucun au-delà du plus petit pack",
       "speedPayout": "Roblox examine chaque demande",
-      "speedPurchase": "Immédiat",
+      "speedPurchase": "Immédiate",
       "reversibleRow": "Réversible",
       "reversiblePayout": "Sens unique — on ne peut pas annuler un encaissement",
-      "reversiblePurchase": "Sens unique — les Robux achetés ne peuvent pas être revendus"
+      "reversiblePurchase": "Sens unique — les Robux achetés ne peuvent pas être revendus",
+      "columnBuying": "Acheter des Robux",
+      "rowDirection": "Sens",
+      "rowRate": "Taux",
+      "rowWhichRobux": "Quels Robux",
+      "rowMinimum": "Minimum",
+      "rowApproval": "Validation",
+      "rowReversible": "Réversible"
     },
     "body": {
       "twoAnswers": {
@@ -443,7 +457,8 @@
     },
     "prose": {
       "priceFloors": "Les prix planchers diffèrent selon la catégorie d’objet et Roblox les a ajustés au fil du temps ; coder en dur un plancher universel donnerait donc de mauvaises réponses pour la plupart des objets. Saisir le multiple garde le résultat exact, quel que soit le plancher de votre catégorie."
-    }
+    },
+    "columnRoblox": "Roblox"
   },
   "conversions": {
     "intro": "Un tableau rendu côté serveur des montants courants aux trois taux documentés, plus un champ pour tout ce qui n’y figure pas.",
@@ -468,7 +483,9 @@
     },
     "prose": {
       "notRoundNumbers": "Cette liste n’est pas une sélection de nombres ronds : ce sont les montants réellement recherchés. Tout ce qui n’y figure pas — y compris des chiffres supérieurs à la dernière ligne du tableau — se saisit dans le convertisseur ci-dessus, qui emploie les mêmes taux et la même arithmétique."
-    }
+    },
+    "multipleOfMinimum": "{multiple}× le minimum DevEx",
+    "belowMinimum": "En dessous du minimum DevEx"
   },
   "amountPage": {
     "jumpLabel": "Comparer les trois taux",
@@ -516,6 +533,15 @@
     "eligibleLabel": "{display} Earned Robux éligibles",
     "clearsMinimum": "C’est {multiple} fois le minimum de {minimum} Earned Robux : le seuil pour déposer une demande est donc franchi. Franchir le seuil n’est pas une approbation — Roblox examine chaque demande.",
     "belowMinimum": "C’est en dessous du minimum de {minimum} Earned Robux : une demande DevEx ne peut donc pas encore être déposée avec ce solde.",
-    "reachingCaption": "Si {display} Earned Robux couvrent les objectifs de versement courants"
-  }
+    "reachingCaption": "Si {display} Earned Robux couvrent les objectifs de versement courants",
+    "rateTableLabel": "{display} Robux évalués à chaque taux DevEx",
+    "rateTableCaption": "Versement pour {display} Earned Robux à chaque taux DevEx documenté",
+    "faqHeading": "Questions sur {display} Robux",
+    "notYetMore": "Pas encore — il manque {shortfall}"
+  },
+  "$identical": [
+    "robuxTax.columnRoblox",
+    "robuxToUsd.comparison.minimumPayout",
+    "robuxToUsd.comparison.rowMinimum"
+  ]
 }

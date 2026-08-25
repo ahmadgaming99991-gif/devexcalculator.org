@@ -51,7 +51,7 @@ function steps(
     {
       id: "balance",
       label: rich(t("calculator.preparation.balanceStep"), {
-        minimum: formatRobux(BigInt(minimumEarnedRobux)),
+        minimum: formatRobux(t.locale, BigInt(minimumEarnedRobux)),
         earnedRobuxLink: (
           <InlineLink href={earnedRobuxHref}>
             {t("calculator.preparation.earnedRobuxLink")}

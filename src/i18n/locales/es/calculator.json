@@ -2,6 +2,7 @@
   "$comment": "Machine-drafted. Not yet read by a native speaker. A mistranslated 'eligible' or 'minimum' can tell somebody they may cash out when they may not, so nothing here is shortened.",
   "$identical": [
     "groupSplit.columnEarnedRobux",
+    "history.robuxLabel",
     "results.columnSubtotal",
     "results.summary.bucketLine",
     "results.summary.earnedRobux",
@@ -363,6 +364,10 @@
     "meterLabel": "{completed} de {total} pasos de preparación completados"
   },
   "history": {
-    "summary": "Cálculos guardados ({count})"
+    "summary": "Cálculos guardados ({count})",
+    "savedAnnouncement": "Cálculo guardado en este navegador.",
+    "clearedAnnouncement": "Cálculos guardados borrados.",
+    "targetLabel": "Objetivo de {amount}",
+    "robuxLabel": "{robux} Robux"
   }
 }

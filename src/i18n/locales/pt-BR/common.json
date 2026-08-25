@@ -58,8 +58,8 @@
     "unchanged": "Verificado em relação a {link} em {checked} — sem alterações."
   },
   "byline": {
-    "maintainedBy": "Mantido por",
-    "reviewedBy": "Revisado por",
+    "maintainedBy": "Mantido por {maintainer}",
+    "reviewedBy": "Revisado por {reviewer}",
     "ratesVerified": "Taxas verificadas em {date}",
     "methodology": "Metodologia"
   },

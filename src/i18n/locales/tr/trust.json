@@ -220,7 +220,7 @@
     "nextHeading": "Sonra ne oluyor",
     "nextDescription": "Bir kur, alt sınır ya da ücret düzeltmesi sabit bir sırayı izler. Bilerek hızlı bir düzenleme değildir.",
     "recordHeading": "Düzeltmeler nerede kaydediliyor",
-    "reportButton": "Bir düzeltme bildir",
+    "reportButton": "Düzeltme bildir",
     "steps": {
       "verify": "Resmî kaynağa karşı doğrula.",
       "updateRegistry": "Kur kaydını güncelle.",
@@ -228,7 +228,8 @@
       "reviewPages": "Etkilenen sayfaları gözden geçir.",
       "recordChangelog": "Changelog'a kaydet.",
       "updateDate": "Doğrulama tarihini güncelle.",
-      "verifyBody": "İddia, onu yineleyen başka bir siteye karşı değil, doğrudan Roblox'un kendi belgelerine karşı denetlenir."
+      "verifyBody": "İddia, onu yineleyen başka bir siteye karşı değil, doğrudan Roblox'un kendi belgelerine karşı denetlenir.",
+      "deploy": "Yayına al."
     },
     "body": {
       "report": {
@@ -290,7 +291,8 @@
     "prose": {
       "feeds": "Buradaki her kayıt bir akış olarak da yayımlanır: akış okuyucular için {atom}, XML ayrıştırmak istemeyenler için {jsonFeed}. İkisi de aynı kayıtları ve aynı kaynak bağlantılarını taşır. Bu rakamlara bağımlıysanız, {ratesApi} güncel değerleri doğrulama tarihleriyle birlikte yayımlar.",
       "scopeLinks": "DevEx oranının kendi geçmişi için, Eylül 2025 değişikliği dahil, {rateHistory}. Düzeltmelerin nasıl ele alındığı için {correctionsPolicy}."
-    }
+    },
+    "registryVersionDescription": "Oran kaydı sürüm {version}, son doğrulama {lastVerifiedAt}."
   },
   "api": {
     "intro": "Bu sitenin hesaplarken kullandığı kur kaydı; her kaynağı ve doğrulama tarihiyle birlikte JSON olarak yayımlanır.",
@@ -399,7 +401,8 @@
       "attribution": "Zorunlu değil, ama makbule geçer. Bir rakamı alıntılıyorsanız, yanında {sources} içindeki kaynağı da anın — o, Roblox'un kendi belgeleridir ve rakamı ödünç alınmış değil denetlenebilir kılan şeydir.",
       "promised": "yanıtın biçimi, {registryVersion} değişmeden değişmeyecek; her rakam, karşısında doğrulandığı kaynağı taşıyacak; ve bir oran, önce bir kişi denetlemeden kazınmış bir sayfadan asla güncellenmeyecek. Değişiklikler {changelog} içinde kayda geçer.",
       "robloxFigures": "Buradaki her oran, Roblox'un şu anda belgelediği orandır ve gösterilen doğrulama tarihinde kaydedilmiştir. Hangi oranın hangi bakiyeye uygulanacağına ve bir DevEx talebinin onaylanıp onaylanmayacağına Roblox karar verir. Her rakamın onların belgelerinden bu yanıta nasıl geldiğini görmek için {methodology} sayfasını okuyun."
-    }
+    },
+    "endpointLabel": "Uç nokta"
   },
   "authors": {
     "heading": "Bu siteyi kimler yazıyor",

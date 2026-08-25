@@ -1,4 +1,5 @@
 import { rich } from "@/i18n/rich";
+import { rateCondition, rateLabel, rateShortLabel, rateSummary } from "@/i18n/data-text";
 import { localizedPath } from "@/i18n/locale-path";
 import { getTranslator } from "@/i18n/get-dictionary";
 import { localizedRoute } from "@/i18n/localized-route";
@@ -66,10 +67,10 @@ export async function DevexRatesView({ locale }: { readonly locale: Locale }) {
               <Table caption={t("rates.devexRates.workedExamplesCaption")}>
                 <thead>
                   <tr>
-                    <Th>Earned Robux</Th>
+                    <Th>{t("common.columns.earnedRobux")}</Th>
                     {allRates.map((rate) => (
                       <Th key={rate.id} numeric>
-                        {rate.shortLabel}
+                        {rateShortLabel(t, rate)}
                       </Th>
                     ))}
                   </tr>
@@ -77,10 +78,10 @@ export async function DevexRatesView({ locale }: { readonly locale: Locale }) {
                 <tbody>
                   {EXAMPLE_AMOUNTS.map((amount) => (
                     <tr key={amount}>
-                      <Th scope="row">{formatRobux(amount)}</Th>
+                      <Th scope="row">{formatRobux(t.locale, amount)}</Th>
                       {allRates.map((rate) => (
                         <Td key={rate.id} numeric className={rate.status === "active" ? "font-semibold" : ""}>
-                          {formatCurrency(
+                          {formatCurrency(t.locale, 
                             Rational.fromInt(amount).mul(Rational.fromDecimalString(rate.usdPerRobux)),
                             "USD",
                           )}
@@ -104,11 +105,11 @@ export async function DevexRatesView({ locale }: { readonly locale: Locale }) {
           >
             <div className="flex flex-col gap-3">
               {allRates.map((rate) => (
-                <DefinitionBlock key={rate.id} term={rate.label}>
-                  {rate.eligibilitySummary}
+                <DefinitionBlock key={rate.id} term={rateLabel(t, rate)}>
+                  {rateSummary(t, rate)}
                   {rate.conditionNote ? (
                     <span className="mt-2 block font-medium text-(--color-text)">
-                      {rate.conditionNote}
+                      {rateCondition(t, rate)}
                     </span>
                   ) : null}
                 </DefinitionBlock>
@@ -129,7 +130,7 @@ export async function DevexRatesView({ locale }: { readonly locale: Locale }) {
                     <div className="rounded-(--radius-control) border border-(--color-border) bg-(--color-surface) p-4">
                       <p className="text-sm text-(--color-text-muted)">
               {t("rates.devexRates.body.difference.p1", {
-                rateValue: formatCurrency(
+                rateValue: formatCurrency(t.locale, 
                           Rational.fromInt(100_000).mul(standard).sub(
                             Rational.fromInt(100_000).mul(getRateValue("legacy-pre-2025-09-05")),
                           ),
@@ -151,7 +152,7 @@ export async function DevexRatesView({ locale }: { readonly locale: Locale }) {
             <p className="text-(--color-text-muted)">
               {rich(
                 t("rates.devexRates.prose.noForecast", {
-                  date: formatDate("2025-09-05T10:00:00-07:00"),
+                  date: formatDate(t.locale, "2025-09-05T10:00:00-07:00"),
                 }),
                 {
                   sourceRegistry: (

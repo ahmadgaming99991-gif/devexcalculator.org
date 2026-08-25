@@ -1,6 +1,6 @@
 import type { RouteRecord } from "@/types/content";
 import { APPROVED_AMOUNTS, amountPageRoute, computeAmountValues } from "./amount-pages";
-import { formatRobux } from "@/lib/calculations/format";
+import { DISPLAY_LOCALE, formatRobux } from "@/lib/calculations/format";
 
 /**
  * The content manifest: one record per route.
@@ -1575,7 +1575,7 @@ const staticRoutes: readonly RouteRecord[] = [
 /** Builds the record for one approved amount page. */
 function amountRouteRecord(definition: (typeof APPROVED_AMOUNTS)[number]): RouteRecord {
   const values = computeAmountValues(definition.amount);
-  const display = formatRobux(definition.amount);
+  const display = formatRobux(DISPLAY_LOCALE, definition.amount);
 
   return {
     route: amountPageRoute(definition.amount),
@@ -1642,7 +1642,7 @@ function amountRouteRecord(definition: (typeof APPROVED_AMOUNTS)[number]): Route
       },
       ...definition.relatedAmounts.map((amount) => ({
         route: amountPageRoute(amount),
-        anchor: `${formatRobux(amount)} Robux to USD`,
+        anchor: `${formatRobux(DISPLAY_LOCALE, amount)} Robux to USD`,
         relationship: "sibling" as const,
       })),
     ],

@@ -99,10 +99,7 @@ export async function LastVerifiedBadge({
         <path d="M8 4.5V8l2.25 1.5" strokeLinecap="round" />
       </svg>
         {t("common.badges.ratesVerified", {
-          lastVerifiedAt: formatDate(
-            rateRegistry.lastVerifiedAt,
-            getLocaleMeta(locale).bcp47,
-          ),
+          lastVerifiedAt: formatDate(getLocaleMeta(locale).bcp47, rateRegistry.lastVerifiedAt),
         })}
       </Badge>
   );
@@ -153,7 +150,7 @@ export async function SourceNote({
               {" "}
               {t("common.sections.sourceLine", {
                 publisher: source.publisher,
-                checked: formatDate(source.lastCheckedAt, bcp47),
+                checked: formatDate(bcp47, source.lastCheckedAt),
               })}
             </span>
           </li>

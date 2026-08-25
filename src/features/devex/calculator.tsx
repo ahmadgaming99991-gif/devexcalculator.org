@@ -274,7 +274,7 @@ export function Calculator({
   const announceResult = useMemo(() => {
     if (mode === "target") {
       if (!targetParse?.ok) return "";
-      return `${formatRobux(targetResult.requiredRobux)} Earned Robux are needed for ${formatCurrency(
+      return `${formatRobux(t.locale, targetResult.requiredRobux)} Earned Robux are needed for ${formatCurrency(t.locale, 
         targetResult.targetUsd,
         "USD",
       )}.`;
@@ -283,15 +283,15 @@ export function Calculator({
       if (splitResult.totalRobux === 0n) return "";
       const { value, currency } = convert(splitResult.grossUsd);
       return t("calculator.results.announceSplit", {
-        robux: formatRobux(splitResult.totalRobux),
-        value: formatCurrency(value, currency),
+        robux: formatRobux(t.locale, splitResult.totalRobux),
+        value: formatCurrency(t.locale, value, currency),
       });
     }
     if (!quickParse?.ok) return "";
     const { value, currency } = convert(quickResult.grossUsd);
     return t("calculator.results.announceQuick", {
-      robux: formatRobux(quickResult.robux),
-      value: formatCurrency(value, currency),
+      robux: formatRobux(t.locale, quickResult.robux),
+      value: formatCurrency(t.locale, value, currency),
       rate: quickResult.rate.label,
     });
   }, [
@@ -356,18 +356,18 @@ export function Calculator({
     if (mode === "target" && targetParse?.ok) {
       return [
         t("calculator.results.summary.payoutTarget", {
-          value: formatCurrency(targetResult.targetUsd, "USD"),
+          value: formatCurrency(t.locale, targetResult.targetUsd, "USD"),
         }),
         t("calculator.results.summary.rate", {
           rate: targetResult.rate.label,
-          rateValue: formatRate(targetResult.rateValue),
+          rateValue: formatRate(t.locale, targetResult.rateValue),
         }),
         t("calculator.results.summary.robuxNeeded", {
-          robux: formatRobux(targetResult.requiredRobux),
+          robux: formatRobux(t.locale, targetResult.requiredRobux),
         }),
         targetResult.requirementIsBelowMinimum
           ? t("calculator.results.summary.minimumApplies", {
-              robux: formatRobux(targetResult.effectiveRobuxNeeded),
+              robux: formatRobux(t.locale, targetResult.effectiveRobuxNeeded),
             })
           : null,
         t("calculator.results.copyDisclaimer"),
@@ -380,23 +380,23 @@ export function Calculator({
       const { value, currency } = convert(splitResult.grossUsd);
       return [
         t("calculator.results.summary.earnedRobux", {
-          robux: formatRobux(splitResult.totalRobux),
+          robux: formatRobux(t.locale, splitResult.totalRobux),
         }),
         ...splitResult.buckets
           .filter((bucket) => bucket.robux > 0n)
           .map((bucket) =>
             t("calculator.results.summary.bucketLine", {
               rate: bucket.rate.label,
-              robux: formatRobux(bucket.robux),
-              usd: formatCurrency(bucket.usd, "USD"),
+              robux: formatRobux(t.locale, bucket.robux),
+              usd: formatCurrency(t.locale, bucket.usd, "USD"),
             }),
           ),
         t("calculator.results.summary.grossPayout", {
-          value: formatCurrency(value, currency),
+          value: formatCurrency(t.locale, value, currency),
         }),
         splitResult.feesApplied || splitResult.taxApplied
           ? t("calculator.results.summary.afterEstimates", {
-              value: formatCurrency(splitResult.netAfterEstimateUsd, "USD"),
+              value: formatCurrency(t.locale, splitResult.netAfterEstimateUsd, "USD"),
             })
           : null,
         t("calculator.results.copyDisclaimer"),
@@ -409,19 +409,19 @@ export function Calculator({
       const { value, currency } = convert(quickResult.grossUsd);
       return [
         t("calculator.results.summary.earnedRobux", {
-          robux: formatRobux(quickResult.robux),
+          robux: formatRobux(t.locale, quickResult.robux),
         }),
         t("calculator.results.summary.rate", {
           rate: quickResult.rate.label,
-          rateValue: formatRate(quickResult.rateValue),
+          rateValue: formatRate(t.locale, quickResult.rateValue),
         }),
         t("calculator.results.summary.estimatedPayout", {
-          value: formatCurrency(value, currency),
+          value: formatCurrency(t.locale, value, currency),
         }),
         quickResult.threshold.state === "meets-minimum"
           ? t("calculator.results.summary.minimumMet")
           : t("calculator.results.summary.minimumShort", {
-              robux: formatRobux(quickResult.threshold.shortfallRobux),
+              robux: formatRobux(t.locale, quickResult.threshold.shortfallRobux),
             }),
         t("calculator.results.copyDisclaimer"),
       ].join("\n");
@@ -440,11 +440,11 @@ export function Calculator({
   ]);
 
   const primaryValueText = useMemo(() => {
-    if (mode === "target") return formatRobux(targetResult.requiredRobux);
+    if (mode === "target") return formatRobux(t.locale, targetResult.requiredRobux);
     const usd = mode === "advanced" ? splitResult.grossUsd : quickResult.grossUsd;
     const { value, currency } = convert(usd);
-    return formatCurrency(value, currency);
-  }, [mode, quickResult, splitResult, targetResult, convert]);
+    return formatCurrency(t.locale, value, currency);
+  }, [mode, quickResult, splitResult, targetResult, convert, t]);
 
   // ---- History -----------------------------------------------------------
 
@@ -452,11 +452,18 @@ export function Calculator({
     if (summaryText === "") return;
     const label =
       mode === "target"
-        ? `Target ${formatCurrency(targetResult.targetUsd, "USD")}`
-        : `${formatRobux(mode === "advanced" ? splitResult.totalRobux : quickResult.robux)} Robux`;
+        ? t("calculator.history.targetLabel", {
+            amount: formatCurrency(t.locale, targetResult.targetUsd, "USD"),
+          })
+        : t("calculator.history.robuxLabel", {
+            robux: formatRobux(
+              t.locale,
+              mode === "advanced" ? splitResult.totalRobux : quickResult.robux,
+            ),
+          });
     setHistoryOverride(addHistoryEntry({ label, result: primaryValueText, query }));
-    setAnnouncement("Calculation saved to this browser.");
-  }, [summaryText, mode, targetResult, splitResult, quickResult, primaryValueText, query]);
+    setAnnouncement(t("calculator.history.savedAnnouncement"));
+  }, [summaryText, mode, targetResult, splitResult, quickResult, primaryValueText, query, t]);
 
   // ---- Render ------------------------------------------------------------
 
@@ -628,12 +635,12 @@ export function Calculator({
                 })
               ) : mode === "advanced" ? (
                 t("calculator.results.announceSplitGross", {
-                  robux: formatRobux(splitResult.totalRobux),
+                  robux: formatRobux(t.locale, splitResult.totalRobux),
                 })
               ) : (
                 t("calculator.results.announceRate", {
                   rate: currentRate.label,
-                  rateValue: formatRate(quickResult.rateValue),
+                  rateValue: formatRate(t.locale, quickResult.rateValue),
                 })
               )
             }
@@ -690,7 +697,7 @@ export function Calculator({
               onClear={() => {
                 clearHistory();
                 setHistoryOverride([]);
-                setAnnouncement("Saved calculations cleared.");
+                setAnnouncement(t("calculator.history.clearedAnnouncement"));
               }}
               pathname={pathname}
             />
@@ -716,7 +723,7 @@ export function Calculator({
 
       <p className="mt-5 border-t border-(--color-border) pt-4 text-xs text-(--color-text-muted)">
         {t("calculator.body.intro.p3", {
-          minimumEarnedRobux: formatRobux(minimumEarnedRobux),
+          minimumEarnedRobux: formatRobux(t.locale, minimumEarnedRobux),
         })}
       </p>
     </Card>

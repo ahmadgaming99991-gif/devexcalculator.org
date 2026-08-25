@@ -2,6 +2,7 @@
   "$comment": "Machine-drafted. Not yet read by a native speaker. A mistranslated 'eligible' or 'minimum' can tell somebody they may cash out when they may not, so nothing here is shortened.",
   "$identical": [
     "groupSplit.columnEarnedRobux",
+    "history.robuxLabel",
     "results.summary.bucketLine",
     "results.summary.earnedRobux",
     "results.total"
@@ -362,6 +363,10 @@
     "meterLabel": "{total} hazırlık adımından {completed} tanesi tamamlandı"
   },
   "history": {
-    "summary": "Kaydedilen hesaplamalar ({count})"
+    "summary": "Kaydedilen hesaplamalar ({count})",
+    "savedAnnouncement": "Hesaplama bu tarayıcıya kaydedildi.",
+    "clearedAnnouncement": "Kaydedilen hesaplamalar silindi.",
+    "targetLabel": "Hedef {amount}",
+    "robuxLabel": "{robux} Robux"
   }
 }

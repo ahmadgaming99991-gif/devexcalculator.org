@@ -78,7 +78,10 @@
     "prose": {
       "legacySplit": "Roblox cashes out the pre-transition portion of a balance at 0.0035 first, then the rest at 0.0038. The split is Roblox’s own accounting of when each Robux was earned — it is not something a creator selects or can adjust.",
       "whenItChanges": "Roblox has changed the rate before and may change it again. Nobody outside Roblox knows whether or when, and a prediction dressed up as analysis would be a guess with a confident tone. This page records only changes that official documentation confirms, each with its effective date. When a change happens it appears here and in the {changelog}, along with the date it was verified."
-    }
+    },
+    "comparisonAtRate": "At {rate}",
+    "untilDate": "Until {date}",
+    "changedAt": "{date}, 10:00 PT"
   },
   "requirements": {
     "intro": "What Roblox actually requires before a DevEx request can be submitted, taken from its own documentation rather than from repeated third-party summaries.",
@@ -153,7 +156,9 @@
     },
     "prose": {
       "earnedOnly": "The word that matters is {earned}. Robux you bought do not count toward it, and neither does gift card credit. {earnedRobuxLink}"
-    }
+    },
+    "minimumHeading": "The {robux} Earned Robux minimum",
+    "thresholdLabel": "{robux} eligible Earned Robux"
   },
   "earnedRobux": {
     "intro": "The distinction that decides whether a DevEx payout is possible at all — and the one most often missed until a request is refused.",
@@ -220,7 +225,9 @@
     "prose": {
       "groupFunds": "Earnings from an experience owned by a group accumulate in the group’s funds rather than in any individual account. DevEx operates on a personal account, so group funds have to reach a personal balance through a payout before they are relevant to a DevEx request. If you are splitting revenue with collaborators, agree how that works before the money arrives rather than after — and check the current official documentation for how group payouts are treated, since this is an area Roblox has changed before.",
       "retailUnrelated": "This is also why the retail price of Robux and the DevEx rate are unrelated numbers. Buying Robux is a purchase; DevEx is Roblox paying a creator."
-    }
+    },
+    "eligibleOutcome": "Only the left-hand side becomes {eligible}",
+    "eligibleTerm": "eligible Earned Robux"
   },
   "feesAndTaxes": {
     "intro": "Three separate things sit between the DevEx conversion and the money reaching your account. None of them is the DevEx rate.",
@@ -317,13 +324,20 @@
       "whichRobuxRow": "Which Robux",
       "whichRobuxPayout": "Eligible Earned Robux only",
       "whichRobuxPurchase": "Any purchase, no eligibility involved",
-      "minimumPayout": "30,000 Earned Robux",
+      "minimumPayout": "{robux} Earned Robux",
       "minimumPurchase": "None beyond the smallest package",
       "speedPayout": "Roblox reviews each request",
       "speedPurchase": "Instant",
       "reversibleRow": "Reversible",
       "reversiblePayout": "One way — you cannot un-cash-out",
-      "reversiblePurchase": "One way — purchased Robux cannot be sold back"
+      "reversiblePurchase": "One way — purchased Robux cannot be sold back",
+      "columnBuying": "Buying Robux",
+      "rowDirection": "Direction",
+      "rowRate": "Rate",
+      "rowWhichRobux": "Which Robux",
+      "rowMinimum": "Minimum",
+      "rowApproval": "Approval",
+      "rowReversible": "Reversible"
     },
     "body": {
       "twoAnswers": {
@@ -443,7 +457,8 @@
     },
     "prose": {
       "priceFloors": "Price floors differ by item category and Roblox has adjusted them over time, so hardcoding one universal floor would produce wrong answers for most items. Entering the multiple keeps the result correct whatever your category’s floor happens to be."
-    }
+    },
+    "columnRoblox": "Roblox"
   },
   "conversions": {
     "intro": "A server-rendered table of common amounts across all three documented rates, plus an input for anything not listed.",
@@ -468,7 +483,9 @@
     },
     "prose": {
       "notRoundNumbers": "The list is not a selection of round numbers: it is the amounts that are actually searched for. Anything not here — including figures larger than the table’s last row — goes into the converter above, which uses the same rates and the same arithmetic."
-    }
+    },
+    "multipleOfMinimum": "{multiple}× the DevEx minimum",
+    "belowMinimum": "Below the DevEx minimum"
   },
   "amountPage": {
     "jumpLabel": "Compare all three rates",
@@ -516,6 +533,10 @@
     "eligibleLabel": "{display} eligible Earned Robux",
     "clearsMinimum": "That is {multiple} times the {minimum} Earned Robux minimum, so it clears the threshold to submit a request. Clearing the threshold is not approval — Roblox reviews every request.",
     "belowMinimum": "This is below the {minimum} Earned Robux minimum, so a DevEx request cannot be submitted at this balance yet.",
-    "reachingCaption": "Whether {display} Earned Robux covers common payout targets"
+    "reachingCaption": "Whether {display} Earned Robux covers common payout targets",
+    "rateTableLabel": "{display} Robux valued at each DevEx rate",
+    "rateTableCaption": "Payout for {display} Earned Robux under each documented DevEx rate",
+    "faqHeading": "Questions about {display} Robux",
+    "notYetMore": "Not yet — {shortfall} more"
   }
 }

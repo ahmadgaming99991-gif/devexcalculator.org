@@ -26,7 +26,7 @@ const dictionary = {
 } as unknown as Partial<Dictionary>;
 
 describe("translator", () => {
-  const t = translator(dictionary);
+  const t = translator(dictionary, "en");
 
   it("reads a dotted path inside a namespace", () => {
     expect(t("rates.devexRates.body.changes.p1")).toBe(

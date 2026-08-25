@@ -20,6 +20,8 @@ import {
   TableOfContents,
 } from "@/components/content";
 import { AmountTable, FormulaBlock } from "@/components/content/tables";
+import { formatRobux } from "@/lib/calculations/format";
+import { minimumEarnedRobux } from "@/lib/calculations/rate-registry";
 
 const ROUTE = "/robux-to-usd/";
 
@@ -88,37 +90,41 @@ export async function RobuxToUsdView({
                   <tr>
                     <Th>&nbsp;</Th>
                     <Th>{t("rates.robuxToUsd.comparison.creatorPayout")}</Th>
-                    <Th>Buying Robux</Th>
+                    <Th>{t("rates.robuxToUsd.comparison.columnBuying")}</Th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <Th scope="row">Direction</Th>
+                    <Th scope="row">{t("rates.robuxToUsd.comparison.rowDirection")}</Th>
                     <Td>{t("rates.robuxToUsd.comparison.directionPayout")}</Td>
-                    <Td>You pay Roblox</Td>
+                    <Td>{t("rates.robuxToUsd.comparison.directionPurchase")}</Td>
                   </tr>
                   <tr>
-                    <Th scope="row">Rate</Th>
+                    <Th scope="row">{t("rates.robuxToUsd.comparison.rowRate")}</Th>
                     <Td>{t("rates.robuxToUsd.comparison.ratePayout")}</Td>
                     <Td>{t("rates.robuxToUsd.comparison.ratePurchase")}</Td>
                   </tr>
                   <tr>
-                    <Th scope="row">Which Robux</Th>
+                    <Th scope="row">{t("rates.robuxToUsd.comparison.rowWhichRobux")}</Th>
                     <Td>{t("rates.robuxToUsd.comparison.whichRobuxPayout")}</Td>
                     <Td>{t("rates.robuxToUsd.comparison.whichRobuxPurchase")}</Td>
                   </tr>
                   <tr>
-                    <Th scope="row">Minimum</Th>
-                    <Td>30,000 Earned Robux</Td>
+                    <Th scope="row">{t("rates.robuxToUsd.comparison.rowMinimum")}</Th>
+                    <Td>
+                      {t("rates.robuxToUsd.comparison.minimumPayout", {
+                        robux: formatRobux(t.locale, minimumEarnedRobux),
+                      })}
+                    </Td>
                     <Td>{t("rates.robuxToUsd.comparison.minimumPurchase")}</Td>
                   </tr>
                   <tr>
-                    <Th scope="row">Approval</Th>
+                    <Th scope="row">{t("rates.robuxToUsd.comparison.rowApproval")}</Th>
                     <Td>{t("rates.robuxToUsd.comparison.speedPayout")}</Td>
-                    <Td>Instant</Td>
+                    <Td>{t("rates.robuxToUsd.comparison.speedPurchase")}</Td>
                   </tr>
                   <tr>
-                    <Th scope="row">Reversible</Th>
+                    <Th scope="row">{t("rates.robuxToUsd.comparison.rowReversible")}</Th>
                     <Td>{t("rates.robuxToUsd.comparison.reversiblePayout")}</Td>
                     <Td>{t("rates.robuxToUsd.comparison.reversiblePurchase")}</Td>
                   </tr>

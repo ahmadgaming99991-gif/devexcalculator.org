@@ -56,8 +56,8 @@
     "unchanged": "{checked} tarihinde {link} ile karşılaştırıldı — değişiklik yok."
   },
   "byline": {
-    "maintainedBy": "Yürüten:",
-    "reviewedBy": "Denetleyen:",
+    "maintainedBy": "{maintainer} tarafından yürütülüyor",
+    "reviewedBy": "{reviewer} tarafından incelendi",
     "ratesVerified": "Kurlar {date} tarihinde doğrulandı",
     "methodology": "Yöntem"
   },

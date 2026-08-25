@@ -1,6 +1,6 @@
 import { getRateValue, minimumEarnedRobux } from "@/lib/calculations/rate-registry";
 import { standardRateId } from "@/lib/calculations/devex";
-import { formatRobux } from "@/lib/calculations/format";
+import { DISPLAY_LOCALE, formatRobux } from "@/lib/calculations/format";
 import { Rational } from "@/lib/calculations/rational";
 import { OG_CONTENT_TYPE, OG_SIZE, renderOgImage } from "@/lib/og/template";
 
@@ -19,8 +19,8 @@ export default function UsdToRobuxOgImage() {
   const needed = Rational.fromInt(1_000).div(rate).ceilToBigInt();
 
   return renderOgImage({
-    headline: ["$1,000 payout", `= ${formatRobux(needed)} Robux`],
+    headline: ["$1,000 payout", `= ${formatRobux(DISPLAY_LOCALE, needed)} Robux`],
     detail: "Rounded up, because a partial Robux cannot be earned or exchanged",
-    footnote: `${formatRobux(minimumEarnedRobux)} Robux minimum still applies`,
+    footnote: `${formatRobux(DISPLAY_LOCALE, minimumEarnedRobux)} Robux minimum still applies`,
   });
 }

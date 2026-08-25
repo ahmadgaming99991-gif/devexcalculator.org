@@ -106,10 +106,10 @@ export function ThresholdMeter({
         <Badge tone={meets ? "success" : "warning"}>
           {meets
             ? t("calculator.results.minimumReachedBadge", {
-                minimum: formatRobux(threshold.minimumRobux),
+                minimum: formatRobux(t.locale, threshold.minimumRobux),
               })
             : t("calculator.results.moreNeededBadge", {
-                shortfall: formatRobux(threshold.shortfallRobux),
+                shortfall: formatRobux(t.locale, threshold.shortfallRobux),
               })}
         </Badge>
       </div>
@@ -120,7 +120,7 @@ export function ThresholdMeter({
         aria-valuemin={0}
         aria-valuemax={100}
         aria-label={t("calculator.results.progressAriaLabel", {
-          minimum: formatRobux(threshold.minimumRobux),
+          minimum: formatRobux(t.locale, threshold.minimumRobux),
         })}
         className="mt-2 h-2.5 w-full overflow-hidden rounded-full bg-(--color-border)"
       >
@@ -135,7 +135,7 @@ export function ThresholdMeter({
 
       <p className="mt-2 text-xs text-(--color-text-muted)">
         {t("calculator.results.body.intro.p1", {
-          minimumRobux: formatRobux(threshold.minimumRobux),
+          minimumRobux: formatRobux(t.locale, threshold.minimumRobux),
         })}
       </p>
     </div>
@@ -159,7 +159,7 @@ export function ScenarioComparison({
     <TableWrapper label={t("calculator.results.comparisonTableLabel")}>
       <Table
         caption={t("calculator.results.comparisonTableCaption", {
-          robux: formatRobux(comparison.robux),
+          robux: formatRobux(t.locale, comparison.robux),
         })}
       >
         <thead>
@@ -181,9 +181,9 @@ export function ScenarioComparison({
                   </span>
                 ) : null}
               </Td>
-              <Td numeric>${formatRate(row.rateValue)}</Td>
+              <Td numeric>${formatRate(t.locale, row.rateValue)}</Td>
               <Td numeric className="font-semibold">
-                {formatCurrency(row.usd, currency)}
+                {formatCurrency(t.locale, row.usd, currency)}
               </Td>
               <Td numeric>
                 {row.isBaseline ? (
@@ -196,9 +196,9 @@ export function ScenarioComparison({
                         : "text-(--color-text-muted)"
                     }
                   >
-                    {formatSignedCurrency(row.differenceVsStandardUsd, currency)}
+                    {formatSignedCurrency(t.locale, row.differenceVsStandardUsd, currency)}
                     <span className="ml-1 text-xs">
-                      ({formatSignedPercent(row.differenceVsStandardPercent, 1)})
+                      ({formatSignedPercent(t.locale, row.differenceVsStandardPercent, 1)})
                     </span>
                   </span>
                 )}
@@ -244,12 +244,12 @@ export function ResultBreakdown({
             {populated.map((bucket) => (
               <tr key={bucket.rate.id}>
                 <Td>{rateLabel(t, bucket.rate)}</Td>
-                <Td numeric>{formatRobux(bucket.robux)}</Td>
-                <Td numeric>${formatRate(bucket.rateValue)}</Td>
+                <Td numeric>{formatRobux(t.locale, bucket.robux)}</Td>
+                <Td numeric>${formatRate(t.locale, bucket.rateValue)}</Td>
                 <Td numeric className="font-semibold">
-                  {formatCurrency(bucket.usd, currency)}
+                  {formatCurrency(t.locale, bucket.usd, currency)}
                 </Td>
-                <Td numeric>{formatPercent(bucket.shareOfGrossPercent, 1)}</Td>
+                <Td numeric>{formatPercent(t.locale, bucket.shareOfGrossPercent, 1)}</Td>
               </tr>
             ))}
           </tbody>
@@ -257,11 +257,11 @@ export function ResultBreakdown({
             <tr className="bg-(--color-surface-subtle)">
               <Th scope="row">{t("common.columns.total")}</Th>
               <Td numeric className="font-semibold">
-                {formatRobux(result.totalRobux)}
+                {formatRobux(t.locale, result.totalRobux)}
               </Td>
-              <Td numeric>${formatRate(result.blendedRateUsdPerRobux, 5)}</Td>
+              <Td numeric>${formatRate(t.locale, result.blendedRateUsdPerRobux, 5)}</Td>
               <Td numeric className="font-bold">
-                {formatCurrency(result.grossUsd, currency)}
+                {formatCurrency(t.locale, result.grossUsd, currency)}
               </Td>
               <Td numeric>{t("calculator.results.totalShare")}</Td>
             </tr>
@@ -273,14 +273,14 @@ export function ResultBreakdown({
         <SummaryRow
           term={t("calculator.results.blendedRate")}
           detail={t("calculator.results.blendedRateDetail", {
-            rate: `$${formatRate(result.blendedRateUsdPerRobux, 5)}`,
+            rate: `$${formatRate(t.locale, result.blendedRateUsdPerRobux, 5)}`,
           })}
         />
         <SummaryRow
           term={t("calculator.results.ifAllStandard")}
           detail={t("calculator.results.ifAllStandardDetail", {
-            amount: formatCurrency(result.standardOnlyUsd, currency),
-            difference: formatSignedCurrency(result.differenceVsStandardOnlyUsd.neg(), currency),
+            amount: formatCurrency(t.locale, result.standardOnlyUsd, currency),
+            difference: formatSignedCurrency(t.locale, result.differenceVsStandardOnlyUsd.neg(), currency),
           })}
         />
       </dl>
@@ -289,17 +289,17 @@ export function ResultBreakdown({
         <div className="rounded-(--radius-control) border border-(--color-border) bg-(--color-surface) p-4">
           <h3 className="text-sm font-semibold text-(--color-text)">{t("calculator.deductions.heading")}{" "}</h3>
           <dl className="mt-2 flex flex-col gap-1.5 text-sm">
-            <DeductionRow label={t("calculator.deductions.grossPayout")} value={formatCurrency(result.grossUsd, currency)} />
+            <DeductionRow label={t("calculator.deductions.grossPayout")} value={formatCurrency(t.locale, result.grossUsd, currency)} />
             {result.feesApplied ? (
               <>
                 <DeductionRow
                   label={t("calculator.deductions.percentageFee")}
-                  value={`−${formatCurrency(result.percentageFeeUsd, currency)}`}
+                  value={`−${formatCurrency(t.locale, result.percentageFeeUsd, currency)}`}
                 />
                 {!result.flatFeeUsd.isZero() ? (
                   <DeductionRow
                     label={t("calculator.deductions.flatFee")}
-                    value={`−${formatCurrency(result.flatFeeUsd, currency)}`}
+                    value={`−${formatCurrency(t.locale, result.flatFeeUsd, currency)}`}
                   />
                 ) : null}
               </>
@@ -307,13 +307,13 @@ export function ResultBreakdown({
             {result.taxApplied ? (
               <DeductionRow
                 label={t("calculator.deductions.taxEstimate")}
-                value={`−${formatCurrency(result.estimatedTaxUsd, currency)}`}
+                value={`−${formatCurrency(t.locale, result.estimatedTaxUsd, currency)}`}
               />
             ) : null}
             <div className="mt-1 border-t border-(--color-border) pt-1.5">
               <DeductionRow
                 label={t("calculator.deductions.estimatedNet")}
-                value={formatCurrency(result.netAfterEstimateUsd, currency)}
+                value={formatCurrency(t.locale, result.netAfterEstimateUsd, currency)}
                 emphasis
               />
             </div>
@@ -374,13 +374,13 @@ export function TargetBreakdown({
     <div className="flex flex-col gap-3 text-sm">
       <p className="text-(--color-text-muted)">
         {rich(t("calculator.results.targetArithmetic"), {
-          target: formatCurrency(result.targetUsd, currency),
-          rate: `$${formatRate(result.rateValue)}`,
+          target: formatCurrency(t.locale, result.targetUsd, currency),
+          rate: `$${formatRate(t.locale, result.rateValue)}`,
           exact: <span className="tabular">{result.exactRequiredRobux.toFixed(2)}</span>,
-          required: <strong className="text-(--color-text)">{formatRobux(result.requiredRobux)}</strong>,
+          required: <strong className="text-(--color-text)">{formatRobux(t.locale, result.requiredRobux)}</strong>,
         })}
           {t("calculator.results.body.intro.p4", {
-            currency: formatCurrency(result.payoutAtRequiredRobux, currency),
+            currency: formatCurrency(t.locale, result.payoutAtRequiredRobux, currency),
           })}
         </p>
 
@@ -389,11 +389,11 @@ export function TargetBreakdown({
           <p className="font-semibold text-(--color-text)">{t("calculator.target.minimumAppliesFirstTitle")}</p>
           <p className="mt-1 text-(--color-text-muted)">
             {t("calculator.results.body.intro.p5", {
-              requiredRobux: formatRobux(result.requiredRobux),
-              minimumRobux: formatRobux(result.minimumRobux),
+              requiredRobux: formatRobux(t.locale, result.requiredRobux),
+              minimumRobux: formatRobux(t.locale, result.minimumRobux),
             })}
           <strong className="text-(--color-text)">
-                    {formatRobux(result.effectiveRobuxNeeded)}
+                    {formatRobux(t.locale, result.effectiveRobuxNeeded)}
                   </strong>{" "}
                   in practice.
                 </p>
@@ -412,7 +412,7 @@ export function TargetBreakdown({
               {result.remainingRobux === 0n
                 ? t("calculator.results.targetReachedBadge")
                 : t("calculator.results.toGoBadge", {
-                    remaining: formatRobux(result.remainingRobux ?? 0n),
+                    remaining: formatRobux(t.locale, result.remainingRobux ?? 0n),
                   })}
             </Badge>
           </div>
@@ -492,7 +492,7 @@ export function FxNote({
         {t("calculator.currency.provenance", {
           currency,
           provider: rates.provider,
-          date: formatDate(`${rates.observationDate}T00:00:00Z`),
+          date: formatDate(t.locale, `${rates.observationDate}T00:00:00Z`),
         })}
       </p>
     </div>

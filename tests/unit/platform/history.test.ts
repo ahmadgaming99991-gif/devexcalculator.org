@@ -37,7 +37,7 @@ const HOUR = GAME_HISTORY_INTERVAL_MINUTES * 60_000;
  * What these assertions are about is the sentence a reader sees, so building
  * the words here instead would only test the test.
  */
-const english = translator(await getDictionary("en", ["common"]));
+const english = translator(await getDictionary("en", ["common"]), "en");
 
 /**
  * An in-memory stand-in for the KV binding.

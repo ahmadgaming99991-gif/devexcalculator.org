@@ -68,7 +68,8 @@
       "other": "Roblox publishes {rankingsCount} rankings; this shows the first {displayLimit} of whichever is selected. The order is Roblox's, not this site's."
     },
     "unknownTime": "an unknown time",
-    "unknownObservationTime": "an unknown time"
+    "unknownObservationTime": "an unknown time",
+    "sponsored": "Sponsored"
   },
   "platformFigure": {
     "label": "Players across every experience Roblox is ranking",
@@ -111,7 +112,9 @@
       "highestObserved": "Highest observed",
       "lowestObserved": "Lowest observed",
       "overSpan": "Over {span}",
-      "meanNoteText": "Mean of {points} recorded points, not a platform average"
+      "meanNoteText": "Mean of {points} recorded points, not a platform average",
+      "observationsNote": "One an hour, kept for {days} days",
+      "busiestNote": "{players} players at the last observation"
     },
     "charts": {
       "busiestCaption": "The highest player count held by any single experience at each observation, over the {span} recorded. The leading experience changes; this line follows the count, not one title.",
@@ -206,7 +209,8 @@
       "notRecomputed": "Quoted from {source}, not recomputed here. A fuller breakdown, including what Roblox pays creators each quarter, is on {payoutStatistics}.",
       "onlyConfiguration": "The page is already wired for a provider. What is missing is only configuration: {missing}. The reported results below are what a share price responds to, and they are published either way."
     },
-    "andSeparator": " and "
+    "andSeparator": " and ",
+    "quoteHeading": "{symbol} share price"
   },
   "stats": {
     "intro": "What Roblox actually pays creators, taken from its own filings with the SEC. Every figure below links to the document it came from.",
@@ -295,7 +299,12 @@
       "quarterOfRevenue": "The line worth reading twice is the second one. Developer exchange fees are about a quarter of Roblox’s revenue, so a meaningful share of what the platform takes in leaves again as creator payouts. Every figure in this table is quoted from {filings}.",
       "precision": "Figures are recorded to the precision the filing used. Where Roblox reported in thousands the amount is exact to the dollar; where it reported in millions, it is exact to the million and no further. Two quarters are marked as derived because they come from subtracting a reported quarter from a reported six-month total. Read more about how this site handles figures in {methodology}.",
       "whatItMeansIntro": "Very little, directly — and that is worth saying plainly. The totals on this page describe the whole platform. They do not change what your own balance converts to, they are not a forecast, and a rising total does not mean a rising rate. What decides your payout is the rate applied to your eligible Earned Robux, which you can work out on {calculator}.",
-      "whatItMeans": "The one thing these figures do show is scale: DevEx is a programme through which Roblox paid out {amount} in a single year, which is context worth having before deciding whether the 30,000 Robux minimum is worth working towards."
-    }
+      "whatItMeans": "The one thing these figures do show is scale: DevEx is a programme through which Roblox paid out {amount} in a single year, which is context worth having before deciding whether the 30,000 Robux minimum is worth working towards.",
+      "engagementSource": "Every figure above except the last is quoted from {filings}, for the three months ended 30 June 2026."
+    },
+    "yearOnYearNote": "{from} to {to}",
+    "latestQuarterLabel": "Latest quarter ({quarter})",
+    "workedAmountColumn": "{robux} Earned Robux",
+    "aboutValue": "about {value}"
   }
 }

@@ -1,7 +1,10 @@
 {
   "$comment": "Machine-drafted. Not yet read by a native speaker. 'Roblox decides which rate applies' is the sentence that stops a reader thinking the rate is a choice; nothing here is shortened.",
   "$identical": [
-    "robuxTax.columnCreator"
+    "rateHistory.changedAt",
+    "robuxTax.columnCreator",
+    "robuxTax.columnRoblox",
+    "robuxToUsd.comparison.minimumPayout"
   ],
   "devexRates": {
     "intro": "Was Roblox pro anrechenbarem Earned Robux zahlt, wann welcher Kurs gilt, und was die Änderung vom September 2025 tatsächlich wert war.",
@@ -81,7 +84,10 @@
     "prose": {
       "legacySplit": "Roblox zahlt zuerst den vor dem Übergang verdienten Teil eines Guthabens zu 0,0035 aus, dann den Rest zu 0,0038. Die Aufteilung ist Roblox’ eigene Buchführung darüber, wann jeder Robux verdient wurde — nichts, was ein Creator auswählt oder anpassen kann.",
       "whenItChanges": "Roblox hat den Satz schon einmal geändert und kann ihn wieder ändern. Niemand außerhalb von Roblox weiß, ob oder wann, und eine als Analyse verkleidete Vorhersage wäre eine Vermutung im Brustton der Überzeugung. Diese Seite hält nur Änderungen fest, die die offizielle Dokumentation bestätigt, jede mit ihrem Wirksamkeitsdatum. Tritt eine Änderung ein, erscheint sie hier und im {changelog}, zusammen mit dem Datum der Prüfung."
-    }
+    },
+    "comparisonAtRate": "Zu {rate}",
+    "untilDate": "Bis {date}",
+    "changedAt": "{date}, 10:00 PT"
   },
   "requirements": {
     "intro": "Was Roblox wirklich verlangt, bevor ein DevEx-Antrag gestellt werden kann — aus seiner eigenen Dokumentation, nicht aus weitergereichten Zusammenfassungen Dritter.",
@@ -156,7 +162,9 @@
     },
     "prose": {
       "earnedOnly": "Das entscheidende Wort ist {earned}. Gekaufte Robux zählen dafür nicht, und Guthaben aus einer Geschenkkarte ebenso wenig. {earnedRobuxLink}"
-    }
+    },
+    "minimumHeading": "Der Mindestbetrag von {robux} Earned Robux",
+    "thresholdLabel": "{robux} anrechenbare Earned Robux"
   },
   "earnedRobux": {
     "intro": "Die Unterscheidung, die darüber entscheidet, ob eine DevEx-Auszahlung überhaupt möglich ist — und die am häufigsten übersehen wird, bis ein Antrag abgelehnt ist.",
@@ -223,7 +231,9 @@
     "prose": {
       "groupFunds": "Einnahmen aus einer Experience, die einer Gruppe gehört, sammeln sich in den Gruppenmitteln und nicht auf einem persönlichen Konto. DevEx arbeitet auf einem persönlichen Konto, Gruppenmittel müssen also erst über eine Auszahlung auf ein persönliches Guthaben gelangen, bevor sie für einen DevEx-Antrag überhaupt eine Rolle spielen. Wenn Sie Einnahmen mit Mitwirkenden teilen, einigen Sie sich darauf, bevor das Geld ankommt, nicht danach — und prüfen Sie die aktuelle offizielle Dokumentation dazu, wie Gruppenauszahlungen behandelt werden, denn das ist ein Bereich, den Roblox schon einmal geändert hat.",
       "retailUnrelated": "Auch deshalb sind der Ladenpreis von Robux und der DevEx-Satz Zahlen ohne Zusammenhang. Robux zu kaufen ist ein Kauf; DevEx ist Roblox, das einen Creator bezahlt."
-    }
+    },
+    "eligibleOutcome": "Nur die linke Seite wird zu {eligible}",
+    "eligibleTerm": "anrechenbaren Earned Robux"
   },
   "feesAndTaxes": {
     "intro": "Zwischen der DevEx-Umwandlung und dem Geld auf deinem Konto stehen drei verschiedene Dinge. Keines davon ist der DevEx-Kurs.",
@@ -313,20 +323,27 @@
       "buyingRobux": "Robux kaufen",
       "directionRow": "Richtung",
       "directionPayout": "Roblox zahlt dir",
-      "directionPurchase": "Du zahlst an Roblox",
+      "directionPurchase": "Sie zahlen an Roblox",
       "rateRow": "Kurs",
       "ratePayout": "Dokumentiert und fest bei 0,0038 USD pro anrechenbarem Earned Robux",
       "ratePurchase": "Unterschiedlich je nach Paket, Region, Plattform und Aktion",
       "whichRobuxRow": "Welche Robux",
       "whichRobuxPayout": "Nur anrechenbare Earned Robux",
       "whichRobuxPurchase": "Jeder Kauf, ohne Frage der Anrechenbarkeit",
-      "minimumPayout": "30.000 Earned Robux",
+      "minimumPayout": "{robux} Earned Robux",
       "minimumPurchase": "Keins über das kleinste Paket hinaus",
       "speedPayout": "Roblox prüft jeden Antrag",
       "speedPurchase": "Sofort",
       "reversibleRow": "Umkehrbar",
       "reversiblePayout": "Nur eine Richtung — eine Auszahlung lässt sich nicht rückgängig machen",
-      "reversiblePurchase": "Nur eine Richtung — gekaufte Robux können nicht zurückverkauft werden"
+      "reversiblePurchase": "Nur eine Richtung — gekaufte Robux können nicht zurückverkauft werden",
+      "columnBuying": "Robux kaufen",
+      "rowDirection": "Richtung",
+      "rowRate": "Satz",
+      "rowWhichRobux": "Welche Robux",
+      "rowMinimum": "Mindestbetrag",
+      "rowApproval": "Freigabe",
+      "rowReversible": "Widerrufbar"
     },
     "body": {
       "twoAnswers": {
@@ -446,7 +463,8 @@
     },
     "prose": {
       "priceFloors": "Preisuntergrenzen unterscheiden sich je nach Artikelkategorie, und Roblox hat sie im Lauf der Zeit angepasst; eine einzige fest verdrahtete Untergrenze ergäbe daher für die meisten Artikel falsche Antworten. Das Vielfache einzugeben hält das Ergebnis richtig, wie hoch die Untergrenze Ihrer Kategorie auch ist."
-    }
+    },
+    "columnRoblox": "Roblox"
   },
   "conversions": {
     "intro": "Eine serverseitig gerenderte Tabelle üblicher Beträge zu allen drei dokumentierten Kursen, dazu ein Eingabefeld für alles, was nicht aufgeführt ist.",
@@ -471,7 +489,9 @@
     },
     "prose": {
       "notRoundNumbers": "Die Liste ist keine Auswahl runder Zahlen: Es sind die Beträge, nach denen tatsächlich gesucht wird. Alles, was nicht hier steht — auch Zahlen jenseits der letzten Tabellenzeile — gehört in den Umrechner oben, der dieselben Sätze und dieselbe Arithmetik verwendet."
-    }
+    },
+    "multipleOfMinimum": "{multiple}× des DevEx-Mindestbetrags",
+    "belowMinimum": "Unter dem DevEx-Mindestbetrag"
   },
   "amountPage": {
     "jumpLabel": "Alle drei Kurse vergleichen",
@@ -519,6 +539,10 @@
     "eligibleLabel": "{display} berechtigte Earned Robux",
     "clearsMinimum": "Das ist das {multiple}-Fache des Minimums von {minimum} Earned Robux, die Schwelle für einen Antrag ist also überschritten. Die Schwelle zu überschreiten ist keine Bewilligung — Roblox prüft jeden Antrag.",
     "belowMinimum": "Das liegt unter dem Minimum von {minimum} Earned Robux, mit diesem Guthaben lässt sich also noch kein DevEx-Antrag stellen.",
-    "reachingCaption": "Ob {display} Earned Robux gängige Auszahlungsziele abdecken"
+    "reachingCaption": "Ob {display} Earned Robux gängige Auszahlungsziele abdecken",
+    "rateTableLabel": "{display} Robux, bewertet zu jedem DevEx-Satz",
+    "rateTableCaption": "Auszahlung für {display} Earned Robux zu jedem dokumentierten DevEx-Satz",
+    "faqHeading": "Fragen zu {display} Robux",
+    "notYetMore": "Noch nicht — {shortfall} fehlen"
   }
 }

@@ -2,12 +2,14 @@
   "$comment": "Machine-drafted. Not yet read by a native speaker. A translation that softens 'this site cannot determine' into 'this site does not usually determine' turns a limit into a habit.",
   "$identical": [
     "api.endpointColumn",
+    "api.endpointLabel",
     "api.fxHeading",
     "api.platformHeading",
     "api.ratesHeading",
     "api.statsHeading",
     "changelog.filterSite",
-    "changelog.jsonFeed"
+    "changelog.jsonFeed",
+    "corrections.steps.deploy"
   ],
   "about": {
     "intro": "Untuk apa situs ini ada, bagaimana ia dibangun, dan hal-hal yang dengan sengaja tidak mau dilakukannya.",
@@ -228,7 +230,8 @@
       "reviewPages": "Tinjau halaman yang terdampak.",
       "recordChangelog": "Catat di changelog.",
       "updateDate": "Perbarui tanggal verifikasi.",
-      "verifyBody": "Klaimnya diperiksa langsung terhadap dokumentasi Roblox sendiri, bukan terhadap situs lain yang mengulanginya."
+      "verifyBody": "Klaimnya diperiksa langsung terhadap dokumentasi Roblox sendiri, bukan terhadap situs lain yang mengulanginya.",
+      "deploy": "Deploy."
     },
     "body": {
       "report": {
@@ -290,7 +293,8 @@
     "prose": {
       "feeds": "Setiap entri di sini diterbitkan sebagai umpan: {atom} untuk pembaca umpan, atau {jsonFeed} untuk apa pun yang lebih suka tidak mengurai XML. Keduanya memuat entri dan tautan sumber yang sama. Jika Anda bergantung pada angka-angka ini, {ratesApi} menerbitkan nilai terkini beserta tanggal verifikasinya.",
       "scopeLinks": "Untuk riwayat tarif DevEx itu sendiri, termasuk perubahan September 2025, {rateHistory}. Untuk cara koreksi ditangani, {correctionsPolicy}."
-    }
+    },
+    "registryVersionDescription": "Registri tarif versi {version}, terakhir diverifikasi {lastVerifiedAt}."
   },
   "api": {
     "intro": "Registri kurs yang dipakai situs ini untuk menghitung, diterbitkan sebagai JSON beserta setiap sumber dan tanggal verifikasinya.",
@@ -399,7 +403,8 @@
       "attribution": "Tidak diwajibkan, dan dihargai. Jika Anda mengutip sebuah angka, kutip pula sumbernya di {sources} — itu adalah dokumentasi Roblox sendiri, dan itulah yang membuat angkanya dapat diperiksa alih-alih sekadar dipinjam.",
       "promised": "bentuk responsnya tidak akan berubah tanpa {registryVersion} ikut berubah, setiap angka akan membawa sumber tempat ia diverifikasi, dan sebuah tarif tidak akan pernah diperbarui dari halaman hasil pengikisan tanpa ada orang yang memeriksanya lebih dulu. Perubahan dicatat di {changelog}.",
       "robloxFigures": "Setiap tarif di sini adalah apa yang saat ini didokumentasikan Roblox, dicatat pada tanggal verifikasi yang ditampilkan. Roblox yang memutuskan tarif mana berlaku untuk saldo mana dan apakah sebuah permohonan DevEx disetujui. Baca {methodology} untuk melihat bagaimana setiap angka berpindah dari dokumentasi mereka ke respons ini."
-    }
+    },
+    "endpointLabel": "Endpoint"
   },
   "authors": {
     "heading": "Siapa yang menulis situs ini",

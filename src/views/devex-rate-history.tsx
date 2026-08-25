@@ -53,9 +53,11 @@ export async function RateHistoryView({ locale }: { readonly locale: Locale }) {
             <ol className="flex flex-col gap-4">
               <li className="rounded-(--radius-control) border border-(--color-border) border-l-4 border-l-(--color-success) bg-(--color-surface) p-4">
                 <div className="flex flex-wrap items-center gap-2">
-                  <Badge tone="success">Current</Badge>
+                  <Badge tone="success">{t("common.rateStatus.active")}</Badge>
                   <span className="text-sm font-semibold text-(--color-text)">
-                    {formatDate("2025-09-05T10:00:00-07:00")}, 10:00 PT
+                    {t("rates.rateHistory.changedAt", {
+                      date: formatDate(t.locale, "2025-09-05T10:00:00-07:00"),
+                    })}
                   </span>
                 </div>
                 <p className="mt-2 font-semibold text-(--color-text)">{t("rates.rateHistory.body.timeline.p1")}</p>
@@ -64,9 +66,11 @@ export async function RateHistoryView({ locale }: { readonly locale: Locale }) {
 
               <li className="rounded-(--radius-control) border border-(--color-border) border-l-4 border-l-(--color-border-strong) bg-(--color-surface) p-4">
                 <div className="flex flex-wrap items-center gap-2">
-                  <Badge tone="neutral">Legacy</Badge>
+                  <Badge tone="neutral">{t("common.rateStatus.legacy")}</Badge>
                   <span className="text-sm font-semibold text-(--color-text)">
-                    Until {formatDate("2025-09-05T10:00:00-07:00")}
+                    {t("rates.rateHistory.untilDate", {
+                      date: formatDate(t.locale, "2025-09-05T10:00:00-07:00"),
+                    })}
                   </span>
                 </div>
                 <p className="mt-2 font-semibold text-(--color-text)">{t("rates.rateHistory.body.timeline.p3")}</p>
@@ -75,7 +79,7 @@ export async function RateHistoryView({ locale }: { readonly locale: Locale }) {
 
               <li className="rounded-(--radius-control) border border-(--color-border) border-l-4 border-l-(--color-accent) bg-(--color-surface) p-4">
                 <div className="flex flex-wrap items-center gap-2">
-                  <Badge tone="info">Conditional</Badge>
+                  <Badge tone="info">{t("common.rateStatus.conditional")}</Badge>
                   <span className="text-sm font-semibold text-(--color-text)">{t("rates.rateHistory.body.timeline.p5")}</span>
                 </div>
                 <p className="mt-2 font-semibold text-(--color-text)">{t("rates.rateHistory.body.timeline.p6")}</p>
@@ -93,10 +97,10 @@ export async function RateHistoryView({ locale }: { readonly locale: Locale }) {
               <Table caption={t("rates.rateHistory.comparisonCaption")}>
                 <thead>
                   <tr>
-                    <Th>Earned Robux</Th>
-                    <Th numeric>At 0.0035</Th>
-                    <Th numeric>At 0.0038</Th>
-                    <Th numeric>Difference</Th>
+                    <Th>{t("common.columns.earnedRobux")}</Th>
+                    <Th numeric>{t("rates.rateHistory.comparisonAtRate", { rate: "0.0035" })}</Th>
+                    <Th numeric>{t("rates.rateHistory.comparisonAtRate", { rate: "0.0038" })}</Th>
+                    <Th numeric>{t("common.columns.difference")}</Th>
                   </tr>
                 </thead>
                 <tbody>
@@ -106,15 +110,15 @@ export async function RateHistoryView({ locale }: { readonly locale: Locale }) {
                     const after = robux.mul(standard);
                     return (
                       <tr key={amount}>
-                        <Th scope="row">{formatRobux(amount)}</Th>
+                        <Th scope="row">{formatRobux(t.locale, amount)}</Th>
                         <Td numeric className="text-(--color-text-muted)">
-                          {formatCurrency(before, "USD")}
+                          {formatCurrency(t.locale, before, "USD")}
                         </Td>
                         <Td numeric className="font-semibold">
-                          {formatCurrency(after, "USD")}
+                          {formatCurrency(t.locale, after, "USD")}
                         </Td>
                         <Td numeric className="text-(--color-success)">
-                          +{formatCurrency(after.sub(before), "USD")}
+                          +{formatCurrency(t.locale, after.sub(before), "USD")}
                         </Td>
                       </tr>
                     );

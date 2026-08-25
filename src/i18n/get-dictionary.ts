@@ -1,4 +1,4 @@
-import { DEFAULT_LOCALE } from "./config";
+import { DEFAULT_LOCALE, getLocaleMeta } from "./config";
 import { interpolate } from "./interpolate";
 import { isRenderable } from "./visibility";
 import type { Dictionary, DictionaryNamespace, Locale } from "./types";
@@ -134,13 +134,26 @@ export { interpolate };
  * failure this whole system exists to prevent. Throwing fails the build,
  * where somebody is looking.
  */
-export type Translate = (
+export type Translate = ((
   key: string,
   values?: Readonly<Record<string, string | number>>,
-) => string;
+) => string) & {
+  /**
+   * The BCP 47 tag this translator reads, e.g. `pt-BR`.
+   *
+   * Here rather than passed separately because a sentence and the number
+   * inside it are the same fact. Every component that renders text already
+   * holds a `t`; making it hold a locale as well is how a figure ends up
+   * formatted for a different language than the words around it.
+   *
+   * The tag, not the URL segment: `pt-BR`, never `/pt-br`. `Intl` wants the
+   * former and the router produces the latter.
+   */
+  readonly locale: string;
+};
 
-export function translator(dictionary: Partial<Dictionary>): Translate {
-  return (key, values) => {
+export function translator(dictionary: Partial<Dictionary>, locale: Locale): Translate {
+  const read = (key: string, values?: Readonly<Record<string, string | number>>): string => {
     const separator = key.indexOf(".");
     const namespace = separator === -1 ? key : key.slice(0, separator);
     const path = separator === -1 ? "" : key.slice(separator + 1);
@@ -164,6 +177,7 @@ export function translator(dictionary: Partial<Dictionary>): Translate {
     }
     return values === undefined ? value : interpolate(value, values);
   };
+  return Object.assign(read, { locale: getLocaleMeta(locale).bcp47 });
 }
 
 /**
@@ -193,7 +207,7 @@ export async function getTranslator(
   namespaces: readonly DictionaryNamespace[],
 ): Promise<Translate> {
   const all = [...new Set([...namespaces, ...SHARED_NAMESPACES])];
-  return translator(await getDictionary(locale, all));
+  return translator(await getDictionary(locale, all), locale);
 }
 /** English, for the extraction scripts and for tests that need a baseline. */
 export async function getSourceNamespace<T = Record<string, unknown>>(

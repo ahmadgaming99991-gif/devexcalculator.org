@@ -100,10 +100,10 @@ export async function AmountView({
                 {values.meetsMinimum
                   ? t("rates.amountPage.clearsMinimum", {
                       multiple: values.multipleOfMinimum,
-                      minimum: formatRobux(minimumEarnedRobux),
+                      minimum: formatRobux(t.locale, minimumEarnedRobux),
                     })
                   : t("rates.amountPage.belowMinimum", {
-                      minimum: formatRobux(minimumEarnedRobux),
+                      minimum: formatRobux(t.locale, minimumEarnedRobux),
                     })}
               </p>
               <p className="mt-4">
@@ -117,14 +117,20 @@ export async function AmountView({
             heading={t("rates.amountPage.allThreeHeading")}
             description={t("rates.amountPage.allThreeDescription")}
           >
-            <TableWrapper label={`${values.display} Robux valued at each DevEx rate`}>
-              <Table caption={`Payout for ${values.display} Earned Robux under each documented DevEx rate`}>
+            <TableWrapper
+              label={t("rates.amountPage.rateTableLabel", { display: values.display })}
+            >
+              <Table
+                caption={t("rates.amountPage.rateTableCaption", {
+                  display: values.display,
+                })}
+              >
                 <thead>
                   <tr>
-                    <Th>Rate</Th>
-                    <Th numeric>Per Robux</Th>
-                    <Th numeric>Payout</Th>
-                    <Th numeric>vs standard</Th>
+                    <Th>{t("common.columns.rate")}</Th>
+                    <Th numeric>{t("common.columns.perRobux")}</Th>
+                    <Th numeric>{t("common.columns.payout")}</Th>
+                    <Th numeric>{t("common.columns.vsStandard")}</Th>
                   </tr>
                 </thead>
                 <tbody>
@@ -138,11 +144,11 @@ export async function AmountView({
                         <Th scope="row">{rate.label}</Th>
                         <Td numeric>${rate.usdPerRobux}</Td>
                         <Td numeric className="font-semibold">
-                          {formatCurrency(payout, "USD")}
+                          {formatCurrency(t.locale, payout, "USD")}
                         </Td>
                         <Td numeric>
                           {isStandard ? (
-                            <span className="text-(--color-text-muted)">baseline</span>
+                            <span className="text-(--color-text-muted)">{t("common.units.baseline")}</span>
                           ) : (
                             <span
                               className={
@@ -152,7 +158,7 @@ export async function AmountView({
                               }
                             >
                               {difference.gt(Rational.ZERO) ? "+" : ""}
-                              {formatCurrency(difference, "USD")}
+                              {formatCurrency(t.locale, difference, "USD")}
                             </span>
                           )}
                         </Td>
@@ -202,14 +208,16 @@ export async function AmountView({
                 <tbody>
                   {reverseTargets.map((row) => (
                     <tr key={row.target}>
-                      <Th scope="row">{formatCurrency(row.targetUsd, "USD")}</Th>
-                      <Td numeric>{formatRobux(row.required)}</Td>
+                      <Th scope="row">{formatCurrency(t.locale, row.targetUsd, "USD")}</Th>
+                      <Td numeric>{formatRobux(t.locale, row.required)}</Td>
                       <Td>
                         {row.covered ? (
-                          <span className="font-medium text-(--color-success)">Yes</span>
+                          <span className="font-medium text-(--color-success)">{t("common.units.yes")}</span>
                         ) : (
                           <span className="text-(--color-text-muted)">
-                            Not yet — {formatRobux(row.required - BigInt(amount))} more
+                            {t("rates.amountPage.notYetMore", {
+                              shortfall: formatRobux(t.locale, row.required - BigInt(amount)),
+                            })}
                           </span>
                         )}
                       </Td>
@@ -257,7 +265,7 @@ export async function AmountView({
             </p>
           </Section>
 
-          <FAQAccordion locale={locale} faqs={localized.faqs} heading={`Questions about ${values.display} Robux`} />
+          <FAQAccordion locale={locale} faqs={localized.faqs} heading={t("rates.amountPage.faqHeading", { display: values.display })} />
 
           <EstimateDisclaimer locale={locale} />
           <SourceNote locale={locale} sourceIds={localized.sourceIds} />

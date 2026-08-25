@@ -2,6 +2,7 @@
   "$comment": "Machine-drafted. Not yet read by a native speaker. A translation that softens 'this site cannot determine' into 'this site does not usually determine' turns a limit into a habit.",
   "$identical": [
     "api.endpointColumn",
+    "api.endpointLabel",
     "api.fxHeading",
     "api.platformHeading",
     "api.ratesHeading",
@@ -228,7 +229,8 @@
       "reviewPages": "Revisar as páginas afetadas.",
       "recordChangelog": "Registrar no changelog.",
       "updateDate": "Atualizar a data de verificação.",
-      "verifyBody": "A afirmação é verificada diretamente na documentação do próprio Roblox, e não em outro site que a repetiu."
+      "verifyBody": "A afirmação é verificada diretamente na documentação do próprio Roblox, e não em outro site que a repetiu.",
+      "deploy": "Publicar."
     },
     "body": {
       "report": {
@@ -290,7 +292,8 @@
     "prose": {
       "feeds": "Cada entrada daqui é publicada como feed: {atom} para leitores de feed, ou {jsonFeed} para quem prefere não interpretar XML. Ambos trazem as mesmas entradas e os mesmos links de fonte. Se você depende destes números, {ratesApi} publica os valores atuais com a data de verificação anexada.",
       "scopeLinks": "Para o histórico da própria taxa do DevEx, incluindo a mudança de setembro de 2025, {rateHistory}. Para saber como as correções são tratadas, {correctionsPolicy}."
-    }
+    },
+    "registryVersionDescription": "Versão {version} do registro de taxas, verificada pela última vez em {lastVerifiedAt}."
   },
   "api": {
     "intro": "O registro de taxas com que este site calcula, publicado como JSON com toda fonte e data de verificação anexadas.",
@@ -399,7 +402,8 @@
       "attribution": "Não é exigida, e é bem-vinda. Se você citar um número, cite junto a fonte em {sources} — ela é a documentação do próprio Roblox, e é o que torna o número verificável em vez de emprestado.",
       "promised": "o formato da resposta não mudará sem que o {registryVersion} mude, cada número trará a fonte contra a qual foi verificado, e uma taxa nunca será atualizada a partir de uma página raspada sem que uma pessoa a confira antes. As mudanças são registradas em {changelog}.",
       "robloxFigures": "Toda taxa aqui é o que o Roblox documenta atualmente, registrada na data de verificação exibida. O Roblox decide qual taxa se aplica a qual saldo e se qualquer solicitação de DevEx é aprovada. Leia {methodology} para saber como cada número vai da documentação deles até esta resposta."
-    }
+    },
+    "endpointLabel": "Endpoint"
   },
   "authors": {
     "heading": "Quem escreve este site",

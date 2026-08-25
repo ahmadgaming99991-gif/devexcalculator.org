@@ -56,7 +56,7 @@ export async function DisclaimerView({ locale }: { readonly locale: Locale }) {
           <Section id="accuracy" heading={t("legal.disclaimer.accuracyHeading")}>
             <p className="text-(--color-text-muted)">
               {t("legal.disclaimer.body.accuracy.p1", {
-                lastVerifiedAt: formatDate(rateRegistry.lastVerifiedAt),
+                lastVerifiedAt: formatDate(t.locale, rateRegistry.lastVerifiedAt),
               })}
             </p>
             <p className="mt-3 text-(--color-text-muted)">

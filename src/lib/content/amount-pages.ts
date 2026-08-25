@@ -1,5 +1,5 @@
 import { Rational } from "@/lib/calculations/rational";
-import { formatCurrency, formatRobux } from "@/lib/calculations/format";
+import { DISPLAY_LOCALE, formatCurrency, formatRobux } from "@/lib/calculations/format";
 import { getRateValue, minimumEarnedRobux } from "@/lib/calculations/rate-registry";
 import { legacyRateId, standardRateId, us18RateId } from "@/lib/calculations/devex";
 
@@ -119,11 +119,11 @@ export function computeAmountValues(amount: number): AmountValues {
 
   return {
     amount,
-    display: formatRobux(amount),
-    standardUsd: formatCurrency(standard, "USD"),
-    legacyUsd: formatCurrency(legacy, "USD"),
-    us18Usd: formatCurrency(us18, "USD"),
-    standardVsLegacyUsd: formatCurrency(standard.sub(legacy), "USD"),
+    display: formatRobux(DISPLAY_LOCALE, amount),
+    standardUsd: formatCurrency(DISPLAY_LOCALE, standard, "USD"),
+    legacyUsd: formatCurrency(DISPLAY_LOCALE, legacy, "USD"),
+    us18Usd: formatCurrency(DISPLAY_LOCALE, us18, "USD"),
+    standardVsLegacyUsd: formatCurrency(DISPLAY_LOCALE, standard.sub(legacy), "USD"),
     meetsMinimum: amount >= minimumEarnedRobux,
     multipleOfMinimum: robux
       .div(Rational.fromInt(minimumEarnedRobux))

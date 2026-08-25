@@ -25,6 +25,25 @@ import type { Translate } from "@/i18n/get-dictionary";
  * exported by the component itself, so the server cannot pass a set that has
  * drifted from what the component reads.
  */
+/**
+ * Where the locale tag rides along inside a copied word list.
+ *
+ * A `$` key because the dictionaries already use that prefix for values
+ * that are metadata rather than text — `$comment`, `$identical` — and
+ * because no dictionary key can begin with one, so it cannot collide with
+ * a sentence.
+ */
+export const LOCALE_KEY = "$locale";
+
+/**
+ * What a word list falls back to if it somehow carries no locale.
+ *
+ * Only reachable from a hand-built object in a test: everything the server
+ * produces goes through `pickWords`, which always stamps one. English
+ * grouping on an English page is the least surprising thing to be wrong.
+ */
+const DEFAULT_BCP47 = "en";
+
 export type LocaleWords = Readonly<Record<string, string>>;
 
 /**
@@ -41,11 +60,12 @@ export type LocaleWords = Readonly<Record<string, string>>;
  * where a sentence should be is not.
  */
 export function translatorFor(words: LocaleWords): Translate {
-  return (key, values) => {
+  const read = (key: string, values?: Readonly<Record<string, string | number>>): string => {
     const value = words[key];
     if (value === undefined) {
       throw new Error(`"${key}" was not among the words handed to this component.`);
     }
     return values === undefined ? value : interpolate(value, values);
   };
+  return Object.assign(read, { locale: words[LOCALE_KEY] ?? DEFAULT_BCP47 });
 }

@@ -65,12 +65,12 @@ export async function SourcesView({ locale }: { readonly locale: Locale }) {
                   <dl className="mt-3 flex flex-wrap gap-x-6 gap-y-1 text-xs text-(--color-text-muted)">
                     <div className="flex gap-1.5">
                       <dt className="font-semibold">{t("trust.sources.lastChecked")}</dt>
-                      <dd>{formatDate(source.lastCheckedAt)}</dd>
+                      <dd>{formatDate(t.locale, source.lastCheckedAt)}</dd>
                     </div>
                     {source.effectiveDate ? (
                       <div className="flex gap-1.5">
                         <dt className="font-semibold">{t("trust.sources.effectiveFrom")}</dt>
-                        <dd>{formatDate(source.effectiveDate)}</dd>
+                        <dd>{formatDate(t.locale, source.effectiveDate)}</dd>
                       </div>
                     ) : null}
                     <div className="flex gap-1.5">
@@ -100,7 +100,7 @@ export async function SourcesView({ locale }: { readonly locale: Locale }) {
                   <dt className="text-(--color-text-muted)">{t("trust.sources.ratesLastVerified")}</dt>
                   <dd className="font-semibold text-(--color-text)">
                     {t("trust.sources.body.cadence.p2", {
-                      lastVerifiedAt: formatDate(rateRegistry.lastVerifiedAt),
+                      lastVerifiedAt: formatDate(t.locale, rateRegistry.lastVerifiedAt),
                       ageDays: freshness.ageDays,
                     })}
                   </dd>

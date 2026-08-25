@@ -1,5 +1,5 @@
 import { getMarketplaceScheme, minimumEarnedRobux } from "@/lib/calculations/rate-registry";
-import { formatRobux } from "@/lib/calculations/format";
+import { DISPLAY_LOCALE, formatRobux } from "@/lib/calculations/format";
 import { OG_CONTENT_TYPE, OG_SIZE, renderOgImage } from "@/lib/og/template";
 
 /** What can be exchanged and what cannot — the distinction the page is about. */
@@ -17,6 +17,6 @@ export default function EarnedRobuxOgImage() {
   return renderOgImage({
     headline: ["Not every Robux", "can be cashed out"],
     detail: `Bought, gifted and membership Robux never qualify · your ${scheme.creatorSharePercent}% share does`,
-    footnote: `${formatRobux(minimumEarnedRobux)} minimum counts Earned Robux only`,
+    footnote: `${formatRobux(DISPLAY_LOCALE, minimumEarnedRobux)} minimum counts Earned Robux only`,
   });
 }

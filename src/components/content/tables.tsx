@@ -36,9 +36,9 @@ export function RateTable({ showExamples = true,
           <tr>
             <Th>{t("common.columns.rate")}</Th>
             <Th numeric>{t("common.columns.perRobux")}</Th>
-            <Th numeric>{t("common.columns.perAmount", { amount: formatRobux(1_000) })}</Th>
+            <Th numeric>{t("common.columns.perAmount", { amount: formatRobux(t.locale, 1_000) })}</Th>
             {showExamples ? (
-              <Th numeric>{t("common.columns.perAmount", { amount: formatRobux(30_000) })}</Th>
+              <Th numeric>{t("common.columns.perAmount", { amount: formatRobux(t.locale, 30_000) })}</Th>
             ) : null}
             <Th>{t("common.units.appliesTo")}</Th>
           </tr>
@@ -65,14 +65,14 @@ export function RateTable({ showExamples = true,
                   </span>
                 </Th>
                 <Td numeric className="font-semibold">
-                  ${formatRate(value)}
+                  ${formatRate(t.locale, value)}
                 </Td>
                 <Td numeric>
-                  {formatCurrency(value.mul(Rational.fromInt(1_000)), "USD")}
+                  {formatCurrency(t.locale, value.mul(Rational.fromInt(1_000)), "USD")}
                 </Td>
                 {showExamples ? (
                   <Td numeric>
-                    {formatCurrency(value.mul(Rational.fromInt(30_000)), "USD")}
+                    {formatCurrency(t.locale, value.mul(Rational.fromInt(30_000)), "USD")}
                   </Td>
                 ) : null}
                 <Td className="text-(--color-text-muted)">
@@ -80,14 +80,14 @@ export function RateTable({ showExamples = true,
                   {rate.effectiveFrom ? (
                     <span className="mt-1 block text-xs">
                       {t("common.tables.effectiveFrom", {
-                        effectiveFrom: formatDate(rate.effectiveFrom),
+                        effectiveFrom: formatDate(t.locale, rate.effectiveFrom),
                       })}
                     </span>
                   ) : null}
                   {rate.effectiveTo ? (
                     <span className="mt-1 block text-xs">
                       {t("common.tables.legacyAppliesTo", {
-                        effectiveTo: formatDate(rate.effectiveTo),
+                        effectiveTo: formatDate(t.locale, rate.effectiveTo),
                       })}
                     </span>
                   ) : null}
@@ -180,22 +180,22 @@ export function AmountTable({
                       href={amountPageRoute(amount)}
                       className="font-semibold text-(--color-primary) underline underline-offset-2"
                     >
-                      {formatRobux(amount)}
+                      {formatRobux(t.locale, amount)}
                     </Link>
                   ) : (
                     <span className="font-semibold text-(--color-text)">
-                      {formatRobux(amount)}
+                      {formatRobux(t.locale, amount)}
                     </span>
                   )}
                 </Th>
                 <Td numeric className="font-semibold">
-                  {formatCurrency(robux.mul(standard), "USD")}
+                  {formatCurrency(t.locale, robux.mul(standard), "USD")}
                 </Td>
                 <Td numeric className="text-(--color-text-muted)">
-                  {formatCurrency(robux.mul(legacy), "USD")}
+                  {formatCurrency(t.locale, robux.mul(legacy), "USD")}
                 </Td>
                 <Td numeric className="text-(--color-text-muted)">
-                  {formatCurrency(robux.mul(us18), "USD")}
+                  {formatCurrency(t.locale, robux.mul(us18), "USD")}
                 </Td>
                 <Td>
                   {meetsMinimum ? (
@@ -245,13 +245,13 @@ export function FormulaBlock({
         {t("common.tables.calculationFormula")}
       </p>
       <p className="numeric-display mt-2 text-sm text-(--color-text-muted)">
-        100,000 × ${formatRate(standard)} = {formatCurrency(example, "USD")}
+        100,000 × ${formatRate(t.locale, standard)} = {formatCurrency(t.locale, example, "USD")}
       </p>
       <p className="mt-3 text-sm text-(--color-text-muted)">
         {t("common.tables.prose.workingBackwards", {
-          target: formatCurrency(Rational.fromInt(1_000), "USD"),
-          required: formatRobux(Rational.fromInt(1_000).div(standard).ceilToBigInt()),
-          shortfall: formatRobux(Rational.fromInt(1_000).div(standard).floorToBigInt()),
+          target: formatCurrency(t.locale, Rational.fromInt(1_000), "USD"),
+          required: formatRobux(t.locale, Rational.fromInt(1_000).div(standard).ceilToBigInt()),
+          shortfall: formatRobux(t.locale, Rational.fromInt(1_000).div(standard).floorToBigInt()),
         })}
       </p>
     </div>
@@ -264,7 +264,7 @@ export function FormulaBlock({
 
 const devexRequirements = (t: Translate): readonly { title: string; detail: string }[] => [
   {
-    title: `At least ${formatRobux(minimumEarnedRobux)} Earned Robux`,
+    title: t("common.units.atLeastRobux", { robux: formatRobux(t.locale, minimumEarnedRobux) }),
     detail: t("rates.requirements.items.earnedOnly"),
   },
   {

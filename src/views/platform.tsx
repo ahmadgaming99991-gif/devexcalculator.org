@@ -412,10 +412,10 @@ async function LiveExperiences({
                 <Th>#</Th>
                 <Th>{t("platform.live.table.experience")}</Th>
                 <Th>{t("platform.live.table.playersNow")}</Th>
-                {history ? <Th>Last 24h</Th> : null}
+                {history ? <Th>{t("platform.live.table.last24h")}</Th> : null}
                 {hasVisits ? <Th>{t("platform.live.table.lifetimeVisits")}{" "}</Th> : null}
-                {hasVotes ? <Th>Approval</Th> : null}
-                {hasGenre ? <Th>Genre</Th> : null}
+                {hasVotes ? <Th>{t("platform.live.table.approval")}</Th> : null}
+                {hasGenre ? <Th>{t("platform.live.table.genre")}</Th> : null}
               </tr>
             </thead>
             <tbody>
@@ -531,14 +531,16 @@ async function TopExperiencesOverTime({ days,
         <Stat
           label={t("platform.history.stats.observationsHeld")}
           value={numberFormat.format(history.at.length)}
-          note={`One an hour, kept for ${GAME_HISTORY_DAYS} days`}
+          note={t("platform.history.stats.observationsNote", { days: GAME_HISTORY_DAYS })}
         />
         <Stat
           label={t("platform.history.stats.busiestTracked")}
           value={plottable[0]?.name ?? "—"}
           note={
             plottable[0]
-              ? `${numberFormat.format(plottable[0].latest)} players at the last observation`
+              ? t("platform.history.stats.busiestNote", {
+                  players: numberFormat.format(plottable[0].latest),
+                })
               : undefined
           }
         />
@@ -807,7 +809,7 @@ function ExperienceRow({
         {experience.isSponsored ? (
           <>
             {" "}
-            <Badge tone="warning">Sponsored</Badge>
+            <Badge tone="warning">{t("platform.live.sponsored")}</Badge>
           </>
         ) : null}
         <span className="block text-sm text-(--color-text-muted)">

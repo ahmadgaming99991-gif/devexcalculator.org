@@ -1,7 +1,8 @@
 {
   "$comment": "Machine-drafted. Not yet read by a native speaker. Every sentence here draws a line between what Roblox published, what this site observed, and what nobody knows — none may be shortened into a claim the data does not support.",
   "$identical": [
-    "live.table.experience"
+    "live.table.experience",
+    "stats.workedAmountColumn"
   ],
   "live": {
     "intro": "Roblox'un kendi açık uç noktalarından gelen canlı oyuncu sayıları, Roblox'un yayımladığı bütün sıralamalarda; ve bu sitenin izlemeye başladığından beri gözlediklerinin kaydı.",
@@ -24,7 +25,7 @@
       "playersNow": "Şu anki oyuncular",
       "last24h": "Son 24 saat",
       "lifetimeVisits": "Toplam ziyaret",
-      "approval": "Beğeni",
+      "approval": "Beğeni oranı",
       "sponsored": "Sponsorlu",
       "genre": "Tür",
       "wrapperLabel": "Roblox'un {ranking} sıralamasındaki deneyimler",
@@ -71,7 +72,8 @@
       "other": "Roblox {rankingsCount} sıralama yayımlıyor; burada seçili olanın ilk {displayLimit} tanesi gösteriliyor. Sıralama bu siteye değil, Roblox'a aittir."
     },
     "unknownTime": "bilinmeyen bir zaman",
-    "unknownObservationTime": "bilinmeyen bir zaman"
+    "unknownObservationTime": "bilinmeyen bir zaman",
+    "sponsored": "Sponsorlu"
   },
   "platformFigure": {
     "label": "Roblox'un sıraladığı bütün experience'lardaki oyuncular",
@@ -114,7 +116,9 @@
       "highestObserved": "Gözlenen en yüksek",
       "lowestObserved": "Gözlenen en düşük",
       "overSpan": "{span} boyunca",
-      "meanNoteText": "Kaydedilmiş {points} noktanın ortalaması; platform ortalaması değil"
+      "meanNoteText": "Kaydedilmiş {points} noktanın ortalaması; platform ortalaması değil",
+      "observationsNote": "Saatte bir, {days} gün saklanır",
+      "busiestNote": "Son gözlemde {players} oyuncu"
     },
     "charts": {
       "busiestCaption": "Her gözlemde tek bir experience'ın ulaştığı en yüksek oyuncu sayısı, kaydedilen {span} boyunca. Başı çeken experience değişir; bu çizgi bir başlığı değil, sayıyı izler.",
@@ -209,7 +213,8 @@
       "notRecomputed": "{source} kaynağından alıntılandı, burada yeniden hesaplanmadı. Roblox'un her çeyrek yaratıcılara ne ödediği dahil daha ayrıntılı bir döküm {payoutStatistics} sayfasındadır.",
       "onlyConfiguration": "Sayfa bir sağlayıcı için zaten hazır. Eksik olan yalnızca yapılandırma: {missing}. Aşağıda bildirilen sonuçlar, bir hisse fiyatının tepki verdiği şeydir ve her hâlükârda yayımlanır."
     },
-    "andSeparator": " ve "
+    "andSeparator": " ve ",
+    "quoteHeading": "{symbol} hisse fiyatı"
   },
   "stats": {
     "intro": "Roblox'un içerik üreticilerine gerçekte ne ödediği; SEC'e verdiği kendi bildirimlerinden alındı. Aşağıdaki her rakam, geldiği belgeye bağlantı verir.",
@@ -298,7 +303,12 @@
       "quarterOfRevenue": "İki kez okunmayı hak eden satır ikincisidir. Developer Exchange ücretleri, Roblox'un gelirinin yaklaşık dörtte biridir; yani platformun aldığının kayda değer bir bölümü, yaratıcı ödemeleri olarak yeniden dışarı çıkar. Bu tablodaki her rakam {filings} kaynağından alınmıştır.",
       "precision": "Rakamlar, dosyalamanın kullandığı hassasiyette kaydedilir. Roblox'un binler cinsinden bildirdiği yerde tutar dolara kadar kesindir; milyonlar cinsinden bildirdiği yerde milyona kadar kesindir, daha ötesi değil. İki çeyrek, bildirilmiş bir çeyreğin bildirilmiş altı aylık bir toplamdan çıkarılmasıyla elde edildiği için türetilmiş olarak işaretlenmiştir. Bu sitenin rakamları nasıl ele aldığını {methodology} sayfasında okuyabilirsiniz.",
       "whatItMeansIntro": "Doğrudan çok az — ve bunu açıkça söylemekte fayda var. Bu sayfadaki toplamlar platformun tamamını anlatır. Kendi bakiyenizin neye dönüştüğünü değiştirmezler, bir öngörü değildirler ve yükselen bir toplam yükselen bir oran anlamına gelmez. Ödemenizi belirleyen şey, uygun Earned Robux'ınıza uygulanan orandır; bunu {calculator} üzerinde hesaplayabilirsiniz.",
-      "whatItMeans": "Bu rakamların gerçekten gösterdiği tek şey ölçektir: DevEx, Roblox'un tek bir yılda {amount} ödediği bir programdır; 30.000 Robux'luk alt sınırın uğraşmaya değip değmediğine karar vermeden önce bilinmesi gereken bir bağlam."
-    }
+      "whatItMeans": "Bu rakamların gerçekten gösterdiği tek şey ölçektir: DevEx, Roblox'un tek bir yılda {amount} ödediği bir programdır; 30.000 Robux'luk alt sınırın uğraşmaya değip değmediğine karar vermeden önce bilinmesi gereken bir bağlam.",
+      "engagementSource": "Yukarıdaki sonuncusu dışındaki tüm rakamlar, 30 Haziran 2026'da sona eren üç aya ait olmak üzere {filings} kaynağından alınmıştır."
+    },
+    "yearOnYearNote": "{from} – {to}",
+    "latestQuarterLabel": "En son çeyrek ({quarter})",
+    "workedAmountColumn": "{robux} Earned Robux",
+    "aboutValue": "yaklaşık {value}"
   }
 }

@@ -232,7 +232,8 @@
       "reviewPages": "Relire les pages concernées.",
       "recordChangelog": "Le consigner dans le changelog.",
       "updateDate": "Mettre à jour la date de vérification.",
-      "verifyBody": "L’affirmation est vérifiée directement dans la documentation de Roblox, et non auprès d’un autre site qui l’a reprise."
+      "verifyBody": "L’affirmation est vérifiée directement dans la documentation de Roblox, et non auprès d’un autre site qui l’a reprise.",
+      "deploy": "Déployer."
     },
     "body": {
       "report": {
@@ -294,7 +295,8 @@
     "prose": {
       "feeds": "Chaque entrée ici est publiée sous forme de flux : {atom} pour un lecteur de flux, ou {jsonFeed} pour tout ce qui préfère ne pas analyser du XML. Les deux portent les mêmes entrées et les mêmes liens de source. Si vous dépendez de ces chiffres, {ratesApi} publie les valeurs actuelles accompagnées de leur date de vérification.",
       "scopeLinks": "Pour l’historique du taux DevEx lui-même, y compris le changement de septembre 2025, {rateHistory}. Pour la façon dont les corrections sont traitées, {correctionsPolicy}."
-    }
+    },
+    "registryVersionDescription": "Registre des taux version {version}, vérifié pour la dernière fois le {lastVerifiedAt}."
   },
   "api": {
     "intro": "Le registre des taux à partir duquel ce site calcule, publié en JSON avec chaque source et chaque date de vérification.",
@@ -403,7 +405,8 @@
       "attribution": "Pas obligatoire, et appréciée. Si vous citez un chiffre, citez à côté la source figurant dans {sources} : c’est la documentation de Roblox elle-même, et c’est ce qui rend le nombre vérifiable plutôt qu’emprunté.",
       "promised": "la forme de la réponse ne changera pas sans que le {registryVersion} change, chaque chiffre portera la source au regard de laquelle il a été vérifié, et un taux ne sera jamais mis à jour depuis une page extraite automatiquement sans qu’une personne l’ait d’abord contrôlé. Les changements sont consignés dans {changelog}.",
       "robloxFigures": "Chaque taux ici est ce que Roblox documente actuellement, consigné à la date de vérification affichée. C’est Roblox qui décide quel taux s’applique à quel solde et si une demande DevEx est approuvée. Lisez {methodology} pour voir comment chaque chiffre passe de leur documentation à cette réponse."
-    }
+    },
+    "endpointLabel": "Point de terminaison"
   },
   "authors": {
     "heading": "Qui écrit ce site",

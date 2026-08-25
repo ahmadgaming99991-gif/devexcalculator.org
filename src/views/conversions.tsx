@@ -92,8 +92,10 @@ export async function ConversionsView({
                       </span>
                       <span className="mt-1 text-xs text-(--color-text-muted)">
                         {values.meetsMinimum
-                          ? `${values.multipleOfMinimum}× the DevEx minimum`
-                          : "Below the DevEx minimum"}
+                          ? t("rates.conversions.multipleOfMinimum", {
+                              multiple: values.multipleOfMinimum,
+                            })
+                          : t("rates.conversions.belowMinimum")}
                       </span>
                     </Link>
                   </li>

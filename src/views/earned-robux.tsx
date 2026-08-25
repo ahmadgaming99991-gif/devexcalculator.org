@@ -1,4 +1,5 @@
 import { getTranslator, type Translate } from "@/i18n/get-dictionary";
+import { rich } from "@/i18n/rich";
 import Link from "next/link";
 import { localizedRoute } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
@@ -91,10 +92,15 @@ export async function EarnedRobuxView({ locale }: { readonly locale: Locale }) {
               }}
               outcome={
                 <>
-                  Only the left-hand side becomes{" "}
-                  <strong className="font-semibold">eligible Earned Robux</strong>
+                  {rich(t("rates.earnedRobux.eligibleOutcome"), {
+                    eligible: (
+                      <strong className="font-semibold">
+                        {t("rates.earnedRobux.eligibleTerm")}
+                      </strong>
+                    ),
+                  })}
                     {t("rates.earnedRobux.body.definition.p2", {
-                      minimumEarnedRobux: formatRobux(minimumEarnedRobux),
+                      minimumEarnedRobux: formatRobux(t.locale, minimumEarnedRobux),
                     })}
                   </>
               }

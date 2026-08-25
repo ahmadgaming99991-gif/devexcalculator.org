@@ -31,7 +31,7 @@ export async function CorrectionsView({ locale }: { readonly locale: Locale }) {
           <Section id="report" heading={t("trust.corrections.reportHeading")}>
             <p className="text-(--color-text-muted)">{t("trust.corrections.body.report.p1")}</p>
             <div className="mt-4">
-              <ButtonLink href="/contact/">Report a correction</ButtonLink>
+              <ButtonLink href="/contact/">{t("trust.corrections.reportButton")}</ButtonLink>
             </div>
 
             <Callout tone="info" title={t("trust.corrections.cannotHelpTitle")} className="mt-6">{t("trust.corrections.body.report.p2")}</Callout>
@@ -66,7 +66,7 @@ export async function CorrectionsView({ locale }: { readonly locale: Locale }) {
                   {t("trust.corrections.body.process.p5")}
                 </li>
               <li>
-                <strong className="text-(--color-text)">Deploy.</strong>{t("trust.corrections.body.process.p6")}</li>
+                <strong className="text-(--color-text)">{t("trust.corrections.steps.deploy")}</strong>{t("trust.corrections.body.process.p6")}</li>
             </ol>
           </Section>
 

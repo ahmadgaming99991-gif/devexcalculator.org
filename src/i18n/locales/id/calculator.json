@@ -3,6 +3,8 @@
   "$identical": [
     "controls.rateOption",
     "groupSplit.columnEarnedRobux",
+    "history.robuxLabel",
+    "history.targetLabel",
     "modes.target.label",
     "results.columnPerRobux",
     "results.columnSubtotal",
@@ -366,6 +368,10 @@
     "meterLabel": "{completed} dari {total} langkah persiapan selesai"
   },
   "history": {
-    "summary": "Perhitungan tersimpan ({count})"
+    "summary": "Perhitungan tersimpan ({count})",
+    "savedAnnouncement": "Perhitungan disimpan di peramban ini.",
+    "clearedAnnouncement": "Perhitungan tersimpan dihapus.",
+    "targetLabel": "Target {amount}",
+    "robuxLabel": "{robux} Robux"
   }
 }

@@ -170,17 +170,17 @@ export function GroupSplit({ words }: { readonly words: LocaleWords }) {
                       </div>
                     </Td>
                     <Td numeric className="tabular">
-                      {member ? formatRobux(member.robux) : "0"}
+                      {member ? formatRobux(t.locale, member.robux) : "0"}
                     </Td>
                     <Td numeric className="tabular font-semibold">
-                      {member ? formatCurrency(member.grossUsd, "USD") : "$0.00"}
+                      {member ? formatCurrency(t.locale, member.grossUsd, "USD") : "$0.00"}
                     </Td>
                     <Td>
                       {short === 0n ? (
                         <Badge tone="success">{t("calculator.groupSplit.meetsMinimum")}</Badge>
                       ) : (
                         <Badge tone="warning">
-                          {formatRobux(short)} short
+                          {formatRobux(t.locale, short)} short
                         </Badge>
                       )}
                     </Td>
@@ -209,7 +209,7 @@ export function GroupSplit({ words }: { readonly words: LocaleWords }) {
           <p className="text-sm text-(--color-text-muted)">
             Shares total {result.allocatedPercent.toFixed(2, "half-up")}%
             {result.unallocatedRobux > 0n ? (
-              <> · {formatRobux(result.unallocatedRobux)} Robux unallocated</>
+              <> · {formatRobux(t.locale, result.unallocatedRobux)} Robux unallocated</>
             ) : null}
           </p>
         </div>
@@ -219,13 +219,13 @@ export function GroupSplit({ words }: { readonly words: LocaleWords }) {
         <Callout tone="warning" title={t("calculator.groupSplit.sharesDoNotAddUpTitle")} className="mt-4">
           {t("calculator.groupSplit.body.intro.p3", {
             allocatedPercent: result.allocatedPercent.toFixed(2, "half-up"),
-            unallocatedRobux: formatRobux(result.unallocatedRobux),
+            unallocatedRobux: formatRobux(t.locale, result.unallocatedRobux),
           })}
         </Callout>
       ) : result.unallocatedRobux > 0n ? (
         <Callout tone="info" title={t("calculator.groupSplit.remainderTitle")} className="mt-4">
           {t("calculator.groupSplit.body.intro.p5", {
-            unallocatedRobux: formatRobux(result.unallocatedRobux),
+            unallocatedRobux: formatRobux(t.locale, result.unallocatedRobux),
           })}
         </Callout>
       ) : null}
@@ -246,8 +246,8 @@ export function GroupSplit({ words }: { readonly words: LocaleWords }) {
               ? "calculator.groupSplit.belowMinimumBody.one"
               : "calculator.groupSplit.belowMinimumBody.other",
             {
-              minimum: formatRobux(BigInt(minimumEarnedRobux)),
-              total: formatRobux(result.totalRobux),
+              minimum: formatRobux(t.locale, BigInt(minimumEarnedRobux)),
+              total: formatRobux(t.locale, result.totalRobux),
               names: below.map((member) => member.name).join(", "),
             },
           )}

@@ -1,5 +1,5 @@
 import { allRates, getRateValue, minimumEarnedRobux } from "@/lib/calculations/rate-registry";
-import { formatRate, formatRobux } from "@/lib/calculations/format";
+import { DISPLAY_LOCALE, formatRate, formatRobux } from "@/lib/calculations/format";
 import { standardRateId } from "@/lib/calculations/devex";
 import { OG_CONTENT_TYPE, OG_SIZE, renderOgImage } from "@/lib/og/template";
 
@@ -28,7 +28,7 @@ export default function RatesOgImage() {
 
   return renderOgImage({
     headline: ["The DevEx rates", "Roblox documents"],
-    detail: `Standard rate $${formatRate(rate)} per Robux · ${documented} rates documented`,
-    footnote: `${formatRobux(minimumEarnedRobux)} Robux minimum · verified against Roblox`,
+    detail: `Standard rate $${formatRate(DISPLAY_LOCALE, rate)} per Robux · ${documented} rates documented`,
+    footnote: `${formatRobux(DISPLAY_LOCALE, minimumEarnedRobux)} Robux minimum · verified against Roblox`,
   });
 }

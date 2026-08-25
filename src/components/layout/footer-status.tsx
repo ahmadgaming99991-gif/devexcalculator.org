@@ -89,7 +89,7 @@ export function FooterStatus({
       <p className="tabular">
         {words.rateDataLabel}{" "}
         <Link href={sourcesHref} className="underline hover:text-(--color-primary)">
-          {fill(words.verifiedOn, { date: formatDate(verifiedAt, dateLocale) })}
+          {fill(words.verifiedOn, { date: formatDate(dateLocale, verifiedAt) })}
         </Link>
         {" · "}
         <span className={overdue ? "font-semibold text-(--color-warning)" : undefined}>

@@ -1,7 +1,11 @@
 {
   "$comment": "Machine-drafted. Not yet read by a native speaker. 'Roblox decides which rate applies' is the sentence that stops a reader thinking the rate is a choice; nothing here is shortened.",
   "$identical": [
-    "robuxToUsd.comparison.reversibleRow"
+    "rateHistory.changedAt",
+    "robuxTax.columnRoblox",
+    "robuxToUsd.comparison.minimumPayout",
+    "robuxToUsd.comparison.reversibleRow",
+    "robuxToUsd.comparison.rowReversible"
   ],
   "devexRates": {
     "intro": "Cuánto paga Roblox por cada Earned Robux elegible, cuándo se aplica cada tasa y cuánto valió realmente el cambio de septiembre de 2025.",
@@ -81,7 +85,10 @@
     "prose": {
       "legacySplit": "Roblox convierte primero la parte del saldo anterior a la transición a 0,0035 y luego el resto a 0,0038. El reparto es la contabilidad del propio Roblox sobre cuándo se ganó cada Robux: no es algo que el creador elija ni pueda ajustar.",
       "whenItChanges": "Roblox ya ha cambiado la tasa antes y puede volver a cambiarla. Nadie fuera de Roblox sabe si lo hará ni cuándo, y una predicción disfrazada de análisis sería una conjetura con tono seguro. Esta página registra solo los cambios que confirma la documentación oficial, cada uno con su fecha de entrada en vigor. Cuando se produce un cambio, aparece aquí y en el {changelog}, junto con la fecha en que se verificó."
-    }
+    },
+    "comparisonAtRate": "A {rate}",
+    "untilDate": "Hasta el {date}",
+    "changedAt": "{date}, 10:00 PT"
   },
   "requirements": {
     "intro": "Lo que Roblox exige realmente antes de poder enviar una solicitud de DevEx, tomado de su propia documentación y no de resúmenes repetidos por terceros.",
@@ -156,7 +163,9 @@
     },
     "prose": {
       "earnedOnly": "La palabra que importa es {earned}. Los Robux que compraste no cuentan para esto, y el saldo de una tarjeta regalo tampoco. {earnedRobuxLink}"
-    }
+    },
+    "minimumHeading": "El mínimo de {robux} Earned Robux",
+    "thresholdLabel": "{robux} Earned Robux elegibles"
   },
   "earnedRobux": {
     "intro": "La distinción que decide si un pago de DevEx es posible siquiera, y la que más se pasa por alto hasta que se rechaza una solicitud.",
@@ -223,7 +232,9 @@
     "prose": {
       "groupFunds": "Los ingresos de una experiencia propiedad de un grupo se acumulan en los fondos del grupo y no en ninguna cuenta individual. DevEx funciona sobre una cuenta personal, así que los fondos del grupo tienen que llegar a un saldo personal mediante un pago antes de ser relevantes para una solicitud de DevEx. Si repartes ingresos con colaboradores, acordad cómo funciona antes de que llegue el dinero y no después, y consulta la documentación oficial actual sobre cómo se tratan los pagos de grupo, porque es un área que Roblox ya ha cambiado antes.",
       "retailUnrelated": "Por eso también el precio de venta de los Robux y la tasa de DevEx son cifras sin relación. Comprar Robux es una compra; DevEx es Roblox pagando a un creador."
-    }
+    },
+    "eligibleOutcome": "Solo la parte izquierda se convierte en {eligible}",
+    "eligibleTerm": "Earned Robux elegibles"
   },
   "feesAndTaxes": {
     "intro": "Entre la conversión de DevEx y el dinero llegando a tu cuenta hay tres cosas distintas. Ninguna de ellas es la tasa de DevEx.",
@@ -320,13 +331,20 @@
       "whichRobuxRow": "Qué Robux",
       "whichRobuxPayout": "Solo Earned Robux elegibles",
       "whichRobuxPurchase": "Cualquier compra, sin elegibilidad de por medio",
-      "minimumPayout": "30.000 Earned Robux",
+      "minimumPayout": "{robux} Earned Robux",
       "minimumPurchase": "Ninguno más allá del paquete más pequeño",
       "speedPayout": "Roblox revisa cada solicitud",
-      "speedPurchase": "Instantáneo",
+      "speedPurchase": "Inmediata",
       "reversibleRow": "Reversible",
       "reversiblePayout": "Solo de ida: no puedes deshacer el cobro",
-      "reversiblePurchase": "Solo de ida: los Robux comprados no pueden revenderse"
+      "reversiblePurchase": "Solo de ida: los Robux comprados no pueden revenderse",
+      "columnBuying": "Comprar Robux",
+      "rowDirection": "Sentido",
+      "rowRate": "Tasa",
+      "rowWhichRobux": "Qué Robux",
+      "rowMinimum": "Mínimo",
+      "rowApproval": "Aprobación",
+      "rowReversible": "Reversible"
     },
     "body": {
       "twoAnswers": {
@@ -446,7 +464,8 @@
     },
     "prose": {
       "priceFloors": "Los precios mínimos varían según la categoría del artículo y Roblox los ha ajustado con el tiempo, así que fijar un único mínimo universal daría respuestas erróneas para la mayoría de los artículos. Introducir el múltiplo mantiene el resultado correcto sea cual sea el mínimo de tu categoría."
-    }
+    },
+    "columnRoblox": "Roblox"
   },
   "conversions": {
     "intro": "Una tabla renderizada en el servidor con cantidades habituales a las tres tasas documentadas, más un campo para cualquier cantidad no listada.",
@@ -471,7 +490,9 @@
     },
     "prose": {
       "notRoundNumbers": "La lista no es una selección de números redondos: son las cantidades que de verdad se buscan. Cualquier cosa que no esté aquí —incluidas cifras mayores que la última fila de la tabla— va en el conversor de arriba, que usa las mismas tasas y la misma aritmética."
-    }
+    },
+    "multipleOfMinimum": "{multiple}× el mínimo de DevEx",
+    "belowMinimum": "Por debajo del mínimo de DevEx"
   },
   "amountPage": {
     "jumpLabel": "Comparar las tres tasas",
@@ -519,6 +540,10 @@
     "eligibleLabel": "{display} Earned Robux elegibles",
     "clearsMinimum": "Eso es {multiple} veces el mínimo de {minimum} Earned Robux, así que supera el umbral para enviar una solicitud. Superar el umbral no es una aprobación: Roblox revisa cada solicitud.",
     "belowMinimum": "Esto está por debajo del mínimo de {minimum} Earned Robux, así que todavía no se puede enviar una solicitud de DevEx con este saldo.",
-    "reachingCaption": "Si {display} Earned Robux cubren objetivos de pago habituales"
+    "reachingCaption": "Si {display} Earned Robux cubren objetivos de pago habituales",
+    "rateTableLabel": "{display} Robux valorados con cada tasa DevEx",
+    "rateTableCaption": "Pago por {display} Earned Robux con cada tasa DevEx documentada",
+    "faqHeading": "Preguntas sobre {display} Robux",
+    "notYetMore": "Todavía no — faltan {shortfall}"
   }
 }

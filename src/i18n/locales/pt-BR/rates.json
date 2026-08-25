@@ -78,7 +78,10 @@
     "prose": {
       "legacySplit": "O Roblox saca primeiro a parte do saldo anterior à transição a 0,0035, e depois o restante a 0,0038. A divisão é a contabilidade do próprio Roblox sobre quando cada Robux foi ganho — não é algo que o criador escolha ou possa ajustar.",
       "whenItChanges": "O Roblox já mudou a taxa antes e pode mudá-la de novo. Ninguém fora do Roblox sabe se ou quando, e uma previsão travestida de análise seria um palpite com tom confiante. Esta página registra apenas mudanças que a documentação oficial confirma, cada uma com sua data de vigência. Quando uma mudança acontece, ela aparece aqui e no {changelog}, junto com a data em que foi verificada."
-    }
+    },
+    "comparisonAtRate": "A {rate}",
+    "untilDate": "Até {date}",
+    "changedAt": "{date}, 10:00 PT"
   },
   "requirements": {
     "intro": "O que o Roblox realmente exige antes que um pedido de DevEx possa ser enviado, tirado da documentação dele e não de resumos repetidos por terceiros.",
@@ -153,7 +156,9 @@
     },
     "prose": {
       "earnedOnly": "A palavra que importa é {earned}. Os Robux que você comprou não contam para isso, e crédito de cartão-presente também não. {earnedRobuxLink}"
-    }
+    },
+    "minimumHeading": "O mínimo de {robux} Earned Robux",
+    "thresholdLabel": "{robux} Earned Robux elegíveis"
   },
   "earnedRobux": {
     "intro": "A distinção que decide se um pagamento do DevEx é possível ou não — e a que mais passa despercebida até um pedido ser recusado.",
@@ -220,7 +225,9 @@
     "prose": {
       "groupFunds": "Os ganhos de uma experiência pertencente a um grupo se acumulam nos fundos do grupo, e não em nenhuma conta individual. O DevEx opera sobre uma conta pessoal, então os fundos do grupo precisam chegar a um saldo pessoal por meio de um pagamento antes de terem relevância para uma solicitação de DevEx. Se você divide receita com colaboradores, combine como isso funciona antes de o dinheiro chegar, e não depois — e consulte a documentação oficial atual sobre como os pagamentos de grupo são tratados, já que esta é uma área que o Roblox já mudou antes.",
       "retailUnrelated": "É também por isso que o preço de varejo dos Robux e a taxa do DevEx são números sem relação. Comprar Robux é uma compra; o DevEx é o Roblox pagando um criador."
-    }
+    },
+    "eligibleOutcome": "Só o lado esquerdo se torna {eligible}",
+    "eligibleTerm": "Earned Robux elegíveis"
   },
   "feesAndTaxes": {
     "intro": "Três coisas separadas ficam entre a conversão do DevEx e o dinheiro chegando à sua conta. Nenhuma delas é a taxa do DevEx.",
@@ -310,20 +317,27 @@
       "buyingRobux": "Comprar Robux",
       "directionRow": "Direção",
       "directionPayout": "O Roblox paga você",
-      "directionPurchase": "Você paga o Roblox",
+      "directionPurchase": "Você paga à Roblox",
       "rateRow": "Taxa",
       "ratePayout": "Documentada e fixa em 0,0038 USD por Earned Robux elegível",
       "ratePurchase": "Varia por pacote, região, plataforma e promoção",
       "whichRobuxRow": "Quais Robux",
       "whichRobuxPayout": "Somente Earned Robux elegíveis",
       "whichRobuxPurchase": "Qualquer compra, sem elegibilidade envolvida",
-      "minimumPayout": "30.000 Earned Robux",
+      "minimumPayout": "{robux} Earned Robux",
       "minimumPurchase": "Nenhum além do menor pacote",
       "speedPayout": "O Roblox analisa cada pedido",
-      "speedPurchase": "Instantâneo",
+      "speedPurchase": "Imediata",
       "reversibleRow": "Reversível",
       "reversiblePayout": "Só de ida — não dá para desfazer o saque",
-      "reversiblePurchase": "Só de ida — Robux comprados não podem ser revendidos"
+      "reversiblePurchase": "Só de ida — Robux comprados não podem ser revendidos",
+      "columnBuying": "Comprar Robux",
+      "rowDirection": "Sentido",
+      "rowRate": "Taxa",
+      "rowWhichRobux": "Quais Robux",
+      "rowMinimum": "Mínimo",
+      "rowApproval": "Aprovação",
+      "rowReversible": "Reversível"
     },
     "body": {
       "twoAnswers": {
@@ -443,7 +457,8 @@
     },
     "prose": {
       "priceFloors": "Os pisos de preço variam por categoria de item e o Roblox já os ajustou ao longo do tempo, então fixar um piso universal no código produziria respostas erradas para a maioria dos itens. Informar o múltiplo mantém o resultado correto seja qual for o piso da sua categoria."
-    }
+    },
+    "columnRoblox": "Roblox"
   },
   "conversions": {
     "intro": "Uma tabela renderizada no servidor com quantias comuns nas três taxas documentadas, além de um campo para qualquer valor não listado.",
@@ -468,7 +483,9 @@
     },
     "prose": {
       "notRoundNumbers": "A lista não é uma seleção de números redondos: são os valores que realmente são pesquisados. Qualquer coisa que não esteja aqui — inclusive números maiores que a última linha da tabela — vai no conversor acima, que usa as mesmas taxas e a mesma aritmética."
-    }
+    },
+    "multipleOfMinimum": "{multiple}× o mínimo do DevEx",
+    "belowMinimum": "Abaixo do mínimo do DevEx"
   },
   "amountPage": {
     "jumpLabel": "Comparar as três taxas",
@@ -516,6 +533,15 @@
     "eligibleLabel": "{display} Earned Robux elegíveis",
     "clearsMinimum": "Isso é {multiple} vezes o mínimo de {minimum} Earned Robux, então supera o limite para enviar uma solicitação. Superar o limite não é aprovação — o Roblox analisa cada solicitação.",
     "belowMinimum": "Isto está abaixo do mínimo de {minimum} Earned Robux, então ainda não é possível enviar uma solicitação de DevEx com este saldo.",
-    "reachingCaption": "Se {display} Earned Robux cobrem metas de pagamento comuns"
-  }
+    "reachingCaption": "Se {display} Earned Robux cobrem metas de pagamento comuns",
+    "rateTableLabel": "{display} Robux avaliados em cada taxa DevEx",
+    "rateTableCaption": "Pagamento por {display} Earned Robux em cada taxa DevEx documentada",
+    "faqHeading": "Perguntas sobre {display} Robux",
+    "notYetMore": "Ainda não — faltam {shortfall}"
+  },
+  "$identical": [
+    "rateHistory.changedAt",
+    "robuxTax.columnRoblox",
+    "robuxToUsd.comparison.minimumPayout"
+  ]
 }

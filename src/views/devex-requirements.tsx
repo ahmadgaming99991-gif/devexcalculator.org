@@ -75,12 +75,16 @@ export async function RequirementsView({ locale }: { readonly locale: Locale }) 
 
           <Section
             id="minimum"
-            heading={`The ${formatRobux(minimumEarnedRobux)} Earned Robux minimum`}
+            heading={t("rates.requirements.minimumHeading", {
+              robux: formatRobux(t.locale, minimumEarnedRobux),
+            })}
             description={t("rates.requirements.minimumDescription")}
           >
             <ThresholdScale
               className="mb-6"
-              thresholdLabel={`${formatRobux(minimumEarnedRobux)} eligible Earned Robux`}
+              thresholdLabel={t("rates.requirements.thresholdLabel", {
+                robux: formatRobux(t.locale, minimumEarnedRobux),
+              })}
               below={t("rates.requirements.threshold.below")}
               above={t("rates.requirements.threshold.above")}
               caption={t("rates.requirements.minimumDiagramCaption")}
@@ -89,10 +93,10 @@ export async function RequirementsView({ locale }: { readonly locale: Locale }) 
             <div className="rounded-(--radius-control) border border-(--color-border) bg-(--color-surface) p-4">
               <p className="text-(--color-text-muted)">
                 {t("rates.requirements.body.minimum.p1", {
-                  minimumEarnedRobux: formatRobux(minimumEarnedRobux),
+                  minimumEarnedRobux: formatRobux(t.locale, minimumEarnedRobux),
                 })}
               <strong className="text-(--color-text)">
-                            {formatCurrency(minimumPayout, "USD")}
+                            {formatCurrency(t.locale, minimumPayout, "USD")}
                           </strong>{" "}
                           before any payment-provider fees or tax.
                         </p>
@@ -134,7 +138,7 @@ export async function RequirementsView({ locale }: { readonly locale: Locale }) 
                         <ol className="flex list-decimal flex-col gap-3 pl-5 text-(--color-text-muted)">
                           <li>
                 {t("rates.requirements.body.checklist.p1", {
-                  minimumEarnedRobux: formatRobux(minimumEarnedRobux),
+                  minimumEarnedRobux: formatRobux(t.locale, minimumEarnedRobux),
                 })}
               </li>
                 <li>{t("rates.requirements.checklist.verifyEmail")}</li>

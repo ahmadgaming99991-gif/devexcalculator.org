@@ -56,9 +56,9 @@ export async function RobuxTaxView({ locale }: { readonly locale: Locale }) {
                 <thead>
                   <tr>
                     <Th>{t("rates.robuxTax.columnSaleType")}</Th>
-                    <Th numeric>Creator</Th>
+                    <Th numeric>{t("rates.robuxTax.columnCreator")}</Th>
                     <Th numeric>{t("marketplace.results.experienceOwner")}</Th>
-                    <Th numeric>Roblox</Th>
+                    <Th numeric>{t("rates.robuxTax.columnRoblox")}</Th>
                   </tr>
                 </thead>
                 <tbody>

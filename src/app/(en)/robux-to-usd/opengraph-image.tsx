@@ -1,6 +1,6 @@
 import { getRateValue, minimumEarnedRobux } from "@/lib/calculations/rate-registry";
 import { standardRateId } from "@/lib/calculations/devex";
-import { formatCurrency, formatRate, formatRobux } from "@/lib/calculations/format";
+import { DISPLAY_LOCALE, formatCurrency, formatRate, formatRobux } from "@/lib/calculations/format";
 import { Rational } from "@/lib/calculations/rational";
 import { OG_CONTENT_TYPE, OG_SIZE, renderOgImage } from "@/lib/og/template";
 
@@ -18,8 +18,8 @@ export default function RobuxToUsdOgImage() {
   const example = Rational.fromInt(100_000).mul(rate);
 
   return renderOgImage({
-    headline: ["100,000 Robux", `≈ ${formatCurrency(example, "USD")}`],
-    detail: `At $${formatRate(rate)} per Earned Robux · a payout, not a purchase price`,
-    footnote: `${formatRobux(minimumEarnedRobux)} Robux minimum · estimates only`,
+    headline: ["100,000 Robux", `≈ ${formatCurrency(DISPLAY_LOCALE, example, "USD")}`],
+    detail: `At $${formatRate(DISPLAY_LOCALE, rate)} per Earned Robux · a payout, not a purchase price`,
+    footnote: `${formatRobux(DISPLAY_LOCALE, minimumEarnedRobux)} Robux minimum · estimates only`,
   });
 }
