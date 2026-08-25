@@ -138,7 +138,9 @@ export function GroupSplit({ words }: { readonly words: LocaleWords }) {
                   <tr key={row.id}>
                     <Td>
                       <label className="sr-only" htmlFor={`${fieldId}-name-${row.id}`}>
-                        Name for member {index + 1}
+                        {t("calculator.groupSplit.body.intro.p2", {
+                          index: index + 1,
+                        })}
                       </label>
                       <input
                         id={`${fieldId}-name-${row.id}`}
@@ -212,18 +214,16 @@ export function GroupSplit({ words }: { readonly words: LocaleWords }) {
 
       {result.percentagesUnbalanced ? (
         <Callout tone="warning" title={t("calculator.groupSplit.sharesDoNotAddUpTitle")} className="mt-4">
-          They total {result.allocatedPercent.toFixed(2, "half-up")}%, leaving{" "}
-          {formatRobux(result.unallocatedRobux)} Robux unassigned. Nothing here has
-          been scaled to make the numbers meet: adjusting them for you would produce
-          figures nobody agreed to. Fix the percentages, or accept that a remainder
-          stays with whoever holds the group funds.
+          {t("calculator.groupSplit.body.intro.p3", {
+            allocatedPercent: result.allocatedPercent.toFixed(2, "half-up"),
+            unallocatedRobux: formatRobux(result.unallocatedRobux),
+          })}
         </Callout>
       ) : result.unallocatedRobux > 0n ? (
         <Callout tone="info" title={t("calculator.groupSplit.remainderTitle")} className="mt-4">
-          {formatRobux(result.unallocatedRobux)} Robux cannot be divided evenly at
-          these percentages. Robux are whole, so each share is rounded down and the
-          remainder is shown rather than handed to whoever happens to be listed
-          first.
+          {t("calculator.groupSplit.body.intro.p5", {
+            unallocatedRobux: formatRobux(result.unallocatedRobux),
+          })}
         </Callout>
       ) : null}
 

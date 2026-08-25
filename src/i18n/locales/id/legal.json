@@ -65,7 +65,10 @@
       "localStorageIntro": "Atas tindakan Anda, situs ini menyimpan beberapa hal di penyimpanan lokal peramban Anda sendiri:",
       "noAnalytics": "Tidak ada penyedia analitik yang dikonfigurasi, jadi situs ini tidak memuat skrip pelacak dan tidak menyetel kuki analitik. Penyedia hosting kami juga tidak menambahkannya: Web Analytics milik Cloudflare menyuntikkan skrip ke halaman saat halaman disajikan, dan itu telah dimatikan untuk situs ini. Diverifikasi setelah perubahan — tidak ada permintaan ke host analitik mana pun saat sebuah halaman dimuat.",
       "contactForm": "Jika Anda mengirim pesan lewat formulir kontak, nama, alamat email, subjek, dan pesan yang Anda masukkan dikirim ke server situs ini dan diteruskan ke tujuan yang dikonfigurasi supaya bisa dibaca dan dibalas. Semua itu tidak dipakai untuk hal lain, dan isi pesan tidak ditulis ke log server.",
-      "infrastructure": "Situs ini berjalan di Cloudflare Workers. Seperti pada layanan hosting web mana pun, Cloudflare memproses permintaan yang dibutuhkan untuk menyajikan halaman, yang melibatkan alamat IP dan user agent peramban Anda, dan menerapkan penanganan keamanan tingkat jaringannya sendiri. Pemrosesan itu tunduk pada ketentuan privasi Cloudflare sendiri, bukan pada ketentuan situs ini."
+      "infrastructure": "Situs ini berjalan di Cloudflare Workers. Seperti pada layanan hosting web mana pun, Cloudflare memproses permintaan yang dibutuhkan untuk menyajikan halaman, yang melibatkan alamat IP dan user agent peramban Anda, dan menerapkan penanganan keamanan tingkat jaringannya sendiri. Pemrosesan itu tunduk pada ketentuan privasi Cloudflare sendiri, bukan pada ketentuan situs ini.",
+      "calculatorValues": "Nilai-nilai di kalkulator tidak pernah dikirim ke analitik. Halaman mana yang dikunjungi itu berguna; berapa banyak Robux yang Anda punya bukan urusan kami.",
+      "externalLinks": "Halaman-halaman di sini menautkan ke dokumentasi resmi Roblox, ke Bank Sentral Eropa, dan ke sumber lain yang terdaftar di {sourceRegistry}. Mengikuti salah satu tautan itu membawa Anda ke situs dengan praktik privasinya sendiri, yang tidak dicakup oleh kebijakan ini.",
+      "contactThrough": "Hubungi kami mengenai hal apa pun dalam kebijakan ini melalui {contactPage}."
     }
   },
   "terms": {
@@ -114,7 +117,8 @@
       "timing": "Berapa lama sebuah permohonan akan berlangsung, atau kapan pembayaran akan tiba.",
       "providerCharges": "Berapa yang akan dikenakan penyedia pembayaran Anda.",
       "tax": "Berapa pajak yang akan Anda tanggung, atau kapan.",
-      "futureRate": "Berapa kurs DevEx di masa depan."
+      "futureRate": "Berapa kurs DevEx di masa depan.",
+      "eligibility": "Apakah Robux Anda dihitung sebagai Earned Robux. Roblox mencatat dari mana tiap Robux berasal; catatan itu tidak terlihat di sini."
     },
     "correctionsProcessLink": "proses koreksi",
     "body": {
@@ -136,7 +140,8 @@
       }
     },
     "prose": {
-      "exactButEstimate": "Kalkulator mengalikan angka Robux yang Anda masukkan dengan tarif yang diambil dari dokumentasi terbitan Roblox. Aritmetika itu tepat dan tercakup oleh pengujian. Yang dihasilkannya tetap sebuah perkiraan, karena masukannya adalah asumsi: bahwa Robux yang Anda masukkan adalah Earned Robux yang memenuhi syarat, dan bahwa tarif yang Anda pilih adalah tarif yang akan diterapkan Roblox padanya."
+      "exactButEstimate": "Kalkulator mengalikan angka Robux yang Anda masukkan dengan tarif yang diambil dari dokumentasi terbitan Roblox. Aritmetika itu tepat dan tercakup oleh pengujian. Yang dihasilkannya tetap sebuah perkiraan, karena masukannya adalah asumsi: bahwa Robux yang Anda masukkan adalah Earned Robux yang memenuhi syarat, dan bahwa tarif yang Anda pilih adalah tarif yang akan diterapkan Roblox padanya.",
+      "fallenBehind": "Jika sebuah angka di sini tertinggal, {sourceRegistry} menautkan langsung ke halaman resmi asalnya, sehingga Anda bisa memeriksa sendiri nilai terkininya dalam hitungan detik. Melaporkannya lewat {correctionsProcess} membuatnya diperbaiki untuk orang lain juga."
     }
   },
   "accessibility": {
@@ -200,6 +205,10 @@
     },
     "thirdParty": {
       "turnstile": "Cloudflare Turnstile, jika sebuah penerapan mengaktifkannya pada formulir kontak, adalah widget pihak ketiga yang aksesibilitas internalnya berada di luar kendali situs ini."
+    },
+    "prose": {
+      "standard": "Situs ini berupaya memenuhi {wcag}. Itu sebuah sasaran, bukan sertifikasi — tidak ada audit eksternal yang dilakukan, dan halaman ini menyatakannya alih-alih menyiratkan sebaliknya.",
+      "aboutLink": "Untuk mengetahui bagaimana situs ini dibangun secara umum, lihat {aboutPage}."
     }
   }
 }

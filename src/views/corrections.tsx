@@ -1,4 +1,6 @@
 import { getTranslator } from "@/i18n/get-dictionary";
+import { rich } from "@/i18n/rich";
+import { localizedPath } from "@/i18n/locale-path";
 import { localizedRoute } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -10,7 +12,7 @@ const ROUTE = "/corrections/";
 
 
 export async function CorrectionsView({ locale }: { readonly locale: Locale }) {
-  const t = await getTranslator(locale, ["trust"]);
+  const t = await getTranslator(locale, ["navigation", "trust"]);
   const record = await localizedRoute(locale, ROUTE);
 
   return (
@@ -42,32 +44,27 @@ export async function CorrectionsView({ locale }: { readonly locale: Locale }) {
           >
             <ol className="flex list-decimal flex-col gap-3 pl-5 text-(--color-text-muted)">
               <li>
-                <strong className="text-(--color-text)">{t("trust.corrections.steps.verify")}</strong>{" "}
-                The claim is checked directly against Roblox&rsquo;s own documentation,
-                not against another site that repeated it.
-              </li>
+                <strong className="text-(--color-text)">{t("trust.corrections.steps.verify")}</strong>
+                  {t("trust.corrections.steps.verifyBody")}
+                </li>
               <li>
-                <strong className="text-(--color-text)">{t("trust.corrections.steps.updateRegistry")}</strong>{" "}
-                Rates live in one validated data file. Changing them there changes
-                every page, table and calculator at once — there is no second copy
-                to forget.
-              </li>
+                <strong className="text-(--color-text)">{t("trust.corrections.steps.updateRegistry")}</strong>
+                  {t("trust.corrections.body.process.p1")}
+                </li>
               <li>
                 <strong className="text-(--color-text)">{t("trust.corrections.steps.updateTests")}</strong>{t("trust.corrections.body.process.p2")}</li>
               <li>
-                <strong className="text-(--color-text)">{t("trust.corrections.steps.reviewPages")}</strong>{" "}
-                Any prose that states the old figure in words is rewritten, not
-                just the tables.
-              </li>
+                <strong className="text-(--color-text)">{t("trust.corrections.steps.reviewPages")}</strong>
+                  {t("trust.corrections.body.process.p3")}
+                </li>
               <li>
-                <strong className="text-(--color-text)">{t("trust.corrections.steps.recordChangelog")}</strong>{" "}
-                With the date, what changed, and the source that justified it.
-              </li>
+                <strong className="text-(--color-text)">{t("trust.corrections.steps.recordChangelog")}</strong>
+                  {t("trust.corrections.body.process.p4")}
+                </li>
               <li>
-                <strong className="text-(--color-text)">{t("trust.corrections.steps.updateDate")}</strong>{" "}
-                The badge shown on every rate-sensitive page reflects the new
-                check.
-              </li>
+                <strong className="text-(--color-text)">{t("trust.corrections.steps.updateDate")}</strong>
+                  {t("trust.corrections.body.process.p5")}
+                </li>
               <li>
                 <strong className="text-(--color-text)">Deploy.</strong>{t("trust.corrections.body.process.p6")}</li>
             </ol>
@@ -82,10 +79,13 @@ export async function CorrectionsView({ locale }: { readonly locale: Locale }) {
               site people plan finances around than a tidy history does.
             </p>
             <p className="mt-3 text-(--color-text-muted)">
-              Rate changes made by Roblox are also reflected in the{" "}
-              <InlineLink href="/devex-rate-history/">rate history</InlineLink>,
-              which is a separate record: the changelog tracks what this site did,
-              the rate history tracks what Roblox did.
+              {rich(t("trust.corrections.prose.rateHistory"), {
+                rateHistory: (
+                  <InlineLink href={localizedPath(locale, "/devex-rate-history/")}>
+                    {t("navigation.routes.devexRateHistory")}
+                  </InlineLink>
+                ),
+              })}
             </p>
           </Section>
 

@@ -1,4 +1,6 @@
 import { getTranslator } from "@/i18n/get-dictionary";
+import { rich } from "@/i18n/rich";
+import { localizedPath } from "@/i18n/locale-path";
 import { localizedRoute } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -26,7 +28,7 @@ const ROUTE = "/privacy/";
  * running — or the reverse.
  */
 export async function PrivacyView({ locale }: { readonly locale: Locale }) {
-  const t = await getTranslator(locale, ["legal"]);
+  const t = await getTranslator(locale, ["legal", "trust"]);
   const record = await localizedRoute(locale, ROUTE);
   const contactMode = getContactMode();
   const contactEnabled = contactMode !== "disabled";
@@ -45,7 +47,9 @@ export async function PrivacyView({ locale }: { readonly locale: Locale }) {
           <QuickAnswer locale={locale}>{record.quickAnswer}</QuickAnswer>
 
           <p className="text-sm text-(--color-text-muted)">
-            Last reviewed {formatDate(record.lastReviewedAt)}.
+            {t("legal.privacy.body.intro.p1", {
+              lastReviewedAt: formatDate(record.lastReviewedAt),
+            })}
           </p>
 
           <Section id="calculations" heading={t("legal.privacy.calculationsHeading")}>
@@ -78,10 +82,7 @@ export async function PrivacyView({ locale }: { readonly locale: Locale }) {
                       <strong className="text-(--color-text)">Google Analytics 4</strong>{t("legal.privacy.body.analytics.p3")}</li>
                   ) : null}
                 </ul>
-                <p className="mt-3 text-(--color-text-muted)">
-                  Calculator values are never sent to analytics. Which pages are
-                  visited is useful; how much Robux you hold is not our business.
-                </p>
+                <p className="mt-3 text-(--color-text-muted)">{" "}{t("legal.privacy.prose.calculatorValues")}{" "}</p>
               </>
             ) : (
               <Callout tone="info" title={t("legal.privacy.noAnalyticsTitle")}>{" "}{t("legal.privacy.prose.noAnalytics")}{" "}</Callout>
@@ -108,11 +109,13 @@ export async function PrivacyView({ locale }: { readonly locale: Locale }) {
 
           <Section id="external" heading={t("legal.privacy.externalHeading")}>
             <p className="text-(--color-text-muted)">
-              Pages here link to official Roblox documentation, to the European
-              Central Bank, and to other sources listed in the{" "}
-              <InlineLink href="/sources/">source registry</InlineLink>. Following
-              one of those links takes you to a site with its own privacy
-              practices, which this policy does not cover.
+              {rich(t("legal.privacy.prose.externalLinks"), {
+                sourceRegistry: (
+                  <InlineLink href={localizedPath(locale, "/sources/")}>
+                    {t("trust.sources.registryHeading")}
+                  </InlineLink>
+                ),
+              })}
             </p>
           </Section>
 
@@ -120,16 +123,22 @@ export async function PrivacyView({ locale }: { readonly locale: Locale }) {
             <ul className="flex list-disc flex-col gap-2 pl-5 text-(--color-text-muted)">
               <li>{t("legal.privacy.body.rights.p1")}</li>
               <li>
-                Clear every preference by clearing site data for{" "}
-                {siteConfig.host} in your browser settings.
+                {t("legal.privacy.body.rights.p2", {
+                  host: siteConfig.host,
+                })}
               </li>
               <li>{t("legal.privacy.body.rights.p4")}</li>
               {analyticsConfig.ga4Id ? (
                 <li>{t("legal.privacy.declineNote")}</li>
               ) : null}
               <li>
-                Contact us about anything in this policy through the{" "}
-                <InlineLink href="/contact/">{t("legal.privacy.contactPageLink")}</InlineLink>.
+                {rich(t("legal.privacy.prose.contactThrough"), {
+                  contactPage: (
+                    <InlineLink href={localizedPath(locale, "/contact/")}>
+                      {t("legal.privacy.contactPageLink")}
+                    </InlineLink>
+                  ),
+                })}
               </li>
             </ul>
           </Section>

@@ -197,6 +197,9 @@
         "p2": "Nenhum número é mostrado no lugar. Um preço desatualizado apresentado como atual seria pior que nenhum.",
         "p3": "· via {providerName}, obtido no servidor"
       }
+    },
+    "prose": {
+      "quotedFrom": "Citado de {source}."
     }
   },
   "stats": {
@@ -283,7 +286,8 @@
     },
     "usDollarsLabel": "dólares americanos",
     "prose": {
-      "quarterOfRevenue": "A linha que vale a pena ler duas vezes é a segunda. As taxas do Developer Exchange são cerca de um quarto da receita do Roblox, então uma parcela significativa do que a plataforma arrecada sai de novo como pagamentos a criadores. Todo número desta tabela é citado de {filings}."
+      "quarterOfRevenue": "A linha que vale a pena ler duas vezes é a segunda. As taxas do Developer Exchange são cerca de um quarto da receita do Roblox, então uma parcela significativa do que a plataforma arrecada sai de novo como pagamentos a criadores. Todo número desta tabela é citado de {filings}.",
+      "precision": "Os números são registrados na precisão que o documento usou. Onde o Roblox informou em milhares, o valor é exato até o dólar; onde informou em milhões, é exato até o milhão e nada além. Dois trimestres são marcados como derivados porque vêm da subtração de um trimestre informado de um total semestral informado. Leia mais sobre como este site lida com números em {methodology}."
     }
   }
 }

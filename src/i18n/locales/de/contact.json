@@ -24,6 +24,11 @@
         "p5": "Vorherzusagen, ob ein Antrag genehmigt wird oder wie ein künftiger Kurs aussieht.",
         "p6": "Diese Website wird dich nie nach deinem Roblox-Passwort, einem Anmeldecode oder Zugriff auf dein Konto fragen — und kein seriöses Werkzeug tut das. Bitte schicke so etwas nicht in einer Nachricht."
       }
+    },
+    "prose": {
+      "emailIsTheWay": "Nachrichten gehen an {email}. Nennen Sie bitte die Seite, auf der Sie waren, und bei einer Korrektur einen Link zur offiziellen Quelle.",
+      "notConfigured": "Hier gibt es weder ein Nachrichtenformular noch eine veröffentlichte Adresse, und eines zu zeigen, das Ihre Nachricht stillschweigend verwirft, wäre schlimmer, als das zu sagen. Haben Sie einen sachlichen Fehler gefunden, ist der schnellste Weg das {sourceRegistry} — es verlinkt jede offizielle Seite, aus der diese Zahlen stammen, sodass Sie den aktuellen Wert direkt prüfen können.",
+      "privacyNote": "Ihre Nachricht und Ihre E-Mail-Adresse dienen nur dazu, das Gesendete zu lesen und zu beantworten. {privacyLink}."
     }
   },
   "form": {

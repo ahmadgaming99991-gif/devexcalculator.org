@@ -24,7 +24,8 @@
       "nothingCollected": "Hiçbir şey toplanmaz.",
       "privacyIsSpecific": "Gizlilik politikası bu konuda açıktır",
       "correctionsPublished": "Düzeltmeler yayımlanır.",
-      "rateHasSourceBody": "“Yakın zamana kadar güncel” değil — resmi Roblox belgelerine bir bağlantı ve en son ne zaman denetlendiği; sayfada gösterilir."
+      "rateHasSourceBody": "“Yakın zamana kadar güncel” değil — resmi Roblox belgelerine bir bağlantı ve en son ne zaman denetlendiği; sayfada gösterilir.",
+      "correctionsPublishedBody": "Buradaki bir rakamın yanlış olduğu ortaya çıktığında, düzeltme sessizce yapılmaz; {changelog} içine tarihiyle kaydedilir."
     },
     "body": {
       "purpose": {
@@ -104,7 +105,8 @@
       "approvalOrTiming": "Bir talebin onaylanıp onaylanmayacağı ya da ne zaman ödeneceği.",
       "providerCharges": "Bankanızın ya da ödeme sağlayıcınızın ne kadar keseceği.",
       "taxOwed": "Ne kadar vergi borçlandığınız.",
-      "eligibility": "Robux'larınızın hangilerini Roblox'un Earned Robux saydığı. Bu, Roblox'un iç muhasebesidir ve dışarıdan görünmez."
+      "eligibility": "Robux'larınızın hangilerini Roblox'un Earned Robux saydığı. Bu, Roblox'un iç muhasebesidir ve dışarıdan görünmez.",
+      "split": "Bakiyenizin standart, eski ve koşullu oranlar arasında nasıl dağıldığı. Bölüşüm hesaplayıcısı verdiğiniz her bölüşümü modeller; gerçeğini keşfedemez."
     },
     "body": {
       "arithmetic": {
@@ -123,6 +125,9 @@
         "p4": "Para birimi çevrimi ve ücretler hakkında daha fazlası",
         "p5": "Sağlayıcıya erişilemiyorsa, saklanmış bir anlık görüntü gösterilir ve açıkça güncelliğini yitirmiş olarak etiketlenir. Güncelliğini yitirmiş bir kur asla güncelmiş gibi sunulmaz ve USD hesabı hiçbir zaman sağlayıcının erişilebilir olmasına bağlı değildir."
       }
+    },
+    "prose": {
+      "floatingPoint": "0,0038 gibi bir oran, JavaScript'in sıradan sayıları sakladığı biçim olan ikili kayan noktada tam olarak gösterilemez. Bir tarayıcı konsolunda 17.000 ile 0,0054'ü çarpın; 91,80 yerine 91,80000000000001 elde edersiniz. Küçük tutarlarda bu, yuvarlamanın ardında gizlenir; büyük bir bakiyede ya da bir ücret ve vergi hesapları zincirinde ise sapma birikir."
     }
   },
   "sources": {
@@ -147,6 +152,9 @@
         "p1": "Kur verileri hiçbir zaman kazınmış bir sayfadan otomatik güncellenmez. Yayımlanmış bir kuru değiştirmek; kaynağın elle doğrulanmasını, kaydın güncellenmesini, birim testlerinin yeni beklenen değerlere güncellenmesini, etkilenen sayfaların gözden geçirilmesini, changelog'a bir girdi eklenmesini ve yeniden dağıtımı gerektirir. Bu sıra bilerek yavaştır — hızla yayımlanmış yanlış bir kur, bir gün sonra yayımlanmış doğru bir kurdan kötüdür.",
         "p2": "{lastVerifiedAt} ({ageDays} gün önce)"
       }
+    },
+    "prose": {
+      "scheduledCheck": "Denetimler arasında, zamanlanmış bir iş, Roblox'un DevEx sayfası için yayımladığı markdown'u günde dört kez yeniden okur ve oranlarla alt sınırı burada yayımlananlarla karşılaştırır. Hiçbir şeyin değişmediğini teyit edebilir; bir rakamı değiştiremez. Bir farklılık, bir kişinin okuması için bayrak kaldırır; tanıyamadığı bir belge — bir kesinti ya da bir yeniden tasarım — geri çekilmiş bir oran gibi ele alınmak yerine okunamaz olarak bildirilir. Sonuç {rateCheckEndpoint} adresinde yayımlanır."
     }
   },
   "editorialPolicy": {
@@ -230,6 +238,9 @@
       "record": {
         "p1": "Roblox'un yaptığı kur değişiklikleri de şuraya yansıtılır:"
       }
+    },
+    "prose": {
+      "rateHistory": "Roblox'un yaptığı oran değişiklikleri {rateHistory} içinde de görünür; bu ayrı bir kayıttır: changelog bu sitenin ne yaptığını, oran geçmişi ise Roblox'un ne yaptığını izler."
     }
   },
   "changelog": {
@@ -266,6 +277,10 @@
         "p2": "DevEx kurunun kendi geçmişi için, Eylül 2025 değişikliği de dâhil,",
         "p3": "kur geçmişi sayfasına bakın"
       }
+    },
+    "prose": {
+      "feeds": "Buradaki her kayıt bir akış olarak da yayımlanır: akış okuyucular için {atom}, XML ayrıştırmak istemeyenler için {jsonFeed}. İkisi de aynı kayıtları ve aynı kaynak bağlantılarını taşır. Bu rakamlara bağımlıysanız, {ratesApi} güncel değerleri doğrulama tarihleriyle birlikte yayımlar.",
+      "scopeLinks": "DevEx oranının kendi geçmişi için, Eylül 2025 değişikliği dahil, {rateHistory}. Düzeltmelerin nasıl ele alındığı için {correctionsPolicy}."
     }
   },
   "api": {

@@ -28,7 +28,8 @@
       "nothingCollected": "Rien n’est collecté.",
       "privacyIsSpecific": "La politique de confidentialité est précise là-dessus",
       "correctionsPublished": "Les corrections sont publiées.",
-      "rateHasSourceBody": "Pas « à jour depuis peu » : un lien vers la documentation officielle de Roblox et la date du dernier contrôle, affichée sur la page."
+      "rateHasSourceBody": "Pas « à jour depuis peu » : un lien vers la documentation officielle de Roblox et la date du dernier contrôle, affichée sur la page.",
+      "correctionsPublishedBody": "Lorsqu’un chiffre ici se révèle faux, la correction est consignée avec une date dans le {changelog} plutôt que modifiée en silence."
     },
     "body": {
       "purpose": {
@@ -108,7 +109,8 @@
       "approvalOrTiming": "Si une demande sera acceptée, ni quand elle sera payée.",
       "providerCharges": "Ce que votre banque ou votre prestataire de paiement facturera.",
       "taxOwed": "Ce que vous devez en impôts.",
-      "eligibility": "Lesquels de vos Robux Roblox compte comme Earned Robux. Cela relève de la comptabilité interne de Roblox et n’est pas visible de l’extérieur."
+      "eligibility": "Lesquels de vos Robux Roblox compte comme Earned Robux. Cela relève de la comptabilité interne de Roblox et n’est pas visible de l’extérieur.",
+      "split": "Comment votre solde se répartit entre les taux standard, ancien et conditionnel. La calculatrice de répartition modélise la division que vous indiquez ; elle ne peut pas découvrir la vraie."
     },
     "body": {
       "arithmetic": {
@@ -127,6 +129,9 @@
         "p4": "En savoir plus sur la conversion de devise et les frais",
         "p5": "Si le fournisseur est injoignable, un instantané enregistré est affiché et explicitement signalé comme périmé. Un taux périmé n’est jamais présenté comme actuel, et le calcul en USD ne dépend jamais de la disponibilité du fournisseur."
       }
+    },
+    "prose": {
+      "floatingPoint": "Un taux comme 0,0038 ne peut pas être représenté exactement en virgule flottante binaire, qui est la façon dont JavaScript stocke les nombres ordinaires. Multipliez 17 000 par 0,0054 dans une console de navigateur et vous obtenez 91,80000000000001 plutôt que 91,80. Sur de petits montants cela se cache derrière l’arrondi ; sur un solde important, ou dans une chaîne de calculs de frais et d’impôt, l’écart s’accumule."
     }
   },
   "sources": {
@@ -151,6 +156,9 @@
         "p1": "Les données de taux ne sont jamais mises à jour automatiquement depuis une page moissonnée. Modifier un taux publié exige de vérifier la source à la main, de mettre à jour le registre, de mettre à jour les tests unitaires avec les nouvelles valeurs attendues, de relire les pages concernées, d’ajouter une entrée au changelog et de redéployer. Cette séquence est volontairement lente — un taux faux publié vite est pire qu’un taux juste publié un jour plus tard.",
         "p2": "{lastVerifiedAt} (il y a {ageDays} jours)"
       }
+    },
+    "prose": {
+      "scheduledCheck": "Entre deux revues, une tâche planifiée relit quatre fois par jour le markdown que Roblox publie pour sa page DevEx et compare les taux et le minimum à ceux publiés ici. Elle peut confirmer que rien n’a bougé ; elle ne peut pas modifier un chiffre. Une différence lève un signalement destiné à être lu par une personne, et un document qu’elle ne parvient pas à reconnaître — une panne, ou une refonte — est signalé comme illisible plutôt que traité comme un taux retiré. Le résultat est publié sur {rateCheckEndpoint}."
     }
   },
   "editorialPolicy": {
@@ -234,6 +242,9 @@
       "record": {
         "p1": "Les changements de taux décidés par Roblox sont également reflétés dans"
       }
+    },
+    "prose": {
+      "rateHistory": "Les changements de taux opérés par Roblox se reflètent aussi dans l’{rateHistory}, qui est un registre distinct : le changelog suit ce qu’a fait ce site, l’historique des taux suit ce qu’a fait Roblox."
     }
   },
   "changelog": {
@@ -270,6 +281,10 @@
         "p2": "Pour l’historique du taux DevEx lui-même, y compris le changement de septembre 2025,",
         "p3": "voyez la page d’historique des taux"
       }
+    },
+    "prose": {
+      "feeds": "Chaque entrée ici est publiée sous forme de flux : {atom} pour un lecteur de flux, ou {jsonFeed} pour tout ce qui préfère ne pas analyser du XML. Les deux portent les mêmes entrées et les mêmes liens de source. Si vous dépendez de ces chiffres, {ratesApi} publie les valeurs actuelles accompagnées de leur date de vérification.",
+      "scopeLinks": "Pour l’historique du taux DevEx lui-même, y compris le changement de septembre 2025, {rateHistory}. Pour la façon dont les corrections sont traitées, {correctionsPolicy}."
     }
   },
   "api": {

@@ -200,6 +200,9 @@
         "p2": "Yerine hiçbir rakam gösterilmiyor. Eski bir fiyatı güncelmiş gibi sunmak hiç göstermemekten kötü olurdu.",
         "p3": "· {providerName} üzerinden, sunucu tarafında alındı"
       }
+    },
+    "prose": {
+      "quotedFrom": "{source} kaynağından alıntılandı."
     }
   },
   "stats": {
@@ -286,7 +289,8 @@
     },
     "usDollarsLabel": "ABD doları",
     "prose": {
-      "quarterOfRevenue": "İki kez okunmayı hak eden satır ikincisidir. Developer Exchange ücretleri, Roblox'un gelirinin yaklaşık dörtte biridir; yani platformun aldığının kayda değer bir bölümü, yaratıcı ödemeleri olarak yeniden dışarı çıkar. Bu tablodaki her rakam {filings} kaynağından alınmıştır."
+      "quarterOfRevenue": "İki kez okunmayı hak eden satır ikincisidir. Developer Exchange ücretleri, Roblox'un gelirinin yaklaşık dörtte biridir; yani platformun aldığının kayda değer bir bölümü, yaratıcı ödemeleri olarak yeniden dışarı çıkar. Bu tablodaki her rakam {filings} kaynağından alınmıştır.",
+      "precision": "Rakamlar, dosyalamanın kullandığı hassasiyette kaydedilir. Roblox'un binler cinsinden bildirdiği yerde tutar dolara kadar kesindir; milyonlar cinsinden bildirdiği yerde milyona kadar kesindir, daha ötesi değil. İki çeyrek, bildirilmiş bir çeyreğin bildirilmiş altı aylık bir toplamdan çıkarılmasıyla elde edildiği için türetilmiş olarak işaretlenmiştir. Bu sitenin rakamları nasıl ele aldığını {methodology} sayfasında okuyabilirsiniz."
     }
   }
 }

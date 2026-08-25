@@ -147,7 +147,8 @@
       }
     },
     "prose": {
-      "noGuaranteedTime": "Roblox does not publish a guaranteed processing time, so this page does not state one. Specific numbers of days quoted elsewhere are other creators’ experiences, not commitments — and one person’s timeline says nothing reliable about yours. If a request seems stuck, Roblox support is the only party who can actually look at it."
+      "noGuaranteedTime": "Roblox does not publish a guaranteed processing time, so this page does not state one. Specific numbers of days quoted elsewhere are other creators’ experiences, not commitments — and one person’s timeline says nothing reliable about yours. If a request seems stuck, Roblox support is the only party who can actually look at it.",
+      "submitPortal": "Requests go through the official portal linked from the {creatorHub}."
     },
     "avoid": {
       "phishing": "A site asking you to sign in with your Roblox account to “check eligibility” is phishing.",

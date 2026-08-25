@@ -147,7 +147,8 @@
       }
     },
     "prose": {
-      "noGuaranteedTime": "Roblox no publica un plazo de procesamiento garantizado, así que esta página no indica ninguno. Los números concretos de días que se citan en otros sitios son experiencias de otros creadores, no compromisos, y el plazo de una persona no dice nada fiable sobre el tuyo. Si una solicitud parece atascada, el soporte de Roblox es la única parte que puede mirarla de verdad."
+      "noGuaranteedTime": "Roblox no publica un plazo de procesamiento garantizado, así que esta página no indica ninguno. Los números concretos de días que se citan en otros sitios son experiencias de otros creadores, no compromisos, y el plazo de una persona no dice nada fiable sobre el tuyo. Si una solicitud parece atascada, el soporte de Roblox es la única parte que puede mirarla de verdad.",
+      "submitPortal": "Las solicitudes pasan por el portal oficial enlazado desde el {creatorHub}."
     },
     "avoid": {
       "phishing": "Un sitio que te pide iniciar sesión con tu cuenta de Roblox para «comprobar la elegibilidad» es phishing.",

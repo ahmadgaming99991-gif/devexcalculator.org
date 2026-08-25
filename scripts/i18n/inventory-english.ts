@@ -184,6 +184,17 @@ interface Finding {
   readonly words: number;
   readonly hasTokens: boolean;
   readonly text: string;
+  /**
+   * The exact source this sentence occupied, and what each token stands for.
+   *
+   * Only for a JSX text node, and only when the whole node is one sentence.
+   * Written so the codemod that replaces a literal with a lookup can use the
+   * same splitting this scan did, rather than a second implementation of it
+   * that can disagree — and disagreeing means a `t()` call with the wrong
+   * values in it.
+   */
+  readonly span?: string;
+  readonly tokens?: Readonly<Record<string, string>>;
 }
 
 function walk(dir: string, out: string[] = []): string[] {
@@ -550,7 +561,11 @@ function scan(file: string): Finding[] {
  * expression, and only four operators can make it a choice between sentences
  * rather than a value inside one.
  */
+/** The expressions the last `splitOnStructure` call turned into tokens. */
+let lastTokens: Record<string, string> = {};
+
 function splitOnStructure(raw: string): string[] {
+  lastTokens = {};
   const parts: string[] = [];
   const used = new Map<string, number>();
   let current = "";
@@ -575,7 +590,9 @@ function splitOnStructure(raw: string): string[] {
      */
     const seen = used.get(name) ?? 0;
     used.set(name, seen + 1);
-    current += `{${seen === 0 ? name : `${name}${seen + 1}`}}`;
+    const token = seen === 0 ? name : `${name}${seen + 1}`;
+    lastTokens[token] = expression;
+    current += `{${token}}`;
   }
   parts.push(current + raw.slice(index));
   return parts;
@@ -698,7 +715,9 @@ function scanJsxText(
   while ((match = span.exec(source)) !== null) {
     const line = (source.slice(0, match.index).match(/\n/g)?.length ?? 0) + 1;
     const raw = match[1] ?? "";
-    for (const part of splitOnStructure(raw.replace(/\{\s*"\s*"\s*\}/g, " "))) {
+    const whole = splitOnStructure(raw.replace(/\{\s*"\s*"\s*\}/g, " "));
+    const tokensOfNode = lastTokens;
+    for (const part of whole) {
       // Removing an interpolation leaves the space that sat before it, so
       // `quote reference {digest}.` would end `reference .`. The sentence is
       // the same one either way; this just does not write the gap down.
@@ -715,7 +734,7 @@ function scanJsxText(
        * so in their punctuation — prose on this site contains no `=>`, no
        * semicolon and no bare parenthesis pair.
        */
-      if (/[=;`$]|=>|\(\s*\)|\)\s*[:;{}]|\[[a-z]/i.test(value)) continue;
+      if (/[=`$]|=>|\(\s*\)|\)\s*[:;{}]|\[[a-z]/i.test(value)) continue;
       if (!isStructurallyProse(value)) continue;
       // Two lowercase words in a row is the shortest thing that reads as a
       // sentence rather than as a label or a stripped expression.
@@ -727,6 +746,11 @@ function scanJsxText(
         words: countWords(value),
         hasTokens: hasInterpolation(value),
         text: value,
+        /*
+         * Only when the node held one sentence. A node split by a branch
+         * produces several, and no single span belongs to any of them.
+         */
+        ...(whole.length === 1 ? { span: raw, tokens: { ...tokensOfNode } } : {}),
       });
     }
   }

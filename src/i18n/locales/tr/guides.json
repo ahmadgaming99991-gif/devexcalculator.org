@@ -147,7 +147,8 @@
       }
     },
     "prose": {
-      "noGuaranteedTime": "Roblox garantili bir işlem süresi yayımlamaz, bu yüzden bu sayfa da bir süre belirtmez. Başka yerlerde geçen belirli gün sayıları, taahhüt değil, diğer yaratıcıların deneyimleridir — ve bir kişinin süresi, sizinki hakkında güvenilir hiçbir şey söylemez. Bir talep takılmış görünüyorsa, ona gerçekten bakabilecek tek taraf Roblox destek ekibidir."
+      "noGuaranteedTime": "Roblox garantili bir işlem süresi yayımlamaz, bu yüzden bu sayfa da bir süre belirtmez. Başka yerlerde geçen belirli gün sayıları, taahhüt değil, diğer yaratıcıların deneyimleridir — ve bir kişinin süresi, sizinki hakkında güvenilir hiçbir şey söylemez. Bir talep takılmış görünüyorsa, ona gerçekten bakabilecek tek taraf Roblox destek ekibidir.",
+      "submitPortal": "Talepler, {creatorHub} üzerinden bağlanan resmi portalden geçer."
     },
     "avoid": {
       "phishing": "“Uygunluğunuzu kontrol etmek” için Roblox hesabınızla giriş yapmanızı isteyen bir site kimlik avı yapıyordur.",

@@ -86,99 +86,99 @@ export async function RequirementsView({ locale }: { readonly locale: Locale }) 
 
             <div className="rounded-(--radius-control) border border-(--color-border) bg-(--color-surface) p-4">
               <p className="text-(--color-text-muted)">
-                {formatRobux(minimumEarnedRobux)} Earned Robux is the threshold
-                to submit a request. At the current standard rate that balance is
-                worth about{" "}
-                <strong className="text-(--color-text)">
-                  {formatCurrency(minimumPayout, "USD")}
-                </strong>{" "}
-                before any payment-provider fees or tax.
-              </p>
-              <p className="mt-3 text-(--color-text-muted)">{t("rates.requirements.body.minimum.p3")}<em>Earned</em>. Robux you bought do not
-                count toward it, and neither does gift card credit.{" "}
-                <InlineLink href="/earned-robux/">
-                  What counts as Earned Robux
-                </InlineLink>
-                .
-              </p>
-              <div className="mt-4">
-                <ButtonLink href="/">{t("rates.requirements.checkBalanceLink")}</ButtonLink>
-              </div>
-            </div>
-          </Section>
-
-          <Section
-            id="not-approval"
-            heading={t("rates.requirements.notApprovalHeading")}
-            description={t("rates.requirements.notApprovalDescription")}
-          >
-            <Callout tone="warning" title={t("rates.requirements.numberCannotApproveTitle")}>{t("rates.requirements.body.notApproval.p1")}</Callout>
-          </Section>
-
-          <Section
-            id="checklist"
-            heading={t("rates.requirements.checklistHeading")}
-            description={t("rates.requirements.checklistDescription")}
-          >
-            <noscript>
-              {/*
-                The list without scripting. Identical wording to the interactive
-                version, because the content is the point and the ticking is a
-                convenience on top of it.
-              */}
-              <ol className="flex list-decimal flex-col gap-3 pl-5 text-(--color-text-muted)">
-                <li>
-                  Confirm your balance is genuinely Earned Robux and has reached{" "}
-                  {formatRobux(minimumEarnedRobux)}.
-                </li>
+                {t("rates.requirements.body.minimum.p1", {
+                  minimumEarnedRobux: formatRobux(minimumEarnedRobux),
+                })}
+              <strong className="text-(--color-text)">
+                            {formatCurrency(minimumPayout, "USD")}
+                          </strong>{" "}
+                          before any payment-provider fees or tax.
+                        </p>
+                        <p className="mt-3 text-(--color-text-muted)">{t("rates.requirements.body.minimum.p3")}<em>Earned</em>. Robux you bought do not
+                          count toward it, and neither does gift card credit.{" "}
+                          <InlineLink href="/earned-robux/">
+                            What counts as Earned Robux
+                          </InlineLink>
+                          .
+                        </p>
+                        <div className="mt-4">
+                          <ButtonLink href="/">{t("rates.requirements.checkBalanceLink")}</ButtonLink>
+                        </div>
+                      </div>
+                    </Section>
+          
+                    <Section
+                      id="not-approval"
+                      heading={t("rates.requirements.notApprovalHeading")}
+                      description={t("rates.requirements.notApprovalDescription")}
+                    >
+                      <Callout tone="warning" title={t("rates.requirements.numberCannotApproveTitle")}>{t("rates.requirements.body.notApproval.p1")}</Callout>
+                    </Section>
+          
+                    <Section
+                      id="checklist"
+                      heading={t("rates.requirements.checklistHeading")}
+                      description={t("rates.requirements.checklistDescription")}
+                    >
+                      <noscript>
+                        {/*
+                          The list without scripting. Identical wording to the interactive
+                          version, because the content is the point and the ticking is a
+                          convenience on top of it.
+                        */}
+                        <ol className="flex list-decimal flex-col gap-3 pl-5 text-(--color-text-muted)">
+                          <li>
+                {t("rates.requirements.body.checklist.p1", {
+                  minimumEarnedRobux: formatRobux(minimumEarnedRobux),
+                })}
+              </li>
                 <li>{t("rates.requirements.checklist.verifyEmail")}</li>
                 <li>{t("rates.requirements.checklist.portalAccount")}</li>
                 <li>{t("rates.requirements.body.checklist.p2")}</li>
                 <li>{t("rates.requirements.body.checklist.p3")}</li>
                 <li>
-                  Decide where the money is going, and check what your bank or
-                  payment provider will charge to receive it.{" "}
-                  <InlineLink href="/devex-fees-and-taxes/">{t("calculator.preparation.feesLink")}</InlineLink>
-                  .
-                </li>
-              </ol>
-            </noscript>
-
-            <PreparationChecklist words={await loadWords(locale, PREPARATION_WORDS)} />
-          </Section>
-
-          <Section
-            id="misunderstandings"
-            heading={t("rates.requirements.misunderstandingsHeading")}
-            description={t("rates.requirements.misunderstandingsDescription")}
-          >
-            <div className="flex flex-col gap-3">
-              {MISUNDERSTANDINGS(t).map((item) => (
-                <div
-                  key={item.claim}
-                  className="rounded-(--radius-control) border border-(--color-border) bg-(--color-surface) p-4"
-                >
-                  <p className="text-sm font-semibold text-(--color-warning)">
-                    &ldquo;{item.claim}&rdquo;
-                  </p>
-                  <p className="mt-1.5 text-sm text-(--color-text-muted)">{item.reality}</p>
-                </div>
-              ))}
-            </div>
-          </Section>
-
-          <FAQAccordion locale={locale} faqs={record.faqs} heading={t("rates.requirements.faqsHeading")} />
-
-          <RelatedLinks locale={locale}
-            record={record}
-            relationships={["prerequisite", "sibling", "next-step"]}
-            id="related"
-          />
-
-          <EstimateDisclaimer locale={locale} />
-          <SourceNote locale={locale} sourceIds={record.sourceIds} />
-        </div>
-      </Container>
-    </>
+                  {t("rates.requirements.body.checklist.p4")}
+                <InlineLink href="/devex-fees-and-taxes/">{t("calculator.preparation.feesLink")}</InlineLink>
+                              .
+                            </li>
+                          </ol>
+                        </noscript>
+            
+                        <PreparationChecklist words={await loadWords(locale, PREPARATION_WORDS)} />
+                      </Section>
+            
+                      <Section
+                        id="misunderstandings"
+                        heading={t("rates.requirements.misunderstandingsHeading")}
+                        description={t("rates.requirements.misunderstandingsDescription")}
+                      >
+                        <div className="flex flex-col gap-3">
+                          {MISUNDERSTANDINGS(t).map((item) => (
+                            <div
+                              key={item.claim}
+                              className="rounded-(--radius-control) border border-(--color-border) bg-(--color-surface) p-4"
+                            >
+                              <p className="text-sm font-semibold text-(--color-warning)">
+                                &ldquo;{item.claim}&rdquo;
+                              </p>
+                              <p className="mt-1.5 text-sm text-(--color-text-muted)">{item.reality}</p>
+                            </div>
+                          ))}
+                        </div>
+                      </Section>
+            
+                      <FAQAccordion locale={locale} faqs={record.faqs} heading={t("rates.requirements.faqsHeading")} />
+            
+                      <RelatedLinks locale={locale}
+                        record={record}
+                        relationships={["prerequisite", "sibling", "next-step"]}
+                        id="related"
+                      />
+            
+                      <EstimateDisclaimer locale={locale} />
+                      <SourceNote locale={locale} sourceIds={record.sourceIds} />
+                    </div>
+                  </Container>
+                </>
   );
 }

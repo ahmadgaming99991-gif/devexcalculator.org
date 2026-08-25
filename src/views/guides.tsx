@@ -107,7 +107,9 @@ export async function GuidesView({ locale }: { readonly locale: Locale }) {
                           Assumes: {entry.assumes}
                         </span>
                         <span className="mt-1.5 block text-xs text-(--color-text-muted)">
-                          Last reviewed {formatDate(target.lastReviewedAt)}
+                          {t("guides.index.body.readingOrder.p1", {
+                            lastReviewedAt: formatDate(target.lastReviewedAt),
+                          })}
                         </span>
                       </span>
                     </Link>

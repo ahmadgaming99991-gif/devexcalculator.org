@@ -261,7 +261,10 @@
     "alreadyEnoughHeadline": "Bu hedef için elinizde zaten yeterince var.",
     "zeroEarningsHeadline": "Bu hızla hiçbir tarih yok.",
     "datePassedHeadline": "O tarih çoktan geldi.",
-    "pickDateHeadline": "Bir tarih seçin."
+    "pickDateHeadline": "Bir tarih seçin.",
+    "prose": {
+      "estimateNotice": "Buradaki her rakam, girdiklerinizden üretilmiş bir tahmindir. {minimumRobux} Earned Robux'a ulaşmak bir DevEx talebi göndermenizi sağlar; talebin onaylanacağı anlamına gelmez. Roblox uygunluğu, hesap durumunu ve kurallara uygunluğu inceler ve her talebe kendisi karar verir. Oranlar değişebilir ve bir öngörü, verdiğiniz hızda kazanmayı sürdürdüğünüzü varsayar."
+    }
   },
   "controls": {
     "body": {

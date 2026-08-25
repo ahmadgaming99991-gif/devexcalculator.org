@@ -571,6 +571,7 @@ export function Calculator({
                 <TargetBreakdown t={t} result={targetResult} />
               ) : (
                 <ThresholdMeter
+                  t={t}
                   threshold={mode === "advanced" ? splitResult.threshold : quickResult.threshold}
                 />
               )}
@@ -635,10 +636,9 @@ export function Calculator({
       <ResultAnnouncer message={announcement || announceResult} />
 
       <p className="mt-5 border-t border-(--color-border) pt-4 text-xs text-(--color-text-muted)">
-        Estimates use the rates Roblox currently documents. The{" "}
-        {formatRobux(minimumEarnedRobux)} Earned Robux minimum is a requirement
-        to submit a request, not an approval. Roblox decides which Robux qualify
-        and whether any request succeeds.
+        {t("calculator.body.intro.p3", {
+          minimumEarnedRobux: formatRobux(minimumEarnedRobux),
+        })}
       </p>
     </Card>
   );

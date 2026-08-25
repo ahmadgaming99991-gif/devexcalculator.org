@@ -26,7 +26,8 @@
       "nothingCollected": "Es wird nichts erhoben.",
       "privacyIsSpecific": "Die Datenschutzerklärung wird dazu konkret",
       "correctionsPublished": "Korrekturen werden veröffentlicht.",
-      "rateHasSourceBody": "Nicht „vor Kurzem noch aktuell“ — sondern ein Link zur offiziellen Roblox-Dokumentation und das Datum der letzten Prüfung, auf der Seite sichtbar."
+      "rateHasSourceBody": "Nicht „vor Kurzem noch aktuell“ — sondern ein Link zur offiziellen Roblox-Dokumentation und das Datum der letzten Prüfung, auf der Seite sichtbar.",
+      "correctionsPublishedBody": "Stellt sich eine Zahl hier als falsch heraus, wird die Korrektur mit Datum im {changelog} festgehalten und nicht stillschweigend geändert."
     },
     "body": {
       "purpose": {
@@ -106,7 +107,8 @@
       "approvalOrTiming": "Ob ein Antrag genehmigt wird oder wann ausgezahlt wird.",
       "providerCharges": "Was deine Bank oder dein Zahlungsdienstleister berechnet.",
       "taxOwed": "Was du an Steuern schuldest.",
-      "eligibility": "Welche Ihrer Robux Roblox als Earned Robux zählt. Das ist Roblox’ interne Buchführung und von außen nicht einsehbar."
+      "eligibility": "Welche Ihrer Robux Roblox als Earned Robux zählt. Das ist Roblox’ interne Buchführung und von außen nicht einsehbar.",
+      "split": "Wie sich Ihr Guthaben auf den Standardsatz, den alten und den bedingten Satz verteilt. Der Aufteilungsrechner bildet die Aufteilung ab, die Sie angeben; die tatsächliche kann er nicht herausfinden."
     },
     "body": {
       "arithmetic": {
@@ -125,6 +127,9 @@
         "p4": "Mehr zu Währungsumrechnung und Gebühren",
         "p5": "Ist der Anbieter nicht erreichbar, wird eine gespeicherte Momentaufnahme gezeigt und ausdrücklich als veraltet gekennzeichnet. Ein veralteter Kurs wird nie als aktuell dargestellt, und die USD-Berechnung hängt nie davon ab, dass der Anbieter verfügbar ist."
       }
+    },
+    "prose": {
+      "floatingPoint": "Ein Satz wie 0,0038 lässt sich in binärer Gleitkommadarstellung — so speichert JavaScript gewöhnliche Zahlen — nicht exakt abbilden. Multiplizieren Sie 17.000 mit 0,0054 in einer Browserkonsole, und Sie erhalten 91,80000000000001 statt 91,80. Bei kleinen Beträgen verbirgt sich das hinter der Rundung; über ein großes Guthaben oder eine Kette aus Gebühren- und Steuerrechnungen summiert sich die Abweichung."
     }
   },
   "sources": {
@@ -149,6 +154,9 @@
         "p1": "Kursdaten werden nie automatisch aus einer abgegriffenen Seite aktualisiert. Einen veröffentlichten Kurs zu ändern verlangt, die Quelle von Hand zu prüfen, das Register zu aktualisieren, die Unit-Tests auf die neuen erwarteten Werte zu aktualisieren, die betroffenen Seiten zu prüfen, einen Eintrag im Changelog zu ergänzen und neu zu deployen. Diese Abfolge ist absichtlich langsam — ein falscher Kurs, schnell veröffentlicht, ist schlimmer als ein richtiger, der einen Tag später erscheint.",
         "p2": "{lastVerifiedAt} (vor {ageDays} Tagen)"
       }
+    },
+    "prose": {
+      "scheduledCheck": "Zwischen den Überprüfungen liest ein geplanter Auftrag viermal täglich das Markdown erneut, das Roblox für seine DevEx-Seite veröffentlicht, und vergleicht die Sätze und das Minimum mit den hier veröffentlichten. Er kann bestätigen, dass sich nichts bewegt hat; ändern kann er eine Zahl nicht. Eine Abweichung setzt eine Markierung, die ein Mensch liest, und ein Dokument, das er nicht wiedererkennt — eine Störung oder ein Redesign — wird als unlesbar gemeldet, statt als zurückgezogener Satz behandelt zu werden. Das Ergebnis wird unter {rateCheckEndpoint} veröffentlicht."
     }
   },
   "editorialPolicy": {
@@ -232,6 +240,9 @@
       "record": {
         "p1": "Kursänderungen durch Roblox spiegeln sich ebenfalls im"
       }
+    },
+    "prose": {
+      "rateHistory": "Von Roblox vorgenommene Satzänderungen erscheinen auch in der {rateHistory}, einem eigenen Verzeichnis: Das Changelog verfolgt, was diese Website getan hat, die Satzhistorie, was Roblox getan hat."
     }
   },
   "changelog": {
@@ -268,6 +279,10 @@
         "p2": "Zur Geschichte des DevEx-Kurses selbst, einschließlich der Änderung im September 2025,",
         "p3": "siehe die Seite zur Kurshistorie"
       }
+    },
+    "prose": {
+      "feeds": "Jeder Eintrag hier erscheint auch als Feed: {atom} für einen Feedreader oder {jsonFeed} für alles, was lieber kein XML parst. Beide führen dieselben Einträge und dieselben Quellenlinks. Wenn Sie sich auf diese Zahlen stützen, veröffentlicht {ratesApi} die aktuellen Werte samt Prüfdatum.",
+      "scopeLinks": "Zur Geschichte des DevEx-Satzes selbst, einschließlich der Änderung vom September 2025, {rateHistory}. Dazu, wie Korrekturen gehandhabt werden, {correctionsPolicy}."
     }
   },
   "api": {

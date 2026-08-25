@@ -1,4 +1,6 @@
 import { getTranslator } from "@/i18n/get-dictionary";
+import { rich } from "@/i18n/rich";
+import { localizedPath } from "@/i18n/locale-path";
 import { localizedRoute } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -323,141 +325,139 @@ export async function RobloxStatsView({ locale }: { readonly locale: Locale }) {
                   <Badge tone="neutral">{t("platform.stats.derivedHere")}</Badge>
                 </p>
                 <p className="mt-2 text-xs text-(--color-text-muted)">
-                  {engagement.reported.hoursBillions} billion Hours ÷{" "}
-                  {engagement.reported.dauMillions} million DAUs ÷ {engagement.periodDays}{" "}
-                  days. Both inputs are rounded in the release, so this is approximate.
+                  {t("platform.stats.body.engagement.p2", {
+                    hoursBillions: engagement.reported.hoursBillions,
+                    dauMillions: engagement.reported.dauMillions,
+                    periodDays: engagement.periodDays,
+                  })}
                 </p>
               </Card>
             </div>
 
             <p className="mt-4 text-(--color-text-muted)">
-              Every figure above except the last is quoted from{" "}
-              <SourceLink t={t} href={getSource(engagement.sourceId).url}>
-                {getSource(engagement.sourceId).title}
-              </SourceLink>
-              , for the three months ended 30 June 2026.
-            </p>
-
-            <Callout tone="info" title={t("platform.stats.twoFiguresTitle")}>
-              <ul className="mt-1 flex list-none flex-col gap-3 p-0">
-                {engagement.notPublished.map((entry) => (
-                  <li key={entry.id}>
-                    <span className="font-semibold text-(--color-text)">{entry.label}</span>
-                    <span className="block text-sm">{entry.reason}</span>
-                  </li>
-                ))}
-              </ul>
-            </Callout>
-          </Section>
-
-          <Section
-            id="business"
-            heading={t("platform.stats.businessHeading")}
-            description={companyContext.description}
-          >
-            <TableWrapper label={t("platform.stock.reportedResultsLabel")}>
-              <Table caption={t("platform.stock.reportedResultsCaption")}>
-                <thead>
-                  <tr>
-                    <Th>Measure</Th>
-                    <Th>{companyContext.period}</Th>
-                    <Th>{companyContext.comparedWith}</Th>
-                    <Th>Note</Th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {companyContext.figures.map((figure) => (
-                    <tr key={figure.id}>
-                      <Td>{figure.label}</Td>
-                      <Td className="tabular">{figure.current}</Td>
-                      <Td className="tabular">{figure.previous}</Td>
-                      <Td className="text-sm text-(--color-text-muted)">{figure.note}</Td>
-                    </tr>
-                  ))}
-                </tbody>
-              </Table>
-            </TableWrapper>
-
-            <p className="mt-4 text-(--color-text-muted)">
-              The line worth reading twice is the second one. Developer exchange fees are
-              about a quarter of Roblox&rsquo;s revenue, so a meaningful share of what the
-              platform takes in leaves again as creator payouts. Every figure in this table
-              is quoted from{" "}
-              <SourceLink t={t} href={getSource(companyContext.sourceId).url}>
-                {getSource(companyContext.sourceId).title}
-              </SourceLink>{" "}
-              rather than recomputed here.
-            </p>
-
-            <Callout tone="warning" title={t("platform.stats.noSharePriceTitle")}>{t("platform.stats.body.business.p2")}</Callout>
-          </Section>
-
-          <Section
-            id="data"
-            heading={t("platform.stats.downloadHeading")}
-            description={t("platform.stats.downloadDescription")}
-          >
-            <DataDownload
-              heading={t("platform.stats.downloadInnerHeading")}
-              description={t("platform.stats.downloadInnerDescription")}
-              formats={[
-                { label: t("platform.stats.downloadFormats.csvPayouts"), href: "/api/stats/?format=csv" },
-                { label: t("platform.stats.downloadFormats.csvAbsences"), href: "/api/stats/?format=csv-unpublished" },
-                { label: t("platform.stats.downloadFormats.jsonEverything"), href: "/api/stats/" },
-              ]}
-              limitations={[
-                t("platform.stats.limitations.reportedOrDerived"),
-                t("platform.stats.limitations.exactDecimal"),
-                t("platform.stats.limitations.filingLinked"),
-                t("platform.stats.limitations.absencesIncluded"),
-              ]}
-            />
-          </Section>
-
-          <Section id="what-it-means" heading={t("platform.stats.whatItMeansHeading")}>
-            <p className="text-(--color-text-muted)">
-              Very little, directly — and that is worth saying plainly. The totals on this
-              page describe the whole platform. They do not change what your own balance
-              converts to, they are not a forecast, and a rising total does not mean a
-              rising rate. What decides your payout is the rate applied to your eligible
-              Earned Robux, which you can work out on{" "}
-              <InlineLink href="/">{t("platform.stats.calculatorLink")}</InlineLink>.
-            </p>
-            <p className="mt-3 text-(--color-text-muted)">
-              The one thing these figures do show is scale: DevEx is a programme through
-              which Roblox paid out{" "}
-              {formatUsdMagnitude(fy2025?.amountUsd ?? "0")} in a single year, which is
-              context worth having before deciding whether the 30,000 Robux minimum is
-              worth working towards.
-            </p>
-          </Section>
-
-          <Section id="no-live-data" heading={t("platform.stats.noLiveDataHeading")}>
-            <Callout tone="info" title={t("platform.stats.quarterlyNotLiveTitle")}>{t("platform.stats.body.noLiveData.p1")}</Callout>
-            <p className="mt-4 text-(--color-text-muted)">
-              Figures are recorded to the precision the filing used. Where Roblox reported
-              in thousands the amount is exact to the dollar; where it reported in
-              millions, it is exact to the million and no further. Two quarters are marked
-              as derived because they come from subtracting a reported quarter from a
-              reported six-month total. Read more about how this site handles figures in{" "}
-              <InlineLink href="/methodology/">{t("platform.stats.methodologyLink")}</InlineLink>.
-            </p>
-          </Section>
-
-          <Section id="faqs" heading={t("platform.stats.faqsHeading")}>
-            <FAQAccordion locale={locale} faqs={record.faqs} />
-          </Section>
-
-          <SourceNote locale={locale} sourceIds={record.sourceIds} />
-          <EstimateDisclaimer locale={locale} />
-          <RelatedLinks locale={locale}
-            record={record}
-            relationships={["sibling", "prerequisite", "next-step"]}
-            id="related"
-          />
-        </div>
-      </Container>
-    </>
+              {t("platform.stats.body.engagement.p3")}
+            <SourceLink t={t} href={getSource(engagement.sourceId).url}>
+                        {getSource(engagement.sourceId).title}
+                      </SourceLink>
+                      , for the three months ended 30 June 2026.
+                    </p>
+        
+                    <Callout tone="info" title={t("platform.stats.twoFiguresTitle")}>
+                      <ul className="mt-1 flex list-none flex-col gap-3 p-0">
+                        {engagement.notPublished.map((entry) => (
+                          <li key={entry.id}>
+                            <span className="font-semibold text-(--color-text)">{entry.label}</span>
+                            <span className="block text-sm">{entry.reason}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </Callout>
+                  </Section>
+        
+                  <Section
+                    id="business"
+                    heading={t("platform.stats.businessHeading")}
+                    description={companyContext.description}
+                  >
+                    <TableWrapper label={t("platform.stock.reportedResultsLabel")}>
+                      <Table caption={t("platform.stock.reportedResultsCaption")}>
+                        <thead>
+                          <tr>
+                            <Th>Measure</Th>
+                            <Th>{companyContext.period}</Th>
+                            <Th>{companyContext.comparedWith}</Th>
+                            <Th>Note</Th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {companyContext.figures.map((figure) => (
+                            <tr key={figure.id}>
+                              <Td>{figure.label}</Td>
+                              <Td className="tabular">{figure.current}</Td>
+                              <Td className="tabular">{figure.previous}</Td>
+                              <Td className="text-sm text-(--color-text-muted)">{figure.note}</Td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </Table>
+                    </TableWrapper>
+        
+                    <p className="mt-4 text-(--color-text-muted)">
+                      {rich(t("platform.stats.prose.quarterOfRevenue"), {
+                        filings: (
+                          <SourceLink t={t} href={getSource(companyContext.sourceId).url}>
+                            {getSource(companyContext.sourceId).title}
+                          </SourceLink>
+                        ),
+                      })}
+                    </p>
+        
+                    <Callout tone="warning" title={t("platform.stats.noSharePriceTitle")}>{t("platform.stats.body.business.p2")}</Callout>
+                  </Section>
+        
+                  <Section
+                    id="data"
+                    heading={t("platform.stats.downloadHeading")}
+                    description={t("platform.stats.downloadDescription")}
+                  >
+                    <DataDownload
+                      heading={t("platform.stats.downloadInnerHeading")}
+                      description={t("platform.stats.downloadInnerDescription")}
+                      formats={[
+                        { label: t("platform.stats.downloadFormats.csvPayouts"), href: "/api/stats/?format=csv" },
+                        { label: t("platform.stats.downloadFormats.csvAbsences"), href: "/api/stats/?format=csv-unpublished" },
+                        { label: t("platform.stats.downloadFormats.jsonEverything"), href: "/api/stats/" },
+                      ]}
+                      limitations={[
+                        t("platform.stats.limitations.reportedOrDerived"),
+                        t("platform.stats.limitations.exactDecimal"),
+                        t("platform.stats.limitations.filingLinked"),
+                        t("platform.stats.limitations.absencesIncluded"),
+                      ]}
+                    />
+                  </Section>
+        
+                  <Section id="what-it-means" heading={t("platform.stats.whatItMeansHeading")}>
+                    <p className="text-(--color-text-muted)">
+              {t("platform.stats.body.whatItMeans.p1")}
+            <InlineLink href="/">{t("platform.stats.calculatorLink")}</InlineLink>.
+                    </p>
+                    <p className="mt-3 text-(--color-text-muted)">
+                      The one thing these figures do show is scale: DevEx is a programme through
+                      which Roblox paid out{" "}
+                      {formatUsdMagnitude(fy2025?.amountUsd ?? "0")} in a single year, which is
+                      context worth having before deciding whether the 30,000 Robux minimum is
+                      worth working towards.
+                    </p>
+                  </Section>
+        
+                  <Section id="no-live-data" heading={t("platform.stats.noLiveDataHeading")}>
+                    <Callout tone="info" title={t("platform.stats.quarterlyNotLiveTitle")}>{t("platform.stats.body.noLiveData.p1")}</Callout>
+                    <p className="mt-4 text-(--color-text-muted)">
+                      {rich(t("platform.stats.prose.precision"), {
+                        methodology: (
+                          <InlineLink href={localizedPath(locale, "/methodology/")}>
+                            {t("platform.stats.methodologyLink")}
+                          </InlineLink>
+                        ),
+                      })}
+                    </p>
+                  </Section>
+        
+                  <Section id="faqs" heading={t("platform.stats.faqsHeading")}>
+                    <FAQAccordion locale={locale} faqs={record.faqs} />
+                  </Section>
+        
+                  <SourceNote locale={locale} sourceIds={record.sourceIds} />
+                  <EstimateDisclaimer locale={locale} />
+                  <RelatedLinks locale={locale}
+                    record={record}
+                    relationships={["sibling", "prerequisite", "next-step"]}
+                    id="related"
+                  />
+                </div>
+              </Container>
+            </>
   );
 }
 

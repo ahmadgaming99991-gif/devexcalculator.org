@@ -92,89 +92,82 @@ export async function EarnedRobuxView({ locale }: { readonly locale: Locale }) {
               outcome={
                 <>
                   Only the left-hand side becomes{" "}
-                  <strong className="font-semibold">eligible Earned Robux</strong> — the
-                  balance DevEx converts, and the only balance that counts toward the{" "}
-                  {formatRobux(minimumEarnedRobux)} minimum. Roblox makes the final
-                  determination for any specific balance.
-                </>
+                  <strong className="font-semibold">eligible Earned Robux</strong>
+                    {t("rates.earnedRobux.body.definition.p2", {
+                      minimumEarnedRobux: formatRobux(minimumEarnedRobux),
+                    })}
+                  </>
               }
             />
 
             <Callout tone="info" title={t("rates.earnedRobux.balanceDiffersTitle")} className="mt-4">
-              If you have ever bought Robux, received them from a membership, or
-              redeemed a gift card, part of your balance is not earned. That part
-              cannot be cashed out, and it does not count toward the 30,000
-              minimum either.{" "}
-              <Link href="/devex-requirements/">{t("rates.earnedRobux.seeRequirementsLink")}{" "}</Link>.
-            </Callout>
-          </Section>
-
-          <Section
-            id="qualifying"
-            heading={t("rates.earnedRobux.countsHeading")}
-            description={t("rates.earnedRobux.countsDescription")}
-          >
-            <ul className="flex list-disc flex-col gap-2 pl-5 text-(--color-text-muted)">
-              {QUALIFYING(t).map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-            <p className="mt-4 text-sm text-(--color-text-muted)">
-              In each case Roblox has already taken its platform commission
-              before the Robux reach you — creators receive 70% of what a player
-              spends on an in-experience purchase.{" "}
-              <InlineLink href="/robux-tax-calculator/">{t("rates.earnedRobux.body.qualifying.p2")}</InlineLink>
-              .
-            </p>
-          </Section>
-
-          <Section
-            id="not-qualifying"
-            heading={t("rates.earnedRobux.doesNotCountHeading")}
-            description={t("rates.earnedRobux.doesNotCountDescription")}
-          >
-            <ul className="flex list-disc flex-col gap-2 pl-5 text-(--color-text-muted)">
-              {NOT_QUALIFYING(t).map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-            <p className="mt-4 text-sm text-(--color-text-muted)">
-              This is also why the retail price of Robux and the DevEx rate are
-              unrelated numbers. Buying Robux is a purchase; DevEx is Roblox
-              paying a creator.{" "}
-              <InlineLink href="/robux-to-usd/">{t("rates.earnedRobux.body.notQualifying.p1")}</InlineLink>
-              .
-            </p>
-          </Section>
-
-          <Section
-            id="pending"
-            heading={t("rates.earnedRobux.pendingHeading")}
-            description={t("rates.earnedRobux.pendingDescription")}
-          >
-            <p className="text-(--color-text-muted)">{t("rates.earnedRobux.body.pending.p1")}</p>
-          </Section>
-
-          <Section
-            id="groups"
-            heading={t("rates.earnedRobux.groupFundsHeading")}
-            description={t("rates.earnedRobux.groupFundsDescription")}
-          >
-            <p className="text-(--color-text-muted)">{" "}{t("rates.earnedRobux.prose.groupFunds")}{" "}</p>
-          </Section>
-
-          <FAQAccordion locale={locale} faqs={record.faqs} heading={t("rates.earnedRobux.faqsHeading")} />
-
-          <RelatedLinks locale={locale}
-            record={record}
-            relationships={["sibling", "tool", "next-step"]}
-            id="related"
-          />
-
-          <EstimateDisclaimer locale={locale} />
-          <SourceNote locale={locale} sourceIds={record.sourceIds} />
-        </div>
-      </Container>
-    </>
+              {t("rates.earnedRobux.body.definition.p4")}
+            <Link href="/devex-requirements/">{t("rates.earnedRobux.seeRequirementsLink")}{" "}</Link>.
+                    </Callout>
+                  </Section>
+        
+                  <Section
+                    id="qualifying"
+                    heading={t("rates.earnedRobux.countsHeading")}
+                    description={t("rates.earnedRobux.countsDescription")}
+                  >
+                    <ul className="flex list-disc flex-col gap-2 pl-5 text-(--color-text-muted)">
+                      {QUALIFYING(t).map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                    <p className="mt-4 text-sm text-(--color-text-muted)">
+              {t("rates.earnedRobux.body.qualifying.p1")}
+            <InlineLink href="/robux-tax-calculator/">{t("rates.earnedRobux.body.qualifying.p2")}</InlineLink>
+                      .
+                    </p>
+                  </Section>
+        
+                  <Section
+                    id="not-qualifying"
+                    heading={t("rates.earnedRobux.doesNotCountHeading")}
+                    description={t("rates.earnedRobux.doesNotCountDescription")}
+                  >
+                    <ul className="flex list-disc flex-col gap-2 pl-5 text-(--color-text-muted)">
+                      {NOT_QUALIFYING(t).map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                    <p className="mt-4 text-sm text-(--color-text-muted)">
+              {t("rates.earnedRobux.prose.retailUnrelated")}
+            <InlineLink href="/robux-to-usd/">{t("rates.earnedRobux.body.notQualifying.p1")}</InlineLink>
+                      .
+                    </p>
+                  </Section>
+        
+                  <Section
+                    id="pending"
+                    heading={t("rates.earnedRobux.pendingHeading")}
+                    description={t("rates.earnedRobux.pendingDescription")}
+                  >
+                    <p className="text-(--color-text-muted)">{t("rates.earnedRobux.body.pending.p1")}</p>
+                  </Section>
+        
+                  <Section
+                    id="groups"
+                    heading={t("rates.earnedRobux.groupFundsHeading")}
+                    description={t("rates.earnedRobux.groupFundsDescription")}
+                  >
+                    <p className="text-(--color-text-muted)">{" "}{t("rates.earnedRobux.prose.groupFunds")}{" "}</p>
+                  </Section>
+        
+                  <FAQAccordion locale={locale} faqs={record.faqs} heading={t("rates.earnedRobux.faqsHeading")} />
+        
+                  <RelatedLinks locale={locale}
+                    record={record}
+                    relationships={["sibling", "tool", "next-step"]}
+                    id="related"
+                  />
+        
+                  <EstimateDisclaimer locale={locale} />
+                  <SourceNote locale={locale} sourceIds={record.sourceIds} />
+                </div>
+              </Container>
+            </>
   );
 }

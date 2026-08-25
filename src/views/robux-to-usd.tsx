@@ -69,11 +69,9 @@ export async function RobuxToUsdView({
             </div>
 
             <Callout tone="warning" title={t("rates.robuxToUsd.noUniversalRateTitle")} className="mt-4">
-              There is no single number that is true for every package, country
-              and platform, so quoting one would be inventing a figure. Check the
-              current prices on{" "}
-              <SourceLink t={t} href="https://www.roblox.com/upgrades/robux">{t("rates.robuxToUsd.body.twoAnswers.p6")}</SourceLink>{" "}
-              for what you would actually pay.
+              {t("rates.robuxToUsd.body.twoAnswers.p5")}
+            <SourceLink t={t} href="https://www.roblox.com/upgrades/robux">{t("rates.robuxToUsd.body.twoAnswers.p6")}</SourceLink>
+              {t("rates.robuxToUsd.body.twoAnswers.p7")}
             </Callout>
           </Section>
 
@@ -127,31 +125,29 @@ export async function RobuxToUsdView({
             </TableWrapper>
 
             <p className="mt-4 text-sm text-(--color-text-muted)">
-              The gap between the two exists because Roblox operates a platform,
-              handles payment processing, and has already taken its 30% share at
-              the point the Robux were spent.{" "}
-              <InlineLink href="/robux-tax-calculator/">{t("rates.robuxToUsd.body.comparison.p2")}</InlineLink>
-              , and it is not charged again at cash-out.
-            </p>
-          </Section>
-
-          <Section
-            id="formula"
-            heading={t("rates.robuxToUsd.formulaHeading")}
-            description={t("rates.robuxToUsd.formulaDescription")}
-          >
-            <FormulaBlock />
-          </Section>
-
-          <Section
-            id="amounts"
-            heading={t("rates.robuxToUsd.commonAmountsHeading")}
-            description={t("rates.robuxToUsd.commonAmountsDescription")}
-          >
-            <AmountTable t={t} />
-            <p className="mt-3 text-sm text-(--color-text-muted)">
-              <InlineLink href="/conversions/">{t("rates.robuxToUsd.body.amounts.p1")}</InlineLink>{" "}
-              for more amounts and detail.
+              {t("rates.robuxToUsd.body.comparison.p1")}
+            <InlineLink href="/robux-tax-calculator/">{t("rates.robuxToUsd.body.comparison.p2")}</InlineLink>
+                      , and it is not charged again at cash-out.
+                    </p>
+                  </Section>
+        
+                  <Section
+                    id="formula"
+                    heading={t("rates.robuxToUsd.formulaHeading")}
+                    description={t("rates.robuxToUsd.formulaDescription")}
+                  >
+                    <FormulaBlock />
+                  </Section>
+        
+                  <Section
+                    id="amounts"
+                    heading={t("rates.robuxToUsd.commonAmountsHeading")}
+                    description={t("rates.robuxToUsd.commonAmountsDescription")}
+                  >
+                    <AmountTable t={t} />
+                    <p className="mt-3 text-sm text-(--color-text-muted)">
+                      <InlineLink href="/conversions/">{t("rates.robuxToUsd.body.amounts.p1")}</InlineLink>
+              {t("rates.robuxToUsd.body.amounts.p2")}
             </p>
           </Section>
 

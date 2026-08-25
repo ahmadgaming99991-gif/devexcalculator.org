@@ -92,30 +92,26 @@ export async function EditorialPolicyView({ locale }: { readonly locale: Locale 
 
           <Section id="review" heading={t("trust.editorialPolicy.reviewHeading")}>
             <p className="text-(--color-text-muted)">
-              Rate-sensitive content is reviewed every{" "}
-              {rateRegistry.reviewCadenceDays} days, and escalates to a required
-              manual review after {rateRegistry.criticalReviewAgeDays}. The build
-              tracks the age of the rate registry and surfaces it on every
-              rate-sensitive page, so a stale figure is visible to readers rather
-              than only to whoever maintains the site.
+              {t("trust.editorialPolicy.body.review.p1", {
+                reviewCadenceDays: rateRegistry.reviewCadenceDays,
+                criticalReviewAgeDays: rateRegistry.criticalReviewAgeDays,
+              })}
             </p>
             <p className="mt-3 text-(--color-text-muted)">
-              A figure is never left online because it performs well in search
-              after it stops being accurate. If it is wrong, it changes, and the
-              change is recorded.{" "}
-              <InlineLink href="/corrections/">{t("trust.editorialPolicy.body.review.p4")}</InlineLink>{" "}
-              ·{" "}
-              <InlineLink href="/changelog/">{t("trust.editorialPolicy.changedSoFar")}</InlineLink>
-            </p>
-          </Section>
-
-          <RelatedLinks locale={locale}
-            record={record}
-            relationships={["sibling", "parent"]}
-            id="related"
-          />
-        </div>
-      </Container>
-    </>
+              {t("trust.editorialPolicy.body.review.p3")}
+            <InlineLink href="/corrections/">{t("trust.editorialPolicy.body.review.p4")}</InlineLink>{" "}
+                      ·{" "}
+                      <InlineLink href="/changelog/">{t("trust.editorialPolicy.changedSoFar")}</InlineLink>
+                    </p>
+                  </Section>
+        
+                  <RelatedLinks locale={locale}
+                    record={record}
+                    relationships={["sibling", "parent"]}
+                    id="related"
+                  />
+                </div>
+              </Container>
+            </>
   );
 }

@@ -197,6 +197,9 @@
         "p2": "No se muestra ninguna cifra en su lugar. Un precio desactualizado presentado como actual sería peor que ninguno.",
         "p3": "· vía {providerName}, obtenido en el servidor"
       }
+    },
+    "prose": {
+      "quotedFrom": "Tomado de {source}."
     }
   },
   "stats": {
@@ -283,7 +286,8 @@
     },
     "usDollarsLabel": "dólares estadounidenses",
     "prose": {
-      "quarterOfRevenue": "La línea que merece leerse dos veces es la segunda. Las comisiones del Developer Exchange suponen alrededor de una cuarta parte de los ingresos de Roblox, así que una parte importante de lo que ingresa la plataforma vuelve a salir como pagos a creadores. Cada cifra de esta tabla está tomada de {filings}."
+      "quarterOfRevenue": "La línea que merece leerse dos veces es la segunda. Las comisiones del Developer Exchange suponen alrededor de una cuarta parte de los ingresos de Roblox, así que una parte importante de lo que ingresa la plataforma vuelve a salir como pagos a creadores. Cada cifra de esta tabla está tomada de {filings}.",
+      "precision": "Las cifras se registran con la precisión que usó el informe. Donde Roblox declaró en miles, el importe es exacto al dólar; donde declaró en millones, es exacto al millón y no más allá. Dos trimestres se marcan como derivados porque salen de restar un trimestre declarado de un total semestral declarado. Lee más sobre cómo trata las cifras este sitio en {methodology}."
     }
   }
 }

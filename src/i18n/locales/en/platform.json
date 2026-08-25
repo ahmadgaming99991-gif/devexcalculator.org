@@ -197,6 +197,9 @@
         "p2": "No figure is shown in its place. A stale price presented as current would be worse than none.",
         "p3": "· via {providerName}, fetched server-side"
       }
+    },
+    "prose": {
+      "quotedFrom": "Quoted from {source}."
     }
   },
   "stats": {
@@ -283,7 +286,8 @@
     },
     "usDollarsLabel": "US dollars",
     "prose": {
-      "quarterOfRevenue": "The line worth reading twice is the second one. Developer exchange fees are about a quarter of Roblox’s revenue, so a meaningful share of what the platform takes in leaves again as creator payouts. Every figure in this table is quoted from {filings}."
+      "quarterOfRevenue": "The line worth reading twice is the second one. Developer exchange fees are about a quarter of Roblox’s revenue, so a meaningful share of what the platform takes in leaves again as creator payouts. Every figure in this table is quoted from {filings}.",
+      "precision": "Figures are recorded to the precision the filing used. Where Roblox reported in thousands the amount is exact to the dollar; where it reported in millions, it is exact to the million and no further. Two quarters are marked as derived because they come from subtracting a reported quarter from a reported six-month total. Read more about how this site handles figures in {methodology}."
     }
   }
 }

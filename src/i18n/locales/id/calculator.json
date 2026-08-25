@@ -264,7 +264,10 @@
     "alreadyEnoughHeadline": "Anda sudah punya cukup untuk target ini.",
     "zeroEarningsHeadline": "Tidak ada tanggal, dengan laju ini.",
     "datePassedHeadline": "Tanggal itu sudah lewat.",
-    "pickDateHeadline": "Pilih sebuah tanggal."
+    "pickDateHeadline": "Pilih sebuah tanggal.",
+    "prose": {
+      "estimateNotice": "Setiap angka di sini adalah perkiraan yang dihasilkan dari apa yang Anda masukkan. Mencapai {minimumRobux} Earned Robux memungkinkan Anda mengajukan permohonan DevEx; itu tidak berarti permohonannya akan disetujui. Roblox meninjau kelayakan, status akun, dan kepatuhan, lalu memutuskan sendiri setiap permohonan. Tarif bisa berubah, dan sebuah proyeksi mengandaikan Anda terus menghasilkan pada laju yang Anda berikan."
+    }
   },
   "controls": {
     "body": {

@@ -12,10 +12,14 @@
  * remember.
  */
 export const GROUP_SPLIT_WORDS: readonly string[] = [
+  "calculator.groupSplit.body.intro.p2",
+  "calculator.groupSplit.body.intro.p3",
+  "calculator.groupSplit.body.intro.p5",
   "calculator.groupSplit.columnCanCashOut",
   "calculator.groupSplit.columnEstimatedPayout",
   "calculator.groupSplit.meetsMinimum",
   "calculator.groupSplit.onePersonPaidTitle",
+  "calculator.groupSplit.prose.robloxDoesNotDivide",
   "calculator.groupSplit.remainderTitle",
   "calculator.groupSplit.sharesDoNotAddUpTitle",
   "calculator.groupSplit.tableCaption",

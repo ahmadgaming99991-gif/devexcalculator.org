@@ -24,7 +24,8 @@
       "nothingCollected": "Tidak ada yang dikumpulkan.",
       "privacyIsSpecific": "Kebijakan privasinya spesifik soal ini",
       "correctionsPublished": "Koreksi diterbitkan.",
-      "rateHasSourceBody": "Bukan “terkini sampai belum lama ini” — melainkan tautan ke dokumentasi resmi Roblox beserta tanggal terakhir kali diperiksa, yang ditampilkan di halaman."
+      "rateHasSourceBody": "Bukan “terkini sampai belum lama ini” — melainkan tautan ke dokumentasi resmi Roblox beserta tanggal terakhir kali diperiksa, yang ditampilkan di halaman.",
+      "correctionsPublishedBody": "Ketika sebuah angka di sini ternyata keliru, perbaikannya dicatat bertanggal di {changelog}, bukan disunting diam-diam."
     },
     "body": {
       "purpose": {
@@ -104,7 +105,8 @@
       "approvalOrTiming": "Apakah sebuah permohonan akan disetujui, atau kapan akan dibayarkan.",
       "providerCharges": "Berapa yang akan dikenakan bank atau penyedia pembayaran Anda.",
       "taxOwed": "Berapa pajak yang Anda tanggung.",
-      "eligibility": "Robux Anda yang mana yang dihitung Roblox sebagai Earned Robux. Itu pembukuan internal Roblox dan tidak terlihat dari luar."
+      "eligibility": "Robux Anda yang mana yang dihitung Roblox sebagai Earned Robux. Itu pembukuan internal Roblox dan tidak terlihat dari luar.",
+      "split": "Bagaimana saldo Anda terbagi di antara tarif standar, lama, dan bersyarat. Kalkulator pembagian memodelkan pembagian apa pun yang Anda berikan; ia tidak bisa menemukan pembagian yang sebenarnya."
     },
     "body": {
       "arithmetic": {
@@ -123,6 +125,9 @@
         "p4": "Selengkapnya tentang konversi mata uang dan biaya",
         "p5": "Jika penyedianya tidak terjangkau, sebuah cuplikan tersimpan ditampilkan dan secara tegas ditandai usang. Kurs usang tidak pernah disajikan sebagai kurs terkini, dan perhitungan USD tidak pernah bergantung pada tersedianya penyedia itu."
       }
+    },
+    "prose": {
+      "floatingPoint": "Tarif seperti 0,0038 tidak bisa direpresentasikan secara tepat dalam bilangan titik-mengambang biner, yang merupakan cara JavaScript menyimpan bilangan biasa. Kalikan 17.000 dengan 0,0054 di konsol peramban dan Anda mendapat 91,80000000000001, bukan 91,80. Pada jumlah kecil hal itu tersembunyi di balik pembulatan; pada saldo besar, atau pada rangkaian perhitungan biaya dan pajak, penyimpangannya menumpuk."
     }
   },
   "sources": {
@@ -147,6 +152,9 @@
         "p1": "Data kurs tidak pernah diperbarui otomatis dari halaman yang dikeruk. Mengubah kurs yang diterbitkan mengharuskan sumbernya diverifikasi secara manual, registrinya diperbarui, pengujian unitnya diperbarui ke nilai yang baru diharapkan, halaman terdampak ditinjau, sebuah entri ditambahkan ke changelog, dan penerapan ulang dilakukan. Urutan itu sengaja lambat — kurs yang salah dan diterbitkan cepat lebih buruk daripada kurs yang benar dan diterbitkan sehari kemudian.",
         "p2": "{lastVerifiedAt} ({ageDays} hari lalu)"
       }
+    },
+    "prose": {
+      "scheduledCheck": "Di antara peninjauan, sebuah tugas terjadwal membaca ulang markdown yang diterbitkan Roblox untuk halaman DevEx-nya empat kali sehari dan membandingkan tarif serta batas minimumnya dengan yang diterbitkan di sini. Tugas itu bisa memastikan tidak ada yang berubah; ia tidak bisa mengubah sebuah angka. Perbedaan memunculkan tanda untuk dibaca seseorang, dan dokumen yang tidak dikenalinya — karena gangguan atau perombakan tampilan — dilaporkan sebagai tak terbaca, bukan diperlakukan sebagai tarif yang ditarik. Hasilnya diterbitkan di {rateCheckEndpoint}."
     }
   },
   "editorialPolicy": {
@@ -230,6 +238,9 @@
       "record": {
         "p1": "Perubahan kurs yang dilakukan Roblox juga tercermin di"
       }
+    },
+    "prose": {
+      "rateHistory": "Perubahan tarif yang dilakukan Roblox juga tercermin di {rateHistory}, yang merupakan catatan terpisah: changelog melacak apa yang dilakukan situs ini, riwayat tarif melacak apa yang dilakukan Roblox."
     }
   },
   "changelog": {
@@ -266,6 +277,10 @@
         "p2": "Untuk riwayat kurs DevEx itu sendiri, termasuk perubahan September 2025,",
         "p3": "lihat halaman riwayat kurs"
       }
+    },
+    "prose": {
+      "feeds": "Setiap entri di sini diterbitkan sebagai umpan: {atom} untuk pembaca umpan, atau {jsonFeed} untuk apa pun yang lebih suka tidak mengurai XML. Keduanya memuat entri dan tautan sumber yang sama. Jika Anda bergantung pada angka-angka ini, {ratesApi} menerbitkan nilai terkini beserta tanggal verifikasinya.",
+      "scopeLinks": "Untuk riwayat tarif DevEx itu sendiri, termasuk perubahan September 2025, {rateHistory}. Untuk cara koreksi ditangani, {correctionsPolicy}."
     }
   },
   "api": {

@@ -211,7 +211,8 @@
       }
     },
     "prose": {
-      "groupFunds": "Earnings from an experience owned by a group accumulate in the group’s funds rather than in any individual account. DevEx operates on a personal account, so group funds have to reach a personal balance through a payout before they are relevant to a DevEx request. If you are splitting revenue with collaborators, agree how that works before the money arrives rather than after — and check the current official documentation for how group payouts are treated, since this is an area Roblox has changed before."
+      "groupFunds": "Earnings from an experience owned by a group accumulate in the group’s funds rather than in any individual account. DevEx operates on a personal account, so group funds have to reach a personal balance through a payout before they are relevant to a DevEx request. If you are splitting revenue with collaborators, agree how that works before the money arrives rather than after — and check the current official documentation for how group payouts are treated, since this is an area Roblox has changed before.",
+      "retailUnrelated": "This is also why the retail price of Robux and the DevEx rate are unrelated numbers. Buying Robux is a purchase; DevEx is Roblox paying a creator."
     }
   },
   "feesAndTaxes": {
@@ -277,7 +278,9 @@
       }
     },
     "prose": {
-      "currencyMargin": "The DevEx rate is stated in US dollars. If you are paid in another currency, someone converts it, and they apply their own rate plus a margin. That margin is why your bank’s figure will not match a reference rate."
+      "currencyMargin": "The DevEx rate is stated in US dollars. If you are paid in another currency, someone converts it, and they apply their own rate plus a margin. That margin is why your bank’s figure will not match a reference rate.",
+      "providerFeeTerm": "Whatever service delivers the money may charge for doing so — often a percentage plus a fixed amount per payout. This is between you and that provider; Roblox does not set it and neither does this site.",
+      "noFeeTable": "Fee structures vary by provider, country and payout method, so this page does not publish a table of them — any figure would be out of date or wrong for most readers. Check what your own provider charges before you submit a request, then enter that figure in the calculator below to see it applied. On a small payout a fixed fee can be a noticeable share of the total; on a large one the percentage matters more."
     }
   },
   "robuxToUsd": {
@@ -333,6 +336,10 @@
         "p1": "Browse the full conversion hub",
         "p2": "for more amounts and detail."
       }
+    },
+    "prose": {
+      "browseHub": "{conversionHub} for more amounts and detail.",
+      "officialPage": "There is no single number that is true for every package, country and platform, so quoting one would be inventing a figure. Check {officialPage} for what you would actually pay."
     }
   },
   "usdToRobux": {

@@ -64,7 +64,10 @@
       "localStorageIntro": "Con una acción tuya, este sitio guarda algunas cosas en el almacenamiento local de tu propio navegador:",
       "noAnalytics": "No hay ningún proveedor de analítica configurado, así que este sitio no carga ningún script de seguimiento ni establece ninguna cookie de analítica. Nuestro alojamiento tampoco añade uno: Web Analytics de Cloudflare inyectaba un script en las páginas al servirlas, y se ha desactivado para este sitio. Verificado tras el cambio: no se hace ninguna petición a ningún servidor de analítica al cargar una página.",
       "contactForm": "Si envías un mensaje a través del formulario de contacto, el nombre, la dirección de correo, el asunto y el mensaje que escribas se transmiten al servidor de este sitio y se reenvían al destino configurado para poder leerlos y responderlos. No se usan para nada más, y el contenido del mensaje no se escribe en los registros del servidor.",
-      "infrastructure": "Este sitio funciona sobre Cloudflare Workers. Como con cualquier alojamiento web, Cloudflare procesa las peticiones necesarias para servir las páginas, lo que implica tu dirección IP y el agente de usuario del navegador, y aplica su propio tratamiento de seguridad a nivel de red. Ese procesamiento se rige por los términos de privacidad de la propia Cloudflare y no por este sitio."
+      "infrastructure": "Este sitio funciona sobre Cloudflare Workers. Como con cualquier alojamiento web, Cloudflare procesa las peticiones necesarias para servir las páginas, lo que implica tu dirección IP y el agente de usuario del navegador, y aplica su propio tratamiento de seguridad a nivel de red. Ese procesamiento se rige por los términos de privacidad de la propia Cloudflare y no por este sitio.",
+      "calculatorValues": "Los valores de la calculadora nunca se envían a la analítica. Qué páginas se visitan es útil; cuántos Robux tienes no es asunto nuestro.",
+      "externalLinks": "Las páginas de aquí enlazan a la documentación oficial de Roblox, al Banco Central Europeo y a otras fuentes listadas en el {sourceRegistry}. Seguir uno de esos enlaces te lleva a un sitio con sus propias prácticas de privacidad, que esta política no cubre.",
+      "contactThrough": "Contáctanos sobre cualquier punto de esta política a través de la {contactPage}."
     }
   },
   "terms": {
@@ -113,7 +116,8 @@
       "timing": "Cuánto tardará una solicitud, o cuándo llegará el pago.",
       "providerCharges": "Cuánto te cobrará tu proveedor de pagos.",
       "tax": "Cuánto deberás en impuestos, ni cuándo.",
-      "futureRate": "Cuál será la tasa de DevEx en el futuro."
+      "futureRate": "Cuál será la tasa de DevEx en el futuro.",
+      "eligibility": "Si tus Robux cuentan como Earned Robux. Roblox registra de dónde vino cada Robux; ese registro no se ve aquí."
     },
     "correctionsProcessLink": "proceso de correcciones",
     "body": {
@@ -135,7 +139,8 @@
       }
     },
     "prose": {
-      "exactButEstimate": "La calculadora multiplica la cifra de Robux que introduces por una tasa tomada de la documentación publicada de Roblox. Esa aritmética es exacta y está cubierta por pruebas. Lo que produce sigue siendo una estimación, porque los datos de entrada son supuestos: que los Robux que introdujiste son Earned Robux elegibles, y que la tasa que elegiste es la que Roblox les aplicará."
+      "exactButEstimate": "La calculadora multiplica la cifra de Robux que introduces por una tasa tomada de la documentación publicada de Roblox. Esa aritmética es exacta y está cubierta por pruebas. Lo que produce sigue siendo una estimación, porque los datos de entrada son supuestos: que los Robux que introdujiste son Earned Robux elegibles, y que la tasa que elegiste es la que Roblox les aplicará.",
+      "fallenBehind": "Si una cifra de aquí se ha quedado atrás, el {sourceRegistry} enlaza directamente con la página oficial de la que salió, así que puedes comprobar tú mismo el valor actual en unos segundos. Comunicarlo a través del {correctionsProcess} hace que se corrija también para los demás."
     }
   },
   "accessibility": {
@@ -199,6 +204,10 @@
     },
     "thirdParty": {
       "turnstile": "Cloudflare Turnstile, cuando un despliegue lo activa en el formulario de contacto, es un widget de terceros cuya accesibilidad interna queda fuera del control de este sitio."
+    },
+    "prose": {
+      "standard": "Este sitio aspira a cumplir el {wcag}. Eso es un objetivo, no una certificación: no se ha realizado ninguna auditoría externa, y esta página lo dice en lugar de dar a entender lo contrario.",
+      "aboutLink": "Para saber cómo está construido el sitio en general, consulta la {aboutPage}."
     }
   }
 }

@@ -88,13 +88,10 @@ export async function UsdToRobuxView({
                 required Earned Robux = ceiling( target USD ÷ rate per Robux )
               </p>
               <p className="mt-3 text-sm text-(--color-text-muted)">
-                A 1,000 dollar target divided by 0.0038 gives 263,157.89. Robux
-                come in whole units, so 263,157 would pay{" "}
-                {formatCurrency(Rational.of(263_157n).mul(rate), "USD")} — just
-                under the target. Rounding up to 263,158 pays{" "}
-                {formatCurrency(Rational.of(263_158n).mul(rate), "USD")}, which
-                clears it. That is why every figure on this page rounds up rather
-                than to the nearest whole number.
+                {t("rates.usdToRobux.body.rounding.p1", {
+                  rate: formatCurrency(Rational.of(263_157n).mul(rate), "USD"),
+                  rate2: formatCurrency(Rational.of(263_158n).mul(rate), "USD"),
+                })}
               </p>
               <MethodologyNote locale={locale} className="mt-3" />
             </div>
@@ -106,78 +103,78 @@ export async function UsdToRobuxView({
             description={t("rates.usdToRobux.minimumDescription")}
           >
             <Callout tone="warning" title={t("rates.usdToRobux.smallTargetTitle")}>
-              Roblox requires {formatRobux(minimumEarnedRobux)} Earned Robux
-              before a DevEx request can be submitted at all. If your target
-              needs fewer than that, the minimum is what you actually have to
-              reach — and it would pay{" "}
-              {formatCurrency(Rational.fromInt(minimumEarnedRobux).mul(rate), "USD")}{" "}
-              rather than your original target.{" "}
-              <Link href="/devex-requirements/">{t("rates.usdToRobux.seeRequirementsLink")}{" "}</Link>.
-            </Callout>
-          </Section>
-
-          <Section
-            id="planner"
-            heading={t("rates.usdToRobux.paceHeading")}
-            description={t("rates.usdToRobux.paceDescription")}
-          >
-            {/*
-              Server-rendered first, so the section explains itself to a reader
-              with no JavaScript and to a crawler. The planner below is an
-              island; this paragraph is not, and is the reason the page is not
-              blank here without it.
-            */}
-            <p className="text-(--color-text-muted)">
-              A payout target is a distance. Turning it into a date needs one
-              more fact — how fast you earn — and turning a date into a plan
-              needs the same fact in reverse. Both are the same division:{" "}
-              {/*
-                Allowed to wrap. Held on one line it measured 488px, which
-                pushed the whole page 187px sideways at 320px — the exact
-                class of defect the overflow check exists to catch.
-              */}
-              <span className="numeric-display">
-                days = remaining Earned Robux ÷ Earned Robux per day
-              </span>
-              , rounded up, because a part day earns nothing and a part Robux
-              does not exist. Nothing here assumes your earnings grow, and
-              nothing here is a date Roblox will pay on — Roblox publishes no
-              DevEx processing time, so none is added.
-            </p>
-
-            <Planner words={await loadWords(locale, PLANNER_WORDS)} />
-          </Section>
-
-          <Section
-            id="examples"
-            heading={t("rates.usdToRobux.commonTargetsHeading")}
-            description={t("rates.usdToRobux.commonTargetsDescription")}
-          >
-            <TableWrapper label={t("rates.usdToRobux.commonTargetsLabel")}>
-              <Table caption={t("rates.usdToRobux.commonTargetsCaption")}>
-                <thead>
-                  <tr>
-                    <Th>{t("rates.usdToRobux.columnTargetPayout")}</Th>
-                    <Th numeric>{t("rates.usdToRobux.columnExactDivision")}</Th>
-                    <Th numeric>{t("rates.usdToRobux.columnRobuxNeeded")}</Th>
-                    <Th>{t("rates.usdToRobux.columnMinimumApplies")}</Th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {rows.map((row) => (
-                    <tr key={row.target}>
-                      <Th scope="row">{formatCurrency(row.targetUsd, "USD")}</Th>
-                      <Td numeric className="text-(--color-text-muted)">
-                        {row.exact.toFixed(2)}
-                      </Td>
-                      <Td numeric className="font-semibold">
-                        {formatRobux(row.required)}
-                      </Td>
-                      <Td>
-                        {row.belowMinimum ? (
-                          <span className="text-(--color-warning)">
-                            Yes — you would need {formatRobux(row.effective)}
-                          </span>
+              {t("rates.usdToRobux.body.minimum.p1", {
+                minimumEarnedRobux: formatRobux(minimumEarnedRobux),
+                rate: formatCurrency(Rational.fromInt(minimumEarnedRobux).mul(rate), "USD"),
+              })}
+            <Link href="/devex-requirements/">{t("rates.usdToRobux.seeRequirementsLink")}{" "}</Link>.
+                    </Callout>
+                  </Section>
+        
+                  <Section
+                    id="planner"
+                    heading={t("rates.usdToRobux.paceHeading")}
+                    description={t("rates.usdToRobux.paceDescription")}
+                  >
+                    {/*
+                      Server-rendered first, so the section explains itself to a reader
+                      with no JavaScript and to a crawler. The planner below is an
+                      island; this paragraph is not, and is the reason the page is not
+                      blank here without it.
+                    */}
+                    <p className="text-(--color-text-muted)">
+                      A payout target is a distance. Turning it into a date needs one
+                      more fact — how fast you earn — and turning a date into a plan
+                      needs the same fact in reverse. Both are the same division:{" "}
+                      {/*
+                        Allowed to wrap. Held on one line it measured 488px, which
+                        pushed the whole page 187px sideways at 320px — the exact
+                        class of defect the overflow check exists to catch.
+                      */}
+                      <span className="numeric-display">
+                        days = remaining Earned Robux ÷ Earned Robux per day
+                      </span>
+                      , rounded up, because a part day earns nothing and a part Robux
+                      does not exist. Nothing here assumes your earnings grow, and
+                      nothing here is a date Roblox will pay on — Roblox publishes no
+                      DevEx processing time, so none is added.
+                    </p>
+        
+                    <Planner words={await loadWords(locale, PLANNER_WORDS)} />
+                  </Section>
+        
+                  <Section
+                    id="examples"
+                    heading={t("rates.usdToRobux.commonTargetsHeading")}
+                    description={t("rates.usdToRobux.commonTargetsDescription")}
+                  >
+                    <TableWrapper label={t("rates.usdToRobux.commonTargetsLabel")}>
+                      <Table caption={t("rates.usdToRobux.commonTargetsCaption")}>
+                        <thead>
+                          <tr>
+                            <Th>{t("rates.usdToRobux.columnTargetPayout")}</Th>
+                            <Th numeric>{t("rates.usdToRobux.columnExactDivision")}</Th>
+                            <Th numeric>{t("rates.usdToRobux.columnRobuxNeeded")}</Th>
+                            <Th>{t("rates.usdToRobux.columnMinimumApplies")}</Th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {rows.map((row) => (
+                            <tr key={row.target}>
+                              <Th scope="row">{formatCurrency(row.targetUsd, "USD")}</Th>
+                              <Td numeric className="text-(--color-text-muted)">
+                                {row.exact.toFixed(2)}
+                              </Td>
+                              <Td numeric className="font-semibold">
+                                {formatRobux(row.required)}
+                              </Td>
+                              <Td>
+                                {row.belowMinimum ? (
+                                  <span className="text-(--color-warning)">
+              {t("rates.usdToRobux.body.examples.p1", {
+                effective: formatRobux(row.effective),
+              })}
+            </span>
                         ) : (
                           <span className="text-(--color-text-muted)">No</span>
                         )}
@@ -195,29 +192,24 @@ export async function UsdToRobuxView({
             description={t("rates.usdToRobux.notBuyingDescription")}
           >
             <p className="text-(--color-text-muted)">
-              This page answers the creator question: how much do I need to earn
-              to receive a given amount of money. It does not tell you how many
-              Robux a given amount of money will buy. Roblox prices Robux
-              packages by region, platform and promotion, and there is no single
-              rate that would be true for everyone — so this site does not
-              publish one.{" "}
-              <InlineLink href="/robux-to-usd/">{t("rates.usdToRobux.body.buyingRobux.p2")}</InlineLink>
-              .
-            </p>
-          </Section>
-
-          <FAQAccordion locale={locale} faqs={record.faqs} heading={t("rates.usdToRobux.faqsHeading")} />
-
-          <RelatedLinks locale={locale}
-            record={record}
-            relationships={["sibling", "prerequisite", "next-step"]}
-            id="related"
-          />
-
-          <EstimateDisclaimer locale={locale} />
-          <SourceNote locale={locale} sourceIds={record.sourceIds} />
-        </div>
-      </Container>
-    </>
+              {t("rates.usdToRobux.body.buyingRobux.p1")}
+            <InlineLink href="/robux-to-usd/">{t("rates.usdToRobux.body.buyingRobux.p2")}</InlineLink>
+                      .
+                    </p>
+                  </Section>
+        
+                  <FAQAccordion locale={locale} faqs={record.faqs} heading={t("rates.usdToRobux.faqsHeading")} />
+        
+                  <RelatedLinks locale={locale}
+                    record={record}
+                    relationships={["sibling", "prerequisite", "next-step"]}
+                    id="related"
+                  />
+        
+                  <EstimateDisclaimer locale={locale} />
+                  <SourceNote locale={locale} sourceIds={record.sourceIds} />
+                </div>
+              </Container>
+            </>
   );
 }

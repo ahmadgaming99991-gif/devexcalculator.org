@@ -489,12 +489,9 @@ export function Planner({ words }: { readonly words: LocaleWords }) {
 
         <Callout tone="warning" title={t("calculator.planner.whatThisIsNot")} className="mt-6">
           <p>
-            Every figure here is an estimate produced from what you entered.
-            Reaching {formatRobux(BigInt(requirement.minimumRobux))} Earned
-            Robux lets you submit a DevEx request; it does not mean the request
-            will be approved. Roblox reviews eligibility, account standing and
-            compliance, and decides on every request itself. Rates can change,
-            and a projection assumes you keep earning at the pace you gave.
+            {t("calculator.planner.prose.estimateNotice", {
+              minimumRobux: formatRobux(BigInt(requirement.minimumRobux)),
+            })}
           </p>
         </Callout>
       </Card>

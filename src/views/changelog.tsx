@@ -59,68 +59,66 @@ export async function ChangelogView({ locale }: { readonly locale: Locale }) {
               learn of one was to come back and read this page.
             */}
             <Callout tone="info" title={t("trust.changelog.subscribeTitle")}>
-              Every entry here is published as a feed:{" "}
-              <SourceLink t={t} href="/feed.xml">Atom</SourceLink>{t("trust.changelog.body.entries.p2")}<SourceLink t={t} href="/feed.json">JSON Feed</SourceLink> for
-              anything that would rather not parse XML. Both carry the same
-              entries and the same source links. If you depend on these figures,{" "}
-              <InlineLink href="/api/">{t("trust.changelog.ratesApiLink")}</InlineLink>{t("trust.changelog.body.entries.p4")}</Callout>
-
-            <ol className="mt-6 flex flex-col gap-4">
-              {changelogEntries.map((entry, index) => {
-                const kind = kindLabels(t)[entry.kind];
-                return (
-                  <li
-                    key={`${entry.date}-${index}`}
-                    className="rounded-(--radius-card) border border-(--color-border) bg-(--color-surface) p-5"
+              {t("trust.changelog.body.entries.p1")}
+            <SourceLink t={t} href="/feed.xml">Atom</SourceLink>{t("trust.changelog.body.entries.p2")}<SourceLink t={t} href="/feed.json">JSON Feed</SourceLink>
+              {t("trust.changelog.body.entries.p3")}
+            <InlineLink href="/api/">{t("trust.changelog.ratesApiLink")}</InlineLink>{t("trust.changelog.body.entries.p4")}</Callout>
+        
+                    <ol className="mt-6 flex flex-col gap-4">
+                      {changelogEntries.map((entry, index) => {
+                        const kind = kindLabels(t)[entry.kind];
+                        return (
+                          <li
+                            key={`${entry.date}-${index}`}
+                            className="rounded-(--radius-card) border border-(--color-border) bg-(--color-surface) p-5"
+                          >
+                            <div className="flex flex-wrap items-center gap-2">
+                              <Badge tone={kind.tone}>{kind.label}</Badge>
+                              <time
+                                dateTime={entry.date}
+                                className="text-sm font-medium text-(--color-text-muted)"
+                              >
+                                {formatDate(entry.date)}
+                              </time>
+                            </div>
+                            <h3 className="mt-2 text-base font-semibold text-(--color-text)">
+                              {t(`trust.changelog.entries.${entry.id}`)}
+                            </h3>
+                            <p className="mt-1.5 text-sm text-(--color-text-muted)">
+                              {t(`trust.changelog.entries.${entry.id}Detail`)}
+                            </p>
+                            {entry.sourceUrl && entry.sourceLabel ? (
+                              <p className="mt-2 text-sm">
+                                <SourceLink t={t} href={entry.sourceUrl}>{entry.sourceLabel}</SourceLink>
+                              </p>
+                            ) : null}
+                          </li>
+                        );
+                      })}
+                    </ol>
+                  </Section>
+        
+                  <Section
+                    id="scope"
+                    heading={t("trust.changelog.recordedHeading")}
+                    description={t("trust.changelog.recordedDescription")}
                   >
-                    <div className="flex flex-wrap items-center gap-2">
-                      <Badge tone={kind.tone}>{kind.label}</Badge>
-                      <time
-                        dateTime={entry.date}
-                        className="text-sm font-medium text-(--color-text-muted)"
-                      >
-                        {formatDate(entry.date)}
-                      </time>
-                    </div>
-                    <h3 className="mt-2 text-base font-semibold text-(--color-text)">
-                      {t(`trust.changelog.entries.${entry.id}`)}
-                    </h3>
-                    <p className="mt-1.5 text-sm text-(--color-text-muted)">
-                      {t(`trust.changelog.entries.${entry.id}Detail`)}
+                    <p className="text-(--color-text-muted)">{t("trust.changelog.body.scope.p1")}</p>
+                    <p className="mt-3 text-(--color-text-muted)">
+              {t("trust.changelog.body.scope.p2")}
+            <InlineLink href="/devex-rate-history/">{t("trust.changelog.body.scope.p3")}</InlineLink>
+                      . For how corrections are handled,{" "}
+                      <InlineLink href="/corrections/">{" "}{t("trust.changelog.correctionsPolicyLink")}</InlineLink>.
                     </p>
-                    {entry.sourceUrl && entry.sourceLabel ? (
-                      <p className="mt-2 text-sm">
-                        <SourceLink t={t} href={entry.sourceUrl}>{entry.sourceLabel}</SourceLink>
-                      </p>
-                    ) : null}
-                  </li>
-                );
-              })}
-            </ol>
-          </Section>
-
-          <Section
-            id="scope"
-            heading={t("trust.changelog.recordedHeading")}
-            description={t("trust.changelog.recordedDescription")}
-          >
-            <p className="text-(--color-text-muted)">{t("trust.changelog.body.scope.p1")}</p>
-            <p className="mt-3 text-(--color-text-muted)">
-              For the history of the DevEx rate itself, including the September
-              2025 change,{" "}
-              <InlineLink href="/devex-rate-history/">{t("trust.changelog.body.scope.p3")}</InlineLink>
-              . For how corrections are handled,{" "}
-              <InlineLink href="/corrections/">{" "}{t("trust.changelog.correctionsPolicyLink")}</InlineLink>.
-            </p>
-          </Section>
-
-          <RelatedLinks locale={locale}
-            record={record}
-            relationships={["sibling", "next-step", "parent"]}
-            id="related"
-          />
-        </div>
-      </Container>
-    </>
+                  </Section>
+        
+                  <RelatedLinks locale={locale}
+                    record={record}
+                    relationships={["sibling", "next-step", "parent"]}
+                    id="related"
+                  />
+                </div>
+              </Container>
+            </>
   );
 }

@@ -15,7 +15,8 @@
       "nothingCollected": "Nothing is collected.",
       "privacyIsSpecific": "The privacy policy is specific about this",
       "correctionsPublished": "Corrections are published.",
-      "rateHasSourceBody": "Not “current as of recently” — a link to the official Roblox documentation and the date it was last checked, shown on the page."
+      "rateHasSourceBody": "Not “current as of recently” — a link to the official Roblox documentation and the date it was last checked, shown on the page.",
+      "correctionsPublishedBody": "When a figure here turns out to be wrong, the fix is recorded with a date in the {changelog} rather than quietly edited."
     },
     "body": {
       "purpose": {
@@ -95,7 +96,8 @@
       "approvalOrTiming": "Whether a request will be approved, or when it will be paid.",
       "providerCharges": "What your bank or payment provider will charge.",
       "taxOwed": "What you owe in tax.",
-      "eligibility": "Which of your Robux Roblox counts as Earned Robux. That is Roblox’s internal accounting and is not visible from outside."
+      "eligibility": "Which of your Robux Roblox counts as Earned Robux. That is Roblox’s internal accounting and is not visible from outside.",
+      "split": "How your balance divides between the standard, legacy and conditional rates. The split calculator models whatever division you supply; it cannot discover the real one."
     },
     "body": {
       "arithmetic": {
@@ -114,6 +116,9 @@
         "p4": "More on currency conversion and fees",
         "p5": "If the provider is unreachable, a stored snapshot is shown and explicitly labelled stale. A stale rate is never presented as current, and the USD calculation never depends on the provider being available."
       }
+    },
+    "prose": {
+      "floatingPoint": "A rate like 0.0038 cannot be represented exactly in binary floating point, which is how JavaScript stores ordinary numbers. Multiply 17,000 by 0.0054 in a browser console and you get 91.80000000000001 rather than 91.80. At small amounts that hides behind rounding; across a large balance, or a chain of fee and tax calculations, the drift compounds."
     }
   },
   "sources": {
@@ -138,6 +143,9 @@
         "p1": "Rate data is never updated automatically from a scraped page. A change to a published rate requires the source to be verified by hand, the registry updated, the unit tests updated to the new expected values, the affected pages reviewed, an entry added to the changelog, and a redeploy. That sequence is deliberately slow — a wrong rate published quickly is worse than a right one published a day later.",
         "p2": "{lastVerifiedAt} ({ageDays} days ago)"
       }
+    },
+    "prose": {
+      "scheduledCheck": "Between reviews, a scheduled job re-reads the markdown Roblox publishes for its DevEx page four times a day and compares the rates and the minimum to the ones published here. It can confirm that nothing has moved; it cannot change a figure. A difference raises a flag for a person to read, and a document it cannot recognise — an outage, or a redesign — is reported as unreadable rather than treated as a rate that has been withdrawn. The result is published at {rateCheckEndpoint}."
     }
   },
   "editorialPolicy": {
@@ -221,6 +229,9 @@
       "record": {
         "p1": "Rate changes made by Roblox are also reflected in the"
       }
+    },
+    "prose": {
+      "rateHistory": "Rate changes made by Roblox are also reflected in the {rateHistory}, which is a separate record: the changelog tracks what this site did, the rate history tracks what Roblox did."
     }
   },
   "changelog": {
@@ -257,6 +268,10 @@
         "p2": "For the history of the DevEx rate itself, including the September 2025 change,",
         "p3": "see the rate history page"
       }
+    },
+    "prose": {
+      "feeds": "Every entry here is published as a feed: {atom} for a feed reader, or {jsonFeed} for anything that would rather not parse XML. Both carry the same entries and the same source links. If you depend on these figures, {ratesApi} publishes the current values with their verification date attached.",
+      "scopeLinks": "For the history of the DevEx rate itself, including the September 2025 change, {rateHistory}. For how corrections are handled, {correctionsPolicy}."
     }
   },
   "api": {

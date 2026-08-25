@@ -198,18 +198,15 @@ export function PreparationChecklist({ words }: { readonly words: LocaleWords })
       {allPrepared ? (
         <Callout tone="info" title={t("calculator.preparation.preparedNotApprovedTitle")} className="mt-4">
           <p>
-            Every step on this list is done, which means the obvious delays are out
-            of the way. It does not mean a request will be accepted.{" "}
-            <Badge tone="neutral">{t("calculator.preparation.robloxDecides")}{" "}</Badge>
-          </p>
-          <p className="mt-2">
-            Roblox reviews each request against its own criteria after it is
-            submitted, and it does not publish what would cause one to be refused.
-            A checklist in a browser has no standing in that review.{" "}
-            <InlineLink href="/how-to-cash-out-robux/">{t("calculator.preparation.body.intro.p4")}</InlineLink>
-          </p>
-        </Callout>
-      ) : null}
-    </div>
+            {t("calculator.preparation.body.intro.p2")}
+          <Badge tone="neutral">{t("calculator.preparation.robloxDecides")}{" "}</Badge>
+                </p>
+                <p className="mt-2">
+            {t("calculator.preparation.body.intro.p3")}
+          <InlineLink href="/how-to-cash-out-robux/">{t("calculator.preparation.body.intro.p4")}</InlineLink>
+                </p>
+              </Callout>
+            ) : null}
+          </div>
   );
 }

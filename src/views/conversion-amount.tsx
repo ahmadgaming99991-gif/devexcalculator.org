@@ -169,31 +169,36 @@ export async function AmountView({
               </Table>
             </TableWrapper>
             <p className="mt-3 text-sm text-(--color-text-muted)">
-              The {values.standardVsLegacyUsd} gap between the current and legacy
-              rates is what the September 2025 change is worth at this amount.{" "}
-              <InlineLink href="/devex-rate-history/">{t("rates.amountPage.body.rateComparison.p2")}</InlineLink>
-              .
-            </p>
-          </Section>
-
-          <Section id="context" heading={t("rates.amountPage.contextHeading")}>
-            <p className="text-(--color-text-muted)">
-              {t(`rates.amountPage.context.robux${definition.amount}`)}
-            </p>
-          </Section>
-
-          <Section
-            id="reverse"
-            heading={t("rates.amountPage.reachingHeading")}
-            description={t("rates.amountPage.reachingDescription")}
-          >
-            <TableWrapper label={t("rates.amountPage.reachingLabel")}>
-              <Table caption={`Whether ${values.display} Earned Robux covers common payout targets`}>
-                <thead>
-                  <tr>
-                    <Th>Payout target</Th>
-                    <Th numeric>{t("rates.amountPage.columnRobuxNeeded")}</Th>
-                    <Th>Covered by {values.display}?</Th>
+              {t("rates.amountPage.body.rateComparison.p1", {
+                standardVsLegacyUsd: values.standardVsLegacyUsd,
+              })}
+            <InlineLink href="/devex-rate-history/">{t("rates.amountPage.body.rateComparison.p2")}</InlineLink>
+                      .
+                    </p>
+                  </Section>
+        
+                  <Section id="context" heading={t("rates.amountPage.contextHeading")}>
+                    <p className="text-(--color-text-muted)">
+                      {t(`rates.amountPage.context.robux${definition.amount}`)}
+                    </p>
+                  </Section>
+        
+                  <Section
+                    id="reverse"
+                    heading={t("rates.amountPage.reachingHeading")}
+                    description={t("rates.amountPage.reachingDescription")}
+                  >
+                    <TableWrapper label={t("rates.amountPage.reachingLabel")}>
+                      <Table caption={`Whether ${values.display} Earned Robux covers common payout targets`}>
+                        <thead>
+                          <tr>
+                            <Th>Payout target</Th>
+                            <Th numeric>{t("rates.amountPage.columnRobuxNeeded")}</Th>
+                            <Th>
+              {t("rates.amountPage.body.reverse.p1", {
+                display: values.display,
+              })}
+            </Th>
                   </tr>
                 </thead>
                 <tbody>

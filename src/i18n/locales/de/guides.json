@@ -147,7 +147,8 @@
       }
     },
     "prose": {
-      "noGuaranteedTime": "Roblox veröffentlicht keine garantierte Bearbeitungszeit, also nennt diese Seite auch keine. Konkrete Tageszahlen, die anderswo genannt werden, sind Erfahrungen anderer Creator, keine Zusagen — und der Zeitraum einer Person sagt nichts Verlässliches über Ihren. Wirkt ein Antrag festgefahren, ist der Roblox-Support die einzige Stelle, die tatsächlich hineinsehen kann."
+      "noGuaranteedTime": "Roblox veröffentlicht keine garantierte Bearbeitungszeit, also nennt diese Seite auch keine. Konkrete Tageszahlen, die anderswo genannt werden, sind Erfahrungen anderer Creator, keine Zusagen — und der Zeitraum einer Person sagt nichts Verlässliches über Ihren. Wirkt ein Antrag festgefahren, ist der Roblox-Support die einzige Stelle, die tatsächlich hineinsehen kann.",
+      "submitPortal": "Anträge laufen über das offizielle Portal, das vom {creatorHub} aus verlinkt ist."
     },
     "avoid": {
       "phishing": "Eine Seite, die Sie auffordert, sich mit Ihrem Roblox-Konto anzumelden, um die „Berechtigung zu prüfen“, ist Phishing.",

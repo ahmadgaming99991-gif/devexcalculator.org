@@ -35,6 +35,7 @@ export const PLANNER_WORDS: readonly string[] = [
   "calculator.planner.pickDateHeadline",
   "calculator.planner.pickFutureDate",
   "calculator.planner.planningAgainst",
+  "calculator.planner.prose.estimateNotice",
   "calculator.planner.reductionDescription",
   "calculator.planner.reductionHeading",
   "calculator.planner.targetLabel",

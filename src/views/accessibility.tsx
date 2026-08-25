@@ -1,4 +1,6 @@
 import { getTranslator, type Translate } from "@/i18n/get-dictionary";
+import { rich } from "@/i18n/rich";
+import { localizedPath } from "@/i18n/locale-path";
 import { localizedRoute } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -81,23 +83,25 @@ export async function AccessibilityView({ locale }: { readonly locale: Locale })
           <QuickAnswer locale={locale}>{record.quickAnswer}</QuickAnswer>
 
           <p className="text-sm text-(--color-text-muted)">
-            Last reviewed {formatDate(record.lastReviewedAt)}.
+            {t("legal.accessibility.body.intro.p1", {
+              lastReviewedAt: formatDate(record.lastReviewedAt),
+            })}
           </p>
 
           <Section id="standard" heading={t("legal.accessibility.standardHeading")}>
             <p className="text-(--color-text-muted)">
-              This site aims to meet{" "}
-              <a
-                href="https://www.w3.org/TR/WCAG22/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-(--color-primary) underline"
-              >
-                WCAG 2.2 level AA
-              </a>
-              . That is a target rather than a certification — no external audit
-              has been carried out, and this page says so rather than implying
-              otherwise.
+              {rich(t("legal.accessibility.prose.standard"), {
+                wcag: (
+                  <a
+                    href="https://www.w3.org/TR/WCAG22/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-(--color-primary) underline"
+                  >
+                    WCAG 2.2 level AA
+                  </a>
+                ),
+              })}
             </p>
           </Section>
 
@@ -139,8 +143,13 @@ export async function AccessibilityView({ locale }: { readonly locale: Locale })
               <ButtonLink href="/contact/">{t("routes.accessibility.links.contact")}</ButtonLink>
             </div>
             <p className="mt-4 text-sm text-(--color-text-muted)">
-              For how the site is built more generally, see the{" "}
-              <InlineLink href="/about/">{t("legal.accessibility.aboutPageLink")}</InlineLink>.
+              {rich(t("legal.accessibility.prose.aboutLink"), {
+                aboutPage: (
+                  <InlineLink href={localizedPath(locale, "/about/")}>
+                    {t("legal.accessibility.aboutPageLink")}
+                  </InlineLink>
+                ),
+              })}
             </p>
           </Section>
 

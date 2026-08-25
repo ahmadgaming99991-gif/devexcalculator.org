@@ -147,7 +147,8 @@
       }
     },
     "prose": {
-      "noGuaranteedTime": "Roblox ne publie pas de délai de traitement garanti ; cette page n’en annonce donc aucun. Les nombres de jours cités ailleurs sont l’expérience d’autres créateurs, pas des engagements — et le délai d’une personne ne dit rien de fiable sur le vôtre. Si une demande semble bloquée, l’assistance Roblox est la seule à pouvoir réellement l’examiner."
+      "noGuaranteedTime": "Roblox ne publie pas de délai de traitement garanti ; cette page n’en annonce donc aucun. Les nombres de jours cités ailleurs sont l’expérience d’autres créateurs, pas des engagements — et le délai d’une personne ne dit rien de fiable sur le vôtre. Si une demande semble bloquée, l’assistance Roblox est la seule à pouvoir réellement l’examiner.",
+      "submitPortal": "Les demandes passent par le portail officiel accessible depuis le {creatorHub}."
     },
     "avoid": {
       "phishing": "Un site qui vous demande de vous connecter avec votre compte Roblox pour « vérifier votre éligibilité » fait du hameçonnage.",

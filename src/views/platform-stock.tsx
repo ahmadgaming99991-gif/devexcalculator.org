@@ -90,35 +90,35 @@ export async function StockView({ locale }: { readonly locale: Locale }) {
             </TableWrapper>
 
             <p className="mt-4 text-(--color-text-muted)">
-              Quoted from{" "}
-              <SourceLink t={t} href={getSource(companyContext.sourceId).url}>
-                {getSource(companyContext.sourceId).title}
-              </SourceLink>
-              , not recomputed here. A fuller breakdown, including what Roblox pays
-              creators each quarter, is on{" "}
-              <InlineLink href="/roblox-stats/">{t("platform.stock.payoutStatisticsLink")}</InlineLink>.
-            </p>
-          </Section>
-
-          <Section id="why" heading={t("platform.stock.noChartHeading")}>
-            <p className="text-(--color-text-muted)">{" "}{t("platform.stock.noChartBody")}{" "}</p>
-            <p className="mt-3 text-(--color-text-muted)">{t("platform.stock.whenConnected")}</p>
-            <Callout tone="warning" title={t("platform.stock.notAdviceTitle")}>{" "}{t("platform.stock.notAdviceBody")}{" "}</Callout>
-          </Section>
-
-          <Section id="faqs" heading={t("platform.stock.questionsHeading")}>
-            <FAQAccordion locale={locale} faqs={record.faqs} />
-          </Section>
-
-          <EstimateDisclaimer locale={locale} />
-          <RelatedLinks locale={locale}
-            record={record}
-            relationships={["parent", "sibling", "next-step"]}
-            id="related"
-          />
-        </div>
-      </Container>
-    </>
+              {t("platform.stock.body.results.p1")}
+            <SourceLink t={t} href={getSource(companyContext.sourceId).url}>
+                        {getSource(companyContext.sourceId).title}
+                      </SourceLink>
+                      , not recomputed here. A fuller breakdown, including what Roblox pays
+                      creators each quarter, is on{" "}
+                      <InlineLink href="/roblox-stats/">{t("platform.stock.payoutStatisticsLink")}</InlineLink>.
+                    </p>
+                  </Section>
+        
+                  <Section id="why" heading={t("platform.stock.noChartHeading")}>
+                    <p className="text-(--color-text-muted)">{" "}{t("platform.stock.noChartBody")}{" "}</p>
+                    <p className="mt-3 text-(--color-text-muted)">{t("platform.stock.whenConnected")}</p>
+                    <Callout tone="warning" title={t("platform.stock.notAdviceTitle")}>{" "}{t("platform.stock.notAdviceBody")}{" "}</Callout>
+                  </Section>
+        
+                  <Section id="faqs" heading={t("platform.stock.questionsHeading")}>
+                    <FAQAccordion locale={locale} faqs={record.faqs} />
+                  </Section>
+        
+                  <EstimateDisclaimer locale={locale} />
+                  <RelatedLinks locale={locale}
+                    record={record}
+                    relationships={["parent", "sibling", "next-step"]}
+                    id="related"
+                  />
+                </div>
+              </Container>
+            </>
   );
 }
 
@@ -139,9 +139,11 @@ function QuoteBlock({ state,
         </p>
         <p className="mt-2 text-sm text-(--color-text-muted)">
           {quote.currency} · as of{" "}
-          <time dateTime={quote.asOf}>{quote.asOf.slice(0, 16).replace("T", " ")} UTC</time>{" "}
-          · via {quote.providerName}, fetched server-side
-        </p>
+          <time dateTime={quote.asOf}>{quote.asOf.slice(0, 16).replace("T", " ")} UTC</time>
+            {t("platform.stock.body.related.p3", {
+              providerName: quote.providerName,
+            })}
+          </p>
         {lastKnown ? (
           /*
            * Shown, not hidden. The figure above is real and carries the time it
@@ -150,11 +152,11 @@ function QuoteBlock({ state,
            * refused, rather than being left to infer it from the timestamp.
            */
           <p className="mt-3 text-sm text-(--color-text-muted)">
-            <Badge tone="warning">{t("platform.stock.notLatestBadge")}</Badge>{" "}
-            This is the most recent quote this site received. {state.reason} The
-            price above is unchanged from when it was taken; nothing has been
-            adjusted to look current.
-          </p>
+            <Badge tone="warning">{t("platform.stock.notLatestBadge")}</Badge>
+              {t("platform.stock.notLatestBody", {
+                reason: state.reason,
+              })}
+            </p>
         ) : null}
       </Card>
     );
@@ -163,8 +165,9 @@ function QuoteBlock({ state,
   if (state.status === "unavailable") {
     return (
       <Callout tone="warning" title={t("platform.stock.providerSilentTitle")}>
-        {state.reason} No figure is shown in its place. A stale price presented as
-        current would be worse than none.
+        {t("platform.stock.providerSilentBody", {
+          reason: state.reason,
+        })}
       </Callout>
     );
   }

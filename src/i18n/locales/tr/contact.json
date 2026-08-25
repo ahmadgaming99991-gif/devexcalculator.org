@@ -24,6 +24,11 @@
         "p5": "Bir talebin onaylanıp onaylanmayacağını ya da gelecekteki kurun ne olacağını öngörmek.",
         "p6": "Bu site sizden asla Roblox parolanızı, bir giriş kodunu ya da hesabınıza erişim istemez — meşru hiçbir araç da istemez. Lütfen bunları bir mesaja eklemeyin."
       }
+    },
+    "prose": {
+      "emailIsTheWay": "Mesajlar {email} adresine gider. Hangi sayfada olduğunuzu belirtin; bir düzeltme içinse resmi kaynağa bir bağlantı ekleyin.",
+      "notConfigured": "Burada ne bir mesaj formu ne de yayımlanmış bir adres var; mesajınızı sessizce çöpe atan bir form göstermek, bunu açıkça söylemekten daha kötü olurdu. Olgusal bir hata bulduysanız en hızlı yol {sourceRegistry} sayfasına bakmaktır — bu rakamların geldiği her resmi sayfaya bağlanır, böylece güncel değeri doğrudan teyit edebilirsiniz.",
+      "privacyNote": "Mesajınız ve e-posta adresiniz yalnızca gönderdiğinizi okumak ve yanıtlamak için kullanılır. {privacyLink}."
     }
   },
   "form": {

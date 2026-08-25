@@ -214,7 +214,8 @@
       }
     },
     "prose": {
-      "groupFunds": "Einnahmen aus einer Experience, die einer Gruppe gehört, sammeln sich in den Gruppenmitteln und nicht auf einem persönlichen Konto. DevEx arbeitet auf einem persönlichen Konto, Gruppenmittel müssen also erst über eine Auszahlung auf ein persönliches Guthaben gelangen, bevor sie für einen DevEx-Antrag überhaupt eine Rolle spielen. Wenn Sie Einnahmen mit Mitwirkenden teilen, einigen Sie sich darauf, bevor das Geld ankommt, nicht danach — und prüfen Sie die aktuelle offizielle Dokumentation dazu, wie Gruppenauszahlungen behandelt werden, denn das ist ein Bereich, den Roblox schon einmal geändert hat."
+      "groupFunds": "Einnahmen aus einer Experience, die einer Gruppe gehört, sammeln sich in den Gruppenmitteln und nicht auf einem persönlichen Konto. DevEx arbeitet auf einem persönlichen Konto, Gruppenmittel müssen also erst über eine Auszahlung auf ein persönliches Guthaben gelangen, bevor sie für einen DevEx-Antrag überhaupt eine Rolle spielen. Wenn Sie Einnahmen mit Mitwirkenden teilen, einigen Sie sich darauf, bevor das Geld ankommt, nicht danach — und prüfen Sie die aktuelle offizielle Dokumentation dazu, wie Gruppenauszahlungen behandelt werden, denn das ist ein Bereich, den Roblox schon einmal geändert hat.",
+      "retailUnrelated": "Auch deshalb sind der Ladenpreis von Robux und der DevEx-Satz Zahlen ohne Zusammenhang. Robux zu kaufen ist ein Kauf; DevEx ist Roblox, das einen Creator bezahlt."
     }
   },
   "feesAndTaxes": {
@@ -280,7 +281,9 @@
       }
     },
     "prose": {
-      "currencyMargin": "Der DevEx-Satz wird in US-Dollar angegeben. Werden Sie in einer anderen Währung bezahlt, rechnet jemand um und wendet dabei seinen eigenen Kurs plus Aufschlag an. Dieser Aufschlag ist der Grund, warum die Zahl Ihrer Bank nicht zu einem Referenzkurs passt."
+      "currencyMargin": "Der DevEx-Satz wird in US-Dollar angegeben. Werden Sie in einer anderen Währung bezahlt, rechnet jemand um und wendet dabei seinen eigenen Kurs plus Aufschlag an. Dieser Aufschlag ist der Grund, warum die Zahl Ihrer Bank nicht zu einem Referenzkurs passt.",
+      "providerFeeTerm": "Welcher Dienst das Geld auch immer ausliefert, er kann dafür Gebühren erheben — oft ein Prozentsatz plus ein fester Betrag je Auszahlung. Das ist Sache zwischen Ihnen und diesem Anbieter; Roblox legt es nicht fest, und diese Website ebenso wenig.",
+      "noFeeTable": "Gebührenmodelle unterscheiden sich nach Anbieter, Land und Auszahlungsweg, deshalb veröffentlicht diese Seite keine Tabelle dazu — jede Zahl wäre für die meisten Leser veraltet oder falsch. Prüfen Sie, was Ihr eigener Anbieter verlangt, bevor Sie einen Antrag stellen, und geben Sie diesen Betrag unten im Rechner ein, um ihn angewendet zu sehen. Bei einer kleinen Auszahlung kann eine feste Gebühr ein spürbarer Anteil der Summe sein; bei einer großen zählt der Prozentsatz mehr."
     }
   },
   "robuxToUsd": {
@@ -336,6 +339,10 @@
         "p1": "Durchsuche den gesamten Umrechnungsbereich",
         "p2": "für mehr Beträge und Details."
       }
+    },
+    "prose": {
+      "browseHub": "{conversionHub} für weitere Beträge und Einzelheiten.",
+      "officialPage": "Es gibt keine einzelne Zahl, die für jedes Paket, jedes Land und jede Plattform stimmt; eine zu nennen hieße, sie zu erfinden. Was Sie tatsächlich zahlen würden, steht auf {officialPage}."
     }
   },
   "usdToRobux": {

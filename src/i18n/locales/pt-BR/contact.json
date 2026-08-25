@@ -24,6 +24,11 @@
         "p5": "Prever se um pedido será aprovado ou qual será uma taxa futura.",
         "p6": "Este site nunca vai pedir sua senha do Roblox, um código de login ou acesso à sua conta — e nenhuma ferramenta legítima faria isso. Por favor, não inclua nada disso em uma mensagem."
       }
+    },
+    "prose": {
+      "emailIsTheWay": "As mensagens vão para {email}. Inclua a página em que você estava e, no caso de uma correção, um link para a fonte oficial.",
+      "notConfigured": "Não há formulário de mensagem nem endereço publicado aqui, e mostrar um que descartasse a sua mensagem em silêncio seria pior do que dizer isso. Se você encontrou um erro factual, o caminho mais rápido é consultar o {sourceRegistry} — ele leva a cada página oficial de onde estes números vêm, para você confirmar o valor atual diretamente.",
+      "privacyNote": "Sua mensagem e seu endereço de e-mail são usados apenas para ler e responder ao que você enviou. {privacyLink}."
     }
   },
   "form": {

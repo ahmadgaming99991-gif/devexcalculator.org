@@ -211,7 +211,8 @@
       }
     },
     "prose": {
-      "groupFunds": "Os ganhos de uma experiência pertencente a um grupo se acumulam nos fundos do grupo, e não em nenhuma conta individual. O DevEx opera sobre uma conta pessoal, então os fundos do grupo precisam chegar a um saldo pessoal por meio de um pagamento antes de terem relevância para uma solicitação de DevEx. Se você divide receita com colaboradores, combine como isso funciona antes de o dinheiro chegar, e não depois — e consulte a documentação oficial atual sobre como os pagamentos de grupo são tratados, já que esta é uma área que o Roblox já mudou antes."
+      "groupFunds": "Os ganhos de uma experiência pertencente a um grupo se acumulam nos fundos do grupo, e não em nenhuma conta individual. O DevEx opera sobre uma conta pessoal, então os fundos do grupo precisam chegar a um saldo pessoal por meio de um pagamento antes de terem relevância para uma solicitação de DevEx. Se você divide receita com colaboradores, combine como isso funciona antes de o dinheiro chegar, e não depois — e consulte a documentação oficial atual sobre como os pagamentos de grupo são tratados, já que esta é uma área que o Roblox já mudou antes.",
+      "retailUnrelated": "É também por isso que o preço de varejo dos Robux e a taxa do DevEx são números sem relação. Comprar Robux é uma compra; o DevEx é o Roblox pagando um criador."
     }
   },
   "feesAndTaxes": {
@@ -277,7 +278,9 @@
       }
     },
     "prose": {
-      "currencyMargin": "A taxa do DevEx é declarada em dólares americanos. Se você for pago em outra moeda, alguém faz a conversão e aplica a própria taxa mais uma margem. É essa margem que faz o número do seu banco não bater com uma taxa de referência."
+      "currencyMargin": "A taxa do DevEx é declarada em dólares americanos. Se você for pago em outra moeda, alguém faz a conversão e aplica a própria taxa mais uma margem. É essa margem que faz o número do seu banco não bater com uma taxa de referência.",
+      "providerFeeTerm": "Qualquer serviço que entregue o dinheiro pode cobrar por isso — muitas vezes uma porcentagem mais um valor fixo por pagamento. Isso é entre você e esse provedor; o Roblox não define esse valor, e este site também não.",
+      "noFeeTable": "As estruturas de tarifas variam por provedor, país e método de pagamento, então esta página não publica uma tabela delas — qualquer número estaria desatualizado ou errado para a maioria dos leitores. Verifique quanto o seu próprio provedor cobra antes de enviar uma solicitação e depois informe esse valor na calculadora abaixo para vê-lo aplicado. Em um pagamento pequeno, uma tarifa fixa pode ser uma fatia perceptível do total; em um grande, a porcentagem pesa mais."
     }
   },
   "robuxToUsd": {
@@ -333,6 +336,10 @@
         "p1": "Explore o hub de conversões completo",
         "p2": "para mais quantias e detalhes."
       }
+    },
+    "prose": {
+      "browseHub": "{conversionHub} para mais valores e detalhes.",
+      "officialPage": "Não existe um número único que seja verdadeiro para todo pacote, país e plataforma, então citar um seria inventar um valor. Consulte {officialPage} para saber quanto você pagaria de fato."
     }
   },
   "usdToRobux": {

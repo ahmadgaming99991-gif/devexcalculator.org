@@ -24,7 +24,8 @@
       "nothingCollected": "Nada é coletado.",
       "privacyIsSpecific": "A política de privacidade é específica sobre isso",
       "correctionsPublished": "As correções são publicadas.",
-      "rateHasSourceBody": "Não “atual até pouco tempo atrás” — um link para a documentação oficial do Roblox e a data em que foi verificada pela última vez, exibida na página."
+      "rateHasSourceBody": "Não “atual até pouco tempo atrás” — um link para a documentação oficial do Roblox e a data em que foi verificada pela última vez, exibida na página.",
+      "correctionsPublishedBody": "Quando um número aqui se revela errado, a correção é registrada com data no {changelog}, e não editada em silêncio."
     },
     "body": {
       "purpose": {
@@ -104,7 +105,8 @@
       "approvalOrTiming": "Se um pedido será aprovado, ou quando será pago.",
       "providerCharges": "Quanto seu banco ou provedor de pagamento vai cobrar.",
       "taxOwed": "Quanto você deve de imposto.",
-      "eligibility": "Quais dos seus Robux o Roblox conta como Earned Robux. Isso é contabilidade interna do Roblox e não é visível de fora."
+      "eligibility": "Quais dos seus Robux o Roblox conta como Earned Robux. Isso é contabilidade interna do Roblox e não é visível de fora.",
+      "split": "Como o seu saldo se divide entre as taxas padrão, antiga e condicional. A calculadora de divisão modela a divisão que você informar; ela não consegue descobrir a real."
     },
     "body": {
       "arithmetic": {
@@ -123,6 +125,9 @@
         "p4": "Mais sobre conversão de moeda e taxas",
         "p5": "Se o provedor estiver inacessível, um instantâneo armazenado é exibido e explicitamente rotulado como desatualizado. Uma taxa desatualizada nunca é apresentada como atual, e o cálculo em USD nunca depende de o provedor estar disponível."
       }
+    },
+    "prose": {
+      "floatingPoint": "Uma taxa como 0,0038 não pode ser representada exatamente em ponto flutuante binário, que é como o JavaScript guarda números comuns. Multiplique 17.000 por 0,0054 no console de um navegador e você obtém 91,80000000000001 em vez de 91,80. Em valores pequenos isso se esconde atrás do arredondamento; num saldo grande, ou numa cadeia de cálculos de tarifa e imposto, o desvio se acumula."
     }
   },
   "sources": {
@@ -147,6 +152,9 @@
         "p1": "Os dados de taxa nunca são atualizados automaticamente a partir de uma página raspada. Alterar uma taxa publicada exige que a fonte seja verificada à mão, o registro atualizado, os testes unitários atualizados para os novos valores esperados, as páginas afetadas revisadas, uma entrada acrescentada ao changelog e um novo deploy. Essa sequência é deliberadamente lenta — uma taxa errada publicada rápido é pior que uma certa publicada um dia depois.",
         "p2": "{lastVerifiedAt} (há {ageDays} dias)"
       }
+    },
+    "prose": {
+      "scheduledCheck": "Entre as revisões, uma tarefa agendada relê quatro vezes por dia o markdown que o Roblox publica para a página do DevEx e compara as taxas e o mínimo com os publicados aqui. Ela pode confirmar que nada mudou; não pode alterar um número. Uma diferença levanta um sinalizador para uma pessoa ler, e um documento que ela não consegue reconhecer — uma indisponibilidade ou uma reformulação — é relatado como ilegível em vez de tratado como uma taxa que foi retirada. O resultado é publicado em {rateCheckEndpoint}."
     }
   },
   "editorialPolicy": {
@@ -230,6 +238,9 @@
       "record": {
         "p1": "As mudanças de taxa feitas pelo Roblox também são refletidas no"
       }
+    },
+    "prose": {
+      "rateHistory": "As mudanças de taxa feitas pelo Roblox também aparecem no {rateHistory}, que é um registro separado: o changelog acompanha o que este site fez, o histórico de taxas acompanha o que o Roblox fez."
     }
   },
   "changelog": {
@@ -266,6 +277,10 @@
         "p2": "Para o histórico da própria taxa do DevEx, incluindo a mudança de setembro de 2025,",
         "p3": "veja a página de histórico de taxas"
       }
+    },
+    "prose": {
+      "feeds": "Cada entrada daqui é publicada como feed: {atom} para leitores de feed, ou {jsonFeed} para quem prefere não interpretar XML. Ambos trazem as mesmas entradas e os mesmos links de fonte. Se você depende destes números, {ratesApi} publica os valores atuais com a data de verificação anexada.",
+      "scopeLinks": "Para o histórico da própria taxa do DevEx, incluindo a mudança de setembro de 2025, {rateHistory}. Para saber como as correções são tratadas, {correctionsPolicy}."
     }
   },
   "api": {

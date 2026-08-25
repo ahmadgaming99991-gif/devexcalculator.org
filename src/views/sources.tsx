@@ -1,3 +1,4 @@
+import { rich } from "@/i18n/rich";
 import { localizedRoute } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -6,7 +7,6 @@ import { Badge, Container, Section, SourceLink } from "@/components/ui";
 import { RateSourceCheck } from "@/components/layout/rate-source-check";
 import { sourceCheckWords } from "@/components/layout/source-check-words";
 import { getTranslator } from "@/i18n/get-dictionary";
-import { DEFAULT_LOCALE } from "@/i18n/config";
 import { PageHeader, QuickAnswer, RelatedLinks } from "@/components/content";
 import { rateRegistry, registryFreshness, sources } from "@/lib/calculations/rate-registry";
 import { formatDate } from "@/lib/calculations/format";
@@ -15,7 +15,7 @@ const ROUTE = "/sources/";
 
 
 export async function SourcesView({ locale }: { readonly locale: Locale }) {
-  const t = await getTranslator(DEFAULT_LOCALE, ["trust"]);
+  const t = await getTranslator(locale, ["trust"]);
   const record = await localizedRoute(locale, ROUTE);
   const freshness = registryFreshness();
 
@@ -98,7 +98,10 @@ export async function SourcesView({ locale }: { readonly locale: Locale }) {
                 <div className="flex flex-wrap justify-between gap-2">
                   <dt className="text-(--color-text-muted)">{t("trust.sources.ratesLastVerified")}</dt>
                   <dd className="font-semibold text-(--color-text)">
-                    {formatDate(rateRegistry.lastVerifiedAt)} ({freshness.ageDays} days ago)
+                    {t("trust.sources.body.cadence.p2", {
+                      lastVerifiedAt: formatDate(rateRegistry.lastVerifiedAt),
+                      ageDays: freshness.ageDays,
+                    })}
                   </dd>
                 </div>
                 <div className="flex flex-wrap justify-between gap-2">
@@ -123,28 +126,26 @@ export async function SourcesView({ locale }: { readonly locale: Locale }) {
               that did not happen.
             */}
             <RateSourceCheck
-              words={sourceCheckWords(DEFAULT_LOCALE, t)}
+              words={sourceCheckWords(locale, t)}
               className="mt-4 rounded-(--radius-control) border border-(--color-border) bg-(--color-surface) p-4 text-sm text-(--color-text-muted)"
             />
 
             <p className="mt-4 text-(--color-text-muted)">
-              Between reviews, a scheduled job re-reads the markdown Roblox
-              publishes for its DevEx page four times a day and compares the
-              rates and the minimum to the ones published here. It can confirm
-              that nothing has moved; it cannot change a figure. A difference
-              raises a flag for a person to read, and a document it cannot
-              recognise — an outage, or a redesign — is reported as unreadable
-              rather than treated as a rate that has been withdrawn. The result
-              is published at{" "}
-              {/*
-                eslint-disable-next-line @next/next/no-html-link-for-pages --
-                An API endpoint, not a page. `next/link` prefetches and
-                client-navigates, neither of which applies to JSON.
-              */}
-              <a href="/api/rate-check/" className="underline hover:text-(--color-primary)">
-                /api/rate-check/
-              </a>
-              .
+              {rich(t("trust.sources.prose.scheduledCheck"), {
+                rateCheckEndpoint: (
+                  /*
+                   * An API endpoint, not a page. `next/link` prefetches and
+                   * client-navigates, neither of which applies to JSON.
+                   */
+                  // eslint-disable-next-line @next/next/no-html-link-for-pages
+                  <a
+                    href="/api/rate-check/"
+                    className="underline hover:text-(--color-primary)"
+                  >
+                    /api/rate-check/
+                  </a>
+                ),
+              })}
             </p>
 
             <p className="mt-4 text-(--color-text-muted)">{t("trust.sources.body.cadence.p1")}</p>

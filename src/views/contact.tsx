@@ -40,57 +40,53 @@ export async function ContactView({ locale }: { readonly locale: Locale }) {
               // not do.
               email ? (
                 <Callout tone="info" title={t("contact.page.emailIsTheWayTitle")}>
-                  Messages go to{" "}
-                  <a href={`mailto:${email}`} className="font-semibold">
-                    {email}
-                  </a>
-                  . Please include the page you were on and, for a correction, a
-                  link to the official source.
-                </Callout>
-              ) : (
-                <Callout tone="warning" title={t("contact.page.notConfiguredTitle")}>
-                  No message form or published address is available here, and
-                  showing one that quietly discarded your message would be worse
-                  than saying so. If you have found a factual error, the fastest
-                  route is to check the{" "}
-                  <Link href="/sources/">source registry</Link>{t("contact.page.body.form.p3")}</Callout>
-              )
-            ) : (
-              <>
-                <ContactForm words={await loadWords(locale, CONTACT_WORDS)} turnstileSiteKey={turnstileConfig.siteKey} />
-                <p className="mt-4 text-xs text-(--color-text-muted)">
-                  Your message and email address are used only to read and reply
-                  to what you sent.{" "}
-                  <InlineLink href="/privacy/">{t("contact.page.body.form.p5")}</InlineLink>
-                  .
-                </p>
-              </>
-            )}
-          </Section>
-
-          <Section
-            id="cannot-help"
-            heading={t("contact.page.cannotHelpHeading")}
-            description={t("contact.page.cannotHelpDescription")}
-          >
-            <ul className="flex list-disc flex-col gap-2 pl-5 text-(--color-text-muted)">
-              <li>{t("contact.page.body.cannotHelp.p1")}</li>
-              <li>{t("contact.page.body.cannotHelp.p2")}</li>
-              <li>{t("contact.page.body.cannotHelp.p3")}</li>
-              <li>{t("contact.page.body.cannotHelp.p4")}</li>
-              <li>{t("contact.page.body.cannotHelp.p5")}</li>
-            </ul>
-
-            <Callout tone="danger" title={t("contact.page.neverSendCredentialsTitle")} className="mt-4">{t("contact.page.body.cannotHelp.p6")}</Callout>
-          </Section>
-
-          <RelatedLinks locale={locale}
-            record={record}
-            relationships={["prerequisite", "next-step", "parent"]}
-            id="related"
-          />
-        </div>
-      </Container>
-    </>
+                  {t("contact.page.body.form.p1")}
+                <a href={`mailto:${email}`} className="font-semibold">
+                                {email}
+                              </a>
+                              . Please include the page you were on and, for a correction, a
+                              link to the official source.
+                            </Callout>
+                          ) : (
+                            <Callout tone="warning" title={t("contact.page.notConfiguredTitle")}>
+                  {t("contact.page.body.form.p2")}
+                <Link href="/sources/">source registry</Link>{t("contact.page.body.form.p3")}</Callout>
+                          )
+                        ) : (
+                          <>
+                            <ContactForm words={await loadWords(locale, CONTACT_WORDS)} turnstileSiteKey={turnstileConfig.siteKey} />
+                            <p className="mt-4 text-xs text-(--color-text-muted)">
+                  {t("contact.page.body.form.p4")}
+                <InlineLink href="/privacy/">{t("contact.page.body.form.p5")}</InlineLink>
+                              .
+                            </p>
+                          </>
+                        )}
+                      </Section>
+            
+                      <Section
+                        id="cannot-help"
+                        heading={t("contact.page.cannotHelpHeading")}
+                        description={t("contact.page.cannotHelpDescription")}
+                      >
+                        <ul className="flex list-disc flex-col gap-2 pl-5 text-(--color-text-muted)">
+                          <li>{t("contact.page.body.cannotHelp.p1")}</li>
+                          <li>{t("contact.page.body.cannotHelp.p2")}</li>
+                          <li>{t("contact.page.body.cannotHelp.p3")}</li>
+                          <li>{t("contact.page.body.cannotHelp.p4")}</li>
+                          <li>{t("contact.page.body.cannotHelp.p5")}</li>
+                        </ul>
+            
+                        <Callout tone="danger" title={t("contact.page.neverSendCredentialsTitle")} className="mt-4">{t("contact.page.body.cannotHelp.p6")}</Callout>
+                      </Section>
+            
+                      <RelatedLinks locale={locale}
+                        record={record}
+                        relationships={["prerequisite", "next-step", "parent"]}
+                        id="related"
+                      />
+                    </div>
+                  </Container>
+                </>
   );
 }

@@ -347,118 +347,118 @@ async function LiveExperiences({
   if (!result.ok) {
     return (
       <Callout tone="warning" title={t("platform.live.unavailableTitle")}>
-        {result.reason} Nothing is shown in their place, because a stale or invented
-        number would be worse than none. The rest of this site does not depend on
-        this endpoint — the{" "}
-        <InlineLink href="/">{t("platform.live.calculatorStillWorks")}</InlineLink>{t("platform.live.body.related.p2")}</Callout>
+        {t("platform.live.body.related.p1", {
+          reason: result.reason,
+        })}
+      <InlineLink href="/">{t("platform.live.calculatorStillWorks")}</InlineLink>{t("platform.live.body.related.p2")}</Callout>
+      );
+    }
+  
+    const { rankings, selected, experiences, detailsLoaded } = result.data;
+  
+    if (experiences.length === 0) {
+      return (
+        <Callout tone="info" title={t("platform.live.noExperiencesTitle")}>{t("platform.live.body.related.p3")}</Callout>
+      );
+    }
+  
+    const { platform } = result.data;
+    const totalPlaying = experiences.reduce((sum, entry) => sum + entry.playing, 0);
+    const hasVisits = experiences.some((entry) => entry.visits !== null);
+    const hasVotes = experiences.some((entry) => approvalPercent(entry) !== null);
+    const hasGenre = experiences.some((entry) => entry.genre !== null);
+    const busiest = experiences.reduce((best, entry) =>
+      entry.playing > best.playing ? entry : best,
     );
-  }
-
-  const { rankings, selected, experiences, detailsLoaded } = result.data;
-
-  if (experiences.length === 0) {
+  
     return (
-      <Callout tone="info" title={t("platform.live.noExperiencesTitle")}>{t("platform.live.body.related.p3")}</Callout>
-    );
-  }
-
-  const { platform } = result.data;
-  const totalPlaying = experiences.reduce((sum, entry) => sum + entry.playing, 0);
-  const hasVisits = experiences.some((entry) => entry.visits !== null);
-  const hasVotes = experiences.some((entry) => approvalPercent(entry) !== null);
-  const hasGenre = experiences.some((entry) => entry.genre !== null);
-  const busiest = experiences.reduce((best, entry) =>
-    entry.playing > best.playing ? entry : best,
-  );
-
-  return (
-    <div className="min-w-0">
-      <PlatformFigure t={t} platform={platform} observedAt={result.observedAt} />
-
-      <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <Stat label={t("platform.live.stats.playersInRanking")} value={numberFormat.format(totalPlaying)} />
-        <Stat label={t("platform.live.stats.experiencesShown")} value={`${experiences.length} of ${selected.size}`} />
-        <Stat label={t("platform.live.stats.robloxRanking")} value={selected.name} />
-        <Stat label={t("platform.live.stats.busiestRightNow")} value={busiest.name} />
-      </div>
-
-      <RankingTabs t={t} rankings={rankings} selectedId={selected.id} days={chartWindow.days} />
-
-      <p className="mt-4 text-sm text-(--color-text-muted)">
-        {selected.subtitle ? `${selected.subtitle}. ` : null}
-        Observed{" "}
-        <time dateTime={result.observedAt}>{formatObserved(result.observedAt)}</time>.{" "}
-        Source:{" "}
-        <SourceLink t={t} href="https://apis.roblox.com/explore-api/v1/get-sorts?sessionId=devexcalculator">{t("platform.live.body.related.p4")}</SourceLink>
-        {hasVisits ? (
-          <>
-            {" "}and{" "}
-            <SourceLink t={t} href="https://games.roblox.com/v1/games">{t("platform.live.body.related.p5")}</SourceLink>
-          </>
-        ) : null}
-        .
-      </p>
-
-      <TableWrapper
-        label={t("platform.live.table.wrapperLabel", { ranking: selected.name })}
-      >
-        <Table
-          caption={t("platform.live.table.caption", {
-            count: String(experiences.length),
-            ranking: selected.name,
-          })}
+      <div className="min-w-0">
+        <PlatformFigure t={t} platform={platform} observedAt={result.observedAt} />
+  
+        <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <Stat label={t("platform.live.stats.playersInRanking")} value={numberFormat.format(totalPlaying)} />
+          <Stat label={t("platform.live.stats.experiencesShown")} value={`${experiences.length} of ${selected.size}`} />
+          <Stat label={t("platform.live.stats.robloxRanking")} value={selected.name} />
+          <Stat label={t("platform.live.stats.busiestRightNow")} value={busiest.name} />
+        </div>
+  
+        <RankingTabs t={t} rankings={rankings} selectedId={selected.id} days={chartWindow.days} />
+  
+        <p className="mt-4 text-sm text-(--color-text-muted)">
+          {selected.subtitle ? `${selected.subtitle}. ` : null}
+          Observed{" "}
+          <time dateTime={result.observedAt}>{formatObserved(result.observedAt)}</time>.{" "}
+          Source:{" "}
+          <SourceLink t={t} href="https://apis.roblox.com/explore-api/v1/get-sorts?sessionId=devexcalculator">{t("platform.live.body.related.p4")}</SourceLink>
+          {hasVisits ? (
+            <>
+              {" "}and{" "}
+              <SourceLink t={t} href="https://games.roblox.com/v1/games">{t("platform.live.body.related.p5")}</SourceLink>
+            </>
+          ) : null}
+          .
+        </p>
+  
+        <TableWrapper
+          label={t("platform.live.table.wrapperLabel", { ranking: selected.name })}
         >
-          <thead>
-            <tr>
-              <Th>#</Th>
-              <Th>{t("platform.live.table.experience")}</Th>
-              <Th>{t("platform.live.table.playersNow")}</Th>
-              {history ? <Th>Last 24h</Th> : null}
-              {hasVisits ? <Th>{t("platform.live.table.lifetimeVisits")}{" "}</Th> : null}
-              {hasVotes ? <Th>Approval</Th> : null}
-              {hasGenre ? <Th>Genre</Th> : null}
-            </tr>
-          </thead>
-          <tbody>
-            {experiences.map((row, index) => (
-              <ExperienceRow t={t}
-                key={row.universeId}
-                experience={row}
-                rank={index + 1}
-                showVisits={hasVisits}
-                showVotes={hasVotes}
-                showGenre={hasGenre}
-                history={history}
-                ranking={requested}
-                days={chartWindow.days}
-              />
-            ))}
-          </tbody>
-        </Table>
-      </TableWrapper>
-
-      {history && experience !== undefined && history.players[String(experience)] ? (
-        <ExperienceDetail t={t}
-          history={history}
-          universeId={experience}
-          ranking={requested}
-          days={chartWindow.days}
-        />
-      ) : null}
-
-      {detailsLoaded ? null : (
-        <p className="mt-3 text-sm text-(--color-text-muted)">{t("platform.live.body.related.p6")}</p>
-      )}
-
-      <p className="mt-3 text-sm text-(--color-text-muted)">
-        {t(
-          rankings.length === 1
-            ? "platform.live.rankingsNote.one"
-            : "platform.live.rankingsNote.other",
-          { rankingsCount: String(rankings.length), displayLimit: String(DISPLAY_LIMIT) },
+          <Table
+            caption={t("platform.live.table.caption", {
+              count: String(experiences.length),
+              ranking: selected.name,
+            })}
+          >
+            <thead>
+              <tr>
+                <Th>#</Th>
+                <Th>{t("platform.live.table.experience")}</Th>
+                <Th>{t("platform.live.table.playersNow")}</Th>
+                {history ? <Th>Last 24h</Th> : null}
+                {hasVisits ? <Th>{t("platform.live.table.lifetimeVisits")}{" "}</Th> : null}
+                {hasVotes ? <Th>Approval</Th> : null}
+                {hasGenre ? <Th>Genre</Th> : null}
+              </tr>
+            </thead>
+            <tbody>
+              {experiences.map((row, index) => (
+                <ExperienceRow t={t}
+                  key={row.universeId}
+                  experience={row}
+                  rank={index + 1}
+                  showVisits={hasVisits}
+                  showVotes={hasVotes}
+                  showGenre={hasGenre}
+                  history={history}
+                  ranking={requested}
+                  days={chartWindow.days}
+                />
+              ))}
+            </tbody>
+          </Table>
+        </TableWrapper>
+  
+        {history && experience !== undefined && history.players[String(experience)] ? (
+          <ExperienceDetail t={t}
+            history={history}
+            universeId={experience}
+            ranking={requested}
+            days={chartWindow.days}
+          />
+        ) : null}
+  
+        {detailsLoaded ? null : (
+          <p className="mt-3 text-sm text-(--color-text-muted)">{t("platform.live.body.related.p6")}</p>
         )}
-      </p>
-    </div>
+  
+        <p className="mt-3 text-sm text-(--color-text-muted)">
+          {t(
+            rankings.length === 1
+              ? "platform.live.rankingsNote.one"
+              : "platform.live.rankingsNote.other",
+            { rankingsCount: String(rankings.length), displayLimit: String(DISPLAY_LIMIT) },
+          )}
+        </p>
+      </div>
   );
 }
 
@@ -1146,13 +1146,12 @@ async function ObservedHistory({
       </div>
 
       <p className="mt-4 text-sm text-(--color-text-muted)">
-        The window widens on its own as observations accumulate, up to{" "}
-        {RETENTION_DAYS} days. Older observations expire rather than being deleted by
-        a job. Peak, low and average describe these recorded points only — the total
-        may have been higher between two observations, and this site does not claim
-        otherwise. <Badge tone="neutral">{t("platform.history.recordedByThisSite")}</Badge>
-      </p>
-    </div>
+        {t("platform.live.body.experience.p16", {
+          retentionDays: RETENTION_DAYS,
+        })}
+      <Badge tone="neutral">{t("platform.history.recordedByThisSite")}</Badge>
+        </p>
+      </div>
   );
 }
 

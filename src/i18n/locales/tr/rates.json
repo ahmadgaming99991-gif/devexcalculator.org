@@ -211,7 +211,8 @@
       }
     },
     "prose": {
-      "groupFunds": "Bir gruba ait bir deneyimden gelen kazançlar, herhangi bir bireysel hesapta değil, grubun fonlarında birikir. DevEx kişisel bir hesap üzerinde çalışır; bu yüzden grup fonlarının bir DevEx talebi için anlam taşıması, önce bir ödemeyle kişisel bir bakiyeye ulaşmalarına bağlıdır. Geliri işbirlikçilerle paylaşıyorsanız, bunun nasıl işleyeceğini para geldikten sonra değil önce kararlaştırın — ve grup ödemelerinin nasıl ele alındığını güncel resmi belgelerden kontrol edin, çünkü bu, Roblox'un daha önce değiştirdiği bir alandır."
+      "groupFunds": "Bir gruba ait bir deneyimden gelen kazançlar, herhangi bir bireysel hesapta değil, grubun fonlarında birikir. DevEx kişisel bir hesap üzerinde çalışır; bu yüzden grup fonlarının bir DevEx talebi için anlam taşıması, önce bir ödemeyle kişisel bir bakiyeye ulaşmalarına bağlıdır. Geliri işbirlikçilerle paylaşıyorsanız, bunun nasıl işleyeceğini para geldikten sonra değil önce kararlaştırın — ve grup ödemelerinin nasıl ele alındığını güncel resmi belgelerden kontrol edin, çünkü bu, Roblox'un daha önce değiştirdiği bir alandır.",
+      "retailUnrelated": "Robux'un perakende fiyatı ile DevEx oranının birbiriyle ilgisiz sayılar olmasının nedeni de budur. Robux almak bir satın almadır; DevEx ise Roblox'un bir yaratıcıya ödeme yapmasıdır."
     }
   },
   "feesAndTaxes": {
@@ -277,7 +278,9 @@
       }
     },
     "prose": {
-      "currencyMargin": "DevEx oranı ABD doları cinsinden belirtilir. Başka bir para biriminde ödeme alıyorsanız birileri bunu çevirir ve kendi kurunu bir marjla birlikte uygular. Bankanızın rakamının bir referans kuruyla örtüşmemesinin nedeni o marjdır."
+      "currencyMargin": "DevEx oranı ABD doları cinsinden belirtilir. Başka bir para biriminde ödeme alıyorsanız birileri bunu çevirir ve kendi kurunu bir marjla birlikte uygular. Bankanızın rakamının bir referans kuruyla örtüşmemesinin nedeni o marjdır.",
+      "providerFeeTerm": "Parayı hangi hizmet ulaştırıyorsa bunun için ücret alabilir — çoğu zaman bir yüzde artı ödeme başına sabit bir tutar. Bu, sizinle o sağlayıcı arasındadır; ne Roblox belirler ne de bu site.",
+      "noFeeTable": "Ücret yapıları sağlayıcıya, ülkeye ve ödeme yöntemine göre değişir; bu yüzden bu sayfa bir ücret tablosu yayımlamaz — herhangi bir rakam çoğu okur için eskimiş ya da yanlış olurdu. Bir talep göndermeden önce kendi sağlayıcınızın ne aldığını öğrenin, sonra o rakamı aşağıdaki hesaplayıcıya girip uygulanmış hâlini görün. Küçük bir ödemede sabit ücret toplamın hissedilir bir bölümü olabilir; büyük bir ödemede ise yüzde daha çok önem taşır."
     }
   },
   "robuxToUsd": {
@@ -333,6 +336,10 @@
         "p1": "Dönüşüm merkezinin tamamına göz atın",
         "p2": "daha fazla tutar ve ayrıntı için."
       }
+    },
+    "prose": {
+      "browseHub": "Daha fazla tutar ve ayrıntı için {conversionHub}.",
+      "officialPage": "Her paket, ülke ve platform için doğru olan tek bir sayı yoktur; bir tane söylemek onu uydurmak olurdu. Gerçekte ne ödeyeceğinizi {officialPage} sayfasından kontrol edin."
     }
   },
   "usdToRobux": {

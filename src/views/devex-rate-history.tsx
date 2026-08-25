@@ -129,13 +129,9 @@ export async function RateHistoryView({ locale }: { readonly locale: Locale }) {
             description={t("rates.rateHistory.legacyDescription")}
           >
             <p className="text-(--color-text-muted)">
-              Roblox cashes out the pre-transition portion of a balance at 0.0035
-              first, then the rest at 0.0038. The split is Roblox&rsquo;s own
-              accounting of when each Robux was earned — it is not something a
-              creator selects or can adjust.{" "}
-              <InlineLink href="/">{t("rates.rateHistory.body.legacyBalances.p1")}</InlineLink>{" "}
-              if you know roughly how yours divides, but treat the result as an
-              estimate built on your own assumption about the split.
+              {t("rates.rateHistory.prose.legacySplit")}
+            <InlineLink href="/">{t("rates.rateHistory.body.legacyBalances.p1")}</InlineLink>
+              {t("rates.rateHistory.body.legacyBalances.p2")}
             </p>
           </Section>
 
@@ -145,28 +141,24 @@ export async function RateHistoryView({ locale }: { readonly locale: Locale }) {
             description={t("rates.rateHistory.noForecastDescription")}
           >
             <p className="text-(--color-text-muted)">
-              Roblox has changed the rate before and may change it again. Nobody
-              outside Roblox knows whether or when, and a prediction dressed up as
-              analysis would be a guess with a confident tone. This page records
-              only changes that official documentation confirms, each with its
-              effective date. When a change happens it appears here and in the{" "}
-              <InlineLink href="/changelog/">{t("rates.rateHistory.publicChangelogLink")}</InlineLink>, along
-              with the date it was verified.
-            </p>
-          </Section>
-
-          <FAQAccordion locale={locale} faqs={record.faqs} heading={t("rates.rateHistory.faqsHeading")} />
-
-          <RelatedLinks locale={locale}
-            record={record}
-            relationships={["parent", "tool", "next-step"]}
-            id="related"
-          />
-
-          <EstimateDisclaimer locale={locale} />
-          <SourceNote locale={locale} sourceIds={record.sourceIds} />
-        </div>
-      </Container>
-    </>
+              {t("rates.rateHistory.body.noForecast.p1")}
+            <InlineLink href="/changelog/">{t("rates.rateHistory.publicChangelogLink")}</InlineLink>, along
+                      with the date it was verified.
+                    </p>
+                  </Section>
+        
+                  <FAQAccordion locale={locale} faqs={record.faqs} heading={t("rates.rateHistory.faqsHeading")} />
+        
+                  <RelatedLinks locale={locale}
+                    record={record}
+                    relationships={["parent", "tool", "next-step"]}
+                    id="related"
+                  />
+        
+                  <EstimateDisclaimer locale={locale} />
+                  <SourceNote locale={locale} sourceIds={record.sourceIds} />
+                </div>
+              </Container>
+            </>
   );
 }

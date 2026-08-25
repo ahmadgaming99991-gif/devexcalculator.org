@@ -13,6 +13,8 @@
  */
 export const PREPARATION_WORDS: readonly string[] = [
   "calculator.preparation.body.intro.p1",
+  "calculator.preparation.body.intro.p2",
+  "calculator.preparation.body.intro.p3",
   "calculator.preparation.body.intro.p4",
   "calculator.preparation.earnedRobuxLink",
   "calculator.preparation.feesLink",

@@ -24,6 +24,11 @@
         "p5": "Memperkirakan apakah sebuah permohonan akan disetujui atau berapa kurs di masa depan.",
         "p6": "Situs ini tidak akan pernah meminta kata sandi Roblox, kode masuk, atau akses ke akun Anda — dan tidak ada alat yang sah yang akan melakukannya. Mohon jangan menyertakannya dalam pesan."
       }
+    },
+    "prose": {
+      "emailIsTheWay": "Pesan dikirim ke {email}. Sertakan halaman tempat Anda berada dan, untuk sebuah koreksi, tautan ke sumber resminya.",
+      "notConfigured": "Tidak ada formulir pesan atau alamat yang dipublikasikan di sini, dan menampilkan formulir yang diam-diam membuang pesan Anda akan lebih buruk daripada mengatakannya terus terang. Jika Anda menemukan kekeliruan fakta, jalur tercepat adalah memeriksa {sourceRegistry} — di sana tertaut setiap halaman resmi asal angka-angka ini, sehingga Anda bisa memastikan nilai terkininya secara langsung.",
+      "privacyNote": "Pesan dan alamat email Anda hanya dipakai untuk membaca dan membalas apa yang Anda kirim. {privacyLink}."
     }
   },
   "form": {

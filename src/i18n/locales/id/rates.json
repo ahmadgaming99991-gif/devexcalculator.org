@@ -211,7 +211,8 @@
       }
     },
     "prose": {
-      "groupFunds": "Penghasilan dari experience yang dimiliki sebuah grup menumpuk di dana grup, bukan di akun perorangan mana pun. DevEx bekerja pada akun pribadi, jadi dana grup harus sampai ke saldo pribadi lewat sebuah pembayaran sebelum relevan bagi permohonan DevEx. Jika Anda membagi pendapatan dengan kolaborator, sepakati cara kerjanya sebelum uangnya datang, bukan sesudahnya — dan periksa dokumentasi resmi terkini tentang bagaimana pembayaran grup diperlakukan, karena ini bidang yang pernah diubah Roblox."
+      "groupFunds": "Penghasilan dari experience yang dimiliki sebuah grup menumpuk di dana grup, bukan di akun perorangan mana pun. DevEx bekerja pada akun pribadi, jadi dana grup harus sampai ke saldo pribadi lewat sebuah pembayaran sebelum relevan bagi permohonan DevEx. Jika Anda membagi pendapatan dengan kolaborator, sepakati cara kerjanya sebelum uangnya datang, bukan sesudahnya — dan periksa dokumentasi resmi terkini tentang bagaimana pembayaran grup diperlakukan, karena ini bidang yang pernah diubah Roblox.",
+      "retailUnrelated": "Inilah juga sebabnya harga eceran Robux dan tarif DevEx adalah dua angka yang tidak berhubungan. Membeli Robux adalah pembelian; DevEx adalah Roblox membayar seorang kreator."
     }
   },
   "feesAndTaxes": {
@@ -277,7 +278,9 @@
       }
     },
     "prose": {
-      "currencyMargin": "Tarif DevEx dinyatakan dalam dolar AS. Jika Anda dibayar dalam mata uang lain, ada pihak yang mengonversinya dan menerapkan kursnya sendiri ditambah margin. Margin itulah sebabnya angka dari bank Anda tidak akan cocok dengan kurs referensi."
+      "currencyMargin": "Tarif DevEx dinyatakan dalam dolar AS. Jika Anda dibayar dalam mata uang lain, ada pihak yang mengonversinya dan menerapkan kursnya sendiri ditambah margin. Margin itulah sebabnya angka dari bank Anda tidak akan cocok dengan kurs referensi.",
+      "providerFeeTerm": "Layanan apa pun yang mengantarkan uangnya bisa mengenakan biaya untuk itu — sering berupa persentase ditambah jumlah tetap per pembayaran. Ini urusan antara Anda dan penyedia tersebut; Roblox tidak menetapkannya, dan situs ini pun tidak.",
+      "noFeeTable": "Struktur biaya berbeda menurut penyedia, negara, dan metode pembayaran, jadi halaman ini tidak menerbitkan tabelnya — angka apa pun akan usang atau keliru bagi sebagian besar pembaca. Periksa berapa yang dikenakan penyedia Anda sendiri sebelum mengajukan permohonan, lalu masukkan angka itu ke kalkulator di bawah untuk melihatnya diterapkan. Pada pembayaran kecil, biaya tetap bisa menjadi bagian yang terasa dari total; pada pembayaran besar, persentasenya lebih menentukan."
     }
   },
   "robuxToUsd": {
@@ -333,6 +336,10 @@
         "p1": "Telusuri pusat konversi selengkapnya",
         "p2": "untuk lebih banyak jumlah dan rincian."
       }
+    },
+    "prose": {
+      "browseHub": "{conversionHub} untuk lebih banyak nominal dan rincian.",
+      "officialPage": "Tidak ada satu angka pun yang berlaku untuk setiap paket, negara, dan platform, jadi mengutip satu angka sama saja dengan mengarangnya. Periksa {officialPage} untuk mengetahui berapa yang sebenarnya Anda bayar."
     }
   },
   "usdToRobux": {

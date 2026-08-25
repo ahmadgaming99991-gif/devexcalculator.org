@@ -201,6 +201,9 @@
         "p2": "An seiner Stelle wird keine Zahl gezeigt. Ein veralteter Kurs, als aktuell dargestellt, wäre schlimmer als keiner.",
         "p3": "· über {providerName}, serverseitig abgerufen"
       }
+    },
+    "prose": {
+      "quotedFrom": "Zitiert aus {source}."
     }
   },
   "stats": {
@@ -287,7 +290,8 @@
     },
     "usDollarsLabel": "US-Dollar",
     "prose": {
-      "quarterOfRevenue": "Die Zeile, die zweimal zu lesen lohnt, ist die zweite. Developer-Exchange-Gebühren machen etwa ein Viertel von Roblox’ Umsatz aus; ein erheblicher Teil dessen, was die Plattform einnimmt, verlässt sie also wieder als Creator-Auszahlungen. Jede Zahl in dieser Tabelle stammt aus {filings}."
+      "quarterOfRevenue": "Die Zeile, die zweimal zu lesen lohnt, ist die zweite. Developer-Exchange-Gebühren machen etwa ein Viertel von Roblox’ Umsatz aus; ein erheblicher Teil dessen, was die Plattform einnimmt, verlässt sie also wieder als Creator-Auszahlungen. Jede Zahl in dieser Tabelle stammt aus {filings}.",
+      "precision": "Zahlen werden in der Genauigkeit erfasst, die die Einreichung verwendet hat. Wo Roblox in Tausenden berichtete, ist der Betrag auf den Dollar genau; wo in Millionen, auf die Million genau und nicht weiter. Zwei Quartale sind als abgeleitet gekennzeichnet, weil sie aus der Differenz eines berichteten Quartals zu einer berichteten Halbjahressumme stammen. Mehr dazu, wie diese Website mit Zahlen umgeht, steht in {methodology}."
     }
   }
 }

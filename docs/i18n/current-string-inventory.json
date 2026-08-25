@@ -1,58 +1,57 @@
 {
   "$comment": "Deterministic inventory of translatable English. No timestamp: a diff here should mean the content changed, not that the script ran again.",
   "totals": {
-    "strings": 655,
-    "words": 9258,
-    "files": 41,
+    "strings": 625,
+    "words": 8443,
+    "files": 40,
     "filesScanned": 230
   },
   "byCategory": {
     "attribute": 12,
-    "jsx-text": 127,
+    "jsx-text": 97,
     "list-item": 4,
     "registry-prose": 512
   },
   "byFile": {
     "src/lib/content/route-registry.ts": 491,
-    "src/views/how-to-cash-out-robux.tsx": 10,
-    "src/views/privacy.tsx": 9,
     "src/lib/content/amount-pages.ts": 8,
     "src/lib/content/changelog.ts": 8,
-    "src/views/corrections.tsx": 7,
-    "src/views/roblox-stats.tsx": 7,
+    "src/views/how-to-cash-out-robux.tsx": 7,
     "src/views/usd-to-robux.tsx": 7,
-    "src/views/about.tsx": 6,
-    "src/views/disclaimer.tsx": 6,
-    "src/views/methodology.tsx": 6,
     "src/views/robux-to-usd.tsx": 6,
     "src/features/devex/components/results.tsx": 5,
     "src/lib/content/authors.ts": 5,
+    "src/views/corrections.tsx": 5,
     "src/views/earned-robux.tsx": 5,
-    "src/views/platform-stock.tsx": 5,
+    "src/views/roblox-stats.tsx": 5,
     "src/views/terms.tsx": 5,
-    "src/features/devex/group-split.tsx": 4,
-    "src/views/accessibility.tsx": 4,
+    "src/views/about.tsx": 4,
     "src/views/contact.tsx": 4,
     "src/views/devex-rates.tsx": 4,
     "src/views/devex-requirements.tsx": 4,
+    "src/views/methodology.tsx": 4,
+    "src/views/platform-stock.tsx": 4,
+    "src/features/devex/group-split.tsx": 3,
+    "src/features/devex/planner.tsx": 3,
     "src/lib/calculations/parse-amount.ts": 3,
     "src/views/changelog.tsx": 3,
     "src/views/conversion-amount.tsx": 3,
-    "src/views/conversions.tsx": 3,
-    "src/views/devex-fees-and-taxes.tsx": 3,
     "src/views/devex-rate-history.tsx": 3,
     "src/views/home.tsx": 3,
     "src/views/platform.tsx": 3,
     "src/features/devex/components/controls.tsx": 2,
-    "src/features/devex/planner.tsx": 2,
     "src/features/devex/preparation-checklist.tsx": 2,
+    "src/views/conversions.tsx": 2,
+    "src/views/devex-fees-and-taxes.tsx": 2,
     "src/views/editorial-policy.tsx": 2,
+    "src/views/privacy.tsx": 2,
     "src/components/ui/ad-slot.tsx": 1,
     "src/config/site.ts": 1,
     "src/features/devex/calculator.tsx": 1,
     "src/i18n/coverage.ts": 1,
+    "src/views/accessibility.tsx": 1,
+    "src/views/disclaimer.tsx": 1,
     "src/views/guides.tsx": 1,
-    "src/views/robux-tax-calculator.tsx": 1,
     "src/views/sources.tsx": 1
   },
   "findings": [
@@ -78,7 +77,11 @@
       "category": "jsx-text",
       "words": 32,
       "hasTokens": true,
-      "text": "Estimates use the rates Roblox currently documents. The {minimumEarnedRobux} Earned Robux minimum is a requirement to submit a request, not an approval. Roblox decides which Robux qualify and whether any request succeeds."
+      "text": "Estimates use the rates Roblox currently documents. The {minimumEarnedRobux} Earned Robux minimum is a requirement to submit a request, not an approval. Roblox decides which Robux qualify and whether any request succeeds.",
+      "span": "\n        Estimates use the rates Roblox currently documents. The{\" \"}\n        {formatRobux(minimumEarnedRobux)} Earned Robux minimum is a requirement\n        to submit a request, not an approval. Roblox decides which Robux qualify\n        and whether any request succeeds.\n      ",
+      "tokens": {
+        "minimumEarnedRobux": "formatRobux(minimumEarnedRobux)"
+      }
     },
     {
       "file": "src/features/devex/components/controls.tsx",
@@ -102,7 +105,11 @@
       "category": "jsx-text",
       "words": 28,
       "hasTokens": true,
-      "text": "Roblox requires {minimumRobux} Earned Robux to submit a request. Reaching that number is a requirement, not an approval — Roblox reviews every request and decides which Robux qualify."
+      "text": "Roblox requires {minimumRobux} Earned Robux to submit a request. Reaching that number is a requirement, not an approval — Roblox reviews every request and decides which Robux qualify.",
+      "span": "\n        Roblox requires {formatRobux(threshold.minimumRobux)} Earned Robux to submit a\n        request. Reaching that number is a requirement, not an approval — Roblox\n        reviews every request and decides which Robux qualify.\n      ",
+      "tokens": {
+        "minimumRobux": "formatRobux(threshold.minimumRobux)"
+      }
     },
     {
       "file": "src/features/devex/components/results.tsx",
@@ -110,7 +117,11 @@
       "category": "jsx-text",
       "words": 21,
       "hasTokens": true,
-      "text": "whole Earned Robux. That pays {currency}, which is the first whole-Robux amount that reaches your target rather than falling just short."
+      "text": "whole Earned Robux. That pays {currency}, which is the first whole-Robux amount that reaches your target rather than falling just short.",
+      "span": " whole\n        Earned Robux. That pays {formatCurrency(result.payoutAtRequiredRobux, currency)}, which is\n        the first whole-Robux amount that reaches your target rather than falling just short.\n      ",
+      "tokens": {
+        "currency": "formatCurrency(result.payoutAtRequiredRobux, currency)"
+      }
     },
     {
       "file": "src/features/devex/components/results.tsx",
@@ -118,7 +129,12 @@
       "category": "jsx-text",
       "words": 21,
       "hasTokens": true,
-      "text": "{requiredRobux} Earned Robux would reach your target arithmetically, but Roblox requires {minimumRobux} before a request can be submitted. You would need"
+      "text": "{requiredRobux} Earned Robux would reach your target arithmetically, but Roblox requires {minimumRobux} before a request can be submitted. You would need",
+      "span": "\n            {formatRobux(result.requiredRobux)} Earned Robux would reach your target\n            arithmetically, but Roblox requires {formatRobux(result.minimumRobux)} before a request\n            can be submitted. You would need{\" \"}\n            ",
+      "tokens": {
+        "requiredRobux": "formatRobux(result.requiredRobux)",
+        "minimumRobux": "formatRobux(result.minimumRobux)"
+      }
     },
     {
       "file": "src/features/devex/components/results.tsx",
@@ -126,7 +142,11 @@
       "category": "jsx-text",
       "words": 5,
       "hasTokens": true,
-      "text": "{progressPercent}% of the way there"
+      "text": "{progressPercent}% of the way there",
+      "span": "\n              {result.progressPercent}% of the way there\n            ",
+      "tokens": {
+        "progressPercent": "result.progressPercent"
+      }
     },
     {
       "file": "src/features/devex/components/results.tsx",
@@ -142,7 +162,11 @@
       "category": "jsx-text",
       "words": 4,
       "hasTokens": true,
-      "text": "Name for member {index}"
+      "text": "Name for member {index}",
+      "span": "\n                        Name for member {index + 1}\n                      ",
+      "tokens": {
+        "index": "index + 1"
+      }
     },
     {
       "file": "src/features/devex/group-split.tsx",
@@ -150,7 +174,12 @@
       "category": "jsx-text",
       "words": 42,
       "hasTokens": true,
-      "text": "They total {allocatedPercent}%, leaving {unallocatedRobux} Robux unassigned. Nothing here has been scaled to make the numbers meet: adjusting them for you would produce figures nobody agreed to. Fix the percentages, or accept that a remainder stays with whoever holds the group funds."
+      "text": "They total {allocatedPercent}%, leaving {unallocatedRobux} Robux unassigned. Nothing here has been scaled to make the numbers meet: adjusting them for you would produce figures nobody agreed to. Fix the percentages, or accept that a remainder stays with whoever holds the group funds.",
+      "span": "\n          They total {result.allocatedPercent.toFixed(2, \"half-up\")}%, leaving{\" \"}\n          {formatRobux(result.unallocatedRobux)} Robux unassigned. Nothing here has\n          been scaled to make the numbers meet: adjusting them for you would produce\n          figures nobody agreed to. Fix the percentages, or accept that a remainder\n          stays with whoever holds the group funds.\n        ",
+      "tokens": {
+        "allocatedPercent": "result.allocatedPercent.toFixed(2, \"half-up\")",
+        "unallocatedRobux": "formatRobux(result.unallocatedRobux)"
+      }
     },
     {
       "file": "src/features/devex/group-split.tsx",
@@ -158,15 +187,11 @@
       "category": "jsx-text",
       "words": 33,
       "hasTokens": true,
-      "text": "{unallocatedRobux} Robux cannot be divided evenly at these percentages. Robux are whole, so each share is rounded down and the remainder is shown rather than handed to whoever happens to be listed first."
-    },
-    {
-      "file": "src/features/devex/group-split.tsx",
-      "line": 244,
-      "category": "jsx-text",
-      "words": 64,
-      "hasTokens": false,
-      "text": "A DevEx request is submitted by an individual account and paid to that account. Roblox does not divide a payout between collaborators, and a revenue-share arrangement inside a group is between the people in it. What this works out is what each person’s agreed share comes to — not something Roblox will do on their behalf, and not a figure Roblox has agreed to."
+      "text": "{unallocatedRobux} Robux cannot be divided evenly at these percentages. Robux are whole, so each share is rounded down and the remainder is shown rather than handed to whoever happens to be listed first.",
+      "span": "\n          {formatRobux(result.unallocatedRobux)} Robux cannot be divided evenly at\n          these percentages. Robux are whole, so each share is rounded down and the\n          remainder is shown rather than handed to whoever happens to be listed\n          first.\n        ",
+      "tokens": {
+        "unallocatedRobux": "formatRobux(result.unallocatedRobux)"
+      }
     },
     {
       "file": "src/features/devex/planner.tsx",
@@ -182,7 +207,21 @@
       "category": "jsx-text",
       "words": 3,
       "hasTokens": false,
-      "text": "Still to earn"
+      "text": "Still to earn",
+      "span": "Still to earn",
+      "tokens": {}
+    },
+    {
+      "file": "src/features/devex/planner.tsx",
+      "line": 491,
+      "category": "jsx-text",
+      "words": 58,
+      "hasTokens": true,
+      "text": "Every figure here is an estimate produced from what you entered. Reaching {minimumRobux} Earned Robux lets you submit a DevEx request; it does not mean the request will be approved. Roblox reviews eligibility, account standing and compliance, and decides on every request itself. Rates can change, and a projection assumes you keep earning at the pace you gave.",
+      "span": "\n            Every figure here is an estimate produced from what you entered.\n            Reaching {formatRobux(BigInt(requirement.minimumRobux))} Earned\n            Robux lets you submit a DevEx request; it does not mean the request\n            will be approved. Roblox reviews eligibility, account standing and\n            compliance, and decides on every request itself. Rates can change,\n            and a projection assumes you keep earning at the pace you gave.\n          ",
+      "tokens": {
+        "minimumRobux": "formatRobux(BigInt(requirement.minimumRobux))"
+      }
     },
     {
       "file": "src/features/devex/preparation-checklist.tsx",
@@ -190,7 +229,9 @@
       "category": "jsx-text",
       "words": 26,
       "hasTokens": false,
-      "text": "Every step on this list is done, which means the obvious delays are out of the way. It does not mean a request will be accepted."
+      "text": "Every step on this list is done, which means the obvious delays are out of the way. It does not mean a request will be accepted.",
+      "span": "\n            Every step on this list is done, which means the obvious delays are out\n            of the way. It does not mean a request will be accepted.{\" \"}\n            ",
+      "tokens": {}
     },
     {
       "file": "src/features/devex/preparation-checklist.tsx",
@@ -198,7 +239,9 @@
       "category": "jsx-text",
       "words": 35,
       "hasTokens": false,
-      "text": "Roblox reviews each request against its own criteria after it is submitted, and it does not publish what would cause one to be refused. A checklist in a browser has no standing in that review."
+      "text": "Roblox reviews each request against its own criteria after it is submitted, and it does not publish what would cause one to be refused. A checklist in a browser has no standing in that review.",
+      "span": "\n            Roblox reviews each request against its own criteria after it is\n            submitted, and it does not publish what would cause one to be refused.\n            A checklist in a browser has no standing in that review.{\" \"}\n            ",
+      "tokens": {}
     },
     {
       "file": "src/i18n/coverage.ts",
@@ -4330,83 +4373,55 @@
     },
     {
       "file": "src/views/about.tsx",
-      "line": 40,
+      "line": 42,
       "category": "jsx-text",
       "words": 24,
       "hasTokens": false,
-      "text": "Not “current as of recently” — a link to the official Roblox documentation and the date it was last checked, shown on the page."
+      "text": "Not “current as of recently” — a link to the official Roblox documentation and the date it was last checked, shown on the page.",
+      "span": "{\" \"}\n                Not &ldquo;current as of recently&rdquo; — a link to the official Roblox\n                documentation and the date it was last checked, shown on the page.\n              ",
+      "tokens": {}
     },
     {
       "file": "src/views/about.tsx",
-      "line": 45,
+      "line": 47,
       "category": "jsx-text",
       "words": 19,
       "hasTokens": false,
-      "text": "Money is calculated as exact fractions rather than floating-point numbers, and rounded once, at the moment it is displayed."
+      "text": "Money is calculated as exact fractions rather than floating-point numbers, and rounded once, at the moment it is displayed.",
+      "span": "{\" \"}\n                Money is calculated as exact fractions rather than floating-point\n                numbers, and rounded once, at the moment it is displayed.{\" \"}\n                ",
+      "tokens": {}
     },
     {
       "file": "src/views/about.tsx",
-      "line": 51,
+      "line": 53,
       "category": "jsx-text",
       "words": 14,
       "hasTokens": false,
-      "text": "Rates, formulas, examples and explanations are all server rendered. Only live recalculation needs scripts."
+      "text": "Rates, formulas, examples and explanations are all server rendered. Only live recalculation needs scripts.",
+      "span": "{\" \"}\n                Rates, formulas, examples and explanations are all server\n                rendered. Only live recalculation needs scripts.\n              ",
+      "tokens": {}
     },
     {
       "file": "src/views/about.tsx",
-      "line": 56,
+      "line": 58,
       "category": "jsx-text",
       "words": 10,
       "hasTokens": false,
-      "text": "Calculations run in your browser and are never sent anywhere."
-    },
-    {
-      "file": "src/views/about.tsx",
-      "line": 61,
-      "category": "jsx-text",
-      "words": 18,
-      "hasTokens": false,
-      "text": "When a figure here turns out to be wrong, the fix is recorded with a date in the"
-    },
-    {
-      "file": "src/views/about.tsx",
-      "line": 71,
-      "category": "jsx-text",
-      "words": 17,
-      "hasTokens": false,
-      "text": "Publish a universal Robux purchase price. There isn’t one — it varies by package, region and platform."
+      "text": "Calculations run in your browser and are never sent anywhere.",
+      "span": "{\" \"}\n                Calculations run in your browser and are never sent anywhere.{\" \"}\n                ",
+      "tokens": {}
     },
     {
       "file": "src/views/accessibility.tsx",
-      "line": 83,
+      "line": 85,
       "category": "jsx-text",
       "words": 3,
       "hasTokens": true,
-      "text": "Last reviewed {lastReviewedAt}."
-    },
-    {
-      "file": "src/views/accessibility.tsx",
-      "line": 88,
-      "category": "jsx-text",
-      "words": 5,
-      "hasTokens": false,
-      "text": "This site aims to meet"
-    },
-    {
-      "file": "src/views/accessibility.tsx",
-      "line": 132,
-      "category": "jsx-text",
-      "words": 23,
-      "hasTokens": false,
-      "text": "Cloudflare Turnstile, where a deployment enables it on the contact form, is a third-party widget whose internal accessibility is outside this site’s control."
-    },
-    {
-      "file": "src/views/accessibility.tsx",
-      "line": 145,
-      "category": "jsx-text",
-      "words": 10,
-      "hasTokens": false,
-      "text": "For how the site is built more generally, see the"
+      "text": "Last reviewed {lastReviewedAt}.",
+      "span": "\n            Last reviewed {formatDate(record.lastReviewedAt)}.\n          ",
+      "tokens": {
+        "lastReviewedAt": "formatDate(record.lastReviewedAt)"
+      }
     },
     {
       "file": "src/views/changelog.tsx",
@@ -4414,7 +4429,9 @@
       "category": "jsx-text",
       "words": 8,
       "hasTokens": false,
-      "text": "Every entry here is published as a feed:"
+      "text": "Every entry here is published as a feed:",
+      "span": "\n              Every entry here is published as a feed:{\" \"}\n              ",
+      "tokens": {}
     },
     {
       "file": "src/views/changelog.tsx",
@@ -4422,7 +4439,9 @@
       "category": "jsx-text",
       "words": 24,
       "hasTokens": false,
-      "text": "for anything that would rather not parse XML. Both carry the same entries and the same source links. If you depend on these figures,"
+      "text": "for anything that would rather not parse XML. Both carry the same entries and the same source links. If you depend on these figures,",
+      "span": " for\n              anything that would rather not parse XML. Both carry the same\n              entries and the same source links. If you depend on these figures,{\" \"}\n              ",
+      "tokens": {}
     },
     {
       "file": "src/views/changelog.tsx",
@@ -4430,7 +4449,9 @@
       "category": "jsx-text",
       "words": 13,
       "hasTokens": false,
-      "text": "For the history of the DevEx rate itself, including the September 2025 change,"
+      "text": "For the history of the DevEx rate itself, including the September 2025 change,",
+      "span": "\n              For the history of the DevEx rate itself, including the September\n              2025 change,{\" \"}\n              ",
+      "tokens": {}
     },
     {
       "file": "src/views/contact.tsx",
@@ -4438,7 +4459,9 @@
       "category": "jsx-text",
       "words": 3,
       "hasTokens": false,
-      "text": "Messages go to"
+      "text": "Messages go to",
+      "span": "\n                  Messages go to{\" \"}\n                  ",
+      "tokens": {}
     },
     {
       "file": "src/views/contact.tsx",
@@ -4446,7 +4469,9 @@
       "category": "jsx-text",
       "words": 37,
       "hasTokens": false,
-      "text": "No message form or published address is available here, and showing one that quietly discarded your message would be worse than saying so. If you have found a factual error, the fastest route is to check the"
+      "text": "No message form or published address is available here, and showing one that quietly discarded your message would be worse than saying so. If you have found a factual error, the fastest route is to check the",
+      "span": "\n                  No message form or published address is available here, and\n                  showing one that quietly discarded your message would be worse\n                  than saying so. If you have found a factual error, the fastest\n                  route is to check the{\" \"}\n                  ",
+      "tokens": {}
     },
     {
       "file": "src/views/contact.tsx",
@@ -4454,7 +4479,9 @@
       "category": "jsx-text",
       "words": 2,
       "hasTokens": false,
-      "text": "source registry"
+      "text": "source registry",
+      "span": "source registry",
+      "tokens": {}
     },
     {
       "file": "src/views/contact.tsx",
@@ -4462,7 +4489,9 @@
       "category": "jsx-text",
       "words": 16,
       "hasTokens": false,
-      "text": "Your message and email address are used only to read and reply to what you sent."
+      "text": "Your message and email address are used only to read and reply to what you sent.",
+      "span": "\n                  Your message and email address are used only to read and reply\n                  to what you sent.{\" \"}\n                  ",
+      "tokens": {}
     },
     {
       "file": "src/views/conversion-amount.tsx",
@@ -4470,7 +4499,11 @@
       "category": "jsx-text",
       "words": 20,
       "hasTokens": true,
-      "text": "The {standardVsLegacyUsd} gap between the current and legacy rates is what the September 2025 change is worth at this amount."
+      "text": "The {standardVsLegacyUsd} gap between the current and legacy rates is what the September 2025 change is worth at this amount.",
+      "span": "\n              The {values.standardVsLegacyUsd} gap between the current and legacy\n              rates is what the September 2025 change is worth at this amount.{\" \"}\n              ",
+      "tokens": {
+        "standardVsLegacyUsd": "values.standardVsLegacyUsd"
+      }
     },
     {
       "file": "src/views/conversion-amount.tsx",
@@ -4478,7 +4511,9 @@
       "category": "jsx-text",
       "words": 2,
       "hasTokens": false,
-      "text": "Payout target"
+      "text": "Payout target",
+      "span": "Payout target",
+      "tokens": {}
     },
     {
       "file": "src/views/conversion-amount.tsx",
@@ -4486,111 +4521,101 @@
       "category": "jsx-text",
       "words": 3,
       "hasTokens": true,
-      "text": "Covered by {display}?"
+      "text": "Covered by {display}?",
+      "span": "Covered by {values.display}?",
+      "tokens": {
+        "display": "values.display"
+      }
     },
     {
       "file": "src/views/conversions.tsx",
-      "line": 70,
+      "line": 103,
       "category": "jsx-text",
       "words": 45,
       "hasTokens": false,
-      "text": "The list is not a selection of round numbers: it is the amounts that are actually searched for. Anything not here — including figures larger than the table’s last row — goes into the converter above, which uses the same rates and the same arithmetic."
+      "text": "This list is deliberately short. A page for every number would be a page that says nothing new, which is both unhelpful and against search-quality guidance. Amounts are added only when they clear a demand threshold and there is something specific to say about them.",
+      "span": "\n              This list is deliberately short. A page for every number would be a\n              page that says nothing new, which is both unhelpful and against\n              search-quality guidance. Amounts are added only when they clear a\n              demand threshold and there is something specific to say about them.{\" \"}\n              ",
+      "tokens": {}
     },
     {
       "file": "src/views/conversions.tsx",
-      "line": 109,
-      "category": "jsx-text",
-      "words": 45,
-      "hasTokens": false,
-      "text": "This list is deliberately short. A page for every number would be a page that says nothing new, which is both unhelpful and against search-quality guidance. Amounts are added only when they clear a demand threshold and there is something specific to say about them."
-    },
-    {
-      "file": "src/views/conversions.tsx",
-      "line": 124,
+      "line": 118,
       "category": "jsx-text",
       "words": 41,
       "hasTokens": false,
-      "text": "Each figure is Robux multiplied by an exact decimal rate, held as a fraction throughout and rounded to the cent only when it is printed. Nothing is rounded partway through, so a total never disagrees with the sum of its parts."
+      "text": "Each figure is Robux multiplied by an exact decimal rate, held as a fraction throughout and rounded to the cent only when it is printed. Nothing is rounded partway through, so a total never disagrees with the sum of its parts.",
+      "span": "\n              Each figure is Robux multiplied by an exact decimal rate, held as a\n              fraction throughout and rounded to the cent only when it is\n              printed. Nothing is rounded partway through, so a total never\n              disagrees with the sum of its parts.{\" \"}\n              ",
+      "tokens": {}
     },
     {
       "file": "src/views/corrections.tsx",
-      "line": 45,
+      "line": 47,
       "category": "jsx-text",
       "words": 16,
       "hasTokens": false,
-      "text": "The claim is checked directly against Roblox’s own documentation, not against another site that repeated it."
+      "text": "The claim is checked directly against Roblox’s own documentation, not against another site that repeated it.",
+      "span": "{\" \"}\n                The claim is checked directly against Roblox&rsquo;s own documentation,\n                not against another site that repeated it.\n              ",
+      "tokens": {}
     },
     {
       "file": "src/views/corrections.tsx",
-      "line": 50,
+      "line": 52,
       "category": "jsx-text",
       "words": 26,
       "hasTokens": false,
-      "text": "Rates live in one validated data file. Changing them there changes every page, table and calculator at once — there is no second copy to forget."
+      "text": "Rates live in one validated data file. Changing them there changes every page, table and calculator at once — there is no second copy to forget.",
+      "span": "{\" \"}\n                Rates live in one validated data file. Changing them there changes\n                every page, table and calculator at once — there is no second copy\n                to forget.\n              ",
+      "tokens": {}
     },
     {
       "file": "src/views/corrections.tsx",
-      "line": 58,
+      "line": 60,
       "category": "jsx-text",
       "words": 15,
       "hasTokens": false,
-      "text": "Any prose that states the old figure in words is rewritten, not just the tables."
+      "text": "Any prose that states the old figure in words is rewritten, not just the tables.",
+      "span": "{\" \"}\n                Any prose that states the old figure in words is rewritten, not\n                just the tables.\n              ",
+      "tokens": {}
     },
     {
       "file": "src/views/corrections.tsx",
-      "line": 63,
+      "line": 65,
       "category": "jsx-text",
       "words": 11,
       "hasTokens": false,
-      "text": "With the date, what changed, and the source that justified it."
+      "text": "With the date, what changed, and the source that justified it.",
+      "span": "{\" \"}\n                With the date, what changed, and the source that justified it.\n              ",
+      "tokens": {}
     },
     {
       "file": "src/views/corrections.tsx",
-      "line": 67,
+      "line": 69,
       "category": "jsx-text",
       "words": 11,
       "hasTokens": false,
-      "text": "The badge shown on every rate-sensitive page reflects the new check."
-    },
-    {
-      "file": "src/views/corrections.tsx",
-      "line": 84,
-      "category": "jsx-text",
-      "words": 10,
-      "hasTokens": false,
-      "text": "Rate changes made by Roblox are also reflected in the"
-    },
-    {
-      "file": "src/views/corrections.tsx",
-      "line": 86,
-      "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "rate history"
+      "text": "The badge shown on every rate-sensitive page reflects the new check.",
+      "span": "{\" \"}\n                The badge shown on every rate-sensitive page reflects the new\n                check.\n              ",
+      "tokens": {}
     },
     {
       "file": "src/views/devex-fees-and-taxes.tsx",
-      "line": 109,
-      "category": "jsx-text",
-      "words": 40,
-      "hasTokens": false,
-      "text": "The DevEx rate is stated in US dollars. If you are paid in another currency, someone converts it, and they apply their own rate plus a margin. That margin is why your bank’s figure will not match a reference rate."
-    },
-    {
-      "file": "src/views/devex-fees-and-taxes.tsx",
-      "line": 140,
+      "line": 122,
       "category": "jsx-text",
       "words": 60,
       "hasTokens": false,
-      "text": "Local-currency estimates here use European Central Bank reference rates, published once each working day. They are a reference, not a quote: no bank trades at them. Your provider will apply its own rate, usually with a margin built in, so treat a converted figure here as an indication of scale rather than a prediction of what lands in your account."
+      "text": "Local-currency estimates here use European Central Bank reference rates, published once each working day. They are a reference, not a quote: no bank trades at them. Your provider will apply its own rate, usually with a margin built in, so treat a converted figure here as an indication of scale rather than a prediction of what lands in your account.",
+      "span": "\n              Local-currency estimates here use European Central Bank reference\n              rates, published once each working day. They are a reference, not a\n              quote: no bank trades at them. Your provider will apply its own\n              rate, usually with a margin built in, so treat a converted figure\n              here as an indication of scale rather than a prediction of what\n              lands in your account.{\" \"}\n              ",
+      "tokens": {}
     },
     {
       "file": "src/views/devex-fees-and-taxes.tsx",
-      "line": 194,
+      "line": 176,
       "category": "jsx-text",
       "words": 52,
       "hasTokens": false,
-      "text": "Roblox takes 30% when a player spends Robux in your experience — you receive 70%, and that 70% is what becomes Earned Robux. DevEx then converts those Earned Robux. The commission is not applied a second time at cash-out, and any calculator that subtracts 30% from a DevEx payout is double-counting it."
+      "text": "Roblox takes 30% when a player spends Robux in your experience — you receive 70%, and that 70% is what becomes Earned Robux. DevEx then converts those Earned Robux. The commission is not applied a second time at cash-out, and any calculator that subtracts 30% from a DevEx payout is double-counting it.",
+      "span": "\n              Roblox takes 30% when a player spends Robux in your experience —\n              you receive 70%, and that 70% is what becomes Earned Robux. DevEx\n              then converts those Earned Robux. The commission is not applied a\n              second time at cash-out, and any calculator that subtracts 30%\n              from a DevEx payout is double-counting it.{\" \"}\n              ",
+      "tokens": {}
     },
     {
       "file": "src/views/devex-rate-history.tsx",
@@ -4598,7 +4623,9 @@
       "category": "jsx-text",
       "words": 40,
       "hasTokens": false,
-      "text": "Roblox cashes out the pre-transition portion of a balance at 0.0035 first, then the rest at 0.0038. The split is Roblox’s own accounting of when each Robux was earned — it is not something a creator selects or can adjust."
+      "text": "Roblox cashes out the pre-transition portion of a balance at 0.0035 first, then the rest at 0.0038. The split is Roblox’s own accounting of when each Robux was earned — it is not something a creator selects or can adjust.",
+      "span": "\n              Roblox cashes out the pre-transition portion of a balance at 0.0035\n              first, then the rest at 0.0038. The split is Roblox&rsquo;s own\n              accounting of when each Robux was earned — it is not something a\n              creator selects or can adjust.{\" \"}\n              ",
+      "tokens": {}
     },
     {
       "file": "src/views/devex-rate-history.tsx",
@@ -4606,7 +4633,9 @@
       "category": "jsx-text",
       "words": 22,
       "hasTokens": false,
-      "text": "if you know roughly how yours divides, but treat the result as an estimate built on your own assumption about the split."
+      "text": "if you know roughly how yours divides, but treat the result as an estimate built on your own assumption about the split.",
+      "span": "{\" \"}\n              if you know roughly how yours divides, but treat the result as an\n              estimate built on your own assumption about the split.\n            ",
+      "tokens": {}
     },
     {
       "file": "src/views/devex-rate-history.tsx",
@@ -4614,7 +4643,9 @@
       "category": "jsx-text",
       "words": 57,
       "hasTokens": false,
-      "text": "Roblox has changed the rate before and may change it again. Nobody outside Roblox knows whether or when, and a prediction dressed up as analysis would be a guess with a confident tone. This page records only changes that official documentation confirms, each with its effective date. When a change happens it appears here and in the"
+      "text": "Roblox has changed the rate before and may change it again. Nobody outside Roblox knows whether or when, and a prediction dressed up as analysis would be a guess with a confident tone. This page records only changes that official documentation confirms, each with its effective date. When a change happens it appears here and in the",
+      "span": "\n              Roblox has changed the rate before and may change it again. Nobody\n              outside Roblox knows whether or when, and a prediction dressed up as\n              analysis would be a guess with a confident tone. This page records\n              only changes that official documentation confirms, each with its\n              effective date. When a change happens it appears here and in the{\" \"}\n              ",
+      "tokens": {}
     },
     {
       "file": "src/views/devex-rates.tsx",
@@ -4622,7 +4653,9 @@
       "category": "jsx-text",
       "words": 30,
       "hasTokens": false,
-      "text": "A single balance can span more than one rate — Robux earned before and after the September 2025 transition are treated separately, and Roblox cashes the older portion out first."
+      "text": "A single balance can span more than one rate — Robux earned before and after the September 2025 transition are treated separately, and Roblox cashes the older portion out first.",
+      "span": "\n              A single balance can span more than one rate — Robux earned before\n              and after the September 2025 transition are treated separately, and\n              Roblox cashes the older portion out first.{\" \"}\n              ",
+      "tokens": {}
     },
     {
       "file": "src/views/devex-rates.tsx",
@@ -4630,7 +4663,11 @@
       "category": "jsx-text",
       "words": 45,
       "hasTokens": true,
-      "text": "The gap between the current and legacy rates is {rateValue} per 100,000 Earned Robux — about 8.6% more under the current rate. The conditional U.S. 18+ rate pays roughly 42% more than the standard rate on the portion of a balance that qualifies for it."
+      "text": "The gap between the current and legacy rates is {rateValue} per 100,000 Earned Robux — about 8.6% more under the current rate. The conditional U.S. 18+ rate pays roughly 42% more than the standard rate on the portion of a balance that qualifies for it.",
+      "span": "\n                The gap between the current and legacy rates is{\" \"}\n                {formatCurrency(\n                  Rational.fromInt(100_000).mul(standard).sub(\n                    Rational.fromInt(100_000).mul(getRateValue(\"legacy-pre-2025-09-05\")),\n                  ),\n                  \"USD\",\n                )}{\" \"}\n                per 100,000 Earned Robux — about 8.6% more under the current rate.\n                The conditional U.S. 18+ rate pays roughly 42% more than the\n                standard rate on the portion of a balance that qualifies for it.\n              ",
+      "tokens": {
+        "rateValue": "formatCurrency(\n                  Rational.fromInt(100_000).mul(standard).sub(\n                    Rational.fromInt(100_000).mul(getRateValue(\"legacy-pre-2025-09-05\")),\n                  ),\n                  \"USD\",\n                )"
+      }
     },
     {
       "file": "src/views/devex-rates.tsx",
@@ -4638,7 +4675,11 @@
       "category": "jsx-text",
       "words": 60,
       "hasTokens": true,
-      "text": "Roblox moved the standard rate from 0.0035 to 0.0038 on {date}. There is no way to know from outside Roblox whether or when it will change again, so this page makes no forecast. What it does record is the date every figure here was last checked against the official documentation, shown at the top of the page and in the"
+      "text": "Roblox moved the standard rate from 0.0035 to 0.0038 on {date}. There is no way to know from outside Roblox whether or when it will change again, so this page makes no forecast. What it does record is the date every figure here was last checked against the official documentation, shown at the top of the page and in the",
+      "span": "\n              Roblox moved the standard rate from 0.0035 to 0.0038 on{\" \"}\n              {formatDate(\"2025-09-05T10:00:00-07:00\")}. There is no way to know\n              from outside Roblox whether or when it will change again, so this\n              page makes no forecast. What it does record is the date every\n              figure here was last checked against the official documentation,\n              shown at the top of the page and in the{\" \"}\n              ",
+      "tokens": {
+        "date": "formatDate(\"2025-09-05T10:00:00-07:00\")"
+      }
     },
     {
       "file": "src/views/devex-rates.tsx",
@@ -4646,7 +4687,9 @@
       "category": "jsx-text",
       "words": 2,
       "hasTokens": false,
-      "text": "source registry"
+      "text": "source registry",
+      "span": "source registry",
+      "tokens": {}
     },
     {
       "file": "src/views/devex-requirements.tsx",
@@ -4654,7 +4697,11 @@
       "category": "jsx-text",
       "words": 20,
       "hasTokens": true,
-      "text": "{minimumEarnedRobux} Earned Robux is the threshold to submit a request. At the current standard rate that balance is worth about"
+      "text": "{minimumEarnedRobux} Earned Robux is the threshold to submit a request. At the current standard rate that balance is worth about",
+      "span": "\n                {formatRobux(minimumEarnedRobux)} Earned Robux is the threshold\n                to submit a request. At the current standard rate that balance is\n                worth about{\" \"}\n                ",
+      "tokens": {
+        "minimumEarnedRobux": "formatRobux(minimumEarnedRobux)"
+      }
     },
     {
       "file": "src/views/devex-requirements.tsx",
@@ -4662,7 +4709,9 @@
       "category": "jsx-text",
       "words": 5,
       "hasTokens": false,
-      "text": "What counts as Earned Robux"
+      "text": "What counts as Earned Robux",
+      "span": "\n                  What counts as Earned Robux\n                ",
+      "tokens": {}
     },
     {
       "file": "src/views/devex-requirements.tsx",
@@ -4670,7 +4719,11 @@
       "category": "jsx-text",
       "words": 11,
       "hasTokens": true,
-      "text": "Confirm your balance is genuinely Earned Robux and has reached {minimumEarnedRobux}."
+      "text": "Confirm your balance is genuinely Earned Robux and has reached {minimumEarnedRobux}.",
+      "span": "\n                  Confirm your balance is genuinely Earned Robux and has reached{\" \"}\n                  {formatRobux(minimumEarnedRobux)}.\n                ",
+      "tokens": {
+        "minimumEarnedRobux": "formatRobux(minimumEarnedRobux)"
+      }
     },
     {
       "file": "src/views/devex-requirements.tsx",
@@ -4678,55 +4731,21 @@
       "category": "jsx-text",
       "words": 19,
       "hasTokens": false,
-      "text": "Decide where the money is going, and check what your bank or payment provider will charge to receive it."
+      "text": "Decide where the money is going, and check what your bank or payment provider will charge to receive it.",
+      "span": "\n                  Decide where the money is going, and check what your bank or\n                  payment provider will charge to receive it.{\" \"}\n                  ",
+      "tokens": {}
     },
     {
       "file": "src/views/disclaimer.tsx",
-      "line": 32,
-      "category": "jsx-text",
-      "words": 59,
-      "hasTokens": false,
-      "text": "The calculator multiplies the Robux figure you enter by a rate taken from Roblox’s published documentation. That arithmetic is exact and covered by tests. What it produces is still an estimate, because the inputs are assumptions: that the Robux you entered are eligible Earned Robux, and that the rate you selected is the one Roblox will apply to them."
-    },
-    {
-      "file": "src/views/disclaimer.tsx",
-      "line": 65,
+      "line": 57,
       "category": "jsx-text",
       "words": 40,
       "hasTokens": true,
-      "text": "Rate data on this site was last verified against official documentation on {lastVerifiedAt}, and that date is displayed on every rate-sensitive page rather than hidden here. Rates change: the standard rate moved in September 2025, and it could move again."
-    },
-    {
-      "file": "src/views/disclaimer.tsx",
-      "line": 72,
-      "category": "jsx-text",
-      "words": 8,
-      "hasTokens": false,
-      "text": "If a figure here has fallen behind, the"
-    },
-    {
-      "file": "src/views/disclaimer.tsx",
-      "line": 74,
-      "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "source registry"
-    },
-    {
-      "file": "src/views/disclaimer.tsx",
-      "line": 74,
-      "category": "jsx-text",
-      "words": 25,
-      "hasTokens": false,
-      "text": "links directly to the official page it came from, so you can check the current value yourself in a few seconds. Reporting it through the"
-    },
-    {
-      "file": "src/views/disclaimer.tsx",
-      "line": 77,
-      "category": "jsx-text",
-      "words": 7,
-      "hasTokens": false,
-      "text": "gets it fixed for everyone else too."
+      "text": "Rate data on this site was last verified against official documentation on {lastVerifiedAt}, and that date is displayed on every rate-sensitive page rather than hidden here. Rates change: the standard rate moved in September 2025, and it could move again.",
+      "span": "\n              Rate data on this site was last verified against official\n              documentation on {formatDate(rateRegistry.lastVerifiedAt)}, and that\n              date is displayed on every rate-sensitive page rather than hidden\n              here. Rates change: the standard rate moved in September 2025, and\n              it could move again.\n            ",
+      "tokens": {
+        "lastVerifiedAt": "formatDate(rateRegistry.lastVerifiedAt)"
+      }
     },
     {
       "file": "src/views/earned-robux.tsx",
@@ -4742,7 +4761,11 @@
       "category": "jsx-text",
       "words": 24,
       "hasTokens": true,
-      "text": "— the balance DevEx converts, and the only balance that counts toward the {minimumEarnedRobux} minimum. Roblox makes the final determination for any specific balance."
+      "text": "— the balance DevEx converts, and the only balance that counts toward the {minimumEarnedRobux} minimum. Roblox makes the final determination for any specific balance.",
+      "span": " — the\n                  balance DevEx converts, and the only balance that counts toward the{\" \"}\n                  {formatRobux(minimumEarnedRobux)} minimum. Roblox makes the final\n                  determination for any specific balance.\n                ",
+      "tokens": {
+        "minimumEarnedRobux": "formatRobux(minimumEarnedRobux)"
+      }
     },
     {
       "file": "src/views/earned-robux.tsx",
@@ -4750,7 +4773,9 @@
       "category": "jsx-text",
       "words": 39,
       "hasTokens": false,
-      "text": "If you have ever bought Robux, received them from a membership, or redeemed a gift card, part of your balance is not earned. That part cannot be cashed out, and it does not count toward the 30,000 minimum either."
+      "text": "If you have ever bought Robux, received them from a membership, or redeemed a gift card, part of your balance is not earned. That part cannot be cashed out, and it does not count toward the 30,000 minimum either.",
+      "span": "\n              If you have ever bought Robux, received them from a membership, or\n              redeemed a gift card, part of your balance is not earned. That part\n              cannot be cashed out, and it does not count toward the 30,000\n              minimum either.{\" \"}\n              ",
+      "tokens": {}
     },
     {
       "file": "src/views/earned-robux.tsx",
@@ -4758,15 +4783,19 @@
       "category": "jsx-text",
       "words": 28,
       "hasTokens": false,
-      "text": "In each case Roblox has already taken its platform commission before the Robux reach you — creators receive 70% of what a player spends on an in-experience purchase."
+      "text": "In each case Roblox has already taken its platform commission before the Robux reach you — creators receive 70% of what a player spends on an in-experience purchase.",
+      "span": "\n              In each case Roblox has already taken its platform commission\n              before the Robux reach you — creators receive 70% of what a player\n              spends on an in-experience purchase.{\" \"}\n              ",
+      "tokens": {}
     },
     {
       "file": "src/views/earned-robux.tsx",
-      "line": 163,
+      "line": 141,
       "category": "jsx-text",
-      "words": 85,
+      "words": 27,
       "hasTokens": false,
-      "text": "Earnings from an experience owned by a group accumulate in the group’s funds rather than in any individual account. DevEx operates on a personal account, so group funds have to reach a personal balance through a payout before they are relevant to a DevEx request. If you are splitting revenue with collaborators, agree how that works before the money arrives rather than after — and check the current official documentation for how group payouts are treated, since this is an area Roblox has changed before."
+      "text": "This is also why the retail price of Robux and the DevEx rate are unrelated numbers. Buying Robux is a purchase; DevEx is Roblox paying a creator.",
+      "span": "\n              This is also why the retail price of Robux and the DevEx rate are\n              unrelated numbers. Buying Robux is a purchase; DevEx is Roblox\n              paying a creator.{\" \"}\n              ",
+      "tokens": {}
     },
     {
       "file": "src/views/editorial-policy.tsx",
@@ -4774,7 +4803,12 @@
       "category": "jsx-text",
       "words": 48,
       "hasTokens": true,
-      "text": "Rate-sensitive content is reviewed every {reviewCadenceDays} days, and escalates to a required manual review after {criticalReviewAgeDays}. The build tracks the age of the rate registry and surfaces it on every rate-sensitive page, so a stale figure is visible to readers rather than only to whoever maintains the site."
+      "text": "Rate-sensitive content is reviewed every {reviewCadenceDays} days, and escalates to a required manual review after {criticalReviewAgeDays}. The build tracks the age of the rate registry and surfaces it on every rate-sensitive page, so a stale figure is visible to readers rather than only to whoever maintains the site.",
+      "span": "\n              Rate-sensitive content is reviewed every{\" \"}\n              {rateRegistry.reviewCadenceDays} days, and escalates to a required\n              manual review after {rateRegistry.criticalReviewAgeDays}. The build\n              tracks the age of the rate registry and surfaces it on every\n              rate-sensitive page, so a stale figure is visible to readers rather\n              than only to whoever maintains the site.\n            ",
+      "tokens": {
+        "reviewCadenceDays": "rateRegistry.reviewCadenceDays",
+        "criticalReviewAgeDays": "rateRegistry.criticalReviewAgeDays"
+      }
     },
     {
       "file": "src/views/editorial-policy.tsx",
@@ -4782,7 +4816,9 @@
       "category": "jsx-text",
       "words": 28,
       "hasTokens": false,
-      "text": "A figure is never left online because it performs well in search after it stops being accurate. If it is wrong, it changes, and the change is recorded."
+      "text": "A figure is never left online because it performs well in search after it stops being accurate. If it is wrong, it changes, and the change is recorded.",
+      "span": "\n              A figure is never left online because it performs well in search\n              after it stops being accurate. If it is wrong, it changes, and the\n              change is recorded.{\" \"}\n              ",
+      "tokens": {}
     },
     {
       "file": "src/views/guides.tsx",
@@ -4790,7 +4826,11 @@
       "category": "jsx-text",
       "words": 3,
       "hasTokens": true,
-      "text": "Last reviewed {lastReviewedAt}"
+      "text": "Last reviewed {lastReviewedAt}",
+      "span": "\n                          Last reviewed {formatDate(target.lastReviewedAt)}\n                        ",
+      "tokens": {
+        "lastReviewedAt": "formatDate(target.lastReviewedAt)"
+      }
     },
     {
       "file": "src/views/home.tsx",
@@ -4798,7 +4838,9 @@
       "category": "jsx-text",
       "words": 9,
       "hasTokens": false,
-      "text": "Roblox makes the final determination for any specific balance."
+      "text": "Roblox makes the final determination for any specific balance.",
+      "span": "\n              Roblox makes the final determination for any specific balance.{\" \"}\n              ",
+      "tokens": {}
     },
     {
       "file": "src/views/home.tsx",
@@ -4814,7 +4856,9 @@
       "category": "jsx-text",
       "words": 4,
       "hasTokens": false,
-      "text": "Something out of date?"
+      "text": "Something out of date?",
+      "span": "\n            Something out of date?{\" \"}\n            ",
+      "tokens": {}
     },
     {
       "file": "src/views/how-to-cash-out-robux.tsx",
@@ -4822,7 +4866,11 @@
       "category": "jsx-text",
       "words": 6,
       "hasTokens": true,
-      "text": "Accumulate at least {minimumEarnedRobux} Earned Robux."
+      "text": "Accumulate at least {minimumEarnedRobux} Earned Robux.",
+      "span": "\n                  Accumulate at least {formatRobux(minimumEarnedRobux)} Earned Robux.\n                ",
+      "tokens": {
+        "minimumEarnedRobux": "formatRobux(minimumEarnedRobux)"
+      }
     },
     {
       "file": "src/views/how-to-cash-out-robux.tsx",
@@ -4830,7 +4878,9 @@
       "category": "jsx-text",
       "words": 4,
       "hasTokens": false,
-      "text": "Only Earned Robux count."
+      "text": "Only Earned Robux count.",
+      "span": "{\" \"}\n                Only Earned Robux count.{\" \"}\n                ",
+      "tokens": {}
     },
     {
       "file": "src/views/how-to-cash-out-robux.tsx",
@@ -4838,7 +4888,9 @@
       "category": "jsx-text",
       "words": 23,
       "hasTokens": false,
-      "text": "Verified email, minimum age of 13, a valid DevEx portal account, a W-9 or W-8 on file, and an account in good standing."
+      "text": "Verified email, minimum age of 13, a valid DevEx portal account, a W-9 or W-8 on file, and an account in good standing.",
+      "span": "{\" \"}\n                Verified email, minimum age of 13, a valid DevEx portal account,\n                a W-9 or W-8 on file, and an account in good standing.{\" \"}\n                ",
+      "tokens": {}
     },
     {
       "file": "src/views/how-to-cash-out-robux.tsx",
@@ -4846,7 +4898,9 @@
       "category": "jsx-text",
       "words": 9,
       "hasTokens": false,
-      "text": "Requests go through the official portal linked from the"
+      "text": "Requests go through the official portal linked from the",
+      "span": "{\" \"}\n                Requests go through the official portal linked from the{\" \"}\n                ",
+      "tokens": {}
     },
     {
       "file": "src/views/how-to-cash-out-robux.tsx",
@@ -4854,7 +4908,9 @@
       "category": "jsx-text",
       "words": 23,
       "hasTokens": false,
-      "text": "It decides which Robux qualify and whether the request is approved. No third party influences this, and this site cannot predict the outcome."
+      "text": "It decides which Robux qualify and whether the request is approved. No third party influences this, and this site cannot predict the outcome.",
+      "span": "{\" \"}\n                It decides which Robux qualify and whether the request is\n                approved. No third party influences this, and this site cannot\n                predict the outcome.\n              ",
+      "tokens": {}
     },
     {
       "file": "src/views/how-to-cash-out-robux.tsx",
@@ -4862,47 +4918,39 @@
       "category": "jsx-text",
       "words": 12,
       "hasTokens": false,
-      "text": "Your payment provider and your bank apply their own handling from there."
+      "text": "Your payment provider and your bank apply their own handling from there.",
+      "span": " Your\n                payment provider and your bank apply their own handling from\n                there.{\" \"}\n                ",
+      "tokens": {}
     },
     {
       "file": "src/views/how-to-cash-out-robux.tsx",
-      "line": 150,
-      "category": "jsx-text",
-      "words": 54,
-      "hasTokens": false,
-      "text": "Roblox does not publish a guaranteed processing time, so this page does not state one. Specific numbers of days quoted elsewhere are other creators’ experiences, not commitments — and one person’s timeline says nothing reliable about yours. If a request seems stuck, Roblox support is the only party who can actually look at it."
-    },
-    {
-      "file": "src/views/how-to-cash-out-robux.tsx",
-      "line": 168,
-      "category": "jsx-text",
-      "words": 16,
-      "hasTokens": false,
-      "text": "A site asking you to sign in with your Roblox account to “check eligibility” is phishing."
-    },
-    {
-      "file": "src/views/how-to-cash-out-robux.tsx",
-      "line": 173,
-      "category": "jsx-text",
-      "words": 16,
-      "hasTokens": false,
-      "text": "Robux “generators” do not exist. Every one of them is a scam or a survey farm."
-    },
-    {
-      "file": "src/views/how-to-cash-out-robux.tsx",
-      "line": 197,
+      "line": 185,
       "category": "jsx-text",
       "words": 42,
       "hasTokens": false,
-      "text": "A payout is income, and how it is taxed depends entirely on where you live. Your payment provider may charge a fee, and if you are paid in a currency other than US dollars there will be a conversion spread on top."
+      "text": "A payout is income, and how it is taxed depends entirely on where you live. Your payment provider may charge a fee, and if you are paid in a currency other than US dollars there will be a conversion spread on top.",
+      "span": "\n              A payout is income, and how it is taxed depends entirely on where\n              you live. Your payment provider may charge a fee, and if you are\n              paid in a currency other than US dollars there will be a conversion\n              spread on top.{\" \"}\n              ",
+      "tokens": {}
+    },
+    {
+      "file": "src/views/methodology.tsx",
+      "line": 125,
+      "category": "jsx-text",
+      "words": 17,
+      "hasTokens": false,
+      "text": "Rounding to nearest would sometimes return a figure that falls short of the target you asked for.",
+      "span": "{\" \"}\n                Rounding to nearest would sometimes return a figure that falls\n                short of the target you asked for.\n              ",
+      "tokens": {}
     },
     {
       "file": "src/views/methodology.tsx",
       "line": 130,
       "category": "jsx-text",
-      "words": 17,
+      "words": 16,
       "hasTokens": false,
-      "text": "to the currency’s own minor units — two decimal places for dollars, none for yen or won."
+      "text": "Better to under-promise what you keep than to show a figure a Robux above what arrives.",
+      "span": "{\" \"}\n                Better to under-promise what you keep than to show a figure a\n                Robux above what arrives.\n              ",
+      "tokens": {}
     },
     {
       "file": "src/views/methodology.tsx",
@@ -4910,39 +4958,19 @@
       "category": "jsx-text",
       "words": 17,
       "hasTokens": false,
-      "text": "Rounding to nearest would sometimes return a figure that falls short of the target you asked for."
+      "text": "Rounding a subtotal and then using it would let a displayed total disagree with its own breakdown.",
+      "span": "{\" \"}\n                Rounding a subtotal and then using it would let a displayed total\n                disagree with its own breakdown.\n              ",
+      "tokens": {}
     },
     {
       "file": "src/views/methodology.tsx",
-      "line": 140,
-      "category": "jsx-text",
-      "words": 16,
-      "hasTokens": false,
-      "text": "Better to under-promise what you keep than to show a figure a Robux above what arrives."
-    },
-    {
-      "file": "src/views/methodology.tsx",
-      "line": 145,
-      "category": "jsx-text",
-      "words": 17,
-      "hasTokens": false,
-      "text": "Rounding a subtotal and then using it would let a displayed total disagree with its own breakdown."
-    },
-    {
-      "file": "src/views/methodology.tsx",
-      "line": 160,
+      "line": 150,
       "category": "jsx-text",
       "words": 34,
       "hasTokens": false,
-      "text": "These are reference rates. No bank trades at them. Your payment provider will apply its own rate with a margin, so treat a converted figure as an indication of scale rather than a prediction."
-    },
-    {
-      "file": "src/views/methodology.tsx",
-      "line": 178,
-      "category": "jsx-text",
-      "words": 20,
-      "hasTokens": false,
-      "text": "Which of your Robux Roblox counts as Earned Robux. That is Roblox’s internal accounting and is not visible from outside."
+      "text": "These are reference rates. No bank trades at them. Your payment provider will apply its own rate with a margin, so treat a converted figure as an indication of scale rather than a prediction.",
+      "span": "\n                These are reference rates. No bank trades at them. Your payment\n                provider will apply its own rate with a margin, so treat a\n                converted figure as an indication of scale rather than a\n                prediction.{\" \"}\n                ",
+      "tokens": {}
     },
     {
       "file": "src/views/platform-stock.tsx",
@@ -4950,39 +4978,45 @@
       "category": "jsx-text",
       "words": 2,
       "hasTokens": false,
-      "text": "Quoted from"
+      "text": "Quoted from",
+      "span": "\n              Quoted from{\" \"}\n              ",
+      "tokens": {}
     },
     {
       "file": "src/views/platform-stock.tsx",
-      "line": 104,
-      "category": "jsx-text",
-      "words": 50,
-      "hasTokens": false,
-      "text": "Sites that show a live Roblox chart are almost always embedding one from a market data vendor, which means that vendor’s script runs in your browser and can see your visit. This site loads no third-party scripts on any page, and adding one here would quietly undo that for everyone."
-    },
-    {
-      "file": "src/views/platform-stock.tsx",
-      "line": 111,
-      "category": "jsx-text",
-      "words": 38,
-      "hasTokens": false,
-      "text": "Nothing on this page is a recommendation to buy or sell anything. A company’s results say nothing about what any individual creator will be paid, and the DevEx rate is set by Roblox independently of its share price."
-    },
-    {
-      "file": "src/views/platform-stock.tsx",
-      "line": 152,
+      "line": 142,
       "category": "jsx-text",
       "words": 5,
       "hasTokens": true,
-      "text": "· via {providerName}, fetched server-side"
+      "text": "· via {providerName}, fetched server-side",
+      "span": "{\" \"}\n          · via {quote.providerName}, fetched server-side\n        ",
+      "tokens": {
+        "providerName": "quote.providerName"
+      }
     },
     {
       "file": "src/views/platform-stock.tsx",
-      "line": 175,
+      "line": 153,
+      "category": "jsx-text",
+      "words": 27,
+      "hasTokens": true,
+      "text": "This is the most recent quote this site received. {reason} The price above is unchanged from when it was taken; nothing has been adjusted to look current.",
+      "span": "{\" \"}\n            This is the most recent quote this site received. {state.reason} The\n            price above is unchanged from when it was taken; nothing has been\n            adjusted to look current.\n          ",
+      "tokens": {
+        "reason": "state.reason"
+      }
+    },
+    {
+      "file": "src/views/platform-stock.tsx",
+      "line": 165,
       "category": "jsx-text",
       "words": 19,
       "hasTokens": true,
-      "text": "{reason} No figure is shown in its place. A stale price presented as current would be worse than none."
+      "text": "{reason} No figure is shown in its place. A stale price presented as current would be worse than none.",
+      "span": "\n        {state.reason} No figure is shown in its place. A stale price presented as\n        current would be worse than none.\n      ",
+      "tokens": {
+        "reason": "state.reason"
+      }
     },
     {
       "file": "src/views/platform.tsx",
@@ -4990,7 +5024,11 @@
       "category": "jsx-text",
       "words": 31,
       "hasTokens": true,
-      "text": "{reason} Nothing is shown in their place, because a stale or invented number would be worse than none. The rest of this site does not depend on this endpoint — the"
+      "text": "{reason} Nothing is shown in their place, because a stale or invented number would be worse than none. The rest of this site does not depend on this endpoint — the",
+      "span": "\n        {result.reason} Nothing is shown in their place, because a stale or invented\n        number would be worse than none. The rest of this site does not depend on\n        this endpoint — the{\" \"}\n        ",
+      "tokens": {
+        "reason": "result.reason"
+      }
     },
     {
       "file": "src/views/platform.tsx",
@@ -5006,123 +5044,73 @@
       "category": "jsx-text",
       "words": 49,
       "hasTokens": true,
-      "text": "The window widens on its own as observations accumulate, up to {retentionDays} days. Older observations expire rather than being deleted by a job. Peak, low and average describe these recorded points only — the total may have been higher between two observations, and this site does not claim otherwise."
+      "text": "The window widens on its own as observations accumulate, up to {retentionDays} days. Older observations expire rather than being deleted by a job. Peak, low and average describe these recorded points only — the total may have been higher between two observations, and this site does not claim otherwise.",
+      "span": "\n        The window widens on its own as observations accumulate, up to{\" \"}\n        {RETENTION_DAYS} days. Older observations expire rather than being deleted by\n        a job. Peak, low and average describe these recorded points only — the total\n        may have been higher between two observations, and this site does not claim\n        otherwise. ",
+      "tokens": {
+        "retentionDays": "RETENTION_DAYS"
+      }
     },
     {
       "file": "src/views/privacy.tsx",
-      "line": 47,
+      "line": 49,
       "category": "jsx-text",
       "words": 3,
       "hasTokens": true,
-      "text": "Last reviewed {lastReviewedAt}."
+      "text": "Last reviewed {lastReviewedAt}.",
+      "span": "\n            Last reviewed {formatDate(record.lastReviewedAt)}.\n          ",
+      "tokens": {
+        "lastReviewedAt": "formatDate(record.lastReviewedAt)"
+      }
     },
     {
       "file": "src/views/privacy.tsx",
-      "line": 57,
-      "category": "jsx-text",
-      "words": 15,
-      "hasTokens": false,
-      "text": "With your action, this site stores a few things in your own browser’s local storage:"
-    },
-    {
-      "file": "src/views/privacy.tsx",
-      "line": 90,
-      "category": "jsx-text",
-      "words": 63,
-      "hasTokens": false,
-      "text": "No analytics provider is configured, so this site loads no tracking script and sets no analytics cookie. Our host does not add one either: Cloudflare’s Web Analytics was injecting a script into pages as they were served, and it has been turned off for this site. Verified after the change — no request to any analytics host is made when a page loads."
-    },
-    {
-      "file": "src/views/privacy.tsx",
-      "line": 104,
-      "category": "jsx-text",
-      "words": 53,
-      "hasTokens": false,
-      "text": "If you send a message through the contact form, the name, email address, subject and message you enter are transmitted to this site’s server and forwarded to the configured destination so it can be read and replied to. They are used for nothing else, and message content is not written to server logs."
-    },
-    {
-      "file": "src/views/privacy.tsx",
-      "line": 121,
-      "category": "jsx-text",
-      "words": 50,
-      "hasTokens": false,
-      "text": "This site runs on Cloudflare Workers. As with any web host, Cloudflare processes the requests needed to serve pages, which involves your IP address and browser user agent, and it applies its own network-level security handling. That processing is governed by Cloudflare’s own privacy terms rather than by this site."
-    },
-    {
-      "file": "src/views/privacy.tsx",
-      "line": 132,
-      "category": "jsx-text",
-      "words": 19,
-      "hasTokens": false,
-      "text": "Pages here link to official Roblox documentation, to the European Central Bank, and to other sources listed in the"
-    },
-    {
-      "file": "src/views/privacy.tsx",
-      "line": 135,
-      "category": "jsx-text",
-      "words": 2,
-      "hasTokens": false,
-      "text": "source registry"
-    },
-    {
-      "file": "src/views/privacy.tsx",
-      "line": 144,
+      "line": 123,
       "category": "jsx-text",
       "words": 13,
       "hasTokens": true,
-      "text": "Clear every preference by clearing site data for {host} in your browser settings."
-    },
-    {
-      "file": "src/views/privacy.tsx",
-      "line": 152,
-      "category": "jsx-text",
-      "words": 9,
-      "hasTokens": false,
-      "text": "Contact us about anything in this policy through the"
+      "text": "Clear every preference by clearing site data for {host} in your browser settings.",
+      "span": "\n                Clear every preference by clearing site data for{\" \"}\n                {siteConfig.host} in your browser settings.\n              ",
+      "tokens": {
+        "host": "siteConfig.host"
+      }
     },
     {
       "file": "src/views/roblox-stats.tsx",
-      "line": 325,
+      "line": 327,
       "category": "jsx-text",
       "words": 21,
       "hasTokens": true,
-      "text": "{hoursBillions} billion Hours ÷ {dauMillions} million DAUs ÷ {periodDays} days. Both inputs are rounded in the release, so this is approximate."
+      "text": "{hoursBillions} billion Hours ÷ {dauMillions} million DAUs ÷ {periodDays} days. Both inputs are rounded in the release, so this is approximate.",
+      "span": "\n                  {engagement.reported.hoursBillions} billion Hours ÷{\" \"}\n                  {engagement.reported.dauMillions} million DAUs ÷ {engagement.periodDays}{\" \"}\n                  days. Both inputs are rounded in the release, so this is approximate.\n                ",
+      "tokens": {
+        "hoursBillions": "engagement.reported.hoursBillions",
+        "dauMillions": "engagement.reported.dauMillions",
+        "periodDays": "engagement.periodDays"
+      }
     },
     {
       "file": "src/views/roblox-stats.tsx",
-      "line": 333,
+      "line": 335,
       "category": "jsx-text",
       "words": 9,
       "hasTokens": false,
-      "text": "Every figure above except the last is quoted from"
+      "text": "Every figure above except the last is quoted from",
+      "span": "\n              Every figure above except the last is quoted from{\" \"}\n              ",
+      "tokens": {}
     },
     {
       "file": "src/views/roblox-stats.tsx",
-      "line": 381,
-      "category": "jsx-text",
-      "words": 42,
-      "hasTokens": false,
-      "text": "The line worth reading twice is the second one. Developer exchange fees are about a quarter of Roblox’s revenue, so a meaningful share of what the platform takes in leaves again as creator payouts. Every figure in this table is quoted from"
-    },
-    {
-      "file": "src/views/roblox-stats.tsx",
-      "line": 388,
-      "category": "jsx-text",
-      "words": 4,
-      "hasTokens": false,
-      "text": "rather than recomputed here."
-    },
-    {
-      "file": "src/views/roblox-stats.tsx",
-      "line": 418,
+      "line": 419,
       "category": "jsx-text",
       "words": 63,
       "hasTokens": false,
-      "text": "Very little, directly — and that is worth saying plainly. The totals on this page describe the whole platform. They do not change what your own balance converts to, they are not a forecast, and a rising total does not mean a rising rate. What decides your payout is the rate applied to your eligible Earned Robux, which you can work out on"
+      "text": "Very little, directly — and that is worth saying plainly. The totals on this page describe the whole platform. They do not change what your own balance converts to, they are not a forecast, and a rising total does not mean a rising rate. What decides your payout is the rate applied to your eligible Earned Robux, which you can work out on",
+      "span": "\n              Very little, directly — and that is worth saying plainly. The totals on this\n              page describe the whole platform. They do not change what your own balance\n              converts to, they are not a forecast, and a rising total does not mean a\n              rising rate. What decides your payout is the rate applied to your eligible\n              Earned Robux, which you can work out on{\" \"}\n              ",
+      "tokens": {}
     },
     {
       "file": "src/views/roblox-stats.tsx",
-      "line": 426,
+      "line": 427,
       "category": "jsx-text",
       "words": 18,
       "hasTokens": false,
@@ -5130,19 +5118,11 @@
     },
     {
       "file": "src/views/roblox-stats.tsx",
-      "line": 426,
+      "line": 427,
       "category": "jsx-text",
       "words": 20,
       "hasTokens": false,
       "text": "in a single year, which is context worth having before deciding whether the 30,000 Robux minimum is worth working towards."
-    },
-    {
-      "file": "src/views/robux-tax-calculator.tsx",
-      "line": 129,
-      "category": "jsx-text",
-      "words": 39,
-      "hasTokens": false,
-      "text": "Price floors differ by item category and Roblox has adjusted them over time, so hardcoding one universal floor would produce wrong answers for most items. Entering the multiple keeps the result correct whatever your category’s floor happens to be."
     },
     {
       "file": "src/views/robux-to-usd.tsx",
@@ -5166,7 +5146,9 @@
       "category": "jsx-text",
       "words": 27,
       "hasTokens": false,
-      "text": "There is no single number that is true for every package, country and platform, so quoting one would be inventing a figure. Check the current prices on"
+      "text": "There is no single number that is true for every package, country and platform, so quoting one would be inventing a figure. Check the current prices on",
+      "span": "\n              There is no single number that is true for every package, country\n              and platform, so quoting one would be inventing a figure. Check the\n              current prices on{\" \"}\n              ",
+      "tokens": {}
     },
     {
       "file": "src/views/robux-to-usd.tsx",
@@ -5174,7 +5156,9 @@
       "category": "jsx-text",
       "words": 6,
       "hasTokens": false,
-      "text": "for what you would actually pay."
+      "text": "for what you would actually pay.",
+      "span": "{\" \"}\n              for what you would actually pay.\n            ",
+      "tokens": {}
     },
     {
       "file": "src/views/robux-to-usd.tsx",
@@ -5182,7 +5166,9 @@
       "category": "jsx-text",
       "words": 28,
       "hasTokens": false,
-      "text": "The gap between the two exists because Roblox operates a platform, handles payment processing, and has already taken its 30% share at the point the Robux were spent."
+      "text": "The gap between the two exists because Roblox operates a platform, handles payment processing, and has already taken its 30% share at the point the Robux were spent.",
+      "span": "\n              The gap between the two exists because Roblox operates a platform,\n              handles payment processing, and has already taken its 30% share at\n              the point the Robux were spent.{\" \"}\n              ",
+      "tokens": {}
     },
     {
       "file": "src/views/robux-to-usd.tsx",
@@ -5190,7 +5176,9 @@
       "category": "jsx-text",
       "words": 5,
       "hasTokens": false,
-      "text": "for more amounts and detail."
+      "text": "for more amounts and detail.",
+      "span": "{\" \"}\n              for more amounts and detail.\n            ",
+      "tokens": {}
     },
     {
       "file": "src/views/sources.tsx",
@@ -5198,7 +5186,12 @@
       "category": "jsx-text",
       "words": 4,
       "hasTokens": true,
-      "text": "{lastVerifiedAt} ({ageDays} days ago)"
+      "text": "{lastVerifiedAt} ({ageDays} days ago)",
+      "span": "\n                    {formatDate(rateRegistry.lastVerifiedAt)} ({freshness.ageDays} days ago)\n                  ",
+      "tokens": {
+        "lastVerifiedAt": "formatDate(rateRegistry.lastVerifiedAt)",
+        "ageDays": "freshness.ageDays"
+      }
     },
     {
       "file": "src/views/terms.tsx",
@@ -5206,7 +5199,11 @@
       "category": "jsx-text",
       "words": 3,
       "hasTokens": true,
-      "text": "Last reviewed {lastReviewedAt}."
+      "text": "Last reviewed {lastReviewedAt}.",
+      "span": "\n            Last reviewed {formatDate(record.lastReviewedAt)}.\n          ",
+      "tokens": {
+        "lastReviewedAt": "formatDate(record.lastReviewedAt)"
+      }
     },
     {
       "file": "src/views/terms.tsx",
@@ -5214,7 +5211,11 @@
       "category": "jsx-text",
       "words": 30,
       "hasTokens": true,
-      "text": "You are welcome to use {host} freely to estimate DevEx payouts, for yourself or as part of your work as a creator. No account is needed and nothing is charged."
+      "text": "You are welcome to use {host} freely to estimate DevEx payouts, for yourself or as part of your work as a creator. No account is needed and nothing is charged.",
+      "span": "\n              You are welcome to use {siteConfig.host} freely to estimate DevEx\n              payouts, for yourself or as part of your work as a creator. No\n              account is needed and nothing is charged.\n            ",
+      "tokens": {
+        "host": "siteConfig.host"
+      }
     },
     {
       "file": "src/views/terms.tsx",
@@ -5222,7 +5223,9 @@
       "category": "jsx-text",
       "words": 39,
       "hasTokens": false,
-      "text": "Considerable care goes into accuracy — every rate is sourced, dated and covered by tests — but rates change, documentation moves, and errors are possible. Check anything you are relying on against the official Roblox documentation linked from the"
+      "text": "Considerable care goes into accuracy — every rate is sourced, dated and covered by tests — but rates change, documentation moves, and errors are possible. Check anything you are relying on against the official Roblox documentation linked from the",
+      "span": "\n              Considerable care goes into accuracy — every rate is sourced, dated\n              and covered by tests — but rates change, documentation moves, and\n              errors are possible. Check anything you are relying on against the\n              official Roblox documentation linked from the{\" \"}\n              ",
+      "tokens": {}
     },
     {
       "file": "src/views/terms.tsx",
@@ -5230,7 +5233,9 @@
       "category": "jsx-text",
       "words": 2,
       "hasTokens": false,
-      "text": "source registry"
+      "text": "source registry",
+      "span": "source registry",
+      "tokens": {}
     },
     {
       "file": "src/views/terms.tsx",
@@ -5238,7 +5243,9 @@
       "category": "jsx-text",
       "words": 26,
       "hasTokens": false,
-      "text": "These terms may be updated. The review date at the top of this page reflects the most recent change, and material changes are recorded in the"
+      "text": "These terms may be updated. The review date at the top of this page reflects the most recent change, and material changes are recorded in the",
+      "span": "\n              These terms may be updated. The review date at the top of this page\n              reflects the most recent change, and material changes are recorded\n              in the{\" \"}\n              ",
+      "tokens": {}
     },
     {
       "file": "src/views/usd-to-robux.tsx",
@@ -5262,7 +5269,12 @@
       "category": "jsx-text",
       "words": 50,
       "hasTokens": true,
-      "text": "A 1,000 dollar target divided by 0.0038 gives 263,157.89. Robux come in whole units, so 263,157 would pay {rate} — just under the target. Rounding up to 263,158 pays {rate2}, which clears it. That is why every figure on this page rounds up rather than to the nearest whole number."
+      "text": "A 1,000 dollar target divided by 0.0038 gives 263,157.89. Robux come in whole units, so 263,157 would pay {rate} — just under the target. Rounding up to 263,158 pays {rate2}, which clears it. That is why every figure on this page rounds up rather than to the nearest whole number.",
+      "span": "\n                A 1,000 dollar target divided by 0.0038 gives 263,157.89. Robux\n                come in whole units, so 263,157 would pay{\" \"}\n                {formatCurrency(Rational.of(263_157n).mul(rate), \"USD\")} — just\n                under the target. Rounding up to 263,158 pays{\" \"}\n                {formatCurrency(Rational.of(263_158n).mul(rate), \"USD\")}, which\n                clears it. That is why every figure on this page rounds up rather\n                than to the nearest whole number.\n              ",
+      "tokens": {
+        "rate": "formatCurrency(Rational.of(263_157n).mul(rate), \"USD\")",
+        "rate2": "formatCurrency(Rational.of(263_158n).mul(rate), \"USD\")"
+      }
     },
     {
       "file": "src/views/usd-to-robux.tsx",
@@ -5270,7 +5282,12 @@
       "category": "jsx-text",
       "words": 41,
       "hasTokens": true,
-      "text": "Roblox requires {minimumEarnedRobux} Earned Robux before a DevEx request can be submitted at all. If your target needs fewer than that, the minimum is what you actually have to reach — and it would pay {rate} rather than your original target."
+      "text": "Roblox requires {minimumEarnedRobux} Earned Robux before a DevEx request can be submitted at all. If your target needs fewer than that, the minimum is what you actually have to reach — and it would pay {rate} rather than your original target.",
+      "span": "\n              Roblox requires {formatRobux(minimumEarnedRobux)} Earned Robux\n              before a DevEx request can be submitted at all. If your target\n              needs fewer than that, the minimum is what you actually have to\n              reach — and it would pay{\" \"}\n              {formatCurrency(Rational.fromInt(minimumEarnedRobux).mul(rate), \"USD\")}{\" \"}\n              rather than your original target.{\" \"}\n              ",
+      "tokens": {
+        "minimumEarnedRobux": "formatRobux(minimumEarnedRobux)",
+        "rate": "formatCurrency(Rational.fromInt(minimumEarnedRobux).mul(rate), \"USD\")"
+      }
     },
     {
       "file": "src/views/usd-to-robux.tsx",
@@ -5278,7 +5295,9 @@
       "category": "jsx-text",
       "words": 39,
       "hasTokens": false,
-      "text": "A payout target is a distance. Turning it into a date needs one more fact — how fast you earn — and turning a date into a plan needs the same fact in reverse. Both are the same division:"
+      "text": "A payout target is a distance. Turning it into a date needs one more fact — how fast you earn — and turning a date into a plan needs the same fact in reverse. Both are the same division:",
+      "span": "\n              A payout target is a distance. Turning it into a date needs one\n              more fact — how fast you earn — and turning a date into a plan\n              needs the same fact in reverse. Both are the same division:{\" \"}\n                 \n                                                                          \n                                                                         \n                                                                   \n                 \n              ",
+      "tokens": {}
     },
     {
       "file": "src/views/usd-to-robux.tsx",
@@ -5286,7 +5305,11 @@
       "category": "jsx-text",
       "words": 6,
       "hasTokens": true,
-      "text": "Yes — you would need {effective}"
+      "text": "Yes — you would need {effective}",
+      "span": "\n                            Yes — you would need {formatRobux(row.effective)}\n                          ",
+      "tokens": {
+        "effective": "formatRobux(row.effective)"
+      }
     },
     {
       "file": "src/views/usd-to-robux.tsx",
@@ -5294,7 +5317,9 @@
       "category": "jsx-text",
       "words": 64,
       "hasTokens": false,
-      "text": "This page answers the creator question: how much do I need to earn to receive a given amount of money. It does not tell you how many Robux a given amount of money will buy. Roblox prices Robux packages by region, platform and promotion, and there is no single rate that would be true for everyone — so this site does not publish one."
+      "text": "This page answers the creator question: how much do I need to earn to receive a given amount of money. It does not tell you how many Robux a given amount of money will buy. Roblox prices Robux packages by region, platform and promotion, and there is no single rate that would be true for everyone — so this site does not publish one.",
+      "span": "\n              This page answers the creator question: how much do I need to earn\n              to receive a given amount of money. It does not tell you how many\n              Robux a given amount of money will buy. Roblox prices Robux\n              packages by region, platform and promotion, and there is no single\n              rate that would be true for everyone — so this site does not\n              publish one.{\" \"}\n              ",
+      "tokens": {}
     }
   ]
 }

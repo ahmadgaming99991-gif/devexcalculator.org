@@ -107,14 +107,7 @@ export async function MethodologyView({ locale }: { readonly locale: Locale }) {
             description={t("trust.methodology.exactDescription")}
           >
             <div className="flex flex-col gap-3 text-(--color-text-muted)">
-              <p>
-                A rate like 0.0038 cannot be represented exactly in binary
-                floating point, which is how JavaScript stores ordinary numbers.
-                Multiply 17,000 by 0.0054 in a browser console and you get
-                91.80000000000001 rather than 91.80. At small amounts that hides
-                behind rounding; across a large balance, or a chain of fee and tax
-                calculations, the drift compounds.
-              </p>
+              <p>{" "}{t("trust.methodology.prose.floatingPoint")}{" "}</p>
               <p>{t("trust.methodology.body.arithmetic.p1")}</p>
               <p>{t("trust.methodology.body.arithmetic.p2")}</p>
             </div>
@@ -129,20 +122,17 @@ export async function MethodologyView({ locale }: { readonly locale: Locale }) {
               <li>
                 <strong className="text-(--color-text)">{t("trust.methodology.rounding.moneyHalfUp")}</strong>{" "}{t("trust.methodology.rounding.moneyHalfUpBody")}{" "}</li>
               <li>
-                <strong className="text-(--color-text)">{t("trust.methodology.rounding.robuxUp")}</strong>{" "}
-                Rounding to nearest would sometimes return a figure that falls
-                short of the target you asked for.
-              </li>
+                <strong className="text-(--color-text)">{t("trust.methodology.rounding.robuxUp")}</strong>
+                  {t("trust.methodology.body.rounding.p1")}
+                </li>
               <li>
-                <strong className="text-(--color-text)">{t("trust.methodology.rounding.sharesDown")}</strong>{" "}
-                Better to under-promise what you keep than to show a figure a
-                Robux above what arrives.
-              </li>
+                <strong className="text-(--color-text)">{t("trust.methodology.rounding.sharesDown")}</strong>
+                  {t("trust.methodology.body.rounding.p2")}
+                </li>
               <li>
-                <strong className="text-(--color-text)">{t("trust.methodology.rounding.intermediateNever")}</strong>{" "}
-                Rounding a subtotal and then using it would let a displayed total
-                disagree with its own breakdown.
-              </li>
+                <strong className="text-(--color-text)">{t("trust.methodology.rounding.intermediateNever")}</strong>
+                  {t("trust.methodology.body.rounding.p3")}
+                </li>
             </ul>
           </Section>
 
@@ -155,46 +145,39 @@ export async function MethodologyView({ locale }: { readonly locale: Locale }) {
               <p>{t("trust.methodology.body.currency.p1")}</p>
               <p>{t("trust.methodology.body.currency.p2")}</p>
               <p>
-                These are reference rates. No bank trades at them. Your payment
-                provider will apply its own rate with a margin, so treat a
-                converted figure as an indication of scale rather than a
-                prediction.{" "}
-                <InlineLink href="/devex-fees-and-taxes/">{t("trust.methodology.body.currency.p4")}</InlineLink>
-                .
-              </p>
-              <p>{t("trust.methodology.body.currency.p5")}</p>
-            </div>
-          </Section>
-
-          <Section
-            id="limits"
-            heading={t("trust.methodology.cannotHeading")}
-            description={t("trust.methodology.cannotDescription")}
-          >
-            <ul className="flex list-disc flex-col gap-2 pl-5 text-(--color-text-muted)">
-              <li>{" "}{t("trust.methodology.cannot.eligibility")}{" "}</li>
-              <li>
-                How your balance divides between the standard, legacy and
-                conditional rates. The split calculator models whatever division
-                you supply; it cannot discover the real one.
-              </li>
-              <li>{t("trust.methodology.cannot.approvalOrTiming")}</li>
-              <li>{t("trust.methodology.cannot.providerCharges")}</li>
-              <li>{t("trust.methodology.cannot.taxOwed")}</li>
-            </ul>
-          </Section>
-
-          <EstimateDisclaimer locale={locale} />
-
-          <RelatedLinks locale={locale}
-            record={record}
-            relationships={["sibling", "prerequisite", "next-step"]}
-            id="related"
-          />
-
-          <SourceNote locale={locale} sourceIds={record.sourceIds} />
-        </div>
-      </Container>
-    </>
+                {t("trust.methodology.body.currency.p3")}
+              <InlineLink href="/devex-fees-and-taxes/">{t("trust.methodology.body.currency.p4")}</InlineLink>
+                          .
+                        </p>
+                        <p>{t("trust.methodology.body.currency.p5")}</p>
+                      </div>
+                    </Section>
+          
+                    <Section
+                      id="limits"
+                      heading={t("trust.methodology.cannotHeading")}
+                      description={t("trust.methodology.cannotDescription")}
+                    >
+                      <ul className="flex list-disc flex-col gap-2 pl-5 text-(--color-text-muted)">
+                        <li>{" "}{t("trust.methodology.cannot.eligibility")}{" "}</li>
+                        <li>{" "}{t("trust.methodology.cannot.split")}{" "}</li>
+                        <li>{t("trust.methodology.cannot.approvalOrTiming")}</li>
+                        <li>{t("trust.methodology.cannot.providerCharges")}</li>
+                        <li>{t("trust.methodology.cannot.taxOwed")}</li>
+                      </ul>
+                    </Section>
+          
+                    <EstimateDisclaimer locale={locale} />
+          
+                    <RelatedLinks locale={locale}
+                      record={record}
+                      relationships={["sibling", "prerequisite", "next-step"]}
+                      id="related"
+                    />
+          
+                    <SourceNote locale={locale} sourceIds={record.sourceIds} />
+                  </div>
+                </Container>
+              </>
   );
 }

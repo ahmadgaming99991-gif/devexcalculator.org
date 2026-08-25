@@ -23,7 +23,8 @@
       "nothingCollected": "No se recopila nada.",
       "privacyIsSpecific": "La política de privacidad es concreta al respecto",
       "correctionsPublished": "Las correcciones se publican.",
-      "rateHasSourceBody": "No «actual hasta hace poco»: un enlace a la documentación oficial de Roblox y la fecha en que se comprobó por última vez, mostrada en la página."
+      "rateHasSourceBody": "No «actual hasta hace poco»: un enlace a la documentación oficial de Roblox y la fecha en que se comprobó por última vez, mostrada en la página.",
+      "correctionsPublishedBody": "Cuando una cifra de aquí resulta estar mal, la corrección se registra con fecha en el {changelog} en lugar de editarse en silencio."
     },
     "body": {
       "purpose": {
@@ -103,7 +104,8 @@
       "approvalOrTiming": "Si se aprobará una solicitud, ni cuándo se pagará.",
       "providerCharges": "Cuánto te cobrará tu banco o tu proveedor de pagos.",
       "taxOwed": "Cuánto debes en impuestos.",
-      "eligibility": "Cuáles de tus Robux cuenta Roblox como Earned Robux. Eso es contabilidad interna de Roblox y no se ve desde fuera."
+      "eligibility": "Cuáles de tus Robux cuenta Roblox como Earned Robux. Eso es contabilidad interna de Roblox y no se ve desde fuera.",
+      "split": "Cómo se reparte tu saldo entre las tasas estándar, antigua y condicional. La calculadora de reparto modela la división que le indiques; no puede descubrir la real."
     },
     "body": {
       "arithmetic": {
@@ -122,6 +124,9 @@
         "p4": "Más sobre conversión de moneda y comisiones",
         "p5": "Si el proveedor no está accesible, se muestra una instantánea guardada y se etiqueta explícitamente como desactualizada. Un tipo desactualizado nunca se presenta como actual, y el cálculo en USD nunca depende de que el proveedor esté disponible."
       }
+    },
+    "prose": {
+      "floatingPoint": "Una tasa como 0,0038 no puede representarse exactamente en coma flotante binaria, que es como JavaScript guarda los números corrientes. Multiplica 17.000 por 0,0054 en la consola de un navegador y obtienes 91,80000000000001 en lugar de 91,80. En cantidades pequeñas eso se esconde tras el redondeo; en un saldo grande, o en una cadena de cálculos de comisiones e impuestos, la desviación se acumula."
     }
   },
   "sources": {
@@ -146,6 +151,9 @@
         "p1": "Los datos de tasas nunca se actualizan automáticamente desde una página rastreada. Cambiar una tasa publicada exige verificar la fuente a mano, actualizar el registro, actualizar las pruebas unitarias con los nuevos valores esperados, revisar las páginas afectadas, añadir una entrada al changelog y volver a desplegar. Esa secuencia es deliberadamente lenta: una tasa equivocada publicada deprisa es peor que una correcta publicada un día después.",
         "p2": "{lastVerifiedAt} (hace {ageDays} días)"
       }
+    },
+    "prose": {
+      "scheduledCheck": "Entre revisiones, una tarea programada vuelve a leer cuatro veces al día el markdown que Roblox publica para su página de DevEx y compara las tasas y el mínimo con los publicados aquí. Puede confirmar que nada se ha movido; no puede cambiar una cifra. Una diferencia levanta un aviso para que lo lea una persona, y un documento que no logra reconocer —una caída o un rediseño— se informa como ilegible en lugar de tratarse como una tasa retirada. El resultado se publica en {rateCheckEndpoint}."
     }
   },
   "editorialPolicy": {
@@ -229,6 +237,9 @@
       "record": {
         "p1": "Los cambios de tasa que hace Roblox también se reflejan en el"
       }
+    },
+    "prose": {
+      "rateHistory": "Los cambios de tasa hechos por Roblox también se reflejan en el {rateHistory}, que es un registro aparte: el changelog sigue lo que hizo este sitio, el historial de tasas sigue lo que hizo Roblox."
     }
   },
   "changelog": {
@@ -265,6 +276,10 @@
         "p2": "Para el historial de la propia tasa de DevEx, incluido el cambio de septiembre de 2025,",
         "p3": "consulta la página de historial de tasas"
       }
+    },
+    "prose": {
+      "feeds": "Cada entrada de aquí se publica como canal: {atom} para lectores de feeds, o {jsonFeed} para lo que prefiera no analizar XML. Ambos llevan las mismas entradas y los mismos enlaces a fuentes. Si dependes de estas cifras, {ratesApi} publica los valores actuales con su fecha de verificación adjunta.",
+      "scopeLinks": "Para el historial de la propia tasa de DevEx, incluido el cambio de septiembre de 2025, {rateHistory}. Para saber cómo se gestionan las correcciones, {correctionsPolicy}."
     }
   },
   "api": {

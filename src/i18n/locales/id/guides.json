@@ -147,7 +147,8 @@
       }
     },
     "prose": {
-      "noGuaranteedTime": "Roblox tidak menerbitkan waktu pemrosesan yang dijamin, jadi halaman ini pun tidak menyebutkan satu pun. Jumlah hari tertentu yang dikutip di tempat lain adalah pengalaman kreator lain, bukan komitmen — dan lini waktu satu orang tidak mengatakan apa pun yang bisa diandalkan tentang lini waktu Anda. Jika sebuah permohonan tampak macet, dukungan Roblox adalah satu-satunya pihak yang benar-benar bisa memeriksanya."
+      "noGuaranteedTime": "Roblox tidak menerbitkan waktu pemrosesan yang dijamin, jadi halaman ini pun tidak menyebutkan satu pun. Jumlah hari tertentu yang dikutip di tempat lain adalah pengalaman kreator lain, bukan komitmen — dan lini waktu satu orang tidak mengatakan apa pun yang bisa diandalkan tentang lini waktu Anda. Jika sebuah permohonan tampak macet, dukungan Roblox adalah satu-satunya pihak yang benar-benar bisa memeriksanya.",
+      "submitPortal": "Permohonan melalui portal resmi yang ditautkan dari {creatorHub}."
     },
     "avoid": {
       "phishing": "Situs yang meminta Anda masuk dengan akun Roblox untuk “memeriksa kelayakan” adalah phishing.",

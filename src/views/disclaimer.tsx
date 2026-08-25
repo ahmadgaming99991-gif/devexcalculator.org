@@ -1,4 +1,6 @@
 import { getTranslator } from "@/i18n/get-dictionary";
+import { rich } from "@/i18n/rich";
+import { localizedPath } from "@/i18n/locale-path";
 import { localizedRoute } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -12,7 +14,7 @@ const ROUTE = "/disclaimer/";
 
 
 export async function DisclaimerView({ locale }: { readonly locale: Locale }) {
-  const t = await getTranslator(locale, ["legal"]);
+  const t = await getTranslator(locale, ["legal", "trust"]);
   const record = await localizedRoute(locale, ROUTE);
 
   return (
@@ -35,10 +37,7 @@ export async function DisclaimerView({ locale }: { readonly locale: Locale }) {
 
           <Section id="cannot-determine" heading={t("legal.disclaimer.cannotDetermineHeading")}>
             <ul className="flex list-disc flex-col gap-2 pl-5 text-(--color-text-muted)">
-              <li>
-                Whether your Robux count as Earned Robux. Roblox tracks where each
-                Robux came from; that record is not visible here.
-              </li>
+              <li>{" "}{t("legal.disclaimer.cannot.eligibility")}{" "}</li>
               <li>{t("legal.disclaimer.body.cannotDetermine.p1")}</li>
               <li>{t("legal.disclaimer.cannot.approval")}</li>
               <li>{t("legal.disclaimer.cannot.timing")}</li>
@@ -56,19 +55,23 @@ export async function DisclaimerView({ locale }: { readonly locale: Locale }) {
 
           <Section id="accuracy" heading={t("legal.disclaimer.accuracyHeading")}>
             <p className="text-(--color-text-muted)">
-              Rate data on this site was last verified against official
-              documentation on {formatDate(rateRegistry.lastVerifiedAt)}, and that
-              date is displayed on every rate-sensitive page rather than hidden
-              here. Rates change: the standard rate moved in September 2025, and
-              it could move again.
+              {t("legal.disclaimer.body.accuracy.p1", {
+                lastVerifiedAt: formatDate(rateRegistry.lastVerifiedAt),
+              })}
             </p>
             <p className="mt-3 text-(--color-text-muted)">
-              If a figure here has fallen behind, the{" "}
-              <InlineLink href="/sources/">source registry</InlineLink> links
-              directly to the official page it came from, so you can check the
-              current value yourself in a few seconds. Reporting it through the{" "}
-              <InlineLink href="/corrections/">{t("legal.disclaimer.correctionsProcessLink")}{" "}</InlineLink>{" "}
-              gets it fixed for everyone else too.
+              {rich(t("legal.disclaimer.prose.fallenBehind"), {
+                sourceRegistry: (
+                  <InlineLink href={localizedPath(locale, "/sources/")}>
+                    {t("trust.sources.registryHeading")}
+                  </InlineLink>
+                ),
+                correctionsProcess: (
+                  <InlineLink href={localizedPath(locale, "/corrections/")}>
+                    {t("legal.disclaimer.correctionsProcessLink")}
+                  </InlineLink>
+                ),
+              })}
             </p>
           </Section>
 

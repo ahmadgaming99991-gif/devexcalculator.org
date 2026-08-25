@@ -261,7 +261,10 @@
     "alreadyEnoughHeadline": "Sie haben bereits genug für dieses Ziel.",
     "zeroEarningsHeadline": "Kein Datum, in diesem Tempo.",
     "datePassedHeadline": "Dieses Datum ist bereits erreicht.",
-    "pickDateHeadline": "Wählen Sie ein Datum."
+    "pickDateHeadline": "Wählen Sie ein Datum.",
+    "prose": {
+      "estimateNotice": "Jede Zahl hier ist eine Schätzung aus dem, was Sie eingegeben haben. {minimumRobux} Earned Robux zu erreichen erlaubt Ihnen, einen DevEx-Antrag zu stellen; es bedeutet nicht, dass er bewilligt wird. Roblox prüft Berechtigung, Kontostatus und Compliance und entscheidet über jeden Antrag selbst. Sätze können sich ändern, und eine Hochrechnung unterstellt, dass Sie im angegebenen Tempo weiterverdienen."
+    }
   },
   "controls": {
     "body": {

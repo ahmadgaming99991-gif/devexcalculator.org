@@ -211,7 +211,8 @@
       }
     },
     "prose": {
-      "groupFunds": "Les revenus d’une expérience détenue par un groupe s’accumulent dans les fonds du groupe, et non sur un compte individuel. DevEx fonctionne sur un compte personnel : les fonds du groupe doivent donc atteindre un solde personnel par un versement avant d’être pertinents pour une demande DevEx. Si vous partagez des revenus avec des collaborateurs, convenez du fonctionnement avant que l’argent n’arrive plutôt qu’après — et consultez la documentation officielle en vigueur sur le traitement des versements de groupe, car c’est un domaine que Roblox a déjà modifié."
+      "groupFunds": "Les revenus d’une expérience détenue par un groupe s’accumulent dans les fonds du groupe, et non sur un compte individuel. DevEx fonctionne sur un compte personnel : les fonds du groupe doivent donc atteindre un solde personnel par un versement avant d’être pertinents pour une demande DevEx. Si vous partagez des revenus avec des collaborateurs, convenez du fonctionnement avant que l’argent n’arrive plutôt qu’après — et consultez la documentation officielle en vigueur sur le traitement des versements de groupe, car c’est un domaine que Roblox a déjà modifié.",
+      "retailUnrelated": "C’est aussi pourquoi le prix de détail des Robux et le taux DevEx sont des nombres sans rapport. Acheter des Robux est un achat ; DevEx, c’est Roblox qui paie un créateur."
     }
   },
   "feesAndTaxes": {
@@ -277,7 +278,9 @@
       }
     },
     "prose": {
-      "currencyMargin": "Le taux DevEx est exprimé en dollars américains. Si vous êtes payé dans une autre devise, quelqu’un la convertit et applique son propre taux, majoré d’une marge. C’est cette marge qui explique que le chiffre de votre banque ne corresponde pas à un taux de référence."
+      "currencyMargin": "Le taux DevEx est exprimé en dollars américains. Si vous êtes payé dans une autre devise, quelqu’un la convertit et applique son propre taux, majoré d’une marge. C’est cette marge qui explique que le chiffre de votre banque ne corresponde pas à un taux de référence.",
+      "providerFeeTerm": "Quel que soit le service qui achemine l’argent, il peut facturer ce service — souvent un pourcentage plus un montant fixe par versement. Cela se règle entre vous et ce prestataire ; Roblox ne le fixe pas, et ce site non plus.",
+      "noFeeTable": "Les structures de frais varient selon le prestataire, le pays et le mode de versement : cette page n’en publie donc pas de tableau — tout chiffre serait périmé ou faux pour la plupart des lecteurs. Vérifiez ce que facture votre propre prestataire avant de déposer une demande, puis saisissez ce montant dans la calculatrice ci-dessous pour le voir appliqué. Sur un petit versement, des frais fixes peuvent représenter une part notable du total ; sur un gros, c’est le pourcentage qui compte le plus."
     }
   },
   "robuxToUsd": {
@@ -333,6 +336,10 @@
         "p1": "Parcourez tout le centre de conversions",
         "p2": "pour davantage de montants et de détail."
       }
+    },
+    "prose": {
+      "browseHub": "{conversionHub} pour plus de montants et de détails.",
+      "officialPage": "Il n’existe pas un seul chiffre valable pour chaque pack, pays et plateforme ; en citer un reviendrait à l’inventer. Consultez {officialPage} pour savoir ce que vous paieriez réellement."
     }
   },
   "usdToRobux": {

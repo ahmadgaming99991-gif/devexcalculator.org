@@ -203,6 +203,9 @@
         "p2": "Aucun chiffre n’est affiché à la place. Un cours périmé présenté comme actuel serait pire que rien.",
         "p3": "· via {providerName}, récupéré côté serveur"
       }
+    },
+    "prose": {
+      "quotedFrom": "Extrait de {source}."
     }
   },
   "stats": {
@@ -289,7 +292,8 @@
     },
     "usDollarsLabel": "dollars américains",
     "prose": {
-      "quarterOfRevenue": "La ligne qui mérite d’être lue deux fois est la seconde. Les frais du Developer Exchange représentent environ un quart des revenus de Roblox : une part non négligeable de ce que la plateforme encaisse en ressort donc sous forme de versements aux créateurs. Chaque chiffre de ce tableau est tiré de {filings}."
+      "quarterOfRevenue": "La ligne qui mérite d’être lue deux fois est la seconde. Les frais du Developer Exchange représentent environ un quart des revenus de Roblox : une part non négligeable de ce que la plateforme encaisse en ressort donc sous forme de versements aux créateurs. Chaque chiffre de ce tableau est tiré de {filings}.",
+      "precision": "Les chiffres sont consignés à la précision employée par le dépôt. Là où Roblox a déclaré en milliers, le montant est exact au dollar près ; là où il a déclaré en millions, il est exact au million près et pas au-delà. Deux trimestres sont marqués comme dérivés parce qu’ils proviennent de la soustraction d’un trimestre déclaré à un total semestriel déclaré. Pour savoir comment ce site traite les chiffres, voyez {methodology}."
     }
   }
 }

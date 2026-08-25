@@ -113,32 +113,28 @@ export async function DevexRatesView({ locale }: { readonly locale: Locale }) {
               ))}
             </div>
             <p className="mt-4 text-sm text-(--color-text-muted)">
-              A single balance can span more than one rate — Robux earned before
-              and after the September 2025 transition are treated separately, and
-              Roblox cashes the older portion out first.{" "}
-              <InlineLink href="/">{t("rates.devexRates.body.whichApplies.p2")}</InlineLink>
-              .
+              {t("rates.devexRates.body.whichApplies.p1")}
+            <InlineLink href="/">{t("rates.devexRates.body.whichApplies.p2")}</InlineLink>
+                      .
+                    </p>
+                  </Section>
+        
+                  <Section
+                    id="difference"
+                    heading={t("rates.devexRates.compareHeading")}
+                    description={t("rates.devexRates.compareDescription")}
+                  >
+                    <div className="rounded-(--radius-control) border border-(--color-border) bg-(--color-surface) p-4">
+                      <p className="text-sm text-(--color-text-muted)">
+              {t("rates.devexRates.body.difference.p1", {
+                rateValue: formatCurrency(
+                          Rational.fromInt(100_000).mul(standard).sub(
+                            Rational.fromInt(100_000).mul(getRateValue("legacy-pre-2025-09-05")),
+                          ),
+                          "USD",
+                        ),
+              })}
             </p>
-          </Section>
-
-          <Section
-            id="difference"
-            heading={t("rates.devexRates.compareHeading")}
-            description={t("rates.devexRates.compareDescription")}
-          >
-            <div className="rounded-(--radius-control) border border-(--color-border) bg-(--color-surface) p-4">
-              <p className="text-sm text-(--color-text-muted)">
-                The gap between the current and legacy rates is{" "}
-                {formatCurrency(
-                  Rational.fromInt(100_000).mul(standard).sub(
-                    Rational.fromInt(100_000).mul(getRateValue("legacy-pre-2025-09-05")),
-                  ),
-                  "USD",
-                )}{" "}
-                per 100,000 Earned Robux — about 8.6% more under the current rate.
-                The conditional U.S. 18+ rate pays roughly 42% more than the
-                standard rate on the portion of a balance that qualifies for it.
-              </p>
               <p className="mt-3">
                 <InlineLink href="/">{t("rates.devexRates.openCalculatorLink")}</InlineLink>
               </p>
@@ -151,33 +147,30 @@ export async function DevexRatesView({ locale }: { readonly locale: Locale }) {
             description={t("rates.devexRates.canChangeDescription")}
           >
             <p className="text-(--color-text-muted)">
-              Roblox moved the standard rate from 0.0035 to 0.0038 on{" "}
-              {formatDate("2025-09-05T10:00:00-07:00")}. There is no way to know
-              from outside Roblox whether or when it will change again, so this
-              page makes no forecast. What it does record is the date every
-              figure here was last checked against the official documentation,
-              shown at the top of the page and in the{" "}
-              <InlineLink href="/sources/">source registry</InlineLink>.
-            </p>
-            <p className="mt-3 text-(--color-text-muted)">
-              <InlineLink href="/devex-rate-history/">{t("rates.devexRates.body.changes.p2")}</InlineLink>{" "}
-              ·{" "}
-              <InlineLink href="/changelog/">{t("rates.devexRates.body.changes.p3")}</InlineLink>
-            </p>
-          </Section>
-
-          <FAQAccordion locale={locale} faqs={record.faqs} heading={t("rates.devexRates.faqsHeading")} />
-
-          <RelatedLinks locale={locale}
-            record={record}
-            relationships={["child", "sibling", "prerequisite", "next-step"]}
-            id="related"
-          />
-
-          <EstimateDisclaimer locale={locale} />
-          <SourceNote locale={locale} sourceIds={record.sourceIds} />
-        </div>
-      </Container>
-    </>
+              {t("rates.devexRates.body.changes.p1", {
+                date: formatDate("2025-09-05T10:00:00-07:00"),
+              })}
+            <InlineLink href="/sources/">source registry</InlineLink>.
+                    </p>
+                    <p className="mt-3 text-(--color-text-muted)">
+                      <InlineLink href="/devex-rate-history/">{t("rates.devexRates.body.changes.p2")}</InlineLink>{" "}
+                      ·{" "}
+                      <InlineLink href="/changelog/">{t("rates.devexRates.body.changes.p3")}</InlineLink>
+                    </p>
+                  </Section>
+        
+                  <FAQAccordion locale={locale} faqs={record.faqs} heading={t("rates.devexRates.faqsHeading")} />
+        
+                  <RelatedLinks locale={locale}
+                    record={record}
+                    relationships={["child", "sibling", "prerequisite", "next-step"]}
+                    id="related"
+                  />
+        
+                  <EstimateDisclaimer locale={locale} />
+                  <SourceNote locale={locale} sourceIds={record.sourceIds} />
+                </div>
+              </Container>
+            </>
   );
 }

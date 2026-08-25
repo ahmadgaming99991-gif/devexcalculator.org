@@ -262,7 +262,10 @@
     "alreadyEnoughHeadline": "Você já tem o suficiente para esta meta.",
     "zeroEarningsHeadline": "Nenhuma data, neste ritmo.",
     "datePassedHeadline": "Essa data já chegou.",
-    "pickDateHeadline": "Escolha uma data."
+    "pickDateHeadline": "Escolha uma data.",
+    "prose": {
+      "estimateNotice": "Todo número aqui é uma estimativa produzida a partir do que você informou. Alcançar {minimumRobux} Earned Robux permite enviar uma solicitação de DevEx; não significa que ela será aprovada. O Roblox analisa elegibilidade, situação da conta e conformidade, e decide sobre cada solicitação por conta própria. As taxas podem mudar, e uma projeção supõe que você continue ganhando no ritmo que informou."
+    }
   },
   "controls": {
     "body": {

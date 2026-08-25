@@ -19,6 +19,7 @@ export const CALCULATOR_WORDS: readonly string[] = [
   ...RESULTS_WORDS,
   "calculator.body.intro.p1",
   "calculator.body.intro.p2",
+  "calculator.body.intro.p3",
   "calculator.body.intro.p5",
   "calculator.deductions.flatFeeLabel",
   "calculator.deductions.percentageFeeLabel",

@@ -258,7 +258,10 @@
     "alreadyEnoughHeadline": "You already hold enough for this target.",
     "zeroEarningsHeadline": "No date, at this pace.",
     "datePassedHeadline": "That date has already arrived.",
-    "pickDateHeadline": "Pick a date."
+    "pickDateHeadline": "Pick a date.",
+    "prose": {
+      "estimateNotice": "Every figure here is an estimate produced from what you entered. Reaching {minimumRobux} Earned Robux lets you submit a DevEx request; it does not mean the request will be approved. Roblox reviews eligibility, account standing and compliance, and decides on every request itself. Rates can change, and a projection assumes you keep earning at the pace you gave."
+    }
   },
   "actions": {},
   "controls": {

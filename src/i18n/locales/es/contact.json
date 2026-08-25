@@ -24,6 +24,11 @@
         "p5": "Predecir si se aprobará una solicitud o cuál será una tasa futura.",
         "p6": "Este sitio nunca te pedirá tu contraseña de Roblox, un código de acceso ni acceso a tu cuenta, y ninguna herramienta legítima lo haría. Por favor, no los incluyas en un mensaje."
       }
+    },
+    "prose": {
+      "emailIsTheWay": "Los mensajes van a {email}. Incluye la página en la que estabas y, si se trata de una corrección, un enlace a la fuente oficial.",
+      "notConfigured": "Aquí no hay formulario de mensajes ni dirección publicada, y mostrar uno que descartara tu mensaje en silencio sería peor que decirlo. Si has encontrado un error factual, la vía más rápida es consultar el {sourceRegistry}: enlaza cada página oficial de la que proceden estas cifras, así que puedes confirmar el valor actual directamente.",
+      "privacyNote": "Tu mensaje y tu dirección de correo se usan solo para leer y responder a lo que enviaste. {privacyLink}."
     }
   },
   "form": {

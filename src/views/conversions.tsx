@@ -101,39 +101,33 @@ export async function ConversionsView({
               })}
             </ul>
             <p className="mt-4 text-sm text-(--color-text-muted)">
-              This list is deliberately short. A page for every number would be a
-              page that says nothing new, which is both unhelpful and against
-              search-quality guidance. Amounts are added only when they clear a
-              demand threshold and there is something specific to say about them.{" "}
-              <InlineLink href="/editorial-policy/">{t("rates.conversions.body.detailed.p2")}</InlineLink>
-              .
-            </p>
-          </Section>
-
-          <Section
-            id="rounding"
-            heading={t("rates.conversions.roundingHeading")}
-            description={t("rates.conversions.roundingDescription")}
-          >
-            <p className="text-(--color-text-muted)">
-              Each figure is Robux multiplied by an exact decimal rate, held as a
-              fraction throughout and rounded to the cent only when it is
-              printed. Nothing is rounded partway through, so a total never
-              disagrees with the sum of its parts.{" "}
-              <InlineLink href="/methodology/">{t("rates.conversions.fullMethodologyLink")}</InlineLink>.
-            </p>
-          </Section>
-
-          <RelatedLinks locale={locale}
-            record={record}
-            relationships={["parent", "tool", "prerequisite"]}
-            id="related"
-          />
-
-          <EstimateDisclaimer locale={locale} />
-          <SourceNote locale={locale} sourceIds={record.sourceIds} />
-        </div>
-      </Container>
-    </>
+              {t("rates.conversions.body.detailed.p1")}
+            <InlineLink href="/editorial-policy/">{t("rates.conversions.body.detailed.p2")}</InlineLink>
+                      .
+                    </p>
+                  </Section>
+        
+                  <Section
+                    id="rounding"
+                    heading={t("rates.conversions.roundingHeading")}
+                    description={t("rates.conversions.roundingDescription")}
+                  >
+                    <p className="text-(--color-text-muted)">
+              {t("rates.conversions.body.rounding.p1")}
+            <InlineLink href="/methodology/">{t("rates.conversions.fullMethodologyLink")}</InlineLink>.
+                    </p>
+                  </Section>
+        
+                  <RelatedLinks locale={locale}
+                    record={record}
+                    relationships={["parent", "tool", "prerequisite"]}
+                    id="related"
+                  />
+        
+                  <EstimateDisclaimer locale={locale} />
+                  <SourceNote locale={locale} sourceIds={record.sourceIds} />
+                </div>
+              </Container>
+            </>
   );
 }

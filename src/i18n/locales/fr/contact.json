@@ -27,6 +27,11 @@
         "p5": "Prédire si une demande sera acceptée ou quel sera un taux futur.",
         "p6": "Ce site ne vous demandera jamais votre mot de passe Roblox, un code de connexion ou l’accès à votre compte — et aucun outil légitime ne le fera. Merci de ne pas les inclure dans un message."
       }
+    },
+    "prose": {
+      "emailIsTheWay": "Les messages vont à {email}. Merci d’indiquer la page où vous étiez et, pour une correction, un lien vers la source officielle.",
+      "notConfigured": "Il n’y a ici ni formulaire ni adresse publiée, et en afficher un qui écarterait silencieusement votre message serait pire que de le dire. Si vous avez repéré une erreur factuelle, le plus rapide est de consulter le {sourceRegistry} : il renvoie à chaque page officielle d’où proviennent ces chiffres, ce qui vous permet de vérifier la valeur actuelle directement.",
+      "privacyNote": "Votre message et votre adresse e-mail servent uniquement à lire ce que vous avez envoyé et à y répondre. {privacyLink}."
     }
   },
   "form": {

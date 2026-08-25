@@ -84,7 +84,13 @@ export function ResultAnnouncer({ message }: { message: string }) {
  * meter on a third-party site asserting eligibility outright would be a false
  * promise to someone planning around real money.
  */
-export function ThresholdMeter({ threshold }: { threshold: ThresholdStatus }) {
+export function ThresholdMeter({
+  threshold,
+  t,
+}: {
+  threshold: ThresholdStatus;
+  readonly t: Translate;
+}) {
   if (threshold.state === "empty") return null;
 
   const meets = threshold.state === "meets-minimum";
@@ -120,9 +126,9 @@ export function ThresholdMeter({ threshold }: { threshold: ThresholdStatus }) {
       </div>
 
       <p className="mt-2 text-xs text-(--color-text-muted)">
-        Roblox requires {formatRobux(threshold.minimumRobux)} Earned Robux to submit a
-        request. Reaching that number is a requirement, not an approval — Roblox
-        reviews every request and decides which Robux qualify.
+        {t("calculator.results.body.intro.p1", {
+          minimumRobux: formatRobux(threshold.minimumRobux),
+        })}
       </p>
     </div>
   );
@@ -353,32 +359,36 @@ export function TargetBreakdown({
       <p className="text-(--color-text-muted)">
         {formatCurrency(result.targetUsd, currency)} ÷ ${formatRate(result.rateValue)} per Robux ={" "}
         <span className="tabular">{result.exactRequiredRobux.toFixed(2)}</span>, rounded up to{" "}
-        <strong className="text-(--color-text)">{formatRobux(result.requiredRobux)}</strong> whole
-        Earned Robux. That pays {formatCurrency(result.payoutAtRequiredRobux, currency)}, which is
-        the first whole-Robux amount that reaches your target rather than falling just short.
-      </p>
+        <strong className="text-(--color-text)">{formatRobux(result.requiredRobux)}</strong>
+          {t("calculator.results.body.intro.p4", {
+            currency: formatCurrency(result.payoutAtRequiredRobux, currency),
+          })}
+        </p>
 
       {result.requirementIsBelowMinimum ? (
         <div className="rounded-(--radius-control) border border-(--color-border) border-l-4 border-l-(--color-warning) bg-(--color-surface) p-3">
           <p className="font-semibold text-(--color-text)">{t("calculator.target.minimumAppliesFirstTitle")}</p>
           <p className="mt-1 text-(--color-text-muted)">
-            {formatRobux(result.requiredRobux)} Earned Robux would reach your target
-            arithmetically, but Roblox requires {formatRobux(result.minimumRobux)} before a request
-            can be submitted. You would need{" "}
-            <strong className="text-(--color-text)">
-              {formatRobux(result.effectiveRobuxNeeded)}
-            </strong>{" "}
-            in practice.
+            {t("calculator.results.body.intro.p5", {
+              requiredRobux: formatRobux(result.requiredRobux),
+              minimumRobux: formatRobux(result.minimumRobux),
+            })}
+          <strong className="text-(--color-text)">
+                    {formatRobux(result.effectiveRobuxNeeded)}
+                  </strong>{" "}
+                  in practice.
+                </p>
+              </div>
+            ) : null}
+      
+            {result.progressPercent !== null && result.currentRobux !== null ? (
+              <div>
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <p className="font-semibold text-(--color-text)">
+            {t("calculator.results.body.intro.p7", {
+              progressPercent: result.progressPercent,
+            })}
           </p>
-        </div>
-      ) : null}
-
-      {result.progressPercent !== null && result.currentRobux !== null ? (
-        <div>
-          <div className="flex flex-wrap items-center justify-between gap-2">
-            <p className="font-semibold text-(--color-text)">
-              {result.progressPercent}% of the way there
-            </p>
             <Badge tone={result.remainingRobux === 0n ? "success" : "info"}>
               {result.remainingRobux === 0n
                 ? "Target reached"

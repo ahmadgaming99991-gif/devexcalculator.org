@@ -113,74 +113,74 @@ export async function HomeView({
               </div>
             </div>
             <p className="mt-3 text-sm text-(--color-text-muted)">
-              Roblox makes the final determination for any specific balance.{" "}
-              <InlineLink href="/earned-robux/">{t("calculator.home.body.earnedRobux.p2")}</InlineLink>
-              .
-            </p>
-          </Section>
-
-          <Section
-            id="popular-amounts"
-            heading={t("calculator.home.commonAmountsHeading")}
-            description={t("calculator.home.commonAmountsDescription")}
-          >
-            <AmountTable t={t} />
-            <p className="mt-3 text-sm text-(--color-text-muted)">
-              <InlineLink href="/conversions/">{t("calculator.home.body.popularAmounts.p1")}</InlineLink>
-              .
-            </p>
-          </Section>
-
-          <Section
-            id="requirements"
-            heading="What Roblox requires"
-            description={t("calculator.home.meetingAllNote")}
-          >
-            <RequirementsList t={t} />
-            <p className="mt-3 text-sm text-(--color-text-muted)">
-              <InlineLink href="/devex-requirements/">{t("calculator.home.body.requirements.p1")}</InlineLink>{" "}
-              ·{" "}
-              <InlineLink href="/how-to-cash-out-robux/">{t("routes.home.links.howToCashOutRobux")}</InlineLink>
-            </p>
-          </Section>
-
-          <RelatedLinks locale={locale}
-            record={record}
-            relationships={["tool"]}
-            heading={t("calculator.home.relatedCalculators")}
-            id="related-tools"
-          />
-
-          <RelatedLinks locale={locale}
-            record={record}
-            relationships={["child", "next-step"]}
-            heading={t("calculator.home.relatedGuides")}
-            id="related-guides"
-          />
-
-          <FAQAccordion locale={locale} faqs={record.faqs} />
-
-          <LimitationsNote locale={locale}
-            items={[
-              t("calculator.home.cannot.eligibility"),
-              t("calculator.home.cannot.approval"),
-              t("calculator.home.cannot.providerFees"),
-              t("calculator.home.cannot.tax"),
-              t("calculator.home.cannot.retailPrice"),
-            ]}
-          />
-
-          <EstimateDisclaimer locale={locale} />
-
-          <SourceNote locale={locale} sourceIds={record.sourceIds} />
-
-          <p className="text-sm text-(--color-text-muted)">
-            Something out of date?{" "}
+              {t("calculator.home.body.earnedRobux.p1")}
+            <InlineLink href="/earned-robux/">{t("calculator.home.body.earnedRobux.p2")}</InlineLink>
+                      .
+                    </p>
+                  </Section>
+        
+                  <Section
+                    id="popular-amounts"
+                    heading={t("calculator.home.commonAmountsHeading")}
+                    description={t("calculator.home.commonAmountsDescription")}
+                  >
+                    <AmountTable t={t} />
+                    <p className="mt-3 text-sm text-(--color-text-muted)">
+                      <InlineLink href="/conversions/">{t("calculator.home.body.popularAmounts.p1")}</InlineLink>
+                      .
+                    </p>
+                  </Section>
+        
+                  <Section
+                    id="requirements"
+                    heading="What Roblox requires"
+                    description={t("calculator.home.meetingAllNote")}
+                  >
+                    <RequirementsList t={t} />
+                    <p className="mt-3 text-sm text-(--color-text-muted)">
+                      <InlineLink href="/devex-requirements/">{t("calculator.home.body.requirements.p1")}</InlineLink>{" "}
+                      ·{" "}
+                      <InlineLink href="/how-to-cash-out-robux/">{t("routes.home.links.howToCashOutRobux")}</InlineLink>
+                    </p>
+                  </Section>
+        
+                  <RelatedLinks locale={locale}
+                    record={record}
+                    relationships={["tool"]}
+                    heading={t("calculator.home.relatedCalculators")}
+                    id="related-tools"
+                  />
+        
+                  <RelatedLinks locale={locale}
+                    record={record}
+                    relationships={["child", "next-step"]}
+                    heading={t("calculator.home.relatedGuides")}
+                    id="related-guides"
+                  />
+        
+                  <FAQAccordion locale={locale} faqs={record.faqs} />
+        
+                  <LimitationsNote locale={locale}
+                    items={[
+                      t("calculator.home.cannot.eligibility"),
+                      t("calculator.home.cannot.approval"),
+                      t("calculator.home.cannot.providerFees"),
+                      t("calculator.home.cannot.tax"),
+                      t("calculator.home.cannot.retailPrice"),
+                    ]}
+                  />
+        
+                  <EstimateDisclaimer locale={locale} />
+        
+                  <SourceNote locale={locale} sourceIds={record.sourceIds} />
+        
+                  <p className="text-sm text-(--color-text-muted)">
+              {t("calculator.home.body.relatedGuides.p1")}
             <Link href="/corrections/" className="text-(--color-primary) underline">{t("calculator.home.body.relatedGuides.p2")}</Link>
-            .
-          </p>
-        </div>
-      </Container>
-    </>
+                    .
+                  </p>
+                </div>
+              </Container>
+            </>
   );
 }
