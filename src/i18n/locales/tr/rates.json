@@ -179,6 +179,33 @@
       "pending": {
         "p1": "Yakın zamanda yapılmış bir satın almadan gelen Robux, kullanılabilir hâle gelmeden önce genellikle bir süre bekleyen olarak durur; bu, geri alınan işlemlere karşı koruma sağlar. Bekleyen Robux henüz üzerinde işlem yapabileceğiniz bakiyenin parçası değildir. Roblox güncel bekletme davranışını Creator Hub'da belgeliyor; bu davranış zaman içinde değiştiği için bu sayfa belirli bir gün sayısı söylemiyor — şu anda geçerli rakam için resmî belgelere bakın."
       }
+    },
+    "qualifying": {
+      "developerProducts": "Sahibi olduğunuz bir deneyimde oyuncuların developer product satın almasından gelen Robux",
+      "passes": "Deneyiminizdeki pass satın alımlarından gelen Robux",
+      "privateServers": "Özel sunucu aboneliklerinden size düşen pay",
+      "avatarItems": "Yapıp sattığınız avatar ürünlerinden size düşen yaratıcı payı",
+      "experienceSubscriptions": "Size açık olduğu durumlarda deneyim aboneliklerinden size düşen pay"
+    },
+    "notQualifying": {
+      "purchased": "Kendi satın aldığınız Robux — hangi paket ya da fiyat olursa olsun",
+      "giftCards": "Bir hediye kartından ya da promosyon kodundan gelen Robux",
+      "membership": "Bir Roblox üyeliğiyle aylık tahsis olarak verilen Robux",
+      "trade": "Bir takasta başka bir oyuncudan alınan Robux",
+      "transferred": "Yaratıcı kazançları dışında hesabınıza aktarılan Robux"
+    },
+    "gate": {
+      "accepted": {
+        "passesAndProducts": "Deneyiminizde pass ve developer product satın alan oyuncular",
+        "subscriptions": "Özel sunucu ve deneyim aboneliklerinden size düşen pay",
+        "avatarItems": "Yaptığınız avatar ürünlerinden size düşen yaratıcı payı"
+      },
+      "rejected": {
+        "purchased": "Kendi satın aldığınız Robux, hangi fiyata olursa olsun",
+        "giftCards": "Hediye kartları ve promosyon kodları",
+        "membership": "Aylık üyelik tahsisleri",
+        "trade": "Bir takasta alınan Robux"
+      }
     }
   },
   "feesAndTaxes": {
@@ -378,6 +405,13 @@
         "p2": "Earned Robux'unuzu bir ödeme tahminine çevirin",
         "p3": "Bir DevEx ödemesinden gerçekte neler düşülür"
       }
+    },
+    "notCovered": {
+      "regionalPricing": "Bölgesel fiyat ayarlamaları; bir oyuncunun ödediğini değiştirir, pay yüzdenizi değiştirmez.",
+      "resale": "Limited ya da yeniden satış ürünleri; yeniden satış ücret yapısı ilk satıştan farklıdır.",
+      "groupSplits": "İşbirlikçiler arasında kararlaştırılan grup gelir paylaşımları; bunlar Roblox komisyonundan sonra gerçekleşir.",
+      "promotional": "Roblox'un belirli bir kategoriye uygulayabileceği promosyona ya da programa özgü herhangi bir oran.",
+      "devexConversion": "DevEx dönüşümü; bu, ana hesaplayıcının üstlendiği ayrı bir adımdır."
     }
   },
   "conversions": {

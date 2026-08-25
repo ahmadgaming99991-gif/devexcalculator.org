@@ -160,7 +160,8 @@
     "usdUnaffected": "Angka USD di atas dihitung secara lokal dan tidak terpengaruh.",
     "staleHeading": "Kurs sudah usang.",
     "provenance": "Angka {currency} memakai kurs acuan {provider} yang diamati pada {date}. Ini kurs acuan, bukan kutipan bank — penyedia pembayaran Anda akan memakai kursnya sendiri dan mungkin menambahkan biaya.",
-    "staleSnapshot": "Kurs referensi langsung tidak tersedia, jadi yang ditampilkan adalah cuplikan tersimpan. Anggap angka-angka ini hanya sebagai indikasi."
+    "staleSnapshot": "Kurs referensi langsung tidak tersedia, jadi yang ditampilkan adalah cuplikan tersimpan. Anggap angka-angka ini hanya sebagai indikasi.",
+    "staleAged": "Kurs referensi terbaru yang diterbitkan sudah berumur {ageDays} hari."
   },
   "home": {
     "formulaOpen": "Tidak ada yang disembunyikan di sini. Rumusnya satu perkalian, dan Anda bisa memeriksanya.",
@@ -209,7 +210,14 @@
       }
     },
     "intro": "Ubah Earned Robux yang memenuhi syarat menjadi perkiraan pembayaran dalam dolar AS memakai tarif yang saat ini didokumentasikan Roblox, dengan sumber dan tanggal verifikasi ditampilkan di samping setiap angka.",
-    "jumpLabel": "Lihat cara perhitungannya bekerja"
+    "jumpLabel": "Lihat cara perhitungannya bekerja",
+    "cannot": {
+      "eligibility": "Apakah Robux Anda dihitung sebagai Earned Robux — yang memutuskan itu Roblox, bukan kalkulator ini.",
+      "approval": "Apakah sebuah permohonan DevEx akan disetujui, dan berapa lama prosesnya.",
+      "providerFees": "Biaya penyedia pembayaran dan selisih kurs, kecuali Anda memasukkan angka Anda sendiri.",
+      "tax": "Pajak yang terutang di negara Anda. Tidak ada satu pun di sini yang merupakan nasihat pajak.",
+      "retailPrice": "Harga eceran untuk membeli Robux, yang merupakan transaksi terpisah dengan harganya sendiri."
+    }
   },
   "planner": {
     "targetLabel": "Pembayaran yang Anda tuju",

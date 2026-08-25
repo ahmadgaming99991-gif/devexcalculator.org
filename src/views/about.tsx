@@ -15,12 +15,12 @@ export async function AboutView({ locale }: { readonly locale: Locale }) {
 
   return (
     <>
-      <JsonLd route={ROUTE} />
+      <JsonLd locale={locale} route={ROUTE} />
       <Container width="prose">
         <Breadcrumbs locale={locale} route={ROUTE} />
         <PageHeader locale={locale}
           record={record}
-          intro="What this site is for, how it is built, and the things it deliberately refuses to do."
+          intro={t("trust.about.intro")}
         />
 
         <div className="flex flex-col gap-10">

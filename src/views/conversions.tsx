@@ -35,23 +35,23 @@ export async function ConversionsView({
 
   return (
     <>
-      <JsonLd route={ROUTE} />
+      <JsonLd locale={locale} route={ROUTE} />
       <Container width="wide">
         <Breadcrumbs locale={locale} route={ROUTE} />
         <PageHeader locale={locale}
           record={record}
-          intro="A server-rendered table of common amounts across all three documented rates, plus an input for anything not listed."
+          intro={t("rates.conversions.intro")}
         />
 
         <div className="flex flex-col gap-10">
-          <QuickAnswer locale={locale} jumpTo="table" jumpLabel="Jump to the table">
+          <QuickAnswer locale={locale} jumpTo="table" jumpLabel={t("rates.conversions.jumpLabel")}>
             {record.quickAnswer}
           </QuickAnswer>
 
           <Section
             id="converter"
             heading={t("rates.conversions.convertAnyHeading")}
-            description="Not every amount needs its own page. Enter yours here and share the resulting link."
+            description={t("rates.conversions.convertAnyDescription")}
           >
             <Calculator words={await loadWords(locale, CALCULATOR_WORDS)}
               initialState={initialState}
@@ -64,7 +64,7 @@ export async function ConversionsView({
           <Section
             id="table"
             heading={t("rates.conversions.everyAmountHeading")}
-            description="Sixty-eight amounts at all three documented rates, including the ones below the DevEx minimum — those are asked about most often, and the honest answer includes the fact that they cannot be cashed out. Every figure is rendered on the server, so it is here whether or not JavaScript runs."
+            description={t("rates.conversions.everyAmountDescription")}
           >
             <AmountTable t={t} />
             <p className="mt-4 text-sm text-(--color-text-muted)">
@@ -79,7 +79,7 @@ export async function ConversionsView({
           <Section
             id="detailed"
             heading={t("rates.conversions.fullBreakdownHeading")}
-            description="These amounts have enough demand and enough to say about them to justify a page of their own. The rest are served by the table above and by the calculator."
+            description={t("rates.conversions.fullBreakdownDescription")}
           >
             <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {APPROVED_AMOUNTS.map((definition) => {
@@ -119,7 +119,7 @@ export async function ConversionsView({
           <Section
             id="rounding"
             heading={t("rates.conversions.roundingHeading")}
-            description="Displayed to the cent, calculated with more precision than that."
+            description={t("rates.conversions.roundingDescription")}
           >
             <p className="text-(--color-text-muted)">
               Each figure is Robux multiplied by an exact decimal rate, held as a

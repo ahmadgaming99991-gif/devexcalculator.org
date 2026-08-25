@@ -22,12 +22,12 @@ export async function ContactView({ locale }: { readonly locale: Locale }) {
 
   return (
     <>
-      <JsonLd route={ROUTE} />
+      <JsonLd locale={locale} route={ROUTE} />
       <Container width="prose">
         <Breadcrumbs locale={locale} route={ROUTE} />
         <PageHeader locale={locale}
           record={record}
-          intro="Corrections are the most valuable thing you can send, especially with a link to the official page that contradicts what is published here."
+          intro={t("contact.page.intro")}
         />
 
         <div className="flex flex-col gap-10">
@@ -71,7 +71,7 @@ export async function ContactView({ locale }: { readonly locale: Locale }) {
           <Section
             id="cannot-help"
             heading={t("contact.page.cannotHelpHeading")}
-            description="Not a brush-off — these are genuinely outside what an independent calculator can reach."
+            description={t("contact.page.cannotHelpDescription")}
           >
             <ul className="flex list-disc flex-col gap-2 pl-5 text-(--color-text-muted)">
               <li>{t("contact.page.body.cannotHelp.p1")}</li>

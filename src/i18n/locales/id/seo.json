@@ -29,19 +29,5 @@
     "machineDraftedLabel": "Terjemahan mesin",
     "machineDraftedDescription": "Halaman ini diterjemahkan secara otomatis dan belum dibaca oleh penutur asli. Angka-angkanya berasal dari registri terverifikasi yang sama dengan halaman bahasa Inggris.",
     "readOriginal": "Baca halaman asli dalam bahasa Inggris"
-  },
-  "schema": {
-    "datasets": {
-      "stats": {
-        "name": "Angka pembayaran kreator dan keterlibatan di Roblox",
-        "description": "Biaya Developer Exchange, pendapatan, dan keterlibatan sebagaimana dilaporkan Roblox dalam dokumen SEC-nya, dengan setiap baris ditandai sebagai dilaporkan atau diturunkan dan ditautkan ke dokumen asalnya. Termasuk metrik yang tidak dipublikasikan Roblox, sebagai ketiadaan beserta alasannya.",
-        "measurementTechnique": "Disalin dari dokumen SEC Roblox Corporation dan surat kepada pemegang saham. Angka turunan dihitung dalam kode dari angka yang dilaporkan dan ditandai sebagaimana adanya."
-      },
-      "platform": {
-        "name": "Jumlah pemain Roblox yang teramati",
-        "description": "Jumlah pemain yang teramati setiap lima belas menit dari endpoint publik milik Roblox sendiri, untuk experience yang saat itu diperingkatkan Roblox. Tidak ada yang diinterpolasi dan tidak ada pengamatan hilang yang ditambal; celah berarti pengumpul data tidak berjalan. Ini hanya mencakup experience yang diperingkatkan, bukan seluruh Roblox.",
-        "measurementTechnique": "Direkam di sisi server dari endpoint publik permainan Roblox dengan jadwal lima belas menit. Total platform disimpan empat belas hari; seri per experience diambil sampelnya tiap jam dan disimpan tujuh hari."
-      }
-    }
   }
 }

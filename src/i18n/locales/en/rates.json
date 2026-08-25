@@ -179,6 +179,33 @@
       "pending": {
         "p1": "Robux from a recent purchase typically spend a period as pending before becoming available, which protects against reversed transactions. Pending Robux are not yet part of the balance you can act on. Roblox documents the current holding behaviour in the Creator Hub, and because that behaviour has changed over time this page does not state a specific number of days — check the official documentation for the figure that applies now."
       }
+    },
+    "qualifying": {
+      "developerProducts": "Robux from players buying developer products inside an experience you own",
+      "passes": "Robux from pass purchases in your experience",
+      "privateServers": "Your share of private server subscriptions",
+      "avatarItems": "Your creator share of avatar items you made and sold",
+      "experienceSubscriptions": "Your share of experience subscriptions where these are available to you"
+    },
+    "notQualifying": {
+      "purchased": "Robux you bought yourself, in any package or at any price",
+      "giftCards": "Robux from a gift card or promotional code",
+      "membership": "Robux included with a Roblox membership as a monthly grant",
+      "trade": "Robux received from another player in a trade",
+      "transferred": "Robux transferred into your account from outside creator earnings"
+    },
+    "gate": {
+      "accepted": {
+        "passesAndProducts": "Players buying passes and developer products in your experience",
+        "subscriptions": "Your share of private server and experience subscriptions",
+        "avatarItems": "Your creator share of avatar items you made"
+      },
+      "rejected": {
+        "purchased": "Robux you bought yourself, at any price",
+        "giftCards": "Gift cards and promotional codes",
+        "membership": "Monthly membership grants",
+        "trade": "Robux received in a trade"
+      }
     }
   },
   "feesAndTaxes": {
@@ -378,6 +405,13 @@
         "p2": "Convert your Earned Robux to a payout estimate",
         "p3": "What actually comes off a DevEx payout"
       }
+    },
+    "notCovered": {
+      "regionalPricing": "Regional pricing adjustments, which change what a player pays without changing your share percentage.",
+      "resale": "Limited or resale items, where the resale fee structure differs from a first sale.",
+      "groupSplits": "Group revenue splits agreed between collaborators, which happen after Roblox's commission.",
+      "promotional": "Any promotional or programme-specific rate Roblox may apply to a particular category.",
+      "devexConversion": "The DevEx conversion, which is a separate step handled by the main calculator."
     }
   },
   "conversions": {

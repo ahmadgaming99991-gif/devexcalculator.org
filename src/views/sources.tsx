@@ -21,23 +21,23 @@ export async function SourcesView({ locale }: { readonly locale: Locale }) {
 
   return (
     <>
-      <JsonLd route={ROUTE} />
+      <JsonLd locale={locale} route={ROUTE} />
       <Container width="wide">
         <Breadcrumbs locale={locale} route={ROUTE} />
         <PageHeader locale={locale}
           record={record}
-          intro="Every official source behind the figures on this site, what each one establishes, and when it was last checked."
+          intro={t("trust.sources.intro")}
         />
 
         <div className="flex flex-col gap-10">
-          <QuickAnswer locale={locale} jumpTo="registry" jumpLabel="See the registry">
+          <QuickAnswer locale={locale} jumpTo="registry" jumpLabel={t("trust.sources.jumpLabel")}>
             {record.quickAnswer}
           </QuickAnswer>
 
           <Section
             id="registry"
             heading={t("trust.sources.registryHeading")}
-            description="Generated from the same registry the calculator reads, so this page cannot drift out of step with the figures it documents."
+            description={t("trust.sources.registryDescription")}
           >
             <div className="flex flex-col gap-4">
               {sources.sources.map((source) => (
@@ -85,7 +85,7 @@ export async function SourcesView({ locale }: { readonly locale: Locale }) {
           <Section
             id="cadence"
             heading={t("trust.sources.cadenceHeading")}
-            description="How often these are rechecked, and what happens when one changes."
+            description={t("trust.sources.cadenceDescription")}
           >
             <div className="rounded-(--radius-control) border border-(--color-border) bg-(--color-surface) p-4">
               <dl className="flex flex-col gap-2 text-sm">

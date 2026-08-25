@@ -1,4 +1,5 @@
 import { getTranslator } from "@/i18n/get-dictionary";
+import type { Translate } from "@/i18n/get-dictionary";
 import { localizedRoute } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -20,11 +21,13 @@ const ROUTE = "/changelog/";
  * honest, and a fabricated one would undermine everything else on the page.
  */
 
-const KIND_LABELS: Record<ChangeEntry["kind"], { label: string; tone: "warning" | "info" | "neutral" }> = {
-  rate: { label: "Rate data", tone: "warning" },
-  content: { label: "Content", tone: "info" },
-  site: { label: "Site", tone: "neutral" },
-};
+const kindLabels = (
+  t: Translate,
+): Record<ChangeEntry["kind"], { label: string; tone: "warning" | "info" | "neutral" }> => ({
+  rate: { label: t("common.footer.rateDataLabel"), tone: "warning" },
+  content: { label: t("trust.changelog.filterContent"), tone: "info" },
+  site: { label: t("trust.changelog.filterSite"), tone: "neutral" },
+});
 
 export async function ChangelogView({ locale }: { readonly locale: Locale }) {
   const t = await getTranslator(locale, ["trust"]);
@@ -32,16 +35,16 @@ export async function ChangelogView({ locale }: { readonly locale: Locale }) {
 
   return (
     <>
-      <JsonLd route={ROUTE} />
+      <JsonLd locale={locale} route={ROUTE} />
       <Container width="wide">
         <Breadcrumbs locale={locale} route={ROUTE} />
         <PageHeader locale={locale}
           record={record}
-          intro="What changed on this site, when, and which source justified it."
+          intro={t("trust.changelog.intro")}
         />
 
         <div className="flex flex-col gap-10">
-          <QuickAnswer locale={locale} jumpTo="entries" jumpLabel="See the entries">
+          <QuickAnswer locale={locale} jumpTo="entries" jumpLabel={t("trust.changelog.jumpLabel")}>
             {record.quickAnswer}
           </QuickAnswer>
 
@@ -64,7 +67,7 @@ export async function ChangelogView({ locale }: { readonly locale: Locale }) {
 
             <ol className="mt-6 flex flex-col gap-4">
               {changelogEntries.map((entry, index) => {
-                const kind = KIND_LABELS[entry.kind];
+                const kind = kindLabels(t)[entry.kind];
                 return (
                   <li
                     key={`${entry.date}-${index}`}
@@ -97,7 +100,7 @@ export async function ChangelogView({ locale }: { readonly locale: Locale }) {
           <Section
             id="scope"
             heading={t("trust.changelog.recordedHeading")}
-            description="This changelog tracks what this site did. What Roblox did is tracked separately."
+            description={t("trust.changelog.recordedDescription")}
           >
             <p className="text-(--color-text-muted)">{t("trust.changelog.body.scope.p1")}</p>
             <p className="mt-3 text-(--color-text-muted)">

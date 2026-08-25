@@ -32,16 +32,16 @@ export async function DevexRatesView({ locale }: { readonly locale: Locale }) {
 
   return (
     <>
-      <JsonLd route={ROUTE} />
+      <JsonLd locale={locale} route={ROUTE} />
       <Container width="wide">
         <Breadcrumbs locale={locale} route={ROUTE} />
         <PageHeader locale={locale}
           record={record}
-          intro="What Roblox pays per eligible Earned Robux, when each rate applies, and what the September 2025 change was actually worth."
+          intro={t("rates.devexRates.intro")}
         />
 
         <div className="flex flex-col gap-10">
-          <QuickAnswer locale={locale} jumpTo="current-rates" jumpLabel="See the full rate table">
+          <QuickAnswer locale={locale} jumpTo="current-rates" jumpLabel={t("rates.devexRates.jumpLabel")}>
             {record.quickAnswer}
           </QuickAnswer>
 
@@ -50,7 +50,7 @@ export async function DevexRatesView({ locale }: { readonly locale: Locale }) {
           <Section
             id="current-rates"
             heading={t("rates.devexRates.threeRatesHeading")}
-            description="All three come from the same official Roblox documentation, checked on the date shown above."
+            description={t("rates.devexRates.threeRatesDescription")}
           >
             <RateTable t={t} />
           </Section>
@@ -58,7 +58,7 @@ export async function DevexRatesView({ locale }: { readonly locale: Locale }) {
           <Section
             id="examples"
             heading={t("rates.devexRates.whatEachPaysHeading")}
-            description="The same amounts valued under each rate, so the difference is concrete rather than abstract."
+            description={t("rates.devexRates.whatEachPaysDescription")}
           >
             <TableWrapper label={t("rates.devexRates.workedExamplesLabel")}>
               <Table caption={t("rates.devexRates.workedExamplesCaption")}>
@@ -98,7 +98,7 @@ export async function DevexRatesView({ locale }: { readonly locale: Locale }) {
           <Section
             id="which-applies"
             heading={t("rates.devexRates.whichAppliesHeading")}
-            description="This is the part most explanations get wrong: it is not a choice."
+            description={t("rates.devexRates.whichAppliesDescription")}
           >
             <div className="flex flex-col gap-3">
               {allRates.map((rate) => (
@@ -124,7 +124,7 @@ export async function DevexRatesView({ locale }: { readonly locale: Locale }) {
           <Section
             id="difference"
             heading={t("rates.devexRates.compareHeading")}
-            description="Enter any amount on the calculator to see all three side by side."
+            description={t("rates.devexRates.compareDescription")}
           >
             <div className="rounded-(--radius-control) border border-(--color-border) bg-(--color-surface) p-4">
               <p className="text-sm text-(--color-text-muted)">
@@ -148,7 +148,7 @@ export async function DevexRatesView({ locale }: { readonly locale: Locale }) {
           <Section
             id="changes"
             heading={t("rates.devexRates.canChangeHeading")}
-            description="They have before, and this page records only what is currently documented."
+            description={t("rates.devexRates.canChangeDescription")}
           >
             <p className="text-(--color-text-muted)">
               Roblox moved the standard rate from 0.0035 to 0.0038 on{" "}

@@ -40,16 +40,16 @@ export async function FeesAndTaxesView({
 
   return (
     <>
-      <JsonLd route={ROUTE} />
+      <JsonLd locale={locale} route={ROUTE} />
       <Container width="wide">
         <Breadcrumbs locale={locale} route={ROUTE} />
         <PageHeader locale={locale}
           record={record}
-          intro="Three separate things sit between the DevEx conversion and the money reaching your account. None of them is the DevEx rate."
+          intro={t("rates.feesAndTaxes.intro")}
         />
 
         <div className="flex flex-col gap-10">
-          <QuickAnswer locale={locale} jumpTo="three-layers" jumpLabel="See what each one is">
+          <QuickAnswer locale={locale} jumpTo="three-layers" jumpLabel={t("rates.feesAndTaxes.jumpLabel")}>
             {record.quickAnswer}
           </QuickAnswer>
 
@@ -60,70 +60,65 @@ export async function FeesAndTaxesView({
           <Section
             id="three-layers"
             heading={t("rates.feesAndTaxes.threeDeductionsHeading")}
-            description="They apply in sequence, and confusing them is how creators end up with a number that is badly wrong."
+            description={t("rates.feesAndTaxes.threeDeductionsDescription")}
           >
             <ValueFlow
               className="mb-6"
               caption={t("rates.feesAndTaxes.sequenceCaption")}
               stages={[
                 {
-                  label: "DevEx payout",
-                  detail:
-                    "What the documented rate produces from your eligible Earned Robux. This is the figure the calculator estimates.",
+                  label: t("rates.feesAndTaxes.diagram.devexPayout"),
+                  detail: t("rates.feesAndTaxes.diagram.devexPayoutNote"),
                   by: "Roblox",
                   tone: "primary",
                 },
                 {
-                  label: "Payment-provider fee",
-                  detail:
-                    "Often a percentage plus a fixed amount, charged for delivering the money.",
-                  by: "your payment provider",
+                  label: t("rates.feesAndTaxes.diagram.providerFee"),
+                  detail: t("rates.feesAndTaxes.diagram.providerFeeNote"),
+                  by: t("rates.feesAndTaxes.diagram.providerFeeBy"),
                   tone: "warning",
                 },
                 {
-                  label: "Currency conversion",
-                  detail:
-                    "Applied only if you are paid in something other than US dollars, at their rate plus a margin.",
-                  by: "whoever converts it",
+                  label: t("rates.feesAndTaxes.conversionHeading"),
+                  detail: t("rates.feesAndTaxes.diagram.conversionNote"),
+                  by: t("rates.feesAndTaxes.diagram.conversionBy"),
                   tone: "warning",
                 },
                 {
-                  label: "Income tax",
-                  detail:
-                    "A payout is income. What applies, and when, depends on your country and your circumstances.",
-                  by: "your tax authority",
+                  label: t("rates.feesAndTaxes.incomeTaxHeading"),
+                  detail: t("rates.feesAndTaxes.diagram.incomeTaxNote"),
+                  by: t("rates.feesAndTaxes.diagram.incomeTaxBy"),
                   tone: "warning",
                 },
                 {
-                  label: "What reaches you",
-                  detail:
-                    "Lower than the estimate above, by an amount only your own provider and tax position can tell you.",
+                  label: t("rates.feesAndTaxes.diagram.whatReachesYou"),
+                  detail: t("rates.feesAndTaxes.diagram.whatReachesYouNote"),
                   tone: "success",
                 },
               ]}
             />
 
             <div className="flex flex-col gap-3">
-              <DefinitionBlock term="1. Payment-provider fees">
+              <DefinitionBlock term={t("rates.feesAndTaxes.term1")}>
                 Whatever service delivers the money may charge for doing so —
                 often a percentage plus a fixed amount per payout. This is
                 between you and that provider; Roblox does not set it and neither
                 does this site.
               </DefinitionBlock>
-              <DefinitionBlock term="2. Currency conversion">
+              <DefinitionBlock term={t("rates.feesAndTaxes.term2")}>
                 The DevEx rate is stated in US dollars. If you are paid in
                 another currency, someone converts it, and they apply their own
                 rate plus a margin. That margin is why your bank&rsquo;s figure will
                 not match a reference rate.
               </DefinitionBlock>
-              <DefinitionBlock term="3. Income tax">{t("rates.feesAndTaxes.body.threeLayers.p1")}</DefinitionBlock>
+              <DefinitionBlock term={t("rates.feesAndTaxes.term3")}>{t("rates.feesAndTaxes.body.threeLayers.p1")}</DefinitionBlock>
             </div>
           </Section>
 
           <Section
             id="fees"
             heading={t("rates.feesAndTaxes.providerFeesHeading")}
-            description="The one deduction you can find out in advance, and probably should."
+            description={t("rates.feesAndTaxes.providerFeesDescription")}
           >
             <p className="text-(--color-text-muted)">
               Fee structures vary by provider, country and payout method, so this
@@ -139,7 +134,7 @@ export async function FeesAndTaxesView({
           <Section
             id="currency"
             heading={t("rates.feesAndTaxes.conversionHeading")}
-            description="Why the figure on this site and the figure in your account differ."
+            description={t("rates.feesAndTaxes.conversionDescription")}
           >
             <p className="text-(--color-text-muted)">
               Local-currency estimates here use European Central Bank reference
@@ -156,7 +151,7 @@ export async function FeesAndTaxesView({
           <Section
             id="tax"
             heading={t("rates.feesAndTaxes.incomeTaxHeading")}
-            description="The part this site deliberately will not answer for you."
+            description={t("rates.feesAndTaxes.incomeTaxDescription")}
           >
             <p className="text-(--color-text-muted)">{t("rates.feesAndTaxes.body.tax.p1")}</p>
             <p className="mt-3 text-(--color-text-muted)">{t("rates.feesAndTaxes.body.tax.p2")}</p>
@@ -165,7 +160,7 @@ export async function FeesAndTaxesView({
           <Section
             id="estimator"
             heading={t("rates.feesAndTaxes.modelHeading")}
-            description="Open the fee and tax controls below the currency selector and enter your own percentages."
+            description={t("rates.feesAndTaxes.modelDescription")}
           >
             <Calculator words={await loadWords(locale, CALCULATOR_WORDS)} initialState={initialState} pathname={ROUTE} lockedMode="quick" showHistory={false} />
           </Section>
@@ -173,24 +168,24 @@ export async function FeesAndTaxesView({
           <Section
             id="not-the-marketplace-fee"
             heading={t("rates.feesAndTaxes.notMarketplaceHeading")}
-            description="The 30% platform commission is a different thing at a different point in time."
+            description={t("rates.feesAndTaxes.notMarketplaceDescription")}
           >
             <ShareSplit
               className="mb-4"
-              total="100 Robux spent by a player inside your experience"
+              total={t("rates.feesAndTaxes.diagram.marketplaceTotal")}
               caption={t("rates.feesAndTaxes.marketplaceDiagramCaption")}
               parts={[
                 {
-                  label: "to you, as Earned Robux",
+                  label: t("rates.feesAndTaxes.diagram.toYouAsEarned"),
                   percent: inExperience.creatorSharePercent,
                   tone: "success",
-                  note: "This is the balance DevEx later converts.",
+                  note: t("rates.feesAndTaxes.diagram.balanceDevExConverts"),
                 },
                 {
-                  label: "platform commission",
+                  label: t("rates.feesAndTaxes.diagram.platformCommission"),
                   percent: inExperience.platformSharePercent,
                   tone: "neutral",
-                  note: "Taken once, here — not again at cash-out.",
+                  note: t("rates.feesAndTaxes.diagram.takenOnceHere"),
                 },
               ]}
             />

@@ -1,4 +1,4 @@
-import { getTranslator } from "@/i18n/get-dictionary";
+import { getTranslator, type Translate } from "@/i18n/get-dictionary";
 import { localizedRoute } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -16,46 +16,46 @@ import {
 const ROUTE = "/methodology/";
 
 
-const FORMULAS: readonly { label: string; formula: string; note: string }[] = [
+const FORMULAS = (t: Translate): readonly { label: string; formula: string; note: string }[] => [
   {
-    label: "Payout from a balance",
-    formula: "gross USD = eligible Earned Robux × rate per Robux",
-    note: "One multiplication. The rate comes from the validated registry, never from a hardcoded literal in a component.",
+    label: t("trust.methodology.formulas.payoutTerm"),
+    formula: t("trust.methodology.formulas.payoutFormula"),
+    note: t("trust.methodology.formulas.payoutDetail"),
   },
   {
-    label: "Mixed balance",
-    formula: "gross USD = (standard × 0.0038) + (legacy × 0.0035) + (U.S. 18+ × 0.0054)",
-    note: "Each bucket is a separate input, so no Robux can be counted under two rates.",
+    label: t("trust.methodology.formulas.mixedTerm"),
+    formula: t("trust.methodology.formulas.mixedFormula"),
+    note: t("trust.methodology.formulas.mixedDetail"),
   },
   {
-    label: "Blended rate",
-    formula: "blended rate = gross USD ÷ total Earned Robux",
-    note: "The weighted average across whatever buckets you entered.",
+    label: t("trust.methodology.formulas.blendedTerm"),
+    formula: t("trust.methodology.formulas.blendedFormula"),
+    note: t("trust.methodology.formulas.blendedDetail"),
   },
   {
-    label: "Optional fees",
-    formula: "net before tax = gross − (gross × fee%) − flat fee",
-    note: "Applied only when you enter your own figures. Clamped so it can never go below zero.",
+    label: t("trust.methodology.formulas.feesTerm"),
+    formula: t("trust.methodology.formulas.feesFormula"),
+    note: t("trust.methodology.formulas.feesDetail"),
   },
   {
-    label: "Optional tax estimate",
-    formula: "net after estimate = net before tax − (net before tax × your tax%)",
-    note: "Tax is applied after fees, using whatever percentage you supply. This site states no tax rate.",
+    label: t("trust.methodology.formulas.taxTerm"),
+    formula: t("trust.methodology.formulas.taxFormula"),
+    note: t("trust.methodology.formulas.taxDetail"),
   },
   {
-    label: "Reverse target",
-    formula: "required Earned Robux = ceiling(target USD ÷ rate per Robux)",
-    note: "Always rounds up. Rounding down would leave the payout fractionally short of the target.",
+    label: t("trust.methodology.formulas.reverseTerm"),
+    formula: t("trust.methodology.formulas.reverseFormula"),
+    note: t("trust.methodology.formulas.reverseDetail"),
   },
   {
-    label: "Local currency",
-    formula: "local value = USD value × (EUR→target ÷ EUR→USD)",
-    note: "The ECB publishes euro-based rates, so USD cross rates are derived. The division direction is pinned by tests.",
+    label: t("trust.methodology.formulas.currencyTerm"),
+    formula: t("trust.methodology.formulas.currencyFormula"),
+    note: t("trust.methodology.formulas.currencyDetail"),
   },
   {
-    label: "Marketplace fee",
-    formula: "you keep = floor(sale price × creator share%)",
-    note: "Rounds down, so a figure shown is never more than you would actually receive.",
+    label: t("trust.methodology.formulas.marketplaceTerm"),
+    formula: t("trust.methodology.formulas.marketplaceFormula"),
+    note: t("trust.methodology.formulas.marketplaceDetail"),
   },
 ];
 
@@ -65,16 +65,16 @@ export async function MethodologyView({ locale }: { readonly locale: Locale }) {
 
   return (
     <>
-      <JsonLd route={ROUTE} />
+      <JsonLd locale={locale} route={ROUTE} />
       <Container width="wide">
         <Breadcrumbs locale={locale} route={ROUTE} />
         <PageHeader locale={locale}
           record={record}
-          intro="Every formula this site uses, how the arithmetic is done, and where precision is deliberately dropped."
+          intro={t("trust.methodology.intro")}
         />
 
         <div className="flex flex-col gap-10">
-          <QuickAnswer locale={locale} jumpTo="formulas" jumpLabel="See the formulas">
+          <QuickAnswer locale={locale} jumpTo="formulas" jumpLabel={t("trust.methodology.jumpLabel")}>
             {record.quickAnswer}
           </QuickAnswer>
 
@@ -83,10 +83,10 @@ export async function MethodologyView({ locale }: { readonly locale: Locale }) {
           <Section
             id="formulas"
             heading={t("trust.methodology.formulasHeading")}
-            description="These are the complete set. Nothing on the site calculates a money figure any other way."
+            description={t("trust.methodology.formulasDescription")}
           >
             <div className="flex flex-col gap-3">
-              {FORMULAS.map((entry) => (
+              {FORMULAS(t).map((entry) => (
                 <div
                   key={entry.label}
                   className="rounded-(--radius-control) border border-(--color-border) bg-(--color-surface) p-4"
@@ -104,7 +104,7 @@ export async function MethodologyView({ locale }: { readonly locale: Locale }) {
           <Section
             id="arithmetic"
             heading={t("trust.methodology.exactHeading")}
-            description="This is not pedantry — it is the difference between a figure you can rely on and one that is nearly right."
+            description={t("trust.methodology.exactDescription")}
           >
             <div className="flex flex-col gap-3 text-(--color-text-muted)">
               <p>
@@ -123,7 +123,7 @@ export async function MethodologyView({ locale }: { readonly locale: Locale }) {
           <Section
             id="rounding"
             heading={t("trust.methodology.roundingHeading")}
-            description="Precision is dropped exactly once, and the direction is chosen deliberately in each case."
+            description={t("trust.methodology.roundingDescription")}
           >
             <ul className="flex flex-col gap-3 text-(--color-text-muted)">
               <li>
@@ -152,7 +152,7 @@ export async function MethodologyView({ locale }: { readonly locale: Locale }) {
           <Section
             id="currency"
             heading={t("trust.methodology.currencyHeading")}
-            description="Secondary to the USD figure, and labelled as what they are."
+            description={t("trust.methodology.currencyDescription")}
           >
             <div className="flex flex-col gap-3 text-(--color-text-muted)">
               <p>{t("trust.methodology.body.currency.p1")}</p>
@@ -172,7 +172,7 @@ export async function MethodologyView({ locale }: { readonly locale: Locale }) {
           <Section
             id="limits"
             heading={t("trust.methodology.cannotHeading")}
-            description="The honest boundary of what arithmetic can establish."
+            description={t("trust.methodology.cannotDescription")}
           >
             <ul className="flex list-disc flex-col gap-2 pl-5 text-(--color-text-muted)">
               <li>

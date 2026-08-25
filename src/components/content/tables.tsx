@@ -251,40 +251,43 @@ export function FormulaBlock({ className }: { className?: string }) {
 // Requirements list
 // ---------------------------------------------------------------------------
 
-export const DEVEX_REQUIREMENTS: readonly { title: string; detail: string }[] = [
+const devexRequirements = (t: Translate): readonly { title: string; detail: string }[] => [
   {
     title: `At least ${formatRobux(minimumEarnedRobux)} Earned Robux`,
-    detail:
-      "Earned Robux specifically — a balance made up of purchased Robux does not qualify however large it is.",
+    detail: t("rates.requirements.items.earnedOnly"),
   },
   {
-    title: "Minimum age of 13",
-    detail: "Roblox documents 13 as the minimum age to participate in the programme.",
+    title: t("rates.requirements.items.minimumAgeTitle"),
+    detail: t("rates.requirements.items.minimumAgeDetail"),
   },
   {
-    title: "A Roblox-verified email address",
-    detail: "The address on the account must be verified before a request can proceed.",
+    title: t("rates.requirements.items.verifiedEmailTitle"),
+    detail: t("rates.requirements.items.verifiedEmailDetail"),
   },
   {
-    title: "A valid DevEx portal account",
-    detail: "Requests are submitted through the official DevEx portal, not through the site.",
+    title: t("rates.requirements.items.portalAccountTitle"),
+    detail: t("rates.requirements.items.portalAccountDetail"),
   },
   {
-    title: "A tax form on file",
-    detail:
-      "An IRS form W-9 for United States taxpayers, or a W-8 for non-United States taxpayers.",
+    title: t("rates.requirements.items.taxFormTitle"),
+    detail: t("rates.requirements.items.taxFormDetail"),
   },
   {
-    title: "Compliance with the Roblox rules",
-    detail:
-      "The account must comply with the Roblox Terms of Use and Community Standards.",
+    title: t("rates.requirements.items.complianceTitle"),
+    detail: t("rates.requirements.items.complianceDetail"),
   },
 ];
 
-export function RequirementsList({ className }: { className?: string }) {
+export function RequirementsList({
+  className,
+  t,
+}: {
+  className?: string;
+  readonly t: Translate;
+}) {
   return (
     <ul className={`grid gap-3 sm:grid-cols-2 ${className ?? ""}`}>
-      {DEVEX_REQUIREMENTS.map((requirement) => (
+      {devexRequirements(t).map((requirement) => (
         <li
           key={requirement.title}
           className="rounded-(--radius-control) border border-(--color-border) bg-(--color-surface) p-4"

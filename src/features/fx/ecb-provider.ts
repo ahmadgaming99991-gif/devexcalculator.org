@@ -53,6 +53,15 @@ export class FxProviderError extends Error {
 }
 
 /**
+ * The English sentence the /api/fx/latest/ payload carries for a snapshot.
+ *
+ * One constant on one line. Written as a concatenation across two lines it
+ * read to the string extractor as two separate sentence fragments.
+ */
+const STORED_SNAPSHOT_REASON =
+  "Live reference rates are unavailable, so a stored snapshot is being shown. Treat these figures as indicative only.";
+
+/**
  * Converts the ECB's SDMX-JSON payload into USD-based rates.
  *
  * Exported separately from the fetch so it can be tested against a captured
@@ -131,6 +140,8 @@ export function parseEcbPayload(payload: EcbPayload, fetchedAt: string): FxRates
     staleReason: stale
       ? `The most recent published reference rates are ${ageDays} days old.`
       : null,
+    staleCode: stale ? "aged" : null,
+    staleAgeDays: stale ? ageDays : null,
   };
 }
 
@@ -195,7 +206,8 @@ export function getFallbackRates(): FxRates {
     observationDate: snapshot.observationDate,
     fetchedAt: new Date().toISOString(),
     stale: true,
-    staleReason:
-      "Live reference rates are unavailable, so a stored snapshot is being shown. Treat these figures as indicative only.",
+    staleReason: STORED_SNAPSHOT_REASON,
+    staleCode: "snapshot",
+    staleAgeDays: null,
   };
 }

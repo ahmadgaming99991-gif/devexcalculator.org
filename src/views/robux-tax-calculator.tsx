@@ -29,16 +29,16 @@ export async function RobuxTaxView({ locale }: { readonly locale: Locale }) {
 
   return (
     <>
-      <JsonLd route={ROUTE} />
+      <JsonLd locale={locale} route={ROUTE} />
       <Container width="wide">
         <Breadcrumbs locale={locale} route={ROUTE} />
         <PageHeader locale={locale}
           record={record}
-          intro="Work out what you keep after the Roblox platform commission, or what to charge to clear a target amount."
+          intro={t("rates.robuxTax.intro")}
         />
 
         <div className="flex flex-col gap-10">
-          <QuickAnswer locale={locale} jumpTo="schemes" jumpLabel="See which commission applies">
+          <QuickAnswer locale={locale} jumpTo="schemes" jumpLabel={t("rates.robuxTax.jumpLabel")}>
             {record.quickAnswer}
           </QuickAnswer>
 
@@ -49,7 +49,7 @@ export async function RobuxTaxView({ locale }: { readonly locale: Locale }) {
           <Section
             id="schemes"
             heading={t("rates.robuxTax.schemesHeading")}
-            description="Roblox uses different splits depending on what was sold and where it was bought."
+            description={t("rates.robuxTax.schemesDescription")}
           >
             <TableWrapper label={t("rates.robuxTax.schemesLabel")}>
               <Table caption={t("rates.robuxTax.schemesCaption")}>
@@ -98,7 +98,7 @@ export async function RobuxTaxView({ locale }: { readonly locale: Locale }) {
           <Section
             id="progressive"
             heading={t("rates.robuxTax.progressiveHeading")}
-            description="For avatar items sold through the Marketplace, the creator share rises with the item's price relative to its category price floor."
+            description={t("rates.robuxTax.progressiveDescription")}
           >
             <TableWrapper label={t("rates.robuxTax.progressiveLabel")}>
               <Table caption={t("rates.robuxTax.progressiveCaption")}>
@@ -137,15 +137,15 @@ export async function RobuxTaxView({ locale }: { readonly locale: Locale }) {
           <Section
             id="scope"
             heading={t("rates.robuxTax.scopeHeading")}
-            description="What this calculator does and does not cover."
+            description={t("rates.robuxTax.scopeDescription")}
           >
             <LimitationsNote locale={locale}
               items={[
-                "Regional pricing adjustments, which change what a player pays without changing your share percentage.",
-                "Limited or resale items, where the resale fee structure differs from a first sale.",
-                "Group revenue splits agreed between collaborators, which happen after Roblox's commission.",
-                "Any promotional or programme-specific rate Roblox may apply to a particular category.",
-                "The DevEx conversion, which is a separate step handled by the main calculator.",
+                t("rates.robuxTax.notCovered.regionalPricing"),
+                t("rates.robuxTax.notCovered.resale"),
+                t("rates.robuxTax.notCovered.groupSplits"),
+                t("rates.robuxTax.notCovered.promotional"),
+                t("rates.robuxTax.notCovered.devexConversion"),
               ]}
             />
           </Section>
@@ -153,7 +153,7 @@ export async function RobuxTaxView({ locale }: { readonly locale: Locale }) {
           <Section
             id="not-devex"
             heading={t("rates.robuxTax.notDevExHeading")}
-            description="The two calculations happen at different times and must not be chained."
+            description={t("rates.robuxTax.notDevExDescription")}
           >
             <p className="text-(--color-text-muted)">{t("rates.robuxTax.body.notDevex.p1")}</p>
             <p className="mt-3 text-(--color-text-muted)">

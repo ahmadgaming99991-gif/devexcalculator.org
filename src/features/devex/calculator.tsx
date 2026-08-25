@@ -86,10 +86,10 @@ import {
  * src/lib/calculations, which is where the formulas are tested.
  */
 
-const MODE_OPTIONS: readonly ModeOption[] = [
-  { id: "quick", label: "Quick", description: "One amount, one rate" },
-  { id: "advanced", label: "Split", description: "Mixed balance across rate buckets" },
-  { id: "target", label: "Target", description: "Work back from a payout goal" },
+const modeOptions = (t: Translate): readonly ModeOption[] => [
+  { id: "quick", label: t("calculator.modes.quick.label"), description: t("calculator.modes.quick.description") },
+  { id: "advanced", label: t("calculator.modes.advanced.label"), description: t("calculator.modes.advanced.description") },
+  { id: "target", label: t("calculator.modes.target.label"), description: t("calculator.modes.target.description") },
 ];
 
 export interface CalculatorProps {
@@ -411,7 +411,7 @@ export function Calculator({
 
       {!lockedMode ? (
         <ModeTabs
-          options={MODE_OPTIONS}
+          options={modeOptions(t)}
           value={mode}
           onChange={(next) => update({ mode: next as CalculatorMode })}
         />
@@ -433,7 +433,7 @@ export function Calculator({
                 value={state.robux}
                 onChange={(value) => update({ robux: value })}
                 error={errorOf(quickParse)}
-                hint="Type or paste an amount. 100,000, 100k and 1.5m all work."
+                hint={t("calculator.inputs.eligibleEarnedRobux.hint")}
                 autoFocus={false}
               />
               <QuickPresets t={t}
@@ -458,21 +458,21 @@ export function Calculator({
                 value={state.standardRobux}
                 onChange={(value) => update({ standardRobux: value })}
                 error={errorOf(standardParse)}
-                hint="Earned after 5 September 2025."
+                hint={t("calculator.inputs.standardBucketHint")}
               />
               <AmountInput
                 label={`${getRate(legacyRateId).label} bucket`}
                 value={state.legacyRobux}
                 onChange={(value) => update({ legacyRobux: value })}
                 error={errorOf(legacyParse)}
-                hint="Earned before the September 2025 transition."
+                hint={t("calculator.inputs.legacyBucketHint")}
               />
               <AmountInput
                 label={`${getRate(us18RateId).label} bucket`}
                 value={state.us18Robux}
                 onChange={(value) => update({ us18Robux: value })}
                 error={errorOf(us18Parse)}
-                hint="Only the portion Roblox has qualified at this rate."
+                hint={t("calculator.inputs.us18BucketHint")}
               />
             </>
           ) : null}
@@ -484,7 +484,7 @@ export function Calculator({
                 value={state.targetUsd}
                 onChange={(value) => update({ targetUsd: value })}
                 error={targetParse && !targetParse.ok ? targetParse.message : null}
-                hint="How much you want to receive, before fees and tax."
+                hint={t("calculator.inputs.payoutTarget.hint")}
                 placeholder="1,000"
                 suffix="USD"
               />
@@ -497,7 +497,7 @@ export function Calculator({
                 value={state.currentRobux}
                 onChange={(value) => update({ currentRobux: value })}
                 error={errorOf(currentParse)}
-                hint="Add this to see how far along you are."
+                hint={t("calculator.inputs.currentBalance.hint")}
                 placeholder="0"
               />
             </>
@@ -537,7 +537,7 @@ export function Calculator({
                 value={state.taxPercent}
                 onChange={(value) => update({ taxPercent: value })}
                 error={taxParse.ok ? null : taxParse.message}
-                hint="Whatever rate applies to you. Check with a qualified adviser."
+                hint={t("calculator.deductions.taxHint")}
                 placeholder="20"
               />
             </div>
@@ -574,7 +574,7 @@ export function Calculator({
                   threshold={mode === "advanced" ? splitResult.threshold : quickResult.threshold}
                 />
               )}
-              <FxNote t={t} rates={fx.rates} currency={currency} status={fx.status} error={fx.error} />
+              <FxNote t={t} rates={fx.rates} currency={currency} status={fx.status} />
             </div>
           </ResultSummary>
 

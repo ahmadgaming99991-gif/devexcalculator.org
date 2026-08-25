@@ -20,5 +20,21 @@
     "datePublished": "Publié",
     "dateModified": "Dernière mise à jour",
     "inLanguage": "Langue"
+  },
+  "datasets": {
+    "stats": {
+      "name": "Chiffres des versements aux créateurs et de l’engagement sur Roblox",
+      "description": "Frais du Developer Exchange, revenus et engagement tels que Roblox les déclare dans ses dépôts auprès de la SEC, chaque ligne étant étiquetée « déclarée » ou « dérivée » et reliée au document dont elle provient. Inclut les indicateurs que Roblox ne publie pas, sous forme d’absences motivées.",
+      "measurementTechnique": "Transcrit des dépôts de Roblox Corporation auprès de la SEC et des lettres aux actionnaires. Les chiffres dérivés sont calculés dans le code à partir des chiffres déclarés et étiquetés comme tels."
+    },
+    "platform": {
+      "name": "Nombres de joueurs Roblox observés",
+      "description": "Nombres de joueurs relevés toutes les quinze minutes sur les points d’accès publics de Roblox, pour les expériences que Roblox classait à ce moment-là. Rien n’est interpolé et aucune observation manquante n’est comblée ; un trou signifie que le collecteur ne s’est pas exécuté. Cela ne couvre que les expériences classées et non l’ensemble de Roblox.",
+      "measurementTechnique": "Enregistré côté serveur depuis les points d’accès publics des jeux Roblox selon un rythme de quinze minutes. Les totaux de la plateforme sont conservés quatorze jours ; les séries par expérience sont échantillonnées toutes les heures et conservées sept jours."
+    }
+  },
+  "webApplication": {
+    "operatingSystem": "Tout navigateur web moderne",
+    "browserRequirements": "Nécessite JavaScript pour le calcul en direct."
   }
 }

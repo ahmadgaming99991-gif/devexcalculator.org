@@ -1,5 +1,10 @@
 import { absoluteUrl, siteConfig } from "@/config/site";
 import { breadcrumbTrail, getRoute } from "@/lib/content/route-registry";
+import { getTranslator, type Translate } from "@/i18n/get-dictionary";
+import { localizedRoute, routeLabels } from "@/i18n/localized-route";
+import { getLocaleMeta } from "@/i18n/config";
+import { localizedPath } from "@/i18n/locale-path";
+import type { Locale } from "@/i18n/types";
 import type { RouteRecord } from "@/types/content";
 
 /**
@@ -23,6 +28,17 @@ interface JsonObject {
 }
 
 const WEBSITE_ID = `${siteConfig.url}/#website`;
+
+/**
+ * The canonical URL of a route in one language.
+ *
+ * `absoluteUrl` returns the English address for every locale, so a Spanish
+ * page used to identify itself by the English URL — two pages claiming one
+ * `@id`, which is the one thing a graph is supposed to make impossible.
+ */
+function localeUrl(locale: Locale, route: string): string {
+  return absoluteUrl(localizedPath(locale, route));
+}
 const PUBLISHER_ID = `${siteConfig.url}/#publisher`;
 
 /**
@@ -40,16 +56,16 @@ function profileUrls(): string[] {
   );
 }
 
-function websiteNode(): JsonObject {
+function websiteNode(locale: Locale, t: Translate): JsonObject {
   const sameAs = profileUrls();
 
   return {
     "@type": "WebSite",
     "@id": WEBSITE_ID,
     url: `${siteConfig.url}/`,
-    name: siteConfig.name,
-    description: siteConfig.description,
-    inLanguage: siteConfig.locale,
+    name: t("seo.site.name"),
+    description: t("seo.site.description"),
+    inLanguage: getLocaleMeta(locale).locale,
     ...(sameAs.length > 0 ? { sameAs } : {}),
     ...(siteConfig.organizationName ? { publisher: { "@id": PUBLISHER_ID } } : {}),
   };
@@ -69,35 +85,40 @@ function publisherNode(): JsonObject | null {
   };
 }
 
-function breadcrumbNode(record: RouteRecord): JsonObject | null {
+function breadcrumbNode(
+  locale: Locale,
+  record: RouteRecord,
+  t: Translate,
+  label: (route: string) => string,
+): JsonObject | null {
   const trail = breadcrumbTrail(record.route);
   if (trail.length === 0) return null;
 
   const items = [...trail, record].map((entry, index) => ({
     "@type": "ListItem",
     position: index + 1,
-    name: entry.route === "/" ? "Home" : entry.navLabel,
-    item: absoluteUrl(entry.route),
+    name: entry.route === "/" ? t("schema.labels.breadcrumbHome") : label(entry.route),
+    item: localeUrl(locale, entry.route),
   }));
 
   return {
     "@type": "BreadcrumbList",
-    "@id": `${absoluteUrl(record.route)}#breadcrumb`,
+    "@id": `${localeUrl(locale, record.route)}#breadcrumb`,
     itemListElement: items,
   };
 }
 
-function webApplicationNode(record: RouteRecord): JsonObject {
+function webApplicationNode(locale: Locale, record: RouteRecord, t: Translate): JsonObject {
   return {
     "@type": "WebApplication",
-    "@id": `${absoluteUrl(record.route)}#app`,
+    "@id": `${localeUrl(locale, record.route)}#app`,
     name: record.h1,
-    url: absoluteUrl(record.route),
+    url: localeUrl(locale, record.route),
     description: record.metaDescription,
     applicationCategory: "FinanceApplication",
-    operatingSystem: "Any modern web browser",
-    browserRequirements: "Requires JavaScript for live calculation.",
-    inLanguage: siteConfig.locale,
+    operatingSystem: t("schema.webApplication.operatingSystem"),
+    browserRequirements: t("schema.webApplication.browserRequirements"),
+    inLanguage: getLocaleMeta(locale).locale,
     // The calculator is genuinely free with no account and no paid tier.
     offers: {
       "@type": "Offer",
@@ -108,7 +129,11 @@ function webApplicationNode(record: RouteRecord): JsonObject {
   };
 }
 
-function itemListNode(record: RouteRecord): JsonObject | null {
+function itemListNode(
+  locale: Locale,
+  record: RouteRecord,
+  label: (route: string) => string,
+): JsonObject | null {
   // Only list the children this page visibly links to, so the markup matches
   // what a reader actually sees.
   const children = record.internalLinks
@@ -120,18 +145,18 @@ function itemListNode(record: RouteRecord): JsonObject | null {
 
   return {
     "@type": "ItemList",
-    "@id": `${absoluteUrl(record.route)}#list`,
+    "@id": `${localeUrl(locale, record.route)}#list`,
     numberOfItems: children.length,
     itemListElement: children.map((child, index) => ({
       "@type": "ListItem",
       position: index + 1,
-      name: child.navLabel,
-      url: absoluteUrl(child.route),
+      name: label(child.route),
+      url: localeUrl(locale, child.route),
     })),
   };
 }
 
-function pageNode(record: RouteRecord): JsonObject {
+function pageNode(locale: Locale, record: RouteRecord): JsonObject {
   const type = record.schemaTypes.includes("CollectionPage")
     ? "CollectionPage"
     : record.schemaTypes.includes("AboutPage")
@@ -142,15 +167,15 @@ function pageNode(record: RouteRecord): JsonObject {
 
   return {
     "@type": type,
-    "@id": `${absoluteUrl(record.route)}#page`,
-    url: absoluteUrl(record.route),
+    "@id": `${localeUrl(locale, record.route)}#page`,
+    url: localeUrl(locale, record.route),
     name: record.title,
     description: record.metaDescription,
-    inLanguage: siteConfig.locale,
+    inLanguage: getLocaleMeta(locale).locale,
     isPartOf: { "@id": WEBSITE_ID },
     dateModified: record.dateModified,
     ...(breadcrumbTrail(record.route).length > 0
-      ? { breadcrumb: { "@id": `${absoluteUrl(record.route)}#breadcrumb` } }
+      ? { breadcrumb: { "@id": `${localeUrl(locale, record.route)}#breadcrumb` } }
       : {}),
   };
 }
@@ -164,7 +189,9 @@ function pageNode(record: RouteRecord): JsonObject {
  * fetches — a `DataDownload` pointing at nothing is a broken link wearing
  * structured data.
  */
-const DATASETS: Readonly<
+const DATASETS = (
+  t: Translate,
+): Readonly<
   Record<
     string,
     {
@@ -175,14 +202,12 @@ const DATASETS: Readonly<
       readonly distributions: readonly { readonly format: string; readonly path: string }[];
     }
   >
-> = {
+> => ({
   "/roblox-stats/": {
-    name: "Roblox creator payout and engagement figures",
-    description:
-      "Developer exchange fees, revenue and engagement as Roblox reports them in its SEC filings, with each row labelled reported or derived and linked to the filing it came from. Includes the metrics Roblox does not publish, as absences with reasons.",
+    name: t("schema.datasets.stats.name"),
+    description: t("schema.datasets.stats.description"),
     temporalCoverage: "2024-01-01/..",
-    measurementTechnique:
-      "Transcribed from Roblox Corporation SEC filings and shareholder letters. Derived figures are computed in code from reported ones and labelled as such.",
+    measurementTechnique: t("schema.datasets.stats.measurementTechnique"),
     distributions: [
       { format: "text/csv", path: "/api/stats/?format=csv" },
       { format: "text/csv", path: "/api/stats/?format=csv-unpublished" },
@@ -190,32 +215,30 @@ const DATASETS: Readonly<
     ],
   },
   "/platform/": {
-    name: "Observed Roblox player counts",
-    description:
-      "Player counts observed every fifteen minutes from Roblox's own public endpoints, for the experiences Roblox was ranking at the time. Nothing is interpolated and no missing observation is filled in; a gap means the collector did not run. This covers only ranked experiences and is not all of Roblox.",
+    name: t("schema.datasets.platform.name"),
+    description: t("schema.datasets.platform.description"),
     temporalCoverage: "..",
-    measurementTechnique:
-      "Recorded server-side from Roblox public games endpoints on a fifteen-minute schedule. Platform totals are retained fourteen days; per-experience series are sampled hourly and retained seven days.",
+    measurementTechnique: t("schema.datasets.platform.measurementTechnique"),
     distributions: [
       { format: "text/csv", path: "/api/platform/?format=csv" },
       { format: "text/csv", path: "/api/platform/?series=experiences&format=csv" },
       { format: "application/json", path: "/api/platform/" },
     ],
   },
-};
+});
 
-function datasetNode(record: RouteRecord): JsonObject | null {
-  const dataset = DATASETS[record.route];
+function datasetNode(locale: Locale, record: RouteRecord, t: Translate): JsonObject | null {
+  const dataset = DATASETS(t)[record.route];
   if (!dataset) return null;
 
   return {
     "@type": "Dataset",
-    "@id": `${absoluteUrl(record.route)}#dataset`,
+    "@id": `${localeUrl(locale, record.route)}#dataset`,
     name: dataset.name,
     description: dataset.description,
-    url: absoluteUrl(record.route),
+    url: localeUrl(locale, record.route),
     isAccessibleForFree: true,
-    inLanguage: siteConfig.locale,
+    inLanguage: getLocaleMeta(locale).locale,
     temporalCoverage: dataset.temporalCoverage,
     measurementTechnique: dataset.measurementTechnique,
     // The date the underlying figures last changed, not the build date.
@@ -235,29 +258,36 @@ function datasetNode(record: RouteRecord): JsonObject | null {
   };
 }
 
-/** Builds the JSON-LD graph for one route. */
-export function buildGraph(record: RouteRecord): JsonObject {
+/** Builds the JSON-LD graph for one route, in one language. */
+export function buildGraph(
+  locale: Locale,
+  record: RouteRecord,
+  t: Translate,
+  label: (route: string) => string,
+): JsonObject {
   const nodes: JsonObject[] = [];
 
-  if (record.schemaTypes.includes("WebSite")) nodes.push(websiteNode());
+  if (record.schemaTypes.includes("WebSite")) nodes.push(websiteNode(locale, t));
 
   const publisher = publisherNode();
   if (publisher && record.schemaTypes.includes("WebSite")) nodes.push(publisher);
 
-  nodes.push(pageNode(record));
+  nodes.push(pageNode(locale, record));
 
-  if (record.schemaTypes.includes("WebApplication")) nodes.push(webApplicationNode(record));
+  if (record.schemaTypes.includes("WebApplication")) {
+    nodes.push(webApplicationNode(locale, record, t));
+  }
 
-  const breadcrumb = breadcrumbNode(record);
+  const breadcrumb = breadcrumbNode(locale, record, t, label);
   if (breadcrumb && record.schemaTypes.includes("BreadcrumbList")) nodes.push(breadcrumb);
 
   if (record.schemaTypes.includes("ItemList")) {
-    const list = itemListNode(record);
+    const list = itemListNode(locale, record, label);
     if (list) nodes.push(list);
   }
 
   if (record.schemaTypes.includes("Dataset")) {
-    const dataset = datasetNode(record);
+    const dataset = datasetNode(locale, record, t);
     if (dataset) nodes.push(dataset);
   }
 
@@ -270,11 +300,21 @@ export function buildGraph(record: RouteRecord): JsonObject {
  * The payload is built from typed data on the server, never from user input,
  * and `<` is escaped so the JSON can never terminate the script element early.
  */
-export function JsonLd({ route }: { route: string }) {
-  const record = getRoute(route);
-  if (!record || record.indexation !== "index") return null;
+export async function JsonLd({
+  locale,
+  route,
+}: {
+  readonly locale: Locale;
+  readonly route: string;
+}) {
+  const registryRecord = getRoute(route);
+  if (!registryRecord || registryRecord.indexation !== "index") return null;
 
-  const json = JSON.stringify(buildGraph(record)).replace(/</g, "\\u003c");
+  const record = await localizedRoute(locale, route);
+  const t = await getTranslator(locale, ["schema", "seo"]);
+  const label = await routeLabels(locale);
+
+  const json = JSON.stringify(buildGraph(locale, record, t, label)).replace(/</g, "\\u003c");
 
   return (
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: json }} />

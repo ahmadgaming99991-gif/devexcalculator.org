@@ -94,7 +94,7 @@ function networks(t: Translate): Network[] {
     },
     {
       id: "instagram",
-      label: "Instagram",
+      label: t("common.social.instagramName"),
       description: t("common.social.instagram"),
       href: siteConfig.social.instagram,
       /*
@@ -126,7 +126,7 @@ function networks(t: Translate): Network[] {
     },
     {
       id: "pinterest",
-      label: "Pinterest",
+      label: t("common.social.pinterestName"),
       description: t("common.social.pinterest"),
       href: siteConfig.social.pinterest,
       background:

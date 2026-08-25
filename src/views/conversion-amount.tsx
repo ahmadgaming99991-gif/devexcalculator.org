@@ -71,7 +71,7 @@ export async function AmountView({
 
   return (
     <>
-      <JsonLd route={route} />
+      <JsonLd locale={locale} route={route} />
       <Container width="wide">
         <Breadcrumbs locale={locale} route={route} />
         <PageHeader locale={locale}
@@ -80,14 +80,14 @@ export async function AmountView({
         />
 
         <div className="flex flex-col gap-10">
-          <QuickAnswer locale={locale} jumpTo="rate-comparison" jumpLabel="Compare all three rates">
+          <QuickAnswer locale={locale} jumpTo="rate-comparison" jumpLabel={t("rates.amountPage.jumpLabel")}>
             {localized.quickAnswer}
           </QuickAnswer>
 
           <Section
             id="value"
             heading={`What ${values.display} Robux is worth`}
-            description="At the current standard rate, before any payment-provider fee or tax."
+            description={t("rates.amountPage.headlineDescription")}
           >
             <div className="rounded-(--radius-card) border border-(--color-border) bg-(--color-surface-subtle) p-5">
               <p className="text-sm font-medium text-(--color-text-muted)">
@@ -121,7 +121,7 @@ export async function AmountView({
           <Section
             id="rate-comparison"
             heading={t("rates.amountPage.allThreeHeading")}
-            description="Roblox decides which rate applies to which part of a balance. This shows what each would pay."
+            description={t("rates.amountPage.allThreeDescription")}
           >
             <TableWrapper label={`${values.display} Robux valued at each DevEx rate`}>
               <Table caption={`Payout for ${values.display} Earned Robux under each documented DevEx rate`}>
@@ -183,7 +183,7 @@ export async function AmountView({
           <Section
             id="reverse"
             heading={t("rates.amountPage.reachingHeading")}
-            description="Working the other way: what payout targets this balance covers."
+            description={t("rates.amountPage.reachingDescription")}
           >
             <TableWrapper label={t("rates.amountPage.reachingLabel")}>
               <Table caption={`Whether ${values.display} Earned Robux covers common payout targets`}>
@@ -221,7 +221,7 @@ export async function AmountView({
           <Section
             id="nearby"
             heading={t("rates.amountPage.nearbyHeading")}
-            description="Adjacent amounts with their own detailed breakdown."
+            description={t("rates.amountPage.nearbyDescription")}
           >
             <ul className="grid gap-3 sm:grid-cols-2">
               {definition.relatedAmounts.map((related) => {

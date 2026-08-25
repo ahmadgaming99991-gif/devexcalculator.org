@@ -98,23 +98,23 @@ export async function PlatformView({ locale, searchParams }: PageProps) {
 
   return (
     <>
-      <JsonLd route={ROUTE} />
+      <JsonLd locale={locale} route={ROUTE} />
       <Container width="wide">
         <Breadcrumbs locale={locale} route={ROUTE} />
         <PageHeader locale={locale}
           record={record}
-          intro="Live player counts from Roblox's own public endpoints, across every ranking Roblox publishes, and a record of what this site has observed since it started watching."
+          intro={t("platform.live.intro")}
         />
 
         <div className="flex flex-col gap-10">
-          <QuickAnswer locale={locale} jumpTo="live" jumpLabel="See the live figures">
+          <QuickAnswer locale={locale} jumpTo="live" jumpLabel={t("platform.live.jumpLabel")}>
             {record.quickAnswer}
           </QuickAnswer>
 
           <Section
             id="live"
             heading={t("platform.live.nowHeading")}
-            description="Read from Roblox's public explore and games endpoints when this page was served. No account, no third-party data provider, and nothing measured or estimated by this site."
+            description={t("platform.live.nowDescription")}
           >
             {/*
               Awaited inline rather than streamed behind Suspense.
@@ -152,7 +152,7 @@ export async function PlatformView({ locale, searchParams }: PageProps) {
           <Section
             id="largest"
             heading={t("platform.history.busiestSingleHeading")}
-            description="The highest player count any one experience held at each observation — the platform's peak title rather than its total, which move independently."
+            description={t("platform.history.busiestSingleDescription")}
           >
             <LargestExperience t={t} days={chartWindow.days} />
           </Section>
@@ -160,7 +160,7 @@ export async function PlatformView({ locale, searchParams }: PageProps) {
           <Section
             id="history"
             heading="Observed over time"
-            description="Every 15 minutes this site records the total players across the experiences Roblox is ranking, and charts what it has. The window grows as observations accumulate; nothing is back-filled."
+            description={t("platform.history.observedDescription")}
           >
             {/* Same reasoning as above; this one is a KV read, so there was
                 little to stream in the first place. */}
@@ -207,21 +207,21 @@ export async function PlatformView({ locale, searchParams }: PageProps) {
           <Section
             id="data"
             heading="Download these observations"
-            description="Exactly what was collected, with the gaps left in."
+            description={t("platform.download.description")}
           >
             <DataDownload
               heading={t("platform.download.innerHeading")}
-              description="The observations behind the chart above, as a spreadsheet or as JSON. Read from storage; downloading makes no request to Roblox."
+              description={t("platform.download.innerDescription")}
               formats={[
-                { label: "CSV — platform totals", href: "/api/platform/?format=csv" },
-                { label: "CSV — per experience", href: "/api/platform/?series=experiences&format=csv" },
-                { label: "JSON — platform totals", href: "/api/platform/" },
+                { label: t("platform.download.formats.csvTotals"), href: "/api/platform/?format=csv" },
+                { label: t("platform.download.formats.csvPerExperience"), href: "/api/platform/?series=experiences&format=csv" },
+                { label: t("platform.download.formats.jsonTotals"), href: "/api/platform/" },
               ]}
               limitations={[
-                "Observations only. Nothing is interpolated and no missing observation is filled in — a gap means the collector did not run, and it is left visible rather than smoothed over.",
-                "Collected every 15 minutes. Platform totals are kept 14 days; per-experience series are sampled hourly and kept 7 days, so the two files have different resolutions and different spans.",
-                "Covers only the experiences Roblox was ranking at the moment of each observation. This is not all of Roblox, and no share of the platform can be worked out from it.",
-                "Every row carries its own observation time and origin, so a row copied elsewhere still says what it is.",
+                t("platform.download.limitations.noInterpolation"),
+                t("platform.download.limitations.cadence"),
+                t("platform.download.limitations.coverage"),
+                t("platform.download.limitations.rowProvenance"),
               ]}
             />
           </Section>
@@ -485,7 +485,7 @@ async function TopExperiencesOverTime({ days,
   readonly t: Translate;
 }) {
   const history = await loadGameHistory();
-  if (!history) return <HistoryUnavailable t={t} what="Per-experience history" />;
+  if (!history) return <HistoryUnavailable t={t} what={t("platform.history.perExperienceHistory")} />;
 
   /*
    * The range tabs govern these charts too. They did not need to while
@@ -558,7 +558,7 @@ async function LargestExperience({ days,
   readonly t: Translate;
 }) {
   const history = await loadGameHistory();
-  if (!history) return <HistoryUnavailable t={t} what="The busiest-experience record" />;
+  if (!history) return <HistoryUnavailable t={t} what={t("platform.history.busiestExperienceRecord")} />;
 
   const { series: full, leaders } = largestExperienceSeries(history);
   const series = sliceSeries(full, days);

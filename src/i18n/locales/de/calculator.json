@@ -157,7 +157,8 @@
     "usdUnaffected": "Die USD-Zahl oben wird lokal berechnet und ist davon nicht betroffen.",
     "staleHeading": "Veraltete Kurse.",
     "provenance": "{currency}-Zahlen verwenden {provider}-Referenzkurse, beobachtet am {date}. Das sind Referenzkurse, keine Bankkurse — dein Zahlungsdienstleister wendet seinen eigenen an und kann eine Gebühr aufschlagen.",
-    "staleSnapshot": "Aktuelle Referenzkurse sind nicht verfügbar, daher wird eine gespeicherte Momentaufnahme gezeigt. Betrachten Sie diese Zahlen nur als Anhaltspunkt."
+    "staleSnapshot": "Aktuelle Referenzkurse sind nicht verfügbar, daher wird eine gespeicherte Momentaufnahme gezeigt. Betrachten Sie diese Zahlen nur als Anhaltspunkt.",
+    "staleAged": "Die zuletzt veröffentlichten Referenzkurse sind {ageDays} Tage alt."
   },
   "home": {
     "formulaOpen": "Hier wird nichts versteckt. Die Formel ist eine Multiplikation, und du kannst sie nachprüfen.",
@@ -206,7 +207,14 @@
       }
     },
     "intro": "Rechnen Sie berechtigte Earned Robux in eine geschätzte Auszahlung in US-Dollar um — mit den Sätzen, die Roblox derzeit dokumentiert, und mit Quelle und Prüfdatum neben jeder Zahl.",
-    "jumpLabel": "So funktioniert die Berechnung"
+    "jumpLabel": "So funktioniert die Berechnung",
+    "cannot": {
+      "eligibility": "Ob Ihre Robux als Earned Robux zählen — das entscheidet Roblox, nicht dieser Rechner.",
+      "approval": "Ob ein DevEx-Antrag bewilligt wird und wie lange das dauert.",
+      "providerFees": "Gebühren des Zahlungsdienstleisters und Währungsspannen, sofern Sie nicht eigene Zahlen eingeben.",
+      "tax": "Die in Ihrem Land fällige Steuer. Nichts hier ist eine Steuerberatung.",
+      "retailPrice": "Der Ladenpreis für den Kauf von Robux — ein eigener Vorgang mit eigener Preisgestaltung."
+    }
   },
   "planner": {
     "targetLabel": "Auszahlung, die du anstrebst",

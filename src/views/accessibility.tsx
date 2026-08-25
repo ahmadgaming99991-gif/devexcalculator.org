@@ -1,4 +1,4 @@
-import { getTranslator } from "@/i18n/get-dictionary";
+import { getTranslator, type Translate } from "@/i18n/get-dictionary";
 import { localizedRoute } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -10,64 +10,56 @@ import { formatDate } from "@/lib/calculations/format";
 const ROUTE = "/accessibility/";
 
 
-const TESTED: readonly string[] = [
-  "Automated axe checks on every representative route, at desktop and mobile widths",
-  "Keyboard-only walkthrough of the calculator, navigation and every form",
-  "Layout at 320px wide with no horizontal scrolling",
-  "Layout at 200% text zoom with no loss of content or function",
-  "Colour contrast for every text and interface colour pair in both light and dark themes",
-  "Reduced-motion preference honoured across the site",
-  "Windows High Contrast Mode, where borders keep structure visible",
+const TESTED = (t: Translate): readonly string[] => [
+  t("legal.accessibility.tested.axe"),
+  t("legal.accessibility.tested.keyboard"),
+  t("legal.accessibility.tested.narrowLayout"),
+  t("legal.accessibility.tested.zoom"),
+  t("legal.accessibility.tested.contrast"),
+  t("legal.accessibility.tested.reducedMotion"),
+  t("legal.accessibility.tested.highContrast"),
 ];
 
-const FEATURES: readonly { title: string; detail: string }[] = [
+const FEATURES = (t: Translate): readonly { title: string; detail: string }[] => [
   {
-    title: "Keyboard operable throughout",
-    detail:
-      "Every control is a real button, link, input or select. There are no clickable divs, so keyboard behaviour comes from the browser rather than from scripts imitating it.",
+    title: t("legal.accessibility.features.keyboard"),
+    detail: t("legal.accessibility.features.keyboardDetail"),
   },
   {
-    title: "Visible focus everywhere",
-    detail:
-      "A three-pixel amber outline with a two-pixel offset, chosen because it measures about 5:1 against every surface on the site — comfortably above the 3:1 the standard requires.",
+    title: t("legal.accessibility.features.focus"),
+    detail: t("legal.accessibility.features.focusDetail"),
   },
   {
-    title: "Results are announced",
-    detail:
-      "Calculation results, copy confirmations and error messages are announced through a polite live region, summarised rather than read digit by digit as you type.",
+    title: t("legal.accessibility.features.announced"),
+    detail: t("legal.accessibility.features.announcedDetail"),
   },
   {
-    title: "Errors are tied to their fields",
-    detail:
-      "Validation messages are linked with aria-describedby and the field is marked invalid, so a screen reader reports the problem with the field rather than as loose text nearby.",
+    title: t("legal.accessibility.features.errorsTied"),
+    detail: t("legal.accessibility.features.errorsTiedDetail"),
   },
   {
-    title: "Nothing depends on colour alone",
-    detail:
-      "The threshold meter, rate comparisons and stale-rate warnings each carry a text label saying what the colour says.",
+    title: t("legal.accessibility.features.notColourAlone"),
+    detail: t("legal.accessibility.features.notColourAloneDetail"),
   },
   {
-    title: "Targets are at least 44 pixels",
-    detail: "Buttons, preset chips, links in navigation and form controls all meet that minimum.",
+    title: t("legal.accessibility.features.targets"),
+    detail: t("legal.accessibility.features.targetsDetail"),
   },
   {
-    title: "The mobile menu behaves",
-    detail:
-      "Escape closes it and returns focus to the button that opened it, focus is trapped while it is open, and background scrolling is locked without the page shifting.",
+    title: t("legal.accessibility.features.mobileMenu"),
+    detail: t("legal.accessibility.features.mobileMenuDetail"),
   },
   {
-    title: "Wide tables scroll accessibly",
-    detail:
-      "Each table sits in a focusable, labelled scroll container, so a keyboard user can reach and scroll it without a mouse.",
+    title: t("legal.accessibility.features.tablesScroll"),
+    detail: t("legal.accessibility.features.tablesScrollDetail"),
   },
   {
-    title: "Zoom is never blocked",
-    detail: "The viewport sets no maximum scale, so pinch-zoom works everywhere.",
+    title: t("legal.accessibility.features.zoom"),
+    detail: t("legal.accessibility.features.zoomDetail"),
   },
   {
-    title: "Works without JavaScript",
-    detail:
-      "Rates, formulas, worked examples, tables, navigation and every explanation are server rendered. Only live recalculation needs scripts.",
+    title: t("legal.accessibility.features.noJs"),
+    detail: t("legal.accessibility.features.noJsDetail"),
   },
 ];
 
@@ -77,12 +69,12 @@ export async function AccessibilityView({ locale }: { readonly locale: Locale })
 
   return (
     <>
-      <JsonLd route={ROUTE} />
+      <JsonLd locale={locale} route={ROUTE} />
       <Container width="prose">
         <Breadcrumbs locale={locale} route={ROUTE} />
         <PageHeader locale={locale}
           record={record}
-          intro="What this site targets, what has actually been tested, and what is still imperfect."
+          intro={t("legal.accessibility.intro")}
         />
 
         <div className="flex flex-col gap-10">
@@ -111,7 +103,7 @@ export async function AccessibilityView({ locale }: { readonly locale: Locale })
 
           <Section id="tested" heading={t("legal.accessibility.testedHeading")}>
             <ul className="flex list-disc flex-col gap-2 pl-5 text-(--color-text-muted)">
-              {TESTED.map((item) => (
+              {TESTED(t).map((item) => (
                 <li key={item}>{item}</li>
               ))}
             </ul>
@@ -120,7 +112,7 @@ export async function AccessibilityView({ locale }: { readonly locale: Locale })
 
           <Section id="features" heading={t("legal.accessibility.featuresHeading")}>
             <dl className="flex flex-col gap-3">
-              {FEATURES.map((feature) => (
+              {FEATURES(t).map((feature) => (
                 <div
                   key={feature.title}
                   className="rounded-(--radius-control) border border-(--color-border) bg-(--color-surface) p-4"

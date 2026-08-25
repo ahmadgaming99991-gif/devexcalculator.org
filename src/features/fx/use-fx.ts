@@ -25,12 +25,20 @@ export type FxStatus = "idle" | "loading" | "ready" | "unavailable";
 export interface FxState {
   readonly status: FxStatus;
   readonly rates: FxRates | null;
-  readonly error: string | null;
 }
+
+/*
+ * There is no `error` here on purpose.
+ *
+ * It used to hold the message the API sends, which is English — and it was
+ * rendered straight into the results panel. Every failure this hook can
+ * see says the same thing to a reader anyway: local-currency estimates are
+ * not available and the USD figure is unaffected. `status` already carries
+ * that, and the panel says it in the reader's language.
+ */
 
 interface FxOutcome {
   readonly rates: FxRates | null;
-  readonly error: string | null;
 }
 
 export function useFxRates(enabled: boolean): FxState {
@@ -48,32 +56,22 @@ export function useFxRates(enabled: boolean): FxState {
     fetch("/api/fx/latest/", { signal: controller.signal })
       .then(async (response) => {
         const payload = (await response.json()) as FxResponse;
-        setOutcome(
-          payload.ok
-            ? { rates: payload.data, error: null }
-            : { rates: null, error: payload.error.message },
-        );
+        setOutcome({ rates: payload.ok ? payload.data : null });
       })
       .catch((error: unknown) => {
         if (error instanceof Error && error.name === "AbortError") return;
         // Allow a later attempt if this one was aborted mid-flight.
         started.current = false;
-        setOutcome({
-          rates: null,
-          error:
-            "Local-currency estimates are temporarily unavailable. The USD figures above are unaffected.",
-        });
+        setOutcome({ rates: null });
       });
 
     return () => controller.abort();
   }, [enabled]);
 
-  if (!enabled) return { status: "idle", rates: null, error: null };
-  if (outcome === null) return { status: "loading", rates: null, error: null };
-  if (outcome.rates === null) {
-    return { status: "unavailable", rates: null, error: outcome.error };
-  }
-  return { status: "ready", rates: outcome.rates, error: null };
+  if (!enabled) return { status: "idle", rates: null };
+  if (outcome === null) return { status: "loading", rates: null };
+  if (outcome.rates === null) return { status: "unavailable", rates: null };
+  return { status: "ready", rates: outcome.rates };
 }
 
 /**

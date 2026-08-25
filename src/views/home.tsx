@@ -44,17 +44,17 @@ export async function HomeView({
 
   return (
     <>
-      <JsonLd route={ROUTE} />
+      <JsonLd locale={locale} route={ROUTE} />
       <Container width="wide">
         <PageHeader locale={locale}
           record={record}
-          intro="Convert eligible Earned Robux into an estimated US dollar payout using the rates Roblox currently documents, with the source and verification date shown alongside every figure."
+          intro={t("calculator.home.intro")}
         />
 
         <div className="flex flex-col gap-10">
           <Calculator words={await loadWords(locale, CALCULATOR_WORDS)} initialState={initialState} pathname={ROUTE} />
 
-          <QuickAnswer locale={locale} jumpTo="how-it-works" jumpLabel="See how the calculation works">
+          <QuickAnswer locale={locale} jumpTo="how-it-works" jumpLabel={t("calculator.home.jumpLabel")}>
             {record.quickAnswer}
           </QuickAnswer>
 
@@ -63,7 +63,7 @@ export async function HomeView({
           <Section
             id="how-it-works"
             heading={t("routes.home.sections.how-it-works")}
-            description="Nothing here is hidden. The formula is one multiplication, and you can check it."
+            description={t("calculator.home.formulaOpen")}
           >
             <div className="grid gap-4 lg:grid-cols-2">
               <FormulaBlock />
@@ -78,7 +78,7 @@ export async function HomeView({
           <Section
             id="current-rates"
             heading={t("routes.home.sections.current-rates")}
-            description="Three rates are documented. Roblox decides which applies to which part of a balance."
+            description={t("calculator.home.threeRates")}
           >
             <RateTable t={t} />
             <p className="mt-3 text-sm text-(--color-text-muted)">
@@ -92,7 +92,7 @@ export async function HomeView({
           <Section
             id="earned-robux"
             heading={t("routes.home.sections.earned-robux")}
-            description="This is the single most common misunderstanding about DevEx, and it decides whether a payout is possible at all."
+            description={t("calculator.home.earnedRobuxMatters")}
           >
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="rounded-(--radius-control) border border-(--color-border) bg-(--color-surface) p-4">
@@ -122,7 +122,7 @@ export async function HomeView({
           <Section
             id="popular-amounts"
             heading={t("calculator.home.commonAmountsHeading")}
-            description="Every figure below is calculated at the three documented rates. Amounts under the minimum are shown for reference and marked as such."
+            description={t("calculator.home.commonAmountsDescription")}
           >
             <AmountTable t={t} />
             <p className="mt-3 text-sm text-(--color-text-muted)">
@@ -134,9 +134,9 @@ export async function HomeView({
           <Section
             id="requirements"
             heading="What Roblox requires"
-            description="Meeting all of these lets you submit a request. It does not guarantee one will be approved."
+            description={t("calculator.home.meetingAllNote")}
           >
-            <RequirementsList />
+            <RequirementsList t={t} />
             <p className="mt-3 text-sm text-(--color-text-muted)">
               <InlineLink href="/devex-requirements/">{t("calculator.home.body.requirements.p1")}</InlineLink>{" "}
               ·{" "}
@@ -162,11 +162,11 @@ export async function HomeView({
 
           <LimitationsNote locale={locale}
             items={[
-              "Whether your Robux count as Earned Robux — Roblox decides that, not this calculator.",
-              "Whether a DevEx request will be approved, and how long it will take.",
-              "Payment-provider fees and currency spreads, unless you enter your own figures.",
-              "Tax owed in your country. Nothing here is tax advice.",
-              "The retail price of buying Robux, which is a separate transaction with its own pricing.",
+              t("calculator.home.cannot.eligibility"),
+              t("calculator.home.cannot.approval"),
+              t("calculator.home.cannot.providerFees"),
+              t("calculator.home.cannot.tax"),
+              t("calculator.home.cannot.retailPrice"),
             ]}
           />
 

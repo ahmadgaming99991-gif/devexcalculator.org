@@ -1,4 +1,4 @@
-import { getTranslator } from "@/i18n/get-dictionary";
+import { getTranslator, type Translate } from "@/i18n/get-dictionary";
 import { localizedRoute } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -10,29 +10,26 @@ import { rateRegistry } from "@/lib/calculations/rate-registry";
 const ROUTE = "/editorial-policy/";
 
 
-const LABELS: readonly { label: string; meaning: string }[] = [
+const LABELS = (t: Translate): readonly { label: string; meaning: string }[] => [
   {
-    label: "Verified through official source",
-    meaning:
-      "Read directly from Roblox, Cloudflare, Google or ECB documentation, with the URL and date recorded in the source registry.",
+    label: t("trust.editorialPolicy.labels.verified"),
+    meaning: t("trust.editorialPolicy.meanings.verified"),
   },
   {
-    label: "Derived from supplied CSV",
-    meaning:
-      "Computed from the keyword exports this site was built against. Third-party estimates, not measured traffic.",
+    label: t("trust.editorialPolicy.labels.derived"),
+    meaning: t("trust.editorialPolicy.meanings.derived"),
   },
   {
-    label: "Observed on public competitor page",
-    meaning: "Seen on a publicly accessible page. Recorded as an observation, never republished as fact.",
+    label: t("trust.editorialPolicy.labels.observed"),
+    meaning: t("trust.editorialPolicy.meanings.observed"),
   },
   {
-    label: "Reasonable inference",
-    meaning:
-      "A conclusion drawn from evidence rather than stated by a source. Labelled as inference wherever it appears.",
+    label: t("trust.editorialPolicy.labels.inference"),
+    meaning: t("trust.editorialPolicy.meanings.inference"),
   },
   {
-    label: "New implementation decision",
-    meaning: "A choice made by this site, with the reasoning recorded rather than presented as an external requirement.",
+    label: t("trust.editorialPolicy.labels.decision"),
+    meaning: t("trust.editorialPolicy.meanings.decision"),
   },
 ];
 
@@ -42,12 +39,12 @@ export async function EditorialPolicyView({ locale }: { readonly locale: Locale 
 
   return (
     <>
-      <JsonLd route={ROUTE} />
+      <JsonLd locale={locale} route={ROUTE} />
       <Container width="prose">
         <Breadcrumbs locale={locale} route={ROUTE} />
         <PageHeader locale={locale}
           record={record}
-          intro="The rules this site writes under, stated so you can hold it to them."
+          intro={t("trust.editorialPolicy.intro")}
         />
 
         <div className="flex flex-col gap-10">
@@ -65,10 +62,10 @@ export async function EditorialPolicyView({ locale }: { readonly locale: Locale 
           <Section
             id="labels"
             heading={t("trust.editorialPolicy.labellingHeading")}
-            description="Every research conclusion in this project's documentation carries one of these labels. An inference is never quietly promoted to a fact."
+            description={t("trust.editorialPolicy.labellingDescription")}
           >
             <dl className="flex flex-col gap-3">
-              {LABELS.map((entry) => (
+              {LABELS(t).map((entry) => (
                 <div
                   key={entry.label}
                   className="rounded-(--radius-control) border border-(--color-border) bg-(--color-surface) p-4"

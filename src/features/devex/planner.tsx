@@ -1,6 +1,7 @@
 "use client";
 
 import { translatorFor, type LocaleWords } from "@/i18n/client-words";
+import type { Translate } from "@/i18n/get-dictionary";
 import { useId, useMemo, useState } from "react";
 import {
   PACE_PERIOD_DAYS,
@@ -383,7 +384,7 @@ export function Planner({ words }: { readonly words: LocaleWords }) {
 
         {/* The answer the planner exists to give. */}
         <div className="mt-6 rounded-(--radius-card) bg-(--color-surface-subtle) p-5">
-          {mode === "pace" ? <PaceOutcome plan={plan} /> : <DeadlineOutcome plan={plan} />}
+          {mode === "pace" ? <PaceOutcome plan={plan} t={t} /> : <DeadlineOutcome plan={plan} t={t} />}
         </div>
 
         {(payout.feesApplied || payout.taxApplied) && (
@@ -503,13 +504,19 @@ export function Planner({ words }: { readonly words: LocaleWords }) {
 
 // ---------------------------------------------------------------------------
 
-function PaceOutcome({ plan }: { plan: ReturnType<typeof planEarnings> }) {
+function PaceOutcome({
+  plan,
+  t,
+}: {
+  plan: ReturnType<typeof planEarnings>;
+  readonly t: Translate;
+}) {
   const { projected, requirement, suppliedPerDayRobux } = plan;
 
   if (requirement.alreadyReached) {
     return (
       <Outcome
-        headline="You already hold enough for this target."
+        headline={t("calculator.planner.alreadyEnoughHeadline")}
         detail={`Your balance of ${formatRobux(requirement.currentRobux)} Earned Robux covers the ${formatRobux(requirement.effectiveRobuxNeeded)} this plan needs. Meeting the minimum is not approval — Roblox decides that.`}
       />
     );
@@ -518,8 +525,8 @@ function PaceOutcome({ plan }: { plan: ReturnType<typeof planEarnings> }) {
   if (projected === null) {
     return (
       <Outcome
-        headline="No date, at this pace."
-        detail="Earning nothing per period never reaches the target. Enter what you expect to earn and the plan will work out the date."
+        headline={t("calculator.planner.zeroEarningsHeadline")}
+        detail={t("calculator.planner.zeroEarnings")}
         muted
       />
     );
@@ -533,14 +540,20 @@ function PaceOutcome({ plan }: { plan: ReturnType<typeof planEarnings> }) {
   );
 }
 
-function DeadlineOutcome({ plan }: { plan: ReturnType<typeof planEarnings> }) {
+function DeadlineOutcome({
+  plan,
+  t,
+}: {
+  plan: ReturnType<typeof planEarnings>;
+  readonly t: Translate;
+}) {
   const { required, requirement, deadlineHasPassed } = plan;
 
   if (requirement.alreadyReached) {
     return (
       <Outcome
-        headline="You already hold enough for this target."
-        detail="Nothing more needs to be earned before the date you gave. Meeting the minimum is not approval — Roblox decides that."
+        headline={t("calculator.planner.alreadyEnoughHeadline")}
+        detail={t("calculator.planner.alreadyThere")}
       />
     );
   }
@@ -548,8 +561,8 @@ function DeadlineOutcome({ plan }: { plan: ReturnType<typeof planEarnings> }) {
   if (deadlineHasPassed) {
     return (
       <Outcome
-        headline="That date has already arrived."
-        detail="Pick a date in the future and the plan will work out what has to be earned each day to reach it."
+        headline={t("calculator.planner.datePassedHeadline")}
+        detail={t("calculator.planner.pickFutureDate")}
         muted
       />
     );
@@ -558,8 +571,8 @@ function DeadlineOutcome({ plan }: { plan: ReturnType<typeof planEarnings> }) {
   if (required === null) {
     return (
       <Outcome
-        headline="Pick a date."
-        detail="With a date, the plan works out what has to be earned each day, week and month to reach the target by then."
+        headline={t("calculator.planner.pickDateHeadline")}
+        detail={t("calculator.planner.withADate")}
         muted
       />
     );

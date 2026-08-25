@@ -35,12 +35,12 @@ export async function RobuxToUsdView({
 
   return (
     <>
-      <JsonLd route={ROUTE} />
+      <JsonLd locale={locale} route={ROUTE} />
       <Container width="wide">
         <Breadcrumbs locale={locale} route={ROUTE} />
         <PageHeader locale={locale}
           record={record}
-          intro="Two different questions hide behind the same search. This page answers both separately rather than blending them into one misleading number."
+          intro={t("rates.robuxToUsd.intro")}
         />
 
         <div className="flex flex-col gap-10">
@@ -55,7 +55,7 @@ export async function RobuxToUsdView({
           <Section
             id="two-answers"
             heading="Why there are two answers"
-            description="Asking what Robux are worth in dollars only has one answer once you say which direction the money is travelling."
+            description={t("rates.robuxToUsd.twoAnswersDescription")}
           >
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="rounded-(--radius-control) border border-(--color-border) border-l-4 border-l-(--color-primary) bg-(--color-surface) p-4">
@@ -80,7 +80,7 @@ export async function RobuxToUsdView({
           <Section
             id="comparison"
             heading={t("rates.robuxToUsd.payoutVsPriceHeading")}
-            description="The two numbers are different by design, and the gap is not a fee anyone is charging you."
+            description={t("rates.robuxToUsd.payoutVsPriceDescription")}
           >
             <TableWrapper label={t("rates.robuxToUsd.differencesLabel")}>
               <Table caption={t("rates.robuxToUsd.differencesCaption")}>
@@ -138,7 +138,7 @@ export async function RobuxToUsdView({
           <Section
             id="formula"
             heading={t("rates.robuxToUsd.formulaHeading")}
-            description="One multiplication, stated openly so you can check it."
+            description={t("rates.robuxToUsd.formulaDescription")}
           >
             <FormulaBlock />
           </Section>
@@ -146,7 +146,7 @@ export async function RobuxToUsdView({
           <Section
             id="amounts"
             heading={t("rates.robuxToUsd.commonAmountsHeading")}
-            description="Calculated at all three documented rates. Amounts below the minimum are marked."
+            description={t("rates.robuxToUsd.commonAmountsDescription")}
           >
             <AmountTable t={t} />
             <p className="mt-3 text-sm text-(--color-text-muted)">

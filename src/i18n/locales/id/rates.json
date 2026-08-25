@@ -179,6 +179,33 @@
       "pending": {
         "p1": "Robux dari pembelian yang baru terjadi biasanya melewati suatu masa sebagai tertunda sebelum menjadi tersedia; ini melindungi dari transaksi yang dibatalkan. Robux yang tertunda belum menjadi bagian dari saldo yang bisa Anda pakai. Roblox mendokumentasikan perilaku penahanan yang berlaku sekarang di Creator Hub, dan karena perilaku itu pernah berubah dari waktu ke waktu, halaman ini tidak menyebut jumlah hari tertentu — periksa dokumentasi resmi untuk angka yang berlaku saat ini."
       }
+    },
+    "qualifying": {
+      "developerProducts": "Robux dari pemain yang membeli developer product di dalam experience milik Anda",
+      "passes": "Robux dari pembelian pass di experience Anda",
+      "privateServers": "Bagian Anda dari langganan server pribadi",
+      "avatarItems": "Bagian kreator Anda dari item avatar yang Anda buat dan jual",
+      "experienceSubscriptions": "Bagian Anda dari langganan experience, jika fitur ini tersedia bagi Anda"
+    },
+    "notQualifying": {
+      "purchased": "Robux yang Anda beli sendiri, dalam paket apa pun atau dengan harga berapa pun",
+      "giftCards": "Robux dari kartu hadiah atau kode promosi",
+      "membership": "Robux yang disertakan dalam keanggotaan Roblox sebagai jatah bulanan",
+      "trade": "Robux yang diterima dari pemain lain lewat pertukaran",
+      "transferred": "Robux yang ditransfer ke akun Anda di luar penghasilan sebagai kreator"
+    },
+    "gate": {
+      "accepted": {
+        "passesAndProducts": "Pemain yang membeli pass dan developer product di experience Anda",
+        "subscriptions": "Bagian Anda dari langganan server pribadi dan experience",
+        "avatarItems": "Bagian kreator Anda dari item avatar yang Anda buat"
+      },
+      "rejected": {
+        "purchased": "Robux yang Anda beli sendiri, dengan harga berapa pun",
+        "giftCards": "Kartu hadiah dan kode promosi",
+        "membership": "Jatah keanggotaan bulanan",
+        "trade": "Robux yang diterima lewat pertukaran"
+      }
     }
   },
   "feesAndTaxes": {
@@ -378,6 +405,13 @@
         "p2": "Konversikan Earned Robux Anda menjadi perkiraan pembayaran",
         "p3": "Apa yang sebenarnya dipotong dari pembayaran DevEx"
       }
+    },
+    "notCovered": {
+      "regionalPricing": "Penyesuaian harga regional, yang mengubah jumlah yang dibayar pemain tanpa mengubah persentase bagian Anda.",
+      "resale": "Item limited atau jual-ulang, yang struktur biayanya berbeda dari penjualan pertama.",
+      "groupSplits": "Pembagian pendapatan grup yang disepakati antar-kolaborator, yang terjadi setelah komisi Roblox.",
+      "promotional": "Tarif promosi atau tarif khusus program apa pun yang mungkin diterapkan Roblox pada kategori tertentu.",
+      "devexConversion": "Konversi DevEx, yang merupakan langkah terpisah dan ditangani oleh kalkulator utama."
     }
   },
   "conversions": {

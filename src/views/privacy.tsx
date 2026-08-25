@@ -33,12 +33,12 @@ export async function PrivacyView({ locale }: { readonly locale: Locale }) {
 
   return (
     <>
-      <JsonLd route={ROUTE} />
+      <JsonLd locale={locale} route={ROUTE} />
       <Container width="prose">
         <Breadcrumbs locale={locale} route={ROUTE} />
         <PageHeader locale={locale}
           record={record}
-          intro="What this site stores, what it does not, and which third parties are involved — describing this deployment specifically rather than a generic template."
+          intro={t("legal.privacy.intro")}
         />
 
         <div className="flex flex-col gap-10">

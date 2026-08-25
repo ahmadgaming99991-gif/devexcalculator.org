@@ -15,12 +15,12 @@ export async function CorrectionsView({ locale }: { readonly locale: Locale }) {
 
   return (
     <>
-      <JsonLd route={ROUTE} />
+      <JsonLd locale={locale} route={ROUTE} />
       <Container width="prose">
         <Breadcrumbs locale={locale} route={ROUTE} />
         <PageHeader locale={locale}
           record={record}
-          intro="Rates change and documentation moves. If something here is out of date, telling us is genuinely the most useful thing you can do."
+          intro={t("trust.corrections.intro")}
         />
 
         <div className="flex flex-col gap-10">
@@ -38,7 +38,7 @@ export async function CorrectionsView({ locale }: { readonly locale: Locale }) {
           <Section
             id="process"
             heading={t("trust.corrections.nextHeading")}
-            description="A correction to a rate, minimum or fee follows a fixed sequence. It is deliberately not a quick edit."
+            description={t("trust.corrections.nextDescription")}
           >
             <ol className="flex list-decimal flex-col gap-3 pl-5 text-(--color-text-muted)">
               <li>

@@ -182,6 +182,33 @@
       "pending": {
         "p1": "Robux aus einem kürzlichen Kauf verbringen üblicherweise eine Zeit als ausstehend, bevor sie verfügbar werden; das schützt vor rückabgewickelten Transaktionen. Ausstehende Robux gehören noch nicht zu dem Guthaben, mit dem du handeln kannst. Roblox dokumentiert das aktuelle Halteverhalten im Creator Hub, und weil sich dieses Verhalten im Lauf der Zeit geändert hat, nennt diese Seite keine bestimmte Anzahl Tage — sieh in der offiziellen Dokumentation nach der Zahl, die jetzt gilt."
       }
+    },
+    "qualifying": {
+      "developerProducts": "Robux von Spielern, die Developer Products in einer Experience kaufen, die Ihnen gehört",
+      "passes": "Robux aus Pass-Käufen in Ihrer Experience",
+      "privateServers": "Ihr Anteil an Abonnements für private Server",
+      "avatarItems": "Ihr Creator-Anteil an Avatar-Artikeln, die Sie erstellt und verkauft haben",
+      "experienceSubscriptions": "Ihr Anteil an Experience-Abonnements, sofern diese Ihnen offenstehen"
+    },
+    "notQualifying": {
+      "purchased": "Robux, die Sie selbst gekauft haben — in jedem Paket und zu jedem Preis",
+      "giftCards": "Robux aus einer Geschenkkarte oder einem Aktionscode",
+      "membership": "Robux, die einer Roblox-Mitgliedschaft als monatliche Zuteilung beiliegen",
+      "trade": "Robux, die Sie in einem Tausch von einem anderen Spieler erhalten haben",
+      "transferred": "Robux, die außerhalb der Creator-Einnahmen auf Ihr Konto übertragen wurden"
+    },
+    "gate": {
+      "accepted": {
+        "passesAndProducts": "Spieler, die Pässe und Developer Products in Ihrer Experience kaufen",
+        "subscriptions": "Ihr Anteil an Abonnements für private Server und Experiences",
+        "avatarItems": "Ihr Creator-Anteil an Avatar-Artikeln, die Sie erstellt haben"
+      },
+      "rejected": {
+        "purchased": "Robux, die Sie selbst gekauft haben, zu jedem Preis",
+        "giftCards": "Geschenkkarten und Aktionscodes",
+        "membership": "Monatliche Zuteilungen aus der Mitgliedschaft",
+        "trade": "Robux, die in einem Tausch erhalten wurden"
+      }
     }
   },
   "feesAndTaxes": {
@@ -381,6 +408,13 @@
         "p2": "Wandle deine Earned Robux in eine Auszahlungsschätzung um",
         "p3": "Was von einer DevEx-Auszahlung wirklich abgeht"
       }
+    },
+    "notCovered": {
+      "regionalPricing": "Regionale Preisanpassungen, die ändern, was ein Spieler zahlt, ohne Ihren Anteilssatz zu ändern.",
+      "resale": "Limitierte oder Wiederverkaufsartikel, bei denen die Gebührenstruktur von der eines Erstverkaufs abweicht.",
+      "groupSplits": "Zwischen Mitwirkenden vereinbarte Gruppenaufteilungen, die erst nach der Roblox-Provision greifen.",
+      "promotional": "Jeder Aktions- oder programmspezifische Satz, den Roblox auf eine bestimmte Kategorie anwenden kann.",
+      "devexConversion": "Die DevEx-Umrechnung — ein eigener Schritt, den der Hauptrechner übernimmt."
     }
   },
   "conversions": {

@@ -20,5 +20,21 @@
     "datePublished": "Published",
     "dateModified": "Last updated",
     "inLanguage": "Language"
+  },
+  "datasets": {
+    "stats": {
+      "name": "Roblox creator payout and engagement figures",
+      "description": "Developer exchange fees, revenue and engagement as Roblox reports them in its SEC filings, with each row labelled reported or derived and linked to the filing it came from. Includes the metrics Roblox does not publish, as absences with reasons.",
+      "measurementTechnique": "Transcribed from Roblox Corporation SEC filings and shareholder letters. Derived figures are computed in code from reported ones and labelled as such."
+    },
+    "platform": {
+      "name": "Observed Roblox player counts",
+      "description": "Player counts observed every fifteen minutes from Roblox's own public endpoints, for the experiences Roblox was ranking at the time. Nothing is interpolated and no missing observation is filled in; a gap means the collector did not run. This covers only ranked experiences and is not all of Roblox.",
+      "measurementTechnique": "Recorded server-side from Roblox public games endpoints on a fifteen-minute schedule. Platform totals are retained fourteen days; per-experience series are sampled hourly and retained seven days."
+    }
+  },
+  "webApplication": {
+    "operatingSystem": "Any modern web browser",
+    "browserRequirements": "Requires JavaScript for live calculation."
   }
 }

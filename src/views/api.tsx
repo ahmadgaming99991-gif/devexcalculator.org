@@ -37,23 +37,23 @@ export async function ApiView({ locale }: { readonly locale: Locale }) {
 
   return (
     <>
-      <JsonLd route={ROUTE} />
+      <JsonLd locale={locale} route={ROUTE} />
       <Container width="prose">
         <Breadcrumbs locale={locale} route={ROUTE} />
         <PageHeader locale={locale}
           record={record}
-          intro="The rate registry this site calculates from, published as JSON with every source and verification date attached."
+          intro={t("trust.api.intro")}
         />
 
         <div className="flex flex-col gap-10">
-          <QuickAnswer locale={locale} jumpTo="rates" jumpLabel="See the endpoint">
+          <QuickAnswer locale={locale} jumpTo="rates" jumpLabel={t("trust.api.jumpLabel")}>
             {record.quickAnswer}
           </QuickAnswer>
 
           <Section
             id="rates"
             heading={t("trust.api.ratesHeading")}
-            description="The current DevEx rates, the minimum, the marketplace fee, and the sources each was verified against."
+            description={t("trust.api.ratesDescription")}
           >
             <Endpoint url={`${base}/api/rates`} />
 
@@ -69,17 +69,17 @@ export async function ApiView({ locale }: { readonly locale: Locale }) {
             </p>
 
             <div className="mt-4 grid gap-4 sm:grid-cols-2">
-              <Field name="rates[]" note="id, label, value per Robux, status and the source it came from" />
-              <Field name="minimum" note="The Earned Robux balance Roblox requires before a request can be submitted" />
-              <Field name="marketplace" note="The marketplace fee percentage, for sale-side calculations" />
-              <Field name="sources[]" note="Publisher, title, URL and the date each was last checked" />
+              <Field name="rates[]" note={t("trust.api.fields.rates")} />
+              <Field name="minimum" note={t("trust.api.fields.minimum")} />
+              <Field name="marketplace" note={t("trust.api.fields.marketplaceFee")} />
+              <Field name="sources[]" note={t("trust.api.fields.sources")} />
             </div>
           </Section>
 
           <Section
             id="fx"
             heading={t("trust.api.fxHeading")}
-            description="European Central Bank reference rates, for showing a payout in a currency other than US dollars."
+            description={t("trust.api.fxDescription")}
           >
             <Endpoint url={`${base}/api/fx/latest`} />
 
@@ -96,7 +96,7 @@ export async function ApiView({ locale }: { readonly locale: Locale }) {
           <Section
             id="stats"
             heading={t("trust.api.statsHeading")}
-            description="Roblox's reported creator payouts and engagement, as rows, with every figure labelled reported or derived."
+            description={t("trust.api.statsDescription")}
           >
             <Endpoint url={`${base}/api/stats`} />
 
@@ -111,10 +111,10 @@ export async function ApiView({ locale }: { readonly locale: Locale }) {
             </p>
 
             <div className="mt-4 grid gap-4 sm:grid-cols-2">
-              <Field name="rows[]" note="metric, period, value, unit, origin, source and the URL of the filing" />
-              <Field name="notPublished[]" note="Metrics Roblox does not publish, with the reason each is absent" />
-              <Field name="?format=csv" note="The same rows as a downloadable CSV" />
-              <Field name="?format=csv-unpublished" note="The absences as their own CSV" />
+              <Field name="rows[]" note={t("trust.api.fields.statsRows")} />
+              <Field name="notPublished[]" note={t("trust.api.fields.statsAbsences")} />
+              <Field name="?format=csv" note={t("trust.api.fields.statsCsv")} />
+              <Field name="?format=csv-unpublished" note={t("trust.api.fields.absencesCsv")} />
             </div>
 
             <p className="mt-4 text-(--color-text-muted)">{t("trust.api.body.stats.p2")}</p>
@@ -123,7 +123,7 @@ export async function ApiView({ locale }: { readonly locale: Locale }) {
           <Section
             id="platform"
             heading={t("trust.api.platformHeading")}
-            description="The player-count observations this site has collected, exactly as collected."
+            description={t("trust.api.platformDescription")}
           >
             <Endpoint url={`${base}/api/platform`} />
 
@@ -148,10 +148,10 @@ export async function ApiView({ locale }: { readonly locale: Locale }) {
             </p>
 
             <div className="mt-4 grid gap-4 sm:grid-cols-2">
-              <Field name="rows[]" note="observed_at, the count, and the origin and source of each observation" />
-              <Field name="meta.notes[]" note="Retention, resolution and coverage limits, in the response itself" />
-              <Field name="?series=experiences" note="Per-experience rows, sampled hourly and kept seven days" />
-              <Field name="?format=csv" note="Either series as a downloadable CSV" />
+              <Field name="rows[]" note={t("trust.api.fields.platformRows")} />
+              <Field name="meta.notes[]" note={t("trust.api.fields.platformLimits")} />
+              <Field name="?series=experiences" note={t("trust.api.fields.platformExperiences")} />
+              <Field name="?format=csv" note={t("trust.api.fields.platformCsv")} />
             </div>
           </Section>
 

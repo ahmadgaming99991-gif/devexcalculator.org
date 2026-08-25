@@ -178,6 +178,15 @@
         "p1": "Si algo de aquí te bloquea, decírnoslo es la vía más rápida para arreglarlo. Incluye la página, qué intentabas hacer y, si es relevante, el navegador y la tecnología de apoyo que usabas. Los informes de accesibilidad se tratan con la misma prioridad que una tasa equivocada: ambos hacen que el sitio falle en su cometido.",
         "p2": "Para saber cómo está construido el sitio en general, consulta la"
       }
+    },
+    "tested": {
+      "axe": "Comprobaciones automatizadas con axe en todas las rutas representativas, en anchos de escritorio y de móvil",
+      "keyboard": "Recorrido solo con teclado por la calculadora, la navegación y todos los formularios",
+      "narrowLayout": "Diseño a 320px de ancho sin desplazamiento horizontal",
+      "zoom": "Diseño con un zoom de texto del 200% sin pérdida de contenido ni de función",
+      "contrast": "Contraste de color para cada par de colores de texto e interfaz, en los temas claro y oscuro",
+      "reducedMotion": "Preferencia de movimiento reducido respetada en todo el sitio",
+      "highContrast": "Modo de alto contraste de Windows, donde los bordes mantienen visible la estructura"
     }
   }
 }

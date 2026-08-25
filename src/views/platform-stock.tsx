@@ -46,16 +46,16 @@ export async function StockView({ locale }: { readonly locale: Locale }) {
 
   return (
     <>
-      <JsonLd route={ROUTE} />
+      <JsonLd locale={locale} route={ROUTE} />
       <Container width="wide">
         <Breadcrumbs locale={locale} route={ROUTE} />
         <PageHeader locale={locale}
           record={record}
-          intro="Roblox's reported results, and an honest account of why there is no live share price here yet."
+          intro={t("platform.stock.intro")}
         />
 
         <div className="flex flex-col gap-10">
-          <QuickAnswer locale={locale} jumpTo="quote" jumpLabel="See what is shown">
+          <QuickAnswer locale={locale} jumpTo="quote" jumpLabel={t("platform.stock.jumpLabel")}>
             {record.quickAnswer}
           </QuickAnswer>
 

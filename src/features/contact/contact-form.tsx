@@ -116,7 +116,7 @@ export function ContactForm({ turnstileSiteKey,
           autoComplete="email"
           maxLength={LIMITS.email.max}
           error={issueFor("email")}
-          hint="Only used to reply to you."
+          hint={t("contact.form.emailHint")}
           required
         />
         <Field

@@ -1,5 +1,5 @@
 import { loadWords } from "@/i18n/client-words";
-import { getTranslator } from "@/i18n/get-dictionary";
+import { getTranslator, type Translate } from "@/i18n/get-dictionary";
 import { localizedRoute } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -26,26 +26,22 @@ import { PREPARATION_WORDS } from "@/features/devex/preparation-checklist.words"
 const ROUTE = "/devex-requirements/";
 
 
-const MISUNDERSTANDINGS: readonly { claim: string; reality: string }[] = [
+const MISUNDERSTANDINGS = (t: Translate): readonly { claim: string; reality: string }[] => [
   {
-    claim: "The minimum is 10,000 Robux.",
-    reality:
-      "It is 30,000 Earned Robux. The lower figure circulates on third-party sites that have not been updated, and it is not what current Roblox documentation says.",
+    claim: t("rates.requirements.misunderstandings.minimum10k.claim"),
+    reality: t("rates.requirements.misunderstandings.minimum10k.reality"),
   },
   {
-    claim: "Any Robux balance counts toward the minimum.",
-    reality:
-      "Only Earned Robux count. A balance made up of purchased Robux does not qualify however large it is.",
+    claim: t("rates.requirements.misunderstandings.anyBalance.claim"),
+    reality: t("rates.requirements.misunderstandings.anyBalance.reality"),
   },
   {
-    claim: "Reaching 30,000 means you will be paid.",
-    reality:
-      "It means you can submit a request. Roblox reviews each one and decides which Robux qualify as earned.",
+    claim: t("rates.requirements.misunderstandings.reaching30k.claim"),
+    reality: t("rates.requirements.misunderstandings.reaching30k.reality"),
   },
   {
-    claim: "You need to be 18 to use DevEx.",
-    reality:
-      "Roblox documents a minimum age of 13. The separate 18+ condition concerns the age verification of the players who spent the Robux, and affects the rate rather than your eligibility.",
+    claim: t("rates.requirements.misunderstandings.age18.claim"),
+    reality: t("rates.requirements.misunderstandings.age18.reality"),
   },
 ];
 
@@ -56,35 +52,35 @@ export async function RequirementsView({ locale }: { readonly locale: Locale }) 
 
   return (
     <>
-      <JsonLd route={ROUTE} />
+      <JsonLd locale={locale} route={ROUTE} />
       <Container width="wide">
         <Breadcrumbs locale={locale} route={ROUTE} />
         <PageHeader locale={locale}
           record={record}
-          intro="What Roblox actually requires before a DevEx request can be submitted, taken from its own documentation rather than from repeated third-party summaries."
+          intro={t("rates.requirements.intro")}
         />
 
         <div className="flex flex-col gap-10">
-          <QuickAnswer locale={locale} jumpTo="requirements" jumpLabel="See each requirement in detail">
+          <QuickAnswer locale={locale} jumpTo="requirements" jumpLabel={t("rates.requirements.jumpLabel")}>
             {record.quickAnswer}
           </QuickAnswer>
 
           <TableOfContents locale={locale} sections={record.sections} />
 
           <Section id="requirements" heading={t("rates.requirements.requirementsHeading")}>
-            <RequirementsList />
+            <RequirementsList t={t} />
           </Section>
 
           <Section
             id="minimum"
             heading={`The ${formatRobux(minimumEarnedRobux)} Earned Robux minimum`}
-            description="The number everybody looks up first, and the one most often quoted out of date."
+            description={t("rates.requirements.minimumDescription")}
           >
             <ThresholdScale
               className="mb-6"
               thresholdLabel={`${formatRobux(minimumEarnedRobux)} eligible Earned Robux`}
-              below="Below the line, a DevEx request cannot be submitted at all. Being close to it counts for nothing, and the shortfall has to be earned — it cannot be bought."
-              above="At or above the line, a request can be submitted. It is then reviewed, and meeting the threshold is not the same as being approved."
+              below={t("rates.requirements.threshold.below")}
+              above={t("rates.requirements.threshold.above")}
               caption={t("rates.requirements.minimumDiagramCaption")}
             />
 
@@ -114,7 +110,7 @@ export async function RequirementsView({ locale }: { readonly locale: Locale }) 
           <Section
             id="not-approval"
             heading={t("rates.requirements.notApprovalHeading")}
-            description="This distinction is the single most important thing on this page."
+            description={t("rates.requirements.notApprovalDescription")}
           >
             <Callout tone="warning" title={t("rates.requirements.numberCannotApproveTitle")}>{t("rates.requirements.body.notApproval.p1")}</Callout>
           </Section>
@@ -122,7 +118,7 @@ export async function RequirementsView({ locale }: { readonly locale: Locale }) 
           <Section
             id="checklist"
             heading={t("rates.requirements.checklistHeading")}
-            description="Getting these in place before you apply avoids the obvious delays. Tick them off as you go — these steps are usually done days apart, and progress is kept in your own browser."
+            description={t("rates.requirements.checklistDescription")}
           >
             <noscript>
               {/*
@@ -154,10 +150,10 @@ export async function RequirementsView({ locale }: { readonly locale: Locale }) 
           <Section
             id="misunderstandings"
             heading={t("rates.requirements.misunderstandingsHeading")}
-            description="Each of these is something creators repeat to each other, alongside what the documentation actually says."
+            description={t("rates.requirements.misunderstandingsDescription")}
           >
             <div className="flex flex-col gap-3">
-              {MISUNDERSTANDINGS.map((item) => (
+              {MISUNDERSTANDINGS(t).map((item) => (
                 <div
                   key={item.claim}
                   className="rounded-(--radius-control) border border-(--color-border) bg-(--color-surface) p-4"

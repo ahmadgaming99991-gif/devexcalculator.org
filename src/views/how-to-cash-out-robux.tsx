@@ -29,16 +29,16 @@ export async function CashOutView({ locale }: { readonly locale: Locale }) {
 
   return (
     <>
-      <JsonLd route={ROUTE} />
+      <JsonLd locale={locale} route={ROUTE} />
       <Container width="wide">
         <Breadcrumbs locale={locale} route={ROUTE} />
         <PageHeader locale={locale}
           record={record}
-          intro="The official process, what to have ready before you start, and how to recognise the services that are not worth the risk."
+          intro={t("guides.cashOut.intro")}
         />
 
         <div className="flex flex-col gap-10">
-          <QuickAnswer locale={locale} jumpTo="process" jumpLabel="See the process">
+          <QuickAnswer locale={locale} jumpTo="process" jumpLabel={t("guides.cashOut.jumpLabel")}>
             {record.quickAnswer}
           </QuickAnswer>
 
@@ -47,40 +47,37 @@ export async function CashOutView({ locale }: { readonly locale: Locale }) {
           <Section
             id="process"
             heading={t("guides.cashOut.processHeading")}
-            description="At a high level, and only as far as official documentation supports."
+            description={t("guides.cashOut.processDescription")}
           >
             <ValueFlow
               className="mb-6"
               caption={t("guides.cashOut.processDiagramCaption")}
               stages={[
                 {
-                  label: "Reach the minimum",
+                  label: t("guides.cashOut.steps.reachMinimum"),
                   detail: `At least ${formatRobux(minimumEarnedRobux)}, and only Earned Robux count toward it.`,
                   tone: "primary",
                 },
                 {
-                  label: "Meet the account requirements",
-                  detail:
-                    "Verified email, minimum age of 13, a DevEx portal account, a tax form on file, good standing.",
+                  label: t("guides.cashOut.steps.meetRequirements"),
+                  detail: t("guides.cashOut.steps.meetRequirementsDetail"),
                   tone: "primary",
                 },
                 {
-                  label: "Submit through the portal",
-                  detail: "The official DevEx portal, and nowhere else.",
+                  label: t("guides.cashOut.steps.submitPortal"),
+                  detail: t("guides.cashOut.steps.submitPortalDetail"),
                   tone: "primary",
                 },
                 {
-                  label: "Roblox reviews it",
-                  detail:
-                    "It decides which Robux qualify and whether to approve. This can end here, and no third party changes that.",
-                  by: "Roblox alone",
+                  label: t("guides.cashOut.steps.robloxReviews"),
+                  detail: t("guides.cashOut.steps.robloxReviewsDetail"),
+                  by: t("guides.cashOut.steps.robloxReviewsBy"),
                   tone: "warning",
                   decision: true,
                 },
                 {
-                  label: "Payment is issued",
-                  detail:
-                    "Your provider and bank apply their own handling and fees from there.",
+                  label: t("guides.cashOut.steps.paymentIssued"),
+                  detail: t("guides.cashOut.steps.paymentIssuedDetail"),
                   tone: "success",
                 },
               ]}
@@ -132,7 +129,7 @@ export async function CashOutView({ locale }: { readonly locale: Locale }) {
           <Section
             id="checklist"
             heading={t("guides.cashOut.prepareHeading")}
-            description="None of this is difficult, but chasing it after submitting is what causes delays."
+            description={t("guides.cashOut.prepareDescription")}
           >
             <ul className="flex list-disc flex-col gap-2 pl-5 text-(--color-text-muted)">
               <li>{t("guides.cashOut.prepare.emailVerified")}</li>
@@ -147,7 +144,7 @@ export async function CashOutView({ locale }: { readonly locale: Locale }) {
           <Section
             id="timing"
             heading={t("guides.cashOut.howLongHeading")}
-            description="Honestly: nobody outside Roblox can tell you."
+            description={t("guides.cashOut.howLongDescription")}
           >
             <p className="text-(--color-text-muted)">
               Roblox does not publish a guaranteed processing time, so this page
@@ -161,7 +158,7 @@ export async function CashOutView({ locale }: { readonly locale: Locale }) {
           <Section
             id="safety"
             heading={t("guides.cashOut.avoidHeading")}
-            description="This part matters more than the rest of the page."
+            description={t("guides.cashOut.avoidDescription")}
           >
             <Callout tone="danger" title={t("guides.cashOut.neverShareTitle")}>{t("guides.cashOut.body.safety.p1")}</Callout>
 
@@ -182,7 +179,7 @@ export async function CashOutView({ locale }: { readonly locale: Locale }) {
           <Section
             id="group"
             heading={t("guides.cashOut.groupHeading")}
-            description="A DevEx request is submitted by one account and paid to that account. Roblox does not divide a payout between collaborators, so a revenue share is an arrangement between the people in the group — and the minimum applies to each of them separately."
+            description={t("guides.cashOut.groupDescription")}
           >
             <p className="text-(--color-text-muted)">{t("guides.cashOut.body.group.p1")}</p>
 
@@ -194,7 +191,7 @@ export async function CashOutView({ locale }: { readonly locale: Locale }) {
           <Section
             id="after"
             heading={t("guides.cashOut.afterHeading")}
-            description="The DevEx rate is not the last number involved."
+            description={t("guides.cashOut.afterDescription")}
           >
             <p className="text-(--color-text-muted)">
               A payout is income, and how it is taxed depends entirely on where

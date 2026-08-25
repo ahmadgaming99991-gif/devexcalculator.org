@@ -1,6 +1,7 @@
 "use client";
 
 import { translatorFor, type LocaleWords } from "@/i18n/client-words";
+import type { Translate } from "@/i18n/get-dictionary";
 import { useId, useMemo, useState } from "react";
 import {
   calculateAfterFee,
@@ -28,9 +29,9 @@ import { CopyButton } from "@/features/devex/components/actions";
  * All arithmetic comes from src/lib/calculations/marketplace.ts.
  */
 
-const MODES: readonly ModeOption[] = [
-  { id: "after", label: "What I keep", description: "From a sale price" },
-  { id: "before", label: "What to charge", description: "To clear a target" },
+const modes = (t: Translate): readonly ModeOption[] => [
+  { id: "after", label: t("marketplace.modes.after.label"), description: t("marketplace.modes.after.description") },
+  { id: "before", label: t("marketplace.modes.before.label"), description: t("marketplace.modes.before.description") },
 ];
 
 export function MarketplaceCalculator({ words }: { readonly words: LocaleWords }) {
@@ -96,21 +97,21 @@ export function MarketplaceCalculator({ words }: { readonly words: LocaleWords }
             `Your share: ${formatPercent(afterFee.creatorSharePercent, 0)}`,
             `You keep: ${formatRobux(afterFee.creatorRobux)} Robux`,
             `Roblox keeps: ${formatRobux(afterFee.platformRobux)} Robux`,
-            "Estimate from devexcalculator.org",
+            t("marketplace.results.estimateFrom"),
           ].join("\n")
         : [
             `Target after fee: ${formatRobux(beforeFee.targetNetRobux)} Robux`,
             `Scheme: ${beforeFee.scheme.label}`,
             `Your share: ${formatPercent(beforeFee.creatorSharePercent, 0)}`,
             `Price to charge: ${formatRobux(beforeFee.requiredGrossRobux)} Robux`,
-            "Estimate from devexcalculator.org",
+            t("marketplace.results.estimateFrom"),
           ].join("\n");
 
   return (
     <Card as="section">
       <h2 className="sr-only">{t("marketplace.srHeading")}</h2>
 
-      <ModeTabs options={MODES} value={mode} onChange={(next) => setMode(next as "after" | "before")} />
+      <ModeTabs options={modes(t)} value={mode} onChange={(next) => setMode(next as "after" | "before")} />
 
       <div
         id={`mode-panel-${mode}`}

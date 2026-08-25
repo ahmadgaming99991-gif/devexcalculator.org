@@ -157,7 +157,8 @@
     "usdUnaffected": "Yukarıdaki USD rakamı yerel olarak hesaplanır ve bundan etkilenmez.",
     "staleHeading": "Kurlar güncelliğini yitirmiş.",
     "provenance": "{currency} rakamları, {date} tarihinde gözlenen {provider} referans kurlarını kullanır. Bunlar referans kurlardır, banka kotasyonu değil — ödeme sağlayıcınız kendi kurunu uygular ve ücret ekleyebilir.",
-    "staleSnapshot": "Canlı referans kurları kullanılamıyor, bu yüzden kayıtlı bir anlık görüntü gösteriliyor. Bu rakamları yalnızca gösterge olarak değerlendirin."
+    "staleSnapshot": "Canlı referans kurları kullanılamıyor, bu yüzden kayıtlı bir anlık görüntü gösteriliyor. Bu rakamları yalnızca gösterge olarak değerlendirin.",
+    "staleAged": "Yayımlanmış en güncel referans kurları {ageDays} günlük."
   },
   "home": {
     "formulaOpen": "Burada gizlenen bir şey yok. Formül tek bir çarpma ve bunu siz de doğrulayabilirsiniz.",
@@ -206,7 +207,14 @@
       }
     },
     "intro": "Uygun Earned Robux'ı, Roblox'un şu anda belgelediği oranlarla tahmini bir ABD doları ödemesine çevirin; her rakamın yanında kaynağı ve doğrulama tarihi gösterilir.",
-    "jumpLabel": "Hesaplamanın nasıl işlediğini görün"
+    "jumpLabel": "Hesaplamanın nasıl işlediğini görün",
+    "cannot": {
+      "eligibility": "Robux'larınızın Earned Robux sayılıp sayılmadığı — buna bu hesaplayıcı değil, Roblox karar verir.",
+      "approval": "Bir DevEx talebinin onaylanıp onaylanmayacağı ve ne kadar süreceği.",
+      "providerFees": "Kendi rakamlarınızı girmediğiniz sürece ödeme sağlayıcısı ücretleri ve kur farkları.",
+      "tax": "Ülkenizde ödenmesi gereken vergi. Buradaki hiçbir şey vergi danışmanlığı değildir.",
+      "retailPrice": "Robux satın almanın perakende fiyatı; bu, kendi fiyatlandırması olan ayrı bir işlemdir."
+    }
   },
   "planner": {
     "targetLabel": "Ulaşmak istediğiniz ödeme",

@@ -1,4 +1,4 @@
-import { getTranslator } from "@/i18n/get-dictionary";
+import { getTranslator, type Translate } from "@/i18n/get-dictionary";
 import { localizedRoute } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
 import Link from "next/link";
@@ -25,36 +25,36 @@ const ROUTE = "/guides/";
  * second URL prefix would be cannibalisation dressed up as information
  * architecture.
  */
-const READING_ORDER: readonly { route: string; answers: string; assumes: string }[] = [
+const READING_ORDER = (t: Translate): readonly { route: string; answers: string; assumes: string }[] => [
   {
     route: "/earned-robux/",
-    answers: "Which of my Robux can actually be cashed out?",
-    assumes: "Nothing. Start here — it decides whether the rest applies to you.",
+    answers: t("guides.index.readingOrder.earnedRobux.answers"),
+    assumes: t("guides.index.readingOrder.earnedRobux.assumes"),
   },
   {
     route: "/devex-requirements/",
-    answers: "What do I need before I can submit a request?",
-    assumes: "That you know the difference between Earned Robux and your balance.",
+    answers: t("guides.index.readingOrder.requirements.answers"),
+    assumes: t("guides.index.readingOrder.requirements.assumes"),
   },
   {
     route: "/devex-rates/",
-    answers: "What does Roblox pay per Earned Robux?",
-    assumes: "That you know which part of your balance qualifies.",
+    answers: t("guides.index.readingOrder.rates.answers"),
+    assumes: t("guides.index.readingOrder.rates.assumes"),
   },
   {
     route: "/devex-rate-history/",
-    answers: "Why does part of my balance convert at a different rate?",
-    assumes: "That you have read the rates page.",
+    answers: t("guides.index.readingOrder.rateHistory.answers"),
+    assumes: t("guides.index.readingOrder.rateHistory.assumes"),
   },
   {
     route: "/how-to-cash-out-robux/",
-    answers: "What is the actual process?",
-    assumes: "That you meet the requirements and know what your balance is worth.",
+    answers: t("guides.index.readingOrder.cashOut.answers"),
+    assumes: t("guides.index.readingOrder.cashOut.assumes"),
   },
   {
     route: "/devex-fees-and-taxes/",
-    answers: "What comes off the payout before it reaches me?",
-    assumes: "That you have a payout figure to work from.",
+    answers: t("guides.index.readingOrder.feesAndTaxes.answers"),
+    assumes: t("guides.index.readingOrder.feesAndTaxes.assumes"),
   },
 ];
 
@@ -64,12 +64,12 @@ export async function GuidesView({ locale }: { readonly locale: Locale }) {
 
   return (
     <>
-      <JsonLd route={ROUTE} />
+      <JsonLd locale={locale} route={ROUTE} />
       <Container width="wide">
         <Breadcrumbs locale={locale} route={ROUTE} />
         <PageHeader locale={locale}
           record={record}
-          intro="Six guides covering everything between earning a Robux and having the money in your account, in the order that makes sense to read them."
+          intro={t("guides.index.intro")}
         />
 
         <div className="flex flex-col gap-10">
@@ -78,10 +78,10 @@ export async function GuidesView({ locale }: { readonly locale: Locale }) {
           <Section
             id="reading-order"
             heading={t("guides.index.readingOrderHeading")}
-            description="Each guide states its sources and the date its facts were last checked."
+            description={t("guides.index.readingOrderDescription")}
           >
             <ol className="flex flex-col gap-3">
-              {READING_ORDER.map((entry, index) => {
+              {READING_ORDER(t).map((entry, index) => {
                 const target = getRoute(entry.route);
                 if (!target) return null;
                 return (
@@ -120,7 +120,7 @@ export async function GuidesView({ locale }: { readonly locale: Locale }) {
           <Section
             id="calculators"
             heading={t("guides.index.preferCalculateHeading")}
-            description="Every guide links to the tool it supports, but you can go straight there."
+            description={t("guides.index.preferCalculateDescription")}
           >
             <Link
               href="/calculators/"

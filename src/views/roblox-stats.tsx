@@ -85,9 +85,9 @@ export async function RobloxStatsView({ locale }: { readonly locale: Locale }) {
    * table, where it can be described for what it is.
    */
   const rates = [
-    { id: legacyRateId, label: "Before 5 Sep 2025", from: "2025-09-05", onTimeline: true },
-    { id: standardRateId, label: "From 5 Sep 2025", from: "2025-09-05", onTimeline: true },
-    { id: us18RateId, label: "Conditional U.S. 18+", from: "2025-09-05", onTimeline: false },
+    { id: legacyRateId, label: t("platform.stats.rateBefore"), from: "2025-09-05", onTimeline: true },
+    { id: standardRateId, label: t("platform.stats.rateFrom"), from: "2025-09-05", onTimeline: true },
+    { id: us18RateId, label: t("platform.stats.rateConditional"), from: "2025-09-05", onTimeline: false },
   ].map((entry) => {
     const rate = getRateValue(entry.id);
     return {
@@ -102,34 +102,34 @@ export async function RobloxStatsView({ locale }: { readonly locale: Locale }) {
 
   return (
     <>
-      <JsonLd route={ROUTE} />
+      <JsonLd locale={locale} route={ROUTE} />
       <Container width="wide">
         <Breadcrumbs locale={locale} route={ROUTE} />
         <PageHeader locale={locale}
           record={record}
-          intro="What Roblox actually pays creators, taken from its own filings with the SEC. Every figure below links to the document it came from."
+          intro={t("platform.stats.intro")}
         />
 
         <div className="flex flex-col gap-10">
-          <QuickAnswer locale={locale} jumpTo="payouts" jumpLabel="See the payout figures">
+          <QuickAnswer locale={locale} jumpTo="payouts" jumpLabel={t("platform.stats.jumpLabel")}>
             {record.quickAnswer}
           </QuickAnswer>
 
           <Section
             id="payouts"
             heading={t("platform.stats.payoutsHeading")}
-            description="Developer exchange fees are a line on Roblox's income statement: the money it paid out through DevEx. It is the closest thing to a measure of what the creator economy earns."
+            description={t("platform.stats.payoutsDescription")}
           >
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               <Stat
                 label={t("platform.stats.paidIn2025")}
                 value={formatUsdMagnitude(fy2025?.amountUsd ?? "0")}
-                note="Developer exchange fees, full year"
+                note={t("platform.stats.paidIn2025Note")}
               />
               <Stat
                 label={t("platform.stats.paidIn2024")}
                 value={formatUsdMagnitude(fy2024?.amountUsd ?? "0")}
-                note="The year before"
+                note={t("platform.stats.paidIn2024Note")}
               />
               <Stat
                 label={t("platform.stats.yearOnYearChange")}
@@ -139,7 +139,7 @@ export async function RobloxStatsView({ locale }: { readonly locale: Locale }) {
               <Stat
                 label={`Latest quarter (${latestQuarter?.label ?? ""})`}
                 value={formatUsdMagnitude(latestQuarter?.amountUsd ?? "0")}
-                note="Three months ended 30 June 2026"
+                note={t("platform.stats.quarterNote")}
               />
             </div>
 
@@ -194,7 +194,7 @@ export async function RobloxStatsView({ locale }: { readonly locale: Locale }) {
           <Section
             id="quarterly"
             heading={t("platform.stats.byQuarterHeading")}
-            description="Roblox reports quarterly, so this is the finest resolution that exists. Two quarters are marked as derived: they are a six-month total minus the quarter Roblox printed, which is exact arithmetic but not a figure Roblox published on its own."
+            description={t("platform.stats.byQuarterDescription")}
           >
             <ChartWithTable
               chart={
@@ -249,7 +249,7 @@ export async function RobloxStatsView({ locale }: { readonly locale: Locale }) {
           <Section
             id="rate-history"
             heading={t("platform.stats.rateTimelineHeading")}
-            description="A payout total says how much creators cashed out, not what each Robux was worth. That is a separate, documented figure, and it has changed once."
+            description={t("platform.stats.payoutTotalNote")}
           >
             <ChartWithTable
               chart={
@@ -393,21 +393,21 @@ export async function RobloxStatsView({ locale }: { readonly locale: Locale }) {
           <Section
             id="data"
             heading={t("platform.stats.downloadHeading")}
-            description="The rows behind the charts, with every figure labelled reported or derived."
+            description={t("platform.stats.downloadDescription")}
           >
             <DataDownload
               heading={t("platform.stats.downloadInnerHeading")}
-              description="Everything charted on this page, plus the metrics Roblox does not publish, as a spreadsheet or as JSON."
+              description={t("platform.stats.downloadInnerDescription")}
               formats={[
-                { label: "CSV — payout figures", href: "/api/stats/?format=csv" },
-                { label: "CSV — metrics Roblox does not publish", href: "/api/stats/?format=csv-unpublished" },
-                { label: "JSON — everything", href: "/api/stats/" },
+                { label: t("platform.stats.downloadFormats.csvPayouts"), href: "/api/stats/?format=csv" },
+                { label: t("platform.stats.downloadFormats.csvAbsences"), href: "/api/stats/?format=csv-unpublished" },
+                { label: t("platform.stats.downloadFormats.jsonEverything"), href: "/api/stats/" },
               ]}
               limitations={[
-                "Every row states whether Roblox reported the figure or this site derived it from reported ones. The derivations are described on the methodology page.",
-                "Money is carried as an exact decimal string, never as a floating-point number, and never rounded on the way out.",
-                "Each row names the filing it came from and links to it, so any figure can be checked against the original document.",
-                "The metrics Roblox does not publish are included as absences with reasons, not omitted — a file without them would look like the complete picture.",
+                t("platform.stats.limitations.reportedOrDerived"),
+                t("platform.stats.limitations.exactDecimal"),
+                t("platform.stats.limitations.filingLinked"),
+                t("platform.stats.limitations.absencesIncluded"),
               ]}
             />
           </Section>

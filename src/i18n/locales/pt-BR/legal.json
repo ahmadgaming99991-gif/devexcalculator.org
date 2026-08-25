@@ -178,6 +178,15 @@
         "p1": "Se algo aqui bloqueia você, nos avisar é o jeito mais rápido de consertar. Inclua a página, o que você estava tentando fazer e, se for relevante, o navegador e a tecnologia assistiva que usava. Relatos de acessibilidade têm a mesma prioridade que uma taxa errada — ambos fazem o site falhar no seu trabalho.",
         "p2": "Para saber como o site é construído de forma mais geral, veja a"
       }
+    },
+    "tested": {
+      "axe": "Verificações automatizadas com o axe em todas as rotas representativas, em larguras de desktop e de celular",
+      "keyboard": "Percurso apenas com teclado pela calculadora, pela navegação e por todos os formulários",
+      "narrowLayout": "Layout com 320px de largura sem rolagem horizontal",
+      "zoom": "Layout com zoom de texto de 200% sem perda de conteúdo ou de funcionalidade",
+      "contrast": "Contraste de cor para cada par de cores de texto e de interface, nos temas claro e escuro",
+      "reducedMotion": "Preferência por movimento reduzido respeitada em todo o site",
+      "highContrast": "Modo de Alto Contraste do Windows, em que as bordas mantêm a estrutura visível"
     }
   }
 }

@@ -71,6 +71,11 @@ const NOT_PAGE_COPY = [
   // and is translated like any other page.
   "src/lib/api/contract.ts",
   "src/lib/content/llms.ts",
+  // The SEO report generators. Their sentences are written to
+  // `dist/reports/` for whoever is working on the site, never to a page.
+  "src/lib/seo/pipeline.ts",
+  "src/lib/seo/publish.ts",
+  "src/lib/seo/score.ts",
   "src/lib/platform/heartbeat.ts",
   "src/lib/api/exports.ts",
   "opengraph-image.tsx",
@@ -169,7 +174,7 @@ const PROTECTED = new Set(
 interface Finding {
   readonly file: string;
   readonly line: number;
-  readonly category: "jsx-text" | "attribute" | "registry-prose";
+  readonly category: "jsx-text" | "attribute" | "list-item" | "registry-prose";
   readonly words: number;
   readonly hasTokens: boolean;
   readonly text: string;
@@ -212,6 +217,26 @@ function looksTranslatable(value: string): boolean {
   if (/(^|\s)(flex|grid|mt-|mb-|px-|py-|text-|bg-|border-|rounded-|gap-)/.test(trimmed)) {
     return false;
   }
+  if (/var\(--|linear-gradient\(|--color-|--brand-/.test(trimmed)) return false;
+  /*
+   * A string made entirely of Tailwind variants.
+   *
+   * `motion-safe:hover:-translate-y-0.5 motion-safe:active:translate-y-0` has
+   * spaces and letters and looks like a sentence to every rule above it. Two
+   * or more colon-joined tokens is not English.
+   */
+  /*
+   * A class list, recognised by shape rather than by a list of prefixes.
+   *
+   * `motion-safe:hover:before:translate-x-full` and `block w-auto
+   * origin-center` have letters and spaces and look like a sentence to every
+   * rule above. What they do not have is a capital letter, a sentence mark,
+   * or a single token free of a hyphen or a colon — and English prose of four
+   * words or more always has at least one of those.
+   */
+  const tokens = trimmed.split(/\s+/);
+  const cssShaped = tokens.every((token) => /^[a-z@[][a-z0-9:_,[\]./%-]*$/.test(token));
+  if (cssShaped && tokens.some((token) => /[-:]/.test(token))) return false;
   if (PROTECTED.has(trimmed.toLowerCase())) return false;
   // An HTML entity is a character, not a word: `&nbsp;` and `&uarr;` are a
   // space and an arrow, and neither has a Portuguese equivalent.
@@ -307,6 +332,28 @@ const LINE_COMMENT = /^[^\S\n]*\/\/.*$/gm;
  * decoded characters — neither can ever match, and the report calls a string
  * that was extracted correctly missing.
  */
+/**
+ * Whether a bare string sits in a list of prose.
+ *
+ * Two things that are not: a build-time assertion's message, and a list whose
+ * name says its contents are identifiers. `secondaryKeywords` holds the
+ * search terms a page targets — translating `robux to usd calculator` into
+ * Turkish would invent a phrase nobody types — and `sourceIds`, `schemaTypes`
+ * and `values` hold names that only mean anything in the original.
+ */
+const NOT_PROSE_LIST = /(keywords?|ids?|types?|values|tags?|codes?|slugs?|routes?|paths?|entities)$/i;
+const ASSERTION = /\b(assert|invariant|problems\.push|errors\.push|throw new Error)\s*\($/;
+
+function isProseList(lines: readonly string[], index: number): boolean {
+  for (let at = index - 1; at >= 0 && at >= index - 12; at -= 1) {
+    const line = (lines[at] ?? "").trimEnd();
+    if (ASSERTION.test(line)) return false;
+    const opens = /^\s*(?:(?:export )?const )?([A-Za-z_$][\w$]*)(?:\s*:[^=]*)?\s*[:=]\s*\[$/.exec(line);
+    if (opens?.[1]) return !NOT_PROSE_LIST.test(opens[1]);
+  }
+  return true;
+}
+
 function decodeSource(value: string): string {
   return value
     .replace(/\\u([0-9a-fA-F]{4})/g, (_, hex: string) =>
@@ -370,6 +417,52 @@ function scan(file: string): Finding[] {
         file: rel,
         line: index + 1,
         category: isRegistry ? "registry-prose" : "attribute",
+        words: countWords(value),
+        hasTokens: hasInterpolation(value),
+        text: value,
+      });
+    }
+  }
+
+  /*
+   * A sentence written as an array element.
+   *
+   *     const TESTED: readonly string[] = [
+   *       "Automated axe checks on every representative route...",
+   *
+   * Neither an attribute nor a JSX text node, so neither scan saw it. A line
+   * that holds nothing but a quoted string and a comma is a list of prose or
+   * a list of identifiers, and `looksTranslatable` already knows the
+   * difference — a route, a class name or a key is not a sentence.
+   */
+  {
+    const listItem = /^[^\S\n]*"((?:[^"\\]|\\.){4,})",?$/gm;
+    let match: RegExpExecArray | null;
+    while ((match = listItem.exec(source)) !== null) {
+      const raw = match[1];
+      if (raw === undefined) continue;
+      const value = decodeSource(raw);
+      const index = source.slice(0, match.index).split("\n").length - 1;
+      if (!looksTranslatable(value)) continue;
+      if (isDiagnosticObject(lines, index)) continue;
+      /*
+       * The wrapped single argument of a call, rather than an element of a
+       * list of prose.
+       *
+       *     throw new Error(          assert(              problems.push(
+       *       "Fix src/data/…",         "no active rate…",     "engagement must…",
+       *
+       * All three put the string on its own line under a line ending in an
+       * open bracket. A row in a table of page copy sits under a line ending
+       * in a comma or the opening of an array — never under the call itself.
+       */
+      const above = (lines[index - 1] ?? "").trimEnd();
+      if (above.endsWith("(")) continue;
+      if (!isProseList(lines, index)) continue;
+      findings.push({
+        file: rel,
+        line: index + 1,
+        category: isRegistry ? "registry-prose" : "list-item",
         words: countWords(value),
         hasTokens: hasInterpolation(value),
         text: value,

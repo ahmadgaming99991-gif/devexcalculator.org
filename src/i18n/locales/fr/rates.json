@@ -179,6 +179,33 @@
       "pending": {
         "p1": "Les Robux issus d’un achat récent passent généralement un temps en attente avant de devenir disponibles, ce qui protège contre les transactions annulées. Les Robux en attente ne font pas encore partie du solde utilisable. Roblox documente le comportement de rétention actuel dans le Creator Hub, et comme ce comportement a changé au fil du temps, cette page n’avance pas de nombre de jours précis — consultez la documentation officielle pour le chiffre en vigueur."
       }
+    },
+    "qualifying": {
+      "developerProducts": "Robux provenant de joueurs qui achètent des developer products dans une expérience qui vous appartient",
+      "passes": "Robux provenant d’achats de pass dans votre expérience",
+      "privateServers": "Votre part des abonnements aux serveurs privés",
+      "avatarItems": "Votre part de créateur sur les objets d’avatar que vous avez créés et vendus",
+      "experienceSubscriptions": "Votre part des abonnements à une expérience, lorsqu’ils vous sont accessibles"
+    },
+    "notQualifying": {
+      "purchased": "Les Robux que vous avez achetés vous-même, dans n’importe quel pack et à n’importe quel prix",
+      "giftCards": "Robux issus d’une carte cadeau ou d’un code promotionnel",
+      "membership": "Robux inclus dans un abonnement Roblox au titre de la dotation mensuelle",
+      "trade": "Robux reçus d’un autre joueur lors d’un échange",
+      "transferred": "Robux transférés sur votre compte en dehors des revenus de créateur"
+    },
+    "gate": {
+      "accepted": {
+        "passesAndProducts": "Des joueurs qui achètent des pass et des developer products dans votre expérience",
+        "subscriptions": "Votre part des abonnements aux serveurs privés et aux expériences",
+        "avatarItems": "Votre part de créateur sur les objets d’avatar que vous avez créés"
+      },
+      "rejected": {
+        "purchased": "Les Robux que vous avez achetés vous-même, à n’importe quel prix",
+        "giftCards": "Cartes cadeaux et codes promotionnels",
+        "membership": "Dotations mensuelles d’abonnement",
+        "trade": "Robux reçus lors d’un échange"
+      }
     }
   },
   "feesAndTaxes": {
@@ -378,6 +405,13 @@
         "p2": "Convertissez vos Earned Robux en estimation de paiement",
         "p3": "Ce qui est réellement retiré d’un paiement DevEx"
       }
+    },
+    "notCovered": {
+      "regionalPricing": "Les ajustements tarifaires régionaux, qui changent ce que paie un joueur sans changer le pourcentage de votre part.",
+      "resale": "Les objets limités ou de revente, dont la structure de frais diffère d’une première vente.",
+      "groupSplits": "Les partages de revenus de groupe convenus entre collaborateurs, qui interviennent après la commission de Roblox.",
+      "promotional": "Tout taux promotionnel ou propre à un programme que Roblox pourrait appliquer à une catégorie donnée.",
+      "devexConversion": "La conversion DevEx, une étape distincte prise en charge par la calculatrice principale."
     }
   },
   "conversions": {

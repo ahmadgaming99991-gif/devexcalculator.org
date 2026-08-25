@@ -179,6 +179,15 @@
         "p1": "Jika ada yang menghalangi Anda di sini, memberi tahu kami adalah cara tercepat memperbaikinya. Sertakan halamannya, apa yang sedang Anda coba lakukan, serta peramban dan teknologi bantu yang Anda pakai jika itu relevan. Laporan aksesibilitas ditangani dengan prioritas yang sama seperti kurs yang salah — keduanya membuat situs ini gagal menjalankan tugasnya.",
         "p2": "Untuk gambaran umum bagaimana situs ini dibangun, lihat"
       }
+    },
+    "tested": {
+      "axe": "Pemeriksaan otomatis dengan axe pada setiap rute representatif, pada lebar desktop dan ponsel",
+      "keyboard": "Penelusuran hanya dengan papan ketik pada kalkulator, navigasi, dan setiap formulir",
+      "narrowLayout": "Tata letak pada lebar 320px tanpa gulir horizontal",
+      "zoom": "Tata letak pada perbesaran teks 200% tanpa kehilangan konten atau fungsi",
+      "contrast": "Kontras warna untuk setiap pasangan warna teks dan antarmuka, pada tema terang maupun gelap",
+      "reducedMotion": "Preferensi kurangi gerakan dihormati di seluruh situs",
+      "highContrast": "Mode Kontras Tinggi Windows, tempat garis tepi menjaga struktur tetap terlihat"
     }
   }
 }

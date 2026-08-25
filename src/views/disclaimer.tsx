@@ -17,12 +17,12 @@ export async function DisclaimerView({ locale }: { readonly locale: Locale }) {
 
   return (
     <>
-      <JsonLd route={ROUTE} />
+      <JsonLd locale={locale} route={ROUTE} />
       <Container width="prose">
         <Breadcrumbs locale={locale} route={ROUTE} />
         <PageHeader locale={locale}
           record={record}
-          intro="The honest boundary of what this site can tell you — worth reading once before you plan around a number here."
+          intro={t("legal.disclaimer.intro")}
         />
 
         <div className="flex flex-col gap-10">

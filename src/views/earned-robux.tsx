@@ -1,4 +1,4 @@
-import { getTranslator } from "@/i18n/get-dictionary";
+import { getTranslator, type Translate } from "@/i18n/get-dictionary";
 import Link from "next/link";
 import { localizedRoute } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
@@ -22,20 +22,20 @@ import { minimumEarnedRobux } from "@/lib/calculations/rate-registry";
 const ROUTE = "/earned-robux/";
 
 
-const QUALIFYING: readonly string[] = [
-  "Robux from players buying developer products inside an experience you own",
-  "Robux from pass purchases in your experience",
-  "Your share of private server subscriptions",
-  "Your creator share of avatar items you made and sold",
-  "Your share of experience subscriptions where these are available to you",
+const QUALIFYING = (t: Translate): readonly string[] => [
+  t("rates.earnedRobux.qualifying.developerProducts"),
+  t("rates.earnedRobux.qualifying.passes"),
+  t("rates.earnedRobux.qualifying.privateServers"),
+  t("rates.earnedRobux.qualifying.avatarItems"),
+  t("rates.earnedRobux.qualifying.experienceSubscriptions"),
 ];
 
-const NOT_QUALIFYING: readonly string[] = [
-  "Robux you bought yourself, in any package or at any price",
-  "Robux from a gift card or promotional code",
-  "Robux included with a Roblox membership as a monthly grant",
-  "Robux received from another player in a trade",
-  "Robux transferred into your account from outside creator earnings",
+const NOT_QUALIFYING = (t: Translate): readonly string[] => [
+  t("rates.earnedRobux.notQualifying.purchased"),
+  t("rates.earnedRobux.notQualifying.giftCards"),
+  t("rates.earnedRobux.notQualifying.membership"),
+  t("rates.earnedRobux.notQualifying.trade"),
+  t("rates.earnedRobux.notQualifying.transferred"),
 ];
 
 export async function EarnedRobuxView({ locale }: { readonly locale: Locale }) {
@@ -44,16 +44,16 @@ export async function EarnedRobuxView({ locale }: { readonly locale: Locale }) {
 
   return (
     <>
-      <JsonLd route={ROUTE} />
+      <JsonLd locale={locale} route={ROUTE} />
       <Container width="wide">
         <Breadcrumbs locale={locale} route={ROUTE} />
         <PageHeader locale={locale}
           record={record}
-          intro="The distinction that decides whether a DevEx payout is possible at all — and the one most often missed until a request is refused."
+          intro={t("rates.earnedRobux.intro")}
         />
 
         <div className="flex flex-col gap-10">
-          <QuickAnswer locale={locale} jumpTo="definition" jumpLabel="Read the full definition">
+          <QuickAnswer locale={locale} jumpTo="definition" jumpLabel={t("rates.earnedRobux.jumpLabel")}>
             {record.quickAnswer}
           </QuickAnswer>
 
@@ -63,7 +63,7 @@ export async function EarnedRobuxView({ locale }: { readonly locale: Locale }) {
             <DefinitionBlock term="Earned Robux">{t("rates.earnedRobux.body.definition.p1")}</DefinitionBlock>
 
             {/*
-              Categories rather than the QUALIFYING and NOT_QUALIFYING arrays
+              Categories rather than the QUALIFYING and NOT_QUALIFYING tables
               themselves. Those are printed in full two sections below, and
               repeating them here would make the page say the same ten things
               twice — the diagram exists to show that there is a sorting step at
@@ -73,20 +73,20 @@ export async function EarnedRobuxView({ locale }: { readonly locale: Locale }) {
               className="mt-6"
               caption={t("rates.earnedRobux.sortingCaption")}
               accepted={{
-                heading: "Becomes Earned Robux",
+                heading: t("rates.earnedRobux.becomesEarned"),
                 items: [
-                  "Players buying passes and developer products in your experience",
-                  "Your share of private server and experience subscriptions",
-                  "Your creator share of avatar items you made",
+                  t("rates.earnedRobux.gate.accepted.passesAndProducts"),
+                  t("rates.earnedRobux.gate.accepted.subscriptions"),
+                  t("rates.earnedRobux.gate.accepted.avatarItems"),
                 ],
               }}
               rejected={{
-                heading: "Stays in the balance, but never qualifies",
+                heading: t("rates.earnedRobux.staysButNeverQualifies"),
                 items: [
-                  "Robux you bought yourself, at any price",
-                  "Gift cards and promotional codes",
-                  "Monthly membership grants",
-                  "Robux received in a trade",
+                  t("rates.earnedRobux.gate.rejected.purchased"),
+                  t("rates.earnedRobux.gate.rejected.giftCards"),
+                  t("rates.earnedRobux.gate.rejected.membership"),
+                  t("rates.earnedRobux.gate.rejected.trade"),
                 ],
               }}
               outcome={
@@ -112,10 +112,10 @@ export async function EarnedRobuxView({ locale }: { readonly locale: Locale }) {
           <Section
             id="qualifying"
             heading={t("rates.earnedRobux.countsHeading")}
-            description="These are the routes by which Robux normally become Earned Robux. Roblox makes the final determination for any specific balance."
+            description={t("rates.earnedRobux.countsDescription")}
           >
             <ul className="flex list-disc flex-col gap-2 pl-5 text-(--color-text-muted)">
-              {QUALIFYING.map((item) => (
+              {QUALIFYING(t).map((item) => (
                 <li key={item}>{item}</li>
               ))}
             </ul>
@@ -131,10 +131,10 @@ export async function EarnedRobuxView({ locale }: { readonly locale: Locale }) {
           <Section
             id="not-qualifying"
             heading={t("rates.earnedRobux.doesNotCountHeading")}
-            description="Robux acquired these ways sit in the same balance but are treated differently."
+            description={t("rates.earnedRobux.doesNotCountDescription")}
           >
             <ul className="flex list-disc flex-col gap-2 pl-5 text-(--color-text-muted)">
-              {NOT_QUALIFYING.map((item) => (
+              {NOT_QUALIFYING(t).map((item) => (
                 <li key={item}>{item}</li>
               ))}
             </ul>
@@ -150,7 +150,7 @@ export async function EarnedRobuxView({ locale }: { readonly locale: Locale }) {
           <Section
             id="pending"
             heading={t("rates.earnedRobux.pendingHeading")}
-            description="Newly earned Robux are not immediately available, which surprises creators watching a balance climb."
+            description={t("rates.earnedRobux.pendingDescription")}
           >
             <p className="text-(--color-text-muted)">{t("rates.earnedRobux.body.pending.p1")}</p>
           </Section>
@@ -158,7 +158,7 @@ export async function EarnedRobuxView({ locale }: { readonly locale: Locale }) {
           <Section
             id="groups"
             heading={t("rates.earnedRobux.groupFundsHeading")}
-            description="Robux held by a group are not the same as Robux held by you."
+            description={t("rates.earnedRobux.groupFundsDescription")}
           >
             <p className="text-(--color-text-muted)">
               Earnings from an experience owned by a group accumulate in the

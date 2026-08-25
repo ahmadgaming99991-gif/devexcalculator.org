@@ -159,7 +159,8 @@
     "usdUnaffected": "La cifra en USD de arriba se calcula localmente y no se ve afectada.",
     "staleHeading": "Tipos desactualizados.",
     "provenance": "Las cifras en {currency} usan tipos de referencia de {provider} observados el {date}. Son tipos de referencia, no cotizaciones bancarias: tu proveedor de pagos aplicará el suyo y puede añadir una comisión.",
-    "staleSnapshot": "Las tasas de referencia en vivo no están disponibles, así que se muestra una instantánea almacenada. Toma estas cifras solo como orientativas."
+    "staleSnapshot": "Las tasas de referencia en vivo no están disponibles, así que se muestra una instantánea almacenada. Toma estas cifras solo como orientativas.",
+    "staleAged": "Las tasas de referencia publicadas más recientes tienen {ageDays} días."
   },
   "home": {
     "formulaOpen": "Aquí no se oculta nada. La fórmula es una multiplicación, y puedes comprobarla.",
@@ -208,7 +209,14 @@
       }
     },
     "intro": "Convierte los Earned Robux elegibles en una estimación de pago en dólares estadounidenses con las tasas que Roblox documenta actualmente, mostrando la fuente y la fecha de verificación junto a cada cifra.",
-    "jumpLabel": "Ver cómo funciona el cálculo"
+    "jumpLabel": "Ver cómo funciona el cálculo",
+    "cannot": {
+      "eligibility": "Si tus Robux cuentan como Earned Robux: eso lo decide Roblox, no esta calculadora.",
+      "approval": "Si una solicitud de DevEx será aprobada, y cuánto tardará.",
+      "providerFees": "Comisiones del proveedor de pagos y diferenciales de cambio, salvo que introduzcas tus propias cifras.",
+      "tax": "Los impuestos que debes en tu país. Nada de esto es asesoramiento fiscal.",
+      "retailPrice": "El precio de venta al público de comprar Robux, que es una transacción aparte con sus propios precios."
+    }
   },
   "planner": {
     "targetLabel": "Pago al que aspiras",

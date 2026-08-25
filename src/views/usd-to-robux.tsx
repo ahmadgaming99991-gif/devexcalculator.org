@@ -61,12 +61,12 @@ export async function UsdToRobuxView({
 
   return (
     <>
-      <JsonLd route={ROUTE} />
+      <JsonLd locale={locale} route={ROUTE} />
       <Container width="wide">
         <Breadcrumbs locale={locale} route={ROUTE} />
         <PageHeader locale={locale}
           record={record}
-          intro="Set the payout you are aiming for and see exactly how many eligible Earned Robux it takes to get there."
+          intro={t("rates.usdToRobux.intro")}
         />
 
         <div className="flex flex-col gap-10">
@@ -81,7 +81,7 @@ export async function UsdToRobuxView({
           <Section
             id="rounding"
             heading="Why the answer rounds up"
-            description="Rounding down would leave you a fraction of a cent short of your own target, every time."
+            description={t("rates.usdToRobux.roundingDescription")}
           >
             <div className="rounded-(--radius-control) border border-(--color-border) bg-(--color-surface) p-4">
               <p className="numeric-display text-sm text-(--color-text)">
@@ -103,7 +103,7 @@ export async function UsdToRobuxView({
           <Section
             id="minimum"
             heading={t("rates.usdToRobux.minimumHeading")}
-            description="Arithmetic and eligibility are two different constraints, and the larger one wins."
+            description={t("rates.usdToRobux.minimumDescription")}
           >
             <Callout tone="warning" title={t("rates.usdToRobux.smallTargetTitle")}>
               Roblox requires {formatRobux(minimumEarnedRobux)} Earned Robux
@@ -119,7 +119,7 @@ export async function UsdToRobuxView({
           <Section
             id="planner"
             heading={t("rates.usdToRobux.paceHeading")}
-            description="The target tells you how much. This works out when — or, from a date, what you would have to earn to get there."
+            description={t("rates.usdToRobux.paceDescription")}
           >
             {/*
               Server-rendered first, so the section explains itself to a reader
@@ -151,7 +151,7 @@ export async function UsdToRobuxView({
           <Section
             id="examples"
             heading={t("rates.usdToRobux.commonTargetsHeading")}
-            description="Each row is computed with the same formula the calculator uses."
+            description={t("rates.usdToRobux.commonTargetsDescription")}
           >
             <TableWrapper label={t("rates.usdToRobux.commonTargetsLabel")}>
               <Table caption={t("rates.usdToRobux.commonTargetsCaption")}>
@@ -192,7 +192,7 @@ export async function UsdToRobuxView({
           <Section
             id="buying-robux"
             heading={t("rates.usdToRobux.notBuyingHeading")}
-            description="The reverse direction has a very different answer depending on who is asking."
+            description={t("rates.usdToRobux.notBuyingDescription")}
           >
             <p className="text-(--color-text-muted)">
               This page answers the creator question: how much do I need to earn

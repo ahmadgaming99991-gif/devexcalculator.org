@@ -17,12 +17,12 @@ export async function TermsView({ locale }: { readonly locale: Locale }) {
 
   return (
     <>
-      <JsonLd route={ROUTE} />
+      <JsonLd locale={locale} route={ROUTE} />
       <Container width="prose">
         <Breadcrumbs locale={locale} route={ROUTE} />
         <PageHeader locale={locale}
           record={record}
-          intro="The terms covering use of this site. Short, because there is not much to it — you use a calculator, and it gives you an estimate."
+          intro={t("legal.terms.intro")}
         />
 
         <div className="flex flex-col gap-10">

@@ -154,7 +154,8 @@
     "usdUnaffected": "The USD figure above is calculated locally and is unaffected.",
     "staleHeading": "Stale rates.",
     "provenance": "{currency} figures use {provider} reference rates observed {date}. These are reference rates, not bank quotes — your payment provider will apply its own rate and may add a fee.",
-    "staleSnapshot": "Live reference rates are unavailable, so a stored snapshot is being shown. Treat these figures as indicative only."
+    "staleSnapshot": "Live reference rates are unavailable, so a stored snapshot is being shown. Treat these figures as indicative only.",
+    "staleAged": "The most recent published reference rates are {ageDays} days old."
   },
   "home": {
     "formulaOpen": "Nothing here is hidden. The formula is one multiplication, and you can check it.",
@@ -203,7 +204,14 @@
       }
     },
     "intro": "Convert eligible Earned Robux into an estimated US dollar payout using the rates Roblox currently documents, with the source and verification date shown alongside every figure.",
-    "jumpLabel": "See how the calculation works"
+    "jumpLabel": "See how the calculation works",
+    "cannot": {
+      "eligibility": "Whether your Robux count as Earned Robux — Roblox decides that, not this calculator.",
+      "approval": "Whether a DevEx request will be approved, and how long it will take.",
+      "providerFees": "Payment-provider fees and currency spreads, unless you enter your own figures.",
+      "tax": "Tax owed in your country. Nothing here is tax advice.",
+      "retailPrice": "The retail price of buying Robux, which is a separate transaction with its own pricing."
+    }
   },
   "planner": {
     "targetLabel": "Payout you are aiming for",

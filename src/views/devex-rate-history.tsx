@@ -30,23 +30,23 @@ export async function RateHistoryView({ locale }: { readonly locale: Locale }) {
 
   return (
     <>
-      <JsonLd route={ROUTE} />
+      <JsonLd locale={locale} route={ROUTE} />
       <Container width="wide">
         <Breadcrumbs locale={locale} route={ROUTE} />
         <PageHeader locale={locale}
           record={record}
-          intro="A dated record of the rate changes this site has verified against official documentation — and nothing that has not been."
+          intro={t("rates.rateHistory.intro")}
         />
 
         <div className="flex flex-col gap-10">
-          <QuickAnswer locale={locale} jumpTo="timeline" jumpLabel="See the timeline">
+          <QuickAnswer locale={locale} jumpTo="timeline" jumpLabel={t("rates.rateHistory.jumpLabel")}>
             {record.quickAnswer}
           </QuickAnswer>
 
           <Section
             id="timeline"
             heading={t("rates.rateHistory.timelineHeading")}
-            description="Each entry records what changed, when it took effect, and which source establishes it."
+            description={t("rates.rateHistory.timelineDescription")}
           >
             <ol className="flex flex-col gap-4">
               <li className="rounded-(--radius-control) border border-(--color-border) border-l-4 border-l-(--color-success) bg-(--color-surface) p-4">
@@ -85,7 +85,7 @@ export async function RateHistoryView({ locale }: { readonly locale: Locale }) {
           <Section
             id="comparison"
             heading={t("rates.rateHistory.worthHeading")}
-            description="The same balances valued before and after the September 2025 increase."
+            description={t("rates.rateHistory.worthDescription")}
           >
             <TableWrapper label={t("rates.rateHistory.comparisonLabel")}>
               <Table caption={t("rates.rateHistory.comparisonCaption")}>
@@ -126,7 +126,7 @@ export async function RateHistoryView({ locale }: { readonly locale: Locale }) {
           <Section
             id="legacy-balances"
             heading={t("rates.rateHistory.legacyHeading")}
-            description="One balance can span both rates, and you do not choose the split."
+            description={t("rates.rateHistory.legacyDescription")}
           >
             <p className="text-(--color-text-muted)">
               Roblox cashes out the pre-transition portion of a balance at 0.0035
@@ -142,7 +142,7 @@ export async function RateHistoryView({ locale }: { readonly locale: Locale }) {
           <Section
             id="no-forecast"
             heading={t("rates.rateHistory.noForecastHeading")}
-            description="A page that guesses at future rates would be worse than no page."
+            description={t("rates.rateHistory.noForecastDescription")}
           >
             <p className="text-(--color-text-muted)">
               Roblox has changed the rate before and may change it again. Nobody

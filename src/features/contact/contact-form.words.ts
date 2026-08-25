@@ -15,6 +15,7 @@ export const CONTACT_WORDS: readonly string[] = [
   "contact.form.body.intro.p1",
   "contact.form.couldNotSendTitle",
   "contact.form.email",
+  "contact.form.emailHint",
   "contact.form.honeypot",
   "contact.form.message",
   "contact.form.name",

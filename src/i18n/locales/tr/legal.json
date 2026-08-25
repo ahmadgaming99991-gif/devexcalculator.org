@@ -179,6 +179,15 @@
         "p1": "Burada bir şey sizi engelliyorsa, bunu bize söylemek düzeltmenin en hızlı yoludur. Sayfayı, ne yapmaya çalıştığınızı ve ilgiliyse kullandığınız tarayıcı ile yardımcı teknolojiyi belirtin. Erişilebilirlik bildirimleri, yanlış bir kurla aynı öncelikte ele alınır — ikisi de sitenin işini yapamamasına yol açar.",
         "p2": "Sitenin genel olarak nasıl kurulduğunu görmek için bakınız:"
       }
+    },
+    "tested": {
+      "axe": "Her temsili rotada, masaüstü ve mobil genişliklerde otomatik axe denetimleri",
+      "keyboard": "Hesaplayıcı, gezinme ve her formda yalnızca klavyeyle baştan sona geçiş",
+      "narrowLayout": "320px genişlikte, yatay kaydırma olmadan yerleşim",
+      "zoom": "%200 metin yakınlaştırmasında içerik ya da işlev kaybı olmadan yerleşim",
+      "contrast": "Hem açık hem koyu temada, her metin ve arayüz renk çifti için renk karşıtlığı",
+      "reducedMotion": "Azaltılmış hareket tercihine sitenin tamamında uyulur",
+      "highContrast": "Kenarlıkların yapıyı görünür tuttuğu Windows Yüksek Karşıtlık Modu"
     }
   }
 }

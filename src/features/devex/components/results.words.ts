@@ -8,15 +8,22 @@
  */
 export const RESULTS_WORDS: readonly string[] = [
   "calculator.currency.loading",
+  "calculator.currency.provenance",
+  "calculator.currency.staleAged",
+  "calculator.currency.staleHeading",
+  "calculator.currency.staleSnapshot",
+  "calculator.currency.unavailable",
   "calculator.deductions.estimatedNet",
   "calculator.deductions.flatFee",
   "calculator.deductions.grossPayout",
   "calculator.deductions.heading",
   "calculator.deductions.percentageFee",
   "calculator.deductions.taxEstimate",
+  "calculator.results.blendedRate",
   "calculator.results.body.intro.p3",
   "calculator.results.bucketTableCaption",
   "calculator.results.bucketTableLabel",
   "calculator.results.comparisonTableLabel",
+  "calculator.results.ifAllStandard",
   "calculator.target.minimumAppliesFirstTitle",
 ];

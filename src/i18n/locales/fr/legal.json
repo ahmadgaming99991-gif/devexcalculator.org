@@ -178,6 +178,15 @@
         "p1": "Si quelque chose ici vous bloque, nous le dire est le moyen le plus rapide de le faire corriger. Indiquez la page, ce que vous tentiez de faire, et le navigateur et la technologie d’assistance que vous utilisiez si c’est pertinent. Les signalements d’accessibilité sont traités avec la même priorité qu’un taux erroné : dans les deux cas, le site échoue à faire son travail.",
         "p2": "Pour savoir comment le site est construit plus généralement, voyez la"
       }
+    },
+    "tested": {
+      "axe": "Contrôles automatisés avec axe sur chaque route représentative, en largeurs bureau et mobile",
+      "keyboard": "Parcours au clavier seul de la calculatrice, de la navigation et de chaque formulaire",
+      "narrowLayout": "Mise en page à 320px de large sans défilement horizontal",
+      "zoom": "Mise en page à 200 % de zoom texte sans perte de contenu ni de fonction",
+      "contrast": "Contraste de couleur pour chaque paire de couleurs de texte et d’interface, dans les thèmes clair et sombre",
+      "reducedMotion": "Préférence de mouvement réduit respectée sur tout le site",
+      "highContrast": "Mode contraste élevé de Windows, où les bordures gardent la structure visible"
     }
   }
 }

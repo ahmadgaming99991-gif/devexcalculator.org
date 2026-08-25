@@ -251,11 +251,11 @@ export function ResultBreakdown({
 
       <dl className="grid gap-3 text-sm sm:grid-cols-2">
         <SummaryRow
-          term="Blended effective rate"
+          term={t("calculator.results.blendedRate")}
           detail={`$${formatRate(result.blendedRateUsdPerRobux, 5)} per Robux across all buckets`}
         />
         <SummaryRow
-          term="If it were all standard rate"
+          term={t("calculator.results.ifAllStandard")}
           detail={`${formatCurrency(result.standardOnlyUsd, currency)} (${formatSignedCurrency(
             result.differenceVsStandardOnlyUsd.neg(),
             currency,
@@ -419,13 +419,11 @@ export function FxNote({
   rates,
   currency,
   status,
-  error,
   t,
 }: {
   rates: FxRates | null;
   currency: string;
   status: string;
-  error: string | null;
   readonly t: Translate;
 }) {
   if (currency === "USD") return null;
@@ -442,9 +440,7 @@ export function FxNote({
         role="status"
         className="rounded-(--radius-control) border border-(--color-border) border-l-4 border-l-(--color-warning) bg-(--color-surface) p-3 text-xs text-(--color-text-muted)"
       >
-        {error ??
-          "Local-currency estimates are temporarily unavailable."}{" "}
-        The USD figure above is calculated locally and is unaffected.
+        {t("calculator.currency.unavailable")}
       </p>
     );
   }
@@ -453,14 +449,20 @@ export function FxNote({
     <div className="text-xs text-(--color-text-muted)">
       {rates.stale ? (
         <p className="mb-1 font-semibold text-(--color-warning)">
-          Stale rates. {rates.staleReason}
+          {t("calculator.currency.staleHeading")}{" "}
+          {rates.staleCode === "aged"
+            ? t("calculator.currency.staleAged", {
+                ageDays: String(rates.staleAgeDays ?? 0),
+              })
+            : t("calculator.currency.staleSnapshot")}
         </p>
       ) : null}
       <p>
-        {currency} figures use {rates.provider} reference rates observed{" "}
-        {formatDate(`${rates.observationDate}T00:00:00Z`)}. These are reference
-        rates, not bank quotes — your payment provider will apply its own rate
-        and may add a fee.
+        {t("calculator.currency.provenance", {
+          currency,
+          provider: rates.provider,
+          date: formatDate(`${rates.observationDate}T00:00:00Z`),
+        })}
       </p>
     </div>
   );

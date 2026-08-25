@@ -1,4 +1,4 @@
-import { getTranslator } from "@/i18n/get-dictionary";
+import { getTranslator, type Translate } from "@/i18n/get-dictionary";
 import { localizedRoute } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
 import Link from "next/link";
@@ -18,30 +18,26 @@ const ROUTE = "/calculators/";
  * entry: listing a tool that does not exist would make the directory a
  * placeholder rather than a directory.
  */
-const TOOLS: readonly { route: string; answers: string; useWhen: string }[] = [
+const TOOLS = (t: Translate): readonly { route: string; answers: string; useWhen: string }[] => [
   {
     route: "/",
-    answers: "What are my Earned Robux worth in dollars?",
-    useWhen:
-      "You have a balance and want a payout estimate. Handles a mixed balance across the standard, legacy and conditional rates.",
+    answers: t("guides.calculators.tools.devex.answers"),
+    useWhen: t("guides.calculators.tools.devex.useWhen"),
   },
   {
     route: "/robux-to-usd/",
-    answers: "What is Robux worth in dollars?",
-    useWhen:
-      "You are not sure whether you want the creator payout or the retail purchase price. This page separates the two.",
+    answers: t("guides.calculators.tools.robuxToUsd.answers"),
+    useWhen: t("guides.calculators.tools.robuxToUsd.useWhen"),
   },
   {
     route: "/usd-to-robux/",
-    answers: "How many Earned Robux do I need for a payout of X?",
-    useWhen:
-      "You have a figure in mind and want to know what it takes to reach it, including whether the minimum gets in the way.",
+    answers: t("guides.calculators.tools.usdToRobux.answers"),
+    useWhen: t("guides.calculators.tools.usdToRobux.useWhen"),
   },
   {
     route: "/robux-tax-calculator/",
-    answers: "What do I keep after the Roblox commission?",
-    useWhen:
-      "You are pricing an item or a developer product and want to know your share, or what to charge to clear a target.",
+    answers: t("guides.calculators.tools.robuxTax.answers"),
+    useWhen: t("guides.calculators.tools.robuxTax.useWhen"),
   },
 ];
 
@@ -51,12 +47,12 @@ export async function CalculatorsView({ locale }: { readonly locale: Locale }) {
 
   return (
     <>
-      <JsonLd route={ROUTE} />
+      <JsonLd locale={locale} route={ROUTE} />
       <Container width="wide">
         <Breadcrumbs locale={locale} route={ROUTE} />
         <PageHeader locale={locale}
           record={record}
-          intro="Four calculators, each answering one question properly rather than one tool trying to answer everything."
+          intro={t("guides.calculators.intro")}
         />
 
         <div className="flex flex-col gap-10">
@@ -64,7 +60,7 @@ export async function CalculatorsView({ locale }: { readonly locale: Locale }) {
 
           <Section id="tools" heading={t("guides.calculators.availableHeading")}>
             <ul className="grid gap-4 sm:grid-cols-2">
-              {TOOLS.map((tool) => {
+              {TOOLS(t).map((tool) => {
                 const target = getRoute(tool.route);
                 if (!target) return null;
                 return (
@@ -92,7 +88,7 @@ export async function CalculatorsView({ locale }: { readonly locale: Locale }) {
           <Section
             id="conversions"
             heading={t("guides.calculators.lookingUpHeading")}
-            description="The conversion hub has a server-rendered table of common amounts across all three rates."
+            description={t("guides.calculators.lookingUpDescription")}
           >
             <Link
               href="/conversions/"
@@ -108,7 +104,7 @@ export async function CalculatorsView({ locale }: { readonly locale: Locale }) {
           <Section
             id="guides"
             heading={t("guides.calculators.understandHeading")}
-            description="The guides explain the rules behind these numbers."
+            description={t("guides.calculators.understandDescription")}
           >
             <Link
               href="/guides/"

@@ -16,7 +16,21 @@ export interface FxRates {
    * reader rather than hidden.
    */
   readonly stale: boolean;
+  /**
+   * Why, in English, for the `/api/fx/latest/` payload.
+   *
+   * Kept a sentence because it is part of a published contract. Nothing
+   * that renders reads it — see `staleCode`.
+   */
   readonly staleReason: string | null;
+  /**
+   * The same fact, for anything that has to say it in a language.
+   *
+   * `aged` carries `staleAgeDays`; `snapshot` means the provider could not
+   * be reached and a bundled file is being shown.
+   */
+  readonly staleCode: "aged" | "snapshot" | null;
+  readonly staleAgeDays: number | null;
 }
 
 export interface FxSuccess {

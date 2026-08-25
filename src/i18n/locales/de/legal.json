@@ -178,6 +178,15 @@
         "p1": "Wenn dich hier etwas blockiert, ist es der schnellste Weg zur Behebung, es uns zu sagen. Nenne die Seite, was du tun wolltest, und — falls relevant — Browser und assistive Technik. Barrierefreiheitsmeldungen haben dieselbe Priorität wie ein falscher Kurs: beides lässt die Website an ihrer Aufgabe scheitern.",
         "p2": "Wie die Website allgemein gebaut ist, steht auf der"
       }
+    },
+    "tested": {
+      "axe": "Automatisierte axe-Prüfungen auf jeder repräsentativen Route, in Desktop- und Mobilbreiten",
+      "keyboard": "Durchgang nur mit der Tastatur durch Rechner, Navigation und jedes Formular",
+      "narrowLayout": "Layout bei 320px Breite ohne horizontales Scrollen",
+      "zoom": "Layout bei 200 % Textzoom ohne Verlust von Inhalt oder Funktion",
+      "contrast": "Farbkontrast für jedes Text- und Oberflächenfarbpaar, im hellen wie im dunklen Thema",
+      "reducedMotion": "Einstellung für reduzierte Bewegung auf der ganzen Website beachtet",
+      "highContrast": "Windows-Modus für hohen Kontrast, in dem Rahmen die Struktur sichtbar halten"
     }
   }
 }
