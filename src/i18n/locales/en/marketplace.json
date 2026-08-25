@@ -33,7 +33,25 @@
     "youActuallyKeep": "You actually keep",
     "copyResult": "Copy result",
     "copySummary": "Copy summary",
-    "estimateFrom": "Estimate from devexcalculator.org"
+    "estimateFrom": "Estimate from devexcalculator.org",
+    "summarySalePrice": "Sale price: {robux} Robux",
+    "summaryScheme": "Scheme: {scheme}",
+    "summaryYourShare": "Your share: {percent}",
+    "summaryYouKeep": "You keep: {robux} Robux",
+    "summaryRobloxKeeps": "Roblox keeps: {robux} Robux",
+    "summaryTargetAfterFee": "Target after fee: {robux} Robux",
+    "summaryPriceToCharge": "Price to charge: {robux} Robux",
+    "primaryLabelYouKeep": "Robux you keep",
+    "primaryLabelPriceToCharge": "Price to charge",
+    "secondaryAfterFee": "{percent} of {robux} Robux",
+    "secondaryAtTier": "{share}, at the {multiple}× tier",
+    "secondaryBeforeFee": "to clear {robux} Robux at {percent}",
+    "rowYou": "You",
+    "rowRoblox": "Roblox",
+    "rowTotal": "Total",
+    "totalShare": "100%",
+    "announceAfterFee": "You keep {kept} Robux of {gross}.",
+    "announceBeforeFee": "Charge {gross} Robux to keep {net}."
   },
   "body": {
     "intro": {

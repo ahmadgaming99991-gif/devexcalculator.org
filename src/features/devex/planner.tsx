@@ -3,6 +3,7 @@
 import { parseMessage } from "@/i18n/parse-message";
 import { translatorFor, type LocaleWords } from "@/i18n/client-words";
 import type { Translate } from "@/i18n/get-dictionary";
+import { rateLabel } from "@/i18n/data-text";
 import { useId, useMemo, useState } from "react";
 import {
   PACE_PERIOD_DAYS,
@@ -388,7 +389,9 @@ export function Planner({ words }: { readonly words: LocaleWords }) {
           <Figure
             label={t("calculator.groupSplit.columnEstimatedPayout")}
             value={formatCurrency(payout.grossUsd, "USD")}
-            note={`At ${requirement.rate.label}, before fees and tax.`}
+            note={t("calculator.planner.payoutNote", {
+              rate: rateLabel(t, requirement.rate),
+            })}
           />
         </div>
 
@@ -402,8 +405,8 @@ export function Planner({ words }: { readonly words: LocaleWords }) {
             <Table caption={t("calculator.planner.reductionDescription")}>
               <thead>
                 <tr>
-                  <Th>Stage</Th>
-                  <Th numeric>Amount</Th>
+                  <Th>{t("calculator.planner.columnStage")}</Th>
+                  <Th numeric>{t("calculator.planner.columnAmount")}</Th>
                 </tr>
               </thead>
               <tbody>

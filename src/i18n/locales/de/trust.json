@@ -157,6 +157,14 @@
     },
     "prose": {
       "scheduledCheck": "Zwischen den Überprüfungen liest ein geplanter Auftrag viermal täglich das Markdown erneut, das Roblox für seine DevEx-Seite veröffentlicht, und vergleicht die Sätze und das Minimum mit den hier veröffentlichten. Er kann bestätigen, dass sich nichts bewegt hat; ändern kann er eine Zahl nicht. Eine Abweichung setzt eine Markierung, die ein Mensch liest, und ein Dokument, das er nicht wiedererkennt — eine Störung oder ein Redesign — wird als unlesbar gemeldet, statt als zurückgezogener Satz behandelt zu werden. Das Ergebnis wird unter {rateCheckEndpoint} veröffentlicht."
+    },
+    "everyNDays": {
+      "one": "alle {days} Tag",
+      "other": "alle {days} Tage"
+    },
+    "nDays": {
+      "one": "{days} Tag",
+      "other": "{days} Tage"
     }
   },
   "editorialPolicy": {

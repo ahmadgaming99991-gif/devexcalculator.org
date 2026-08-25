@@ -105,7 +105,13 @@
     "usEighteenPlus": "U.S. 18+",
     "minimum": "Minimum",
     "rate": "Rate",
-    "earnedWord": "Earned"
+    "earnedWord": "Earned",
+    "baselineParenthetical": "(baseline)",
+    "baseline": "baseline",
+    "yes": "Yes",
+    "no": "No",
+    "required": "(required)",
+    "atLeastRobux": "At least {robux} Earned Robux"
   },
   "social": {
     "youtube": "DevEx Calculator on YouTube",
@@ -192,5 +198,50 @@
       "one": "{months} month",
       "other": "{months} months"
     }
+  },
+  "columns": {
+    "rate": "Rate",
+    "perRobux": "Per Robux",
+    "perAmount": "Per {amount}",
+    "earnedRobux": "Earned Robux",
+    "minimum": "Minimum",
+    "payout": "Payout",
+    "vsStandard": "vs standard",
+    "bucket": "Bucket",
+    "subtotal": "Subtotal",
+    "share": "Share",
+    "total": "Total",
+    "member": "Member",
+    "stage": "Stage",
+    "amount": "Amount",
+    "robux": "Robux",
+    "you": "You",
+    "creator": "Creator",
+    "measure": "Measure",
+    "note": "Note",
+    "source": "Source",
+    "year": "Year",
+    "quarter": "Quarter",
+    "revenue": "Revenue",
+    "difference": "Difference",
+    "endpoint": "Endpoint",
+    "direction": "Direction",
+    "atRate": "At {rate}"
+  },
+  "rateStatus": {
+    "active": "Current",
+    "conditional": "Conditional",
+    "legacy": "Legacy"
+  },
+  "origin": {
+    "reported": "Reported",
+    "derived": "Derived",
+    "howWeKnow": "How we know"
+  },
+  "theme": {
+    "light": "light",
+    "dark": "dark",
+    "system": "system",
+    "toggleLabel": "Theme: {current}. Switch to {next}."
   }
 }

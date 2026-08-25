@@ -1,7 +1,7 @@
 {
   "$comment": "Machine-drafted. Not yet read by a native speaker. A mistranslated 'eligible' or 'minimum' can tell somebody they may cash out when they may not, so nothing here is shortened.",
   "$identical": [
-    "planner.columnStage",
+    "groupSplit.columnEarnedRobux",
     "results.columnSubtotal",
     "results.summary.bucketLine",
     "results.summary.earnedRobux",
@@ -119,7 +119,19 @@
       "minimumShort": "Mínimo: faltan {robux}"
     },
     "announceSplit": "{robux} Earned Robux entre todos los tramos son unos {value}.",
-    "announceSplitGross": "bruto, antes de comisiones e impuestos, a partir de {robux} Earned Robux"
+    "announceSplitGross": "bruto, antes de comisiones e impuestos, a partir de {robux} Earned Robux",
+    "meetsMinimumTitle": "Alcanza el mínimo declarado",
+    "belowMinimumTitle": "Por debajo del mínimo declarado",
+    "minimumReachedBadge": "mínimo de {minimum} alcanzado",
+    "moreNeededBadge": "faltan {shortfall}",
+    "progressAriaLabel": "Progreso hacia el mínimo de {minimum} Earned Robux",
+    "comparisonTableCaption": "Comparación de las tasas DevEx para {robux} Earned Robux",
+    "blendedRateDetail": "{rate} por Robux en todos los tramos",
+    "ifAllStandardDetail": "{amount} ({difference} de diferencia)",
+    "targetReachedBadge": "Objetivo alcanzado",
+    "toGoBadge": "faltan {remaining}",
+    "targetArithmetic": "{target} ÷ {rate} por Robux = {exact}, redondeado hacia arriba hasta {required}",
+    "totalShare": "100,0%"
   },
   "target": {
     "explanation": "{target} ÷ ${rate} por Robux = {exact}, redondeado hacia arriba a {required} Earned Robux enteros. Eso paga {payout}, que es la primera cantidad en Robux enteros que alcanza tu objetivo en lugar de quedarse justo por debajo.",
@@ -166,7 +178,9 @@
     "belowMinimumBody": {
       "one": "El mínimo de {minimum} se aplica al saldo que envía una persona, no a lo que ganó el grupo. Este grupo tiene {total} Earned Robux, y {names} sigue por debajo del mínimo de forma individual.",
       "other": "El mínimo de {minimum} se aplica al saldo que envía una persona, no a lo que ganó el grupo. Este grupo tiene {total} Earned Robux, y {names} siguen por debajo del mínimo de forma individual."
-    }
+    },
+    "removeRow": "Quitar",
+    "perEligibleRobux": "{rate} por Earned Robux elegible"
   },
   "preparation": {
     "earnedRobuxLink": "Qué cuenta como Earned Robux",
@@ -312,7 +326,8 @@
     "requiredHeadline": "{perDay} Earned Robux al día.",
     "requiredDetail": "Eso son {perWeek} por semana, o {perMonth} a lo largo de 30 días. Cada cifra se redondea hacia arriba: ganar la cantidad redondeada hacia abajo no llegaría a la fecha.",
     "columnReachedIn": "Alcanzado en",
-    "columnNeededEachDay": "Necesario cada día"
+    "columnNeededEachDay": "Necesario cada día",
+    "payoutNote": "Con {rate}, antes de comisiones e impuestos."
   },
   "controls": {
     "body": {
@@ -343,5 +358,11 @@
     "copyFailedLabel": "Error al copiar",
     "share": "Compartir",
     "copyLink": "Copiar enlace"
+  },
+  "checklist": {
+    "meterLabel": "{completed} de {total} pasos de preparación completados"
+  },
+  "history": {
+    "summary": "Cálculos guardados ({count})"
   }
 }

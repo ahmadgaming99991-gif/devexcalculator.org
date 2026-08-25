@@ -739,7 +739,7 @@ function HistoryPanel({
   readonly t: Translate;
 }) {
   return (
-    <Disclosure summary={`Saved calculations (${history.length})`}>
+    <Disclosure summary={t("calculator.history.summary", { count: history.length })}>
       <div className="flex flex-col gap-3">
         <p className="text-xs">{t("calculator.body.intro.p5")}</p>
         {history.length > 0 ? (

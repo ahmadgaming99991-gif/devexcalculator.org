@@ -1,6 +1,7 @@
 {
   "$comment": "Machine-drafted. Not yet read by a native speaker. A mistranslated 'eligible' or 'minimum' can tell somebody they may cash out when they may not, so nothing here is shortened.",
   "$identical": [
+    "groupSplit.columnEarnedRobux",
     "results.summary.bucketLine",
     "results.summary.earnedRobux",
     "results.total"
@@ -117,7 +118,19 @@
       "minimumShort": "Alt sınır: {robux} eksik"
     },
     "announceSplit": "Tüm dilimler boyunca {robux} Earned Robux yaklaşık {value} eder.",
-    "announceSplitGross": "{robux} Earned Robux'tan; ücret ve vergi öncesi brüt"
+    "announceSplitGross": "{robux} Earned Robux'tan; ücret ve vergi öncesi brüt",
+    "meetsMinimumTitle": "Belirtilen asgari tutarı karşılıyor",
+    "belowMinimumTitle": "Belirtilen asgari tutarın altında",
+    "minimumReachedBadge": "{minimum} asgari tutarına ulaşıldı",
+    "moreNeededBadge": "{shortfall} daha gerekiyor",
+    "progressAriaLabel": "{minimum} Earned Robux asgari tutarına doğru ilerleme",
+    "comparisonTableCaption": "{robux} Earned Robux için DevEx oranlarının karşılaştırması",
+    "blendedRateDetail": "tüm dilimler genelinde Robux başına {rate}",
+    "ifAllStandardDetail": "{amount} ({difference} fark)",
+    "targetReachedBadge": "Hedefe ulaşıldı",
+    "toGoBadge": "{remaining} kaldı",
+    "targetArithmetic": "{target} ÷ Robux başına {rate} = {exact}, yukarı yuvarlanarak {required}",
+    "totalShare": "%100,0"
   },
   "target": {
     "explanation": "{target} ÷ Robux başına {rate} $ = {exact}; yukarı yuvarlanarak {required} tam Earned Robux. Bu {payout} öder — hedefinize kıl payı yetişemeyen değil, ona ulaşan ilk tam Robux tutarı.",
@@ -164,7 +177,9 @@
     "belowMinimumBody": {
       "one": "{minimum} alt sınırı, grubun kazandığına değil, bir kişinin gönderdiği bakiyeye uygulanır. Bu grubun {total} Earned Robux'ı var ve {names} tek başına hâlâ alt sınırın altında.",
       "other": "{minimum} alt sınırı, grubun kazandığına değil, bir kişinin gönderdiği bakiyeye uygulanır. Bu grubun {total} Earned Robux'ı var ve {names} tek tek bakıldığında hâlâ alt sınırın altında."
-    }
+    },
+    "removeRow": "Kaldır",
+    "perEligibleRobux": "uygun Earned Robux başına {rate}"
   },
   "preparation": {
     "earnedRobuxLink": "Neler Earned Robux sayılır",
@@ -310,7 +325,8 @@
     "requiredHeadline": "Günde {perDay} Earned Robux.",
     "requiredDetail": "Bu, haftada {perWeek} ya da 30 günde {perMonth} eder. Her rakam yukarı yuvarlanır: aşağı yuvarlanmış tutarı kazanmak tarihi kaçırırdı.",
     "columnReachedIn": "Ulaşma süresi",
-    "columnNeededEachDay": "Her gün gereken"
+    "columnNeededEachDay": "Her gün gereken",
+    "payoutNote": "{rate} ile, ücretler ve vergi öncesi."
   },
   "controls": {
     "body": {
@@ -341,5 +357,11 @@
     "copyFailedLabel": "Kopyalama başarısız",
     "share": "Paylaş",
     "copyLink": "Bağlantıyı kopyala"
+  },
+  "checklist": {
+    "meterLabel": "{total} hazırlık adımından {completed} tanesi tamamlandı"
+  },
+  "history": {
+    "summary": "Kaydedilen hesaplamalar ({count})"
   }
 }

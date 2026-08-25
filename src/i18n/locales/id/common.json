@@ -2,6 +2,14 @@
   "$comment": "Machine-drafted. Not yet read by a native speaker. Protected names (Roblox, Robux, DevEx, Earned Robux) are never translated.",
   "$identical": [
     "badges.estimatesOnly",
+    "columns.earnedRobux",
+    "columns.endpoint",
+    "columns.minimum",
+    "columns.perAmount",
+    "columns.perRobux",
+    "columns.robux",
+    "columns.subtotal",
+    "columns.total",
     "footer.feedAtom",
     "footer.feedJson",
     "social.instagramName",
@@ -116,7 +124,13 @@
     "usEighteenPlus": "AS 18+",
     "minimum": "Minimum",
     "rate": "Kurs",
-    "earnedWord": "Earned"
+    "earnedWord": "Earned",
+    "baselineParenthetical": "(acuan)",
+    "baseline": "acuan",
+    "yes": "Ya",
+    "no": "Tidak",
+    "required": "(wajib)",
+    "atLeastRobux": "Minimal {robux} Earned Robux"
   },
   "social": {
     "youtube": "DevEx Calculator di YouTube",
@@ -199,5 +213,50 @@
       "one": "{months} bulan",
       "other": "{months} bulan"
     }
+  },
+  "columns": {
+    "rate": "Tarif",
+    "perRobux": "Per Robux",
+    "perAmount": "Per {amount}",
+    "earnedRobux": "Earned Robux",
+    "minimum": "Minimum",
+    "payout": "Pembayaran",
+    "vsStandard": "vs standar",
+    "bucket": "Kelompok",
+    "subtotal": "Subtotal",
+    "share": "Porsi",
+    "total": "Total",
+    "member": "Anggota",
+    "stage": "Tahap",
+    "amount": "Jumlah",
+    "robux": "Robux",
+    "you": "Kamu",
+    "creator": "Kreator",
+    "measure": "Ukuran",
+    "note": "Catatan",
+    "source": "Sumber",
+    "year": "Tahun",
+    "quarter": "Kuartal",
+    "revenue": "Pendapatan",
+    "difference": "Selisih",
+    "endpoint": "Endpoint",
+    "direction": "Arah",
+    "atRate": "Pada {rate}"
+  },
+  "rateStatus": {
+    "active": "Saat ini",
+    "conditional": "Bersyarat",
+    "legacy": "Lama"
+  },
+  "origin": {
+    "reported": "Dilaporkan",
+    "derived": "Diturunkan",
+    "howWeKnow": "Dari mana kami tahu"
+  },
+  "theme": {
+    "light": "terang",
+    "dark": "gelap",
+    "system": "sistem",
+    "toggleLabel": "Tema: {current}. Ganti ke {next}."
   }
 }

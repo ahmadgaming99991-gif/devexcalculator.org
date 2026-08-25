@@ -155,6 +155,14 @@
     },
     "prose": {
       "scheduledCheck": "Entre as revisões, uma tarefa agendada relê quatro vezes por dia o markdown que o Roblox publica para a página do DevEx e compara as taxas e o mínimo com os publicados aqui. Ela pode confirmar que nada mudou; não pode alterar um número. Uma diferença levanta um sinalizador para uma pessoa ler, e um documento que ela não consegue reconhecer — uma indisponibilidade ou uma reformulação — é relatado como ilegível em vez de tratado como uma taxa que foi retirada. O resultado é publicado em {rateCheckEndpoint}."
+    },
+    "everyNDays": {
+      "one": "a cada {days} dia",
+      "other": "a cada {days} dias"
+    },
+    "nDays": {
+      "one": "{days} dia",
+      "other": "{days} dias"
     }
   },
   "editorialPolicy": {

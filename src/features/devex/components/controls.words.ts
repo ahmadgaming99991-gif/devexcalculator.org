@@ -6,7 +6,10 @@
  * through that component's list. A key added here and not there throws at
  * render — which is what it did.
  */
+import { RATE_WORDS } from "@/i18n/data-words";
+
 export const CONTROLS_WORDS: readonly string[] = [
+  ...RATE_WORDS,
   "calculator.controls.body.intro.p1",
   "calculator.controls.body.presetsLabel.p1",
   "calculator.controls.rateFallbackNote",

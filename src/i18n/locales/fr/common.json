@@ -3,6 +3,12 @@
   "$identical": [
     "badges.conditional",
     "badges.current",
+    "columns.earnedRobux",
+    "columns.minimum",
+    "columns.robux",
+    "columns.source",
+    "columns.total",
+    "columns.vsStandard",
     "footer.feedAtom",
     "footer.feedJson",
     "sections.sourcesHeading",
@@ -100,7 +106,7 @@
   },
   "actions": {
     "tryAgain": "Réessayer",
-    "remove": "Supprimer",
+    "remove": "Retirer",
     "copy": "Copier",
     "copied": "Copié",
     "reset": "Réinitialiser"
@@ -117,7 +123,13 @@
     "usEighteenPlus": "États-Unis 18+",
     "minimum": "Minimum",
     "rate": "Taux",
-    "earnedWord": "Earned"
+    "earnedWord": "Earned",
+    "baselineParenthetical": "(référence)",
+    "baseline": "référence",
+    "yes": "Oui",
+    "no": "Non",
+    "required": "(obligatoire)",
+    "atLeastRobux": "Au moins {robux} Earned Robux"
   },
   "social": {
     "youtube": "DevEx Calculator sur YouTube",
@@ -200,5 +212,50 @@
       "one": "{months} mois",
       "other": "{months} mois"
     }
+  },
+  "columns": {
+    "rate": "Taux",
+    "perRobux": "Par Robux",
+    "perAmount": "Pour {amount}",
+    "earnedRobux": "Earned Robux",
+    "minimum": "Minimum",
+    "payout": "Versement",
+    "vsStandard": "vs standard",
+    "bucket": "Tranche",
+    "subtotal": "Sous-total",
+    "share": "Part",
+    "total": "Total",
+    "member": "Membre",
+    "stage": "Étape",
+    "amount": "Montant",
+    "robux": "Robux",
+    "you": "Vous",
+    "creator": "Créateur",
+    "measure": "Indicateur",
+    "note": "Remarque",
+    "source": "Source",
+    "year": "Année",
+    "quarter": "Trimestre",
+    "revenue": "Chiffre d'affaires",
+    "difference": "Différence",
+    "endpoint": "Point de terminaison",
+    "direction": "Sens",
+    "atRate": "À {rate}"
+  },
+  "rateStatus": {
+    "active": "Actuel",
+    "conditional": "Conditionnel",
+    "legacy": "Antérieur"
+  },
+  "origin": {
+    "reported": "Déclaré",
+    "derived": "Dérivé",
+    "howWeKnow": "D'où vient ce chiffre"
+  },
+  "theme": {
+    "light": "clair",
+    "dark": "sombre",
+    "system": "système",
+    "toggleLabel": "Thème : {current}. Passer au thème {next}."
   }
 }

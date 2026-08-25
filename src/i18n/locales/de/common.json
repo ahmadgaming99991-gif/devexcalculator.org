@@ -1,6 +1,9 @@
 {
   "$comment": "Machine-drafted. Not yet read by a native speaker. Protected names (Roblox, Robux, DevEx, Earned Robux) are never translated.",
   "$identical": [
+    "columns.creator",
+    "columns.earnedRobux",
+    "columns.robux",
     "footer.feedAtom",
     "footer.feedJson",
     "social.instagramName",
@@ -114,7 +117,13 @@
     "usEighteenPlus": "USA 18+",
     "minimum": "Minimum",
     "rate": "Kurs",
-    "earnedWord": "Earned"
+    "earnedWord": "Earned",
+    "baselineParenthetical": "(Basis)",
+    "baseline": "Basis",
+    "yes": "Ja",
+    "no": "Nein",
+    "required": "(Pflichtfeld)",
+    "atLeastRobux": "Mindestens {robux} Earned Robux"
   },
   "social": {
     "youtube": "DevEx Calculator auf YouTube",
@@ -197,5 +206,50 @@
       "one": "{months} Monat",
       "other": "{months} Monate"
     }
+  },
+  "columns": {
+    "rate": "Satz",
+    "perRobux": "Je Robux",
+    "perAmount": "Je {amount}",
+    "earnedRobux": "Earned Robux",
+    "minimum": "Mindestbetrag",
+    "payout": "Auszahlung",
+    "vsStandard": "ggü. Standard",
+    "bucket": "Tranche",
+    "subtotal": "Zwischensumme",
+    "share": "Anteil",
+    "total": "Gesamt",
+    "member": "Mitglied",
+    "stage": "Schritt",
+    "amount": "Betrag",
+    "robux": "Robux",
+    "you": "Sie",
+    "creator": "Creator",
+    "measure": "Kennzahl",
+    "note": "Hinweis",
+    "source": "Quelle",
+    "year": "Jahr",
+    "quarter": "Quartal",
+    "revenue": "Umsatz",
+    "difference": "Differenz",
+    "endpoint": "Endpunkt",
+    "direction": "Richtung",
+    "atRate": "Zu {rate}"
+  },
+  "rateStatus": {
+    "active": "Aktuell",
+    "conditional": "Bedingt",
+    "legacy": "Alt"
+  },
+  "origin": {
+    "reported": "Ausgewiesen",
+    "derived": "Abgeleitet",
+    "howWeKnow": "Woher die Zahl stammt"
+  },
+  "theme": {
+    "light": "hell",
+    "dark": "dunkel",
+    "system": "System",
+    "toggleLabel": "Design: {current}. Auf {next} umschalten."
   }
 }

@@ -146,6 +146,14 @@
     },
     "prose": {
       "scheduledCheck": "Between reviews, a scheduled job re-reads the markdown Roblox publishes for its DevEx page four times a day and compares the rates and the minimum to the ones published here. It can confirm that nothing has moved; it cannot change a figure. A difference raises a flag for a person to read, and a document it cannot recognise — an outage, or a redesign — is reported as unreadable rather than treated as a rate that has been withdrawn. The result is published at {rateCheckEndpoint}."
+    },
+    "everyNDays": {
+      "one": "every {days} day",
+      "other": "every {days} days"
+    },
+    "nDays": {
+      "one": "{days} day",
+      "other": "{days} days"
     }
   },
   "editorialPolicy": {

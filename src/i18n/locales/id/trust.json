@@ -155,6 +155,14 @@
     },
     "prose": {
       "scheduledCheck": "Di antara peninjauan, sebuah tugas terjadwal membaca ulang markdown yang diterbitkan Roblox untuk halaman DevEx-nya empat kali sehari dan membandingkan tarif serta batas minimumnya dengan yang diterbitkan di sini. Tugas itu bisa memastikan tidak ada yang berubah; ia tidak bisa mengubah sebuah angka. Perbedaan memunculkan tanda untuk dibaca seseorang, dan dokumen yang tidak dikenalinya — karena gangguan atau perombakan tampilan — dilaporkan sebagai tak terbaca, bukan diperlakukan sebagai tarif yang ditarik. Hasilnya diterbitkan di {rateCheckEndpoint}."
+    },
+    "everyNDays": {
+      "one": "setiap {days} hari",
+      "other": "setiap {days} hari"
+    },
+    "nDays": {
+      "one": "{days} hari",
+      "other": "{days} hari"
     }
   },
   "editorialPolicy": {

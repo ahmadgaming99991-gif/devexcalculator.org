@@ -1,0 +1,221 @@
+{
+  "$comment": "src/data/*.json dosyalarından aynalanan metinlerin çevirisi. Anahtarları scripts/i18n/sync-data-dictionary.ts üretir; değerleri elle çevirin ve hiçbir sayıyı, tarihi, yüzdeyi veya tanımlayıcıyı değiştirmeyin.",
+  "$identical": ["metrics.companyContext.figures.adjusted-ebitda.label"],
+  "evidence": {
+    "verified-through-official-source": "Resmî kaynaktan doğrulandı"
+  },
+  "sources": {
+    "roblox-devex-program": {
+      "facts": [
+        "Uygun Earned Robux başına 0,0038 USD tutarındaki standart DevEx oranı (30.000 için 114 USD).",
+        "18 yaşından büyük olduğu doğrulanmış ABD'li oyuncuların harcamalarından gelen belirli Earned Robux için 0,0054 USD'lik daha yüksek oran.",
+        "5 Eylül 2025 saat 10.00 PT'den önce kazanılan bakiyeler için Robux başına 0,0035 USD tutarındaki eski oran.",
+        "Katılmak için en az 30.000 Earned Robux.",
+        "Uygunluk koşulları: en az 13 yaş, Roblox tarafından doğrulanmış e-posta adresi, geçerli DevEx portal hesabı, dosyada IRS W-9 veya W-8 formu ve Roblox Kullanım Koşulları ile Topluluk Standartlarına uyum."
+      ]
+    },
+    "roblox-devex-help": {
+      "facts": [
+        "DevEx taleplerinin işlenmesi, incelenmesi ve ödeme süreci yalnızca Roblox tarafından yürütülür.",
+        "DevEx programı için uygunluk ve hesap durumuna ilişkin destekleyici bağlam."
+      ]
+    },
+    "roblox-marketplace-fees": {
+      "facts": [
+        "Marketplace'te avatar ürünü satışı: yaratıcı %30, Roblox %70 alır.",
+        "Bir deneyim içinde satın alınan avatar ürünü: ürünün yaratıcısı %30, deneyimin sahibi %40, Roblox %30.",
+        "Taban fiyatın katına göre kademeli Marketplace gelir paylaşımı: 1x=%30, 1,3x=%37, 1,5x=%41, 2x=%50, 2,5x=%57, 3x=%62, 3,5x=%65, 4x=%67, 5x=%69, 6x ve üzeri=%70.",
+        "Kademeli gelir paylaşımı yalnızca Marketplace alışverişlerinde geçerlidir; deneyim içi alışverişlerde temel komisyon uygulanır."
+      ]
+    },
+    "roblox-monetization-overview": {
+      "facts": [
+        "Yaratıcılar, geliştirici ürünleri ve pass gibi deneyim içi alışverişlerde harcanan Robux'un %70'ini alır; Roblox %30'unu tutar.",
+        "Earned Robux'un gerçek paraya dönüşmesi için Developer Exchange programı üzerinden çevrilmesi gerekir."
+      ]
+    },
+    "ecb-exchange-rates": {
+      "facts": [
+        "Yerel para birimindeki tahminler için USD çapraz kurlarının türetildiği euro döviz referans kurları.",
+        "Referans kurlar her iş günü bir kez, yaklaşık 16.00 CET'te yayımlanır ve işlem yapılabilir banka kotasyonu değildir."
+      ]
+    },
+    "google-spam-policies": {
+      "facts": [
+        "Ölçekli içerik istismarı ve geçit sayfaları politika ihlalidir; bu sitedeki sayısal tutar sayfalarının sayıca sınırlı tutulması ve elle onaylanması bu yüzdendir."
+      ]
+    },
+    "google-canonicalization": {
+      "facts": [
+        "Hesap makinesinin sorgu parametreli durumlarına uygulanan kurallı URL yönergesi; bu durumlar ait oldukları temiz rotaya kurallanır."
+      ]
+    },
+    "cloudflare-workers-nextjs": {
+      "facts": [
+        "Next.js uygulamaları, Workers Static Assets ile birlikte OpenNext bağdaştırıcısı üzerinden Cloudflare Workers'a dağıtılır."
+      ]
+    },
+    "opennext-cloudflare": {
+      "facts": [
+        "Gerekli wrangler yapılandırması: `.open-next/worker.js` girişi, `.open-next/assets` statik dizini, `nodejs_compat` ve `global_fetch_strictly_public` uyumluluk bayrakları ve WORKER_SELF_REFERENCE service binding'i.",
+        "`initOpenNextCloudflareForDev()`, `next dev` sırasında Cloudflare binding'lerini etkinleştirir."
+      ]
+    },
+    "cloudflare-turnstile-validation": {
+      "facts": [
+        "Turnstile jetonları sunucu tarafında siteverify uç noktasına karşı doğrulanmalıdır ve her jeton yalnızca bir kez kullanılabilir."
+      ]
+    },
+    "cloudflare-workers-builds": {
+      "facts": [
+        "Cloudflare Workers Builds, her push'ta otomatik derleme ve dağıtım için bir GitHub deposunu bir Worker'a bağlar."
+      ]
+    },
+    "roblox-q2-2026-earnings": {
+      "facts": [
+        "30 Haziran 2026'da sona eren üç ay için 363 milyon USD, 2025'in aynı dönemi için 316 milyon USD tutarında developer exchange gideri.",
+        "30 Haziran 2026'da sona eren altı ay için 786 milyon USD, 2025'in aynı dönemi için 598 milyon USD tutarında developer exchange gideri.",
+        "30 Haziran 2026'da sona eren üç ay için 1.469 milyon USD, 2025'in aynı dönemi için 1.081 milyon USD gelir.",
+        "2026'nın 2. çeyreğinde gelirin yüzde 25'ine, 2025'in 2. çeyreğinde yüzde 29'una eşit developer exchange gideri.",
+        "30 Haziran 2026'da sona eren üç ayda günlük aktif kullanıcı sayısı yıllık %10 artarak 123 milyona ulaştı.",
+        "30 Haziran 2026'da sona eren üç ayda etkileşim saatleri yıllık %5 artarak 29 milyara ulaştı."
+      ]
+    },
+    "roblox-q4-2025-earnings": {
+      "facts": [
+        "31 Aralık 2025'te sona eren üç ay için 477.240 bin USD, 2024'ün aynı dönemi için 280.610 bin USD tutarında developer exchange gideri.",
+        "31 Aralık 2025'te sona eren on iki ay için 1.503.106 bin USD, 2024 için 922.821 bin USD tutarında developer exchange gideri.",
+        "31 Aralık 2025'te sona eren üç ay için 1.415.021 bin USD, tüm yıl için 4.890.551 bin USD gelir."
+      ]
+    },
+    "roblox-explore-api": {
+      "facts": [
+        "Roblox'un o anda sıraladığı deneyimler kümesi ve bu sıralamanın görünen adı.",
+        "İstek anında listelenen her deneyimdeki oyuncu sayısı.",
+        "Games uç noktasından gelen, deneyim başına toplam ziyaret sayısı."
+      ]
+    }
+  },
+  "rates": {
+    "standard-current": {
+      "label": "Standart oran",
+      "shortLabel": "Standart",
+      "eligibilitySummary": "Uygun Earned Robux'a uygulanan standart DevEx oranı. Roblox bunu Earned Robux başına 0,0038 USD olarak belgeliyor; yani 30.000 Earned Robux için 114 USD."
+    },
+    "us-18-plus-qualified": {
+      "label": "Uygun ABD 18+ oranı",
+      "shortLabel": "ABD 18+",
+      "eligibilitySummary": "Roblox'un, en az 18 yaşında olduğunu doğrulamış Amerika Birleşik Devletleri oyuncularının geliştirici ürünü, pass, abonelik ve özel sunucu alımlarından doğan belirli Earned Robux'a uyguladığı daha yüksek oran.",
+      "conditionNote": "Bu oran yaratıcı tarafından seçilemez. Bakiyenin hangi bölümünün uygun olduğuna Roblox karar verir. Bakiyenin tamamının bu oranı aldığını varsaymayın."
+    },
+    "legacy-pre-2025-09-05": {
+      "label": "Eski bakiye oranı",
+      "shortLabel": "Eski",
+      "eligibilitySummary": "5 Eylül 2025 saat 10.00 PT'den önce geçerli olan, 30.000 Earned Robux için 105 USD'ye denk gelen oran. Roblox, o andan önce kazanılmış bakiyeleri önce bu eski orandan öder.",
+      "conditionNote": "Yalnızca bakiyenin geçişten önce kazanılan bölümü için, Roblox'un kendi muhasebesine göre geçerlidir. Yaratıcı bu oranı seçemez."
+    }
+  },
+  "minimum": {
+    "note": "Roblox, DevEx talebi göndermek için en az 30.000 Earned Robux gerektiğini belirtiyor. Bu sayıya ulaşmak, onaylanmakla aynı şey değildir."
+  },
+  "limits": {
+    "note": "Bunlar, hesaplamayı ve gösterimi sınırlar içinde tutmak için DevExCalculator.org tarafından seçilmiş uygulama güvenlik sınırlarıdır. Roblox'un sınırları değildir ve asla öyleymiş gibi sunulmamalıdır."
+  },
+  "schemes": {
+    "in-experience": {
+      "label": "Deneyim içi satın alma",
+      "description": "Sahibi olduğunuz bir deneyimin içinde satın alınan geliştirici ürünleri, pass'ler, özel sunucular ve abonelikler."
+    },
+    "marketplace-avatar-item": {
+      "label": "Marketplace'te avatar ürünü satışı",
+      "description": "Roblox Marketplace üzerinden satılan bir avatar ürünü. Yaratıcının payı, ürünün taban fiyatın katı olarak ölçülen fiyatıyla birlikte yükselir."
+    },
+    "avatar-item-in-experience": {
+      "label": "Bir deneyim içinde satılan avatar ürünü",
+      "description": "Bir deneyimin içinde satın alınan avatar ürünü. Ürünün yaratıcısı ile deneyimin sahibine ayrı ayrı ödeme yapılır."
+    }
+  },
+  "currencies": {
+    "note": "Aşağıdaki her para birimi, Avrupa Merkez Bankası'nın euro döviz referans kuru setinde yayımlanır. USD bu hesap makinesinin temelidir ve ECB'nin USD/EUR serisinden türetilir. Bir para birimi burada yalnızca yapılandırılmış sağlayıcı onu gerçekten her gün yayımlıyorsa listelenir. BGN, ECB 2025-12-31'den sonra yayımlamayı bıraktığı için 2026-08-17'de kaldırıldı; sağlayıcının artık vermediği bir kur için destek iddia etmek dürüst olmazdı."
+  },
+  "metrics": {
+    "developerExchangeFees": {
+      "label": "Developer exchange giderleri",
+      "description": "Roblox'un gelir tablosunda bildirdiği şekliyle, Developer Exchange programı üzerinden ödediği para.",
+      "derivation": {
+        "q1-2025": "30 Haziran 2025'te sona eren altı ay (598) eksi 2025'in 2. çeyreği (316), ikisi de milyon olarak.",
+        "q1-2026": "30 Haziran 2026'da sona eren altı ay (786) eksi 2026'nın 2. çeyreği (363), ikisi de milyon olarak."
+      }
+    },
+    "revenue": {
+      "label": "Gelir",
+      "description": "Ölçek fikri vermesi için, Roblox'un aynı dönemlerde bildirdiği gelir."
+    },
+    "shareOfRevenue": {
+      "label": "Gelir içinde developer exchange giderlerinin payı",
+      "description": "Roblox tarafından yüzde olarak bildirilir, burada hesaplanmaz."
+    },
+    "companyContext": {
+      "label": "Bir işletme olarak Roblox",
+      "description": "30 Haziran'da sona eren üç ay için bildirilen sonuçlar; gelir elde ettikleri platformun ne kadar sağlam olduğunu değerlendirmek isteyen okurlar için.",
+      "figures": {
+        "revenue": {
+          "label": "Gelir",
+          "note": "Bültende belirtildiği gibi, yıllık %36 artış."
+        },
+        "devex-share-revenue": {
+          "label": "Gelir içinde developer exchange giderlerinin payı",
+          "note": "Roblox'un gelirinin kabaca dörtte biri yeniden yaratıcı ödemesi olarak çıkıyor."
+        },
+        "devex-share-bookings": {
+          "label": "Bookings içinde developer exchange giderlerinin payı",
+          "note": "Gelire göre değil, bookings'e göre ölçülür."
+        },
+        "bookings-growth": {
+          "label": "Bookings büyümesi, yıllık",
+          "note": "Bültende, öngörü aralığının alt ucu olarak tanımlanıyor."
+        },
+        "net-loss": {
+          "label": "Konsolide net zarar",
+          "note": "Bir yıl önceki aynı çeyreğe göre daha küçük bir zarar."
+        },
+        "adjusted-ebitda": {
+          "label": "Adjusted EBITDA",
+          "note": "Roblox'un aynı bültende tanımladığı, GAAP dışı bir ölçüt."
+        },
+        "free-cash-flow": {
+          "label": "Serbest nakit akışı",
+          "note": "Bültende belirtildiği gibi, yıllık %66 artış."
+        }
+      }
+    },
+    "engagement": {
+      "label": "Kullanıcılar ve etkileşim",
+      "description": "Roblox'un SEC'e bildirdiği şekliyle, kaç kişinin Roblox'u kullandığı ve orada ne kadar zaman geçirdiği.",
+      "figures": {
+        "daus": {
+          "label": "Günlük aktif kullanıcılar",
+          "value": "123 milyon",
+          "change": "Yıllık %10 artış",
+          "note": "Çeyrek boyunca günlük aktiflerin ortalaması; var olan hesapların sayımı değil."
+        },
+        "hours": {
+          "label": "Çeyrekteki etkileşim saatleri",
+          "value": "29 milyar",
+          "change": "Yıllık %5 artış",
+          "note": "30 Haziran 2026'da sona eren üç ay için tüm kullanıcıların toplamı."
+        }
+      },
+      "notPublished": {
+        "registrations": {
+          "label": "Toplam kayıtlı hesap",
+          "reason": "Roblox günlük ve aylık aktifleri bildirir, kümülatif bir kayıt sayısını asla bildirmez. Bunun için dolaşan her toplam birinin tahminidir ve bu site başkalarının sayıları hakkındaki tahminleri yayımlamaz."
+        },
+        "session-length": {
+          "label": "Ortalama oturum süresi",
+          "reason": "Roblox saatleri toplu olarak yayımlar, oturum olarak değil. Saatleri kullanıcıya bölmek, bu sayfada yer alan kullanıcı başına günlük süreyi verir; bunu oturum süresine çevirmek, Roblox dışında kimsenin sahip olmadığı bir oturum sayısı gerektirir."
+        }
+      }
+    }
+  }
+}

@@ -166,7 +166,10 @@ export function PreparationChecklist({
           aria-valuenow={completed}
           aria-valuemin={0}
           aria-valuemax={items.length}
-          aria-label={`${completed} of ${items.length} preparation steps done`}
+          aria-label={t("calculator.checklist.meterLabel", {
+            completed,
+            total: items.length,
+          })}
           className="mt-3 h-2 w-full overflow-hidden rounded-full bg-(--color-surface-subtle)"
         >
           <div

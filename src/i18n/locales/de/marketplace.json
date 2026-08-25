@@ -1,7 +1,9 @@
 {
   "$comment": "Machine-drafted. Not yet read by a native speaker. Protected names (Roblox, Robux, DevEx, Marketplace) are never translated.",
   "$identical": [
+    "results.columnRobux",
     "results.roblox",
+    "results.rowRoblox",
     "results.total"
   ],
   "srHeading": "Marketplace-Gebührenrechner",
@@ -37,7 +39,25 @@
     "youActuallyKeep": "Was dir tatsächlich bleibt",
     "copyResult": "Ergebnis kopieren",
     "copySummary": "Zusammenfassung kopieren",
-    "estimateFrom": "Schätzung von devexcalculator.org"
+    "estimateFrom": "Schätzung von devexcalculator.org",
+    "summarySalePrice": "Verkaufspreis: {robux} Robux",
+    "summaryScheme": "Modell: {scheme}",
+    "summaryYourShare": "Ihr Anteil: {percent}",
+    "summaryYouKeep": "Sie behalten: {robux} Robux",
+    "summaryRobloxKeeps": "Roblox behält: {robux} Robux",
+    "summaryTargetAfterFee": "Ziel nach Provision: {robux} Robux",
+    "summaryPriceToCharge": "Zu verlangender Preis: {robux} Robux",
+    "primaryLabelYouKeep": "Robux, die Sie behalten",
+    "primaryLabelPriceToCharge": "Zu verlangender Preis",
+    "secondaryAfterFee": "{percent} von {robux} Robux",
+    "secondaryAtTier": "{share}, auf der {multiple}×-Stufe",
+    "secondaryBeforeFee": "um {robux} Robux bei {percent} zu behalten",
+    "rowYou": "Sie",
+    "rowRoblox": "Roblox",
+    "rowTotal": "Gesamt",
+    "totalShare": "100 %",
+    "announceAfterFee": "Sie behalten {kept} Robux von {gross}.",
+    "announceBeforeFee": "Verlangen Sie {gross} Robux, um {net} zu behalten."
   },
   "body": {
     "intro": {

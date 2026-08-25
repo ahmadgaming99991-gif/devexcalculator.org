@@ -199,6 +199,9 @@ export function getSources(ids: readonly string[]): SourceRecord[] {
   return ids.map(getSource);
 }
 
+/** Every marketplace scheme, in registry order. */
+export const marketplaceSchemes: readonly MarketplaceScheme[] = registry.marketplace.schemes;
+
 export function getMarketplaceScheme(id: string): MarketplaceScheme {
   const scheme = registry.marketplace.schemes.find((s) => s.id === id);
   if (!scheme) throw new RateRegistryError(`unknown marketplace scheme "${id}"`);

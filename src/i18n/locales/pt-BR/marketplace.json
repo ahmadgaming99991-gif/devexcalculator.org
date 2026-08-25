@@ -1,8 +1,12 @@
 {
   "$comment": "Machine-drafted. Not yet read by a native speaker. Protected names (Roblox, Robux, DevEx, Marketplace) are never translated.",
   "$identical": [
+    "results.columnRobux",
     "results.roblox",
-    "results.total"
+    "results.rowRoblox",
+    "results.rowTotal",
+    "results.total",
+    "results.totalShare"
   ],
   "srHeading": "Calculadora de taxa do marketplace",
   "modes": {
@@ -29,7 +33,7 @@
     "tableCaption": "Como os Robux desta venda são divididos",
     "columnGoesTo": "Vai para",
     "columnRobux": "Robux",
-    "columnShare": "Participação",
+    "columnShare": "Parcela",
     "experienceOwner": "Dono da experiência",
     "roblox": "Roblox",
     "total": "Total",
@@ -37,7 +41,25 @@
     "youActuallyKeep": "O que você realmente fica",
     "copyResult": "Copiar resultado",
     "copySummary": "Copiar resumo",
-    "estimateFrom": "Estimativa do devexcalculator.org"
+    "estimateFrom": "Estimativa do devexcalculator.org",
+    "summarySalePrice": "Preço de venda: {robux} Robux",
+    "summaryScheme": "Modelo: {scheme}",
+    "summaryYourShare": "Sua parte: {percent}",
+    "summaryYouKeep": "Você fica com: {robux} Robux",
+    "summaryRobloxKeeps": "A Roblox fica com: {robux} Robux",
+    "summaryTargetAfterFee": "Meta após a comissão: {robux} Robux",
+    "summaryPriceToCharge": "Preço a cobrar: {robux} Robux",
+    "primaryLabelYouKeep": "Robux que você fica",
+    "primaryLabelPriceToCharge": "Preço a cobrar",
+    "secondaryAfterFee": "{percent} de {robux} Robux",
+    "secondaryAtTier": "{share}, no nível de {multiple}×",
+    "secondaryBeforeFee": "para ficar com {robux} Robux a {percent}",
+    "rowYou": "Você",
+    "rowRoblox": "Roblox",
+    "rowTotal": "Total",
+    "totalShare": "100%",
+    "announceAfterFee": "Você fica com {kept} Robux de {gross}.",
+    "announceBeforeFee": "Cobre {gross} Robux para ficar com {net}."
   },
   "body": {
     "intro": {

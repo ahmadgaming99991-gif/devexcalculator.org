@@ -9,6 +9,8 @@ import { Logo, Wordmark } from "./logo";
 import { DesktopNavigation } from "./desktop-navigation";
 import { MobileNavigation } from "./mobile-navigation";
 import { ThemeToggle } from "./theme-toggle";
+import { THEME_TOGGLE_WORDS } from "./theme-toggle.words";
+import { loadWords } from "@/i18n/server-words";
 
 /**
  * Site header.
@@ -21,6 +23,7 @@ import { ThemeToggle } from "./theme-toggle";
 export async function SiteHeader({ locale }: { readonly locale: Locale }) {
   const { primary, headerGroups } = await getNavigation(locale);
   const t = await getTranslator(locale, ["navigation"]);
+  const themeWords = await loadWords(locale, THEME_TOGGLE_WORDS);
 
   return (
     <header className="site-header sticky top-0 z-30 border-b border-(--color-border) bg-(--color-surface)/95 backdrop-blur supports-[backdrop-filter]:bg-(--color-surface)/80">
@@ -44,7 +47,7 @@ export async function SiteHeader({ locale }: { readonly locale: Locale }) {
           />
 
           <div className="flex items-center gap-2">
-            {features.darkMode ? <ThemeToggle /> : null}
+            {features.darkMode ? <ThemeToggle words={themeWords} /> : null}
             <MobileNavigation
               primary={primary}
               groups={headerGroups}

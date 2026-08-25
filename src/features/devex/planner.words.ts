@@ -12,8 +12,11 @@ import { PARSE_MESSAGE_WORDS } from "@/i18n/parse-message.words";
  * sentence there is a key the server starts passing, with nothing to
  * remember.
  */
+import { RATE_WORDS } from "@/i18n/data-words";
+
 export const PLANNER_WORDS: readonly string[] = [
   ...PARSE_MESSAGE_WORDS,
+  ...RATE_WORDS,
   "calculator.deductions.flatFeeLabel",
   "calculator.deductions.percentageFeeLabel",
   "calculator.deductions.taxLabel",
@@ -27,10 +30,12 @@ export const PLANNER_WORDS: readonly string[] = [
   "calculator.planner.body.intro.p2",
   "calculator.planner.body.intro.p3",
   "calculator.planner.body.intro.p4",
+  "calculator.planner.columnAmount",
   "calculator.planner.columnNeededEachDay",
   "calculator.planner.columnRate",
   "calculator.planner.columnReachedIn",
   "calculator.planner.columnRobuxNeeded",
+  "calculator.planner.columnStage",
   "calculator.planner.columnStillToEarn",
   "calculator.planner.currentBalanceLabel",
   "calculator.planner.datePassedHeadline",
@@ -46,6 +51,7 @@ export const PLANNER_WORDS: readonly string[] = [
   "calculator.planner.paceDetail",
   "calculator.planner.paceHeadline",
   "calculator.planner.paceHint",
+  "calculator.planner.payoutNote",
   "calculator.planner.percentageFeeEntered",
   "calculator.planner.pickDateHeadline",
   "calculator.planner.pickFutureDate",

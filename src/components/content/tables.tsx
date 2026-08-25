@@ -6,6 +6,7 @@ import { Rational } from "@/lib/calculations/rational";
 import { formatCurrency, formatDate, formatRate, formatRobux } from "@/lib/calculations/format";
 import { approvedAmountValues, amountPageRoute } from "@/lib/content/amount-pages";
 import { Badge, Table, TableWrapper, Td, Th } from "@/components/ui";
+import { rateLabel, rateShortLabel, rateSummary } from "@/i18n/data-text";
 
 /**
  * Server-rendered rate and conversion tables.
@@ -33,10 +34,12 @@ export function RateTable({ showExamples = true,
       <Table caption={t("accessibility.tables.currentRatesCaption")}>
         <thead>
           <tr>
-            <Th>Rate</Th>
-            <Th numeric>Per Robux</Th>
-            <Th numeric>Per 1,000</Th>
-            {showExamples ? <Th numeric>Per 30,000</Th> : null}
+            <Th>{t("common.columns.rate")}</Th>
+            <Th numeric>{t("common.columns.perRobux")}</Th>
+            <Th numeric>{t("common.columns.perAmount", { amount: formatRobux(1_000) })}</Th>
+            {showExamples ? (
+              <Th numeric>{t("common.columns.perAmount", { amount: formatRobux(30_000) })}</Th>
+            ) : null}
             <Th>{t("common.units.appliesTo")}</Th>
           </tr>
         </thead>
@@ -46,7 +49,7 @@ export function RateTable({ showExamples = true,
             return (
               <tr key={rate.id}>
                 <Th scope="row">
-                  <span className="font-semibold text-(--color-text)">{rate.label}</span>
+                  <span className="font-semibold text-(--color-text)">{rateLabel(t, rate)}</span>
                   <span className="mt-1 block">
                     <Badge
                       tone={
@@ -57,11 +60,7 @@ export function RateTable({ showExamples = true,
                             : "neutral"
                       }
                     >
-                      {rate.status === "active"
-                        ? "Current"
-                        : rate.status === "conditional"
-                          ? "Conditional"
-                          : "Legacy"}
+                      {t(`common.rateStatus.${rate.status}`)}
                     </Badge>
                   </span>
                 </Th>
@@ -77,7 +76,7 @@ export function RateTable({ showExamples = true,
                   </Td>
                 ) : null}
                 <Td className="text-(--color-text-muted)">
-                  {rate.eligibilitySummary}
+                  {rateSummary(t, rate)}
                   {rate.effectiveFrom ? (
                     <span className="mt-1 block text-xs">
                       {t("common.tables.effectiveFrom", {
@@ -160,11 +159,11 @@ export function AmountTable({
       <Table caption={t("accessibility.tables.commonAmountsCaption")}>
         <thead>
           <tr>
-            <Th>Earned Robux</Th>
-            <Th numeric>Standard</Th>
-            <Th numeric>Legacy</Th>
-            <Th numeric>U.S. 18+</Th>
-            <Th>Minimum</Th>
+            <Th>{t("common.columns.earnedRobux")}</Th>
+            <Th numeric>{rateShortLabel(t, { id: standardRateId })}</Th>
+            <Th numeric>{rateShortLabel(t, { id: legacyRateId })}</Th>
+            <Th numeric>{rateShortLabel(t, { id: us18RateId })}</Th>
+            <Th>{t("common.columns.minimum")}</Th>
           </tr>
         </thead>
         <tbody>

@@ -12,6 +12,7 @@
  * remember.
  */
 export const PREPARATION_WORDS: readonly string[] = [
+  "calculator.checklist.meterLabel",
   "calculator.preparation.balanceStep",
   "calculator.preparation.body.intro.p1",
   "calculator.preparation.body.intro.p2",

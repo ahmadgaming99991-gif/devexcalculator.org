@@ -31,6 +31,7 @@ export const CALCULATOR_WORDS: readonly string[] = [
   "calculator.deductions.taxHint",
   "calculator.deductions.taxLabel",
   "calculator.deductions.yourFiguresNote",
+  "calculator.history.summary",
   "calculator.inputs.currentBalance.hint",
   "calculator.inputs.currentBalance.label",
   "calculator.inputs.eligibleEarnedRobux.hint",

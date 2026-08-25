@@ -1,0 +1,224 @@
+{
+  "$comment": "Traduction des chaînes recopiées depuis src/data/*.json. Les clés sont générées par scripts/i18n/sync-data-dictionary.ts ; traduisez les valeurs à la main et ne modifiez jamais un chiffre, une date, un pourcentage ou un identifiant.",
+  "$identical": [
+    "rates.standard-current.shortLabel",
+    "metrics.companyContext.figures.adjusted-ebitda.label"
+  ],
+  "evidence": {
+    "verified-through-official-source": "Vérifié auprès de la source officielle"
+  },
+  "sources": {
+    "roblox-devex-program": {
+      "facts": [
+        "Taux DevEx standard de 0,0038 USD par Earned Robux éligible (114 USD pour 30 000).",
+        "Taux supérieur de 0,0054 USD par Robux pour certains Earned Robux issus des dépenses de joueurs américains dont la majorité (18 ans) a été vérifiée.",
+        "Ancien taux de 0,0035 USD par Robux pour les soldes gagnés avant le 5 septembre 2025 à 10h00 PT.",
+        "Minimum de 30 000 Earned Robux pour participer.",
+        "Conditions d'éligibilité : âge minimum de 13 ans, adresse e-mail vérifiée par Roblox, compte valide sur le portail DevEx, formulaire IRS W-9 ou W-8 déposé, et respect des Conditions d'utilisation et des Règles de la communauté Roblox."
+      ]
+    },
+    "roblox-devex-help": {
+      "facts": [
+        "Le traitement, l'examen et le versement des demandes DevEx sont assurés uniquement par Roblox.",
+        "Éléments de contexte complémentaires sur l'éligibilité et l'état du compte pour le programme DevEx."
+      ]
+    },
+    "roblox-marketplace-fees": {
+      "facts": [
+        "Vente d'un objet d'avatar sur la Marketplace : le créateur reçoit 30 %, Roblox reçoit 70 %.",
+        "Objet d'avatar acheté à l'intérieur d'une expérience : créateur de l'objet 30 %, propriétaire de l'expérience 40 %, Roblox 30 %.",
+        "Partage progressif des revenus de la Marketplace selon le multiple du prix plancher : 1x=30 %, 1,3x=37 %, 1,5x=41 %, 2x=50 %, 2,5x=57 %, 3x=62 %, 3,5x=65 %, 4x=67 %, 5x=69 %, 6x et au-delà=70 %.",
+        "Le partage progressif des revenus ne s'applique qu'aux achats sur la Marketplace ; les achats effectués dans une expérience utilisent la commission de base."
+      ]
+    },
+    "roblox-monetization-overview": {
+      "facts": [
+        "Les créateurs reçoivent 70 % des Robux dépensés dans les achats effectués dans une expérience, comme les produits pour développeurs et les pass ; Roblox conserve 30 %.",
+        "Les Earned Robux doivent être convertis via le programme Developer Exchange pour devenir de l'argent réel."
+      ]
+    },
+    "ecb-exchange-rates": {
+      "facts": [
+        "Cours de change de référence de l'euro utilisés pour dériver les cours croisés du USD dans les estimations en monnaie locale.",
+        "Les cours de référence sont publiés une fois par jour ouvré, vers 16h00 CET, et ne sont pas des cotations bancaires négociables."
+      ]
+    },
+    "google-spam-policies": {
+      "facts": [
+        "L'abus de contenu à grande échelle et les pages satellites constituent des infractions aux règles : c'est la raison pour laquelle les pages de montants chiffrés de ce site sont limitées en nombre et approuvées manuellement."
+      ]
+    },
+    "google-canonicalization": {
+      "facts": [
+        "Recommandations sur l'URL canonique appliquées aux états à paramètres de requête de la calculatrice, qui sont canonicalisés vers la route propre à laquelle ils appartiennent."
+      ]
+    },
+    "cloudflare-workers-nextjs": {
+      "facts": [
+        "Les applications Next.js sont déployées sur Cloudflare Workers via l'adaptateur OpenNext, avec Workers Static Assets."
+      ]
+    },
+    "opennext-cloudflare": {
+      "facts": [
+        "Configuration wrangler requise : point d'entrée `.open-next/worker.js`, répertoire statique `.open-next/assets`, indicateurs de compatibilité `nodejs_compat` et `global_fetch_strictly_public`, et le service binding WORKER_SELF_REFERENCE.",
+        "`initOpenNextCloudflareForDev()` active les bindings Cloudflare pendant `next dev`."
+      ]
+    },
+    "cloudflare-turnstile-validation": {
+      "facts": [
+        "Les jetons Turnstile doivent être validés côté serveur auprès du point de terminaison siteverify, et chaque jeton ne peut être utilisé qu'une seule fois."
+      ]
+    },
+    "cloudflare-workers-builds": {
+      "facts": [
+        "Cloudflare Workers Builds relie un dépôt GitHub à un Worker pour compiler et déployer automatiquement à chaque push."
+      ]
+    },
+    "roblox-q2-2026-earnings": {
+      "facts": [
+        "Frais de developer exchange de 363 millions USD pour les trois mois clos le 30 juin 2026, et 316 millions USD pour la même période en 2025.",
+        "Frais de developer exchange de 786 millions USD pour les six mois clos le 30 juin 2026, et 598 millions USD pour la même période en 2025.",
+        "Chiffre d'affaires de 1 469 millions USD pour les trois mois clos le 30 juin 2026, et 1 081 millions USD pour la même période en 2025.",
+        "Frais de developer exchange équivalents à 25 pour cent du chiffre d'affaires au 2e trimestre 2026 et à 29 pour cent au 2e trimestre 2025.",
+        "Les utilisateurs actifs quotidiens ont progressé de 10 % sur un an, à 123 millions pour les trois mois clos le 30 juin 2026.",
+        "Les heures d'engagement ont progressé de 5 % sur un an, à 29 milliards pour les trois mois clos le 30 juin 2026."
+      ]
+    },
+    "roblox-q4-2025-earnings": {
+      "facts": [
+        "Frais de developer exchange de 477 240 milliers USD pour les trois mois clos le 31 décembre 2025, et 280 610 milliers USD pour la même période en 2024.",
+        "Frais de developer exchange de 1 503 106 milliers USD pour les douze mois clos le 31 décembre 2025, et 922 821 milliers USD pour 2024.",
+        "Chiffre d'affaires de 1 415 021 milliers USD pour les trois mois clos le 31 décembre 2025, et 4 890 551 milliers USD pour l'année complète."
+      ]
+    },
+    "roblox-explore-api": {
+      "facts": [
+        "L'ensemble des expériences que Roblox classe à cet instant, ainsi que le nom affiché de ce classement.",
+        "Le nombre de joueurs présents dans chaque expérience listée au moment de la requête.",
+        "Le nombre de visites cumulées par expérience, fourni par le point de terminaison des jeux."
+      ]
+    }
+  },
+  "rates": {
+    "standard-current": {
+      "label": "Taux standard",
+      "shortLabel": "Standard",
+      "eligibilitySummary": "Le taux DevEx standard appliqué aux Earned Robux éligibles. Roblox le documente à 0,0038 USD par Earned Robux, soit 114 USD pour 30 000 Earned Robux."
+    },
+    "us-18-plus-qualified": {
+      "label": "Taux États-Unis 18+ éligible",
+      "shortLabel": "É.-U. 18+",
+      "eligibilitySummary": "Un taux plus élevé que Roblox applique à certains Earned Robux provenant d'achats de produits pour développeurs, de pass, d'abonnements et de serveurs privés effectués par des joueurs des États-Unis ayant vérifié qu'ils ont au moins 18 ans.",
+      "conditionNote": "Ce taux ne peut pas être choisi par le créateur. Roblox détermine quelle part d'un solde y a droit. Ne partez pas du principe qu'un solde entier est payé à ce taux."
+    },
+    "legacy-pre-2025-09-05": {
+      "label": "Taux des soldes antérieurs",
+      "shortLabel": "Antérieur",
+      "eligibilitySummary": "Le taux en vigueur avant le 5 septembre 2025 à 10h00 PT, soit 105 USD pour 30 000 Earned Robux. Roblox convertit d'abord à cet ancien taux les soldes gagnés avant ce moment.",
+      "conditionNote": "Ne s'applique qu'à la part d'un solde gagnée avant la transition, selon la comptabilité propre à Roblox. Un créateur ne peut pas choisir ce taux."
+    }
+  },
+  "minimum": {
+    "note": "Roblox indique un minimum de 30 000 Earned Robux pour déposer une demande DevEx. Atteindre ce nombre n'équivaut pas à être accepté."
+  },
+  "limits": {
+    "note": "Ce sont des limites de sécurité applicatives choisies par DevExCalculator.org pour borner le calcul et l'affichage. Ce ne sont pas des limites de Roblox et elles ne doivent jamais être présentées comme telles."
+  },
+  "schemes": {
+    "in-experience": {
+      "label": "Achat dans une expérience",
+      "description": "Produits pour développeurs, pass, serveurs privés et abonnements achetés dans une expérience qui vous appartient."
+    },
+    "marketplace-avatar-item": {
+      "label": "Vente d'un objet d'avatar sur la Marketplace",
+      "description": "Un objet d'avatar vendu via la Marketplace Roblox. La part du créateur augmente avec le prix de l'objet, exprimé en multiple du prix plancher."
+    },
+    "avatar-item-in-experience": {
+      "label": "Objet d'avatar vendu dans une expérience",
+      "description": "Un objet d'avatar acheté à l'intérieur d'une expérience. Le créateur de l'objet et le propriétaire de l'expérience sont payés séparément."
+    }
+  },
+  "currencies": {
+    "note": "Chaque devise ci-dessous figure dans le jeu de cours de change de référence de l'euro publié par la Banque centrale européenne. Le USD est la base de cette calculatrice et il est dérivé de la série USD/EUR de l'ECB. Une devise n'est listée ici que si le fournisseur configuré la publie réellement chaque jour. Le BGN a été retiré le 2026-08-17 parce que l'ECB a cessé de le publier après le 2025-12-31 ; prétendre prendre en charge un cours que le fournisseur ne livre plus serait malhonnête."
+  },
+  "metrics": {
+    "developerExchangeFees": {
+      "label": "Frais de developer exchange",
+      "description": "L'argent que Roblox a versé dans le cadre du programme Developer Exchange, tel qu'il apparaît dans son compte de résultat.",
+      "derivation": {
+        "q1-2025": "Six mois clos le 30 juin 2025 (598) moins le 2e trimestre 2025 (316), les deux en millions.",
+        "q1-2026": "Six mois clos le 30 juin 2026 (786) moins le 2e trimestre 2026 (363), les deux en millions."
+      }
+    },
+    "revenue": {
+      "label": "Chiffre d'affaires",
+      "description": "Le chiffre d'affaires déclaré par Roblox sur les mêmes périodes, pour donner l'échelle."
+    },
+    "shareOfRevenue": {
+      "label": "Frais de developer exchange en part du chiffre d'affaires",
+      "description": "Déclaré par Roblox sous forme de pourcentage, non recalculé ici."
+    },
+    "companyContext": {
+      "label": "Roblox en tant qu'entreprise",
+      "description": "Résultats déclarés pour les trois mois clos le 30 juin, pour qui veut juger de la solidité de la plateforme dont il tire ses revenus.",
+      "figures": {
+        "revenue": {
+          "label": "Chiffre d'affaires",
+          "note": "En hausse de 36 % sur un an, comme indiqué dans le communiqué."
+        },
+        "devex-share-revenue": {
+          "label": "Frais de developer exchange en part du chiffre d'affaires",
+          "note": "Environ un quart du chiffre d'affaires de Roblox ressort sous forme de versements aux créateurs."
+        },
+        "devex-share-bookings": {
+          "label": "Frais de developer exchange en part des réservations",
+          "note": "Mesuré par rapport aux réservations plutôt qu'au chiffre d'affaires."
+        },
+        "bookings-growth": {
+          "label": "Croissance des réservations, sur un an",
+          "note": "Décrite dans le communiqué comme la borne basse des prévisions."
+        },
+        "net-loss": {
+          "label": "Perte nette consolidée",
+          "note": "Une perte plus faible que celle du même trimestre un an plus tôt."
+        },
+        "adjusted-ebitda": {
+          "label": "Adjusted EBITDA",
+          "note": "Une mesure non-GAAP que Roblox définit dans le même communiqué."
+        },
+        "free-cash-flow": {
+          "label": "Flux de trésorerie disponible",
+          "note": "En hausse de 66 % sur un an, comme indiqué dans le communiqué."
+        }
+      }
+    },
+    "engagement": {
+      "label": "Utilisateurs et engagement",
+      "description": "Combien de personnes utilisent Roblox et combien de temps elles y passent, tel que Roblox le déclare à la SEC.",
+      "figures": {
+        "daus": {
+          "label": "Utilisateurs actifs quotidiens",
+          "value": "123 millions",
+          "change": "En hausse de 10 % sur un an",
+          "note": "Une moyenne des actifs quotidiens sur le trimestre, et non un décompte des comptes existants."
+        },
+        "hours": {
+          "label": "Heures d'engagement sur le trimestre",
+          "value": "29 milliards",
+          "change": "En hausse de 5 % sur un an",
+          "note": "Total sur l'ensemble des utilisateurs pour les trois mois clos le 30 juin 2026."
+        }
+      },
+      "notPublished": {
+        "registrations": {
+          "label": "Nombre total de comptes créés",
+          "reason": "Roblox déclare des actifs quotidiens et mensuels, jamais un cumul d'inscriptions. Tout total qui circule à ce sujet est l'estimation de quelqu'un, et ce site ne publie pas d'estimations sur les chiffres d'autrui."
+        },
+        "session-length": {
+          "label": "Durée moyenne d'une session",
+          "reason": "Roblox publie des heures agrégées, pas des sessions. Diviser les heures par les utilisateurs donne un temps par utilisateur et par jour, qui figure sur cette page ; en tirer une durée de session exigerait un nombre de sessions dont personne ne dispose en dehors de Roblox."
+        }
+      }
+    }
+  }
+}

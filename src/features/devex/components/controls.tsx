@@ -1,6 +1,7 @@
 "use client";
 
 import type { Translate } from "@/i18n/get-dictionary";
+import { rateCondition, rateLabel, rateSummary } from "@/i18n/data-text";
 import { currencyName } from "@/i18n/currency-name";
 import { useId } from "react";
 import { selectableRates } from "@/lib/calculations/rate-registry";
@@ -134,16 +135,16 @@ export function RateSelector({
         {selectableRates.map((rate) => (
           <option key={rate.id} value={rate.id}>
             {t("calculator.controls.rateOption", {
-              rate: rate.label,
+              rate: rateLabel(t, rate),
               rateValue: formatRate(Rational.fromDecimalString(rate.usdPerRobux)),
             })}
           </option>
         ))}
       </select>
       <p id={`${id}-note`} className="mt-1.5 text-xs text-(--color-text-muted)">
-        {selected?.conditionNote ??
-          selected?.eligibilitySummary ??
-          t("calculator.controls.rateFallbackNote")}
+        {selected === undefined
+          ? t("calculator.controls.rateFallbackNote")
+          : (rateCondition(t, selected) ?? rateSummary(t, selected))}
       </p>
     </div>
   );

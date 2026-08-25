@@ -10,12 +10,13 @@ import { getTranslator } from "@/i18n/get-dictionary";
 import { PageHeader, QuickAnswer, RelatedLinks } from "@/components/content";
 import { rateRegistry, registryFreshness, sources } from "@/lib/calculations/rate-registry";
 import { formatDate } from "@/lib/calculations/format";
+import { evidenceLabel, sourceFacts } from "@/i18n/data-text";
 
 const ROUTE = "/sources/";
 
 
 export async function SourcesView({ locale }: { readonly locale: Locale }) {
-  const t = await getTranslator(locale, ["trust"]);
+  const t = await getTranslator(locale, ["trust", "data"]);
   const record = await localizedRoute(locale, ROUTE);
   const freshness = registryFreshness();
 
@@ -49,14 +50,14 @@ export async function SourcesView({ locale }: { readonly locale: Locale }) {
                     <h3 className="text-base font-semibold text-(--color-text)">
                       <SourceLink t={t} href={source.url}>{source.title}</SourceLink>
                     </h3>
-                    <Badge tone="neutral">{source.evidenceLabel}</Badge>
+                    <Badge tone="neutral">{evidenceLabel(t, source)}</Badge>
                   </div>
 
                   <p className="mt-1 text-sm text-(--color-text-muted)">{source.publisher}</p>
 
                   <h4 className="mt-3 text-xs font-semibold uppercase tracking-wide text-(--color-text-muted)">{t("trust.sources.body.registry.p1")}</h4>
                   <ul className="mt-1.5 flex list-disc flex-col gap-1.5 pl-5 text-sm text-(--color-text-muted)">
-                    {source.factsSupported.map((fact) => (
+                    {sourceFacts(t, source).map((fact) => (
                       <li key={fact}>{fact}</li>
                     ))}
                   </ul>
@@ -74,7 +75,7 @@ export async function SourcesView({ locale }: { readonly locale: Locale }) {
                     ) : null}
                     <div className="flex gap-1.5">
                       <dt className="font-semibold">{t("trust.sources.reviewCadenceLabel")}</dt>
-                      <dd>every {source.reviewCadenceDays} days</dd>
+                      <dd>{t(source.reviewCadenceDays === 1 ? "trust.sources.everyNDays.one" : "trust.sources.everyNDays.other", { days: source.reviewCadenceDays })}</dd>
                     </div>
                   </dl>
                 </article>
@@ -107,13 +108,13 @@ export async function SourcesView({ locale }: { readonly locale: Locale }) {
                 <div className="flex flex-wrap justify-between gap-2">
                   <dt className="text-(--color-text-muted)">{t("trust.sources.reviewDueAfter")}</dt>
                   <dd className="font-semibold text-(--color-text)">
-                    {rateRegistry.reviewCadenceDays} days
+                    {t(rateRegistry.reviewCadenceDays === 1 ? "trust.sources.nDays.one" : "trust.sources.nDays.other", { days: rateRegistry.reviewCadenceDays })}
                   </dd>
                 </div>
                 <div className="flex flex-wrap justify-between gap-2">
                   <dt className="text-(--color-text-muted)">{t("trust.sources.escalatesAfter")}</dt>
                   <dd className="font-semibold text-(--color-text)">
-                    {rateRegistry.criticalReviewAgeDays} days
+                    {t(rateRegistry.criticalReviewAgeDays === 1 ? "trust.sources.nDays.one" : "trust.sources.nDays.other", { days: rateRegistry.criticalReviewAgeDays })}
                   </dd>
                 </div>
               </dl>

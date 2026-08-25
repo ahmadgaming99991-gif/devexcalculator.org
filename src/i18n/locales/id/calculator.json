@@ -2,6 +2,7 @@
   "$comment": "Machine-drafted. Not yet read by a native speaker. A mistranslated 'eligible' or 'minimum' can tell somebody they may cash out when they may not, so nothing here is shortened.",
   "$identical": [
     "controls.rateOption",
+    "groupSplit.columnEarnedRobux",
     "modes.target.label",
     "results.columnPerRobux",
     "results.columnSubtotal",
@@ -121,7 +122,19 @@
       "minimumShort": "Batas minimum: kurang {robux}"
     },
     "announceSplit": "{robux} Earned Robux dari seluruh kelompok kira-kira bernilai {value}.",
-    "announceSplitGross": "kotor, sebelum biaya dan pajak, dari {robux} Earned Robux"
+    "announceSplitGross": "kotor, sebelum biaya dan pajak, dari {robux} Earned Robux",
+    "meetsMinimumTitle": "Memenuhi minimum yang ditetapkan",
+    "belowMinimumTitle": "Di bawah minimum yang ditetapkan",
+    "minimumReachedBadge": "minimum {minimum} tercapai",
+    "moreNeededBadge": "kurang {shortfall}",
+    "progressAriaLabel": "Kemajuan menuju minimum {minimum} Earned Robux",
+    "comparisonTableCaption": "Perbandingan tarif DevEx untuk {robux} Earned Robux",
+    "blendedRateDetail": "{rate} per Robux di seluruh kelompok",
+    "ifAllStandardDetail": "{amount} (selisih {difference})",
+    "targetReachedBadge": "Target tercapai",
+    "toGoBadge": "kurang {remaining}",
+    "targetArithmetic": "{target} ÷ {rate} per Robux = {exact}, dibulatkan ke atas menjadi {required}",
+    "totalShare": "100,0%"
   },
   "target": {
     "explanation": "{target} ÷ ${rate} per Robux = {exact}, dibulatkan ke atas menjadi {required} Earned Robux utuh. Itu membayar {payout}, yaitu jumlah Robux utuh pertama yang mencapai target Anda alih-alih kurang sedikit.",
@@ -140,7 +153,7 @@
     "tableLabel": "Bagian tiap anggota dari saldo grup",
     "tableCaption": "Persentase tiap anggota atas Earned Robux grup, jumlah Robux yang diwakilinya, dan pembayarannya pada kurs DevEx standar.",
     "columnMember": "Anggota",
-    "columnShare": "Bagian",
+    "columnShare": "Porsi",
     "columnEarnedRobux": "Earned Robux",
     "columnEstimatedPayout": "Perkiraan pembayaran",
     "columnCanCashOut": "Bisakah mereka mencairkan?",
@@ -168,7 +181,9 @@
     "belowMinimumBody": {
       "one": "Batas minimum {minimum} berlaku untuk saldo yang diajukan satu orang, bukan untuk yang dihasilkan grup. Grup ini memegang {total} Earned Robux, dan {names} masih di bawah batas minimum secara perorangan.",
       "other": "Batas minimum {minimum} berlaku untuk saldo yang diajukan satu orang, bukan untuk yang dihasilkan grup. Grup ini memegang {total} Earned Robux, dan {names} masih di bawah batas minimum secara perorangan."
-    }
+    },
+    "removeRow": "Hapus",
+    "perEligibleRobux": "{rate} per Earned Robux yang memenuhi syarat"
   },
   "preparation": {
     "earnedRobuxLink": "Apa yang dihitung sebagai Earned Robux",
@@ -314,7 +329,8 @@
     "requiredHeadline": "{perDay} Earned Robux per hari.",
     "requiredDetail": "Itu berarti {perWeek} per minggu, atau {perMonth} selama 30 hari. Setiap angka dibulatkan ke atas: menghasilkan angka yang dibulatkan ke bawah akan melewatkan tanggalnya.",
     "columnReachedIn": "Tercapai dalam",
-    "columnNeededEachDay": "Dibutuhkan tiap hari"
+    "columnNeededEachDay": "Dibutuhkan tiap hari",
+    "payoutNote": "Pada {rate}, sebelum biaya dan pajak."
   },
   "controls": {
     "body": {
@@ -345,5 +361,11 @@
     "copyFailedLabel": "Gagal menyalin",
     "share": "Bagikan",
     "copyLink": "Salin tautan"
+  },
+  "checklist": {
+    "meterLabel": "{completed} dari {total} langkah persiapan selesai"
+  },
+  "history": {
+    "summary": "Perhitungan tersimpan ({count})"
   }
 }

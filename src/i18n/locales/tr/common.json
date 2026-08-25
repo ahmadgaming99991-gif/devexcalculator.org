@@ -1,6 +1,8 @@
 {
   "$comment": "Machine-drafted. Not yet read by a native speaker. Protected names (Roblox, Robux, DevEx, Earned Robux) are never translated.",
   "$identical": [
+    "columns.earnedRobux",
+    "columns.robux",
     "footer.feedAtom",
     "footer.feedJson",
     "social.instagramName",
@@ -114,7 +116,13 @@
     "usEighteenPlus": "ABD 18+",
     "minimum": "Minimum",
     "rate": "Kur",
-    "earnedWord": "Earned"
+    "earnedWord": "Earned",
+    "baselineParenthetical": "(temel)",
+    "baseline": "temel",
+    "yes": "Evet",
+    "no": "Hayır",
+    "required": "(zorunlu)",
+    "atLeastRobux": "En az {robux} Earned Robux"
   },
   "social": {
     "youtube": "DevEx Calculator YouTube'da",
@@ -197,5 +205,50 @@
       "one": "{months} ay",
       "other": "{months} ay"
     }
+  },
+  "columns": {
+    "rate": "Oran",
+    "perRobux": "Robux başına",
+    "perAmount": "{amount} başına",
+    "earnedRobux": "Earned Robux",
+    "minimum": "Asgari",
+    "payout": "Ödeme",
+    "vsStandard": "standarda göre",
+    "bucket": "Dilim",
+    "subtotal": "Ara toplam",
+    "share": "Pay",
+    "total": "Toplam",
+    "member": "Üye",
+    "stage": "Aşama",
+    "amount": "Tutar",
+    "robux": "Robux",
+    "you": "Siz",
+    "creator": "Yaratıcı",
+    "measure": "Ölçüt",
+    "note": "Not",
+    "source": "Kaynak",
+    "year": "Yıl",
+    "quarter": "Çeyrek",
+    "revenue": "Gelir",
+    "difference": "Fark",
+    "endpoint": "Uç nokta",
+    "direction": "Yön",
+    "atRate": "{rate} oranında"
+  },
+  "rateStatus": {
+    "active": "Güncel",
+    "conditional": "Koşullu",
+    "legacy": "Eski"
+  },
+  "origin": {
+    "reported": "Bildirilen",
+    "derived": "Türetilen",
+    "howWeKnow": "Bunu nereden biliyoruz"
+  },
+  "theme": {
+    "light": "açık",
+    "dark": "koyu",
+    "system": "sistem",
+    "toggleLabel": "Tema: {current}. {next} temaya geç."
   }
 }

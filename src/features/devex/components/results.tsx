@@ -1,6 +1,8 @@
 "use client";
 
 import type { Translate } from "@/i18n/get-dictionary";
+import { rich } from "@/i18n/rich";
+import { rateLabel } from "@/i18n/data-text";
 import type { ReactNode } from "react";
 import type { ComparisonResult, SplitResult, TargetResult, ThresholdStatus } from "@/lib/calculations/devex";
 import { Rational } from "@/lib/calculations/rational";
@@ -99,12 +101,16 @@ export function ThresholdMeter({
     <div>
       <div className="flex flex-wrap items-center justify-between gap-2">
         <p className="text-sm font-semibold text-(--color-text)">
-          {meets ? "Meets the stated minimum" : "Below the stated minimum"}
+          {t(meets ? "calculator.results.meetsMinimumTitle" : "calculator.results.belowMinimumTitle")}
         </p>
         <Badge tone={meets ? "success" : "warning"}>
           {meets
-            ? `${formatRobux(threshold.minimumRobux)} minimum reached`
-            : `${formatRobux(threshold.shortfallRobux)} more needed`}
+            ? t("calculator.results.minimumReachedBadge", {
+                minimum: formatRobux(threshold.minimumRobux),
+              })
+            : t("calculator.results.moreNeededBadge", {
+                shortfall: formatRobux(threshold.shortfallRobux),
+              })}
         </Badge>
       </div>
 
@@ -113,7 +119,9 @@ export function ThresholdMeter({
         aria-valuenow={Math.round(threshold.progressPercent)}
         aria-valuemin={0}
         aria-valuemax={100}
-        aria-label={`Progress toward the ${formatRobux(threshold.minimumRobux)} Earned Robux minimum`}
+        aria-label={t("calculator.results.progressAriaLabel", {
+          minimum: formatRobux(threshold.minimumRobux),
+        })}
         className="mt-2 h-2.5 w-full overflow-hidden rounded-full bg-(--color-border)"
       >
         <div
@@ -149,22 +157,28 @@ export function ScenarioComparison({
 }) {
   return (
     <TableWrapper label={t("calculator.results.comparisonTableLabel")}>
-      <Table caption={`Comparison of DevEx rates for ${formatRobux(comparison.robux)} Earned Robux`}>
+      <Table
+        caption={t("calculator.results.comparisonTableCaption", {
+          robux: formatRobux(comparison.robux),
+        })}
+      >
         <thead>
           <tr>
-            <Th>Rate</Th>
-            <Th numeric>Per Robux</Th>
-            <Th numeric>Payout</Th>
-            <Th numeric>vs standard</Th>
+            <Th>{t("common.columns.rate")}</Th>
+            <Th numeric>{t("common.columns.perRobux")}</Th>
+            <Th numeric>{t("common.columns.payout")}</Th>
+            <Th numeric>{t("common.columns.vsStandard")}</Th>
           </tr>
         </thead>
         <tbody>
           {comparison.rows.map((row) => (
             <tr key={row.rate.id}>
               <Td>
-                <span className="font-medium text-(--color-text)">{row.rate.label}</span>
+                <span className="font-medium text-(--color-text)">{rateLabel(t, row.rate)}</span>
                 {row.isBaseline ? (
-                  <span className="ml-2 text-xs text-(--color-text-muted)">(baseline)</span>
+                  <span className="ml-2 text-xs text-(--color-text-muted)">
+                    {t("common.units.baselineParenthetical")}
+                  </span>
                 ) : null}
               </Td>
               <Td numeric>${formatRate(row.rateValue)}</Td>
@@ -219,17 +233,17 @@ export function ResultBreakdown({
         <Table caption={t("calculator.results.bucketTableCaption")}>
           <thead>
             <tr>
-              <Th>Bucket</Th>
-              <Th numeric>Earned Robux</Th>
-              <Th numeric>Rate</Th>
-              <Th numeric>Subtotal</Th>
-              <Th numeric>Share</Th>
+              <Th>{t("common.columns.bucket")}</Th>
+              <Th numeric>{t("common.columns.earnedRobux")}</Th>
+              <Th numeric>{t("common.columns.rate")}</Th>
+              <Th numeric>{t("common.columns.subtotal")}</Th>
+              <Th numeric>{t("common.columns.share")}</Th>
             </tr>
           </thead>
           <tbody>
             {populated.map((bucket) => (
               <tr key={bucket.rate.id}>
-                <Td>{bucket.rate.label}</Td>
+                <Td>{rateLabel(t, bucket.rate)}</Td>
                 <Td numeric>{formatRobux(bucket.robux)}</Td>
                 <Td numeric>${formatRate(bucket.rateValue)}</Td>
                 <Td numeric className="font-semibold">
@@ -241,7 +255,7 @@ export function ResultBreakdown({
           </tbody>
           <tfoot>
             <tr className="bg-(--color-surface-subtle)">
-              <Th scope="row">Total</Th>
+              <Th scope="row">{t("common.columns.total")}</Th>
               <Td numeric className="font-semibold">
                 {formatRobux(result.totalRobux)}
               </Td>
@@ -249,7 +263,7 @@ export function ResultBreakdown({
               <Td numeric className="font-bold">
                 {formatCurrency(result.grossUsd, currency)}
               </Td>
-              <Td numeric>100.0%</Td>
+              <Td numeric>{t("calculator.results.totalShare")}</Td>
             </tr>
           </tfoot>
         </Table>
@@ -258,14 +272,16 @@ export function ResultBreakdown({
       <dl className="grid gap-3 text-sm sm:grid-cols-2">
         <SummaryRow
           term={t("calculator.results.blendedRate")}
-          detail={`$${formatRate(result.blendedRateUsdPerRobux, 5)} per Robux across all buckets`}
+          detail={t("calculator.results.blendedRateDetail", {
+            rate: `$${formatRate(result.blendedRateUsdPerRobux, 5)}`,
+          })}
         />
         <SummaryRow
           term={t("calculator.results.ifAllStandard")}
-          detail={`${formatCurrency(result.standardOnlyUsd, currency)} (${formatSignedCurrency(
-            result.differenceVsStandardOnlyUsd.neg(),
-            currency,
-          )} difference)`}
+          detail={t("calculator.results.ifAllStandardDetail", {
+            amount: formatCurrency(result.standardOnlyUsd, currency),
+            difference: formatSignedCurrency(result.differenceVsStandardOnlyUsd.neg(), currency),
+          })}
         />
       </dl>
 
@@ -357,9 +373,12 @@ export function TargetBreakdown({
   return (
     <div className="flex flex-col gap-3 text-sm">
       <p className="text-(--color-text-muted)">
-        {formatCurrency(result.targetUsd, currency)} ÷ ${formatRate(result.rateValue)} per Robux ={" "}
-        <span className="tabular">{result.exactRequiredRobux.toFixed(2)}</span>, rounded up to{" "}
-        <strong className="text-(--color-text)">{formatRobux(result.requiredRobux)}</strong>
+        {rich(t("calculator.results.targetArithmetic"), {
+          target: formatCurrency(result.targetUsd, currency),
+          rate: `$${formatRate(result.rateValue)}`,
+          exact: <span className="tabular">{result.exactRequiredRobux.toFixed(2)}</span>,
+          required: <strong className="text-(--color-text)">{formatRobux(result.requiredRobux)}</strong>,
+        })}
           {t("calculator.results.body.intro.p4", {
             currency: formatCurrency(result.payoutAtRequiredRobux, currency),
           })}
@@ -391,8 +410,10 @@ export function TargetBreakdown({
           </p>
             <Badge tone={result.remainingRobux === 0n ? "success" : "info"}>
               {result.remainingRobux === 0n
-                ? "Target reached"
-                : `${formatRobux(result.remainingRobux ?? 0n)} to go`}
+                ? t("calculator.results.targetReachedBadge")
+                : t("calculator.results.toGoBadge", {
+                    remaining: formatRobux(result.remainingRobux ?? 0n),
+                  })}
             </Badge>
           </div>
           <div

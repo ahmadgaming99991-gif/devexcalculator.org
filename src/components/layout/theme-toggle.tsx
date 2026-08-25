@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useClientValue } from "@/lib/utilities/use-client-value";
+import { translatorFor, type LocaleWords } from "@/i18n/client-words";
 
 type Theme = "light" | "dark" | "system";
 
@@ -19,7 +20,9 @@ const STORAGE_KEY = "devex:theme";
  * effect. That keeps the button's label correct on first paint and avoids a
  * cascading render on mount.
  */
-export function ThemeToggle() {
+export function ThemeToggle({ words }: { readonly words: LocaleWords }) {
+  const t = useMemo(() => translatorFor(words), [words]);
+
   // Reflects a choice made in this session; before that, the DOM is the truth.
   const [chosen, setChosen] = useState<Theme | null>(null);
 
@@ -48,7 +51,10 @@ export function ThemeToggle() {
     }
   }
 
-  const label = `Theme: ${theme}. Switch to ${next}.`;
+  const label = t("common.theme.toggleLabel", {
+    current: t(`common.theme.${theme}`),
+    next: t(`common.theme.${next}`),
+  });
 
   return (
     <button

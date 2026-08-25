@@ -112,7 +112,19 @@
       "minimumShort": "Minimum: {robux} short"
     },
     "announceSplit": "{robux} Earned Robux across all buckets is about {value}.",
-    "announceSplitGross": "gross, before fees and tax, from {robux} Earned Robux"
+    "announceSplitGross": "gross, before fees and tax, from {robux} Earned Robux",
+    "meetsMinimumTitle": "Meets the stated minimum",
+    "belowMinimumTitle": "Below the stated minimum",
+    "minimumReachedBadge": "{minimum} minimum reached",
+    "moreNeededBadge": "{shortfall} more needed",
+    "progressAriaLabel": "Progress toward the {minimum} Earned Robux minimum",
+    "comparisonTableCaption": "Comparison of DevEx rates for {robux} Earned Robux",
+    "blendedRateDetail": "{rate} per Robux across all buckets",
+    "ifAllStandardDetail": "{amount} ({difference} difference)",
+    "targetReachedBadge": "Target reached",
+    "toGoBadge": "{remaining} to go",
+    "targetArithmetic": "{target} ÷ {rate} per Robux = {exact}, rounded up to {required}",
+    "totalShare": "100.0%"
   },
   "target": {
     "explanation": "{target} ÷ ${rate} per Robux = {exact}, rounded up to {required} whole Earned Robux. That pays {payout}, which is the first whole-Robux amount that reaches your target rather than falling just short.",
@@ -159,7 +171,9 @@
     "belowMinimumBody": {
       "one": "The {minimum} minimum applies to the balance one person submits, not to what the group earned. This group holds {total} Earned Robux, and {names} is still below the minimum individually.",
       "other": "The {minimum} minimum applies to the balance one person submits, not to what the group earned. This group holds {total} Earned Robux, and {names} are still below the minimum individually."
-    }
+    },
+    "removeRow": "Remove",
+    "perEligibleRobux": "{rate} per eligible Earned Robux"
   },
   "preparation": {
     "earnedRobuxLink": "What counts as Earned Robux",
@@ -305,7 +319,8 @@
     "requiredHeadline": "{perDay} Earned Robux a day.",
     "requiredDetail": "That is {perWeek} a week, or {perMonth} over 30 days. Each figure is rounded up: earning the rounded-down amount would miss the date.",
     "columnReachedIn": "Reached in",
-    "columnNeededEachDay": "Needed each day"
+    "columnNeededEachDay": "Needed each day",
+    "payoutNote": "At {rate}, before fees and tax."
   },
   "actions": {
     "copied": "{label} copied to the clipboard.",
@@ -336,5 +351,11 @@
       "p3": "Estimates use the rates Roblox currently documents. The {minimumEarnedRobux} Earned Robux minimum is a requirement to submit a request, not an approval. Roblox decides which Robux qualify and whether any request succeeds.",
       "p5": "Saved only in this browser. Nothing is uploaded, and clearing your browser data removes them."
     }
+  },
+  "checklist": {
+    "meterLabel": "{completed} of {total} preparation steps done"
+  },
+  "history": {
+    "summary": "Saved calculations ({count})"
   }
 }

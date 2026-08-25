@@ -1,6 +1,11 @@
 {
   "$comment": "Machine-drafted. Not yet read by a native speaker. Protected names (Roblox, Robux, DevEx, Earned Robux) are never translated.",
   "$identical": [
+    "columns.earnedRobux",
+    "columns.endpoint",
+    "columns.robux",
+    "columns.subtotal",
+    "columns.total",
     "footer.feedAtom",
     "footer.feedJson",
     "social.instagramName",
@@ -113,7 +118,13 @@
     "usEighteenPlus": "EUA 18+",
     "minimum": "Mínimo",
     "rate": "Taxa",
-    "earnedWord": "Earned"
+    "earnedWord": "Earned",
+    "baselineParenthetical": "(referência)",
+    "baseline": "referência",
+    "yes": "Sim",
+    "no": "Não",
+    "required": "(obrigatório)",
+    "atLeastRobux": "Pelo menos {robux} Earned Robux"
   },
   "social": {
     "youtube": "DevEx Calculator no YouTube",
@@ -196,5 +207,50 @@
       "one": "{months} mês",
       "other": "{months} meses"
     }
+  },
+  "columns": {
+    "rate": "Taxa",
+    "perRobux": "Por Robux",
+    "perAmount": "Por {amount}",
+    "earnedRobux": "Earned Robux",
+    "minimum": "Mínimo",
+    "payout": "Pagamento",
+    "vsStandard": "vs. padrão",
+    "bucket": "Faixa",
+    "subtotal": "Subtotal",
+    "share": "Parcela",
+    "total": "Total",
+    "member": "Integrante",
+    "stage": "Etapa",
+    "amount": "Valor",
+    "robux": "Robux",
+    "you": "Você",
+    "creator": "Criador",
+    "measure": "Indicador",
+    "note": "Observação",
+    "source": "Fonte",
+    "year": "Ano",
+    "quarter": "Trimestre",
+    "revenue": "Receita",
+    "difference": "Diferença",
+    "endpoint": "Endpoint",
+    "direction": "Sentido",
+    "atRate": "A {rate}"
+  },
+  "rateStatus": {
+    "active": "Atual",
+    "conditional": "Condicional",
+    "legacy": "Legado"
+  },
+  "origin": {
+    "reported": "Divulgado",
+    "derived": "Derivado",
+    "howWeKnow": "Como sabemos"
+  },
+  "theme": {
+    "light": "claro",
+    "dark": "escuro",
+    "system": "do sistema",
+    "toggleLabel": "Tema: {current}. Mudar para {next}."
   }
 }

@@ -112,7 +112,9 @@ export function GroupSplit({ words }: { readonly words: LocaleWords }) {
             <p className="text-sm text-(--color-text-muted)">{t("calculator.groupSplit.valuedAt")}</p>
             <p className="mt-1 font-semibold text-(--color-text)">{result.rate.label}</p>
             <p className="text-sm text-(--color-text-muted)">
-              ${result.rate.usdPerRobux} per eligible Earned Robux
+              {t("calculator.groupSplit.perEligibleRobux", {
+                rate: `$${result.rate.usdPerRobux}`,
+              })}
             </p>
           </div>
         </div>
@@ -121,13 +123,13 @@ export function GroupSplit({ words }: { readonly words: LocaleWords }) {
           <Table caption={t("calculator.groupSplit.tableCaption")}>
             <thead>
               <tr>
-                <Th>Member</Th>
-                <Th>Share</Th>
-                <Th numeric>Earned Robux</Th>
+                <Th>{t("calculator.groupSplit.columnMember")}</Th>
+                <Th>{t("calculator.groupSplit.columnShare")}</Th>
+                <Th numeric>{t("calculator.groupSplit.columnEarnedRobux")}</Th>
                 <Th numeric>{t("calculator.groupSplit.columnEstimatedPayout")}</Th>
                 <Th>{t("calculator.groupSplit.columnCanCashOut")}</Th>
                 <Th>
-                  <span className="sr-only">Remove</span>
+                  <span className="sr-only">{t("calculator.groupSplit.removeRow")}</span>
                 </Th>
               </tr>
             </thead>

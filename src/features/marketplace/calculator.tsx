@@ -3,6 +3,7 @@
 import { parseMessage } from "@/i18n/parse-message";
 import { translatorFor, type LocaleWords } from "@/i18n/client-words";
 import type { Translate } from "@/i18n/get-dictionary";
+import { schemeLabel } from "@/i18n/data-text";
 import { useId, useMemo, useState } from "react";
 import {
   calculateAfterFee,
@@ -93,18 +94,36 @@ export function MarketplaceCalculator({ words }: { readonly words: LocaleWords }
       ? ""
       : mode === "after"
         ? [
-            `Sale price: ${formatRobux(afterFee.grossRobux)} Robux`,
-            `Scheme: ${afterFee.scheme.label}`,
-            `Your share: ${formatPercent(afterFee.creatorSharePercent, 0)}`,
-            `You keep: ${formatRobux(afterFee.creatorRobux)} Robux`,
-            `Roblox keeps: ${formatRobux(afterFee.platformRobux)} Robux`,
+            t("marketplace.results.summarySalePrice", {
+              robux: formatRobux(afterFee.grossRobux),
+            }),
+            t("marketplace.results.summaryScheme", {
+              scheme: schemeLabel(t, afterFee.scheme),
+            }),
+            t("marketplace.results.summaryYourShare", {
+              percent: formatPercent(afterFee.creatorSharePercent, 0),
+            }),
+            t("marketplace.results.summaryYouKeep", {
+              robux: formatRobux(afterFee.creatorRobux),
+            }),
+            t("marketplace.results.summaryRobloxKeeps", {
+              robux: formatRobux(afterFee.platformRobux),
+            }),
             t("marketplace.results.estimateFrom"),
           ].join("\n")
         : [
-            `Target after fee: ${formatRobux(beforeFee.targetNetRobux)} Robux`,
-            `Scheme: ${beforeFee.scheme.label}`,
-            `Your share: ${formatPercent(beforeFee.creatorSharePercent, 0)}`,
-            `Price to charge: ${formatRobux(beforeFee.requiredGrossRobux)} Robux`,
+            t("marketplace.results.summaryTargetAfterFee", {
+              robux: formatRobux(beforeFee.targetNetRobux),
+            }),
+            t("marketplace.results.summaryScheme", {
+              scheme: schemeLabel(t, beforeFee.scheme),
+            }),
+            t("marketplace.results.summaryYourShare", {
+              percent: formatPercent(beforeFee.creatorSharePercent, 0),
+            }),
+            t("marketplace.results.summaryPriceToCharge", {
+              robux: formatRobux(beforeFee.requiredGrossRobux),
+            }),
             t("marketplace.results.estimateFrom"),
           ].join("\n");
 
@@ -173,22 +192,33 @@ export function MarketplaceCalculator({ words }: { readonly words: LocaleWords }
 
         <div className="flex min-w-0 flex-col gap-5">
           <ResultSummary
-            primaryLabel={mode === "after" ? "Robux you keep" : "Price to charge"}
+            primaryLabel={t(
+              mode === "after"
+                ? "marketplace.results.primaryLabelYouKeep"
+                : "marketplace.results.primaryLabelPriceToCharge",
+            )}
             primaryValue={primaryValue}
             secondary={
               mode === "after" ? (
-                <>
-                  {formatPercent(afterFee.creatorSharePercent, 0)} of{" "}
-                  {formatRobux(afterFee.grossRobux)} Robux
-                  {afterFee.appliedTierMultiple
-                    ? `, at the ${afterFee.appliedTierMultiple}× tier`
-                    : ""}
-                </>
+                afterFee.appliedTierMultiple ? (
+                  t("marketplace.results.secondaryAtTier", {
+                    share: t("marketplace.results.secondaryAfterFee", {
+                      percent: formatPercent(afterFee.creatorSharePercent, 0),
+                      robux: formatRobux(afterFee.grossRobux),
+                    }),
+                    multiple: afterFee.appliedTierMultiple,
+                  })
+                ) : (
+                  t("marketplace.results.secondaryAfterFee", {
+                    percent: formatPercent(afterFee.creatorSharePercent, 0),
+                    robux: formatRobux(afterFee.grossRobux),
+                  })
+                )
               ) : (
-                <>
-                  to clear {formatRobux(beforeFee.targetNetRobux)} Robux at{" "}
-                  {formatPercent(beforeFee.creatorSharePercent, 0)}
-                </>
+                t("marketplace.results.secondaryBeforeFee", {
+                  robux: formatRobux(beforeFee.targetNetRobux),
+                  percent: formatPercent(beforeFee.creatorSharePercent, 0),
+                })
               )
             }
           />
@@ -199,15 +229,15 @@ export function MarketplaceCalculator({ words }: { readonly words: LocaleWords }
                 <thead>
                   <tr>
                     <Th>{t("marketplace.results.columnGoesTo")}</Th>
-                    <Th numeric>Robux</Th>
-                    <Th numeric>Share</Th>
+                    <Th numeric>{t("marketplace.results.columnRobux")}</Th>
+                    <Th numeric>{t("marketplace.results.columnShare")}</Th>
                   </tr>
                 </thead>
                 <tbody>
                   {mode === "after" ? (
                     <>
                       <tr>
-                        <Th scope="row">You</Th>
+                        <Th scope="row">{t("marketplace.results.rowYou")}</Th>
                         <Td numeric className="font-semibold">
                           {formatRobux(afterFee.creatorRobux)}
                         </Td>
@@ -228,7 +258,7 @@ export function MarketplaceCalculator({ words }: { readonly words: LocaleWords }
                         </tr>
                       ) : null}
                       <tr>
-                        <Th scope="row">Roblox</Th>
+                        <Th scope="row">{t("marketplace.results.rowRoblox")}</Th>
                         <Td numeric>{formatRobux(afterFee.platformRobux)}</Td>
                         <Td numeric>
                           {formatPercent(
@@ -244,11 +274,11 @@ export function MarketplaceCalculator({ words }: { readonly words: LocaleWords }
                         </Td>
                       </tr>
                       <tr className="bg-(--color-surface-subtle)">
-                        <Th scope="row">Total</Th>
+                        <Th scope="row">{t("marketplace.results.rowTotal")}</Th>
                         <Td numeric className="font-bold">
                           {formatRobux(afterFee.grossRobux)}
                         </Td>
-                        <Td numeric>100%</Td>
+                        <Td numeric>{t("marketplace.results.totalShare")}</Td>
                       </tr>
                     </>
                   ) : (
@@ -258,7 +288,7 @@ export function MarketplaceCalculator({ words }: { readonly words: LocaleWords }
                         <Td numeric className="font-semibold">
                           {formatRobux(beforeFee.requiredGrossRobux)}
                         </Td>
-                        <Td numeric>100%</Td>
+                        <Td numeric>{t("marketplace.results.totalShare")}</Td>
                       </tr>
                       <tr>
                         <Th scope="row">{t("marketplace.results.youActuallyKeep")}</Th>
@@ -306,8 +336,14 @@ export function MarketplaceCalculator({ words }: { readonly words: LocaleWords }
           (robux === 0n
             ? ""
             : mode === "after"
-              ? `You keep ${formatRobux(afterFee.creatorRobux)} Robux of ${formatRobux(afterFee.grossRobux)}.`
-              : `Charge ${formatRobux(beforeFee.requiredGrossRobux)} Robux to keep ${formatRobux(beforeFee.targetNetRobux)}.`)
+              ? t("marketplace.results.announceAfterFee", {
+                  kept: formatRobux(afterFee.creatorRobux),
+                  gross: formatRobux(afterFee.grossRobux),
+                })
+              : t("marketplace.results.announceBeforeFee", {
+                  gross: formatRobux(beforeFee.requiredGrossRobux),
+                  net: formatRobux(beforeFee.targetNetRobux),
+                }))
         }
       />
     </Card>

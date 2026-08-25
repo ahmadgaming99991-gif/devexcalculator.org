@@ -1,6 +1,7 @@
 {
   "$comment": "Machine-drafted. Not yet read by a native speaker. A mistranslated 'eligible' or 'minimum' can tell somebody they may cash out when they may not, so nothing here is shortened.",
   "$identical": [
+    "groupSplit.columnEarnedRobux",
     "results.summary.bucketLine",
     "results.summary.earnedRobux",
     "results.total"
@@ -117,7 +118,19 @@
       "minimumShort": "Minimum: {robux} fehlen"
     },
     "announceSplit": "{robux} Earned Robux über alle Gruppen hinweg sind etwa {value}.",
-    "announceSplitGross": "brutto, vor Gebühren und Steuern, aus {robux} Earned Robux"
+    "announceSplitGross": "brutto, vor Gebühren und Steuern, aus {robux} Earned Robux",
+    "meetsMinimumTitle": "Erreicht den genannten Mindestbetrag",
+    "belowMinimumTitle": "Unter dem genannten Mindestbetrag",
+    "minimumReachedBadge": "Mindestbetrag von {minimum} erreicht",
+    "moreNeededBadge": "noch {shortfall} nötig",
+    "progressAriaLabel": "Fortschritt zum Mindestbetrag von {minimum} Earned Robux",
+    "comparisonTableCaption": "Vergleich der DevEx-Sätze für {robux} Earned Robux",
+    "blendedRateDetail": "{rate} je Robux über alle Tranchen",
+    "ifAllStandardDetail": "{amount} ({difference} Unterschied)",
+    "targetReachedBadge": "Ziel erreicht",
+    "toGoBadge": "noch {remaining}",
+    "targetArithmetic": "{target} ÷ {rate} je Robux = {exact}, aufgerundet auf {required}",
+    "totalShare": "100,0 %"
   },
   "target": {
     "explanation": "{target} ÷ {rate} $ pro Robux = {exact}, aufgerundet auf {required} ganze Earned Robux. Das zahlt {payout} — der erste ganzzahlige Robux-Betrag, der dein Ziel erreicht, statt knapp darunter zu bleiben.",
@@ -164,7 +177,9 @@
     "belowMinimumBody": {
       "one": "Das Minimum von {minimum} gilt für das Guthaben, das eine Person einreicht, nicht für das, was die Gruppe verdient hat. Diese Gruppe hält {total} Earned Robux, und {names} liegt einzeln betrachtet noch unter dem Minimum.",
       "other": "Das Minimum von {minimum} gilt für das Guthaben, das eine Person einreicht, nicht für das, was die Gruppe verdient hat. Diese Gruppe hält {total} Earned Robux, und {names} liegen einzeln betrachtet noch unter dem Minimum."
-    }
+    },
+    "removeRow": "Entfernen",
+    "perEligibleRobux": "{rate} je anrechenbarem Earned Robux"
   },
   "preparation": {
     "earnedRobuxLink": "Was als Earned Robux zählt",
@@ -310,7 +325,8 @@
     "requiredHeadline": "{perDay} Earned Robux pro Tag.",
     "requiredDetail": "Das sind {perWeek} pro Woche oder {perMonth} über 30 Tage. Jede Zahl ist aufgerundet: Wer den abgerundeten Betrag verdient, verfehlt das Datum.",
     "columnReachedIn": "Erreicht in",
-    "columnNeededEachDay": "Täglich nötig"
+    "columnNeededEachDay": "Täglich nötig",
+    "payoutNote": "Zu {rate}, vor Gebühren und Steuern."
   },
   "controls": {
     "body": {
@@ -341,5 +357,11 @@
     "copyFailedLabel": "Kopieren fehlgeschlagen",
     "share": "Teilen",
     "copyLink": "Link kopieren"
+  },
+  "checklist": {
+    "meterLabel": "{completed} von {total} Vorbereitungsschritten erledigt"
+  },
+  "history": {
+    "summary": "Gespeicherte Berechnungen ({count})"
   }
 }

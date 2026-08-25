@@ -1,0 +1,221 @@
+{
+  "$comment": "Tradução das strings espelhadas de src/data/*.json. As chaves são geradas por scripts/i18n/sync-data-dictionary.ts; traduza os valores à mão e nunca altere um número, uma data, uma porcentagem ou um identificador.",
+  "$identical": ["metrics.companyContext.figures.adjusted-ebitda.label"],
+  "evidence": {
+    "verified-through-official-source": "Verificado na fonte oficial"
+  },
+  "sources": {
+    "roblox-devex-program": {
+      "facts": [
+        "Taxa DevEx padrão de 0,0038 USD por Earned Robux elegível (114 USD por 30.000).",
+        "Taxa mais alta de 0,0054 USD por Robux para determinados Earned Robux originados de gastos de jogadores dos EUA verificados como maiores de 18 anos.",
+        "Taxa legada de 0,0035 USD por Robux para saldos acumulados antes de 5 de setembro de 2025 às 10:00 PT.",
+        "Mínimo de 30.000 Earned Robux para participar.",
+        "Requisitos de elegibilidade: idade mínima de 13 anos, endereço de e-mail verificado pela Roblox, conta válida no portal DevEx, formulário W-9 ou W-8 do IRS registrado e conformidade com os Termos de Uso e os Padrões da Comunidade da Roblox."
+      ]
+    },
+    "roblox-devex-help": {
+      "facts": [
+        "O processamento, a análise e o pagamento de solicitações DevEx são operados exclusivamente pela Roblox.",
+        "Contexto complementar sobre elegibilidade e situação da conta no programa DevEx."
+      ]
+    },
+    "roblox-marketplace-fees": {
+      "facts": [
+        "Venda de item de avatar no Marketplace: o criador recebe 30%, a Roblox recebe 70%.",
+        "Item de avatar comprado dentro de uma experiência: criador do item 30%, dono da experiência 40%, Roblox 30%.",
+        "Divisão progressiva de receita do Marketplace por múltiplo do preço mínimo: 1x=30%, 1,3x=37%, 1,5x=41%, 2x=50%, 2,5x=57%, 3x=62%, 3,5x=65%, 4x=67%, 5x=69%, 6x ou mais=70%.",
+        "A divisão progressiva de receita vale apenas para compras no Marketplace; compras dentro da experiência usam a comissão base."
+      ]
+    },
+    "roblox-monetization-overview": {
+      "facts": [
+        "Criadores recebem 70% dos Robux gastos em compras dentro da experiência, como produtos de desenvolvedor e passes; a Roblox retém 30%.",
+        "Earned Robux precisam ser convertidos pelo programa Developer Exchange para virar dinheiro real."
+      ]
+    },
+    "ecb-exchange-rates": {
+      "facts": [
+        "Taxas de câmbio de referência do euro usadas para derivar as taxas cruzadas do USD nas estimativas em moeda local.",
+        "As taxas de referência são publicadas uma vez por dia útil, por volta das 16:00 CET, e não são cotações negociáveis de bancos."
+      ]
+    },
+    "google-spam-policies": {
+      "facts": [
+        "Abuso de conteúdo em escala e páginas-porta são violações de política, e é por isso que as páginas de valores numéricos deste site são limitadas em quantidade e aprovadas manualmente."
+      ]
+    },
+    "google-canonicalization": {
+      "facts": [
+        "Orientação sobre URL canônica aplicada aos estados de parâmetro de consulta da calculadora, que são canonicalizados para a rota limpa à qual pertencem."
+      ]
+    },
+    "cloudflare-workers-nextjs": {
+      "facts": [
+        "Aplicações Next.js são implantadas no Cloudflare Workers por meio do adaptador OpenNext com Workers Static Assets."
+      ]
+    },
+    "opennext-cloudflare": {
+      "facts": [
+        "Configuração obrigatória do wrangler: entrada `.open-next/worker.js`, diretório estático `.open-next/assets`, flags de compatibilidade `nodejs_compat` e `global_fetch_strictly_public` e o service binding WORKER_SELF_REFERENCE.",
+        "`initOpenNextCloudflareForDev()` habilita os bindings da Cloudflare durante o `next dev`."
+      ]
+    },
+    "cloudflare-turnstile-validation": {
+      "facts": [
+        "Os tokens do Turnstile precisam ser validados no servidor contra o endpoint siteverify, e cada token só pode ser resgatado uma vez."
+      ]
+    },
+    "cloudflare-workers-builds": {
+      "facts": [
+        "O Cloudflare Workers Builds conecta um repositório do GitHub a um Worker para builds e implantações automáticas a cada push."
+      ]
+    },
+    "roblox-q2-2026-earnings": {
+      "facts": [
+        "Despesas de developer exchange de 363 milhões de USD nos três meses encerrados em 30 de junho de 2026, e 316 milhões de USD no mesmo período de 2025.",
+        "Despesas de developer exchange de 786 milhões de USD nos seis meses encerrados em 30 de junho de 2026, e 598 milhões de USD no mesmo período de 2025.",
+        "Receita de 1.469 milhões de USD nos três meses encerrados em 30 de junho de 2026, e 1.081 milhões de USD no mesmo período de 2025.",
+        "Despesas de developer exchange equivalentes a 25 por cento da receita no 2º trimestre de 2026 e a 29 por cento no 2º trimestre de 2025.",
+        "Usuários ativos diários cresceram 10% na comparação anual, chegando a 123 milhões nos três meses encerrados em 30 de junho de 2026.",
+        "As horas de engajamento cresceram 5% na comparação anual, chegando a 29 bilhões nos três meses encerrados em 30 de junho de 2026."
+      ]
+    },
+    "roblox-q4-2025-earnings": {
+      "facts": [
+        "Despesas de developer exchange de 477.240 mil USD nos três meses encerrados em 31 de dezembro de 2025, e 280.610 mil USD no mesmo período de 2024.",
+        "Despesas de developer exchange de 1.503.106 mil USD nos doze meses encerrados em 31 de dezembro de 2025, e 922.821 mil USD em 2024.",
+        "Receita de 1.415.021 mil USD nos três meses encerrados em 31 de dezembro de 2025, e 4.890.551 mil USD no ano completo."
+      ]
+    },
+    "roblox-explore-api": {
+      "facts": [
+        "O conjunto de experiências que a Roblox está classificando no momento, e o nome de exibição dessa classificação.",
+        "O número de jogadores em cada experiência listada no instante da requisição.",
+        "Contagem de visitas acumuladas por experiência, vinda do endpoint de jogos."
+      ]
+    }
+  },
+  "rates": {
+    "standard-current": {
+      "label": "Taxa padrão",
+      "shortLabel": "Padrão",
+      "eligibilitySummary": "A taxa DevEx padrão aplicada aos Earned Robux elegíveis. A Roblox documenta isso como 0,0038 USD por Earned Robux, o que dá 114 USD por 30.000 Earned Robux."
+    },
+    "us-18-plus-qualified": {
+      "label": "Taxa para EUA 18+ elegível",
+      "shortLabel": "EUA 18+",
+      "eligibilitySummary": "Uma taxa mais alta que a Roblox aplica a determinados Earned Robux vindos de compras de produtos de desenvolvedor, passes, assinaturas e servidores privados feitas por jogadores dos Estados Unidos que comprovaram ter pelo menos 18 anos.",
+      "conditionNote": "Esta taxa não pode ser escolhida pelo criador. A Roblox determina qual parte de um saldo se qualifica. Não presuma que um saldo inteiro rende a esta taxa."
+    },
+    "legacy-pre-2025-09-05": {
+      "label": "Taxa de saldo legado",
+      "shortLabel": "Legado",
+      "eligibilitySummary": "A taxa que valia antes de 5 de setembro de 2025 às 10:00 PT, equivalente a 105 USD por 30.000 Earned Robux. A Roblox paga primeiro, a esta taxa antiga, os saldos acumulados antes daquele momento.",
+      "conditionNote": "Vale apenas para a parte do saldo acumulada antes da transição, segundo a contabilidade da própria Roblox. O criador não pode escolher esta taxa."
+    }
+  },
+  "minimum": {
+    "note": "A Roblox declara um mínimo de 30.000 Earned Robux para enviar uma solicitação DevEx. Atingir o número não é o mesmo que ser aprovado."
+  },
+  "limits": {
+    "note": "Estes são limites de segurança da aplicação escolhidos pelo DevExCalculator.org para manter o cálculo e a renderização dentro de fronteiras conhecidas. Não são limites da Roblox e nunca devem ser apresentados como tal."
+  },
+  "schemes": {
+    "in-experience": {
+      "label": "Compra dentro da experiência",
+      "description": "Produtos de desenvolvedor, passes, servidores privados e assinaturas comprados dentro de uma experiência sua."
+    },
+    "marketplace-avatar-item": {
+      "label": "Venda de item de avatar no Marketplace",
+      "description": "Um item de avatar vendido pelo Marketplace da Roblox. A parte do criador aumenta conforme o preço do item, medido como múltiplo do preço mínimo."
+    },
+    "avatar-item-in-experience": {
+      "label": "Item de avatar vendido dentro de uma experiência",
+      "description": "Um item de avatar comprado dentro de uma experiência. O criador do item e o dono da experiência são pagos separadamente."
+    }
+  },
+  "currencies": {
+    "note": "Todas as moedas abaixo constam do conjunto de taxas de câmbio de referência do euro publicado pelo Banco Central Europeu. O USD é a base desta calculadora e é derivado da série USD/EUR do ECB. Uma moeda só aparece aqui se o provedor configurado realmente a publicar todos os dias. O BGN foi removido em 2026-08-17 porque o ECB parou de publicá-lo depois de 2025-12-31; afirmar suporte a uma taxa que o provedor não fornece mais seria desonesto."
+  },
+  "metrics": {
+    "developerExchangeFees": {
+      "label": "Despesas de developer exchange",
+      "description": "O dinheiro que a Roblox pagou por meio do programa Developer Exchange, conforme informado em sua demonstração de resultados.",
+      "derivation": {
+        "q1-2025": "Seis meses encerrados em 30 de junho de 2025 (598) menos o 2º trimestre de 2025 (316), ambos em milhões.",
+        "q1-2026": "Seis meses encerrados em 30 de junho de 2026 (786) menos o 2º trimestre de 2026 (363), ambos em milhões."
+      }
+    },
+    "revenue": {
+      "label": "Receita",
+      "description": "A receita informada pela Roblox nos mesmos períodos, para dar escala."
+    },
+    "shareOfRevenue": {
+      "label": "Despesas de developer exchange como parcela da receita",
+      "description": "Informado pela Roblox como porcentagem, não calculado aqui."
+    },
+    "companyContext": {
+      "label": "A Roblox como negócio",
+      "description": "Resultados informados para os três meses encerrados em 30 de junho, para quem quer avaliar a solidez da plataforma de onde tira sua renda.",
+      "figures": {
+        "revenue": {
+          "label": "Receita",
+          "note": "Alta de 36% na comparação anual, conforme declarado no comunicado."
+        },
+        "devex-share-revenue": {
+          "label": "Despesas de developer exchange como parcela da receita",
+          "note": "Cerca de um quarto da receita da Roblox sai de novo como pagamento a criadores."
+        },
+        "devex-share-bookings": {
+          "label": "Despesas de developer exchange como parcela das reservas",
+          "note": "Medido contra as reservas em vez da receita."
+        },
+        "bookings-growth": {
+          "label": "Crescimento das reservas, na comparação anual",
+          "note": "Descrito no comunicado como o limite inferior da projeção."
+        },
+        "net-loss": {
+          "label": "Prejuízo líquido consolidado",
+          "note": "Um prejuízo menor que o do mesmo trimestre um ano antes."
+        },
+        "adjusted-ebitda": {
+          "label": "Adjusted EBITDA",
+          "note": "Uma medida não-GAAP que a Roblox define no mesmo comunicado."
+        },
+        "free-cash-flow": {
+          "label": "Fluxo de caixa livre",
+          "note": "Alta de 66% na comparação anual, conforme declarado no comunicado."
+        }
+      }
+    },
+    "engagement": {
+      "label": "Usuários e engajamento",
+      "description": "Quantas pessoas usam a Roblox e quanto tempo passam nela, conforme a Roblox informa à SEC.",
+      "figures": {
+        "daus": {
+          "label": "Usuários ativos diários",
+          "value": "123 milhões",
+          "change": "Alta de 10% na comparação anual",
+          "note": "Uma média dos ativos diários ao longo do trimestre, não uma contagem de contas existentes."
+        },
+        "hours": {
+          "label": "Horas de engajamento no trimestre",
+          "value": "29 bilhões",
+          "change": "Alta de 5% na comparação anual",
+          "note": "Total somando todos os usuários nos três meses encerrados em 30 de junho de 2026."
+        }
+      },
+      "notPublished": {
+        "registrations": {
+          "label": "Total de contas registradas",
+          "reason": "A Roblox informa ativos diários e mensais, nunca uma contagem acumulada de cadastros. Qualquer total que circule por aí é a estimativa de alguém, e este site não publica estimativas dos números de outras pessoas."
+        },
+        "session-length": {
+          "label": "Duração média da sessão",
+          "reason": "A Roblox publica horas de forma agregada, não sessões. Dividir horas por usuários dá o tempo por usuário por dia, que está nesta página; transformar isso em duração de sessão exigiria uma contagem de sessões que ninguém fora da Roblox tem."
+        }
+      }
+    }
+  }
+}

@@ -138,7 +138,8 @@ export type DictionaryNamespace =
   | "accessibility"
   | "seo"
   | "schema"
-  | "routes";
+  | "routes"
+  | "data";
 
 /**
  * A namespace's contents.
@@ -172,4 +173,5 @@ export const DICTIONARY_NAMESPACES: readonly DictionaryNamespace[] = [
   "seo",
   "schema",
   "routes",
+  "data",
 ];

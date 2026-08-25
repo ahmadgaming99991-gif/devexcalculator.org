@@ -1,7 +1,9 @@
 {
   "$comment": "Machine-drafted. Not yet read by a native speaker. Protected names (Roblox, Robux, DevEx, Marketplace) are never translated.",
   "$identical": [
+    "results.columnRobux",
     "results.roblox",
+    "results.rowRoblox",
     "results.total"
   ],
   "srHeading": "Marketplace ücret hesaplayıcısı",
@@ -37,7 +39,25 @@
     "youActuallyKeep": "Gerçekte elinizde kalan",
     "copyResult": "Sonucu kopyala",
     "copySummary": "Özeti kopyala",
-    "estimateFrom": "devexcalculator.org tahmini"
+    "estimateFrom": "devexcalculator.org tahmini",
+    "summarySalePrice": "Satış fiyatı: {robux} Robux",
+    "summaryScheme": "Model: {scheme}",
+    "summaryYourShare": "Payınız: {percent}",
+    "summaryYouKeep": "Size kalan: {robux} Robux",
+    "summaryRobloxKeeps": "Roblox'a kalan: {robux} Robux",
+    "summaryTargetAfterFee": "Komisyon sonrası hedef: {robux} Robux",
+    "summaryPriceToCharge": "Belirlenecek fiyat: {robux} Robux",
+    "primaryLabelYouKeep": "Size kalan Robux",
+    "primaryLabelPriceToCharge": "Belirlenecek fiyat",
+    "secondaryAfterFee": "{robux} Robux'un {percent} kadarı",
+    "secondaryAtTier": "{share}, {multiple}× kademesinde",
+    "secondaryBeforeFee": "{percent} ile {robux} Robux elde etmek için",
+    "rowYou": "Siz",
+    "rowRoblox": "Roblox",
+    "rowTotal": "Toplam",
+    "totalShare": "%100",
+    "announceAfterFee": "{gross} Robux'un {kept} kadarı size kalıyor.",
+    "announceBeforeFee": "{net} elde etmek için {gross} Robux fiyat belirleyin."
   },
   "body": {
     "intro": {

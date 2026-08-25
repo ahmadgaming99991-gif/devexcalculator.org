@@ -1,0 +1,221 @@
+{
+  "$comment": "Terjemahan string yang dicerminkan dari src/data/*.json. Kuncinya dibuat oleh scripts/i18n/sync-data-dictionary.ts; terjemahkan nilainya secara manual dan jangan pernah mengubah angka, tanggal, persentase, atau pengenal.",
+  "$identical": ["metrics.companyContext.figures.adjusted-ebitda.label"],
+  "evidence": {
+    "verified-through-official-source": "Diverifikasi melalui sumber resmi"
+  },
+  "sources": {
+    "roblox-devex-program": {
+      "facts": [
+        "Tarif DevEx standar sebesar 0,0038 USD per Earned Robux yang memenuhi syarat (114 USD per 30.000).",
+        "Tarif lebih tinggi 0,0054 USD per Robux untuk sebagian Earned Robux yang berasal dari pembelanjaan pemain Amerika Serikat yang terverifikasi berusia 18 tahun ke atas.",
+        "Tarif lama 0,0035 USD per Robux untuk saldo yang diperoleh sebelum 5 September 2025 pukul 10.00 PT.",
+        "Minimal 30.000 Earned Robux untuk ikut serta.",
+        "Syarat kelayakan: usia minimal 13 tahun, alamat email yang diverifikasi Roblox, akun portal DevEx yang sah, formulir IRS W-9 atau W-8 yang sudah diserahkan, serta kepatuhan pada Ketentuan Penggunaan dan Standar Komunitas Roblox."
+      ]
+    },
+    "roblox-devex-help": {
+      "facts": [
+        "Penanganan, peninjauan, dan proses pembayaran permintaan DevEx dijalankan sepenuhnya oleh Roblox.",
+        "Konteks pendukung soal kelayakan dan status akun untuk program DevEx."
+      ]
+    },
+    "roblox-marketplace-fees": {
+      "facts": [
+        "Penjualan item avatar di Marketplace: kreator menerima 30%, Roblox menerima 70%.",
+        "Item avatar yang dibeli di dalam sebuah experience: kreator item 30%, pemilik experience 40%, Roblox 30%.",
+        "Bagi hasil progresif Marketplace menurut kelipatan harga dasar: 1x=30%, 1,3x=37%, 1,5x=41%, 2x=50%, 2,5x=57%, 3x=62%, 3,5x=65%, 4x=67%, 5x=69%, 6x ke atas=70%.",
+        "Bagi hasil progresif hanya berlaku untuk pembelian di Marketplace; pembelian di dalam experience memakai komisi dasar."
+      ]
+    },
+    "roblox-monetization-overview": {
+      "facts": [
+        "Kreator menerima 70% dari Robux yang dibelanjakan pada pembelian di dalam experience seperti developer product dan pass; Roblox menahan 30%.",
+        "Earned Robux harus dikonversi lewat program Developer Exchange agar menjadi uang sungguhan."
+      ]
+    },
+    "ecb-exchange-rates": {
+      "facts": [
+        "Kurs referensi valuta asing euro yang dipakai untuk menurunkan kurs silang USD bagi perkiraan dalam mata uang lokal.",
+        "Kurs referensi diterbitkan sekali per hari kerja sekitar pukul 16.00 CET dan bukan kuotasi bank yang bisa diperdagangkan."
+      ]
+    },
+    "google-spam-policies": {
+      "facts": [
+        "Penyalahgunaan konten dalam skala besar dan halaman pintu adalah pelanggaran kebijakan, dan itulah sebabnya halaman nominal angka di situs ini dibatasi jumlahnya dan disetujui secara manual."
+      ]
+    },
+    "google-canonicalization": {
+      "facts": [
+        "Panduan URL kanonis yang diterapkan pada keadaan parameter kueri kalkulator, yang dikanonisasi ke rute bersih pemiliknya."
+      ]
+    },
+    "cloudflare-workers-nextjs": {
+      "facts": [
+        "Aplikasi Next.js dideploy ke Cloudflare Workers melalui adaptor OpenNext dengan Workers Static Assets."
+      ]
+    },
+    "opennext-cloudflare": {
+      "facts": [
+        "Konfigurasi wrangler yang wajib: entri `.open-next/worker.js`, direktori statis `.open-next/assets`, flag kompatibilitas `nodejs_compat` dan `global_fetch_strictly_public`, serta service binding WORKER_SELF_REFERENCE.",
+        "`initOpenNextCloudflareForDev()` mengaktifkan binding Cloudflare selama `next dev`."
+      ]
+    },
+    "cloudflare-turnstile-validation": {
+      "facts": [
+        "Token Turnstile harus divalidasi di sisi server terhadap endpoint siteverify, dan setiap token hanya boleh ditukarkan satu kali."
+      ]
+    },
+    "cloudflare-workers-builds": {
+      "facts": [
+        "Cloudflare Workers Builds menghubungkan repositori GitHub ke sebuah Worker untuk build dan deployment otomatis setiap kali ada push."
+      ]
+    },
+    "roblox-q2-2026-earnings": {
+      "facts": [
+        "Biaya developer exchange sebesar 363 juta USD untuk tiga bulan yang berakhir 30 Juni 2026, dan 316 juta USD untuk periode yang sama pada 2025.",
+        "Biaya developer exchange sebesar 786 juta USD untuk enam bulan yang berakhir 30 Juni 2026, dan 598 juta USD untuk periode yang sama pada 2025.",
+        "Pendapatan sebesar 1.469 juta USD untuk tiga bulan yang berakhir 30 Juni 2026, dan 1.081 juta USD untuk periode yang sama pada 2025.",
+        "Biaya developer exchange setara 25 persen dari pendapatan pada Q2 2026 dan 29 persen pada Q2 2025.",
+        "Pengguna aktif harian tumbuh 10% dibanding tahun sebelumnya menjadi 123 juta untuk tiga bulan yang berakhir 30 Juni 2026.",
+        "Jam keterlibatan tumbuh 5% dibanding tahun sebelumnya menjadi 29 miliar untuk tiga bulan yang berakhir 30 Juni 2026."
+      ]
+    },
+    "roblox-q4-2025-earnings": {
+      "facts": [
+        "Biaya developer exchange sebesar 477.240 ribu USD untuk tiga bulan yang berakhir 31 Desember 2025, dan 280.610 ribu USD untuk periode yang sama pada 2024.",
+        "Biaya developer exchange sebesar 1.503.106 ribu USD untuk dua belas bulan yang berakhir 31 Desember 2025, dan 922.821 ribu USD untuk 2024.",
+        "Pendapatan sebesar 1.415.021 ribu USD untuk tiga bulan yang berakhir 31 Desember 2025, dan 4.890.551 ribu USD untuk satu tahun penuh."
+      ]
+    },
+    "roblox-explore-api": {
+      "facts": [
+        "Kumpulan experience yang sedang diperingkat Roblox, beserta nama tampilan peringkat tersebut.",
+        "Jumlah pemain di setiap experience yang terdaftar pada saat permintaan dikirim.",
+        "Jumlah kunjungan sepanjang masa per experience, dari endpoint games."
+      ]
+    }
+  },
+  "rates": {
+    "standard-current": {
+      "label": "Tarif standar",
+      "shortLabel": "Standar",
+      "eligibilitySummary": "Tarif DevEx standar yang berlaku untuk Earned Robux yang memenuhi syarat. Roblox mendokumentasikannya sebagai 0,0038 USD per Earned Robux, yaitu 114 USD untuk 30.000 Earned Robux."
+    },
+    "us-18-plus-qualified": {
+      "label": "Tarif AS 18+ yang memenuhi syarat",
+      "shortLabel": "AS 18+",
+      "eligibilitySummary": "Tarif lebih tinggi yang diterapkan Roblox pada sebagian Earned Robux dari pembelian developer product, pass, langganan, dan server pribadi oleh pemain Amerika Serikat yang telah memverifikasi bahwa usianya minimal 18 tahun.",
+      "conditionNote": "Tarif ini tidak bisa dipilih oleh kreator. Roblox yang menentukan bagian saldo mana yang memenuhi syarat. Jangan berasumsi seluruh saldo memakai tarif ini."
+    },
+    "legacy-pre-2025-09-05": {
+      "label": "Tarif saldo lama",
+      "shortLabel": "Lama",
+      "eligibilitySummary": "Tarif yang berlaku sebelum 5 September 2025 pukul 10.00 PT, setara 105 USD untuk 30.000 Earned Robux. Roblox mencairkan saldo yang diperoleh sebelum saat itu dengan tarif lama ini terlebih dahulu.",
+      "conditionNote": "Hanya berlaku untuk bagian saldo yang diperoleh sebelum masa transisi, menurut pembukuan Roblox sendiri. Kreator tidak bisa memilih tarif ini."
+    }
+  },
+  "minimum": {
+    "note": "Roblox menyatakan minimal 30.000 Earned Robux untuk mengajukan permintaan DevEx. Mencapai angka itu tidak sama dengan disetujui."
+  },
+  "limits": {
+    "note": "Ini adalah batas pengaman aplikasi yang dipilih DevExCalculator.org agar perhitungan dan penampilan tetap terbatas. Ini bukan batas dari Roblox dan tidak boleh disajikan seolah-olah demikian."
+  },
+  "schemes": {
+    "in-experience": {
+      "label": "Pembelian di dalam experience",
+      "description": "Developer product, pass, server pribadi, dan langganan yang dibeli di dalam experience milikmu."
+    },
+    "marketplace-avatar-item": {
+      "label": "Penjualan item avatar di Marketplace",
+      "description": "Item avatar yang dijual lewat Marketplace Roblox. Bagian kreator naik seiring harga item sebagai kelipatan dari harga dasar."
+    },
+    "avatar-item-in-experience": {
+      "label": "Item avatar yang dijual di dalam experience",
+      "description": "Item avatar yang dibeli di dalam sebuah experience. Kreator item dan pemilik experience dibayar terpisah."
+    }
+  },
+  "currencies": {
+    "note": "Setiap mata uang di bawah ini terbit dalam kumpulan kurs referensi valuta asing euro dari Bank Sentral Eropa. USD adalah basis kalkulator ini dan diturunkan dari seri USD/EUR milik ECB. Sebuah mata uang hanya dicantumkan di sini kalau penyedia yang dikonfigurasi memang menerbitkannya setiap hari. BGN dihapus pada 2026-08-17 karena ECB berhenti menerbitkannya setelah 2025-12-31; mengaku mendukung kurs yang tidak lagi dipasok penyedia akan menjadi klaim yang tidak jujur."
+  },
+  "metrics": {
+    "developerExchangeFees": {
+      "label": "Biaya developer exchange",
+      "description": "Uang yang dibayarkan Roblox lewat program Developer Exchange, seperti dilaporkan pada laporan laba ruginya.",
+      "derivation": {
+        "q1-2025": "Enam bulan yang berakhir 30 Juni 2025 (598) dikurangi Q2 2025 (316), keduanya dalam jutaan.",
+        "q1-2026": "Enam bulan yang berakhir 30 Juni 2026 (786) dikurangi Q2 2026 (363), keduanya dalam jutaan."
+      }
+    },
+    "revenue": {
+      "label": "Pendapatan",
+      "description": "Pendapatan yang dilaporkan Roblox pada periode yang sama, sebagai pembanding skala."
+    },
+    "shareOfRevenue": {
+      "label": "Biaya developer exchange sebagai bagian dari pendapatan",
+      "description": "Dilaporkan Roblox sebagai persentase, bukan dihitung di sini."
+    },
+    "companyContext": {
+      "label": "Roblox sebagai sebuah bisnis",
+      "description": "Hasil yang dilaporkan untuk tiga bulan yang berakhir 30 Juni, bagi pembaca yang ingin menilai seberapa kokoh platform tempat mereka mencari penghasilan.",
+      "figures": {
+        "revenue": {
+          "label": "Pendapatan",
+          "note": "Naik 36% dibanding tahun sebelumnya, seperti dinyatakan dalam rilis."
+        },
+        "devex-share-revenue": {
+          "label": "Biaya developer exchange sebagai bagian dari pendapatan",
+          "note": "Kira-kira seperempat pendapatan Roblox keluar lagi sebagai pembayaran kepada kreator."
+        },
+        "devex-share-bookings": {
+          "label": "Biaya developer exchange sebagai bagian dari bookings",
+          "note": "Diukur terhadap bookings, bukan terhadap pendapatan."
+        },
+        "bookings-growth": {
+          "label": "Pertumbuhan bookings, dibanding tahun sebelumnya",
+          "note": "Disebut dalam rilis sebagai ujung bawah dari panduan."
+        },
+        "net-loss": {
+          "label": "Rugi bersih konsolidasi",
+          "note": "Kerugian yang lebih kecil dibanding kuartal yang sama setahun sebelumnya."
+        },
+        "adjusted-ebitda": {
+          "label": "Adjusted EBITDA",
+          "note": "Ukuran non-GAAP yang didefinisikan Roblox dalam rilis yang sama."
+        },
+        "free-cash-flow": {
+          "label": "Arus kas bebas",
+          "note": "Naik 66% dibanding tahun sebelumnya, seperti dinyatakan dalam rilis."
+        }
+      }
+    },
+    "engagement": {
+      "label": "Pengguna dan keterlibatan",
+      "description": "Berapa banyak orang memakai Roblox dan berapa lama mereka di sana, sebagaimana dilaporkan Roblox kepada SEC.",
+      "figures": {
+        "daus": {
+          "label": "Pengguna aktif harian",
+          "value": "123 juta",
+          "change": "Naik 10% dibanding tahun sebelumnya",
+          "note": "Rata-rata pengguna aktif harian sepanjang kuartal, bukan jumlah akun yang ada."
+        },
+        "hours": {
+          "label": "Jam keterlibatan dalam kuartal ini",
+          "value": "29 miliar",
+          "change": "Naik 5% dibanding tahun sebelumnya",
+          "note": "Total dari seluruh pengguna untuk tiga bulan yang berakhir 30 Juni 2026."
+        }
+      },
+      "notPublished": {
+        "registrations": {
+          "label": "Total akun terdaftar",
+          "reason": "Roblox melaporkan pengguna aktif harian dan bulanan, tidak pernah jumlah pendaftaran kumulatif. Angka total apa pun yang beredar adalah perkiraan seseorang, dan situs ini tidak menerbitkan perkiraan atas angka milik orang lain."
+        },
+        "session-length": {
+          "label": "Durasi sesi rata-rata",
+          "reason": "Roblox menerbitkan jam secara agregat, bukan sesi. Membagi jam dengan jumlah pengguna menghasilkan waktu per pengguna per hari, yang ada di halaman ini; mengubahnya menjadi durasi sesi memerlukan jumlah sesi yang tidak dimiliki siapa pun di luar Roblox."
+        }
+      }
+    }
+  }
+}

@@ -176,10 +176,16 @@ export function translator(dictionary: Partial<Dictionary>): Translate {
  * around it happened to need, and the failure was a prerender error naming a
  * key the page never mentions.
  *
- * Two namespaces, both small, both read by components that appear on nearly
- * every page. A third would want a better answer than this one.
+ * `data` is the third and joins them for the same reason, not a weaker one.
+ * It holds the reader-facing half of the registries under `src/data/` — what a
+ * rate means, what a citation supports, what a metric series is called — and
+ * the components that render those (the rate table, the common-amounts table,
+ * the rate selector) appear on most pages of the site. Leaving it to each page
+ * to remember would reintroduce exactly the failure the other two are here to
+ * prevent. It costs a server-side JSON read and nothing in the browser: no
+ * dictionary reaches a client bundle, which the bundle validator checks.
  */
-const SHARED_NAMESPACES = ["common", "accessibility"] as const;
+const SHARED_NAMESPACES = ["common", "accessibility", "data"] as const;
 
 /** The namespaces a page needs, and a reader for them, in one await. */
 export async function getTranslator(

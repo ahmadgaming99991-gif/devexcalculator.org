@@ -1,3 +1,4 @@
+import { SCHEME_WORDS } from "@/i18n/data-words";
 import { PARSE_MESSAGE_WORDS } from "@/i18n/parse-message.words";
 /**
  * The dictionary keys the component beside this one renders.
@@ -15,6 +16,7 @@ import { PARSE_MESSAGE_WORDS } from "@/i18n/parse-message.words";
 import { ACTION_WORDS } from "@/features/devex/components/actions.words";
 
 export const MARKETPLACE_WORDS: readonly string[] = [
+  ...SCHEME_WORDS,
   ...PARSE_MESSAGE_WORDS,
   ...ACTION_WORDS,
   "calculator.modes.label",
@@ -27,14 +29,34 @@ export const MARKETPLACE_WORDS: readonly string[] = [
   "marketplace.modes.before.description",
   "marketplace.modes.before.label",
   "marketplace.prose.notAppliedTwice",
+  "marketplace.results.announceAfterFee",
+  "marketplace.results.announceBeforeFee",
   "marketplace.results.chargeTheBuyer",
   "marketplace.results.columnGoesTo",
+  "marketplace.results.columnRobux",
+  "marketplace.results.columnShare",
   "marketplace.results.copyResult",
   "marketplace.results.copySummary",
   "marketplace.results.estimateFrom",
   "marketplace.results.experienceOwner",
+  "marketplace.results.primaryLabelPriceToCharge",
+  "marketplace.results.primaryLabelYouKeep",
+  "marketplace.results.rowRoblox",
+  "marketplace.results.rowTotal",
+  "marketplace.results.rowYou",
+  "marketplace.results.secondaryAfterFee",
+  "marketplace.results.secondaryAtTier",
+  "marketplace.results.secondaryBeforeFee",
+  "marketplace.results.summaryPriceToCharge",
+  "marketplace.results.summaryRobloxKeeps",
+  "marketplace.results.summarySalePrice",
+  "marketplace.results.summaryScheme",
+  "marketplace.results.summaryTargetAfterFee",
+  "marketplace.results.summaryYouKeep",
+  "marketplace.results.summaryYourShare",
   "marketplace.results.tableCaption",
   "marketplace.results.tableLabel",
+  "marketplace.results.totalShare",
   "marketplace.results.youActuallyKeep",
   "marketplace.srHeading",
 ];

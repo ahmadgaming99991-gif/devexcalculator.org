@@ -1,12 +1,18 @@
 {
   "$comment": "Machine-drafted. Not yet read by a native speaker. Protected names (Roblox, Robux, DevEx, Earned Robux) are never translated.",
   "$identical": [
+    "columns.earnedRobux",
+    "columns.endpoint",
+    "columns.robux",
+    "columns.subtotal",
+    "columns.total",
     "footer.feedAtom",
     "footer.feedJson",
     "sections.sourcesHeading",
     "social.instagramName",
     "social.pinterestName",
-    "units.earnedWord"
+    "units.earnedWord",
+    "units.no"
   ],
   "brand": {
     "tagline": "Estimaciones independientes de pagos DevEx para creadores de Roblox, con cada cifra rastreada hasta una fuente oficial.",
@@ -113,7 +119,13 @@
     "usEighteenPlus": "EE. UU. 18+",
     "minimum": "Mínimo",
     "rate": "Tasa",
-    "earnedWord": "Earned"
+    "earnedWord": "Earned",
+    "baselineParenthetical": "(referencia)",
+    "baseline": "referencia",
+    "yes": "Sí",
+    "no": "No",
+    "required": "(obligatorio)",
+    "atLeastRobux": "Al menos {robux} Earned Robux"
   },
   "social": {
     "youtube": "DevEx Calculator en YouTube",
@@ -196,5 +208,50 @@
       "one": "{months} mes",
       "other": "{months} meses"
     }
+  },
+  "columns": {
+    "rate": "Tasa",
+    "perRobux": "Por Robux",
+    "perAmount": "Por {amount}",
+    "earnedRobux": "Earned Robux",
+    "minimum": "Mínimo",
+    "payout": "Pago",
+    "vsStandard": "frente a estándar",
+    "bucket": "Tramo",
+    "subtotal": "Subtotal",
+    "share": "Parte",
+    "total": "Total",
+    "member": "Miembro",
+    "stage": "Etapa",
+    "amount": "Importe",
+    "robux": "Robux",
+    "you": "Tú",
+    "creator": "Creador",
+    "measure": "Indicador",
+    "note": "Nota",
+    "source": "Fuente",
+    "year": "Año",
+    "quarter": "Trimestre",
+    "revenue": "Ingresos",
+    "difference": "Diferencia",
+    "endpoint": "Endpoint",
+    "direction": "Sentido",
+    "atRate": "A {rate}"
+  },
+  "rateStatus": {
+    "active": "Actual",
+    "conditional": "Condicional",
+    "legacy": "Heredado"
+  },
+  "origin": {
+    "reported": "Declarado",
+    "derived": "Derivado",
+    "howWeKnow": "Cómo lo sabemos"
+  },
+  "theme": {
+    "light": "claro",
+    "dark": "oscuro",
+    "system": "del sistema",
+    "toggleLabel": "Tema: {current}. Cambiar a {next}."
   }
 }

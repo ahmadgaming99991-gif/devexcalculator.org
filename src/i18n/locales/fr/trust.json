@@ -159,6 +159,14 @@
     },
     "prose": {
       "scheduledCheck": "Entre deux revues, une tâche planifiée relit quatre fois par jour le markdown que Roblox publie pour sa page DevEx et compare les taux et le minimum à ceux publiés ici. Elle peut confirmer que rien n’a bougé ; elle ne peut pas modifier un chiffre. Une différence lève un signalement destiné à être lu par une personne, et un document qu’elle ne parvient pas à reconnaître — une panne, ou une refonte — est signalé comme illisible plutôt que traité comme un taux retiré. Le résultat est publié sur {rateCheckEndpoint}."
+    },
+    "everyNDays": {
+      "one": "tous les {days} jour",
+      "other": "tous les {days} jours"
+    },
+    "nDays": {
+      "one": "{days} jour",
+      "other": "{days} jours"
     }
   },
   "editorialPolicy": {

@@ -155,6 +155,14 @@
     },
     "prose": {
       "scheduledCheck": "Denetimler arasında, zamanlanmış bir iş, Roblox'un DevEx sayfası için yayımladığı markdown'u günde dört kez yeniden okur ve oranlarla alt sınırı burada yayımlananlarla karşılaştırır. Hiçbir şeyin değişmediğini teyit edebilir; bir rakamı değiştiremez. Bir farklılık, bir kişinin okuması için bayrak kaldırır; tanıyamadığı bir belge — bir kesinti ya da bir yeniden tasarım — geri çekilmiş bir oran gibi ele alınmak yerine okunamaz olarak bildirilir. Sonuç {rateCheckEndpoint} adresinde yayımlanır."
+    },
+    "everyNDays": {
+      "one": "her {days} günde bir",
+      "other": "her {days} günde bir"
+    },
+    "nDays": {
+      "one": "{days} gün",
+      "other": "{days} gün"
     }
   },
   "editorialPolicy": {
