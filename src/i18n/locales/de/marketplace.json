@@ -19,7 +19,8 @@
     "salePrice": "Verkaufspreis",
     "salePriceHint": "Was die Käuferin oder der Käufer zahlt.",
     "amountToKeep": "Robux, die dir bleiben sollen",
-    "amountToKeepHint": "Was nach der Provision übrig bleiben soll."
+    "amountToKeepHint": "Was nach der Provision übrig bleiben soll.",
+    "afterCommissionHint": "Was nach der Provision übrig bleiben soll."
   },
   "results": {
     "robuxYouKeep": "Robux, die dir bleiben",
@@ -44,5 +45,8 @@
       "p2": "Preis als Vielfaches des Mindestpreises",
       "p3": "Die Mindestpreise unterscheiden sich je nach Artikelkategorie, deshalb wird hier nach dem Vielfachen gefragt statt von einem einheitlichen Mindestpreis auszugehen. Ein Artikel, der das Sechsfache seines Mindestpreises oder mehr kostet, erreicht die oberste Stufe."
     }
+  },
+  "prose": {
+    "notAppliedTwice": "Diese Provision wird einbehalten, wenn die Robux verdient werden. Die Robux, die Ihnen bleiben, über DevEx in Geld umzuwandeln ist ein eigener Schritt mit eigenem Satz — die 30 % werden nicht zweimal abgezogen."
   }
 }

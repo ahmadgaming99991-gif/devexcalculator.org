@@ -19,7 +19,8 @@
     "salePrice": "Prix de vente",
     "salePriceHint": "Ce que paie l’acheteur.",
     "amountToKeep": "Robux que vous voulez garder",
-    "amountToKeepHint": "Ce que vous voulez qu’il reste après la commission."
+    "amountToKeepHint": "Ce que vous voulez qu’il reste après la commission.",
+    "afterCommissionHint": "Ce que vous voulez qu’il reste après la commission."
   },
   "results": {
     "robuxYouKeep": "Robux que vous gardez",
@@ -44,5 +45,8 @@
       "p2": "Prix exprimé en multiple du prix plancher",
       "p3": "Les prix planchers varient selon la catégorie de l’article ; on demande donc le multiple plutôt que de supposer un plancher universel. Un article dont le prix atteint six fois son plancher ou plus se situe dans la tranche la plus élevée."
     }
+  },
+  "prose": {
+    "notAppliedTwice": "Cette commission est prélevée au moment où les Robux sont gagnés. Convertir en argent, via DevEx, les Robux qui vous restent est une étape distincte avec son propre taux — les 30 % ne s’appliquent pas deux fois."
   }
 }

@@ -9,4 +9,7 @@
 export const CONTROLS_WORDS: readonly string[] = [
   "calculator.controls.body.intro.p1",
   "calculator.controls.body.presetsLabel.p1",
+  "calculator.controls.rateFallbackNote",
+  "calculator.controls.rateOption",
+  "calculator.modes.label",
 ];

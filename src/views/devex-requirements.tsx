@@ -1,5 +1,7 @@
+import { rich } from "@/i18n/rich";
 import { loadWords } from "@/i18n/client-words";
 import { getTranslator, type Translate } from "@/i18n/get-dictionary";
+import { localizedPath } from "@/i18n/locale-path";
 import { localizedRoute } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -94,12 +96,15 @@ export async function RequirementsView({ locale }: { readonly locale: Locale }) 
                           </strong>{" "}
                           before any payment-provider fees or tax.
                         </p>
-                        <p className="mt-3 text-(--color-text-muted)">{t("rates.requirements.body.minimum.p3")}<em>Earned</em>. Robux you bought do not
-                          count toward it, and neither does gift card credit.{" "}
-                          <InlineLink href="/earned-robux/">
-                            What counts as Earned Robux
-                          </InlineLink>
-                          .
+                        <p className="mt-3 text-(--color-text-muted)">
+                          {rich(t("rates.requirements.prose.earnedOnly"), {
+                            earned: <em>{t("common.units.earnedWord")}</em>,
+                            earnedRobuxLink: (
+                              <InlineLink href={localizedPath(locale, "/earned-robux/")}>
+                                {t("common.callouts.earnedRobuxOnlyLink")}
+                              </InlineLink>
+                            ),
+                          })}
                         </p>
                         <div className="mt-4">
                           <ButtonLink href="/">{t("rates.requirements.checkBalanceLink")}</ButtonLink>
@@ -144,7 +149,11 @@ export async function RequirementsView({ locale }: { readonly locale: Locale }) 
                           </ol>
                         </noscript>
             
-                        <PreparationChecklist words={await loadWords(locale, PREPARATION_WORDS)} />
+                        <PreparationChecklist
+                          words={await loadWords(locale, PREPARATION_WORDS)}
+                          earnedRobuxHref={localizedPath(locale, "/earned-robux/")}
+                          feesHref={localizedPath(locale, "/devex-fees-and-taxes/")}
+                        />
                       </Section>
             
                       <Section

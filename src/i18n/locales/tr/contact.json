@@ -47,7 +47,9 @@
       "intro": {
         "p1": "Teşekkürler. Bir olgu düzeltmesi bildirdiyseniz, herhangi bir değişiklik yapılmadan önce resmî belgelerle karşılaştırılacak."
       }
-    }
+    },
+    "networkFailed": "Mesaj gönderilemedi — ağ isteği başarısız oldu. Lütfen yeniden deneyin.",
+    "messageHint": "En az {min} karakter. Bir düzeltme bildiriyorsanız, ekleyebileceğiniz en yararlı şey resmi sayfaya bir bağlantıdır."
   },
   "responses": {
     "sent": "Mesaj alındı. Teşekkürler.",

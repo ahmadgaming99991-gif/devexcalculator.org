@@ -239,7 +239,8 @@
       }
     },
     "prose": {
-      "rateHistory": "Los cambios de tasa hechos por Roblox también se reflejan en el {rateHistory}, que es un registro aparte: el changelog sigue lo que hizo este sitio, el historial de tasas sigue lo que hizo Roblox."
+      "rateHistory": "Los cambios de tasa hechos por Roblox también se reflejan en el {rateHistory}, que es un registro aparte: el changelog sigue lo que hizo este sitio, el historial de tasas sigue lo que hizo Roblox.",
+      "notSilent": "Una corrección no se aplica en silencio: si una cifra de este sitio estaba mal, el registro de que estaba mal sigue visible. Eso importa más, en un sitio con el que la gente planifica sus finanzas, que un historial pulcro."
     }
   },
   "changelog": {

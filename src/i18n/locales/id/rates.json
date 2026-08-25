@@ -33,6 +33,9 @@
         "p2": "Lihat riwayat bertanggal perubahan kurs",
         "p3": "Lihat kapan situs ini terakhir memperbarui datanya"
       }
+    },
+    "prose": {
+      "noForecast": "Roblox memindahkan tarif standar dari 0,0035 ke 0,0038 pada {date}. Dari luar Roblox tidak ada cara untuk tahu apakah dan kapan tarif itu akan berubah lagi, jadi halaman ini tidak membuat ramalan. Yang dicatatnya adalah tanggal setiap angka di sini terakhir diperiksa terhadap dokumentasi resmi, ditampilkan di bagian atas halaman dan di {sourceRegistry}."
     }
   },
   "rateHistory": {
@@ -73,7 +76,8 @@
       }
     },
     "prose": {
-      "legacySplit": "Roblox mencairkan bagian saldo dari sebelum transisi lebih dulu dengan tarif 0,0035, lalu sisanya dengan 0,0038. Pembagian itu adalah pembukuan Roblox sendiri tentang kapan tiap Robux diperoleh — bukan sesuatu yang dipilih atau bisa diatur oleh kreator."
+      "legacySplit": "Roblox mencairkan bagian saldo dari sebelum transisi lebih dulu dengan tarif 0,0035, lalu sisanya dengan 0,0038. Pembagian itu adalah pembukuan Roblox sendiri tentang kapan tiap Robux diperoleh — bukan sesuatu yang dipilih atau bisa diatur oleh kreator.",
+      "whenItChanges": "Roblox pernah mengubah tarifnya dan bisa mengubahnya lagi. Tidak ada pihak di luar Roblox yang tahu apakah dan kapan, dan sebuah ramalan yang dikemas sebagai analisis hanyalah tebakan dengan nada percaya diri. Halaman ini hanya mencatat perubahan yang dikonfirmasi dokumentasi resmi, masing-masing dengan tanggal berlakunya. Ketika sebuah perubahan terjadi, ia muncul di sini dan di {changelog}, beserta tanggal verifikasinya."
     }
   },
   "requirements": {
@@ -146,6 +150,9 @@
     "threshold": {
       "below": "Di bawah garis ini, permohonan DevEx sama sekali tidak bisa diajukan. Mendekati angka itu tidak berarti apa-apa, dan kekurangannya harus dihasilkan sendiri — tidak bisa dibeli.",
       "above": "Pada garis itu atau di atasnya, permohonan bisa diajukan. Setelah itu permohonan ditinjau, dan mencapai ambang batas tidak sama dengan disetujui."
+    },
+    "prose": {
+      "earnedOnly": "Kata yang menentukan adalah {earned}. Robux yang Anda beli tidak dihitung untuk itu, begitu pula kredit kartu hadiah. {earnedRobuxLink}"
     }
   },
   "earnedRobux": {
@@ -339,7 +346,8 @@
     },
     "prose": {
       "browseHub": "{conversionHub} untuk lebih banyak nominal dan rincian.",
-      "officialPage": "Tidak ada satu angka pun yang berlaku untuk setiap paket, negara, dan platform, jadi mengutip satu angka sama saja dengan mengarangnya. Periksa {officialPage} untuk mengetahui berapa yang sebenarnya Anda bayar."
+      "officialPage": "Tidak ada satu angka pun yang berlaku untuk setiap paket, negara, dan platform, jadi mengutip satu angka sama saja dengan mengarangnya. Periksa {officialPage} untuk mengetahui berapa yang sebenarnya Anda bayar.",
+      "commissionOnce": "Selisih di antara keduanya ada karena Roblox mengoperasikan sebuah platform, menangani pemrosesan pembayaran, dan mengambil komisi untuk itu. {marketplaceCalculator}, dan komisi itu tidak dikenakan lagi saat pencairan."
     }
   },
   "usdToRobux": {
@@ -382,6 +390,10 @@
         "p1": "Halaman ini menjawab pertanyaan kreator: berapa yang perlu saya peroleh untuk menerima sejumlah uang tertentu. Ia tidak memberi tahu berapa Robux yang bisa dibeli dengan sejumlah uang tertentu. Roblox menetapkan harga paket Robux menurut wilayah, platform, dan promosi, dan tidak ada satu kurs pun yang akan benar bagi semua orang — jadi situs ini tidak menerbitkan satu pun.",
         "p2": "Perbedaannya dijelaskan selengkapnya di halaman Robux ke USD"
       }
+    },
+    "prose": {
+      "division": "Target pembayaran adalah sebuah jarak. Mengubahnya menjadi tanggal memerlukan satu fakta lagi — secepat apa Anda menghasilkan — dan mengubah tanggal menjadi rencana memerlukan fakta yang sama secara terbalik. Keduanya adalah pembagian yang sama: {formula}, dibulatkan ke atas, karena sebagian hari tidak menghasilkan apa-apa dan sebagian Robux tidak ada wujudnya. Tidak ada di sini yang mengandaikan penghasilan Anda naik, dan tidak ada di sini yang merupakan tanggal Roblox akan membayar — Roblox tidak menerbitkan waktu pemrosesan DevEx, jadi tidak ada yang ditambahkan.",
+      "divisionFormula": "hari = sisa Earned Robux ÷ Earned Robux per hari"
     }
   },
   "robuxTax": {
@@ -498,6 +510,12 @@
       "robux500000": "Setengah juta Earned Robux adalah skala saat biaya penyedia pembayaran dan kewajiban pajak pribadi berhenti menjadi selisih pembulatan, dan itulah sebabnya halaman ini menautkan langsung ke panduan biaya dan pajak.",
       "robux1000000": "Satu juta Robux adalah tonggak yang benar-benar dicari para kreator, dan itu adalah gambaran paling jelas mengapa harga beli dan pembayaran DevEx bukan angka yang sama.",
       "robux10000000": "Sepuluh juta Earned Robux mencerminkan penghasilan berkelanjutan dari experience berskala besar. Pada skala ini, pembagian antara saldo standar dan saldo lama, serta bagian yang memenuhi syarat AS 18+, mengubah totalnya sebesar ribuan dolar."
-    }
+    },
+    "intro": "Berapa hasil konversi {display} Earned Robux yang memenuhi syarat pada masing-masing dari tiga tarif DevEx yang terdokumentasi.",
+    "headlineHeading": "Berapa nilai {display} Robux",
+    "eligibleLabel": "{display} Earned Robux yang memenuhi syarat",
+    "clearsMinimum": "Itu {multiple} kali batas minimum {minimum} Earned Robux, jadi sudah melewati ambang untuk mengajukan permohonan. Melewati ambang bukan berarti disetujui — Roblox meninjau setiap permohonan.",
+    "belowMinimum": "Ini di bawah batas minimum {minimum} Earned Robux, jadi permohonan DevEx belum bisa diajukan dengan saldo sebesar ini.",
+    "reachingCaption": "Apakah {display} Earned Robux mencukupi target pembayaran yang umum"
   }
 }

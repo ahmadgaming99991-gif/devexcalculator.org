@@ -66,7 +66,9 @@
     "rankingsNote": {
       "one": "O Roblox publica {rankingsCount} ranking; aqui aparecem os {displayLimit} primeiros do que estiver selecionado. A ordem é do Roblox, não deste site.",
       "other": "O Roblox publica {rankingsCount} rankings; aqui aparecem os {displayLimit} primeiros do que estiver selecionado. A ordem é do Roblox, não deste site."
-    }
+    },
+    "unknownTime": "um horário desconhecido",
+    "unknownObservationTime": "um horário desconhecido"
   },
   "platformFigure": {
     "label": "Jogadores em todas as experiências que o Roblox está rankeando",
@@ -108,7 +110,8 @@
       "meanNote": "Média de {points} pontos registrados, não uma média da plataforma",
       "highestObserved": "Máximo observado",
       "lowestObserved": "Mínimo observado",
-      "overSpan": "Ao longo de {span}"
+      "overSpan": "Ao longo de {span}",
+      "meanNoteText": "Média de {points} pontos registrados, não uma média da plataforma"
     },
     "charts": {
       "busiestCaption": "A maior contagem de jogadores mantida por uma única experiência em cada observação, ao longo de {span} registrados. A experiência líder muda; esta linha segue a contagem, não um título.",
@@ -199,8 +202,11 @@
       }
     },
     "prose": {
-      "quotedFrom": "Citado de {source}."
-    }
+      "quotedFrom": "Citado de {source}.",
+      "notRecomputed": "Citado de {source}, não recalculado aqui. Um detalhamento mais completo, incluindo quanto o Roblox paga aos criadores a cada trimestre, está em {payoutStatistics}.",
+      "onlyConfiguration": "A página já está preparada para um provedor. O que falta é apenas configuração: {missing}. Os resultados divulgados abaixo são aquilo a que um preço de ação responde, e eles são publicados de qualquer forma."
+    },
+    "andSeparator": " e "
   },
   "stats": {
     "intro": "O que o Roblox de fato paga aos criadores, tirado de seus próprios registros junto à SEC. Todo número abaixo leva ao documento de onde veio.",
@@ -287,7 +293,9 @@
     "usDollarsLabel": "dólares americanos",
     "prose": {
       "quarterOfRevenue": "A linha que vale a pena ler duas vezes é a segunda. As taxas do Developer Exchange são cerca de um quarto da receita do Roblox, então uma parcela significativa do que a plataforma arrecada sai de novo como pagamentos a criadores. Todo número desta tabela é citado de {filings}.",
-      "precision": "Os números são registrados na precisão que o documento usou. Onde o Roblox informou em milhares, o valor é exato até o dólar; onde informou em milhões, é exato até o milhão e nada além. Dois trimestres são marcados como derivados porque vêm da subtração de um trimestre informado de um total semestral informado. Leia mais sobre como este site lida com números em {methodology}."
+      "precision": "Os números são registrados na precisão que o documento usou. Onde o Roblox informou em milhares, o valor é exato até o dólar; onde informou em milhões, é exato até o milhão e nada além. Dois trimestres são marcados como derivados porque vêm da subtração de um trimestre informado de um total semestral informado. Leia mais sobre como este site lida com números em {methodology}.",
+      "whatItMeansIntro": "Muito pouco, diretamente — e vale dizer isso com todas as letras. Os totais desta página descrevem a plataforma inteira. Eles não mudam no que o seu próprio saldo se converte, não são uma previsão, e um total em alta não significa uma taxa em alta. O que decide o seu pagamento é a taxa aplicada aos seus Earned Robux elegíveis, que você pode calcular em {calculator}.",
+      "whatItMeans": "A única coisa que estes números realmente mostram é escala: o DevEx é um programa pelo qual o Roblox pagou {amount} em um único ano, um contexto que vale a pena ter antes de decidir se o mínimo de 30.000 Robux compensa perseguir."
     }
   }
 }

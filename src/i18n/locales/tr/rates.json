@@ -33,6 +33,9 @@
         "p2": "Kur değişikliklerinin tarihli geçmişini görün",
         "p3": "Bu sitenin verilerini en son ne zaman güncellediğini görün"
       }
+    },
+    "prose": {
+      "noForecast": "Roblox standart oranı {date} tarihinde 0,0035'ten 0,0038'e taşıdı. Roblox'un dışından, oranın yeniden değişip değişmeyeceğini ya da ne zaman değişeceğini bilmenin yolu yok; bu yüzden bu sayfa öngörüde bulunmaz. Kaydettiği şey, buradaki her rakamın resmi belgelere karşı en son ne zaman denetlendiğidir; bu, sayfanın üstünde ve {sourceRegistry} içinde gösterilir."
     }
   },
   "rateHistory": {
@@ -73,7 +76,8 @@
       }
     },
     "prose": {
-      "legacySplit": "Roblox, bakiyenin geçiş öncesi bölümünü önce 0,0035'ten, kalanını ise 0,0038'den nakde çevirir. Bu ayrım, her Robux'un ne zaman kazanıldığına dair Roblox'un kendi muhasebesidir — bir yaratıcının seçtiği ya da ayarlayabildiği bir şey değildir."
+      "legacySplit": "Roblox, bakiyenin geçiş öncesi bölümünü önce 0,0035'ten, kalanını ise 0,0038'den nakde çevirir. Bu ayrım, her Robux'un ne zaman kazanıldığına dair Roblox'un kendi muhasebesidir — bir yaratıcının seçtiği ya da ayarlayabildiği bir şey değildir.",
+      "whenItChanges": "Roblox oranı daha önce değiştirdi ve yeniden değiştirebilir. Roblox'un dışında hiç kimse bunun olup olmayacağını ya da ne zaman olacağını bilmez; analiz kılığına sokulmuş bir tahmin, kendinden emin bir tonda söylenmiş bir varsayım olurdu. Bu sayfa yalnızca resmi belgelerin doğruladığı değişiklikleri, her birini yürürlük tarihiyle birlikte kaydeder. Bir değişiklik olduğunda burada ve {changelog} içinde, doğrulandığı tarihle birlikte görünür."
     }
   },
   "requirements": {
@@ -146,6 +150,9 @@
     "threshold": {
       "below": "Bu çizginin altında hiçbir DevEx talebi gönderilemez. Sınıra yakın olmak hiçbir şey ifade etmez ve eksik kısım kazanılmak zorundadır — satın alınamaz.",
       "above": "Çizgide ya da üzerindeyken talep gönderilebilir. Talep ardından incelenir ve eşiği aşmak, onaylanmakla aynı şey değildir."
+    },
+    "prose": {
+      "earnedOnly": "Önemli olan sözcük {earned}. Satın aldığınız Robux buna sayılmaz, hediye kartı bakiyesi de sayılmaz. {earnedRobuxLink}"
     }
   },
   "earnedRobux": {
@@ -339,7 +346,8 @@
     },
     "prose": {
       "browseHub": "Daha fazla tutar ve ayrıntı için {conversionHub}.",
-      "officialPage": "Her paket, ülke ve platform için doğru olan tek bir sayı yoktur; bir tane söylemek onu uydurmak olurdu. Gerçekte ne ödeyeceğinizi {officialPage} sayfasından kontrol edin."
+      "officialPage": "Her paket, ülke ve platform için doğru olan tek bir sayı yoktur; bir tane söylemek onu uydurmak olurdu. Gerçekte ne ödeyeceğinizi {officialPage} sayfasından kontrol edin.",
+      "commissionOnce": "İkisi arasındaki fark, Roblox'un bir platform işletmesi, ödeme işlemlerini yürütmesi ve bunun için komisyon almasından kaynaklanır. {marketplaceCalculator} ve bu komisyon nakde çevirirken yeniden alınmaz."
     }
   },
   "usdToRobux": {
@@ -382,6 +390,10 @@
         "p1": "Bu sayfa içerik üreticisinin sorusunu yanıtlıyor: belirli bir miktar parayı almak için ne kadar kazanmam gerekir. Belirli bir miktar paranın kaç Robux alacağını söylemiyor. Roblox, Robux paketlerini bölgeye, platforma ve kampanyaya göre fiyatlandırır ve herkes için doğru olacak tek bir kur yoktur — bu yüzden bu site böyle bir kur yayımlamaz.",
         "p2": "Ayrım, Robux'tan USD'ye sayfasında tam olarak açıklanıyor"
       }
+    },
+    "prose": {
+      "division": "Bir ödeme hedefi bir mesafedir. Onu bir tarihe çevirmek için bir bilgi daha gerekir — ne hızla kazandığınız — ve bir tarihi plana çevirmek aynı bilgiyi tersinden ister. İkisi de aynı bölme işlemidir: {formula}, yukarı yuvarlanır; çünkü günün bir kısmı hiçbir şey kazandırmaz ve Robux'un kesri diye bir şey yoktur. Buradaki hiçbir şey kazancınızın artacağını varsaymaz ve buradaki hiçbir şey Roblox'un ödeme yapacağı bir tarih değildir — Roblox bir DevEx işlem süresi yayımlamaz, bu yüzden hiçbiri eklenmez.",
+      "divisionFormula": "gün = kalan Earned Robux ÷ günlük Earned Robux"
     }
   },
   "robuxTax": {
@@ -498,6 +510,12 @@
       "robux500000": "Yarım milyon Earned Robux, ödeme sağlayıcısı ücretlerinin ve kişisel vergi yükümlülüklerinin artık yuvarlama hatası olmaktan çıktığı ölçektir; bu sayfanın doğrudan ücretler ve vergiler rehberine bağlanmasının nedeni budur.",
       "robux1000000": "Bir milyon Robux, yaratıcıların gerçekten aradığı dönüm noktasıdır ve satın alma fiyatı ile DevEx ödemesinin neden aynı rakam olmadığının en açık örneğidir.",
       "robux10000000": "On milyon Earned Robux, büyük bir deneyimden gelen sürekli kazancı temsil eder. Bu ölçekte, standart ve eski bakiyeler arasındaki dağılım ile ABD 18+ koşulunu karşılayan pay, toplamı binlerce dolar değiştirir."
-    }
+    },
+    "intro": "{display} uygun Earned Robux'ın, belgelenmiş üç DevEx oranının her birinde neye dönüştüğü.",
+    "headlineHeading": "{display} Robux ne eder",
+    "eligibleLabel": "{display} uygun Earned Robux",
+    "clearsMinimum": "Bu, {minimum} Earned Robux'luk alt sınırın {multiple} katıdır; yani talep göndermek için gereken eşiği aşar. Eşiği aşmak onay demek değildir — Roblox her talebi inceler.",
+    "belowMinimum": "Bu, {minimum} Earned Robux'luk alt sınırın altındadır; dolayısıyla bu bakiyeyle henüz bir DevEx talebi gönderilemez.",
+    "reachingCaption": "{display} Earned Robux'ın yaygın ödeme hedeflerini karşılayıp karşılamadığı"
   }
 }

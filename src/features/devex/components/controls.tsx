@@ -107,11 +107,13 @@ export function AmountInput({
 export function RateSelector({
   value,
   onChange,
-  label = "Rate to apply",
+  label,
+  t,
 }: {
   value: string;
   onChange: (value: string) => void;
-  label?: string;
+  label: string;
+  readonly t: Translate;
 }) {
   const id = useId();
   const selected = selectableRates.find((rate) => rate.id === value);
@@ -130,14 +132,17 @@ export function RateSelector({
       >
         {selectableRates.map((rate) => (
           <option key={rate.id} value={rate.id}>
-            {rate.label} — ${formatRate(Rational.fromDecimalString(rate.usdPerRobux))} per Robux
+            {t("calculator.controls.rateOption", {
+              rate: rate.label,
+              rateValue: formatRate(Rational.fromDecimalString(rate.usdPerRobux)),
+            })}
           </option>
         ))}
       </select>
       <p id={`${id}-note`} className="mt-1.5 text-xs text-(--color-text-muted)">
         {selected?.conditionNote ??
           selected?.eligibilitySummary ??
-          "Roblox decides which rate applies to your balance."}
+          t("calculator.controls.rateFallbackNote")}
       </p>
     </div>
   );
@@ -334,10 +339,12 @@ export function ModeTabs({
   options,
   value,
   onChange,
+  t,
 }: {
   options: readonly ModeOption[];
   value: string;
   onChange: (value: string) => void;
+  readonly t: Translate;
 }) {
   function onKeyDown(event: React.KeyboardEvent<HTMLDivElement>) {
     const index = options.findIndex((option) => option.id === value);
@@ -360,7 +367,7 @@ export function ModeTabs({
   return (
     <div
       role="tablist"
-      aria-label="Calculator mode"
+      aria-label={t("calculator.modes.label")}
       onKeyDown={onKeyDown}
       className="flex w-full gap-1 rounded-(--radius-control) border border-(--color-border) bg-(--color-surface-subtle) p-1"
     >

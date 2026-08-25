@@ -38,7 +38,22 @@
     "tooLarge": "Dieser Betrag ist größer, als dieser Rechner annimmt.",
     "robuxMustBeWhole": "Robux gibt es nur in ganzen Einheiten — gib eine ganze Zahl ein.",
     "belowMinimum": "Das liegt unter dem Minimum von {minimum} Earned Robux und kann daher noch nicht getauscht werden.",
-    "rateUnavailable": "Für diese Kombination gilt kein geprüfter Kurs."
+    "rateUnavailable": "Für diese Kombination gilt kein geprüfter Kurs.",
+    "tooLong": "Dieser Wert ist zu lang, um ein echter Betrag zu sein.",
+    "scientificNotation": "Wissenschaftliche Schreibweise wird nicht unterstützt. Geben Sie die vollständige Zahl ein.",
+    "positiveOnly": "Geben Sie einen positiven Betrag ein.",
+    "numberExample": "Geben Sie eine Zahl ein, zum Beispiel 100.000.",
+    "mixedSeparators": "Gemischte Trennzeichen. Verwenden Sie Punkte für Tausender und ein Komma für Dezimalstellen, zum Beispiel 1.500,50.",
+    "thousandsSeparators": "Prüfen Sie die Tausendertrennzeichen, zum Beispiel 1.000.000 statt 1.00.000.",
+    "multipleDecimalPoints": "Es gibt mehr als ein Dezimaltrennzeichen.",
+    "digitsOnly": "Geben Sie nur Ziffern ein, zum Beispiel 100000.",
+    "robuxWholeUnits": "Robux gibt es nur in ganzen Einheiten. Geben Sie eine ganze Zahl ein oder verwenden Sie ein Kürzel wie 1.5m.",
+    "robuxLimit": "Dieser Rechner nimmt bis zu {limit} Robux an. Das ist unsere eigene Grenze, keine Grenze von Roblox.",
+    "valueLimit": "Dieser Rechner nimmt bis zu {limit} an. Das ist unsere eigene Grenze, keine Grenze von Roblox.",
+    "tooManyDecimalsOne": "Verwenden Sie höchstens {max} Nachkommastelle.",
+    "amountExample": "Geben Sie einen Betrag ein, zum Beispiel 1000.",
+    "percentExample": "Geben Sie einen Prozentsatz ein, zum Beispiel 2,9.",
+    "percentRange": "Geben Sie einen Prozentsatz zwischen 0 und {max} ein."
   },
   "form": {
     "requiredField": "Dieses Feld ist erforderlich.",

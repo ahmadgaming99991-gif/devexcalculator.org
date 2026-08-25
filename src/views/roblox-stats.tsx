@@ -419,15 +419,18 @@ export async function RobloxStatsView({ locale }: { readonly locale: Locale }) {
         
                   <Section id="what-it-means" heading={t("platform.stats.whatItMeansHeading")}>
                     <p className="text-(--color-text-muted)">
-              {t("platform.stats.body.whatItMeans.p1")}
-            <InlineLink href="/">{t("platform.stats.calculatorLink")}</InlineLink>.
+                      {rich(t("platform.stats.prose.whatItMeansIntro"), {
+                        calculator: (
+                          <InlineLink href={localizedPath(locale, "/")}>
+                            {t("platform.stats.calculatorLink")}
+                          </InlineLink>
+                        ),
+                      })}
                     </p>
                     <p className="mt-3 text-(--color-text-muted)">
-                      The one thing these figures do show is scale: DevEx is a programme through
-                      which Roblox paid out{" "}
-                      {formatUsdMagnitude(fy2025?.amountUsd ?? "0")} in a single year, which is
-                      context worth having before deciding whether the 30,000 Robux minimum is
-                      worth working towards.
+                      {t("platform.stats.prose.whatItMeans", {
+                        amount: formatUsdMagnitude(fy2025?.amountUsd ?? "0"),
+                      })}
                     </p>
                   </Section>
         

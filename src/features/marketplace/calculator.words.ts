@@ -1,3 +1,4 @@
+import { PARSE_MESSAGE_WORDS } from "@/i18n/parse-message.words";
 /**
  * The dictionary keys the component beside this one renders.
  *
@@ -11,14 +12,21 @@
  * sentence there is a key the server starts passing, with nothing to
  * remember.
  */
+import { ACTION_WORDS } from "@/features/devex/components/actions.words";
+
 export const MARKETPLACE_WORDS: readonly string[] = [
+  ...PARSE_MESSAGE_WORDS,
+  ...ACTION_WORDS,
+  "calculator.modes.label",
   "marketplace.body.intro.p1",
   "marketplace.body.intro.p2",
   "marketplace.body.intro.p3",
+  "marketplace.inputs.afterCommissionHint",
   "marketplace.modes.after.description",
   "marketplace.modes.after.label",
   "marketplace.modes.before.description",
   "marketplace.modes.before.label",
+  "marketplace.prose.notAppliedTwice",
   "marketplace.results.chargeTheBuyer",
   "marketplace.results.columnGoesTo",
   "marketplace.results.copyResult",

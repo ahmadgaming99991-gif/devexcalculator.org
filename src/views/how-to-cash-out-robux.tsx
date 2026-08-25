@@ -56,7 +56,9 @@ export async function CashOutView({ locale }: { readonly locale: Locale }) {
               stages={[
                 {
                   label: t("guides.cashOut.steps.reachMinimum"),
-                  detail: `At least ${formatRobux(minimumEarnedRobux)}, and only Earned Robux count toward it.`,
+                  detail: t("guides.cashOut.steps.reachMinimumDetail", {
+                    minimum: formatRobux(minimumEarnedRobux),
+                  }),
                   tone: "primary",
                 },
                 {

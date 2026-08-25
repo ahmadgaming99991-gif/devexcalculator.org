@@ -400,7 +400,7 @@ export function TargetBreakdown({
             aria-valuenow={Math.round(result.progressPercent)}
             aria-valuemin={0}
             aria-valuemax={100}
-            aria-label="Progress toward your payout target"
+            aria-label={t("calculator.target.progressLabel")}
             className="mt-2 h-2.5 w-full overflow-hidden rounded-full bg-(--color-border)"
           >
             <div

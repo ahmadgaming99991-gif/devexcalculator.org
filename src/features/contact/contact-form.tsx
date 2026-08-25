@@ -70,7 +70,7 @@ export function ContactForm({ turnstileSiteKey,
     } catch {
       setStatus("error");
       setErrorMessage(
-        "The message could not be sent — the network request failed. Please try again.",
+        t("contact.form.networkFailed"),
       );
     }
   }
@@ -134,7 +134,7 @@ export function ContactForm({ turnstileSiteKey,
           multiline
           maxLength={LIMITS.message.max}
           error={issueFor("message")}
-          hint={`At least ${LIMITS.message.min} characters. If you are reporting a correction, a link to the official page is the most useful thing you can include.`}
+          hint={t("contact.form.messageHint", { min: String(LIMITS.message.min) })}
           required
         />
 

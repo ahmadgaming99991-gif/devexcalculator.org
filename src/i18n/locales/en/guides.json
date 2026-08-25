@@ -103,7 +103,8 @@
       "meetRequirementsDetail": "Verified email, minimum age of 13, a DevEx portal account, a tax form on file, good standing.",
       "robloxReviewsDetail": "It decides which Robux qualify and whether to approve. This can end here, and no third party changes that.",
       "robloxReviewsBy": "Roblox alone",
-      "paymentIssuedDetail": "Your provider and bank apply their own handling and fees from there."
+      "paymentIssuedDetail": "Your provider and bank apply their own handling and fees from there.",
+      "reachMinimumDetail": "At least {minimum}, and only Earned Robux count toward it."
     },
     "list": {
       "meetRequirements": "Meet the account requirements.",

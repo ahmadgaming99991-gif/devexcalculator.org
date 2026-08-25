@@ -33,6 +33,9 @@
         "p2": "See the dated history of rate changes",
         "p3": "See when this site last updated its data"
       }
+    },
+    "prose": {
+      "noForecast": "Roblox moved the standard rate from 0.0035 to 0.0038 on {date}. There is no way to know from outside Roblox whether or when it will change again, so this page makes no forecast. What it does record is the date every figure here was last checked against the official documentation, shown at the top of the page and in the {sourceRegistry}."
     }
   },
   "rateHistory": {
@@ -73,7 +76,8 @@
       }
     },
     "prose": {
-      "legacySplit": "Roblox cashes out the pre-transition portion of a balance at 0.0035 first, then the rest at 0.0038. The split is Roblox’s own accounting of when each Robux was earned — it is not something a creator selects or can adjust."
+      "legacySplit": "Roblox cashes out the pre-transition portion of a balance at 0.0035 first, then the rest at 0.0038. The split is Roblox’s own accounting of when each Robux was earned — it is not something a creator selects or can adjust.",
+      "whenItChanges": "Roblox has changed the rate before and may change it again. Nobody outside Roblox knows whether or when, and a prediction dressed up as analysis would be a guess with a confident tone. This page records only changes that official documentation confirms, each with its effective date. When a change happens it appears here and in the {changelog}, along with the date it was verified."
     }
   },
   "requirements": {
@@ -146,6 +150,9 @@
     "threshold": {
       "below": "Below the line, a DevEx request cannot be submitted at all. Being close to it counts for nothing, and the shortfall has to be earned — it cannot be bought.",
       "above": "At or above the line, a request can be submitted. It is then reviewed, and meeting the threshold is not the same as being approved."
+    },
+    "prose": {
+      "earnedOnly": "The word that matters is {earned}. Robux you bought do not count toward it, and neither does gift card credit. {earnedRobuxLink}"
     }
   },
   "earnedRobux": {
@@ -339,7 +346,8 @@
     },
     "prose": {
       "browseHub": "{conversionHub} for more amounts and detail.",
-      "officialPage": "There is no single number that is true for every package, country and platform, so quoting one would be inventing a figure. Check {officialPage} for what you would actually pay."
+      "officialPage": "There is no single number that is true for every package, country and platform, so quoting one would be inventing a figure. Check {officialPage} for what you would actually pay.",
+      "commissionOnce": "The gap between the two exists because Roblox operates a platform, handles payment processing, and takes a commission for it. {marketplaceCalculator}, and it is not charged again at cash-out."
     }
   },
   "usdToRobux": {
@@ -382,6 +390,10 @@
         "p1": "This page answers the creator question: how much do I need to earn to receive a given amount of money. It does not tell you how many Robux a given amount of money will buy. Roblox prices Robux packages by region, platform and promotion, and there is no single rate that would be true for everyone — so this site does not publish one.",
         "p2": "The distinction is explained in full on the Robux to USD page"
       }
+    },
+    "prose": {
+      "division": "A payout target is a distance. Turning it into a date needs one more fact — how fast you earn — and turning a date into a plan needs the same fact in reverse. Both are the same division: {formula}, rounded up, because a part day earns nothing and a part Robux does not exist. Nothing here assumes your earnings grow, and nothing here is a date Roblox will pay on — Roblox publishes no DevEx processing time, so none is added.",
+      "divisionFormula": "days = remaining Earned Robux ÷ Earned Robux per day"
     }
   },
   "robuxTax": {
@@ -498,6 +510,12 @@
       "robux500000": "Half a million Earned Robux is the scale at which payment-provider fees and personal tax obligations stop being rounding errors, which is why this page links directly to the fees and taxes guide.",
       "robux1000000": "A million Robux is the headline milestone creators actually search for, and it is the clearest illustration of why purchase price and DevEx payout are not the same number.",
       "robux10000000": "Ten million Earned Robux represents sustained earnings from a large experience. At this scale the split between standard and legacy balances, and any qualifying U.S. 18+ portion, changes the total by thousands of dollars."
-    }
+    },
+    "intro": "What {display} eligible Earned Robux converts to under each of the three documented DevEx rates.",
+    "headlineHeading": "What {display} Robux is worth",
+    "eligibleLabel": "{display} eligible Earned Robux",
+    "clearsMinimum": "That is {multiple} times the {minimum} Earned Robux minimum, so it clears the threshold to submit a request. Clearing the threshold is not approval — Roblox reviews every request.",
+    "belowMinimum": "This is below the {minimum} Earned Robux minimum, so a DevEx request cannot be submitted at this balance yet.",
+    "reachingCaption": "Whether {display} Earned Robux covers common payout targets"
   }
 }

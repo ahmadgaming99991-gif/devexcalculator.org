@@ -1,6 +1,8 @@
 {
   "$comment": "Machine-drafted. Not yet read by a native speaker. A mistranslated 'eligible' or 'minimum' can tell somebody they may cash out when they may not, so nothing here is shortened.",
   "$identical": [
+    "results.summary.bucketLine",
+    "results.summary.earnedRobux",
     "results.total"
   ],
   "srHeading": "DevEx-Auszahlungsrechner",
@@ -96,7 +98,26 @@
         "p8": "die Zahlen verwenden",
         "p9": "Veraltete Sätze. {staleReason}"
       }
-    }
+    },
+    "copyDisclaimer": "Schätzung von devexcalculator.org — keine Zusage einer Bewilligung.",
+    "announceQuick": "{robux} Earned Robux sind etwa {value} beim {rate}.",
+    "announceTarget": "beim {rate}, aufgerundet auf ganze Robux",
+    "announceRate": "beim {rate} von {rateValue} $ je Robux",
+    "summary": {
+      "payoutTarget": "Auszahlungsziel: {value}",
+      "rate": "Satz: {rate} ({rateValue} $ je Robux)",
+      "robuxNeeded": "Benötigte Earned Robux: {robux}",
+      "minimumApplies": "Das Minimum greift: in der Praxis {robux}",
+      "earnedRobux": "Earned Robux: {robux}",
+      "bucketLine": "  {rate}: {robux} = {usd}",
+      "grossPayout": "Bruttoauszahlung: {value}",
+      "afterEstimates": "Nach Ihren Gebühren- und Steuerschätzungen: {value}",
+      "estimatedPayout": "Geschätzte Auszahlung: {value}",
+      "minimumMet": "Minimum: erreicht",
+      "minimumShort": "Minimum: {robux} fehlen"
+    },
+    "announceSplit": "{robux} Earned Robux über alle Gruppen hinweg sind etwa {value}.",
+    "announceSplitGross": "brutto, vor Gebühren und Steuern, aus {robux} Earned Robux"
   },
   "target": {
     "explanation": "{target} ÷ {rate} $ pro Robux = {exact}, aufgerundet auf {required} ganze Earned Robux. Das zahlt {payout} — der erste ganzzahlige Robux-Betrag, der dein Ziel erreicht, statt knapp darunter zu bleiben.",
@@ -110,7 +131,7 @@
   "groupSplit": {
     "memberName": "Mitglied {number}",
     "unnamed": "Ohne Namen",
-    "earnedOnlyNote": "Nur Earned Robux können getauscht werden. Gekaufte und geschenkte Robux nicht.",
+    "earnedOnlyNote": "Nur Earned Robux lassen sich eintauschen. Gekaufte und geschenkte Robux nicht.",
     "valuedAt": "Bewertet mit",
     "tableLabel": "Der Anteil jedes Mitglieds am Guthaben der Gruppe",
     "tableCaption": "Der prozentuale Anteil jedes Mitglieds an den Earned Robux der Gruppe, die entsprechende Robux-Menge und die Auszahlung zum Standard-DevEx-Kurs.",
@@ -135,6 +156,14 @@
     },
     "prose": {
       "robloxDoesNotDivide": "Ein DevEx-Antrag wird von einem einzelnen Konto gestellt und an dieses Konto ausgezahlt. Roblox teilt eine Auszahlung nicht unter Mitwirkenden auf, und eine Umsatzbeteiligung innerhalb einer Gruppe ist Sache der Beteiligten. Berechnet wird hier, wie viel der vereinbarte Anteil jeder Person ausmacht — nicht etwas, das Roblox für sie erledigt, und keine Zahl, der Roblox zugestimmt hätte."
+    },
+    "belowMinimumTitle": {
+      "one": "{below} von {total} kann keinen DevEx-Antrag stellen",
+      "other": "{below} von {total} können keinen DevEx-Antrag stellen"
+    },
+    "belowMinimumBody": {
+      "one": "Das Minimum von {minimum} gilt für das Guthaben, das eine Person einreicht, nicht für das, was die Gruppe verdient hat. Diese Gruppe hält {total} Earned Robux, und {names} liegt einzeln betrachtet noch unter dem Minimum.",
+      "other": "Das Minimum von {minimum} gilt für das Guthaben, das eine Person einreicht, nicht für das, was die Gruppe verdient hat. Diese Gruppe hält {total} Earned Robux, und {names} liegen einzeln betrachtet noch unter dem Minimum."
     }
   },
   "preparation": {
@@ -152,7 +181,11 @@
         "p3": "Roblox prüft jeden Antrag nach eigenen Kriterien, nachdem er gestellt wurde, und veröffentlicht nicht, was zu einer Ablehnung führen würde. Eine abgehakte Liste im Browser hat in dieser Prüfung kein Gewicht.",
         "p4": "Was das Antragsverfahren umfasst"
       }
-    }
+    },
+    "balanceStep": "Bestätigen Sie, dass das Guthaben wirklich aus Earned Robux besteht und {minimum} erreicht hat. {earnedRobuxLink}",
+    "taxFormStep": "Füllen Sie das richtige Steuerformular aus — W-9 für Steuerpflichtige in den USA, sonst W-8.",
+    "standingStep": "Prüfen Sie, ob das Konto den Nutzungsbedingungen und Community-Standards entsprechend in Ordnung ist.",
+    "destinationStep": "Entscheiden Sie, wohin das Geld geht, und prüfen Sie, was die Bank oder der Zahlungsdienstleister für den Empfang berechnet. {feesLink}"
   },
   "currency": {
     "loading": "Referenzkurse werden geladen…",
@@ -264,7 +297,20 @@
     "pickDateHeadline": "Wählen Sie ein Datum.",
     "prose": {
       "estimateNotice": "Jede Zahl hier ist eine Schätzung aus dem, was Sie eingegeben haben. {minimumRobux} Earned Robux zu erreichen erlaubt Ihnen, einen DevEx-Antrag zu stellen; es bedeutet nicht, dass er bewilligt wird. Roblox prüft Berechtigung, Kontostatus und Compliance und entscheidet über jeden Antrag selbst. Sätze können sich ändern, und eine Hochrechnung unterstellt, dass Sie im angegebenen Tempo weiterverdienen."
-    }
+    },
+    "paceHint": "Was Sie jetzt verdienen. Die Hochrechnung unterstellt kein Wachstum.",
+    "deadlineLabel": "Datum, bis zu dem Sie die Auszahlung möchten",
+    "belowMinimumNote": "Ihr Ziel braucht nur {required}, aber DevEx lässt sich unterhalb von {minimum} nicht beantragen.",
+    "progressNote": "{progressPercent} % des Wegs geschafft.",
+    "notAtThisPace": "Nicht in diesem Tempo",
+    "alreadyReached": "Bereits erreicht",
+    "alreadyEnoughDetail": "Ihr Guthaben von {current} Earned Robux deckt die {needed} ab, die dieser Plan braucht. Das Minimum zu erreichen ist keine Bewilligung — darüber entscheidet Roblox.",
+    "paceHeadline": "Etwa {days} entfernt — rund um den {date}.",
+    "paceDetail": "Bei {perDay} Earned Robux am Tag, stetig durchgehalten: rund {weeks} oder {months}. Das ist eine Hochrechnung zu dem von Ihnen angegebenen Tempo, kein Datum, an dem Roblox zahlt.",
+    "requiredHeadline": "{perDay} Earned Robux pro Tag.",
+    "requiredDetail": "Das sind {perWeek} pro Woche oder {perMonth} über 30 Tage. Jede Zahl ist aufgerundet: Wer den abgerundeten Betrag verdient, verfehlt das Datum.",
+    "columnReachedIn": "Erreicht in",
+    "columnNeededEachDay": "Täglich nötig"
   },
   "controls": {
     "body": {
@@ -274,7 +320,9 @@
       "presetsLabel": {
         "p1": "Schnellbeträge"
       }
-    }
+    },
+    "rateFallbackNote": "Roblox entscheidet, welcher Satz für Ihr Guthaben gilt.",
+    "rateOption": "{rate} — {rateValue} $ je Robux"
   },
   "body": {
     "intro": {
@@ -283,5 +331,15 @@
       "p3": "Die Schätzungen verwenden die Sätze, die Roblox derzeit dokumentiert. Das Minimum von {minimumEarnedRobux} Earned Robux ist eine Voraussetzung für das Einreichen eines Antrags, keine Genehmigung. Roblox entscheidet, welche Robux infrage kommen und ob ein Antrag Erfolg hat.",
       "p5": "Nur in diesem Browser gespeichert. Nichts wird hochgeladen, und das Löschen deiner Browserdaten entfernt sie."
     }
+  },
+  "actions": {
+    "copied": "{label} in die Zwischenablage kopiert.",
+    "copyFailed": "{label} konnte nicht kopiert werden.",
+    "shareCopied": "Freigabelink in die Zwischenablage kopiert.",
+    "shareCopyFailed": "Der Link konnte nicht kopiert werden.",
+    "copiedLabel": "Kopiert",
+    "copyFailedLabel": "Kopieren fehlgeschlagen",
+    "share": "Teilen",
+    "copyLink": "Link kopieren"
   }
 }

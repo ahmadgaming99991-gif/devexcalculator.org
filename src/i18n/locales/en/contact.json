@@ -47,7 +47,9 @@
       "intro": {
         "p1": "Thank you. If you reported a factual correction, it will be checked against the official documentation before anything is changed."
       }
-    }
+    },
+    "networkFailed": "The message could not be sent — the network request failed. Please try again.",
+    "messageHint": "At least {min} characters. If you are reporting a correction, a link to the official page is the most useful thing you can include."
   },
   "responses": {
     "sent": "Message received. Thank you.",

@@ -15,16 +15,24 @@ export function AdSlot({
   placement,
   width,
   height,
+  label,
 }: {
   placement: string;
   width: number;
   height: number;
+  /**
+   * What a screen reader announces the region as.
+   *
+   * Passed in rather than looked up here: this is a leaf with no locale of its
+   * own, and the word is `common.ui.advertisement`.
+   */
+  label: string;
 }) {
   if (!isAdsEnabled) return null;
 
   return (
     <aside
-      aria-label="Advertisement"
+      aria-label={label}
       data-ad-placement={placement}
       // Dimensions are reserved before the ad loads so nothing below moves.
       style={{ minHeight: height, maxWidth: width }}

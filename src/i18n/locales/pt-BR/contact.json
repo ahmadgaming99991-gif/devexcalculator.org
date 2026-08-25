@@ -47,7 +47,9 @@
       "intro": {
         "p1": "Obrigado. Se você relatou uma correção factual, ela será conferida contra a documentação oficial antes de qualquer mudança."
       }
-    }
+    },
+    "networkFailed": "Não foi possível enviar a mensagem — a requisição de rede falhou. Tente novamente.",
+    "messageHint": "Pelo menos {min} caracteres. Se você está relatando uma correção, um link para a página oficial é a coisa mais útil que pode incluir."
   },
   "responses": {
     "sent": "Mensagem recebida. Obrigado.",

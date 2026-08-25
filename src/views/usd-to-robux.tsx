@@ -1,3 +1,4 @@
+import { rich } from "@/i18n/rich";
 import { loadWords } from "@/i18n/client-words";
 import { getTranslator } from "@/i18n/get-dictionary";
 import Link from "next/link";
@@ -70,7 +71,7 @@ export async function UsdToRobuxView({
         />
 
         <div className="flex flex-col gap-10">
-          <QuickAnswer locale={locale} jumpTo="rounding" jumpLabel="Why the answer rounds up">
+          <QuickAnswer locale={locale} jumpTo="rounding" jumpLabel={t("rates.usdToRobux.jumpLabel")}>
             {record.quickAnswer}
           </QuickAnswer>
 
@@ -80,7 +81,7 @@ export async function UsdToRobuxView({
 
           <Section
             id="rounding"
-            heading="Why the answer rounds up"
+            heading={t("rates.usdToRobux.roundingHeading")}
             description={t("rates.usdToRobux.roundingDescription")}
           >
             <div className="rounded-(--radius-control) border border-(--color-border) bg-(--color-surface) p-4">
@@ -123,21 +124,18 @@ export async function UsdToRobuxView({
                       blank here without it.
                     */}
                     <p className="text-(--color-text-muted)">
-                      A payout target is a distance. Turning it into a date needs one
-                      more fact — how fast you earn — and turning a date into a plan
-                      needs the same fact in reverse. Both are the same division:{" "}
-                      {/*
-                        Allowed to wrap. Held on one line it measured 488px, which
-                        pushed the whole page 187px sideways at 320px — the exact
-                        class of defect the overflow check exists to catch.
-                      */}
-                      <span className="numeric-display">
-                        days = remaining Earned Robux ÷ Earned Robux per day
-                      </span>
-                      , rounded up, because a part day earns nothing and a part Robux
-                      does not exist. Nothing here assumes your earnings grow, and
-                      nothing here is a date Roblox will pay on — Roblox publishes no
-                      DevEx processing time, so none is added.
+                      {rich(t("rates.usdToRobux.prose.division"), {
+                        /*
+                         * Allowed to wrap. Held on one line it measured 488px,
+                         * which pushed the whole page 187px sideways at 320px —
+                         * the exact class of defect the overflow check catches.
+                         */
+                        formula: (
+                          <span className="numeric-display">
+                            {t("rates.usdToRobux.prose.divisionFormula")}
+                          </span>
+                        ),
+                      })}
                     </p>
         
                     <Planner words={await loadWords(locale, PLANNER_WORDS)} />

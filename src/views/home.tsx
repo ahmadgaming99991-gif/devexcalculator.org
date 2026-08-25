@@ -36,7 +36,7 @@ export async function HomeView({
   readonly locale: Locale;
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
-  const t = await getTranslator(locale, ["calculator", "routes"]);
+  const t = await getTranslator(locale, ["calculator", "rates", "routes"]);
   const record = await localizedRoute(locale, ROUTE);
   // Parsed and validated on the server so a shared link renders its state into
   // the initial HTML instead of flashing defaults and then correcting itself.
@@ -66,7 +66,7 @@ export async function HomeView({
             description={t("calculator.home.formulaOpen")}
           >
             <div className="grid gap-4 lg:grid-cols-2">
-              <FormulaBlock />
+              <FormulaBlock t={t} />
               <div className="rounded-(--radius-control) border border-(--color-border) bg-(--color-surface) p-4">
                 <p className="text-sm font-semibold text-(--color-text)">{t("calculator.home.body.howItWorks.p1")}</p>
                 <p className="mt-2 text-sm text-(--color-text-muted)">{t("calculator.home.body.howItWorks.p2")}</p>
@@ -133,7 +133,7 @@ export async function HomeView({
         
                   <Section
                     id="requirements"
-                    heading="What Roblox requires"
+                    heading={t("rates.requirements.requirementsHeading")}
                     description={t("calculator.home.meetingAllNote")}
                   >
                     <RequirementsList t={t} />

@@ -102,6 +102,9 @@
         "p1": "Estas condiciones pueden actualizarse. La fecha de revisión al principio de esta página refleja el cambio más reciente, y los cambios materiales quedan registrados en el",
         "p2": "junto con todo lo demás que cambia aquí."
       }
+    },
+    "prose": {
+      "checkOfficial": "Se pone mucho cuidado en la exactitud —cada tasa tiene fuente, fecha y pruebas que la cubren—, pero las tasas cambian, la documentación se mueve y los errores son posibles. Comprueba en la documentación oficial de Roblox, enlazada desde el {sourceRegistry}, cualquier cosa de la que dependas antes de tomar una decisión que importe."
     }
   },
   "disclaimer": {

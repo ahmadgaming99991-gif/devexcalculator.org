@@ -1,5 +1,6 @@
 "use client";
 
+import { parseMessage } from "@/i18n/parse-message";
 import { translatorFor, type LocaleWords } from "@/i18n/client-words";
 import { useId, useState, useMemo } from "react";
 import { calculateGroupSplit, standardRateId } from "@/lib/calculations/devex";
@@ -102,8 +103,8 @@ export function GroupSplit({ words }: { readonly words: LocaleWords }) {
             />
             <p id={`${fieldId}-total-hint`} className="mt-2 text-sm text-(--color-text-muted)">
               {total.trim() !== "" && !parsed.ok
-                ? parsed.message
-                : "Only Earned Robux can be exchanged. Purchased and gifted Robux cannot."}
+                ? parseMessage(t, parsed)
+                : t("calculator.groupSplit.earnedOnlyNote")}
             </p>
           </div>
 
@@ -230,14 +231,24 @@ export function GroupSplit({ words }: { readonly words: LocaleWords }) {
       {below.length > 0 ? (
         <Callout
           tone="warning"
-          title={`${below.length} of ${result.members.length} cannot submit a DevEx request`}
+          title={t(
+            below.length === 1
+              ? "calculator.groupSplit.belowMinimumTitle.one"
+              : "calculator.groupSplit.belowMinimumTitle.other",
+            { below: String(below.length), total: String(result.members.length) },
+          )}
           className="mt-4"
         >
-          The {formatRobux(BigInt(minimumEarnedRobux))} minimum applies to the
-          balance one person submits, not to what the group earned. This group holds{" "}
-          {formatRobux(result.totalRobux)} Earned Robux, and{" "}
-          {below.map((member) => member.name).join(", ")}{" "}
-          {below.length === 1 ? "is" : "are"} still below the minimum individually.
+          {t(
+            below.length === 1
+              ? "calculator.groupSplit.belowMinimumBody.one"
+              : "calculator.groupSplit.belowMinimumBody.other",
+            {
+              minimum: formatRobux(BigInt(minimumEarnedRobux)),
+              total: formatRobux(result.totalRobux),
+              names: below.map((member) => member.name).join(", "),
+            },
+          )}
         </Callout>
       ) : null}
 

@@ -1,3 +1,5 @@
+import { localizedPath } from "@/i18n/locale-path";
+import { rich } from "@/i18n/rich";
 import { getTranslator, type Translate } from "@/i18n/get-dictionary";
 import { localizedRoute } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
@@ -90,14 +92,19 @@ export async function StockView({ locale }: { readonly locale: Locale }) {
             </TableWrapper>
 
             <p className="mt-4 text-(--color-text-muted)">
-              {t("platform.stock.body.results.p1")}
-            <SourceLink t={t} href={getSource(companyContext.sourceId).url}>
-                        {getSource(companyContext.sourceId).title}
-                      </SourceLink>
-                      , not recomputed here. A fuller breakdown, including what Roblox pays
-                      creators each quarter, is on{" "}
-                      <InlineLink href="/roblox-stats/">{t("platform.stock.payoutStatisticsLink")}</InlineLink>.
-                    </p>
+              {rich(t("platform.stock.prose.notRecomputed"), {
+                source: (
+                  <SourceLink t={t} href={getSource(companyContext.sourceId).url}>
+                    {getSource(companyContext.sourceId).title}
+                  </SourceLink>
+                ),
+                payoutStatistics: (
+                  <InlineLink href={localizedPath(locale, "/roblox-stats/")}>
+                    {t("platform.stock.payoutStatisticsLink")}
+                  </InlineLink>
+                ),
+              })}
+            </p>
                   </Section>
         
                   <Section id="why" heading={t("platform.stock.noChartHeading")}>
@@ -176,16 +183,14 @@ function QuoteBlock({ state,
     <Callout tone="info" title={t("platform.stock.noPriceConfiguredTitle")}>
       <p>{t("platform.stock.noPriceConfiguredBody")}</p>
       <p className="mt-2">
-        The page is already wired for a provider. What is missing is only
-        configuration:{" "}
-        {state.missing.map((name, index) => (
-          <span key={name}>
-            {index > 0 ? " and " : ""}
-            <code className="rounded bg-(--color-surface-subtle) px-1">{name}</code>
-          </span>
-        ))}
-        . The reported results below are what a share price responds to, and they are
-        published either way.
+        {rich(t("platform.stock.prose.onlyConfiguration"), {
+          missing: state.missing.map((name, index) => (
+            <span key={name}>
+              {index > 0 ? t("platform.stock.andSeparator") : ""}
+              <code className="rounded bg-(--color-surface-subtle) px-1">{name}</code>
+            </span>
+          )),
+        })}
       </p>
     </Callout>
   );

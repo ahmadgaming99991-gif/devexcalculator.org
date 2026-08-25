@@ -102,6 +102,9 @@
         "p1": "Diese Bedingungen können aktualisiert werden. Das Prüfdatum oben auf dieser Seite steht für die jüngste Änderung, und wesentliche Änderungen werden im",
         "p2": "festgehalten, zusammen mit allem anderen, was sich hier ändert."
       }
+    },
+    "prose": {
+      "checkOfficial": "Auf Genauigkeit wird erheblicher Aufwand verwendet — jeder Satz ist belegt, datiert und durch Tests abgedeckt — aber Sätze ändern sich, Dokumentation wandert, und Fehler sind möglich. Prüfen Sie alles, worauf Sie sich stützen, anhand der offiziellen Roblox-Dokumentation, die aus dem {sourceRegistry} verlinkt ist, bevor Sie eine Entscheidung treffen, auf die es ankommt."
     }
   },
   "disclaimer": {

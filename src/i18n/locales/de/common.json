@@ -5,6 +5,7 @@
     "footer.feedJson",
     "social.instagramName",
     "social.pinterestName",
+    "units.earnedWord",
     "units.minimum",
     "units.standard"
   ],
@@ -112,7 +113,8 @@
     "legacyRate": "Alt",
     "usEighteenPlus": "USA 18+",
     "minimum": "Minimum",
-    "rate": "Kurs"
+    "rate": "Kurs",
+    "earnedWord": "Earned"
   },
   "social": {
     "youtube": "DevEx Calculator auf YouTube",
@@ -151,7 +153,11 @@
       }
     },
     "legacyAppliesTo": "Guthaben, das vor dem {effectiveTo} verdient wurde.",
-    "effectiveFrom": "Ab {effectiveFrom}."
+    "effectiveFrom": "Ab {effectiveFrom}.",
+    "prose": {
+      "workingBackwards": "Rückwärts gerechnet wird stattdessen dividiert und immer aufgerundet: Ein Ziel von {target} braucht {required} Earned Robux, denn {shortfall} bliebe um einen Bruchteil darunter."
+    },
+    "calculationFormula": "berechtigte Earned Robux × Satz pro Robux = geschätzte Auszahlung in USD"
   },
   "charts": {
     "body": {
@@ -182,6 +188,14 @@
     "days": {
       "one": "{days} Tag",
       "other": "{days} Tage"
+    },
+    "weeks": {
+      "one": "{weeks} Woche",
+      "other": "{weeks} Wochen"
+    },
+    "months": {
+      "one": "{months} Monat",
+      "other": "{months} Monate"
     }
   }
 }

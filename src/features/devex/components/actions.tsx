@@ -1,5 +1,6 @@
 "use client";
 
+import type { Translate } from "@/i18n/get-dictionary";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui";
 import { track } from "@/lib/analytics/track";
@@ -53,11 +54,13 @@ export function CopyButton({
   text,
   variant = "secondary",
   onAnnounce,
+  t,
 }: {
   label: string;
   text: string;
   variant?: "primary" | "secondary" | "ghost";
   onAnnounce: (message: string) => void;
+  readonly t: Translate;
 }) {
   const [state, setState] = useState<CopyState>("idle");
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -72,14 +75,22 @@ export function CopyButton({
     // A committed action, and no part of what was copied. `track` is a no-op
     // unless a provider is configured and consent has been given.
     track("result_copied", { outcome: succeeded ? "success" : "failure" });
-    onAnnounce(succeeded ? `${label} copied to the clipboard.` : `${label} could not be copied.`);
+    onAnnounce(
+      t(succeeded ? "calculator.actions.copied" : "calculator.actions.copyFailed", {
+        label,
+      }),
+    );
     if (timer.current) clearTimeout(timer.current);
     timer.current = setTimeout(() => setState("idle"), 2_500);
-  }, [text, label, onAnnounce]);
+  }, [text, label, onAnnounce, t]);
 
   return (
     <Button variant={variant} onClick={handle} disabled={text === ""}>
-      {state === "copied" ? "Copied" : state === "failed" ? "Copy failed" : label}
+      {state === "copied"
+        ? t("calculator.actions.copiedLabel")
+        : state === "failed"
+          ? t("calculator.actions.copyFailedLabel")
+          : label}
     </Button>
   );
 }
@@ -88,10 +99,12 @@ export function ShareButton({
   url,
   title,
   onAnnounce,
+  t,
 }: {
   url: string;
   title: string;
   onAnnounce: (message: string) => void;
+  readonly t: Translate;
 }) {
   // `navigator.share` does not exist on the server, so the button renders as
   // "Copy link" during hydration and swaps to "Share" where the API exists.
@@ -118,12 +131,18 @@ export function ShareButton({
       outcome: succeeded ? "success" : "failure",
       destination: "clipboard",
     });
-    onAnnounce(succeeded ? "Share link copied to the clipboard." : "The link could not be copied.");
-  }, [canShare, title, url, onAnnounce]);
+    onAnnounce(
+      t(
+        succeeded
+          ? "calculator.actions.shareCopied"
+          : "calculator.actions.shareCopyFailed",
+      ),
+    );
+  }, [canShare, title, url, onAnnounce, t]);
 
   return (
     <Button variant="secondary" onClick={handle}>
-      {canShare ? "Share" : "Copy link"}
+      {canShare ? t("calculator.actions.share") : t("calculator.actions.copyLink")}
     </Button>
   );
 }

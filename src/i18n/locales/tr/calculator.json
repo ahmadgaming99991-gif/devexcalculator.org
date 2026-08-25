@@ -1,6 +1,8 @@
 {
   "$comment": "Machine-drafted. Not yet read by a native speaker. A mistranslated 'eligible' or 'minimum' can tell somebody they may cash out when they may not, so nothing here is shortened.",
   "$identical": [
+    "results.summary.bucketLine",
+    "results.summary.earnedRobux",
     "results.total"
   ],
   "srHeading": "DevEx ödeme hesaplayıcısı",
@@ -96,7 +98,26 @@
         "p8": "rakamlar şunu kullanıyor:",
         "p9": "Güncel olmayan oranlar. {staleReason}"
       }
-    }
+    },
+    "copyDisclaimer": "devexcalculator.org tahminidir — onay güvencesi değildir.",
+    "announceQuick": "{robux} Earned Robux, {rate} ile yaklaşık {value} eder.",
+    "announceTarget": "{rate} ile, tam Robux'a yukarı yuvarlanmış",
+    "announceRate": "Robux başına {rateValue} $ olan {rate} ile",
+    "summary": {
+      "payoutTarget": "Ödeme hedefi: {value}",
+      "rate": "Oran: {rate} (Robux başına {rateValue} $)",
+      "robuxNeeded": "Gereken Earned Robux: {robux}",
+      "minimumApplies": "Alt sınır geçerli: pratikte {robux}",
+      "earnedRobux": "Earned Robux: {robux}",
+      "bucketLine": "  {rate}: {robux} = {usd}",
+      "grossPayout": "Brüt ödeme: {value}",
+      "afterEstimates": "Ücret ve vergi tahminlerinizden sonra: {value}",
+      "estimatedPayout": "Tahmini ödeme: {value}",
+      "minimumMet": "Alt sınır: karşılandı",
+      "minimumShort": "Alt sınır: {robux} eksik"
+    },
+    "announceSplit": "Tüm dilimler boyunca {robux} Earned Robux yaklaşık {value} eder.",
+    "announceSplitGross": "{robux} Earned Robux'tan; ücret ve vergi öncesi brüt"
   },
   "target": {
     "explanation": "{target} ÷ Robux başına {rate} $ = {exact}; yukarı yuvarlanarak {required} tam Earned Robux. Bu {payout} öder — hedefinize kıl payı yetişemeyen değil, ona ulaşan ilk tam Robux tutarı.",
@@ -110,7 +131,7 @@
   "groupSplit": {
     "memberName": "Üye {number}",
     "unnamed": "Adsız",
-    "earnedOnlyNote": "Yalnızca Earned Robux takas edilebilir. Satın alınan ve hediye edilen Robux edilemez.",
+    "earnedOnlyNote": "Yalnızca Earned Robux takas edilebilir. Satın alınmış ve hediye edilmiş Robux edilemez.",
     "valuedAt": "Değeri",
     "tableLabel": "Her üyenin grup bakiyesindeki payı",
     "tableCaption": "Her üyenin grubun Earned Robux'undaki yüzdesi, bunun karşılığı olan Robux ve standart DevEx kurundaki ödeme.",
@@ -135,6 +156,14 @@
     },
     "prose": {
       "robloxDoesNotDivide": "Bir DevEx talebi bireysel bir hesap tarafından gönderilir ve o hesaba ödenir. Roblox bir ödemeyi işbirlikçiler arasında bölmez; bir grup içindeki gelir paylaşımı düzenlemesi, gruptaki kişiler arasındadır. Burada hesaplanan şey, her kişinin üzerinde anlaşılan payının ne ettiğidir — Roblox'un onlar adına yapacağı bir şey değil ve Roblox'un onayladığı bir rakam da değil."
+    },
+    "belowMinimumTitle": {
+      "one": "{total} kişiden {below} tanesi DevEx talebi gönderemez",
+      "other": "{total} kişiden {below} tanesi DevEx talebi gönderemez"
+    },
+    "belowMinimumBody": {
+      "one": "{minimum} alt sınırı, grubun kazandığına değil, bir kişinin gönderdiği bakiyeye uygulanır. Bu grubun {total} Earned Robux'ı var ve {names} tek başına hâlâ alt sınırın altında.",
+      "other": "{minimum} alt sınırı, grubun kazandığına değil, bir kişinin gönderdiği bakiyeye uygulanır. Bu grubun {total} Earned Robux'ı var ve {names} tek tek bakıldığında hâlâ alt sınırın altında."
     }
   },
   "preparation": {
@@ -152,7 +181,11 @@
         "p3": "Roblox, gönderildikten sonra her talebi kendi ölçütlerine göre inceler ve bir talebin neden reddedileceğini yayımlamaz. Tarayıcıdaki bir kontrol listesinin o incelemede hiçbir hükmü yoktur.",
         "p4": "Gönderim süreci neleri kapsar"
       }
-    }
+    },
+    "balanceStep": "Bakiyenin gerçekten Earned Robux olduğunu ve {minimum} değerine ulaştığını doğrulayın. {earnedRobuxLink}",
+    "taxFormStep": "Doğru vergi formunu doldurun — ABD'de vergi mükellefiyseniz W-9, değilseniz W-8.",
+    "standingStep": "Hesabın Kullanım Koşulları ve Topluluk Standartları açısından kurallara uygun olduğunu kontrol edin.",
+    "destinationStep": "Paranın nereye gideceğine karar verin ve bankanın ya da ödeme sağlayıcısının bunu almak için ne kadar ücret alacağını kontrol edin. {feesLink}"
   },
   "currency": {
     "loading": "Referans kurlar yükleniyor…",
@@ -264,7 +297,20 @@
     "pickDateHeadline": "Bir tarih seçin.",
     "prose": {
       "estimateNotice": "Buradaki her rakam, girdiklerinizden üretilmiş bir tahmindir. {minimumRobux} Earned Robux'a ulaşmak bir DevEx talebi göndermenizi sağlar; talebin onaylanacağı anlamına gelmez. Roblox uygunluğu, hesap durumunu ve kurallara uygunluğu inceler ve her talebe kendisi karar verir. Oranlar değişebilir ve bir öngörü, verdiğiniz hızda kazanmayı sürdürdüğünüzü varsayar."
-    }
+    },
+    "paceHint": "Şu anda kazandığınız. Öngörü, bunun artacağını varsaymaz.",
+    "deadlineLabel": "Ödemeyi almak istediğiniz tarih",
+    "belowMinimumNote": "Hedefiniz yalnızca {required} gerektiriyor, ama {minimum} altında DevEx talep edilemez.",
+    "progressNote": "Yolun %{progressPercent}'i tamamlandı.",
+    "notAtThisPace": "Bu hızla değil",
+    "alreadyReached": "Zaten ulaşıldı",
+    "alreadyEnoughDetail": "{current} Earned Robux'luk bakiyeniz, bu planın ihtiyaç duyduğu {needed} tutarını karşılıyor. Alt sınıra ulaşmak onay demek değildir — buna Roblox karar verir.",
+    "paceHeadline": "Yaklaşık {days} sonra — {date} civarında.",
+    "paceDetail": "Günde {perDay} Earned Robux ile, düzenli sürdürüldüğünde: kabaca {weeks} ya da {months}. Bu, girdiğiniz hıza göre bir öngörüdür; Roblox'un ödeme yapacağı bir tarih değildir.",
+    "requiredHeadline": "Günde {perDay} Earned Robux.",
+    "requiredDetail": "Bu, haftada {perWeek} ya da 30 günde {perMonth} eder. Her rakam yukarı yuvarlanır: aşağı yuvarlanmış tutarı kazanmak tarihi kaçırırdı.",
+    "columnReachedIn": "Ulaşma süresi",
+    "columnNeededEachDay": "Her gün gereken"
   },
   "controls": {
     "body": {
@@ -274,7 +320,9 @@
       "presetsLabel": {
         "p1": "Hızlı tutarlar"
       }
-    }
+    },
+    "rateFallbackNote": "Bakiyenize hangi oranın uygulanacağına Roblox karar verir.",
+    "rateOption": "{rate} — Robux başına {rateValue} $"
   },
   "body": {
     "intro": {
@@ -283,5 +331,15 @@
       "p3": "Tahminler, Roblox'un şu anda belgelediği oranları kullanır. {minimumEarnedRobux} Earned Robux alt sınırı, bir talep göndermek için bir koşuldur, onay değildir. Hangi Robux'ların uygun olduğuna ve bir talebin başarılı olup olmayacağına Roblox karar verir.",
       "p5": "Yalnızca bu tarayıcıya kaydedilir. Hiçbir şey yüklenmez ve tarayıcı verilerinizi temizlemek onları siler."
     }
+  },
+  "actions": {
+    "copied": "{label} panoya kopyalandı.",
+    "copyFailed": "{label} kopyalanamadı.",
+    "shareCopied": "Paylaşım bağlantısı panoya kopyalandı.",
+    "shareCopyFailed": "Bağlantı kopyalanamadı.",
+    "copiedLabel": "Kopyalandı",
+    "copyFailedLabel": "Kopyalama başarısız",
+    "share": "Paylaş",
+    "copyLink": "Bağlantıyı kopyala"
   }
 }

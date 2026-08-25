@@ -225,7 +225,13 @@ export function AmountTable({
  * and one they have to trust. It is also the clearest possible answer to
  * "how is this calculated", which is a real query in the keyword data.
  */
-export function FormulaBlock({ className }: { className?: string }) {
+export function FormulaBlock({
+  className,
+  t,
+}: {
+  className?: string;
+  readonly t: Translate;
+}) {
   const standard = getRateValue(standardRateId);
   const example = Rational.fromInt(100_000).mul(standard);
 
@@ -233,19 +239,21 @@ export function FormulaBlock({ className }: { className?: string }) {
     <div
       className={`rounded-(--radius-control) border border-(--color-border) bg-(--color-surface) p-4 ${className ?? ""}`}
     >
-      <p className="text-sm font-semibold text-(--color-text)">The calculation</p>
+      <p className="text-sm font-semibold text-(--color-text)">
+        {t("common.sections.theCalculation")}
+      </p>
       <p className="numeric-display mt-2 text-sm text-(--color-text)">
-        eligible Earned Robux × rate per Robux = estimated USD payout
+        {t("common.tables.calculationFormula")}
       </p>
       <p className="numeric-display mt-2 text-sm text-(--color-text-muted)">
         100,000 × ${formatRate(standard)} = {formatCurrency(example, "USD")}
       </p>
       <p className="mt-3 text-sm text-(--color-text-muted)">
-        Working backwards divides instead, and always rounds up: a target of{" "}
-        {formatCurrency(Rational.fromInt(1_000), "USD")} needs{" "}
-        {formatRobux(Rational.fromInt(1_000).div(standard).ceilToBigInt())} Earned
-        Robux, because {formatRobux(Rational.fromInt(1_000).div(standard).floorToBigInt())} would
-        fall a fraction short.
+        {t("common.tables.prose.workingBackwards", {
+          target: formatCurrency(Rational.fromInt(1_000), "USD"),
+          required: formatRobux(Rational.fromInt(1_000).div(standard).ceilToBigInt()),
+          shortfall: formatRobux(Rational.fromInt(1_000).div(standard).floorToBigInt()),
+        })}
       </p>
     </div>
   );

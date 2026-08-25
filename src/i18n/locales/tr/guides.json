@@ -103,7 +103,8 @@
       "meetRequirementsDetail": "Doğrulanmış e-posta, en az 13 yaş, bir DevEx portalı hesabı, dosyada bir vergi formu ve kurallara uygun bir hesap.",
       "robloxReviewsDetail": "Hangi Robux'ların uygun olduğuna ve talebin onaylanıp onaylanmayacağına Roblox karar verir. Süreç burada bitebilir ve bunu hiçbir üçüncü taraf değiştiremez.",
       "robloxReviewsBy": "yalnızca Roblox",
-      "paymentIssuedDetail": "Oradan sonra sağlayıcınız ve bankanız kendi işlem süreçlerini ve ücretlerini uygular."
+      "paymentIssuedDetail": "Oradan sonra sağlayıcınız ve bankanız kendi işlem süreçlerini ve ücretlerini uygular.",
+      "reachMinimumDetail": "En az {minimum} ve buna yalnızca Earned Robux sayılır."
     },
     "list": {
       "meetRequirements": "Hesap koşullarını karşılayın.",

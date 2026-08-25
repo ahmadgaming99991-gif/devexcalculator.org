@@ -36,6 +36,9 @@
         "p2": "Die datierte Geschichte der Kursänderungen ansehen",
         "p3": "Nachsehen, wann diese Website ihre Daten zuletzt aktualisiert hat"
       }
+    },
+    "prose": {
+      "noForecast": "Roblox hat den Standardsatz am {date} von 0,0035 auf 0,0038 geändert. Von außen lässt sich nicht wissen, ob oder wann er sich wieder ändert, deshalb macht diese Seite keine Prognose. Festgehalten wird das Datum, an dem jede Zahl hier zuletzt anhand der offiziellen Dokumentation geprüft wurde — oben auf der Seite und im {sourceRegistry}."
     }
   },
   "rateHistory": {
@@ -76,7 +79,8 @@
       }
     },
     "prose": {
-      "legacySplit": "Roblox zahlt zuerst den vor dem Übergang verdienten Teil eines Guthabens zu 0,0035 aus, dann den Rest zu 0,0038. Die Aufteilung ist Roblox’ eigene Buchführung darüber, wann jeder Robux verdient wurde — nichts, was ein Creator auswählt oder anpassen kann."
+      "legacySplit": "Roblox zahlt zuerst den vor dem Übergang verdienten Teil eines Guthabens zu 0,0035 aus, dann den Rest zu 0,0038. Die Aufteilung ist Roblox’ eigene Buchführung darüber, wann jeder Robux verdient wurde — nichts, was ein Creator auswählt oder anpassen kann.",
+      "whenItChanges": "Roblox hat den Satz schon einmal geändert und kann ihn wieder ändern. Niemand außerhalb von Roblox weiß, ob oder wann, und eine als Analyse verkleidete Vorhersage wäre eine Vermutung im Brustton der Überzeugung. Diese Seite hält nur Änderungen fest, die die offizielle Dokumentation bestätigt, jede mit ihrem Wirksamkeitsdatum. Tritt eine Änderung ein, erscheint sie hier und im {changelog}, zusammen mit dem Datum der Prüfung."
     }
   },
   "requirements": {
@@ -149,6 +153,9 @@
     "threshold": {
       "below": "Unterhalb der Linie lässt sich überhaupt kein DevEx-Antrag stellen. Knapp darunter zu liegen zählt nicht, und der Fehlbetrag muss verdient werden — kaufen lässt er sich nicht.",
       "above": "Auf oder über der Linie kann ein Antrag gestellt werden. Er wird dann geprüft, und die Schwelle zu erreichen ist nicht dasselbe wie bewilligt zu werden."
+    },
+    "prose": {
+      "earnedOnly": "Das entscheidende Wort ist {earned}. Gekaufte Robux zählen dafür nicht, und Guthaben aus einer Geschenkkarte ebenso wenig. {earnedRobuxLink}"
     }
   },
   "earnedRobux": {
@@ -342,7 +349,8 @@
     },
     "prose": {
       "browseHub": "{conversionHub} für weitere Beträge und Einzelheiten.",
-      "officialPage": "Es gibt keine einzelne Zahl, die für jedes Paket, jedes Land und jede Plattform stimmt; eine zu nennen hieße, sie zu erfinden. Was Sie tatsächlich zahlen würden, steht auf {officialPage}."
+      "officialPage": "Es gibt keine einzelne Zahl, die für jedes Paket, jedes Land und jede Plattform stimmt; eine zu nennen hieße, sie zu erfinden. Was Sie tatsächlich zahlen würden, steht auf {officialPage}.",
+      "commissionOnce": "Der Abstand zwischen beiden besteht, weil Roblox eine Plattform betreibt, die Zahlungsabwicklung übernimmt und dafür eine Provision nimmt. {marketplaceCalculator}, und sie wird bei der Auszahlung nicht erneut berechnet."
     }
   },
   "usdToRobux": {
@@ -385,6 +393,10 @@
         "p1": "Diese Seite beantwortet die Creator-Frage: wie viel muss ich verdienen, um einen bestimmten Geldbetrag zu erhalten. Sie sagt nicht, wie viele Robux ein bestimmter Geldbetrag kauft. Roblox legt die Preise von Robux-Paketen nach Region, Plattform und Aktion fest, und es gäbe keinen einzelnen Kurs, der für alle stimmt — deshalb veröffentlicht diese Website keinen.",
         "p2": "Die Unterscheidung ist auf der Seite Robux zu USD vollständig erklärt"
       }
+    },
+    "prose": {
+      "division": "Ein Auszahlungsziel ist eine Entfernung. Es in ein Datum zu übersetzen braucht eine Angabe mehr — wie schnell Sie verdienen — und ein Datum in einen Plan zu übersetzen braucht dieselbe Angabe umgekehrt. Beides ist dieselbe Division: {formula}, aufgerundet, denn ein angefangener Tag bringt nichts ein und einen Teil-Robux gibt es nicht. Nichts hier unterstellt wachsende Einnahmen, und nichts hier ist ein Datum, an dem Roblox zahlt — Roblox veröffentlicht keine DevEx-Bearbeitungszeit, also wird keine eingerechnet.",
+      "divisionFormula": "Tage = verbleibende Earned Robux ÷ Earned Robux pro Tag"
     }
   },
   "robuxTax": {
@@ -501,6 +513,12 @@
       "robux500000": "Eine halbe Million Earned Robux ist die Größenordnung, ab der Gebühren des Zahlungsdienstleisters und persönliche Steuerpflichten keine Rundungsfehler mehr sind — deshalb verweist diese Seite direkt auf den Leitfaden zu Gebühren und Steuern.",
       "robux1000000": "Eine Million Robux ist der Meilenstein, nach dem Creator tatsächlich suchen, und das deutlichste Beispiel dafür, warum Kaufpreis und DevEx-Auszahlung nicht dieselbe Zahl sind.",
       "robux10000000": "Zehn Millionen Earned Robux stehen für dauerhafte Einnahmen aus einer großen Experience. In dieser Größenordnung verändert die Aufteilung zwischen Standard- und Altguthaben sowie jeder qualifizierende USA-18+-Anteil die Summe um Tausende von Dollar."
-    }
+    },
+    "intro": "Was {display} berechtigte Earned Robux unter jedem der drei dokumentierten DevEx-Sätze ergeben.",
+    "headlineHeading": "Was {display} Robux wert sind",
+    "eligibleLabel": "{display} berechtigte Earned Robux",
+    "clearsMinimum": "Das ist das {multiple}-Fache des Minimums von {minimum} Earned Robux, die Schwelle für einen Antrag ist also überschritten. Die Schwelle zu überschreiten ist keine Bewilligung — Roblox prüft jeden Antrag.",
+    "belowMinimum": "Das liegt unter dem Minimum von {minimum} Earned Robux, mit diesem Guthaben lässt sich also noch kein DevEx-Antrag stellen.",
+    "reachingCaption": "Ob {display} Earned Robux gängige Auszahlungsziele abdecken"
   }
 }

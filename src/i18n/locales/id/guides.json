@@ -103,7 +103,8 @@
       "meetRequirementsDetail": "Email terverifikasi, usia minimal 13 tahun, akun portal DevEx, formulir pajak yang sudah diserahkan, dan status akun yang baik.",
       "robloxReviewsDetail": "Roblox memutuskan Robux mana yang memenuhi syarat dan apakah permintaan disetujui. Prosesnya bisa berhenti di sini, dan tidak ada pihak ketiga yang bisa mengubahnya.",
       "robloxReviewsBy": "hanya Roblox",
-      "paymentIssuedDetail": "Sejak titik itu, penyedia dan bank Anda menerapkan penanganan dan biaya mereka sendiri."
+      "paymentIssuedDetail": "Sejak titik itu, penyedia dan bank Anda menerapkan penanganan dan biaya mereka sendiri.",
+      "reachMinimumDetail": "Setidaknya {minimum}, dan hanya Earned Robux yang dihitung untuk itu."
     },
     "list": {
       "meetRequirements": "Penuhi persyaratan akun.",

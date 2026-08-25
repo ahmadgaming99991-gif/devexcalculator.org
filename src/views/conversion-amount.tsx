@@ -47,7 +47,7 @@ export async function AmountView({
   readonly locale: Locale;
   readonly slug: string;
 }) {
-  const t = await getTranslator(locale, ["rates"]);
+  const t = await getTranslator(locale, ["calculator", "rates"]);
   const amount = parseAmountSlug(slug);
   if (amount === null) notFound();
 
@@ -76,7 +76,7 @@ export async function AmountView({
         <Breadcrumbs locale={locale} route={route} />
         <PageHeader locale={locale}
           record={localized}
-          intro={`What ${values.display} eligible Earned Robux converts to under each of the three documented DevEx rates.`}
+          intro={t("rates.amountPage.intro", { display: values.display })}
         />
 
         <div className="flex flex-col gap-10">
@@ -86,31 +86,25 @@ export async function AmountView({
 
           <Section
             id="value"
-            heading={`What ${values.display} Robux is worth`}
+            heading={t("rates.amountPage.headlineHeading", { display: values.display })}
             description={t("rates.amountPage.headlineDescription")}
           >
             <div className="rounded-(--radius-card) border border-(--color-border) bg-(--color-surface-subtle) p-5">
               <p className="text-sm font-medium text-(--color-text-muted)">
-                {values.display} eligible Earned Robux
+                {t("rates.amountPage.eligibleLabel", { display: values.display })}
               </p>
               <p className="numeric-display mt-1 text-4xl font-bold text-(--color-text)">
                 {values.standardUsd}
               </p>
               <p className="mt-2 text-sm text-(--color-text-muted)">
-                {values.meetsMinimum ? (
-                  <>
-                    That is {values.multipleOfMinimum} times the{" "}
-                    {formatRobux(minimumEarnedRobux)} Earned Robux minimum, so it
-                    clears the threshold to submit a request. Clearing the
-                    threshold is not approval — Roblox reviews every request.
-                  </>
-                ) : (
-                  <>
-                    This is below the {formatRobux(minimumEarnedRobux)} Earned
-                    Robux minimum, so a DevEx request cannot be submitted at this
-                    balance yet.
-                  </>
-                )}
+                {values.meetsMinimum
+                  ? t("rates.amountPage.clearsMinimum", {
+                      multiple: values.multipleOfMinimum,
+                      minimum: formatRobux(minimumEarnedRobux),
+                    })
+                  : t("rates.amountPage.belowMinimum", {
+                      minimum: formatRobux(minimumEarnedRobux),
+                    })}
               </p>
               <p className="mt-4">
                 <InlineLink href={`/?robux=${amount}`}>{t("rates.amountPage.body.value.p1")}</InlineLink>
@@ -189,10 +183,14 @@ export async function AmountView({
                     description={t("rates.amountPage.reachingDescription")}
                   >
                     <TableWrapper label={t("rates.amountPage.reachingLabel")}>
-                      <Table caption={`Whether ${values.display} Earned Robux covers common payout targets`}>
+                      <Table
+                        caption={t("rates.amountPage.reachingCaption", {
+                          display: values.display,
+                        })}
+                      >
                         <thead>
                           <tr>
-                            <Th>Payout target</Th>
+                            <Th>{t("calculator.inputs.payoutTarget.label")}</Th>
                             <Th numeric>{t("rates.amountPage.columnRobuxNeeded")}</Th>
                             <Th>
               {t("rates.amountPage.body.reverse.p1", {

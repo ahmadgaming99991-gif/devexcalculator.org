@@ -71,6 +71,9 @@ const NOT_PAGE_COPY = [
   // and is translated like any other page.
   "src/lib/api/contract.ts",
   "src/lib/content/llms.ts",
+  // The i18n machinery reads its own list of protected names — "Roblox",
+  // "Earned Robux", "API" — which is a list of things not to translate.
+  "src/i18n/coverage.ts",
   // The SEO report generators. Their sentences are written to
   // `dist/reports/` for whoever is working on the site, never to a page.
   "src/lib/seo/pipeline.ts",

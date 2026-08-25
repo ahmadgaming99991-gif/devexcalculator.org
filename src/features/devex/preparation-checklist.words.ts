@@ -12,12 +12,18 @@
  * remember.
  */
 export const PREPARATION_WORDS: readonly string[] = [
+  "calculator.preparation.balanceStep",
   "calculator.preparation.body.intro.p1",
   "calculator.preparation.body.intro.p2",
   "calculator.preparation.body.intro.p3",
   "calculator.preparation.body.intro.p4",
+  "calculator.preparation.destinationStep",
   "calculator.preparation.earnedRobuxLink",
   "calculator.preparation.feesLink",
+  "calculator.preparation.portalAccount",
   "calculator.preparation.preparedNotApprovedTitle",
   "calculator.preparation.robloxDecides",
+  "calculator.preparation.standingStep",
+  "calculator.preparation.taxFormStep",
+  "calculator.preparation.verifyEmail",
 ];

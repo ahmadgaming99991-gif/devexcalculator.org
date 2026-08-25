@@ -231,7 +231,8 @@
       }
     },
     "prose": {
-      "rateHistory": "Rate changes made by Roblox are also reflected in the {rateHistory}, which is a separate record: the changelog tracks what this site did, the rate history tracks what Roblox did."
+      "rateHistory": "Rate changes made by Roblox are also reflected in the {rateHistory}, which is a separate record: the changelog tracks what this site did, the rate history tracks what Roblox did.",
+      "notSilent": "A correction is not silently applied — if a figure on this site was wrong, the record of it being wrong stays visible. That matters more for a site people plan finances around than a tidy history does."
     }
   },
   "changelog": {

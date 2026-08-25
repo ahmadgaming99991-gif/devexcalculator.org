@@ -240,7 +240,8 @@
       }
     },
     "prose": {
-      "rateHistory": "Perubahan tarif yang dilakukan Roblox juga tercermin di {rateHistory}, yang merupakan catatan terpisah: changelog melacak apa yang dilakukan situs ini, riwayat tarif melacak apa yang dilakukan Roblox."
+      "rateHistory": "Perubahan tarif yang dilakukan Roblox juga tercermin di {rateHistory}, yang merupakan catatan terpisah: changelog melacak apa yang dilakukan situs ini, riwayat tarif melacak apa yang dilakukan Roblox.",
+      "notSilent": "Sebuah koreksi tidak diterapkan diam-diam — jika sebuah angka di situs ini keliru, catatan bahwa angka itu keliru tetap terlihat. Bagi situs yang dipakai orang untuk merencanakan keuangan, itu lebih penting daripada riwayat yang rapi."
     }
   },
   "changelog": {

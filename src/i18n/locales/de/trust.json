@@ -242,7 +242,8 @@
       }
     },
     "prose": {
-      "rateHistory": "Von Roblox vorgenommene Satzänderungen erscheinen auch in der {rateHistory}, einem eigenen Verzeichnis: Das Changelog verfolgt, was diese Website getan hat, die Satzhistorie, was Roblox getan hat."
+      "rateHistory": "Von Roblox vorgenommene Satzänderungen erscheinen auch in der {rateHistory}, einem eigenen Verzeichnis: Das Changelog verfolgt, was diese Website getan hat, die Satzhistorie, was Roblox getan hat.",
+      "notSilent": "Eine Korrektur wird nicht stillschweigend vorgenommen — war eine Zahl auf dieser Website falsch, bleibt der Vermerk darüber sichtbar. Für eine Website, um die herum Menschen ihre Finanzen planen, zählt das mehr als eine aufgeräumte Historie."
     }
   },
   "changelog": {

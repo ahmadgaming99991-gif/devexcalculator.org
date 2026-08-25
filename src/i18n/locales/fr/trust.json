@@ -244,7 +244,8 @@
       }
     },
     "prose": {
-      "rateHistory": "Les changements de taux opérés par Roblox se reflètent aussi dans l’{rateHistory}, qui est un registre distinct : le changelog suit ce qu’a fait ce site, l’historique des taux suit ce qu’a fait Roblox."
+      "rateHistory": "Les changements de taux opérés par Roblox se reflètent aussi dans l’{rateHistory}, qui est un registre distinct : le changelog suit ce qu’a fait ce site, l’historique des taux suit ce qu’a fait Roblox.",
+      "notSilent": "Une correction n’est pas appliquée en silence : si un chiffre de ce site était faux, la trace de cette erreur reste visible. Sur un site autour duquel des gens organisent leurs finances, cela compte plus qu’un historique bien rangé."
     }
   },
   "changelog": {

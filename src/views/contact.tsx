@@ -1,3 +1,5 @@
+import { localizedPath } from "@/i18n/locale-path";
+import { rich } from "@/i18n/rich";
 import { loadWords } from "@/i18n/client-words";
 import { getTranslator } from "@/i18n/get-dictionary";
 import Link from "next/link";
@@ -15,7 +17,7 @@ const ROUTE = "/contact/";
 
 
 export async function ContactView({ locale }: { readonly locale: Locale }) {
-  const t = await getTranslator(locale, ["contact"]);
+  const t = await getTranslator(locale, ["contact", "trust"]);
   const record = await localizedRoute(locale, ROUTE);
   const mode = getContactMode();
   const email = siteConfig.contactEmail;
@@ -40,17 +42,24 @@ export async function ContactView({ locale }: { readonly locale: Locale }) {
               // not do.
               email ? (
                 <Callout tone="info" title={t("contact.page.emailIsTheWayTitle")}>
-                  {t("contact.page.body.form.p1")}
-                <a href={`mailto:${email}`} className="font-semibold">
-                                {email}
-                              </a>
-                              . Please include the page you were on and, for a correction, a
-                              link to the official source.
-                            </Callout>
+                  {rich(t("contact.page.prose.emailIsTheWay"), {
+                    email: (
+                      <a href={`mailto:${email}`} className="font-semibold">
+                        {email}
+                      </a>
+                    ),
+                  })}
+                </Callout>
                           ) : (
                             <Callout tone="warning" title={t("contact.page.notConfiguredTitle")}>
-                  {t("contact.page.body.form.p2")}
-                <Link href="/sources/">source registry</Link>{t("contact.page.body.form.p3")}</Callout>
+                              {rich(t("contact.page.prose.notConfigured"), {
+                                sourceRegistry: (
+                                  <Link href={localizedPath(locale, "/sources/")}>
+                                    {t("trust.sources.registryHeading")}
+                                  </Link>
+                                ),
+                              })}
+                            </Callout>
                           )
                         ) : (
                           <>

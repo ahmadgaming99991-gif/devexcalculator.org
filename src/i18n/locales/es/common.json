@@ -5,7 +5,8 @@
     "footer.feedJson",
     "sections.sourcesHeading",
     "social.instagramName",
-    "social.pinterestName"
+    "social.pinterestName",
+    "units.earnedWord"
   ],
   "brand": {
     "tagline": "Estimaciones independientes de pagos DevEx para creadores de Roblox, con cada cifra rastreada hasta una fuente oficial.",
@@ -111,7 +112,8 @@
     "legacyRate": "Antigua",
     "usEighteenPlus": "EE. UU. 18+",
     "minimum": "Mínimo",
-    "rate": "Tasa"
+    "rate": "Tasa",
+    "earnedWord": "Earned"
   },
   "social": {
     "youtube": "DevEx Calculator en YouTube",
@@ -150,7 +152,11 @@
       }
     },
     "legacyAppliesTo": "Saldos obtenidos antes del {effectiveTo}.",
-    "effectiveFrom": "Desde el {effectiveFrom}."
+    "effectiveFrom": "Desde el {effectiveFrom}.",
+    "prose": {
+      "workingBackwards": "Ir hacia atrás divide en su lugar, y siempre redondea hacia arriba: un objetivo de {target} necesita {required} Earned Robux, porque {shortfall} se quedaría una fracción corto."
+    },
+    "calculationFormula": "Earned Robux elegibles × tasa por Robux = pago estimado en USD"
   },
   "charts": {
     "body": {
@@ -181,6 +187,14 @@
     "days": {
       "one": "{days} día",
       "other": "{days} días"
+    },
+    "weeks": {
+      "one": "{weeks} semana",
+      "other": "{weeks} semanas"
+    },
+    "months": {
+      "one": "{months} mes",
+      "other": "{months} meses"
     }
   }
 }

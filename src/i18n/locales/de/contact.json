@@ -47,7 +47,9 @@
       "intro": {
         "p1": "Danke. Wenn du eine sachliche Korrektur gemeldet hast, wird sie gegen die offizielle Dokumentation geprüft, bevor irgendetwas geändert wird."
       }
-    }
+    },
+    "networkFailed": "Die Nachricht konnte nicht gesendet werden — die Netzwerkanfrage ist fehlgeschlagen. Bitte versuchen Sie es erneut.",
+    "messageHint": "Mindestens {min} Zeichen. Wenn Sie eine Korrektur melden, ist ein Link zur offiziellen Seite das Nützlichste, was Sie beilegen können."
   },
   "responses": {
     "sent": "Nachricht erhalten. Danke.",

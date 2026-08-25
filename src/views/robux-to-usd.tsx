@@ -1,3 +1,5 @@
+import { localizedPath } from "@/i18n/locale-path";
+import { rich } from "@/i18n/rich";
 import { loadWords } from "@/i18n/client-words";
 import { getTranslator } from "@/i18n/get-dictionary";
 import { localizedRoute } from "@/i18n/localized-route";
@@ -44,7 +46,7 @@ export async function RobuxToUsdView({
         />
 
         <div className="flex flex-col gap-10">
-          <QuickAnswer locale={locale} jumpTo="two-answers" jumpLabel="Why there are two answers">
+          <QuickAnswer locale={locale} jumpTo="two-answers" jumpLabel={t("rates.robuxToUsd.jumpLabel")}>
             {record.quickAnswer}
           </QuickAnswer>
 
@@ -54,7 +56,7 @@ export async function RobuxToUsdView({
 
           <Section
             id="two-answers"
-            heading="Why there are two answers"
+            heading={t("rates.robuxToUsd.twoAnswersHeading")}
             description={t("rates.robuxToUsd.twoAnswersDescription")}
           >
             <div className="grid gap-4 sm:grid-cols-2">
@@ -125,10 +127,14 @@ export async function RobuxToUsdView({
             </TableWrapper>
 
             <p className="mt-4 text-sm text-(--color-text-muted)">
-              {t("rates.robuxToUsd.body.comparison.p1")}
-            <InlineLink href="/robux-tax-calculator/">{t("rates.robuxToUsd.body.comparison.p2")}</InlineLink>
-                      , and it is not charged again at cash-out.
-                    </p>
+              {rich(t("rates.robuxToUsd.prose.commissionOnce"), {
+                marketplaceCalculator: (
+                  <InlineLink href={localizedPath(locale, "/robux-tax-calculator/")}>
+                    {t("rates.robuxToUsd.body.comparison.p2")}
+                  </InlineLink>
+                ),
+              })}
+            </p>
                   </Section>
         
                   <Section
@@ -136,7 +142,7 @@ export async function RobuxToUsdView({
                     heading={t("rates.robuxToUsd.formulaHeading")}
                     description={t("rates.robuxToUsd.formulaDescription")}
                   >
-                    <FormulaBlock />
+                    <FormulaBlock t={t} />
                   </Section>
         
                   <Section

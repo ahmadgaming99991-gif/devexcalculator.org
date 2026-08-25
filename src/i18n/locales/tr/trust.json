@@ -240,7 +240,8 @@
       }
     },
     "prose": {
-      "rateHistory": "Roblox'un yaptığı oran değişiklikleri {rateHistory} içinde de görünür; bu ayrı bir kayıttır: changelog bu sitenin ne yaptığını, oran geçmişi ise Roblox'un ne yaptığını izler."
+      "rateHistory": "Roblox'un yaptığı oran değişiklikleri {rateHistory} içinde de görünür; bu ayrı bir kayıttır: changelog bu sitenin ne yaptığını, oran geçmişi ise Roblox'un ne yaptığını izler.",
+      "notSilent": "Bir düzeltme sessizce uygulanmaz — bu sitedeki bir rakam yanlışsa, yanlış olduğuna dair kayıt görünür kalır. İnsanların etrafında mali plan yaptığı bir site için bu, derli toplu bir geçmişten daha önemlidir."
     }
   },
   "changelog": {

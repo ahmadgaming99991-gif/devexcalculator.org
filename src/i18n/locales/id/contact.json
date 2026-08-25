@@ -47,7 +47,9 @@
       "intro": {
         "p1": "Terima kasih. Jika Anda melaporkan koreksi fakta, hal itu akan diperiksa terhadap dokumentasi resmi sebelum ada yang diubah."
       }
-    }
+    },
+    "networkFailed": "Pesan tidak dapat dikirim — permintaan jaringan gagal. Silakan coba lagi.",
+    "messageHint": "Minimal {min} karakter. Jika Anda melaporkan sebuah koreksi, tautan ke halaman resmi adalah hal paling berguna yang bisa Anda sertakan."
   },
   "responses": {
     "sent": "Pesan diterima. Terima kasih.",

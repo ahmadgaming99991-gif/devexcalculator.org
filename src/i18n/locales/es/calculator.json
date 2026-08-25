@@ -3,6 +3,8 @@
   "$identical": [
     "planner.columnStage",
     "results.columnSubtotal",
+    "results.summary.bucketLine",
+    "results.summary.earnedRobux",
     "results.total"
   ],
   "srHeading": "Calculadora de pagos DevEx",
@@ -98,7 +100,26 @@
         "p8": "las cifras usan",
         "p9": "Tasas desactualizadas. {staleReason}"
       }
-    }
+    },
+    "copyDisclaimer": "Estimación de devexcalculator.org: no es una garantía de aprobación.",
+    "announceQuick": "{robux} Earned Robux son unos {value} con la {rate}.",
+    "announceTarget": "con la {rate}, redondeado a Robux enteros",
+    "announceRate": "con la {rate} de {rateValue} USD por Robux",
+    "summary": {
+      "payoutTarget": "Objetivo de pago: {value}",
+      "rate": "Tasa: {rate} ({rateValue} USD por Robux)",
+      "robuxNeeded": "Earned Robux necesarios: {robux}",
+      "minimumApplies": "Se aplica el mínimo: {robux} en la práctica",
+      "earnedRobux": "Earned Robux: {robux}",
+      "bucketLine": "  {rate}: {robux} = {usd}",
+      "grossPayout": "Pago bruto: {value}",
+      "afterEstimates": "Después de tus estimaciones de comisión e impuestos: {value}",
+      "estimatedPayout": "Pago estimado: {value}",
+      "minimumMet": "Mínimo: alcanzado",
+      "minimumShort": "Mínimo: faltan {robux}"
+    },
+    "announceSplit": "{robux} Earned Robux entre todos los tramos son unos {value}.",
+    "announceSplitGross": "bruto, antes de comisiones e impuestos, a partir de {robux} Earned Robux"
   },
   "target": {
     "explanation": "{target} ÷ ${rate} por Robux = {exact}, redondeado hacia arriba a {required} Earned Robux enteros. Eso paga {payout}, que es la primera cantidad en Robux enteros que alcanza tu objetivo en lugar de quedarse justo por debajo.",
@@ -112,7 +133,7 @@
   "groupSplit": {
     "memberName": "Miembro {number}",
     "unnamed": "Sin nombre",
-    "earnedOnlyNote": "Solo se pueden cambiar Earned Robux. Los Robux comprados y regalados no.",
+    "earnedOnlyNote": "Solo se pueden canjear los Earned Robux. Los Robux comprados o regalados, no.",
     "valuedAt": "Valorado en",
     "tableLabel": "La parte de cada miembro en el saldo del grupo",
     "tableCaption": "El porcentaje de cada miembro sobre los Earned Robux del grupo, los Robux que representa y el pago a la tasa estándar de DevEx.",
@@ -137,6 +158,14 @@
     },
     "prose": {
       "robloxDoesNotDivide": "Una solicitud de DevEx la envía una cuenta individual y se paga a esa cuenta. Roblox no reparte un pago entre colaboradores, y un acuerdo de reparto de ingresos dentro de un grupo es cosa de las personas que lo forman. Lo que esto calcula es a cuánto asciende la parte acordada de cada persona: no algo que Roblox vaya a hacer en su nombre, ni una cifra que Roblox haya aceptado."
+    },
+    "belowMinimumTitle": {
+      "one": "{below} de {total} no puede enviar una solicitud de DevEx",
+      "other": "{below} de {total} no pueden enviar una solicitud de DevEx"
+    },
+    "belowMinimumBody": {
+      "one": "El mínimo de {minimum} se aplica al saldo que envía una persona, no a lo que ganó el grupo. Este grupo tiene {total} Earned Robux, y {names} sigue por debajo del mínimo de forma individual.",
+      "other": "El mínimo de {minimum} se aplica al saldo que envía una persona, no a lo que ganó el grupo. Este grupo tiene {total} Earned Robux, y {names} siguen por debajo del mínimo de forma individual."
     }
   },
   "preparation": {
@@ -154,7 +183,11 @@
         "p3": "Roblox revisa cada solicitud según sus propios criterios después de enviarla, y no publica qué haría que se rechazara. Una lista de comprobación en un navegador no tiene ningún peso en esa revisión.",
         "p4": "En qué consiste el proceso de envío"
       }
-    }
+    },
+    "balanceStep": "Confirma que el saldo es realmente de Earned Robux y ha llegado a {minimum}. {earnedRobuxLink}",
+    "taxFormStep": "Rellena el formulario fiscal correcto: W-9 si tributas en Estados Unidos, W-8 en caso contrario.",
+    "standingStep": "Comprueba que la cuenta esté en regla con las Condiciones de uso y las Normas de la comunidad.",
+    "destinationStep": "Decide adónde va el dinero y comprueba cuánto cobrará el banco o el proveedor de pagos por recibirlo. {feesLink}"
   },
   "currency": {
     "loading": "Cargando tipos de referencia…",
@@ -266,7 +299,20 @@
     "pickDateHeadline": "Elige una fecha.",
     "prose": {
       "estimateNotice": "Cada cifra aquí es una estimación producida a partir de lo que introdujiste. Alcanzar {minimumRobux} Earned Robux te permite enviar una solicitud de DevEx; no significa que vaya a aprobarse. Roblox revisa la elegibilidad, el estado de la cuenta y el cumplimiento, y decide sobre cada solicitud por su cuenta. Las tasas pueden cambiar, y una proyección supone que sigues ganando al ritmo que indicaste."
-    }
+    },
+    "paceHint": "Lo que ganas ahora. La proyección no supone que aumente.",
+    "deadlineLabel": "Fecha para la que quieres el pago",
+    "belowMinimumNote": "Tu objetivo solo necesita {required}, pero DevEx no se puede solicitar por debajo de {minimum}.",
+    "progressNote": "{progressPercent}% del camino.",
+    "notAtThisPace": "No a este ritmo",
+    "alreadyReached": "Ya alcanzado",
+    "alreadyEnoughDetail": "Tu saldo de {current} Earned Robux cubre los {needed} que necesita este plan. Alcanzar el mínimo no es una aprobación: eso lo decide Roblox.",
+    "paceHeadline": "A unos {days} de distancia, alrededor del {date}.",
+    "paceDetail": "A {perDay} Earned Robux al día, mantenidos de forma constante: unas {weeks}, o {months}. Es una proyección al ritmo que indicaste, no una fecha en la que Roblox vaya a pagar.",
+    "requiredHeadline": "{perDay} Earned Robux al día.",
+    "requiredDetail": "Eso son {perWeek} por semana, o {perMonth} a lo largo de 30 días. Cada cifra se redondea hacia arriba: ganar la cantidad redondeada hacia abajo no llegaría a la fecha.",
+    "columnReachedIn": "Alcanzado en",
+    "columnNeededEachDay": "Necesario cada día"
   },
   "controls": {
     "body": {
@@ -276,7 +322,9 @@
       "presetsLabel": {
         "p1": "Cantidades rápidas"
       }
-    }
+    },
+    "rateFallbackNote": "Roblox decide qué tasa se aplica a tu saldo.",
+    "rateOption": "{rate} — {rateValue} USD por Robux"
   },
   "body": {
     "intro": {
@@ -285,5 +333,15 @@
       "p3": "Las estimaciones usan las tasas que Roblox documenta actualmente. El mínimo de {minimumEarnedRobux} Earned Robux es un requisito para enviar una solicitud, no una aprobación. Roblox decide qué Robux califican y si alguna solicitud prospera.",
       "p5": "Guardados solo en este navegador. No se sube nada, y borrar los datos del navegador los elimina."
     }
+  },
+  "actions": {
+    "copied": "{label} copiado al portapapeles.",
+    "copyFailed": "No se pudo copiar {label}.",
+    "shareCopied": "Enlace para compartir copiado al portapapeles.",
+    "shareCopyFailed": "No se pudo copiar el enlace.",
+    "copiedLabel": "Copiado",
+    "copyFailedLabel": "Error al copiar",
+    "share": "Compartir",
+    "copyLink": "Copiar enlace"
   }
 }

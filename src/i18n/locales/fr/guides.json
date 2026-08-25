@@ -103,7 +103,8 @@
       "meetRequirementsDetail": "Adresse e-mail vérifiée, âge minimum de 13 ans, un compte sur le portail DevEx, un formulaire fiscal déposé, un compte en règle.",
       "robloxReviewsDetail": "Roblox décide quels Robux sont éligibles et s’il approuve la demande. Tout peut s’arrêter ici, et aucun tiers n’y change quoi que ce soit.",
       "robloxReviewsBy": "Roblox seul",
-      "paymentIssuedDetail": "À partir de là, votre prestataire et votre banque appliquent leur propre traitement et leurs propres frais."
+      "paymentIssuedDetail": "À partir de là, votre prestataire et votre banque appliquent leur propre traitement et leurs propres frais.",
+      "reachMinimumDetail": "Au moins {minimum}, et seuls les Earned Robux y comptent."
     },
     "list": {
       "meetRequirements": "Remplissez les conditions du compte.",

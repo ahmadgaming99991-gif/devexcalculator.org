@@ -1,3 +1,5 @@
+import { rich } from "@/i18n/rich";
+import { localizedPath } from "@/i18n/locale-path";
 import { getTranslator } from "@/i18n/get-dictionary";
 import { localizedRoute } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
@@ -26,7 +28,7 @@ const ROUTE = "/devex-rates/";
 const EXAMPLE_AMOUNTS = [1_000, 30_000, 100_000, 1_000_000] as const;
 
 export async function DevexRatesView({ locale }: { readonly locale: Locale }) {
-  const t = await getTranslator(locale, ["rates"]);
+  const t = await getTranslator(locale, ["rates", "trust"]);
   const record = await localizedRoute(locale, ROUTE);
   const standard = getRateValue(standardRateId);
 
@@ -147,11 +149,19 @@ export async function DevexRatesView({ locale }: { readonly locale: Locale }) {
             description={t("rates.devexRates.canChangeDescription")}
           >
             <p className="text-(--color-text-muted)">
-              {t("rates.devexRates.body.changes.p1", {
-                date: formatDate("2025-09-05T10:00:00-07:00"),
-              })}
-            <InlineLink href="/sources/">source registry</InlineLink>.
-                    </p>
+              {rich(
+                t("rates.devexRates.prose.noForecast", {
+                  date: formatDate("2025-09-05T10:00:00-07:00"),
+                }),
+                {
+                  sourceRegistry: (
+                    <InlineLink href={localizedPath(locale, "/sources/")}>
+                      {t("trust.sources.registryHeading")}
+                    </InlineLink>
+                  ),
+                },
+              )}
+            </p>
                     <p className="mt-3 text-(--color-text-muted)">
                       <InlineLink href="/devex-rate-history/">{t("rates.devexRates.body.changes.p2")}</InlineLink>{" "}
                       ·{" "}

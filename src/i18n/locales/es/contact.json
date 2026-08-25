@@ -47,7 +47,9 @@
       "intro": {
         "p1": "Gracias. Si has informado de una corrección factual, se comprobará contra la documentación oficial antes de cambiar nada."
       }
-    }
+    },
+    "networkFailed": "No se pudo enviar el mensaje: la petición de red falló. Inténtalo de nuevo.",
+    "messageHint": "Al menos {min} caracteres. Si estás informando de una corrección, un enlace a la página oficial es lo más útil que puedes incluir."
   },
   "responses": {
     "sent": "Mensaje recibido. Gracias.",

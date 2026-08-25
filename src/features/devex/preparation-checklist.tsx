@@ -1,6 +1,7 @@
 "use client";
 
 import { translatorFor, type LocaleWords } from "@/i18n/client-words";
+import { rich } from "@/i18n/rich";
 import type { Translate } from "@/i18n/get-dictionary";
 import { useId, useMemo, useState, type ReactNode } from "react";
 import { loadChecklist, saveChecklist } from "./storage";
@@ -33,55 +34,65 @@ interface Step {
   readonly label: ReactNode;
 }
 
-function steps(t: Translate): readonly Step[] {
+/**
+ * The list, in one language.
+ *
+ * The two links are passed in rather than written here: this is a Client
+ * Component, and the locale it is standing in is known only to the server
+ * that rendered it. A hardcoded `/earned-robux/` would send a Spanish reader
+ * to the English page.
+ */
+function steps(
+  t: Translate,
+  earnedRobuxHref: string,
+  feesHref: string,
+): readonly Step[] {
   return [
     {
       id: "balance",
-      label: (
-        <>
-          Confirm the balance is genuinely Earned Robux and has reached{" "}
-          {formatRobux(BigInt(minimumEarnedRobux))}.{" "}
-          <InlineLink href="/earned-robux/">{t("calculator.preparation.earnedRobuxLink")}</InlineLink>
-        </>
-      ),
+      label: rich(t("calculator.preparation.balanceStep"), {
+        minimum: formatRobux(BigInt(minimumEarnedRobux)),
+        earnedRobuxLink: (
+          <InlineLink href={earnedRobuxHref}>
+            {t("calculator.preparation.earnedRobuxLink")}
+          </InlineLink>
+        ),
+      }),
     },
-    { id: "email", label: <>Verify the email address on the Roblox account.</> },
-    { id: "portal", label: <>Create and confirm access to the DevEx portal account.</> },
+    { id: "email", label: t("calculator.preparation.verifyEmail") },
+    { id: "portal", label: t("calculator.preparation.portalAccount") },
     {
       id: "tax-form",
-      label: (
-        <>
-          Complete the correct tax form — W-9 for a United States taxpayer, W-8
-          otherwise.
-        </>
-      ),
+      label: t("calculator.preparation.taxFormStep"),
     },
     {
       id: "standing",
-      label: (
-        <>
-          Check the account is in good standing against the Terms of Use and
-          Community Standards.
-        </>
-      ),
+      label: t("calculator.preparation.standingStep"),
     },
     {
       id: "destination",
-      label: (
-        <>
-          Decide where the money is going, and check what the bank or payment
-          provider will charge to receive it.{" "}
-          <InlineLink href="/devex-fees-and-taxes/">{t("calculator.preparation.feesLink")}</InlineLink>
-        </>
-      ),
+      label: rich(t("calculator.preparation.destinationStep"), {
+        feesLink: (
+          <InlineLink href={feesHref}>{t("calculator.preparation.feesLink")}</InlineLink>
+        ),
+      }),
     },
   ];
 }
 
-export function PreparationChecklist({ words }: { readonly words: LocaleWords }) {
+export function PreparationChecklist({
+  words,
+  earnedRobuxHref,
+  feesHref,
+}: {
+  readonly words: LocaleWords;
+  /** Both in the locale this page is being read in. */
+  readonly earnedRobuxHref: string;
+  readonly feesHref: string;
+}) {
   const t = useMemo(() => translatorFor(words), [words]);
   const groupId = useId();
-  const items = steps(t);
+  const items = steps(t, earnedRobuxHref, feesHref);
 
   /*
    * The stored value pairs with an in-session override, which is the pattern the

@@ -73,10 +73,10 @@ export async function CorrectionsView({ locale }: { readonly locale: Locale }) {
           <Section id="record" heading={t("trust.corrections.recordHeading")}>
             <p className="text-(--color-text-muted)">
               Publicly, in the{" "}
-              <InlineLink href="/changelog/">changelog</InlineLink>. A correction
-              is not silently applied — if a figure on this site was wrong, the
-              record of it being wrong stays visible. That matters more for a
-              site people plan finances around than a tidy history does.
+              <InlineLink href={localizedPath(locale, "/changelog/")}>
+                {t("trust.api.changelogLink")}
+              </InlineLink>{" "}
+              {t("trust.corrections.prose.notSilent")}
             </p>
             <p className="mt-3 text-(--color-text-muted)">
               {rich(t("trust.corrections.prose.rateHistory"), {

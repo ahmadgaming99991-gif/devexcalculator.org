@@ -8,6 +8,7 @@
     "sections.sourcesHeading",
     "social.instagramName",
     "social.pinterestName",
+    "units.earnedWord",
     "units.minimum",
     "units.standard"
   ],
@@ -115,7 +116,8 @@
     "legacyRate": "Ancien",
     "usEighteenPlus": "États-Unis 18+",
     "minimum": "Minimum",
-    "rate": "Taux"
+    "rate": "Taux",
+    "earnedWord": "Earned"
   },
   "social": {
     "youtube": "DevEx Calculator sur YouTube",
@@ -154,7 +156,11 @@
       }
     },
     "legacyAppliesTo": "Soldes acquis avant le {effectiveTo}.",
-    "effectiveFrom": "À partir du {effectiveFrom}."
+    "effectiveFrom": "À partir du {effectiveFrom}.",
+    "prose": {
+      "workingBackwards": "Le calcul inverse divise, et arrondit toujours au supérieur : un objectif de {target} exige {required} Earned Robux, car {shortfall} resterait en deçà d’une fraction."
+    },
+    "calculationFormula": "Earned Robux éligibles × taux par Robux = versement estimé en USD"
   },
   "charts": {
     "body": {
@@ -185,6 +191,14 @@
     "days": {
       "one": "{days} jour",
       "other": "{days} jours"
+    },
+    "weeks": {
+      "one": "{weeks} semaine",
+      "other": "{weeks} semaines"
+    },
+    "months": {
+      "one": "{months} mois",
+      "other": "{months} mois"
     }
   }
 }

@@ -1,5 +1,6 @@
 "use client";
 
+import { parseMessage } from "@/i18n/parse-message";
 import { translatorFor, type LocaleWords } from "@/i18n/client-words";
 import type { Translate } from "@/i18n/get-dictionary";
 import { useId, useMemo, useState } from "react";
@@ -182,7 +183,7 @@ export function Planner({ words }: { readonly words: LocaleWords }) {
             invalid={targetInvalid}
             hint={
               targetInvalid
-                ? parsedTarget.message
+                ? (parseMessage(t, parsedTarget) ?? undefined)
                 : "Before any payment-provider fee or tax."
             }
           />
@@ -220,8 +221,8 @@ export function Planner({ words }: { readonly words: LocaleWords }) {
             invalid={currentRobux.trim() !== "" && !parsedCurrent.ok}
             hint={
               currentRobux.trim() !== "" && !parsedCurrent.ok
-                ? parsedCurrent.message
-                : "Only Earned Robux count. Purchased and gifted Robux cannot be exchanged."
+                ? (parseMessage(t, parsedCurrent) ?? undefined)
+                : t("calculator.planner.earnedOnlyNote")
             }
           />
 
@@ -263,8 +264,8 @@ export function Planner({ words }: { readonly words: LocaleWords }) {
                 invalid={paceAmount.trim() !== "" && !parsedPace.ok}
                 hint={
                   paceAmount.trim() !== "" && !parsedPace.ok
-                    ? parsedPace.message
-                    : "What you earn now. The projection does not assume it grows."
+                    ? (parseMessage(t, parsedPace) ?? undefined)
+                    : t("calculator.planner.paceHint")
                 }
               />
               <div>
@@ -294,7 +295,7 @@ export function Planner({ words }: { readonly words: LocaleWords }) {
                 htmlFor={`${fieldId}-deadline`}
                 className="block text-sm font-semibold text-(--color-text)"
               >
-                Date you want the payout by
+                {t("calculator.planner.deadlineLabel")}
               </label>
               <input
                 id={`${fieldId}-deadline`}
@@ -319,7 +320,7 @@ export function Planner({ words }: { readonly words: LocaleWords }) {
               onChange={setFeePercent}
               placeholder="0"
               invalid={!parsedFee.ok}
-              hint={parsedFee.ok ? undefined : parsedFee.message}
+              hint={parseMessage(t, parsedFee) ?? undefined}
               compact
             />
             <Field
@@ -330,7 +331,11 @@ export function Planner({ words }: { readonly words: LocaleWords }) {
               onChange={setFlatFee}
               placeholder="0"
               invalid={flatFee.trim() !== "" && !parsedFlat.ok}
-              hint={flatFee.trim() === "" || parsedFlat.ok ? undefined : parsedFlat.message}
+              hint={
+                flatFee.trim() === "" || parsedFlat.ok
+                  ? undefined
+                  : (parseMessage(t, parsedFlat) ?? undefined)
+              }
               compact
             />
             <Field
@@ -341,7 +346,7 @@ export function Planner({ words }: { readonly words: LocaleWords }) {
               onChange={setTaxPercent}
               placeholder="0"
               invalid={!parsedTax.ok}
-              hint={parsedTax.ok ? undefined : parsedTax.message}
+              hint={parseMessage(t, parsedTax) ?? undefined}
               compact
             />
           </div>
@@ -362,17 +367,22 @@ export function Planner({ words }: { readonly words: LocaleWords }) {
             value={`${formatRobux(requirement.effectiveRobuxNeeded)} R$`}
             note={
               requirement.requirementIsBelowMinimum
-                ? `Your target needs only ${formatRobux(requirement.requiredRobux)}, but DevEx cannot be requested below ${formatRobux(BigInt(requirement.minimumRobux))}.`
+                ? t("calculator.planner.belowMinimumNote", {
+                    required: formatRobux(requirement.requiredRobux),
+                    minimum: formatRobux(BigInt(requirement.minimumRobux)),
+                  })
                 : undefined
             }
           />
           <Figure
-            label="Still to earn"
+            label={t("calculator.planner.stillToEarn")}
             value={`${formatRobux(requirement.remainingRobux)} R$`}
             note={
               requirement.alreadyReached
-                ? "You already hold enough for this target."
-                : `${requirement.progressPercent}% of the way there.`
+                ? t("calculator.planner.alreadyEnoughHeadline")
+                : t("calculator.planner.progressNote", {
+                    progressPercent: String(requirement.progressPercent),
+                  })
             }
           />
           <Figure
@@ -444,10 +454,14 @@ export function Planner({ words }: { readonly words: LocaleWords }) {
           <Table caption={t("calculator.planner.underEachRateDescription")}>
             <thead>
               <tr>
-                <Th>Rate</Th>
+                <Th>{t("calculator.planner.columnRate")}</Th>
                 <Th numeric>{t("calculator.planner.columnRobuxNeeded")}</Th>
-                <Th numeric>Still to earn</Th>
-                <Th>{mode === "pace" ? "Reached in" : "Needed each day"}</Th>
+                <Th numeric>{t("calculator.planner.columnStillToEarn")}</Th>
+                <Th>
+                  {mode === "pace"
+                    ? t("calculator.planner.columnReachedIn")
+                    : t("calculator.planner.columnNeededEachDay")}
+                </Th>
               </tr>
             </thead>
             <tbody>
@@ -471,10 +485,10 @@ export function Planner({ words }: { readonly words: LocaleWords }) {
                   <Td className="tabular">
                     {mode === "pace"
                       ? row.projected === null
-                        ? "Not at this pace"
+                        ? t("calculator.planner.notAtThisPace")
                         : row.projected.days === 0
-                          ? "Already reached"
-                          : `${row.projected.days} days`
+                          ? t("calculator.planner.alreadyReached")
+                          : days(t, row.projected.days)
                       : row.requiredPace === null
                         ? "Pick a future date"
                         : row.remainingRobux === 0n
@@ -501,6 +515,30 @@ export function Planner({ words }: { readonly words: LocaleWords }) {
 
 // ---------------------------------------------------------------------------
 
+/**
+ * A count of days, weeks or months, in words.
+ *
+ * Separate keys for one and for many rather than an `s` appended in code:
+ * Turkish and Indonesian have one form, French counts zero as singular, and
+ * no amount of concatenation makes that work.
+ */
+function days(t: Translate, count: number): string {
+  return t(count === 1 ? "common.spans.days.one" : "common.spans.days.other", {
+    days: String(count),
+  });
+}
+
+function weeks(t: Translate, count: number): string {
+  return t(count === 1 ? "common.spans.weeks.one" : "common.spans.weeks.other", {
+    weeks: String(count),
+  });
+}
+
+function months(t: Translate, count: number): string {
+  return t(count === 1 ? "common.spans.months.one" : "common.spans.months.other", {
+    months: String(count),
+  });
+}
 function PaceOutcome({
   plan,
   t,
@@ -514,7 +552,10 @@ function PaceOutcome({
     return (
       <Outcome
         headline={t("calculator.planner.alreadyEnoughHeadline")}
-        detail={`Your balance of ${formatRobux(requirement.currentRobux)} Earned Robux covers the ${formatRobux(requirement.effectiveRobuxNeeded)} this plan needs. Meeting the minimum is not approval — Roblox decides that.`}
+        detail={t("calculator.planner.alreadyEnoughDetail", {
+          current: formatRobux(requirement.currentRobux),
+          needed: formatRobux(requirement.effectiveRobuxNeeded),
+        })}
       />
     );
   }
@@ -531,8 +572,15 @@ function PaceOutcome({
 
   return (
     <Outcome
-      headline={`About ${projected.days} ${projected.days === 1 ? "day" : "days"} away — around ${formatPlanDate(projected.date)}.`}
-      detail={`At ${formatRobux(suppliedPerDayRobux ?? 0n)} Earned Robux a day, kept up steadily: roughly ${projected.weeks} ${projected.weeks === 1 ? "week" : "weeks"}, or ${projected.months} ${projected.months === 1 ? "month" : "months"}. This is a projection at the pace you entered, not a date Roblox will pay on.`}
+      headline={t("calculator.planner.paceHeadline", {
+        days: days(t, projected.days),
+        date: formatPlanDate(projected.date),
+      })}
+      detail={t("calculator.planner.paceDetail", {
+        perDay: formatRobux(suppliedPerDayRobux ?? 0n),
+        weeks: weeks(t, projected.weeks),
+        months: months(t, projected.months),
+      })}
     />
   );
 }
@@ -577,8 +625,13 @@ function DeadlineOutcome({
 
   return (
     <Outcome
-      headline={`${formatRobux(required.perDayRobux)} Earned Robux a day.`}
-      detail={`That is ${formatRobux(required.perWeekRobux)} a week, or ${formatRobux(required.perMonthRobux)} over 30 days. Each figure is rounded up: earning the rounded-down amount would miss the date.`}
+      headline={t("calculator.planner.requiredHeadline", {
+        perDay: formatRobux(required.perDayRobux),
+      })}
+      detail={t("calculator.planner.requiredDetail", {
+        perWeek: formatRobux(required.perWeekRobux),
+        perMonth: formatRobux(required.perMonthRobux),
+      })}
     />
   );
 }

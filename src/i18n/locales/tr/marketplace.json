@@ -19,7 +19,8 @@
     "salePrice": "Satış fiyatı",
     "salePriceHint": "Alıcının ödediği tutar.",
     "amountToKeep": "Elinizde kalmasını istediğiniz Robux",
-    "amountToKeepHint": "Komisyondan sonra kalmasını istediğiniz tutar."
+    "amountToKeepHint": "Komisyondan sonra kalmasını istediğiniz tutar.",
+    "afterCommissionHint": "Komisyondan sonra elinizde kalmasını istediğiniz tutar."
   },
   "results": {
     "robuxYouKeep": "Elinizde kalan Robux",
@@ -44,5 +45,8 @@
       "p2": "Taban fiyatın katı olarak fiyat",
       "p3": "Taban fiyatlar ürün kategorisine göre değişir; bu yüzden burada tek bir evrensel taban varsayılmak yerine kat sorulur. Taban fiyatının altı katı veya üzerinde fiyatlanan bir ürün en üst kademeye girer."
     }
+  },
+  "prose": {
+    "notAppliedTwice": "Bu komisyon, Robux kazanıldığı anda alınır. Elinizde kalan Robux'ı DevEx üzerinden nakde çevirmek, kendi oranı olan ayrı bir adımdır — %30 iki kez uygulanmaz."
   }
 }

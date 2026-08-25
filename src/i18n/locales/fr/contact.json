@@ -50,7 +50,9 @@
       "intro": {
         "p1": "Merci. Si vous avez signalé une correction factuelle, elle sera vérifiée avec la documentation officielle avant tout changement."
       }
-    }
+    },
+    "networkFailed": "Le message n’a pas pu être envoyé — la requête réseau a échoué. Merci de réessayer.",
+    "messageHint": "Au moins {min} caractères. Si vous signalez une correction, un lien vers la page officielle est ce que vous pouvez inclure de plus utile."
   },
   "responses": {
     "sent": "Message reçu. Merci.",

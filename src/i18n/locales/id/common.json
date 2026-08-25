@@ -6,6 +6,7 @@
     "footer.feedJson",
     "social.instagramName",
     "social.pinterestName",
+    "units.earnedWord",
     "units.minimum",
     "units.perRobux",
     "units.standard"
@@ -114,7 +115,8 @@
     "legacyRate": "Lama",
     "usEighteenPlus": "AS 18+",
     "minimum": "Minimum",
-    "rate": "Kurs"
+    "rate": "Kurs",
+    "earnedWord": "Earned"
   },
   "social": {
     "youtube": "DevEx Calculator di YouTube",
@@ -153,7 +155,11 @@
       }
     },
     "legacyAppliesTo": "Saldo yang diperoleh sebelum {effectiveTo}.",
-    "effectiveFrom": "Sejak {effectiveFrom}."
+    "effectiveFrom": "Sejak {effectiveFrom}.",
+    "prose": {
+      "workingBackwards": "Menghitung mundur berarti membagi, dan selalu membulatkan ke atas: target sebesar {target} membutuhkan {required} Earned Robux, karena {shortfall} akan kurang sepersekian."
+    },
+    "calculationFormula": "Earned Robux yang memenuhi syarat × tarif per Robux = perkiraan pembayaran USD"
   },
   "charts": {
     "body": {
@@ -184,6 +190,14 @@
     "days": {
       "one": "{days} hari",
       "other": "{days} hari"
+    },
+    "weeks": {
+      "one": "{weeks} minggu",
+      "other": "{weeks} minggu"
+    },
+    "months": {
+      "one": "{months} bulan",
+      "other": "{months} bulan"
     }
   }
 }

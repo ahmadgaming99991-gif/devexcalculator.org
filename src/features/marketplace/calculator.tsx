@@ -1,5 +1,6 @@
 "use client";
 
+import { parseMessage } from "@/i18n/parse-message";
 import { translatorFor, type LocaleWords } from "@/i18n/client-words";
 import type { Translate } from "@/i18n/get-dictionary";
 import { useId, useMemo, useState } from "react";
@@ -111,7 +112,7 @@ export function MarketplaceCalculator({ words }: { readonly words: LocaleWords }
     <Card as="section">
       <h2 className="sr-only">{t("marketplace.srHeading")}</h2>
 
-      <ModeTabs options={modes(t)} value={mode} onChange={(next) => setMode(next as "after" | "before")} />
+      <ModeTabs t={t} options={modes(t)} value={mode} onChange={(next) => setMode(next as "after" | "before")} />
 
       <div
         id={`mode-panel-${mode}`}
@@ -145,11 +146,11 @@ export function MarketplaceCalculator({ words }: { readonly words: LocaleWords }
             label={mode === "after" ? "Sale price" : "Robux you want to keep"}
             value={amount}
             onChange={setAmount}
-            error={parsed && !parsed.ok ? parsed.message : null}
+            error={parseMessage(t, parsed)}
             hint={
               mode === "after"
                 ? "What the buyer pays."
-                : "What you want left after the commission."
+                : t("marketplace.inputs.afterCommissionHint")
             }
           />
 
@@ -278,19 +279,23 @@ export function MarketplaceCalculator({ words }: { readonly words: LocaleWords }
               "rounded-(--radius-control) border border-(--color-border) border-l-4 border-l-(--color-accent) bg-(--color-surface) p-3 text-sm text-(--color-text-muted)",
             )}
           >
-            This commission is taken when the Robux are earned. Converting the
-            Robux you keep into cash through DevEx is a separate step with its own
-            rate — the 30% is not applied twice.
+            {t("marketplace.prose.notAppliedTwice")}
           </p>
 
           <div className="flex flex-wrap gap-2">
             <CopyButton
+              t={t}
               label={t("marketplace.results.copyResult")}
               text={primaryValue}
               variant="primary"
               onAnnounce={setAnnouncement}
             />
-            <CopyButton label={t("marketplace.results.copySummary")} text={summaryText} onAnnounce={setAnnouncement} />
+            <CopyButton
+              t={t}
+              label={t("marketplace.results.copySummary")}
+              text={summaryText}
+              onAnnounce={setAnnouncement}
+            />
           </div>
         </div>
       </div>

@@ -1,3 +1,5 @@
+import { rich } from "@/i18n/rich";
+import { localizedPath } from "@/i18n/locale-path";
 import { getTranslator } from "@/i18n/get-dictionary";
 import { localizedRoute } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
@@ -12,7 +14,7 @@ const ROUTE = "/terms/";
 
 
 export async function TermsView({ locale }: { readonly locale: Locale }) {
-  const t = await getTranslator(locale, ["legal"]);
+  const t = await getTranslator(locale, ["legal", "trust"]);
   const record = await localizedRoute(locale, ROUTE);
 
   return (
@@ -46,8 +48,14 @@ export async function TermsView({ locale }: { readonly locale: Locale }) {
           <Section id="estimates" heading={t("legal.terms.estimatesHeading")}>
             <p className="text-(--color-text-muted)">{t("legal.terms.body.estimates.p1")}</p>
             <p className="mt-3 text-(--color-text-muted)">
-              {t("legal.terms.body.estimates.p2")}
-            <InlineLink href="/sources/">source registry</InlineLink>{t("legal.terms.body.estimates.p3")}</p>
+              {rich(t("legal.terms.prose.checkOfficial"), {
+                sourceRegistry: (
+                  <InlineLink href={localizedPath(locale, "/sources/")}>
+                    {t("trust.sources.registryHeading")}
+                  </InlineLink>
+                ),
+              })}
+            </p>
                   </Section>
         
                   <Section id="affiliation" heading={t("legal.terms.affiliationHeading")}>

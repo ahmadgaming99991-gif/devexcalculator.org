@@ -38,7 +38,22 @@
     "tooLarge": "That amount is larger than this calculator will accept.",
     "robuxMustBeWhole": "Robux come in whole units — enter a whole number.",
     "belowMinimum": "That is below the {minimum} Earned Robux minimum, so it cannot be exchanged yet.",
-    "rateUnavailable": "No verified rate applies to that combination."
+    "rateUnavailable": "No verified rate applies to that combination.",
+    "tooLong": "That value is too long to be a real amount.",
+    "scientificNotation": "Scientific notation is not supported. Type the full number.",
+    "positiveOnly": "Enter a positive amount.",
+    "numberExample": "Enter a number, for example 100,000.",
+    "mixedSeparators": "Mixed separators. Use commas for thousands and a period for decimals, e.g. 1,500.50.",
+    "thousandsSeparators": "Check the thousands separators, e.g. 1,000,000 rather than 1,00,000.",
+    "multipleDecimalPoints": "There is more than one decimal point.",
+    "digitsOnly": "Enter digits only, for example 100000.",
+    "robuxWholeUnits": "Robux come in whole units. Enter a whole number, or use a suffix such as 1.5m.",
+    "robuxLimit": "This calculator accepts up to {limit} Robux. That is our own limit, not a Roblox limit.",
+    "valueLimit": "This calculator accepts up to {limit}. That is our own limit, not a Roblox limit.",
+    "tooManyDecimalsOne": "Use at most {max} decimal place.",
+    "amountExample": "Enter an amount, for example 1000.",
+    "percentExample": "Enter a percentage, for example 2.9.",
+    "percentRange": "Enter a percentage between 0 and {max}."
   },
   "form": {
     "requiredField": "This field is required.",

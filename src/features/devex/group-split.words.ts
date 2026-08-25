@@ -1,3 +1,4 @@
+import { PARSE_MESSAGE_WORDS } from "@/i18n/parse-message.words";
 /**
  * The dictionary keys the component beside this one renders.
  *
@@ -12,11 +13,17 @@
  * remember.
  */
 export const GROUP_SPLIT_WORDS: readonly string[] = [
+  ...PARSE_MESSAGE_WORDS,
+  "calculator.groupSplit.belowMinimumBody.one",
+  "calculator.groupSplit.belowMinimumBody.other",
+  "calculator.groupSplit.belowMinimumTitle.one",
+  "calculator.groupSplit.belowMinimumTitle.other",
   "calculator.groupSplit.body.intro.p2",
   "calculator.groupSplit.body.intro.p3",
   "calculator.groupSplit.body.intro.p5",
   "calculator.groupSplit.columnCanCashOut",
   "calculator.groupSplit.columnEstimatedPayout",
+  "calculator.groupSplit.earnedOnlyNote",
   "calculator.groupSplit.meetsMinimum",
   "calculator.groupSplit.onePersonPaidTitle",
   "calculator.groupSplit.prose.robloxDoesNotDivide",

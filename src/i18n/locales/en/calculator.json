@@ -93,7 +93,26 @@
         "p8": "figures use",
         "p9": "Stale rates. {staleReason}"
       }
-    }
+    },
+    "copyDisclaimer": "Estimate from devexcalculator.org — not a guarantee of approval.",
+    "announceQuick": "{robux} Earned Robux is about {value} at the {rate}.",
+    "announceTarget": "at the {rate}, rounded up to whole Robux",
+    "announceRate": "at the {rate} of ${rateValue} per Robux",
+    "summary": {
+      "payoutTarget": "Payout target: {value}",
+      "rate": "Rate: {rate} (${rateValue} per Robux)",
+      "robuxNeeded": "Earned Robux needed: {robux}",
+      "minimumApplies": "Minimum applies: {robux} in practice",
+      "earnedRobux": "Earned Robux: {robux}",
+      "bucketLine": "  {rate}: {robux} = {usd}",
+      "grossPayout": "Gross payout: {value}",
+      "afterEstimates": "After your fee and tax estimates: {value}",
+      "estimatedPayout": "Estimated payout: {value}",
+      "minimumMet": "Minimum: met",
+      "minimumShort": "Minimum: {robux} short"
+    },
+    "announceSplit": "{robux} Earned Robux across all buckets is about {value}.",
+    "announceSplitGross": "gross, before fees and tax, from {robux} Earned Robux"
   },
   "target": {
     "explanation": "{target} ÷ ${rate} per Robux = {exact}, rounded up to {required} whole Earned Robux. That pays {payout}, which is the first whole-Robux amount that reaches your target rather than falling just short.",
@@ -132,6 +151,14 @@
     },
     "prose": {
       "robloxDoesNotDivide": "A DevEx request is submitted by an individual account and paid to that account. Roblox does not divide a payout between collaborators, and a revenue-share arrangement inside a group is between the people in it. What this works out is what each person’s agreed share comes to — not something Roblox will do on their behalf, and not a figure Roblox has agreed to."
+    },
+    "belowMinimumTitle": {
+      "one": "{below} of {total} cannot submit a DevEx request",
+      "other": "{below} of {total} cannot submit a DevEx request"
+    },
+    "belowMinimumBody": {
+      "one": "The {minimum} minimum applies to the balance one person submits, not to what the group earned. This group holds {total} Earned Robux, and {names} is still below the minimum individually.",
+      "other": "The {minimum} minimum applies to the balance one person submits, not to what the group earned. This group holds {total} Earned Robux, and {names} are still below the minimum individually."
     }
   },
   "preparation": {
@@ -149,7 +176,11 @@
         "p3": "Roblox reviews each request against its own criteria after it is submitted, and it does not publish what would cause one to be refused. A checklist in a browser has no standing in that review.",
         "p4": "What the submission process involves"
       }
-    }
+    },
+    "balanceStep": "Confirm the balance is genuinely Earned Robux and has reached {minimum}. {earnedRobuxLink}",
+    "taxFormStep": "Complete the correct tax form — W-9 for a United States taxpayer, W-8 otherwise.",
+    "standingStep": "Check the account is in good standing against the Terms of Use and Community Standards.",
+    "destinationStep": "Decide where the money is going, and check what the bank or payment provider will charge to receive it. {feesLink}"
   },
   "currency": {
     "loading": "Loading reference rates…",
@@ -261,9 +292,31 @@
     "pickDateHeadline": "Pick a date.",
     "prose": {
       "estimateNotice": "Every figure here is an estimate produced from what you entered. Reaching {minimumRobux} Earned Robux lets you submit a DevEx request; it does not mean the request will be approved. Roblox reviews eligibility, account standing and compliance, and decides on every request itself. Rates can change, and a projection assumes you keep earning at the pace you gave."
-    }
+    },
+    "paceHint": "What you earn now. The projection does not assume it grows.",
+    "deadlineLabel": "Date you want the payout by",
+    "belowMinimumNote": "Your target needs only {required}, but DevEx cannot be requested below {minimum}.",
+    "progressNote": "{progressPercent}% of the way there.",
+    "notAtThisPace": "Not at this pace",
+    "alreadyReached": "Already reached",
+    "alreadyEnoughDetail": "Your balance of {current} Earned Robux covers the {needed} this plan needs. Meeting the minimum is not approval — Roblox decides that.",
+    "paceHeadline": "About {days} away — around {date}.",
+    "paceDetail": "At {perDay} Earned Robux a day, kept up steadily: roughly {weeks}, or {months}. This is a projection at the pace you entered, not a date Roblox will pay on.",
+    "requiredHeadline": "{perDay} Earned Robux a day.",
+    "requiredDetail": "That is {perWeek} a week, or {perMonth} over 30 days. Each figure is rounded up: earning the rounded-down amount would miss the date.",
+    "columnReachedIn": "Reached in",
+    "columnNeededEachDay": "Needed each day"
   },
-  "actions": {},
+  "actions": {
+    "copied": "{label} copied to the clipboard.",
+    "copyFailed": "{label} could not be copied.",
+    "shareCopied": "Share link copied to the clipboard.",
+    "shareCopyFailed": "The link could not be copied.",
+    "copiedLabel": "Copied",
+    "copyFailedLabel": "Copy failed",
+    "share": "Share",
+    "copyLink": "Copy link"
+  },
   "controls": {
     "body": {
       "intro": {
@@ -272,7 +325,9 @@
       "presetsLabel": {
         "p1": "Quick amounts"
       }
-    }
+    },
+    "rateFallbackNote": "Roblox decides which rate applies to your balance.",
+    "rateOption": "{rate} — ${rateValue} per Robux"
   },
   "body": {
     "intro": {

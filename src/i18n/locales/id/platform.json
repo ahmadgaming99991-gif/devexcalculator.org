@@ -72,7 +72,9 @@
     "rankingsNote": {
       "one": "Roblox menerbitkan {rankingsCount} peringkat; yang ditampilkan di sini adalah {displayLimit} teratas dari peringkat yang dipilih. Urutannya milik Roblox, bukan situs ini.",
       "other": "Roblox menerbitkan {rankingsCount} peringkat; yang ditampilkan di sini adalah {displayLimit} teratas dari peringkat yang dipilih. Urutannya milik Roblox, bukan situs ini."
-    }
+    },
+    "unknownTime": "waktu yang tidak diketahui",
+    "unknownObservationTime": "waktu yang tidak diketahui"
   },
   "platformFigure": {
     "label": "Pemain di seluruh experience yang sedang diperingkat Roblox",
@@ -114,7 +116,8 @@
       "meanNote": "Rerata dari {points} titik tercatat, bukan rata-rata platform",
       "highestObserved": "Tertinggi teramati",
       "lowestObserved": "Terendah teramati",
-      "overSpan": "Selama {span}"
+      "overSpan": "Selama {span}",
+      "meanNoteText": "Rata-rata dari {points} titik tercatat, bukan rata-rata platform"
     },
     "charts": {
       "busiestCaption": "Jumlah pemain tertinggi yang dipegang satu experience mana pun pada tiap pengamatan, selama {span} yang tercatat. Experience terdepannya berganti-ganti; garis ini mengikuti jumlahnya, bukan satu judul.",
@@ -205,8 +208,11 @@
       }
     },
     "prose": {
-      "quotedFrom": "Dikutip dari {source}."
-    }
+      "quotedFrom": "Dikutip dari {source}.",
+      "notRecomputed": "Dikutip dari {source}, bukan dihitung ulang di sini. Rincian yang lebih lengkap, termasuk berapa yang dibayarkan Roblox kepada kreator tiap kuartal, ada di {payoutStatistics}.",
+      "onlyConfiguration": "Halaman ini sudah disiapkan untuk sebuah penyedia. Yang kurang hanyalah konfigurasi: {missing}. Hasil yang dilaporkan di bawah adalah hal yang direspons oleh harga saham, dan itu diterbitkan bagaimanapun juga."
+    },
+    "andSeparator": " dan "
   },
   "stats": {
     "intro": "Berapa sebenarnya yang dibayarkan Roblox kepada kreator, diambil dari laporannya sendiri ke SEC. Setiap angka di bawah menautkan ke dokumen asalnya.",
@@ -293,7 +299,9 @@
     "usDollarsLabel": "dolar AS",
     "prose": {
       "quarterOfRevenue": "Baris yang layak dibaca dua kali adalah yang kedua. Biaya Developer Exchange kira-kira seperempat dari pendapatan Roblox, jadi bagian yang cukup berarti dari apa yang diterima platform ini keluar lagi sebagai pembayaran kepada kreator. Setiap angka dalam tabel ini dikutip dari {filings}.",
-      "precision": "Angka dicatat pada tingkat ketelitian yang dipakai dokumen aslinya. Di tempat Roblox melaporkan dalam ribuan, jumlahnya tepat sampai dolar; di tempat ia melaporkan dalam jutaan, jumlahnya tepat sampai juta dan tidak lebih jauh. Dua kuartal ditandai sebagai turunan karena berasal dari pengurangan satu kuartal yang dilaporkan dari total enam bulan yang dilaporkan. Baca selengkapnya tentang cara situs ini memperlakukan angka di {methodology}."
+      "precision": "Angka dicatat pada tingkat ketelitian yang dipakai dokumen aslinya. Di tempat Roblox melaporkan dalam ribuan, jumlahnya tepat sampai dolar; di tempat ia melaporkan dalam jutaan, jumlahnya tepat sampai juta dan tidak lebih jauh. Dua kuartal ditandai sebagai turunan karena berasal dari pengurangan satu kuartal yang dilaporkan dari total enam bulan yang dilaporkan. Baca selengkapnya tentang cara situs ini memperlakukan angka di {methodology}.",
+      "whatItMeansIntro": "Sangat sedikit, secara langsung — dan itu layak dikatakan terus terang. Total pada halaman ini menggambarkan seluruh platform. Angka-angka itu tidak mengubah hasil konversi saldo Anda sendiri, bukan ramalan, dan total yang naik tidak berarti tarif yang naik. Yang menentukan pembayaran Anda adalah tarif yang diterapkan pada Earned Robux Anda yang memenuhi syarat, yang bisa Anda hitung di {calculator}.",
+      "whatItMeans": "Satu hal yang memang ditunjukkan angka-angka ini adalah skala: DevEx adalah program yang lewatnya Roblox membayarkan {amount} dalam satu tahun saja — konteks yang layak dimiliki sebelum memutuskan apakah batas minimum 30.000 Robux layak dikejar."
     }
   }
 }

@@ -38,7 +38,22 @@
     "tooLarge": "Jumlah itu lebih besar daripada yang bisa diterima kalkulator ini.",
     "robuxMustBeWhole": "Robux berupa satuan utuh — masukkan bilangan bulat.",
     "belowMinimum": "Itu di bawah batas minimum {minimum} Earned Robux, jadi belum bisa ditukarkan.",
-    "rateUnavailable": "Tidak ada kurs terverifikasi yang berlaku untuk kombinasi itu."
+    "rateUnavailable": "Tidak ada kurs terverifikasi yang berlaku untuk kombinasi itu.",
+    "tooLong": "Nilai itu terlalu panjang untuk menjadi jumlah yang nyata.",
+    "scientificNotation": "Notasi ilmiah tidak didukung. Ketik angkanya secara utuh.",
+    "positiveOnly": "Masukkan jumlah yang positif.",
+    "numberExample": "Masukkan sebuah angka, misalnya 100.000.",
+    "mixedSeparators": "Pemisah tercampur. Gunakan titik untuk ribuan dan koma untuk desimal, misalnya 1.500,50.",
+    "thousandsSeparators": "Periksa pemisah ribuannya, misalnya 1.000.000, bukan 1.00.000.",
+    "multipleDecimalPoints": "Ada lebih dari satu tanda desimal.",
+    "digitsOnly": "Masukkan angka saja, misalnya 100000.",
+    "robuxWholeUnits": "Robux hadir dalam satuan bulat. Masukkan bilangan bulat, atau gunakan akhiran seperti 1.5m.",
+    "robuxLimit": "Kalkulator ini menerima sampai {limit} Robux. Itu batas kami sendiri, bukan batas dari Roblox.",
+    "valueLimit": "Kalkulator ini menerima sampai {limit}. Itu batas kami sendiri, bukan batas dari Roblox.",
+    "tooManyDecimalsOne": "Gunakan paling banyak {max} angka desimal.",
+    "amountExample": "Masukkan sebuah jumlah, misalnya 1000.",
+    "percentExample": "Masukkan sebuah persentase, misalnya 2,9.",
+    "percentRange": "Masukkan persentase antara 0 dan {max}."
   },
   "form": {
     "requiredField": "Kolom ini wajib diisi.",

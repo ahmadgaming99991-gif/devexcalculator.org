@@ -387,7 +387,7 @@ async function LiveExperiences({
         <p className="mt-4 text-sm text-(--color-text-muted)">
           {selected.subtitle ? `${selected.subtitle}. ` : null}
           Observed{" "}
-          <time dateTime={result.observedAt}>{formatObserved(result.observedAt)}</time>.{" "}
+          <time dateTime={result.observedAt}>{formatObserved(result.observedAt, t)}</time>.{" "}
           Source:{" "}
           <SourceLink t={t} href="https://apis.roblox.com/explore-api/v1/get-sorts?sessionId=devexcalculator">{t("platform.live.body.related.p4")}</SourceLink>
           {hasVisits ? (
@@ -584,8 +584,15 @@ async function LargestExperience({ days,
   if (!series.chartable) {
     return (
       <Callout tone="info" title={t("platform.history.notEnoughYetTitle")}>
-        {series.points.length} observation{series.points.length === 1 ? "" : "s"} so
-        far. A chart needs {MINIMUM_POINTS_FOR_CHART} to be a line rather than a dot.
+        {t(
+          series.points.length === 1
+            ? "platform.history.observationsSoFar.one"
+            : "platform.history.observationsSoFar.other",
+          {
+            count: String(series.points.length),
+            minimumPointsForChart: String(MINIMUM_POINTS_FOR_CHART),
+          },
+        )}
       </Callout>
     );
   }
@@ -602,14 +609,14 @@ async function LargestExperience({ days,
           <Stat
             label={t("platform.history.stats.highestObserved")}
             value={numberFormat.format(summary.peak.totalPlaying)}
-            note={`${leaders[summary.peak.at] ?? ""} · ${formatObserved(summary.peak.at)}`}
+            note={`${leaders[summary.peak.at] ?? ""} · ${formatObserved(summary.peak.at, t)}`}
           />
         ) : null}
         {summary ? (
           <Stat
             label={t("platform.history.stats.lowestObserved")}
             value={numberFormat.format(summary.low.totalPlaying)}
-            note={`${leaders[summary.low.at] ?? ""} · ${formatObserved(summary.low.at)}`}
+            note={`${leaders[summary.low.at] ?? ""} · ${formatObserved(summary.low.at, t)}`}
           />
         ) : null}
       </div>
@@ -662,7 +669,7 @@ function PlatformFigure({
         {rich(t("platform.platformFigure.method"), {
           experiences: numberFormat.format(platform.experiences),
           rankings: String(platform.rankings),
-          observedAt: <time dateTime={observedAt}>{formatObserved(observedAt)}</time>,
+          observedAt: <time dateTime={observedAt}>{formatObserved(observedAt, t)}</time>,
         })}
       </p>
       <p className="mt-2 text-sm text-(--color-text-muted)">
@@ -720,14 +727,14 @@ function ExperienceDetail({
               <Stat
                 label={t("platform.history.stats.observedPeak")}
                 value={numberFormat.format(summary.peak.totalPlaying)}
-                note={formatObserved(summary.peak.at)}
+                note={formatObserved(summary.peak.at, t)}
               />
             ) : null}
             {summary ? (
               <Stat
                 label={t("platform.history.stats.observedLow")}
                 value={numberFormat.format(summary.low.totalPlaying)}
-                note={formatObserved(summary.low.at)}
+                note={formatObserved(summary.low.at, t)}
               />
             ) : null}
           </div>
@@ -1049,7 +1056,7 @@ async function ObservedHistory({
           <ul className="mt-3 flex flex-col gap-1 text-sm text-(--color-text-muted)">
             {series.points.map((point) => (
               <li key={point.at} className="tabular">
-                {formatObserved(point.at)} — {numberFormat.format(point.totalPlaying)}{" "}
+                {formatObserved(point.at, t)} — {numberFormat.format(point.totalPlaying)}{" "}
                 players
               </li>
             ))}
@@ -1112,7 +1119,7 @@ async function ObservedHistory({
           <Stat
             label={t("platform.history.stats.observedPeak")}
             value={numberFormat.format(summary.peak.totalPlaying)}
-            note={formatObserved(summary.peak.at)}
+            note={formatObserved(summary.peak.at, t)}
           />
         ) : null}
       </div>
@@ -1122,12 +1129,14 @@ async function ObservedHistory({
           <Stat
             label={t("platform.history.stats.observedLow")}
             value={numberFormat.format(summary.low.totalPlaying)}
-            note={formatObserved(summary.low.at)}
+            note={formatObserved(summary.low.at, t)}
           />
           <Stat
             label={t("platform.history.stats.averageAcrossObservations")}
             value={numberFormat.format(summary.mean)}
-            note={`Mean of ${numberFormat.format(series.points.length)} recorded points, not a platform average`}
+            note={t("platform.history.stats.meanNoteText", {
+            points: numberFormat.format(series.points.length),
+          })}
           />
         </div>
       ) : null}
@@ -1170,9 +1179,9 @@ function signed(value: number): string {
   return `${sign}${numberFormat.format(Math.abs(value))}`;
 }
 
-function formatObserved(iso: string): string {
+function formatObserved(iso: string, t: Translate): string {
   const at = new Date(iso);
-  if (Number.isNaN(at.getTime())) return "an unknown time";
+  if (Number.isNaN(at.getTime())) return t("platform.live.unknownObservationTime");
   return `${at.toISOString().slice(0, 16).replace("T", " ")} UTC`;
 }
 

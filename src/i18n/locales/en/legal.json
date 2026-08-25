@@ -98,6 +98,9 @@
         "p1": "These terms may be updated. The review date at the top of this page reflects the most recent change, and material changes are recorded in the",
         "p2": "alongside everything else that changes here."
       }
+    },
+    "prose": {
+      "checkOfficial": "Considerable care goes into accuracy — every rate is sourced, dated and covered by tests — but rates change, documentation moves, and errors are possible. Check anything you are relying on against the official Roblox documentation linked from the {sourceRegistry} before making a decision that matters."
     }
   },
   "disclaimer": {

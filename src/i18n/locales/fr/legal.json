@@ -102,6 +102,9 @@
         "p1": "Ces conditions peuvent être mises à jour. La date de relecture en haut de cette page correspond à la modification la plus récente, et les changements significatifs sont consignés dans le",
         "p2": "au même titre que tout ce qui change ici."
       }
+    },
+    "prose": {
+      "checkOfficial": "Un soin considérable est apporté à l’exactitude — chaque taux est sourcé, daté et couvert par des tests — mais les taux changent, la documentation se déplace et des erreurs sont possibles. Vérifiez ce sur quoi vous vous appuyez dans la documentation officielle de Roblox, accessible depuis le {sourceRegistry}, avant de prendre une décision qui compte."
     }
   },
   "disclaimer": {

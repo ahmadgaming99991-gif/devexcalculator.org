@@ -38,7 +38,22 @@
     "tooLarge": "Ce montant dépasse ce que cette calculatrice accepte.",
     "robuxMustBeWhole": "Les Robux se comptent en unités entières — saisissez un nombre entier.",
     "belowMinimum": "C’est en dessous du minimum de {minimum} Earned Robux, l’échange n’est donc pas encore possible.",
-    "rateUnavailable": "Aucun taux vérifié ne s’applique à cette combinaison."
+    "rateUnavailable": "Aucun taux vérifié ne s’applique à cette combinaison.",
+    "tooLong": "Cette valeur est trop longue pour être un montant réel.",
+    "scientificNotation": "La notation scientifique n’est pas prise en charge. Saisissez le nombre entier.",
+    "positiveOnly": "Saisissez un montant positif.",
+    "numberExample": "Saisissez un nombre, par exemple 100 000.",
+    "mixedSeparators": "Séparateurs mélangés. Utilisez l’espace pour les milliers et la virgule pour les décimales, par exemple 1 500,50.",
+    "thousandsSeparators": "Vérifiez les séparateurs de milliers, par exemple 1 000 000 plutôt que 1 00 000.",
+    "multipleDecimalPoints": "Il y a plus d’une virgule décimale.",
+    "digitsOnly": "Saisissez uniquement des chiffres, par exemple 100000.",
+    "robuxWholeUnits": "Les Robux existent en unités entières. Saisissez un nombre entier, ou utilisez un suffixe comme 1.5m.",
+    "robuxLimit": "Cette calculatrice accepte jusqu’à {limit} Robux. C’est notre propre limite, pas une limite de Roblox.",
+    "valueLimit": "Cette calculatrice accepte jusqu’à {limit}. C’est notre propre limite, pas une limite de Roblox.",
+    "tooManyDecimalsOne": "Utilisez au plus {max} décimale.",
+    "amountExample": "Saisissez un montant, par exemple 1000.",
+    "percentExample": "Saisissez un pourcentage, par exemple 2,9.",
+    "percentRange": "Saisissez un pourcentage compris entre 0 et {max}."
   },
   "form": {
     "requiredField": "Ce champ est obligatoire.",

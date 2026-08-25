@@ -60,7 +60,7 @@ export async function EarnedRobuxView({ locale }: { readonly locale: Locale }) {
           <TableOfContents locale={locale} sections={record.sections} />
 
           <Section id="definition" heading={t("rates.earnedRobux.definitionHeading")}>
-            <DefinitionBlock term="Earned Robux">{t("rates.earnedRobux.body.definition.p1")}</DefinitionBlock>
+            <DefinitionBlock term={t("common.units.earnedRobux")}>{t("rates.earnedRobux.body.definition.p1")}</DefinitionBlock>
 
             {/*
               Categories rather than the QUALIFYING and NOT_QUALIFYING tables

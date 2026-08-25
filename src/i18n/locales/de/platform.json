@@ -70,7 +70,9 @@
     "rankingsNote": {
       "one": "Roblox veröffentlicht {rankingsCount} Ranking; hier stehen die ersten {displayLimit} des jeweils ausgewählten. Die Reihenfolge ist die von Roblox, nicht die dieser Website.",
       "other": "Roblox veröffentlicht {rankingsCount} Rankings; hier stehen die ersten {displayLimit} des jeweils ausgewählten. Die Reihenfolge ist die von Roblox, nicht die dieser Website."
-    }
+    },
+    "unknownTime": "einem unbekannten Zeitpunkt",
+    "unknownObservationTime": "einem unbekannten Zeitpunkt"
   },
   "platformFigure": {
     "label": "Spielende über alle Experiences, die Roblox in einer Rangliste führt",
@@ -112,7 +114,8 @@
       "meanNote": "Mittelwert aus {points} aufgezeichneten Punkten, kein Plattformdurchschnitt",
       "highestObserved": "Höchster beobachteter Wert",
       "lowestObserved": "Niedrigster beobachteter Wert",
-      "overSpan": "Über {span}"
+      "overSpan": "Über {span}",
+      "meanNoteText": "Mittel aus {points} erfassten Punkten, kein Plattformdurchschnitt"
     },
     "charts": {
       "busiestCaption": "Die höchste Spielerzahl, die eine einzelne Experience bei jeder Beobachtung gehalten hat, über die aufgezeichneten {span}. Die führende Experience wechselt; diese Linie folgt der Zahl, nicht einem Titel.",
@@ -203,8 +206,11 @@
       }
     },
     "prose": {
-      "quotedFrom": "Zitiert aus {source}."
-    }
+      "quotedFrom": "Zitiert aus {source}.",
+      "notRecomputed": "Zitiert aus {source}, hier nicht neu berechnet. Eine ausführlichere Aufschlüsselung, auch dazu, was Roblox Creatorn je Quartal zahlt, steht auf {payoutStatistics}.",
+      "onlyConfiguration": "Die Seite ist für einen Anbieter bereits vorbereitet. Es fehlt nur die Konfiguration: {missing}. Die unten berichteten Ergebnisse sind das, worauf ein Aktienkurs reagiert, und sie werden ohnehin veröffentlicht."
+    },
+    "andSeparator": " und "
   },
   "stats": {
     "intro": "Was Roblox Creators tatsächlich auszahlt, entnommen seinen eigenen Berichten an die SEC. Jede Zahl unten verlinkt auf das Dokument, aus dem sie stammt.",
@@ -291,7 +297,9 @@
     "usDollarsLabel": "US-Dollar",
     "prose": {
       "quarterOfRevenue": "Die Zeile, die zweimal zu lesen lohnt, ist die zweite. Developer-Exchange-Gebühren machen etwa ein Viertel von Roblox’ Umsatz aus; ein erheblicher Teil dessen, was die Plattform einnimmt, verlässt sie also wieder als Creator-Auszahlungen. Jede Zahl in dieser Tabelle stammt aus {filings}.",
-      "precision": "Zahlen werden in der Genauigkeit erfasst, die die Einreichung verwendet hat. Wo Roblox in Tausenden berichtete, ist der Betrag auf den Dollar genau; wo in Millionen, auf die Million genau und nicht weiter. Zwei Quartale sind als abgeleitet gekennzeichnet, weil sie aus der Differenz eines berichteten Quartals zu einer berichteten Halbjahressumme stammen. Mehr dazu, wie diese Website mit Zahlen umgeht, steht in {methodology}."
+      "precision": "Zahlen werden in der Genauigkeit erfasst, die die Einreichung verwendet hat. Wo Roblox in Tausenden berichtete, ist der Betrag auf den Dollar genau; wo in Millionen, auf die Million genau und nicht weiter. Zwei Quartale sind als abgeleitet gekennzeichnet, weil sie aus der Differenz eines berichteten Quartals zu einer berichteten Halbjahressumme stammen. Mehr dazu, wie diese Website mit Zahlen umgeht, steht in {methodology}.",
+      "whatItMeansIntro": "Sehr wenig, unmittelbar — und das gehört klar gesagt. Die Summen auf dieser Seite beschreiben die ganze Plattform. Sie ändern nichts daran, was Ihr eigenes Guthaben ergibt, sie sind keine Prognose, und eine steigende Summe bedeutet keinen steigenden Satz. Über Ihre Auszahlung entscheidet der Satz auf Ihre berechtigten Earned Robux, den Sie auf {calculator} ausrechnen können.",
+      "whatItMeans": "Was diese Zahlen tatsächlich zeigen, ist die Größenordnung: DevEx ist ein Programm, über das Roblox in einem einzigen Jahr {amount} ausgezahlt hat — ein Zusammenhang, den man kennen sollte, bevor man entscheidet, ob das Minimum von 30.000 Robux die Mühe wert ist."
     }
   }
 }

@@ -19,7 +19,8 @@
     "salePrice": "Preço de venda",
     "salePriceHint": "O que o comprador paga.",
     "amountToKeep": "Robux que você quer ficar",
-    "amountToKeepHint": "O que você quer que sobre depois da comissão."
+    "amountToKeepHint": "O que você quer que sobre depois da comissão.",
+    "afterCommissionHint": "O que você quer que sobre depois da comissão."
   },
   "results": {
     "robuxYouKeep": "Robux que você fica",
@@ -44,5 +45,8 @@
       "p2": "Preço como múltiplo do piso de preço",
       "p3": "Os pisos de preço variam por categoria de item, então isto pede o múltiplo em vez de supor um piso universal. Um item com preço igual ou superior a seis vezes o seu piso alcança a faixa mais alta."
     }
+  },
+  "prose": {
+    "notAppliedTwice": "Esta comissão é retirada quando os Robux são ganhos. Converter em dinheiro, pelo DevEx, os Robux que você fica é uma etapa separada, com taxa própria — os 30% não são aplicados duas vezes."
   }
 }

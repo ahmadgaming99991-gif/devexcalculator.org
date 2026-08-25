@@ -19,7 +19,8 @@
     "salePrice": "Precio de venta",
     "salePriceHint": "Lo que paga el comprador.",
     "amountToKeep": "Robux que quieres conservar",
-    "amountToKeepHint": "Lo que quieres que quede después de la comisión."
+    "amountToKeepHint": "Lo que quieres que quede después de la comisión.",
+    "afterCommissionHint": "Lo que quieres que quede después de la comisión."
   },
   "results": {
     "robuxYouKeep": "Robux que conservas",
@@ -44,5 +45,8 @@
       "p2": "Precio como múltiplo del precio mínimo",
       "p3": "Los precios mínimos varían según la categoría del artículo, así que aquí se pide el múltiplo en lugar de suponer un único mínimo universal. Un artículo con un precio igual o superior a seis veces su mínimo alcanza el tramo más alto."
     }
+  },
+  "prose": {
+    "notAppliedTwice": "Esta comisión se cobra cuando se ganan los Robux. Convertir en dinero, mediante DevEx, los Robux que te quedas es un paso aparte con su propia tasa: el 30% no se aplica dos veces."
   }
 }

@@ -1,9 +1,12 @@
 {
   "$comment": "Machine-drafted. Not yet read by a native speaker. A mistranslated 'eligible' or 'minimum' can tell somebody they may cash out when they may not, so nothing here is shortened.",
   "$identical": [
+    "controls.rateOption",
     "modes.target.label",
     "results.columnPerRobux",
     "results.columnSubtotal",
+    "results.summary.bucketLine",
+    "results.summary.earnedRobux",
     "results.total"
   ],
   "srHeading": "Kalkulator pembayaran DevEx",
@@ -99,7 +102,26 @@
         "p8": "angkanya memakai",
         "p9": "Tarif kedaluwarsa. {staleReason}"
       }
-    }
+    },
+    "copyDisclaimer": "Perkiraan dari devexcalculator.org — bukan jaminan persetujuan.",
+    "announceQuick": "{robux} Earned Robux kira-kira bernilai {value} pada {rate}.",
+    "announceTarget": "pada {rate}, dibulatkan ke atas ke Robux bulat",
+    "announceRate": "pada {rate} sebesar ${rateValue} per Robux",
+    "summary": {
+      "payoutTarget": "Target pembayaran: {value}",
+      "rate": "Tarif: {rate} (${rateValue} per Robux)",
+      "robuxNeeded": "Earned Robux yang dibutuhkan: {robux}",
+      "minimumApplies": "Batas minimum berlaku: {robux} dalam praktiknya",
+      "earnedRobux": "Earned Robux: {robux}",
+      "bucketLine": "  {rate}: {robux} = {usd}",
+      "grossPayout": "Pembayaran kotor: {value}",
+      "afterEstimates": "Setelah perkiraan biaya dan pajak Anda: {value}",
+      "estimatedPayout": "Perkiraan pembayaran: {value}",
+      "minimumMet": "Batas minimum: terpenuhi",
+      "minimumShort": "Batas minimum: kurang {robux}"
+    },
+    "announceSplit": "{robux} Earned Robux dari seluruh kelompok kira-kira bernilai {value}.",
+    "announceSplitGross": "kotor, sebelum biaya dan pajak, dari {robux} Earned Robux"
   },
   "target": {
     "explanation": "{target} ÷ ${rate} per Robux = {exact}, dibulatkan ke atas menjadi {required} Earned Robux utuh. Itu membayar {payout}, yaitu jumlah Robux utuh pertama yang mencapai target Anda alih-alih kurang sedikit.",
@@ -113,7 +135,7 @@
   "groupSplit": {
     "memberName": "Anggota {number}",
     "unnamed": "Tanpa nama",
-    "earnedOnlyNote": "Hanya Earned Robux yang bisa ditukar. Robux yang dibeli dan dihadiahkan tidak bisa.",
+    "earnedOnlyNote": "Hanya Earned Robux yang bisa ditukarkan. Robux hasil pembelian dan hadiah tidak bisa.",
     "valuedAt": "Dinilai sebesar",
     "tableLabel": "Bagian tiap anggota dari saldo grup",
     "tableCaption": "Persentase tiap anggota atas Earned Robux grup, jumlah Robux yang diwakilinya, dan pembayarannya pada kurs DevEx standar.",
@@ -138,6 +160,14 @@
     },
     "prose": {
       "robloxDoesNotDivide": "Permohonan DevEx diajukan oleh satu akun pribadi dan dibayarkan ke akun itu. Roblox tidak membagi pembayaran di antara kolaborator, dan kesepakatan bagi hasil di dalam sebuah grup adalah urusan orang-orang di dalamnya. Yang dihitung di sini adalah berapa jumlah bagian yang disepakati tiap orang — bukan sesuatu yang akan dilakukan Roblox atas nama mereka, dan bukan angka yang telah disetujui Roblox."
+    },
+    "belowMinimumTitle": {
+      "one": "{below} dari {total} tidak bisa mengajukan permohonan DevEx",
+      "other": "{below} dari {total} tidak bisa mengajukan permohonan DevEx"
+    },
+    "belowMinimumBody": {
+      "one": "Batas minimum {minimum} berlaku untuk saldo yang diajukan satu orang, bukan untuk yang dihasilkan grup. Grup ini memegang {total} Earned Robux, dan {names} masih di bawah batas minimum secara perorangan.",
+      "other": "Batas minimum {minimum} berlaku untuk saldo yang diajukan satu orang, bukan untuk yang dihasilkan grup. Grup ini memegang {total} Earned Robux, dan {names} masih di bawah batas minimum secara perorangan."
     }
   },
   "preparation": {
@@ -155,7 +185,11 @@
         "p3": "Roblox meninjau tiap permohonan menurut kriterianya sendiri setelah diajukan, dan tidak menerbitkan apa yang membuat sebuah permohonan ditolak. Daftar centang di peramban tidak punya kedudukan dalam peninjauan itu.",
         "p4": "Apa saja yang tercakup dalam proses pengajuan"
       }
-    }
+    },
+    "balanceStep": "Pastikan saldonya benar-benar Earned Robux dan sudah mencapai {minimum}. {earnedRobuxLink}",
+    "taxFormStep": "Lengkapi formulir pajak yang tepat — W-9 untuk wajib pajak Amerika Serikat, W-8 untuk selainnya.",
+    "standingStep": "Periksa apakah akun berstatus baik menurut Ketentuan Penggunaan dan Standar Komunitas.",
+    "destinationStep": "Tentukan ke mana uangnya akan dikirim, dan periksa berapa yang akan dikenakan bank atau penyedia pembayaran untuk menerimanya. {feesLink}"
   },
   "currency": {
     "loading": "Memuat kurs acuan…",
@@ -267,7 +301,20 @@
     "pickDateHeadline": "Pilih sebuah tanggal.",
     "prose": {
       "estimateNotice": "Setiap angka di sini adalah perkiraan yang dihasilkan dari apa yang Anda masukkan. Mencapai {minimumRobux} Earned Robux memungkinkan Anda mengajukan permohonan DevEx; itu tidak berarti permohonannya akan disetujui. Roblox meninjau kelayakan, status akun, dan kepatuhan, lalu memutuskan sendiri setiap permohonan. Tarif bisa berubah, dan sebuah proyeksi mengandaikan Anda terus menghasilkan pada laju yang Anda berikan."
-    }
+    },
+    "paceHint": "Yang Anda hasilkan sekarang. Proyeksinya tidak mengandaikan angka itu naik.",
+    "deadlineLabel": "Tanggal Anda ingin pembayarannya diterima",
+    "belowMinimumNote": "Target Anda hanya butuh {required}, tetapi DevEx tidak bisa diminta di bawah {minimum}.",
+    "progressNote": "{progressPercent}% dari jalan menuju target.",
+    "notAtThisPace": "Tidak dengan laju ini",
+    "alreadyReached": "Sudah tercapai",
+    "alreadyEnoughDetail": "Saldo Anda sebesar {current} Earned Robux menutupi {needed} yang dibutuhkan rencana ini. Mencapai batas minimum bukan berarti disetujui — Roblox yang memutuskan itu.",
+    "paceHeadline": "Sekitar {days} lagi — kira-kira {date}.",
+    "paceDetail": "Dengan {perDay} Earned Robux per hari secara konsisten: kira-kira {weeks}, atau {months}. Ini proyeksi pada laju yang Anda masukkan, bukan tanggal Roblox akan membayar.",
+    "requiredHeadline": "{perDay} Earned Robux per hari.",
+    "requiredDetail": "Itu berarti {perWeek} per minggu, atau {perMonth} selama 30 hari. Setiap angka dibulatkan ke atas: menghasilkan angka yang dibulatkan ke bawah akan melewatkan tanggalnya.",
+    "columnReachedIn": "Tercapai dalam",
+    "columnNeededEachDay": "Dibutuhkan tiap hari"
   },
   "controls": {
     "body": {
@@ -277,7 +324,9 @@
       "presetsLabel": {
         "p1": "Jumlah cepat"
       }
-    }
+    },
+    "rateFallbackNote": "Roblox yang memutuskan tarif mana yang berlaku untuk saldo Anda.",
+    "rateOption": "{rate} — ${rateValue} per Robux"
   },
   "body": {
     "intro": {
@@ -286,5 +335,15 @@
       "p3": "Estimasi menggunakan tarif yang saat ini didokumentasikan Roblox. Minimum {minimumEarnedRobux} Earned Robux adalah syarat untuk mengajukan permintaan, bukan persetujuan. Roblox yang menentukan Robux mana yang memenuhi syarat dan apakah suatu permintaan berhasil.",
       "p5": "Disimpan hanya di peramban ini. Tidak ada yang diunggah, dan membersihkan data peramban akan menghapusnya."
     }
+  },
+  "actions": {
+    "copied": "{label} disalin ke papan klip.",
+    "copyFailed": "{label} tidak dapat disalin.",
+    "shareCopied": "Tautan berbagi disalin ke papan klip.",
+    "shareCopyFailed": "Tautan tidak dapat disalin.",
+    "copiedLabel": "Tersalin",
+    "copyFailedLabel": "Gagal menyalin",
+    "share": "Bagikan",
+    "copyLink": "Salin tautan"
   }
 }

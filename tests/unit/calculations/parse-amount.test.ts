@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import errors from "../../../src/i18n/locales/en/errors.json";
 import {
   parseCurrencyAmount,
   parsePercent,
@@ -112,8 +113,13 @@ describe("parseRobuxAmount", () => {
     expect(result.ok).toBe(false);
     if (!result.ok) {
       expect(result.code).toBe("exceeds-limit");
-      // The message must not present the cap as a Roblox rule.
-      expect(result.message).toContain("not a Roblox limit");
+      /*
+       * The sentence must not present the cap as a Roblox rule. It lives in
+       * the dictionary now, so the assertion follows it there — a key that
+       * pointed at different words would pass a check on the key alone.
+       */
+      expect(result.messageKey).toBe("errors.input.robuxLimit");
+      expect(errors.input.robuxLimit).toContain("not a Roblox limit");
     }
   });
 

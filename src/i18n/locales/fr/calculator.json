@@ -97,7 +97,26 @@
         "p8": "les chiffres utilisent",
         "p9": "Taux périmés. {staleReason}"
       }
-    }
+    },
+    "copyDisclaimer": "Estimation de devexcalculator.org — pas une garantie d’approbation.",
+    "announceQuick": "{robux} Earned Robux représentent environ {value} au {rate}.",
+    "announceTarget": "au {rate}, arrondi au Robux entier supérieur",
+    "announceRate": "au {rate} de {rateValue} $ par Robux",
+    "summary": {
+      "payoutTarget": "Objectif de versement : {value}",
+      "rate": "Taux : {rate} ({rateValue} $ par Robux)",
+      "robuxNeeded": "Earned Robux nécessaires : {robux}",
+      "minimumApplies": "Le minimum s’applique : {robux} en pratique",
+      "earnedRobux": "Earned Robux : {robux}",
+      "bucketLine": "  {rate} : {robux} = {usd}",
+      "grossPayout": "Versement brut : {value}",
+      "afterEstimates": "Après vos estimations de frais et d’impôt : {value}",
+      "estimatedPayout": "Versement estimé : {value}",
+      "minimumMet": "Minimum : atteint",
+      "minimumShort": "Minimum : il manque {robux}"
+    },
+    "announceSplit": "{robux} Earned Robux tous paliers confondus représentent environ {value}.",
+    "announceSplitGross": "brut, avant frais et impôt, à partir de {robux} Earned Robux"
   },
   "target": {
     "explanation": "{target} ÷ {rate} $ par Robux = {exact}, arrondi au supérieur à {required} Earned Robux entiers. Cela paie {payout}, soit le premier montant en Robux entiers qui atteint votre objectif au lieu de rester juste en dessous.",
@@ -136,6 +155,14 @@
     },
     "prose": {
       "robloxDoesNotDivide": "Une demande DevEx est déposée par un compte individuel et versée sur ce compte. Roblox ne répartit pas un versement entre collaborateurs, et un accord de partage des revenus au sein d’un groupe ne concerne que les personnes qui en font partie. Ce qui est calculé ici, c’est ce à quoi revient la part convenue de chacun — pas quelque chose que Roblox fera à leur place, ni un montant que Roblox a validé."
+    },
+    "belowMinimumTitle": {
+      "one": "{below} sur {total} ne peut pas déposer de demande DevEx",
+      "other": "{below} sur {total} ne peuvent pas déposer de demande DevEx"
+    },
+    "belowMinimumBody": {
+      "one": "Le minimum de {minimum} s’applique au solde qu’une personne dépose, pas à ce que le groupe a gagné. Ce groupe détient {total} Earned Robux, et {names} reste en dessous du minimum à titre individuel.",
+      "other": "Le minimum de {minimum} s’applique au solde qu’une personne dépose, pas à ce que le groupe a gagné. Ce groupe détient {total} Earned Robux, et {names} restent en dessous du minimum à titre individuel."
     }
   },
   "preparation": {
@@ -153,7 +180,11 @@
         "p3": "Roblox examine chaque demande selon ses propres critères après le dépôt, et ne publie pas ce qui entraînerait un refus. Une liste cochée dans un navigateur n’a aucune valeur dans cet examen.",
         "p4": "Ce que comporte la procédure de dépôt"
       }
-    }
+    },
+    "balanceStep": "Vérifiez que le solde est bien constitué d’Earned Robux et qu’il a atteint {minimum}. {earnedRobuxLink}",
+    "taxFormStep": "Remplissez le bon formulaire fiscal — W-9 pour un contribuable des États-Unis, W-8 sinon.",
+    "standingStep": "Vérifiez que le compte est en règle au regard des Conditions d’utilisation et des Règles de la communauté.",
+    "destinationStep": "Décidez où va l’argent et vérifiez ce que la banque ou le prestataire de paiement facturera pour le recevoir. {feesLink}"
   },
   "currency": {
     "loading": "Chargement des taux de référence…",
@@ -265,7 +296,20 @@
     "pickDateHeadline": "Choisissez une date.",
     "prose": {
       "estimateNotice": "Chaque chiffre ici est une estimation produite à partir de ce que vous avez saisi. Atteindre {minimumRobux} Earned Robux vous permet de déposer une demande DevEx ; cela ne signifie pas qu’elle sera approuvée. Roblox examine l’éligibilité, l’état du compte et la conformité, et décide lui-même de chaque demande. Les taux peuvent changer, et une projection suppose que vous continuez à gagner au rythme indiqué."
-    }
+    },
+    "paceHint": "Ce que vous gagnez actuellement. La projection ne suppose pas que cela augmente.",
+    "deadlineLabel": "Date à laquelle vous voulez le versement",
+    "belowMinimumNote": "Votre objectif ne nécessite que {required}, mais DevEx ne peut pas être demandé en dessous de {minimum}.",
+    "progressNote": "{progressPercent} % du chemin parcouru.",
+    "notAtThisPace": "Pas à ce rythme",
+    "alreadyReached": "Déjà atteint",
+    "alreadyEnoughDetail": "Votre solde de {current} Earned Robux couvre les {needed} dont ce plan a besoin. Atteindre le minimum n’est pas une approbation : c’est Roblox qui en décide.",
+    "paceHeadline": "Dans environ {days} — aux alentours du {date}.",
+    "paceDetail": "À {perDay} Earned Robux par jour, tenus régulièrement : environ {weeks}, ou {months}. C’est une projection au rythme que vous avez indiqué, pas une date à laquelle Roblox paiera.",
+    "requiredHeadline": "{perDay} Earned Robux par jour.",
+    "requiredDetail": "Cela fait {perWeek} par semaine, ou {perMonth} sur 30 jours. Chaque chiffre est arrondi au supérieur : gagner le montant arrondi à l’inférieur manquerait la date.",
+    "columnReachedIn": "Atteint en",
+    "columnNeededEachDay": "Nécessaire chaque jour"
   },
   "controls": {
     "body": {
@@ -275,7 +319,9 @@
       "presetsLabel": {
         "p1": "Montants rapides"
       }
-    }
+    },
+    "rateFallbackNote": "C’est Roblox qui décide du taux appliqué à votre solde.",
+    "rateOption": "{rate} — {rateValue} $ par Robux"
   },
   "body": {
     "intro": {
@@ -284,5 +330,15 @@
       "p3": "Les estimations utilisent les taux que Roblox documente actuellement. Le minimum de {minimumEarnedRobux} Earned Robux est une condition pour soumettre une demande, pas une approbation. Roblox décide quels Robux sont admissibles et si une demande aboutit.",
       "p5": "Enregistrés dans ce navigateur uniquement. Rien n’est envoyé, et effacer les données de votre navigateur les supprime."
     }
+  },
+  "actions": {
+    "copied": "{label} copié dans le presse-papiers.",
+    "copyFailed": "{label} n’a pas pu être copié.",
+    "shareCopied": "Lien de partage copié dans le presse-papiers.",
+    "shareCopyFailed": "Le lien n’a pas pu être copié.",
+    "copiedLabel": "Copié",
+    "copyFailedLabel": "Échec de la copie",
+    "share": "Partager",
+    "copyLink": "Copier le lien"
   }
 }

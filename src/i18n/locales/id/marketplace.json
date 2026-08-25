@@ -19,7 +19,8 @@
     "salePrice": "Harga jual",
     "salePriceHint": "Yang dibayar pembeli.",
     "amountToKeep": "Robux yang ingin Anda terima",
-    "amountToKeepHint": "Yang ingin tersisa setelah komisi."
+    "amountToKeepHint": "Yang ingin tersisa setelah komisi.",
+    "afterCommissionHint": "Jumlah yang Anda ingin tersisa setelah komisi."
   },
   "results": {
     "robuxYouKeep": "Robux yang Anda terima",
@@ -44,5 +45,8 @@
       "p2": "Harga sebagai kelipatan dari harga dasar",
       "p3": "Harga dasar berbeda menurut kategori item, jadi di sini yang diminta adalah kelipatannya, bukan mengandaikan satu harga dasar yang berlaku umum. Item yang dihargai enam kali harga dasarnya atau lebih masuk ke tingkat teratas."
     }
+  },
+  "prose": {
+    "notAppliedTwice": "Komisi ini diambil saat Robux dihasilkan. Mengubah Robux yang Anda simpan menjadi uang lewat DevEx adalah langkah terpisah dengan tarifnya sendiri — 30% itu tidak dikenakan dua kali."
   }
 }

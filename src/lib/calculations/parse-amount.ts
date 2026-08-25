@@ -30,7 +30,15 @@ export interface ParseSuccess<T> {
 export interface ParseFailure {
   readonly ok: false;
   readonly code: ParseErrorCode;
-  readonly message: string;
+  /**
+   * The dictionary key for what to tell the reader, and what to fill it with.
+   *
+   * A key rather than a sentence because this module is pure arithmetic with
+   * no locale, and a sentence written here is a sentence in one language for
+   * every reader. The component rendering the field has the translator.
+   */
+  readonly messageKey: string;
+  readonly messageValues?: Readonly<Record<string, string>>;
 }
 
 export type ParseResult<T> = ParseSuccess<T> | ParseFailure;
@@ -54,8 +62,12 @@ const SHORTHAND_MULTIPLIERS: Readonly<Record<string, bigint>> = {
   b: 1_000_000_000n,
 };
 
-function fail(code: ParseErrorCode, message: string): ParseFailure {
-  return { ok: false, code, message };
+function fail(
+  code: ParseErrorCode,
+  messageKey: string,
+  messageValues?: Readonly<Record<string, string>>,
+): ParseFailure {
+  return { ok: false, code, messageKey, messageValues };
 }
 
 interface Cleaned {
@@ -70,13 +82,13 @@ interface Cleaned {
 function clean(input: string): ParseResult<Cleaned> {
   const stripped = input.replace(INVISIBLE_CHARACTERS, "").trim();
   if (stripped === "") {
-    return fail("empty", "Enter an amount.");
+    return fail("empty", "errors.input.empty");
   }
   if (stripped.length > MAX_INPUT_LENGTH) {
-    return fail("too-long", "That value is too long to be a real amount.");
+    return fail("too-long", "errors.input.tooLong");
   }
   if (/[eE]/.test(stripped.replace(/[^0-9eE.]/g, ""))) {
-    return fail("not-a-number", "Scientific notation is not supported. Type the full number.");
+    return fail("not-a-number", "errors.input.scientificNotation");
   }
 
   let working = stripped.toLowerCase();
@@ -91,7 +103,7 @@ function clean(input: string): ParseResult<Cleaned> {
     .trim();
 
   if (working.startsWith("-")) {
-    return fail("negative", "Enter a positive amount.");
+    return fail("negative", "errors.input.positiveOnly");
   }
   working = working.replace(/^\+/, "");
 
@@ -109,7 +121,7 @@ function clean(input: string): ParseResult<Cleaned> {
   working = working.replace(GROUPING_CHARACTERS, "");
 
   if (working === "") {
-    return fail("not-a-number", "Enter a number, for example 100,000.");
+    return fail("not-a-number", "errors.input.numberExample");
   }
 
   // Comma handling. A comma is a thousands separator in this locale; a comma
@@ -118,10 +130,7 @@ function clean(input: string): ParseResult<Cleaned> {
     if (working.includes(".")) {
       // Both present: the comma must come before the decimal point.
       if (working.lastIndexOf(",") > working.indexOf(".")) {
-        return fail(
-          "malformed-separators",
-          "Mixed separators. Use commas for thousands and a period for decimals, e.g. 1,500.50.",
-        );
+        return fail("malformed-separators", "errors.input.mixedSeparators");
       }
     }
     const [integerSection = ""] = working.split(".");
@@ -133,10 +142,7 @@ function clean(input: string): ParseResult<Cleaned> {
       groups[0].length <= 3 &&
       groups.slice(1).every((g) => g.length === 3);
     if (!wellFormed) {
-      return fail(
-        "malformed-separators",
-        "Check the thousands separators, e.g. 1,000,000 rather than 1,00,000.",
-      );
+      return fail("malformed-separators", "errors.input.thousandsSeparators");
     }
     working = working.replace(/,/g, "");
   }
@@ -144,10 +150,10 @@ function clean(input: string): ParseResult<Cleaned> {
   // Check separator placement before the general shape test, so that a value
   // like "1.2.3" is reported as a separator problem rather than as gibberish.
   if ((working.match(/\./g) ?? []).length > 1) {
-    return fail("malformed-separators", "There is more than one decimal point.");
+    return fail("malformed-separators", "errors.input.multipleDecimalPoints");
   }
   if (!/^\d*\.?\d*$/.test(working) || working === "." || working === "") {
-    return fail("not-a-number", "Enter digits only, for example 100000.");
+    return fail("not-a-number", "errors.input.digitsOnly");
   }
 
   return { ok: true, value: { digits: working, multiplier }, canonical: working };
@@ -173,24 +179,18 @@ export function parseRobuxAmount(input: string, maxRobux: number): ParseResult<P
   try {
     value = Rational.fromDecimalString(digits);
   } catch {
-    return fail("not-a-number", "Enter digits only, for example 100000.");
+    return fail("not-a-number", "errors.input.digitsOnly");
   }
 
   const scaled = value.mul(Rational.of(multiplier, 1n));
 
   if (scaled.floorToBigInt() !== scaled.ceilToBigInt()) {
-    return fail(
-      "fractional-robux",
-      "Robux come in whole units. Enter a whole number, or use a suffix such as 1.5m.",
-    );
+    return fail("fractional-robux", "errors.input.robuxWholeUnits");
   }
 
   const robux = scaled.floorToBigInt();
   if (robux > BigInt(maxRobux)) {
-    return fail(
-      "exceeds-limit",
-      `This calculator accepts up to ${maxRobux.toLocaleString("en-US")} Robux. That is our own limit, not a Roblox limit.`,
-    );
+    return fail("exceeds-limit", "errors.input.robuxLimit", { limit: String(maxRobux) });
   }
 
   return {
@@ -217,7 +217,8 @@ export function parseCurrencyAmount(
   if (multiplier === 1n && fractionDigits > maxDecimals) {
     return fail(
       "too-many-decimals",
-      `Use at most ${maxDecimals} decimal place${maxDecimals === 1 ? "" : "s"}.`,
+      maxDecimals === 1 ? "errors.input.tooManyDecimalsOne" : "errors.input.tooManyDecimals",
+      { max: String(maxDecimals) },
     );
   }
 
@@ -225,15 +226,12 @@ export function parseCurrencyAmount(
   try {
     value = Rational.fromDecimalString(digits);
   } catch {
-    return fail("not-a-number", "Enter an amount, for example 1000.");
+    return fail("not-a-number", "errors.input.amountExample");
   }
 
   const scaled = value.mul(Rational.of(multiplier, 1n));
   if (scaled.gt(Rational.fromInt(maxValue))) {
-    return fail(
-      "exceeds-limit",
-      `This calculator accepts up to ${maxValue.toLocaleString("en-US")}. That is our own limit, not a Roblox limit.`,
-    );
+    return fail("exceeds-limit", "errors.input.valueLimit", { limit: String(maxValue) });
   }
 
   return { ok: true, value: scaled, canonical: scaled.toFixed(maxDecimals, "half-up") };
@@ -255,11 +253,11 @@ export function parsePercent(input: string, maxPercent = 100): ParseResult<Ratio
   try {
     value = Rational.fromDecimalString(cleaned.value.digits);
   } catch {
-    return fail("not-a-number", "Enter a percentage, for example 2.9.");
+    return fail("not-a-number", "errors.input.percentExample");
   }
   const scaled = value.mul(Rational.of(cleaned.value.multiplier, 1n));
   if (scaled.gt(Rational.fromInt(maxPercent))) {
-    return fail("exceeds-limit", `Enter a percentage between 0 and ${maxPercent}.`);
+    return fail("exceeds-limit", "errors.input.percentRange", { max: String(maxPercent) });
   }
   return { ok: true, value: scaled, canonical: scaled.toFixed(4, "half-up") };
 }

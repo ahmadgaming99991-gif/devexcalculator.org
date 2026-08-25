@@ -15,7 +15,8 @@
     "salePrice": "Sale price",
     "salePriceHint": "What the buyer pays.",
     "amountToKeep": "Robux you want to keep",
-    "amountToKeepHint": "What you want left after the commission."
+    "amountToKeepHint": "What you want left after the commission.",
+    "afterCommissionHint": "What you want left after the commission."
   },
   "results": {
     "robuxYouKeep": "Robux you keep",
@@ -40,5 +41,8 @@
       "p2": "Price as a multiple of the price floor",
       "p3": "Price floors differ by item category, so this asks for the multiple rather than assuming one universal floor. An item priced at six times its floor or above reaches the top tier."
     }
+  },
+  "prose": {
+    "notAppliedTwice": "This commission is taken when the Robux are earned. Converting the Robux you keep into cash through DevEx is a separate step with its own rate — the 30% is not applied twice."
   }
 }

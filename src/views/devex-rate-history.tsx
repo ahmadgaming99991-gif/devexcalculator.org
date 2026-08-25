@@ -1,3 +1,5 @@
+import { localizedPath } from "@/i18n/locale-path";
+import { rich } from "@/i18n/rich";
 import { getTranslator } from "@/i18n/get-dictionary";
 import { localizedRoute } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
@@ -141,10 +143,14 @@ export async function RateHistoryView({ locale }: { readonly locale: Locale }) {
             description={t("rates.rateHistory.noForecastDescription")}
           >
             <p className="text-(--color-text-muted)">
-              {t("rates.rateHistory.body.noForecast.p1")}
-            <InlineLink href="/changelog/">{t("rates.rateHistory.publicChangelogLink")}</InlineLink>, along
-                      with the date it was verified.
-                    </p>
+              {rich(t("rates.rateHistory.prose.whenItChanges"), {
+                changelog: (
+                  <InlineLink href={localizedPath(locale, "/changelog/")}>
+                    {t("rates.rateHistory.publicChangelogLink")}
+                  </InlineLink>
+                ),
+              })}
+            </p>
                   </Section>
         
                   <FAQAccordion locale={locale} faqs={record.faqs} heading={t("rates.rateHistory.faqsHeading")} />

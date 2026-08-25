@@ -103,6 +103,9 @@
         "p1": "Ketentuan ini dapat diperbarui. Tanggal peninjauan di bagian atas halaman ini mencerminkan perubahan terbaru, dan perubahan yang berarti dicatat di",
         "p2": "bersama segala hal lain yang berubah di sini."
       }
+    },
+    "prose": {
+      "checkOfficial": "Ketelitian dijaga sungguh-sungguh — setiap tarif punya sumber, tanggal, dan dicakup pengujian — tetapi tarif berubah, dokumentasi berpindah, dan kekeliruan mungkin terjadi. Periksa apa pun yang Anda andalkan terhadap dokumentasi resmi Roblox yang ditautkan dari {sourceRegistry} sebelum mengambil keputusan yang berarti."
     }
   },
   "disclaimer": {

@@ -1,5 +1,6 @@
 "use client";
 
+import { parseMessage } from "@/i18n/parse-message";
 import { translatorFor, type LocaleWords } from "@/i18n/client-words";
 import type { Translate } from "@/i18n/get-dictionary";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
@@ -205,7 +206,7 @@ export function Calculator({
   const taxParse = useMemo(() => parsePercent(state.taxPercent), [state.taxPercent]);
 
   const errorOf = (result: ReturnType<typeof parseRobuxAmount> | null): string | null =>
-    result && !result.ok ? result.message : null;
+    parseMessage(t, result);
 
   // ---- Currency ----------------------------------------------------------
 
@@ -278,12 +279,28 @@ export function Calculator({
     if (mode === "advanced") {
       if (splitResult.totalRobux === 0n) return "";
       const { value, currency } = convert(splitResult.grossUsd);
-      return `${formatRobux(splitResult.totalRobux)} Earned Robux across all buckets is about ${formatCurrency(value, currency)}.`;
+      return t("calculator.results.announceSplit", {
+        robux: formatRobux(splitResult.totalRobux),
+        value: formatCurrency(value, currency),
+      });
     }
     if (!quickParse?.ok) return "";
     const { value, currency } = convert(quickResult.grossUsd);
-    return `${formatRobux(quickResult.robux)} Earned Robux is about ${formatCurrency(value, currency)} at the ${quickResult.rate.label}.`;
-  }, [mode, quickParse, quickResult, splitResult, targetParse, targetResult, convert]);
+    return t("calculator.results.announceQuick", {
+      robux: formatRobux(quickResult.robux),
+      value: formatCurrency(value, currency),
+      rate: quickResult.rate.label,
+    });
+  }, [
+    mode,
+    quickParse,
+    quickResult,
+    splitResult,
+    targetParse,
+    targetResult,
+    convert,
+    t,
+  ]);
 
   // ---- Share and copy ----------------------------------------------------
 
@@ -335,13 +352,22 @@ export function Calculator({
   const summaryText = useMemo(() => {
     if (mode === "target" && targetParse?.ok) {
       return [
-        `Payout target: ${formatCurrency(targetResult.targetUsd, "USD")}`,
-        `Rate: ${targetResult.rate.label} ($${formatRate(targetResult.rateValue)} per Robux)`,
-        `Earned Robux needed: ${formatRobux(targetResult.requiredRobux)}`,
+        t("calculator.results.summary.payoutTarget", {
+          value: formatCurrency(targetResult.targetUsd, "USD"),
+        }),
+        t("calculator.results.summary.rate", {
+          rate: targetResult.rate.label,
+          rateValue: formatRate(targetResult.rateValue),
+        }),
+        t("calculator.results.summary.robuxNeeded", {
+          robux: formatRobux(targetResult.requiredRobux),
+        }),
         targetResult.requirementIsBelowMinimum
-          ? `Minimum applies: ${formatRobux(targetResult.effectiveRobuxNeeded)} in practice`
+          ? t("calculator.results.summary.minimumApplies", {
+              robux: formatRobux(targetResult.effectiveRobuxNeeded),
+            })
           : null,
-        `Estimate from devexcalculator.org — not a guarantee of approval.`,
+        t("calculator.results.copyDisclaimer"),
       ]
         .filter(Boolean)
         .join("\n");
@@ -350,18 +376,27 @@ export function Calculator({
     if (mode === "advanced" && splitResult.totalRobux > 0n) {
       const { value, currency } = convert(splitResult.grossUsd);
       return [
-        `Earned Robux: ${formatRobux(splitResult.totalRobux)}`,
+        t("calculator.results.summary.earnedRobux", {
+          robux: formatRobux(splitResult.totalRobux),
+        }),
         ...splitResult.buckets
           .filter((bucket) => bucket.robux > 0n)
-          .map(
-            (bucket) =>
-              `  ${bucket.rate.label}: ${formatRobux(bucket.robux)} = ${formatCurrency(bucket.usd, "USD")}`,
+          .map((bucket) =>
+            t("calculator.results.summary.bucketLine", {
+              rate: bucket.rate.label,
+              robux: formatRobux(bucket.robux),
+              usd: formatCurrency(bucket.usd, "USD"),
+            }),
           ),
-        `Gross payout: ${formatCurrency(value, currency)}`,
+        t("calculator.results.summary.grossPayout", {
+          value: formatCurrency(value, currency),
+        }),
         splitResult.feesApplied || splitResult.taxApplied
-          ? `After your fee and tax estimates: ${formatCurrency(splitResult.netAfterEstimateUsd, "USD")}`
+          ? t("calculator.results.summary.afterEstimates", {
+              value: formatCurrency(splitResult.netAfterEstimateUsd, "USD"),
+            })
           : null,
-        `Estimate from devexcalculator.org — not a guarantee of approval.`,
+        t("calculator.results.copyDisclaimer"),
       ]
         .filter(Boolean)
         .join("\n");
@@ -370,16 +405,36 @@ export function Calculator({
     if (quickParse?.ok) {
       const { value, currency } = convert(quickResult.grossUsd);
       return [
-        `Earned Robux: ${formatRobux(quickResult.robux)}`,
-        `Rate: ${quickResult.rate.label} ($${formatRate(quickResult.rateValue)} per Robux)`,
-        `Estimated payout: ${formatCurrency(value, currency)}`,
-        `Minimum: ${quickResult.threshold.state === "meets-minimum" ? "met" : `${formatRobux(quickResult.threshold.shortfallRobux)} short`}`,
-        `Estimate from devexcalculator.org — not a guarantee of approval.`,
+        t("calculator.results.summary.earnedRobux", {
+          robux: formatRobux(quickResult.robux),
+        }),
+        t("calculator.results.summary.rate", {
+          rate: quickResult.rate.label,
+          rateValue: formatRate(quickResult.rateValue),
+        }),
+        t("calculator.results.summary.estimatedPayout", {
+          value: formatCurrency(value, currency),
+        }),
+        quickResult.threshold.state === "meets-minimum"
+          ? t("calculator.results.summary.minimumMet")
+          : t("calculator.results.summary.minimumShort", {
+              robux: formatRobux(quickResult.threshold.shortfallRobux),
+            }),
+        t("calculator.results.copyDisclaimer"),
       ].join("\n");
     }
 
     return "";
-  }, [mode, quickParse, quickResult, splitResult, targetParse, targetResult, convert]);
+  }, [
+    mode,
+    quickParse,
+    quickResult,
+    splitResult,
+    targetParse,
+    targetResult,
+    convert,
+    t,
+  ]);
 
   const primaryValueText = useMemo(() => {
     if (mode === "target") return formatRobux(targetResult.requiredRobux);
@@ -411,6 +466,7 @@ export function Calculator({
 
       {!lockedMode ? (
         <ModeTabs
+          t={t}
           options={modeOptions(t)}
           value={mode}
           onChange={(next) => update({ mode: next as CalculatorMode })}
@@ -441,6 +497,8 @@ export function Calculator({
                 onSelect={(value) => update({ robux: value.toString() })}
               />
               <RateSelector
+                t={t}
+                label={t("calculator.inputs.rateToApply.label")}
                 value={state.rateId}
                 onChange={(value) => {
                   update({ rateId: value });
@@ -483,12 +541,14 @@ export function Calculator({
                 label={t("calculator.inputs.payoutTarget.label")}
                 value={state.targetUsd}
                 onChange={(value) => update({ targetUsd: value })}
-                error={targetParse && !targetParse.ok ? targetParse.message : null}
+                error={parseMessage(t, targetParse)}
                 hint={t("calculator.inputs.payoutTarget.hint")}
                 placeholder="1,000"
                 suffix="USD"
               />
               <RateSelector
+                t={t}
+                label={t("calculator.inputs.rateToApply.label")}
                 value={state.rateId}
                 onChange={(value) => update({ rateId: value })}
               />
@@ -520,14 +580,14 @@ export function Calculator({
                     setAdvancedOverride(true);
                     savePreferences({ advancedOpen: true });
                   }}
-                  error={feeParse.ok ? null : feeParse.message}
+                  error={parseMessage(t, feeParse)}
                   placeholder="2.9"
                 />
                 <PercentInput
                   label={t("calculator.deductions.flatFeeLabel")}
                   value={state.flatFeeUsd}
                   onChange={(value) => update({ flatFeeUsd: value })}
-                  error={flatFeeParse.ok ? null : flatFeeParse.message}
+                  error={parseMessage(t, flatFeeParse)}
                   placeholder="0.30"
                   suffix="$"
                 />
@@ -536,7 +596,7 @@ export function Calculator({
                 label={t("calculator.deductions.taxLabel")}
                 value={state.taxPercent}
                 onChange={(value) => update({ taxPercent: value })}
-                error={taxParse.ok ? null : taxParse.message}
+                error={parseMessage(t, taxParse)}
                 hint={t("calculator.deductions.taxHint")}
                 placeholder="20"
               />
@@ -548,21 +608,25 @@ export function Calculator({
         <div className="flex min-w-0 flex-col gap-5">
           <ResultSummary
             primaryLabel={
-              mode === "target" ? "Eligible Earned Robux needed" : "Estimated DevEx payout"
+              mode === "target"
+                ? t("calculator.results.robuxNeeded")
+                : t("calculator.results.estimatedPayout")
             }
             primaryValue={primaryValueText}
             secondary={
               mode === "target" ? (
-                <>at the {targetResult.rate.label}, rounded up to whole Robux</>
+                t("calculator.results.announceTarget", {
+                  rate: targetResult.rate.label,
+                })
               ) : mode === "advanced" ? (
-                <>
-                  gross, before fees and tax, from{" "}
-                  {formatRobux(splitResult.totalRobux)} Earned Robux
-                </>
+                t("calculator.results.announceSplitGross", {
+                  robux: formatRobux(splitResult.totalRobux),
+                })
               ) : (
-                <>
-                  at the {currentRate.label} of ${formatRate(quickResult.rateValue)} per Robux
-                </>
+                t("calculator.results.announceRate", {
+                  rate: currentRate.label,
+                  rateValue: formatRate(quickResult.rateValue),
+                })
               )
             }
           >
@@ -585,13 +649,20 @@ export function Calculator({
 
           <div className="flex flex-wrap gap-2">
             <CopyButton
+              t={t}
               label={t("calculator.results.copyResult")}
               text={primaryValueText}
               variant="primary"
               onAnnounce={setAnnouncement}
             />
-            <CopyButton label={t("calculator.results.copySummary")} text={summaryText} onAnnounce={setAnnouncement} />
+            <CopyButton
+              t={t}
+              label={t("calculator.results.copySummary")}
+              text={summaryText}
+              onAnnounce={setAnnouncement}
+            />
             <ShareButton
+              t={t}
               url={shareUrl}
               title={t("calculator.results.summaryTitle")}
               onAnnounce={setAnnouncement}

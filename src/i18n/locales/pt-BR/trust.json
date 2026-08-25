@@ -240,7 +240,8 @@
       }
     },
     "prose": {
-      "rateHistory": "As mudanças de taxa feitas pelo Roblox também aparecem no {rateHistory}, que é um registro separado: o changelog acompanha o que este site fez, o histórico de taxas acompanha o que o Roblox fez."
+      "rateHistory": "As mudanças de taxa feitas pelo Roblox também aparecem no {rateHistory}, que é um registro separado: o changelog acompanha o que este site fez, o histórico de taxas acompanha o que o Roblox fez.",
+      "notSilent": "Uma correção não é aplicada em silêncio — se um número neste site estava errado, o registro de que estava errado continua visível. Isso importa mais, para um site em torno do qual as pessoas planejam finanças, do que um histórico arrumado."
     }
   },
   "changelog": {

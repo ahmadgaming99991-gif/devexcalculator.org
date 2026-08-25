@@ -36,6 +36,9 @@
         "p2": "Consulta el historial fechado de cambios de tasa",
         "p3": "Consulta cuándo actualizó este sitio sus datos por última vez"
       }
+    },
+    "prose": {
+      "noForecast": "Roblox cambió la tasa estándar de 0,0035 a 0,0038 el {date}. Desde fuera de Roblox no hay forma de saber si volverá a cambiar ni cuándo, así que esta página no hace ningún pronóstico. Lo que sí registra es la fecha en que cada cifra de aquí se comprobó por última vez con la documentación oficial, mostrada en la parte superior de la página y en el {sourceRegistry}."
     }
   },
   "rateHistory": {
@@ -76,7 +79,8 @@
       }
     },
     "prose": {
-      "legacySplit": "Roblox convierte primero la parte del saldo anterior a la transición a 0,0035 y luego el resto a 0,0038. El reparto es la contabilidad del propio Roblox sobre cuándo se ganó cada Robux: no es algo que el creador elija ni pueda ajustar."
+      "legacySplit": "Roblox convierte primero la parte del saldo anterior a la transición a 0,0035 y luego el resto a 0,0038. El reparto es la contabilidad del propio Roblox sobre cuándo se ganó cada Robux: no es algo que el creador elija ni pueda ajustar.",
+      "whenItChanges": "Roblox ya ha cambiado la tasa antes y puede volver a cambiarla. Nadie fuera de Roblox sabe si lo hará ni cuándo, y una predicción disfrazada de análisis sería una conjetura con tono seguro. Esta página registra solo los cambios que confirma la documentación oficial, cada uno con su fecha de entrada en vigor. Cuando se produce un cambio, aparece aquí y en el {changelog}, junto con la fecha en que se verificó."
     }
   },
   "requirements": {
@@ -149,6 +153,9 @@
     "threshold": {
       "below": "Por debajo de la línea no se puede enviar ninguna solicitud de DevEx. Quedarse cerca no cuenta para nada, y lo que falta hay que ganarlo: no se puede comprar.",
       "above": "En la línea o por encima, se puede enviar una solicitud. Después se revisa, y alcanzar el umbral no es lo mismo que ser aprobado."
+    },
+    "prose": {
+      "earnedOnly": "La palabra que importa es {earned}. Los Robux que compraste no cuentan para esto, y el saldo de una tarjeta regalo tampoco. {earnedRobuxLink}"
     }
   },
   "earnedRobux": {
@@ -342,7 +349,8 @@
     },
     "prose": {
       "browseHub": "{conversionHub} para más cantidades y detalles.",
-      "officialPage": "No hay una sola cifra que valga para cada paquete, país y plataforma, así que citar una sería inventarla. Consulta {officialPage} para saber lo que pagarías realmente."
+      "officialPage": "No hay una sola cifra que valga para cada paquete, país y plataforma, así que citar una sería inventarla. Consulta {officialPage} para saber lo que pagarías realmente.",
+      "commissionOnce": "La diferencia entre ambos existe porque Roblox opera una plataforma, gestiona el procesamiento de pagos y cobra una comisión por ello. {marketplaceCalculator}, y no se vuelve a cobrar al cobrar el dinero."
     }
   },
   "usdToRobux": {
@@ -385,6 +393,10 @@
         "p1": "Esta página responde a la pregunta del creador: cuánto necesito ganar para recibir una cantidad de dinero dada. No te dice cuántos Robux compra una cantidad de dinero dada. Roblox fija el precio de los paquetes de Robux por región, plataforma y promoción, y no hay una única tasa que fuera cierta para todo el mundo, así que este sitio no publica ninguna.",
         "p2": "La distinción se explica por completo en la página Robux a USD"
       }
+    },
+    "prose": {
+      "division": "Un objetivo de pago es una distancia. Convertirlo en una fecha exige un dato más —a qué ritmo ganas— y convertir una fecha en un plan exige el mismo dato al revés. Ambos son la misma división: {formula}, redondeada hacia arriba, porque un día parcial no rinde nada y un Robux parcial no existe. Nada de esto supone que tus ingresos crezcan, y nada de esto es una fecha en la que Roblox vaya a pagar: Roblox no publica un plazo de procesamiento de DevEx, así que no se añade ninguno.",
+      "divisionFormula": "días = Earned Robux restantes ÷ Earned Robux por día"
     }
   },
   "robuxTax": {
@@ -501,6 +513,12 @@
       "robux500000": "Medio millón de Earned Robux es la escala en la que las comisiones del proveedor de pagos y las obligaciones fiscales personales dejan de ser errores de redondeo, y por eso esta página enlaza directamente con la guía de comisiones e impuestos.",
       "robux1000000": "Un millón de Robux es el hito que los creadores buscan de verdad, y es la ilustración más clara de por qué el precio de compra y el pago de DevEx no son la misma cifra.",
       "robux10000000": "Diez millones de Earned Robux representan ingresos sostenidos de una experiencia grande. A esta escala, el reparto entre saldos estándar y antiguos, y cualquier porción que cumpla la condición EE. UU. 18+, cambia el total en miles de dólares."
-    }
+    },
+    "intro": "En cuánto se convierten {display} Earned Robux elegibles con cada una de las tres tasas de DevEx documentadas.",
+    "headlineHeading": "Cuánto valen {display} Robux",
+    "eligibleLabel": "{display} Earned Robux elegibles",
+    "clearsMinimum": "Eso es {multiple} veces el mínimo de {minimum} Earned Robux, así que supera el umbral para enviar una solicitud. Superar el umbral no es una aprobación: Roblox revisa cada solicitud.",
+    "belowMinimum": "Esto está por debajo del mínimo de {minimum} Earned Robux, así que todavía no se puede enviar una solicitud de DevEx con este saldo.",
+    "reachingCaption": "Si {display} Earned Robux cubren objetivos de pago habituales"
   }
 }

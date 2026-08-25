@@ -38,7 +38,22 @@
     "tooLarge": "Bu tutar, hesaplayıcının kabul ettiğinden büyük.",
     "robuxMustBeWhole": "Robux tam birimler hâlindedir — tam sayı girin.",
     "belowMinimum": "Bu, {minimum} Earned Robux alt sınırının altında; dolayısıyla henüz takas edilemez.",
-    "rateUnavailable": "Bu bileşim için doğrulanmış bir kur yok."
+    "rateUnavailable": "Bu bileşim için doğrulanmış bir kur yok.",
+    "tooLong": "Bu değer, gerçek bir tutar olamayacak kadar uzun.",
+    "scientificNotation": "Bilimsel gösterim desteklenmiyor. Sayının tamamını yazın.",
+    "positiveOnly": "Pozitif bir tutar girin.",
+    "numberExample": "Bir sayı girin, örneğin 100.000.",
+    "mixedSeparators": "Ayırıcılar karışmış. Binlik için nokta, ondalık için virgül kullanın; örneğin 1.500,50.",
+    "thousandsSeparators": "Binlik ayırıcıları kontrol edin; örneğin 1.00.000 değil 1.000.000.",
+    "multipleDecimalPoints": "Birden fazla ondalık ayırıcı var.",
+    "digitsOnly": "Yalnızca rakam girin, örneğin 100000.",
+    "robuxWholeUnits": "Robux tam birimler hâlinde gelir. Tam bir sayı girin ya da 1.5m gibi bir sonek kullanın.",
+    "robuxLimit": "Bu hesaplayıcı en fazla {limit} Robux kabul eder. Bu, Roblox'un değil, bizim kendi sınırımızdır.",
+    "valueLimit": "Bu hesaplayıcı en fazla {limit} kabul eder. Bu, Roblox'un değil, bizim kendi sınırımızdır.",
+    "tooManyDecimalsOne": "En fazla {max} ondalık basamak kullanın.",
+    "amountExample": "Bir tutar girin, örneğin 1000.",
+    "percentExample": "Bir yüzde girin, örneğin 2,9.",
+    "percentRange": "0 ile {max} arasında bir yüzde girin."
   },
   "form": {
     "requiredField": "Bu alan zorunludur.",

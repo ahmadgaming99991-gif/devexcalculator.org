@@ -103,6 +103,9 @@
         "p1": "Bu koşullar güncellenebilir. Sayfanın başındaki inceleme tarihi en son değişikliği gösterir ve esaslı değişiklikler şurada kaydedilir:",
         "p2": "burada değişen her şeyle birlikte."
       }
+    },
+    "prose": {
+      "checkOfficial": "Doğruluk için hatırı sayılır bir emek harcanır — her oranın kaynağı, tarihi ve testleri vardır — ama oranlar değişir, belgeler yer değiştirir ve hata olabilir. Önem taşıyan bir karar vermeden önce, dayandığınız her şeyi {sourceRegistry} üzerinden bağlanan resmi Roblox belgeleriyle karşılaştırın."
     }
   },
   "disclaimer": {

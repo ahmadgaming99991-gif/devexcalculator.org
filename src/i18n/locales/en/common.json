@@ -104,7 +104,8 @@
     "legacyRate": "Legacy",
     "usEighteenPlus": "U.S. 18+",
     "minimum": "Minimum",
-    "rate": "Rate"
+    "rate": "Rate",
+    "earnedWord": "Earned"
   },
   "social": {
     "youtube": "DevEx Calculator on YouTube",
@@ -143,7 +144,11 @@
       }
     },
     "legacyAppliesTo": "Balances earned before {effectiveTo}.",
-    "effectiveFrom": "From {effectiveFrom}."
+    "effectiveFrom": "From {effectiveFrom}.",
+    "prose": {
+      "workingBackwards": "Working backwards divides instead, and always rounds up: a target of {target} needs {required} Earned Robux, because {shortfall} would fall a fraction short."
+    },
+    "calculationFormula": "eligible Earned Robux × rate per Robux = estimated USD payout"
   },
   "charts": {
     "body": {
@@ -178,6 +183,14 @@
     "days": {
       "one": "{days} day",
       "other": "{days} days"
+    },
+    "weeks": {
+      "one": "{weeks} week",
+      "other": "{weeks} weeks"
+    },
+    "months": {
+      "one": "{months} month",
+      "other": "{months} months"
     }
   }
 }

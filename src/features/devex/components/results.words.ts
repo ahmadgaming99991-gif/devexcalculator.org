@@ -30,4 +30,5 @@ export const RESULTS_WORDS: readonly string[] = [
   "calculator.results.comparisonTableLabel",
   "calculator.results.ifAllStandard",
   "calculator.target.minimumAppliesFirstTitle",
+  "calculator.target.progressLabel",
 ];

@@ -102,6 +102,9 @@
         "p1": "Estes termos podem ser atualizados. A data de revisão no topo desta página reflete a mudança mais recente, e mudanças relevantes são registradas no",
         "p2": "junto com tudo o mais que muda aqui."
       }
+    },
+    "prose": {
+      "checkOfficial": "Muito cuidado é dedicado à exatidão — toda taxa tem fonte, data e cobertura de testes — mas taxas mudam, documentações se movem e erros são possíveis. Confira qualquer coisa da qual você dependa na documentação oficial do Roblox, ligada a partir do {sourceRegistry}, antes de tomar uma decisão que importe."
     }
   },
   "disclaimer": {

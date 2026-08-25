@@ -5,6 +5,7 @@
     "footer.feedJson",
     "social.instagramName",
     "social.pinterestName",
+    "units.earnedWord",
     "units.minimum",
     "units.standard"
   ],
@@ -112,7 +113,8 @@
     "legacyRate": "Eski",
     "usEighteenPlus": "ABD 18+",
     "minimum": "Minimum",
-    "rate": "Kur"
+    "rate": "Kur",
+    "earnedWord": "Earned"
   },
   "social": {
     "youtube": "DevEx Calculator YouTube'da",
@@ -151,7 +153,11 @@
       }
     },
     "legacyAppliesTo": "{effectiveTo} tarihinden önce kazanılan bakiyeler.",
-    "effectiveFrom": "{effectiveFrom} tarihinden itibaren."
+    "effectiveFrom": "{effectiveFrom} tarihinden itibaren.",
+    "prose": {
+      "workingBackwards": "Geriye doğru hesap bölme yapar ve her zaman yukarı yuvarlar: {target} tutarındaki bir hedef {required} Earned Robux gerektirir, çünkü {shortfall} bir kırıntı kadar eksik kalırdı."
+    },
+    "calculationFormula": "uygun Earned Robux × Robux başına oran = tahmini USD ödemesi"
   },
   "charts": {
     "body": {
@@ -182,6 +188,14 @@
     "days": {
       "one": "{days} gün",
       "other": "{days} gün"
+    },
+    "weeks": {
+      "one": "{weeks} hafta",
+      "other": "{weeks} hafta"
+    },
+    "months": {
+      "one": "{months} ay",
+      "other": "{months} ay"
     }
   }
 }
