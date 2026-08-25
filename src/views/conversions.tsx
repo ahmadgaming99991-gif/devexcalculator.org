@@ -133,7 +133,6 @@ export async function ConversionsView({
           <RelatedLinks locale={locale}
             record={record}
             relationships={["parent", "tool", "prerequisite"]}
-            heading="Related pages"
             id="related"
           />
 

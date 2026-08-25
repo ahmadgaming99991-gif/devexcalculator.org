@@ -1,3 +1,4 @@
+import type { Translate } from "@/i18n/get-dictionary";
 import type { ReactNode } from "react";
 import { cx } from "@/components/ui";
 
@@ -49,12 +50,14 @@ export function BarChart({
   data,
   caption,
   valueLabel,
+  t,
   formatTick,
   className,
 }: {
   data: readonly ChartDatum[];
   caption: string;
   valueLabel: string;
+  readonly t: Translate;
   /**
    * Formats an axis tick. Supplied by the caller because only the caller knows
    * what the numbers mean: a generic formatter rounded values that were already
@@ -165,7 +168,7 @@ export function BarChart({
       </svg>
 
       <figcaption className="mt-2 text-sm text-(--color-text-muted)">
-        {caption} Values are {valueLabel}.
+        {t("common.charts.body.intro.p1", { caption, valueLabel })}
       </figcaption>
     </figure>
   );

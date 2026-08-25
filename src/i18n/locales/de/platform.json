@@ -27,7 +27,9 @@
       "lifetimeVisits": "Besuche insgesamt",
       "approval": "Zustimmung",
       "sponsored": "Gesponsert",
-      "genre": "Genre"
+      "genre": "Genre",
+      "wrapperLabel": "Experiences im Roblox-Ranking {ranking}",
+      "caption": "Die {count} führenden Experiences im Roblox-Ranking {ranking}, mit den Spielern in jeder zu dem Moment, in dem diese Seite ausgeliefert wurde."
     },
     "body": {
       "how": {
@@ -64,6 +66,10 @@
         "p14": "Spieler. Ein Diagramm braucht mindestens {minimumPointsForChart} Punkte, um eine Linie statt eines Punktes zu sein, daher werden die Zahlen stattdessen aufgelistet.",
         "p16": "Das Fenster erweitert sich von selbst, während Beobachtungen zusammenkommen, bis zu {retentionDays} Tage. Ältere Beobachtungen laufen ab, statt von einem Job gelöscht zu werden. Höchst-, Tiefst- und Durchschnittswert beschreiben nur diese aufgezeichneten Punkte — zwischen zwei Beobachtungen kann der Wert höher gewesen sein, und diese Website behauptet nichts anderes."
       }
+    },
+    "rankingsNote": {
+      "one": "Roblox veröffentlicht {rankingsCount} Ranking; hier stehen die ersten {displayLimit} des jeweils ausgewählten. Die Reihenfolge ist die von Roblox, nicht die dieser Website.",
+      "other": "Roblox veröffentlicht {rankingsCount} Rankings; hier stehen die ersten {displayLimit} des jeweils ausgewählten. Die Reihenfolge ist die von Roblox, nicht die dieser Website."
     }
   },
   "platformFigure": {
@@ -105,15 +111,36 @@
       "averageAcrossObservations": "Durchschnitt über die Beobachtungen",
       "meanNote": "Mittelwert aus {points} aufgezeichneten Punkten, kein Plattformdurchschnitt",
       "highestObserved": "Höchster beobachteter Wert",
-      "lowestObserved": "Niedrigster beobachteter Wert"
+      "lowestObserved": "Niedrigster beobachteter Wert",
+      "overSpan": "Über {span}"
     },
     "charts": {
       "busiestCaption": "Die höchste Spielerzahl, die eine einzelne Experience bei jeder Beobachtung gehalten hat, über die aufgezeichneten {span}. Die führende Experience wechselt; diese Linie folgt der Zahl, nicht einem Titel.",
-      "totalCaption": "Gesamtzahl der Spielenden über die gelisteten Experiences. Diese Website beobachtet seit {span}. Jeder Punkt ist eine aufgezeichnete Beobachtung; Lücken sind Lücken in der Erfassung, keine Nullen."
+      "totalCaption": "Gesamtzahl der Spielenden über die gelisteten Experiences. Diese Website beobachtet seit {span}. Jeder Punkt ist eine aufgezeichnete Beobachtung; Lücken sind Lücken in der Erfassung, keine Nullen.",
+      "topOverTimeCaption": "Die {plotted} meistbesuchten von {tracked} verfolgten Experiences, aus einer Messung alle {intervalMinutes} Minuten. Jeder Punkt wurde gemessen; nichts zwischen zwei Punkten wird gezeichnet, als wäre es das. Jede Experience in der Tabelle oben hat dort ihre eigene Trendlinie, und die Zahlen hinter diesem Bild stehen als Text in jener Tabelle.",
+      "experienceCaption": "Spieler in {name}, über die {span}, für die dieser Website Messungen vorliegen. Jeder Punkt ist eine aufgezeichnete Messung; Lücken sind Erfassungslücken, keine Nullen."
     },
     "highestObservedNote": "„Höchster beobachteter Wert“ heißt: der höchste, den diese Website bei einer ihrer eigenen Beobachtungen gesehen hat. Es ist kein Allzeitrekord: Nichts vor Beobachtungsbeginn ist ihr bekannt, und sie borgt sich keine Zahl, die sie nicht gemessen hat.",
     "windowNote": "Das Fenster weitet sich von selbst, während sich Beobachtungen ansammeln, bis zu {days} Tage. Ältere Beobachtungen laufen ab, statt von einem Job gelöscht zu werden. Höchstwert, Tiefstwert und Durchschnitt beschreiben nur diese aufgezeichneten Punkte — der Gesamtwert kann zwischen zwei Beobachtungen höher gewesen sein, und diese Website behauptet nichts anderes.",
-    "recordedByThisSite": "Von dieser Website aufgezeichnet"
+    "recordedByThisSite": "Von dieser Website aufgezeichnet",
+    "topOverTimeDescription": "Jede Experience, die diese Website verfolgt, auf einem Achsenpaar, aus einer Zählung pro Stunde, {days} Tage lang aufbewahrt. Die acht meistbesuchten tragen Farbe und Namen; der Rest wird dahinter gezeichnet, damit die Form des ganzen Rankings sichtbar bleibt.",
+    "seenOnceEach": "{count} Experiences wurden je einmal gesehen.",
+    "notEnoughLinesBody": "Eine Linie braucht mindestens zwei Messungen derselben Experience; das Diagramm erscheint deshalb nach dem nächsten Erfassungslauf, statt einen einzelnen Punkt mit sich selbst zu verbinden.",
+    "unavailableTitle": "{what} ist in dieser Umgebung nicht verfügbar",
+    "noObservationsTitle": "In den letzten {window} keine Messungen aufgezeichnet",
+    "observationsSoFar": {
+      "one": "Bisher {count} Messung. Ein Diagramm braucht {minimumPointsForChart}, um eine Linie statt eines Punktes zu sein.",
+      "other": "Bisher {count} Messungen. Ein Diagramm braucht {minimumPointsForChart}, um eine Linie statt eines Punktes zu sein."
+    },
+    "onlyNObservations": {
+      "one": "Von dieser Experience wurde erst {count} Messung aufgezeichnet, was für eine Linie nicht reicht. Zählungen je Experience werden {gameHistoryDays} Tage lang mit einer Messung pro Stunde aufbewahrt, und eine Experience wird nur erfasst, solange Roblox sie rankt.",
+      "other": "Von dieser Experience wurden erst {count} Messungen aufgezeichnet, was für eine Linie nicht reicht. Zählungen je Experience werden {gameHistoryDays} Tage lang mit einer Messung pro Stunde aufbewahrt, und eine Experience wird nur erfasst, solange Roblox sie rankt."
+    },
+    "withinWindow": {
+      "one": "{count} Messung fällt in die letzten {window}, die jüngste zeigt {players} Spieler. Ein Diagramm braucht mindestens {minimumPointsForChart} Punkte, um eine Linie statt eines Punktes zu sein, deshalb stehen hier die Zahlen.",
+      "other": "{count} Messungen fallen in die letzten {window}, die jüngste zeigt {players} Spieler. Ein Diagramm braucht mindestens {minimumPointsForChart} Punkte, um eine Linie statt eines Punktes zu sein, deshalb stehen hier die Zahlen."
+    },
+    "nothingStoredBody": "Für diesen Bereich wurde nichts gespeichert. Wo der geplante Auftrag läuft, wird alle {collectionIntervalMinutes} Minuten eine Messung geschrieben, und das Diagramm erscheint, sobald {minimumPointsForChart} davon vorliegen. Ein weiterer Bereich enthält vielleicht mehr; was er nie tun wird, ist einen Punkt zu erfinden, um diesen zu füllen."
   },
   "method": {
     "heading": "Wie diese Seite zu ihren Zahlen kommt",
@@ -143,7 +170,6 @@
     }
   },
   "faqsHeading": "Fragen zu diesen Zahlen",
-  "relatedHeading": "Verwandte Seiten",
   "stock": {
     "intro": "Roblox’ veröffentlichte Geschäftszahlen — und eine ehrliche Erklärung, warum es hier noch keinen Live-Aktienkurs gibt.",
     "jumpLabel": "Ansehen, was gezeigt wird",
@@ -258,6 +284,7 @@
       "noLiveData": {
         "p1": "Roblox veröffentlicht diese Zahlen einmal pro Quartal, in einem Bericht. Das ist die feinste Auflösung, die es gibt — ein Diagramm, das behauptet, sie sich minütlich ändern zu sehen, würde also etwas Erfundenes zeigen. Diese Website betreibt keine Datenerhebung, tastet nichts ab und schätzt nichts — sie liest die Berichte und verlinkt sie."
       }
-    }
+    },
+    "usDollarsLabel": "US-Dollar"
   }
 }

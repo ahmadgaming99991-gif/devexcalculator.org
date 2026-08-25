@@ -23,7 +23,9 @@
       "lifetimeVisits": "Lifetime visits",
       "approval": "Approval",
       "sponsored": "Sponsored",
-      "genre": "Genre"
+      "genre": "Genre",
+      "wrapperLabel": "Experiences in Roblox's {ranking} ranking",
+      "caption": "The top {count} experiences in Roblox's {ranking} ranking, with the players in each at the moment this page was served."
     },
     "body": {
       "how": {
@@ -60,6 +62,10 @@
         "p14": "players. A chart needs at least {minimumPointsForChart} points to be a line rather than a dot, so the figures are listed instead.",
         "p16": "The window widens on its own as observations accumulate, up to {retentionDays} days. Older observations expire rather than being deleted by a job. Peak, low and average describe these recorded points only — the total may have been higher between two observations, and this site does not claim otherwise."
       }
+    },
+    "rankingsNote": {
+      "one": "Roblox publishes {rankingsCount} ranking; this shows the first {displayLimit} of whichever is selected. The order is Roblox's, not this site's.",
+      "other": "Roblox publishes {rankingsCount} rankings; this shows the first {displayLimit} of whichever is selected. The order is Roblox's, not this site's."
     }
   },
   "platformFigure": {
@@ -101,15 +107,36 @@
       "averageAcrossObservations": "Average across observations",
       "meanNote": "Mean of {points} recorded points, not a platform average",
       "highestObserved": "Highest observed",
-      "lowestObserved": "Lowest observed"
+      "lowestObserved": "Lowest observed",
+      "overSpan": "Over {span}"
     },
     "charts": {
       "busiestCaption": "The highest player count held by any single experience at each observation, over the {span} recorded. The leading experience changes; this line follows the count, not one title.",
-      "totalCaption": "Total players across the ranked experiences. This site has been observing for {span}. Each point is one recorded observation; gaps are gaps in collection, not zeroes."
+      "totalCaption": "Total players across the ranked experiences. This site has been observing for {span}. Each point is one recorded observation; gaps are gaps in collection, not zeroes.",
+      "topOverTimeCaption": "The {plotted} busiest of {tracked} tracked experiences, from one observation every {intervalMinutes} minutes. Each point was measured; nothing between two points is drawn as though it were. Every experience in the table above has its own trend line there, and the figures behind this picture are in that table as text.",
+      "experienceCaption": "Players in {name}, over the {span} this site has observations for. Each point is one recorded observation; gaps are gaps in collection, not zeroes."
     },
     "highestObservedNote": "“Highest observed” means the highest this site saw at one of its own observations. It is not an all-time record: nothing before this site began watching is known to it, and it will not borrow a figure it did not measure.",
     "windowNote": "The window widens on its own as observations accumulate, up to {days} days. Older observations expire rather than being deleted by a job. Peak, low and average describe these recorded points only — the total may have been higher between two observations, and this site does not claim otherwise.",
-    "recordedByThisSite": "Recorded by this site"
+    "recordedByThisSite": "Recorded by this site",
+    "topOverTimeDescription": "Every experience this site is tracking, on one set of axes, from one count an hour kept for {days} days. The eight busiest carry a colour and a name; the rest are drawn behind them so the shape of the whole ranking is visible.",
+    "seenOnceEach": "{count} experiences have been seen once each.",
+    "notEnoughLinesBody": "A line needs at least two observations of the same experience, so the chart appears after the next collection run rather than joining a single point to itself.",
+    "unavailableTitle": "{what} is not available in this environment",
+    "noObservationsTitle": "No observations recorded in the last {window}",
+    "observationsSoFar": {
+      "one": "{count} observation so far. A chart needs {minimumPointsForChart} to be a line rather than a dot.",
+      "other": "{count} observations so far. A chart needs {minimumPointsForChart} to be a line rather than a dot."
+    },
+    "onlyNObservations": {
+      "one": "Only {count} observation of this experience has been recorded, which is not enough to draw a line. Per-experience counts are kept for the last {gameHistoryDays} days at one observation an hour, and an experience is only recorded while Roblox is ranking it.",
+      "other": "Only {count} observations of this experience have been recorded, which is not enough to draw a line. Per-experience counts are kept for the last {gameHistoryDays} days at one observation an hour, and an experience is only recorded while Roblox is ranking it."
+    },
+    "withinWindow": {
+      "one": "{count} observation falls within the last {window}, the most recent showing {players} players. A chart needs at least {minimumPointsForChart} points to be a line rather than a dot, so the figures are listed instead.",
+      "other": "{count} observations fall within the last {window}, the most recent showing {players} players. A chart needs at least {minimumPointsForChart} points to be a line rather than a dot, so the figures are listed instead."
+    },
+    "nothingStoredBody": "Nothing has been stored for this range. Where the scheduled job is running, an observation is written every {collectionIntervalMinutes} minutes and the chart appears once there are {minimumPointsForChart} of them. A wider range may hold more; what it will never do is invent a point to fill this one."
   },
   "method": {
     "heading": "How this page gets its numbers",
@@ -139,7 +166,6 @@
     }
   },
   "faqsHeading": "Questions about these figures",
-  "relatedHeading": "Related pages",
   "stock": {
     "intro": "Roblox’s reported results, and an honest account of why there is no live share price here yet.",
     "jumpLabel": "See what is shown",
@@ -254,6 +280,7 @@
       "noLiveData": {
         "p1": "Roblox publishes these numbers once a quarter, in a filing. That is the finest resolution that exists, so a chart claiming to show them changing by the minute would be showing something invented. This site runs no data collection, samples nothing and estimates nothing — it reads the filings and links to them."
       }
-    }
+    },
+    "usDollarsLabel": "US dollars"
   }
 }

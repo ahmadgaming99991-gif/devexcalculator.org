@@ -1,4 +1,5 @@
 import { beforeEach, describe, expect, it } from "vitest";
+import { getDictionary, translator } from "@/i18n/get-dictionary";
 import {
   CHART_WINDOWS,
   COLLECTION_INTERVAL_MINUTES,
@@ -29,6 +30,14 @@ import type { ExperienceObservation } from "@/lib/platform/roblox-api";
 
 /** One sampling interval, in milliseconds. */
 const HOUR = GAME_HISTORY_INTERVAL_MINUTES * 60_000;
+
+/**
+ * The committed English dictionary, not a stub.
+ *
+ * What these assertions are about is the sentence a reader sees, so building
+ * the words here instead would only test the test.
+ */
+const english = translator(await getDictionary("en", ["common"]));
 
 /**
  * An in-memory stand-in for the KV binding.
@@ -102,7 +111,7 @@ describe("observation history", () => {
     expect(series.points).toEqual([]);
     expect(series.chartable).toBe(false);
     expect(series.firstObservedAt).toBeNull();
-    expect(describeSpan(series)).toBe("no observations yet");
+    expect(describeSpan(english, series)).toBe("no observations yet");
   });
 
   it("is not chartable until there are enough points to draw a line", async () => {
@@ -141,7 +150,7 @@ describe("observation history", () => {
 
     const series = await readSeries(store);
     expect(Math.round(series.spanHours)).toBe(4);
-    expect(describeSpan(series)).toBe("4 hours");
+    expect(describeSpan(english, series)).toBe("4 hours");
   });
 
   it("describes a multi-day span in days", async () => {
@@ -157,7 +166,7 @@ describe("observation history", () => {
       snapshotAt(new Date(Date.now() - 36 * 3_600_000).toISOString(), 10),
     );
 
-    expect(describeSpan(await readSeries(store))).toBe("3 days");
+    expect(describeSpan(english, await readSeries(store))).toBe("3 days");
   });
 
   it("ignores a snapshot whose stored value is not a snapshot", async () => {

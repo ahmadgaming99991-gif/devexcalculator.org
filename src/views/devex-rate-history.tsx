@@ -160,7 +160,6 @@ export async function RateHistoryView({ locale }: { readonly locale: Locale }) {
           <RelatedLinks locale={locale}
             record={record}
             relationships={["parent", "tool", "next-step"]}
-            heading="Related pages"
             id="related"
           />
 

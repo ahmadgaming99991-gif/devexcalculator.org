@@ -92,7 +92,6 @@ export async function CorrectionsView({ locale }: { readonly locale: Locale }) {
           <RelatedLinks locale={locale}
             record={record}
             relationships={["next-step", "sibling", "parent"]}
-            heading="Related pages"
             id="related"
           />
         </div>

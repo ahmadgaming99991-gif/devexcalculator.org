@@ -83,7 +83,8 @@
     "sourceLine": "— {publisher}. Checked {checked}.",
     "sourcesFooter": "{ratesChange} {seeEverySource}, or {reportOutOfDate}.",
     "inShort": "In short",
-    "sourcePrefix": "Source:"
+    "sourcePrefix": "Source:",
+    "relatedHeading": "Related pages"
   },
   "actions": {
     "tryAgain": "Try again",
@@ -128,7 +129,8 @@
   "ranges": {
     "day": "24 hours",
     "threeDays": "3 days",
-    "sevenDays": "7 days"
+    "sevenDays": "7 days",
+    "days": "{days} days"
   },
   "shell": {
     "skipToContent": "Skip to main content"
@@ -140,7 +142,8 @@
         "p3": "would fall a fraction short."
       }
     },
-    "legacyAppliesTo": "Balances earned before {effectiveTo}."
+    "legacyAppliesTo": "Balances earned before {effectiveTo}.",
+    "effectiveFrom": "From {effectiveFrom}."
   },
   "charts": {
     "body": {
@@ -163,5 +166,18 @@
   "ui": {
     "opensInNewTab": "(opens in a new tab)",
     "advertisement": "Advertisement"
+  },
+  "spans": {
+    "none": "no observations yet",
+    "single": "a single observation",
+    "underAnHour": "under an hour",
+    "hours": {
+      "one": "{hours} hour",
+      "other": "{hours} hours"
+    },
+    "days": {
+      "one": "{days} day",
+      "other": "{days} days"
+    }
   }
 }

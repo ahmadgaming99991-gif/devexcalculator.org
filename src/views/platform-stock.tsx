@@ -124,7 +124,6 @@ export async function StockView({ locale }: { readonly locale: Locale }) {
           <RelatedLinks locale={locale}
             record={record}
             relationships={["parent", "sibling", "next-step"]}
-            heading="Related pages"
             id="related"
           />
         </div>

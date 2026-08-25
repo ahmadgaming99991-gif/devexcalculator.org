@@ -177,7 +177,6 @@ export async function EarnedRobuxView({ locale }: { readonly locale: Locale }) {
           <RelatedLinks locale={locale}
             record={record}
             relationships={["sibling", "tool", "next-step"]}
-            heading="Related pages"
             id="related"
           />
 

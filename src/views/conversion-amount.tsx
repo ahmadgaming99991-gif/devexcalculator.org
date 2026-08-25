@@ -177,7 +177,9 @@ export async function AmountView({
           </Section>
 
           <Section id="context" heading={t("rates.amountPage.contextHeading")}>
-            <p className="text-(--color-text-muted)">{definition.context}</p>
+            <p className="text-(--color-text-muted)">
+              {t(`rates.amountPage.context.robux${definition.amount}`)}
+            </p>
           </Section>
 
           <Section

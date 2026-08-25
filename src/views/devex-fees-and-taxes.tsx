@@ -63,6 +63,7 @@ export async function FeesAndTaxesView({
             description={t("rates.feesAndTaxes.threeDeductionsDescription")}
           >
             <ValueFlow
+              t={t}
               className="mb-6"
               caption={t("rates.feesAndTaxes.sequenceCaption")}
               stages={[
@@ -209,7 +210,6 @@ export async function FeesAndTaxesView({
           <RelatedLinks locale={locale}
             record={record}
             relationships={["prerequisite", "sibling", "next-step"]}
-            heading="Related pages"
             id="related"
           />
 

@@ -80,12 +80,16 @@ export function RateTable({ showExamples = true,
                   {rate.eligibilitySummary}
                   {rate.effectiveFrom ? (
                     <span className="mt-1 block text-xs">
-                      From {formatDate(rate.effectiveFrom)}.
+                      {t("common.tables.effectiveFrom", {
+                        effectiveFrom: formatDate(rate.effectiveFrom),
+                      })}
                     </span>
                   ) : null}
                   {rate.effectiveTo ? (
                     <span className="mt-1 block text-xs">
-                      Balances earned before {formatDate(rate.effectiveTo)}.
+                      {t("common.tables.legacyAppliesTo", {
+                        effectiveTo: formatDate(rate.effectiveTo),
+                      })}
                     </span>
                   ) : null}
                 </Td>

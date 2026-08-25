@@ -29,7 +29,9 @@
       "lifetimeVisits": "Visites cumulées",
       "approval": "Approbation",
       "sponsored": "Sponsorisé",
-      "genre": "Genre"
+      "genre": "Genre",
+      "wrapperLabel": "Expériences dans le classement {ranking} de Roblox",
+      "caption": "Les {count} premières expériences du classement {ranking} de Roblox, avec le nombre de joueurs dans chacune au moment où cette page a été servie."
     },
     "body": {
       "how": {
@@ -66,6 +68,10 @@
         "p14": "joueurs. Un graphique a besoin d'au moins {minimumPointsForChart} points pour former une ligne plutôt qu'un point ; les chiffres sont donc listés à la place.",
         "p16": "La fenêtre s'élargit d'elle-même à mesure que les observations s'accumulent, jusqu'à {retentionDays} jours. Les observations les plus anciennes expirent au lieu d'être supprimées par une tâche. Le pic, le minimum et la moyenne ne décrivent que ces points enregistrés — le total a pu être plus élevé entre deux observations, et ce site ne prétend pas le contraire."
       }
+    },
+    "rankingsNote": {
+      "one": "Roblox publie {rankingsCount} classement ; on voit ici les {displayLimit} premiers de celui qui est sélectionné. L’ordre est celui de Roblox, pas celui de ce site.",
+      "other": "Roblox publie {rankingsCount} classements ; on voit ici les {displayLimit} premiers de celui qui est sélectionné. L’ordre est celui de Roblox, pas celui de ce site."
     }
   },
   "platformFigure": {
@@ -107,15 +113,36 @@
       "averageAcrossObservations": "Moyenne sur les observations",
       "meanNote": "Moyenne de {points} points enregistrés, et non une moyenne de la plateforme",
       "highestObserved": "Maximum observé",
-      "lowestObserved": "Minimum observé"
+      "lowestObserved": "Minimum observé",
+      "overSpan": "Sur {span}"
     },
     "charts": {
       "busiestCaption": "Le plus grand nombre de joueurs atteint par une seule expérience à chaque observation, sur les {span} enregistrés. L’expérience en tête change ; cette courbe suit le comptage, pas un titre.",
-      "totalCaption": "Total des joueurs sur les expériences classées. Ce site observe depuis {span}. Chaque point est une observation enregistrée ; les trous sont des trous de collecte, pas des zéros."
+      "totalCaption": "Total des joueurs sur les expériences classées. Ce site observe depuis {span}. Chaque point est une observation enregistrée ; les trous sont des trous de collecte, pas des zéros.",
+      "topOverTimeCaption": "Les {plotted} plus fréquentées parmi {tracked} expériences suivies, à partir d’une observation toutes les {intervalMinutes} minutes. Chaque point a été mesuré ; rien entre deux points n’est tracé comme s’il l’avait été. Chaque expérience du tableau ci-dessus y possède sa propre courbe, et les chiffres derrière cette image figurent dans ce tableau sous forme de texte.",
+      "experienceCaption": "Joueurs dans {name}, sur les {span} pour lesquels ce site dispose d’observations. Chaque point est une observation enregistrée ; les trous sont des trous de collecte, pas des zéros."
     },
     "highestObservedNote": "« Maximum observé » signifie le maximum que ce site a vu lors d’une de ses propres observations. Ce n’est pas un record absolu : rien d’antérieur au début de l’observation ne lui est connu, et il n’empruntera pas un chiffre qu’il n’a pas mesuré.",
     "windowNote": "La fenêtre s’élargit d’elle-même à mesure que les observations s’accumulent, jusqu’à {days} jours. Les observations anciennes expirent au lieu d’être supprimées par une tâche. Le pic, le minimum et la moyenne ne décrivent que ces points enregistrés — le total a pu être plus élevé entre deux observations, et ce site ne prétend pas le contraire.",
-    "recordedByThisSite": "Relevé par ce site"
+    "recordedByThisSite": "Relevé par ce site",
+    "topOverTimeDescription": "Toutes les expériences que ce site suit, sur un même jeu d’axes, à partir d’un relevé par heure conservé {days} jours. Les huit plus fréquentées portent une couleur et un nom ; les autres sont tracées derrière elles pour que la forme de tout le classement reste visible.",
+    "seenOnceEach": "{count} expériences ont été vues une fois chacune.",
+    "notEnoughLinesBody": "Une ligne exige au moins deux observations de la même expérience ; le graphique apparaît donc après la prochaine collecte plutôt que de relier un point unique à lui-même.",
+    "unavailableTitle": "{what} n’est pas disponible dans cet environnement",
+    "noObservationsTitle": "Aucune observation enregistrée sur les {window} écoulés",
+    "observationsSoFar": {
+      "one": "{count} observation à ce jour. Un graphique en exige {minimumPointsForChart} pour être une ligne plutôt qu’un point.",
+      "other": "{count} observations à ce jour. Un graphique en exige {minimumPointsForChart} pour être une ligne plutôt qu’un point."
+    },
+    "onlyNObservations": {
+      "one": "{count} seule observation de cette expérience a été enregistrée, ce qui ne suffit pas pour tracer une ligne. Les relevés par expérience sont conservés {gameHistoryDays} jours, à raison d’une observation par heure, et une expérience n’est enregistrée que tant que Roblox la classe.",
+      "other": "Seules {count} observations de cette expérience ont été enregistrées, ce qui ne suffit pas pour tracer une ligne. Les relevés par expérience sont conservés {gameHistoryDays} jours, à raison d’une observation par heure, et une expérience n’est enregistrée que tant que Roblox la classe."
+    },
+    "withinWindow": {
+      "one": "{count} observation tombe dans les {window} écoulés, la plus récente indiquant {players} joueurs. Un graphique exige au moins {minimumPointsForChart} points pour être une ligne plutôt qu’un point ; les chiffres sont donc listés à la place.",
+      "other": "{count} observations tombent dans les {window} écoulés, la plus récente indiquant {players} joueurs. Un graphique exige au moins {minimumPointsForChart} points pour être une ligne plutôt qu’un point ; les chiffres sont donc listés à la place."
+    },
+    "nothingStoredBody": "Rien n’a été enregistré pour cette plage. Là où la tâche planifiée s’exécute, une observation est écrite toutes les {collectionIntervalMinutes} minutes et le graphique apparaît dès qu’il y en a {minimumPointsForChart}. Une plage plus large peut en contenir davantage ; ce qu’elle ne fera jamais, c’est inventer un point pour combler celle-ci."
   },
   "method": {
     "heading": "Comment cette page obtient ses chiffres",
@@ -145,7 +172,6 @@
     }
   },
   "faqsHeading": "Questions sur ces chiffres",
-  "relatedHeading": "Pages liées",
   "stock": {
     "intro": "Les résultats publiés par Roblox, et une explication honnête de l’absence, pour l’instant, d’un cours de bourse en direct ici.",
     "jumpLabel": "Voir ce qui est affiché",
@@ -260,6 +286,7 @@
       "noLiveData": {
         "p1": "Roblox publie ces chiffres une fois par trimestre, dans un dépôt officiel. C’est la résolution la plus fine qui existe : un graphique prétendant les montrer évoluer à la minute montrerait donc quelque chose d’inventé. Ce site ne collecte aucune donnée, n’échantillonne rien et n’estime rien — il lit les dépôts et y renvoie."
       }
-    }
+    },
+    "usDollarsLabel": "dollars américains"
   }
 }

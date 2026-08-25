@@ -91,7 +91,8 @@
     "sourceLine": "— {publisher}. {checked} tarihinde kontrol edildi.",
     "sourcesFooter": "{ratesChange} {seeEverySource} ya da {reportOutOfDate}.",
     "inShort": "Kısaca",
-    "sourcePrefix": "Kaynak:"
+    "sourcePrefix": "Kaynak:",
+    "relatedHeading": "İlgili sayfalar"
   },
   "actions": {
     "tryAgain": "Yeniden dene",
@@ -136,7 +137,8 @@
   "ranges": {
     "day": "24 saat",
     "threeDays": "3 gün",
-    "sevenDays": "7 gün"
+    "sevenDays": "7 gün",
+    "days": "{days} gün"
   },
   "shell": {
     "skipToContent": "Ana içeriğe geç"
@@ -148,7 +150,8 @@
         "p3": "kıl payı yetersiz kalırdı."
       }
     },
-    "legacyAppliesTo": "{effectiveTo} tarihinden önce kazanılan bakiyeler."
+    "legacyAppliesTo": "{effectiveTo} tarihinden önce kazanılan bakiyeler.",
+    "effectiveFrom": "{effectiveFrom} tarihinden itibaren."
   },
   "charts": {
     "body": {
@@ -167,5 +170,18 @@
   "ui": {
     "opensInNewTab": "(yeni sekmede açılır)",
     "advertisement": "Reklam"
+  },
+  "spans": {
+    "none": "henüz gözlem yok",
+    "single": "tek bir gözlem",
+    "underAnHour": "bir saatten az",
+    "hours": {
+      "one": "{hours} saat",
+      "other": "{hours} saat"
+    },
+    "days": {
+      "one": "{days} gün",
+      "other": "{days} gün"
+    }
   }
 }

@@ -160,7 +160,6 @@ export async function RobuxToUsdView({
           <RelatedLinks locale={locale}
             record={record}
             relationships={["sibling", "next-step", "prerequisite"]}
-            heading="Related pages"
             id="related"
           />
 

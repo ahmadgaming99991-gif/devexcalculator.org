@@ -12,6 +12,14 @@
  * remembered.
  */
 export interface ChangeEntry {
+  /**
+   * Stable name for this entry, and the key its words live under.
+   *
+   * `trust.changelog.entries.<id>` and `<id>Detail`. An id rather than the
+   * English title because the title is itself translated, and a lookup
+   * keyed by the thing being looked up cannot work.
+   */
+  readonly id: string;
   readonly date: string;
   readonly kind: "rate" | "content" | "site";
   readonly title: string;
@@ -30,6 +38,7 @@ export interface ChangeEntry {
 
 const ENTRIES: readonly ChangeEntry[] = [
   {
+    id: "registryEstablished",
     date: "2026-08-17T00:00:00Z",
     kind: "rate",
     title: "Rate registry established and verified",
@@ -39,6 +48,7 @@ const ENTRIES: readonly ChangeEntry[] = [
     sourceLabel: "Roblox Creator Hub — Developer Exchange",
   },
   {
+    id: "marketplaceRecorded",
     date: "2026-08-17T00:00:00Z",
     kind: "rate",
     title: "Marketplace commission rates recorded",
@@ -49,6 +59,7 @@ const ENTRIES: readonly ChangeEntry[] = [
   },
   {
     date: "2026-08-17T00:00:00Z",
+    id: "levRemoved",
     kind: "site",
     title: "Bulgarian lev removed from supported currencies",
     detail:
@@ -58,6 +69,7 @@ const ENTRIES: readonly ChangeEntry[] = [
   },
   {
     date: "2026-08-17T00:00:00Z",
+    id: "siteLaunched",
     kind: "site",
     title: "Site launched",
     detail:

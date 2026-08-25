@@ -62,10 +62,10 @@ export function metadataFromRecord(
        */
       types: {
         "application/atom+xml": [
-          { url: absoluteUrl("/feed.xml"), title: "Rate and data changes" },
+          { url: absoluteUrl("/feed.xml"), title: siteConfig.name },
         ],
         "application/feed+json": [
-          { url: absoluteUrl("/feed.json"), title: "Rate and data changes" },
+          { url: absoluteUrl("/feed.json"), title: siteConfig.name },
         ],
       },
     },

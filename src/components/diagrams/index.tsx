@@ -1,3 +1,4 @@
+import type { Translate } from "@/i18n/get-dictionary";
 import { Fragment, type ReactNode } from "react";
 import { cx } from "@/components/ui";
 
@@ -108,10 +109,12 @@ export function ValueFlow({
   stages,
   caption,
   className,
+  t,
 }: {
   stages: readonly FlowStage[];
   caption: string;
   className?: string;
+  readonly t: Translate;
 }) {
   return (
     <figure className={cx("m-0 min-w-0", className)}>
@@ -151,7 +154,7 @@ export function ValueFlow({
                 <p className="mt-2 text-sm text-(--color-text-muted)">{stage.detail}</p>
                 {stage.by ? (
                   <p className="mt-2 text-xs font-medium text-(--color-text-muted)">
-                    Applied by {stage.by}
+                    {t("common.diagrams.body.intro.p1", { by: stage.by })}
                   </p>
                 ) : null}
               </li>

@@ -1,3 +1,4 @@
+import type { Translate } from "@/i18n/get-dictionary";
 import type { ExperienceObservation } from "./roblox-api";
 
 /**
@@ -636,15 +637,33 @@ export function toSnapshot(
  * option for 30 days would be an option to look at emptiness. Each is a real
  * cut of stored observations, never a resampling or a longer axis drawn over
  * the same points.
+ *
+ * A key rather than a label. This module is evaluated once, for every reader,
+ * and cannot know anyone's language; the component that draws the selector
+ * looks the words up as it renders.
  */
 export const CHART_WINDOWS = [
-  { days: 1, label: "24 hours" },
-  { days: 3, label: "3 days" },
-  { days: 7, label: "7 days" },
-  { days: RETENTION_DAYS, label: `${RETENTION_DAYS} days` },
+  { days: 1, labelKey: "common.ranges.day" },
+  { days: 3, labelKey: "common.ranges.threeDays" },
+  { days: 7, labelKey: "common.ranges.sevenDays" },
+  { days: RETENTION_DAYS, labelKey: "common.ranges.days" },
 ] as const;
 
 export type ChartWindow = (typeof CHART_WINDOWS)[number];
+
+/**
+ * A window's label, in the reader's language.
+ *
+ * The widest option is the retention window, which is a number rather than a
+ * fixed phrase, so it interpolates. The other three are whole phrases: "24
+ * hours" is not "1 hours" in any language, and building it from a number would
+ * make it that in most of them.
+ */
+export function chartWindowLabel(t: Translate, window: ChartWindow): string {
+  return window.labelKey === "common.ranges.days"
+    ? t(window.labelKey, { days: String(window.days) })
+    : t(window.labelKey);
+}
 
 /** The default view: everything held, which early on is everything there is. */
 export const DEFAULT_CHART_WINDOW: ChartWindow =
@@ -727,21 +746,32 @@ export function summarise(series: HistorySeries): SeriesExtremes | null {
 }
 
 /**
- * Describes the collected window in words.
+ * Describes the collected window in words, in the reader's language.
  *
  * The page states what it actually has — "4 hours" on the first day — instead
  * of labelling a near-empty chart "14 days".
+ *
+ * Takes the translator rather than returning English: this phrase is dropped
+ * into the middle of six different sentences on the platform page, and an
+ * English duration inside a German one is the exact failure the dictionary
+ * exists to prevent. The singular and plural forms are separate keys because
+ * one form per language is not a thing that can be assumed — Turkish and
+ * Indonesian have one, French treats zero as singular.
  */
-export function describeSpan(series: HistorySeries): string {
-  if (series.points.length === 0) return "no observations yet";
-  if (series.points.length === 1) return "a single observation";
+export function describeSpan(t: Translate, series: HistorySeries): string {
+  if (series.points.length === 0) return t("common.spans.none");
+  if (series.points.length === 1) return t("common.spans.single");
 
   const hours = series.spanHours;
-  if (hours < 1) return "under an hour";
+  if (hours < 1) return t("common.spans.underAnHour");
   if (hours < 48) {
     const rounded = Math.round(hours);
-    return `${rounded} hour${rounded === 1 ? "" : "s"}`;
+    return t(rounded === 1 ? "common.spans.hours.one" : "common.spans.hours.other", {
+      hours: String(rounded),
+    });
   }
   const days = Math.floor(hours / 24);
-  return `${days} day${days === 1 ? "" : "s"}`;
+  return t(days === 1 ? "common.spans.days.one" : "common.spans.days.other", {
+    days: String(days),
+  });
 }

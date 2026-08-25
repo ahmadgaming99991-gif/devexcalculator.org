@@ -147,9 +147,10 @@ export async function RobloxStatsView({ locale }: { readonly locale: Locale }) {
               <ChartWithTable
                 chart={
                   <BarChart
+                    t={t}
                     data={yearData}
                     caption={t("platform.stats.byYearChartCaption")}
-                    valueLabel="US dollars"
+                    valueLabel={t("platform.stats.usDollarsLabel")}
                     formatTick={millionsTick}
                   />
                 }
@@ -199,9 +200,10 @@ export async function RobloxStatsView({ locale }: { readonly locale: Locale }) {
             <ChartWithTable
               chart={
                 <BarChart
+                  t={t}
                   data={quarterData}
                   caption={t("platform.stats.byQuarterChartCaption")}
-                  valueLabel="US dollars"
+                  valueLabel={t("platform.stats.usDollarsLabel")}
                   formatTick={millionsTick}
                 />
               }
@@ -451,7 +453,6 @@ export async function RobloxStatsView({ locale }: { readonly locale: Locale }) {
           <RelatedLinks locale={locale}
             record={record}
             relationships={["sibling", "prerequisite", "next-step"]}
-            heading="Related pages"
             id="related"
           />
         </div>

@@ -93,7 +93,8 @@
     "sourceLine": "— {publisher}. Diperiksa pada {checked}.",
     "sourcesFooter": "{ratesChange} {seeEverySource}, atau {reportOutOfDate}.",
     "inShort": "Singkatnya",
-    "sourcePrefix": "Sumber:"
+    "sourcePrefix": "Sumber:",
+    "relatedHeading": "Halaman terkait"
   },
   "actions": {
     "tryAgain": "Coba lagi",
@@ -138,7 +139,8 @@
   "ranges": {
     "day": "24 jam",
     "threeDays": "3 hari",
-    "sevenDays": "7 hari"
+    "sevenDays": "7 hari",
+    "days": "{days} hari"
   },
   "shell": {
     "skipToContent": "Lewati ke konten utama"
@@ -150,7 +152,8 @@
         "p3": "akan kurang sedikit sekali."
       }
     },
-    "legacyAppliesTo": "Saldo yang diperoleh sebelum {effectiveTo}."
+    "legacyAppliesTo": "Saldo yang diperoleh sebelum {effectiveTo}.",
+    "effectiveFrom": "Sejak {effectiveFrom}."
   },
   "charts": {
     "body": {
@@ -169,5 +172,18 @@
   "ui": {
     "opensInNewTab": "(terbuka di tab baru)",
     "advertisement": "Iklan"
+  },
+  "spans": {
+    "none": "belum ada pengamatan",
+    "single": "satu pengamatan saja",
+    "underAnHour": "kurang dari satu jam",
+    "hours": {
+      "one": "{hours} jam",
+      "other": "{hours} jam"
+    },
+    "days": {
+      "one": "{days} hari",
+      "other": "{days} hari"
+    }
   }
 }

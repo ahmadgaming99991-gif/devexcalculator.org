@@ -168,7 +168,6 @@ export async function RobuxTaxView({ locale }: { readonly locale: Locale }) {
           <RelatedLinks locale={locale}
             record={record}
             relationships={["tool", "sibling", "next-step"]}
-            heading="Related pages"
             id="related"
           />
 

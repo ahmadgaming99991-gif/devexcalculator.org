@@ -171,7 +171,6 @@ export async function DevexRatesView({ locale }: { readonly locale: Locale }) {
           <RelatedLinks locale={locale}
             record={record}
             relationships={["child", "sibling", "prerequisite", "next-step"]}
-            heading="Related pages"
             id="related"
           />
 

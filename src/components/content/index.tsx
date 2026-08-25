@@ -407,7 +407,12 @@ export async function RelatedLinks({
   readonly locale: Locale;
   record: RouteRecord;
   relationships: readonly string[];
-  heading: string;
+  /**
+   * Only when this block is narrower than "related pages" — the homepage
+   * lists calculators and guides separately. Left out everywhere else so
+   * fifteen pages cannot drift into fifteen wordings of one heading.
+   */
+  readonly heading?: string;
   id: string;
 }) {
   const links = record.internalLinks
@@ -426,6 +431,8 @@ export async function RelatedLinks({
    * language reading half in the other is worse than either.
    */
   const navLabel = await routeLabels(locale);
+  const title =
+    heading ?? (await getTranslator(locale, ["common"]))("common.sections.relatedHeading");
 
   return (
     <section id={id} className="scroll-mt-24" aria-labelledby={`${id}-heading`}>
@@ -433,7 +440,7 @@ export async function RelatedLinks({
         id={`${id}-heading`}
         className="text-xl font-semibold tracking-tight text-(--color-text) sm:text-2xl"
       >
-        {heading}
+        {title}
       </h2>
       <ul className="mt-4 grid gap-3 sm:grid-cols-2">
         {links.map(({ link, target }) => (

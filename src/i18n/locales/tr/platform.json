@@ -26,7 +26,9 @@
       "lifetimeVisits": "Toplam ziyaret",
       "approval": "Beğeni",
       "sponsored": "Sponsorlu",
-      "genre": "Tür"
+      "genre": "Tür",
+      "wrapperLabel": "Roblox'un {ranking} sıralamasındaki deneyimler",
+      "caption": "Roblox'un {ranking} sıralamasındaki ilk {count} deneyim ve bu sayfanın sunulduğu andaki oyuncu sayıları."
     },
     "body": {
       "how": {
@@ -63,6 +65,10 @@
         "p14": "oyuncu. Bir grafiğin nokta yerine çizgi olabilmesi için en az {minimumPointsForChart} noktaya ihtiyacı vardır; bu yüzden rakamlar bunun yerine listelenir.",
         "p16": "Gözlemler biriktikçe pencere kendiliğinden genişler, {retentionDays} güne kadar. Daha eski gözlemlerin süresi bir işle silinmek yerine kendiliğinden dolar. Zirve, en düşük ve ortalama yalnızca bu kaydedilmiş noktaları tanımlar — toplam, iki gözlem arasında daha yüksek olmuş olabilir ve bu site aksini iddia etmez."
       }
+    },
+    "rankingsNote": {
+      "one": "Roblox {rankingsCount} sıralama yayımlıyor; burada seçili olanın ilk {displayLimit} tanesi gösteriliyor. Sıralama bu siteye değil, Roblox'a aittir.",
+      "other": "Roblox {rankingsCount} sıralama yayımlıyor; burada seçili olanın ilk {displayLimit} tanesi gösteriliyor. Sıralama bu siteye değil, Roblox'a aittir."
     }
   },
   "platformFigure": {
@@ -104,15 +110,36 @@
       "averageAcrossObservations": "Gözlemler genelinde ortalama",
       "meanNote": "Kaydedilmiş {points} noktanın ortalaması; platform ortalaması değil",
       "highestObserved": "Gözlenen en yüksek",
-      "lowestObserved": "Gözlenen en düşük"
+      "lowestObserved": "Gözlenen en düşük",
+      "overSpan": "{span} boyunca"
     },
     "charts": {
       "busiestCaption": "Her gözlemde tek bir experience'ın ulaştığı en yüksek oyuncu sayısı, kaydedilen {span} boyunca. Başı çeken experience değişir; bu çizgi bir başlığı değil, sayıyı izler.",
-      "totalCaption": "Sıralanan experience'lardaki toplam oyuncu. Bu site {span} süredir gözlem yapıyor. Her nokta kaydedilmiş bir gözlemdir; boşluklar sıfır değil, toplama boşluklarıdır."
+      "totalCaption": "Sıralanan experience'lardaki toplam oyuncu. Bu site {span} süredir gözlem yapıyor. Her nokta kaydedilmiş bir gözlemdir; boşluklar sıfır değil, toplama boşluklarıdır.",
+      "topOverTimeCaption": "İzlenen {tracked} deneyimin en yoğun {plotted} tanesi; her {intervalMinutes} dakikada bir yapılan gözlemlerden. Her nokta ölçüldü; iki nokta arasındaki hiçbir şey ölçülmüş gibi çizilmez. Yukarıdaki tablodaki her deneyimin orada kendi eğilim çizgisi vardır ve bu görüntünün ardındaki rakamlar o tabloda metin olarak yer alır.",
+      "experienceCaption": "{name} içindeki oyuncular; bu sitenin gözlem sahibi olduğu {span} boyunca. Her nokta kaydedilmiş bir gözlemdir; boşluklar sıfır değil, toplamadaki boşluklardır."
     },
     "highestObservedNote": "“Gözlenen en yüksek”, bu sitenin kendi gözlemlerinden birinde gördüğü en yüksek değer demektir. Bir tüm zamanlar rekoru değildir: site izlemeye başlamadan öncesini bilmez ve ölçmediği bir rakamı ödünç almaz.",
     "windowNote": "Gözlemler biriktikçe pencere kendiliğinden {days} güne kadar genişler. Eski gözlemler bir görevle silinmek yerine kendiliğinden düşer. Zirve, en düşük ve ortalama yalnızca bu kaydedilmiş noktaları tanımlar — toplam, iki gözlem arasında daha yüksek olmuş olabilir ve bu site aksini iddia etmez.",
-    "recordedByThisSite": "Bu site tarafından kaydedildi"
+    "recordedByThisSite": "Bu site tarafından kaydedildi",
+    "topOverTimeDescription": "Bu sitenin izlediği her deneyim, tek bir eksen takımı üzerinde, {days} gün saklanan saatlik sayımlardan. En yoğun sekizi renk ve ad taşır; geri kalanlar, tüm sıralamanın biçimi görünsün diye onların arkasına çizilir.",
+    "seenOnceEach": "{count} deneyim birer kez görüldü.",
+    "notEnoughLinesBody": "Bir çizgi, aynı deneyime ait en az iki gözlem gerektirir; bu yüzden grafik, tek bir noktayı kendisine bağlamak yerine bir sonraki toplama çalışmasından sonra görünür.",
+    "unavailableTitle": "{what} bu ortamda kullanılamıyor",
+    "noObservationsTitle": "Son {window} içinde kaydedilmiş gözlem yok",
+    "observationsSoFar": {
+      "one": "Şimdiye dek {count} gözlem. Bir grafiğin nokta değil çizgi olması için {minimumPointsForChart} gözlem gerekir.",
+      "other": "Şimdiye dek {count} gözlem. Bir grafiğin nokta değil çizgi olması için {minimumPointsForChart} gözlem gerekir."
+    },
+    "onlyNObservations": {
+      "one": "Bu deneyime ait yalnızca {count} gözlem kaydedildi; bu bir çizgi çizmeye yetmez. Deneyim başına sayımlar, saatte bir gözlemle son {gameHistoryDays} gün için saklanır ve bir deneyim yalnızca Roblox onu sıraladığı sürece kaydedilir.",
+      "other": "Bu deneyime ait yalnızca {count} gözlem kaydedildi; bu bir çizgi çizmeye yetmez. Deneyim başına sayımlar, saatte bir gözlemle son {gameHistoryDays} gün için saklanır ve bir deneyim yalnızca Roblox onu sıraladığı sürece kaydedilir."
+    },
+    "withinWindow": {
+      "one": "Son {window} içine {count} gözlem düşüyor; en yenisi {players} oyuncu gösteriyor. Bir grafiğin nokta değil çizgi olması için en az {minimumPointsForChart} nokta gerekir, bu yüzden onun yerine rakamlar listelenir.",
+      "other": "Son {window} içine {count} gözlem düşüyor; en yenisi {players} oyuncu gösteriyor. Bir grafiğin nokta değil çizgi olması için en az {minimumPointsForChart} nokta gerekir, bu yüzden onun yerine rakamlar listelenir."
+    },
+    "nothingStoredBody": "Bu aralık için hiçbir şey saklanmadı. Zamanlanmış işin çalıştığı yerde her {collectionIntervalMinutes} dakikada bir gözlem yazılır ve bunlardan {minimumPointsForChart} tanesi biriktiğinde grafik görünür. Daha geniş bir aralık daha fazlasını tutuyor olabilir; asla yapmayacağı şey ise bunu doldurmak için bir nokta uydurmaktır."
   },
   "method": {
     "heading": "Bu sayfa rakamlarını nasıl elde ediyor",
@@ -142,7 +169,6 @@
     }
   },
   "faqsHeading": "Bu rakamlar hakkında sorular",
-  "relatedHeading": "İlgili sayfalar",
   "stock": {
     "intro": "Roblox'un açıkladığı sonuçlar ve burada neden henüz canlı bir hisse fiyatı olmadığının dürüst açıklaması.",
     "jumpLabel": "Neyin gösterildiğini gör",
@@ -257,6 +283,7 @@
       "noLiveData": {
         "p1": "Roblox bu rakamları çeyrekte bir kez, bir bildirimle yayımlar. Var olan en ince çözünürlük budur; dolayısıyla bunları dakika dakika değişiyormuş gibi gösterdiğini iddia eden bir grafik, uydurulmuş bir şey gösteriyor olurdu. Bu site hiçbir veri toplama işletmez, hiçbir şey örneklemez ve hiçbir şey tahmin etmez — bildirimleri okur ve onlara bağlantı verir."
       }
-    }
+    },
+    "usDollarsLabel": "ABD doları"
   }
 }

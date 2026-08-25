@@ -172,7 +172,6 @@ export async function RequirementsView({ locale }: { readonly locale: Locale }) 
           <RelatedLinks locale={locale}
             record={record}
             relationships={["prerequisite", "sibling", "next-step"]}
-            heading="Related pages"
             id="related"
           />
 

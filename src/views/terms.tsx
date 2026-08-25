@@ -72,7 +72,6 @@ export async function TermsView({ locale }: { readonly locale: Locale }) {
           <RelatedLinks locale={locale}
             record={record}
             relationships={["sibling", "parent"]}
-            heading="Related pages"
             id="related"
           />
         </div>

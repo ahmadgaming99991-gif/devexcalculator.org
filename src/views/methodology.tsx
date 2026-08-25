@@ -195,7 +195,6 @@ export async function MethodologyView({ locale }: { readonly locale: Locale }) {
           <RelatedLinks locale={locale}
             record={record}
             relationships={["sibling", "prerequisite", "next-step"]}
-            heading="Related pages"
             id="related"
           />
 

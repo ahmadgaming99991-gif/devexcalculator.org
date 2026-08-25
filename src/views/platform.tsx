@@ -1,4 +1,6 @@
 import { getTranslator, type Translate } from "@/i18n/get-dictionary";
+import { rich } from "@/i18n/rich";
+import { localizedPath } from "@/i18n/locale-path";
 import { localizedRoute } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
 import { cache } from "react";
@@ -39,6 +41,7 @@ import {
 } from "@/lib/platform/roblox-api";
 import {
   CHART_WINDOWS,
+  chartWindowLabel,
   COLLECTION_INTERVAL_MINUTES,
   DEFAULT_CHART_WINDOW,
   describeSpan,
@@ -144,7 +147,9 @@ export async function PlatformView({ locale, searchParams }: PageProps) {
           <Section
             id="experiences-over-time"
             heading={t("platform.history.topOverTimeHeading")}
-            description={`Every experience this site is tracking, on one set of axes, from one count an hour kept for ${GAME_HISTORY_DAYS} days. The eight busiest carry a colour and a name; the rest are drawn behind them so the shape of the whole ranking is visible.`}
+            description={t("platform.history.topOverTimeDescription", {
+              days: String(GAME_HISTORY_DAYS),
+            })}
           >
             <TopExperiencesOverTime t={t} days={chartWindow.days} />
           </Section>
@@ -159,7 +164,7 @@ export async function PlatformView({ locale, searchParams }: PageProps) {
 
           <Section
             id="history"
-            heading="Observed over time"
+            heading={t("platform.history.observedHeading")}
             description={t("platform.history.observedDescription")}
           >
             {/* Same reasoning as above; this one is a KV read, so there was
@@ -167,46 +172,46 @@ export async function PlatformView({ locale, searchParams }: PageProps) {
             <ObservedHistory t={t} window={chartWindow} selectedRanking={requested} />
           </Section>
 
-          <Section id="how" heading="How this page gets its numbers">
+          <Section id="how" heading={t("platform.method.heading")}>
             <div className="grid gap-4 sm:grid-cols-2">
               <Card tone="subtle">
-                <h3 className="font-semibold text-(--color-text)">{t("platform.method.liveHeading")}{" "}</h3>
+                <h3 className="font-semibold text-(--color-text)">
+                  {t("platform.method.liveHeading")}
+                </h3>
                 <p className="mt-2 text-sm text-(--color-text-muted)">
-                  Fetched server-side from Roblox when the page is served and cached
-                  for {EXPERIENCE_CACHE_SECONDS / 60} minutes. Your browser makes no
-                  request to Roblox, and no script from Roblox runs on this page.
+                  {t("platform.method.liveBody", {
+                    minutes: String(EXPERIENCE_CACHE_SECONDS / 60),
+                  })}
                 </p>
               </Card>
               <Card tone="subtle">
-                <h3 className="font-semibold text-(--color-text)">History</h3>
+                <h3 className="font-semibold text-(--color-text)">
+                  {t("platform.method.historyHeading")}
+                </h3>
                 <p className="mt-2 text-sm text-(--color-text-muted)">
-                  A scheduled job records one observation every{" "}
-                  {COLLECTION_INTERVAL_MINUTES} minutes. Platform totals keep every
-                  one of them for {RETENTION_DAYS} days; per-experience counts keep
-                  one an hour for {GAME_HISTORY_DAYS} days, because that is one array
-                  per experience across several hundred of them. Both charts show what
-                  was actually recorded, gaps included — nothing is averaged to fill
-                  the runs not kept.
+                  {t("platform.method.historyBody", {
+                    interval: String(COLLECTION_INTERVAL_MINUTES),
+                    retentionDays: String(RETENTION_DAYS),
+                    gameHistoryDays: String(GAME_HISTORY_DAYS),
+                  })}
                 </p>
               </Card>
             </div>
 
             <Callout tone="info" title={t("platform.method.provenanceTitle")}>
-              Which experiences appear, how many players each has, and how each has
-              been voted on all come from Roblox. This site does not rank
-              experiences, does not estimate player counts, and does not publish a
-              figure it did not either read from Roblox or observe itself and label
-              as such. The approval share is the only arithmetic on this page, and it
-              is Roblox&rsquo;s own up and down vote counts divided. For the money
-              side of the platform, see{" "}
-              <InlineLink href="/roblox-stats/">{t("platform.method.payoutStatisticsLink")}{" "}</InlineLink>,
-              which come from Roblox&rsquo;s filings.
+              {rich(t("platform.method.provenanceBody"), {
+                payoutStatistics: (
+                  <InlineLink href={localizedPath(locale, "/roblox-stats/")}>
+                    {t("platform.method.payoutStatisticsLink")}
+                  </InlineLink>
+                ),
+              })}
             </Callout>
           </Section>
 
           <Section
             id="data"
-            heading="Download these observations"
+            heading={t("platform.download.heading")}
             description={t("platform.download.description")}
           >
             <DataDownload
@@ -226,7 +231,7 @@ export async function PlatformView({ locale, searchParams }: PageProps) {
             />
           </Section>
 
-          <Section id="faqs" heading="Questions about these figures">
+          <Section id="faqs" heading={t("platform.faqsHeading")}>
             <FAQAccordion locale={locale} faqs={record.faqs} />
           </Section>
 
@@ -234,7 +239,6 @@ export async function PlatformView({ locale, searchParams }: PageProps) {
           <RelatedLinks locale={locale}
             record={record}
             relationships={["sibling", "next-step", "parent"]}
-            heading="Related pages"
             id="related"
           />
         </div>
@@ -395,14 +399,19 @@ async function LiveExperiences({
         .
       </p>
 
-      <TableWrapper label={`Experiences in Roblox's ${selected.name} ranking`}>
+      <TableWrapper
+        label={t("platform.live.table.wrapperLabel", { ranking: selected.name })}
+      >
         <Table
-          caption={`The top ${experiences.length} experiences in Roblox's ${selected.name} ranking, with the players in each at the moment this page was served.`}
+          caption={t("platform.live.table.caption", {
+            count: String(experiences.length),
+            ranking: selected.name,
+          })}
         >
           <thead>
             <tr>
               <Th>#</Th>
-              <Th>Experience</Th>
+              <Th>{t("platform.live.table.experience")}</Th>
               <Th>{t("platform.live.table.playersNow")}</Th>
               {history ? <Th>Last 24h</Th> : null}
               {hasVisits ? <Th>{t("platform.live.table.lifetimeVisits")}{" "}</Th> : null}
@@ -442,9 +451,12 @@ async function LiveExperiences({
       )}
 
       <p className="mt-3 text-sm text-(--color-text-muted)">
-        Roblox publishes {rankings.length} ranking
-        {rankings.length === 1 ? "" : "s"}; this shows the first {DISPLAY_LIMIT} of
-        whichever is selected. The order is Roblox&rsquo;s, not this site&rsquo;s.
+        {t(
+          rankings.length === 1
+            ? "platform.live.rankingsNote.one"
+            : "platform.live.rankingsNote.other",
+          { rankingsCount: String(rankings.length), displayLimit: String(DISPLAY_LIMIT) },
+        )}
       </p>
     </div>
   );
@@ -475,7 +487,9 @@ function HistoryUnavailable({ what,
   readonly t: Translate;
 }) {
   return (
-    <Callout tone="info" title={`${what} is not available in this environment`}>{t("platform.live.body.related.p8")}</Callout>
+    <Callout tone="info" title={t("platform.history.unavailableTitle", { what })}>
+      {t("platform.live.body.related.p8")}
+    </Callout>
   );
 }
 
@@ -504,11 +518,9 @@ async function TopExperiencesOverTime({ days,
     return (
       <Callout tone="info" title={t("platform.history.notEnoughLinesTitle")}>
         {tracked.length === 0
-          ? "No per-experience counts have been recorded yet."
-          : `${tracked.length} experiences have been seen once each.`}{" "}
-        A line needs at least two observations of the same experience, so the
-        chart appears after the next collection run rather than joining a single
-        point to itself.
+          ? t("platform.history.noPerExperienceCounts")
+          : t("platform.history.seenOnceEach", { count: String(tracked.length) })}{" "}
+        {t("platform.history.notEnoughLinesBody")}
       </Callout>
     );
   }
@@ -544,7 +556,11 @@ async function TopExperiencesOverTime({ days,
               value: point.totalPlaying,
             })),
           }))}
-          caption={`The ${Math.min(plottable.length, 48)} busiest of ${numberFormat.format(tracked.length)} tracked experiences, from one observation every ${GAME_HISTORY_INTERVAL_MINUTES} minutes. Each point was measured; nothing between two points is drawn as though it were. Every experience in the table above has its own trend line there, and the figures behind this picture are in that table as text.`}
+          caption={t("platform.history.charts.topOverTimeCaption", {
+            plotted: String(Math.min(plottable.length, 48)),
+            tracked: numberFormat.format(tracked.length),
+            intervalMinutes: String(GAME_HISTORY_INTERVAL_MINUTES),
+          })}
           formatValue={(value) => compact(value)}
         />
       </div>
@@ -601,16 +617,16 @@ async function LargestExperience({ days,
       <div className="mt-6">
         <TimeSeriesChart
           points={series.points.map((point) => ({ at: point.at, value: point.totalPlaying }))}
-          caption={`The highest player count held by any single experience at each observation, over the ${describeSpan(series)} recorded. The leading experience changes; this line follows the count, not one title.`}
+          caption={t("platform.history.charts.busiestCaption", {
+            span: describeSpan(t, series),
+          })}
           formatValue={(value) => compact(value)}
         />
       </div>
 
       <p className="mt-4 text-sm text-(--color-text-muted)">
-        &ldquo;Highest observed&rdquo; means the highest this site saw at one of its
-        own observations. It is not an all-time record: nothing before this site
-        began watching is known to it, and it will not borrow a figure it did not
-        measure. <Badge tone="neutral">{t("platform.history.recordedByThisSite")}</Badge>
+        {t("platform.history.highestObservedNote")}{" "}
+        <Badge tone="neutral">{t("platform.history.recordedByThisSite")}</Badge>
       </p>
     </div>
   );
@@ -643,17 +659,17 @@ function PlatformFigure({
         {numberFormat.format(platform.players)}
       </p>
       <p className="mt-3 text-sm text-(--color-text-muted)">
-        Summed from {numberFormat.format(platform.experiences)} experiences across
-        Roblox&rsquo;s {platform.rankings} public rankings, counted once each even
-        where a ranking lists the same experience twice, as read at{" "}
-        <time dateTime={observedAt}>{formatObserved(observedAt)}</time>.
+        {rich(t("platform.platformFigure.method"), {
+          experiences: numberFormat.format(platform.experiences),
+          rankings: String(platform.rankings),
+          observedAt: <time dateTime={observedAt}>{formatObserved(observedAt)}</time>,
+        })}
       </p>
       <p className="mt-2 text-sm text-(--color-text-muted)">
-        <strong className="text-(--color-text)">{t("platform.platformFigure.floorHeading")}</strong>{" "}
-        Roblox publishes no live figure for the whole platform and this site does
-        not estimate one. Roblox ranks a small share of the experiences it hosts,
-        so the real number of people playing is higher than this — by how much,
-        nobody outside Roblox can say.
+        <strong className="text-(--color-text)">
+          {t("platform.platformFigure.floorHeading")}
+        </strong>{" "}
+        {t("platform.platformFigure.floorBody")}
       </p>
     </Card>
   );
@@ -698,7 +714,7 @@ function ExperienceDetail({
             <Stat
               label={t("platform.history.stats.observations")}
               value={numberFormat.format(series.points.length)}
-              note={`Over ${describeSpan(series)}`}
+              note={t("platform.history.stats.overSpan", { span: describeSpan(t, series) })}
             />
             {summary ? (
               <Stat
@@ -722,19 +738,25 @@ function ExperienceDetail({
                 at: point.at,
                 value: point.totalPlaying,
               }))}
-              caption={`Players in ${name}, over the ${describeSpan(series)} this site has observations for. Each point is one recorded observation; gaps are gaps in collection, not zeroes.`}
+                caption={t("platform.history.charts.experienceCaption", {
+                  name,
+                  span: describeSpan(t, series),
+                })}
               formatValue={(value) => compact(value)}
             />
           </div>
         </>
       ) : (
         <p className="mt-3 text-(--color-text-muted)">
-          Only {series.points.length} observation
-          {series.points.length === 1 ? "" : "s"} of this experience{" "}
-          {series.points.length === 1 ? "has" : "have"} been recorded, which is not
-          enough to draw a line. Per-experience counts are kept for the last{" "}
-          {GAME_HISTORY_DAYS} days at one observation an hour, and an experience
-          is only recorded while Roblox is ranking it.
+          {t(
+            series.points.length === 1
+              ? "platform.history.onlyNObservations.one"
+              : "platform.history.onlyNObservations.other",
+            {
+              count: String(series.points.length),
+              gameHistoryDays: String(GAME_HISTORY_DAYS),
+            },
+          )}
         </p>
       )}
     </Card>
@@ -820,12 +842,18 @@ function ExperienceRow({
                 }))}
               />
               <span className="sr-only">
-                Chart the last {GAME_HISTORY_DAYS} days for {experience.name}
+                {t("platform.live.body.experience.p5", {
+                  gameHistoryDays: String(GAME_HISTORY_DAYS),
+                  name: experience.name,
+                })}
               </span>
             </Link>
           ) : (
-            <span className="text-sm text-(--color-text-muted)">{t("platform.live.body.experience.p7")}<span className="sr-only">
-                {" "}— this experience has not been observed enough times to draw a line
+            <span className="text-sm text-(--color-text-muted)">
+              {t("platform.live.body.experience.p7")}
+              <span className="sr-only">
+                {" "}
+                {t("platform.live.body.experience.p8")}
               </span>
             </span>
           )}
@@ -869,14 +897,16 @@ function ChartRangeTabs({
   selected,
   ranking,
   counts,
+  t,
 }: {
   selected: ChartWindow;
   ranking?: string;
   /** Observations each range would chart, so a button that changes nothing says so. */
   counts?: Record<number, number>;
+  readonly t: Translate;
 }) {
   return (
-    <nav aria-label="Chart range" className="mb-6">
+    <nav aria-label={t("platform.history.rangeLabel")} className="mb-6">
       <ul className="flex flex-wrap gap-2">
         {CHART_WINDOWS.map((option) => {
           const current = option.days === selected.days;
@@ -892,7 +922,7 @@ function ChartRangeTabs({
                     : "inline-flex min-h-[44px] items-center rounded-(--radius-control) border border-(--color-border) bg-(--color-surface) px-4 text-sm font-semibold text-(--color-text) motion-safe:transition-colors hover:border-(--color-primary) hover:text-(--color-primary)"
                 }
               >
-                {option.label}
+                {chartWindowLabel(t, option)}
                 {counts ? (
                   <span
                     className={
@@ -969,13 +999,22 @@ async function ObservedHistory({
   if (series.points.length === 0) {
     return (
       <div className="min-w-0">
-        <ChartRangeTabs selected={chartWindow} ranking={selectedRanking} counts={counts} />
-        <Callout tone="info" title={`No observations recorded in the last ${chartWindow.label}`}>
-          Nothing has been stored for this range. Where the scheduled job is
-          running, an observation is written every {COLLECTION_INTERVAL_MINUTES}{" "}
-          minutes and the chart appears once there are {MINIMUM_POINTS_FOR_CHART} of
-          them. A wider range may hold more; what it will never do is invent a point
-          to fill this one.
+        <ChartRangeTabs
+          selected={chartWindow}
+          ranking={selectedRanking}
+          counts={counts}
+          t={t}
+        />
+        <Callout
+          tone="info"
+          title={t("platform.history.noObservationsTitle", {
+            window: chartWindowLabel(t, chartWindow),
+          })}
+        >
+          {t("platform.history.nothingStoredBody", {
+            collectionIntervalMinutes: String(COLLECTION_INTERVAL_MINUTES),
+            minimumPointsForChart: String(MINIMUM_POINTS_FOR_CHART),
+          })}
         </Callout>
       </div>
     );
@@ -987,15 +1026,25 @@ async function ObservedHistory({
   if (!series.chartable) {
     return (
       <div className="min-w-0">
-        <ChartRangeTabs selected={chartWindow} ranking={selectedRanking} counts={counts} />
+        <ChartRangeTabs
+          selected={chartWindow}
+          ranking={selectedRanking}
+          counts={counts}
+          t={t}
+        />
         <Card tone="subtle">
           <p className="text-(--color-text)">
-            <strong>{series.points.length}</strong> observation
-            {series.points.length === 1 ? " falls" : "s fall"} within the last{" "}
-            {chartWindow.label}, the most recent showing{" "}
-            {numberFormat.format(latest?.totalPlaying ?? 0)} players. A chart needs at
-            least {MINIMUM_POINTS_FOR_CHART} points to be a line rather than a dot, so
-            the figures are listed instead.
+            {t(
+              series.points.length === 1
+                ? "platform.history.withinWindow.one"
+                : "platform.history.withinWindow.other",
+              {
+                count: String(series.points.length),
+                window: chartWindowLabel(t, chartWindow),
+                players: numberFormat.format(latest?.totalPlaying ?? 0),
+                minimumPointsForChart: String(MINIMUM_POINTS_FOR_CHART),
+              },
+            )}
           </p>
           <ul className="mt-3 flex flex-col gap-1 text-sm text-(--color-text-muted)">
             {series.points.map((point) => (
@@ -1012,18 +1061,25 @@ async function ObservedHistory({
 
   return (
     <div className="min-w-0">
-      <ChartRangeTabs selected={chartWindow} ranking={selectedRanking} counts={counts} />
+      <ChartRangeTabs
+          selected={chartWindow}
+          ranking={selectedRanking}
+          counts={counts}
+          t={t}
+        />
 
       {rangeExceedsHistory ? (
         <Callout
           tone="info"
-          title={`Everything collected so far fits inside ${chartWindow.label}`}
+          title={t("platform.history.rangeExceedsTitle", {
+            window: chartWindowLabel(t, chartWindow),
+          })}
         >
-          This site has been observing for {describeSpan(full)}, which is less than
-          the {chartWindow.label} selected — so this range and every wider one chart
-          the same {numberFormat.format(full.points.length)} observations, and the
-          figures do not change between them. They will diverge once there is more
-          history than a range covers. Nothing is padded to fill the difference.
+          {t("platform.history.rangeExceedsBody", {
+            span: describeSpan(t, full),
+            window: chartWindowLabel(t, chartWindow),
+            points: numberFormat.format(full.points.length),
+          })}
         </Callout>
       ) : null}
 
@@ -1033,17 +1089,22 @@ async function ObservedHistory({
           value={numberFormat.format(series.points.length)}
           note={
             rangeExceedsHistory
-              ? "Every observation held — the range is wider than the history"
-              : `Within the last ${chartWindow.label}`
+              ? t("platform.history.stats.everyObservationHeld")
+              : t("platform.history.stats.withinTheLast", {
+                  window: chartWindowLabel(t, chartWindow),
+                })
           }
         />
-        <Stat label={t("platform.history.stats.periodCovered")} value={describeSpan(series)} />
+        <Stat label={t("platform.history.stats.periodCovered")} value={describeSpan(t, series)} />
         <Stat
           label={t("platform.history.stats.mostRecentTotal")}
           value={numberFormat.format(latest?.totalPlaying ?? 0)}
           note={
             summary?.change
-              ? `${signed(summary.change.absolute)} since the previous observation ${summary.change.minutesApart} minutes earlier`
+              ? t("platform.history.stats.changeSincePrevious", {
+                  change: signed(summary.change.absolute),
+                  minutes: String(summary.change.minutesApart),
+                })
               : undefined
           }
         />
@@ -1077,7 +1138,9 @@ async function ObservedHistory({
           // Phrased so every span reads correctly. An earlier template produced
           // "over the under an hour this site has been observing" on day one,
           // because `describeSpan` returns a phrase, not a bare duration.
-          caption={`Total players across the ranked experiences. This site has been observing for ${describeSpan(series)}. Each point is one recorded observation; gaps are gaps in collection, not zeroes.`}
+          caption={t("platform.history.charts.totalCaption", {
+            span: describeSpan(t, series),
+          })}
           formatValue={(value) => compact(value)}
         />
       </div>

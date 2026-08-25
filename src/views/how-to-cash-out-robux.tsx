@@ -50,6 +50,7 @@ export async function CashOutView({ locale }: { readonly locale: Locale }) {
             description={t("guides.cashOut.processDescription")}
           >
             <ValueFlow
+              t={t}
               className="mb-6"
               caption={t("guides.cashOut.processDiagramCaption")}
               stages={[
@@ -208,7 +209,6 @@ export async function CashOutView({ locale }: { readonly locale: Locale }) {
           <RelatedLinks locale={locale}
             record={record}
             relationships={["prerequisite", "next-step", "parent"]}
-            heading="Related pages"
             id="related"
           />
 

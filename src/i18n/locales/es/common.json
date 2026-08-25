@@ -90,7 +90,8 @@
     "sourceLine": "— {publisher}. Comprobado el {checked}.",
     "sourcesFooter": "{ratesChange} {seeEverySource}, o {reportOutOfDate}.",
     "inShort": "En resumen",
-    "sourcePrefix": "Fuente:"
+    "sourcePrefix": "Fuente:",
+    "relatedHeading": "Páginas relacionadas"
   },
   "actions": {
     "tryAgain": "Intentar de nuevo",
@@ -135,7 +136,8 @@
   "ranges": {
     "day": "24 horas",
     "threeDays": "3 días",
-    "sevenDays": "7 días"
+    "sevenDays": "7 días",
+    "days": "{days} días"
   },
   "shell": {
     "skipToContent": "Saltar al contenido principal"
@@ -147,7 +149,8 @@
         "p3": "se quedaría corto por una fracción."
       }
     },
-    "legacyAppliesTo": "Saldos obtenidos antes del {effectiveTo}."
+    "legacyAppliesTo": "Saldos obtenidos antes del {effectiveTo}.",
+    "effectiveFrom": "Desde el {effectiveFrom}."
   },
   "charts": {
     "body": {
@@ -166,5 +169,18 @@
   "ui": {
     "opensInNewTab": "(se abre en una pestaña nueva)",
     "advertisement": "Publicidad"
+  },
+  "spans": {
+    "none": "aún ninguna observación",
+    "single": "una sola observación",
+    "underAnHour": "menos de una hora",
+    "hours": {
+      "one": "{hours} hora",
+      "other": "{hours} horas"
+    },
+    "days": {
+      "one": "{days} día",
+      "other": "{days} días"
+    }
   }
 }

@@ -76,6 +76,11 @@ const NOT_PAGE_COPY = [
   "src/lib/seo/pipeline.ts",
   "src/lib/seo/publish.ts",
   "src/lib/seo/score.ts",
+  // The rate-check diagnostic. Its `detail` is stored with the check and
+  // served by `/api/rate-check/` for an operator; the sentence a reader
+  // sees under the rate strip is built by `RateSourceCheckBadge` from the
+  // `common.sourceCheck.*` keys, per status.
+  "src/lib/rates/source-check.ts",
   "src/lib/platform/heartbeat.ts",
   "src/lib/api/exports.ts",
   "opengraph-image.tsx",
@@ -135,6 +140,7 @@ const READER_FACING_ATTRIBUTES = [
   "by",
   "error",
   "staleReason",
+  "valueLabel",
   "role",
 ];
 
@@ -374,7 +380,23 @@ function scan(file: string): Finding[] {
   );
   const lines = source.split(/\r?\n/);
   const rel = path;
-  const isRegistry = rel.includes("route-registry") || rel.includes("amount-pages");
+  /*
+   * Files holding the English source rows that a view replaces at render.
+   *
+   * The registry is the canonical English copy — the row a translator was
+   * given and the row a reviewer diffs against. It is not hardcoded English
+   * on a page: `localizedRoute` swaps in the reader's language before any
+   * component sees it, and the changelog, the amount pages and the author
+   * records work the same way, keyed by entry id, amount and slug.
+   *
+   * Counted and extracted like everything else. Excluded only from the
+   * count of literals still waiting to be wired.
+   */
+  const isRegistry =
+    rel.includes("route-registry") ||
+    rel.includes("amount-pages") ||
+    rel.includes("content/changelog") ||
+    rel.includes("content/authors");
   const findings: Finding[] = [];
 
   /*
@@ -458,6 +480,12 @@ function scan(file: string): Finding[] {
        */
       const above = (lines[index - 1] ?? "").trimEnd();
       if (above.endsWith("(")) continue;
+      /*
+       * A value the formatter wrapped onto its own line, which the
+       * attribute scan above has already recorded. Counting it here as
+       * well reported every long value twice.
+       */
+      if (above.endsWith(":")) continue;
       if (!isProseList(lines, index)) continue;
       findings.push({
         file: rel,

@@ -83,9 +83,11 @@ export async function ChangelogView({ locale }: { readonly locale: Locale }) {
                       </time>
                     </div>
                     <h3 className="mt-2 text-base font-semibold text-(--color-text)">
-                      {entry.title}
+                      {t(`trust.changelog.entries.${entry.id}`)}
                     </h3>
-                    <p className="mt-1.5 text-sm text-(--color-text-muted)">{entry.detail}</p>
+                    <p className="mt-1.5 text-sm text-(--color-text-muted)">
+                      {t(`trust.changelog.entries.${entry.id}Detail`)}
+                    </p>
                     {entry.sourceUrl && entry.sourceLabel ? (
                       <p className="mt-2 text-sm">
                         <SourceLink t={t} href={entry.sourceUrl}>{entry.sourceLabel}</SourceLink>
@@ -115,7 +117,6 @@ export async function ChangelogView({ locale }: { readonly locale: Locale }) {
           <RelatedLinks locale={locale}
             record={record}
             relationships={["sibling", "next-step", "parent"]}
-            heading="Related pages"
             id="related"
           />
         </div>

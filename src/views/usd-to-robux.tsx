@@ -211,7 +211,6 @@ export async function UsdToRobuxView({
           <RelatedLinks locale={locale}
             record={record}
             relationships={["sibling", "prerequisite", "next-step"]}
-            heading="Related pages"
             id="related"
           />
 
