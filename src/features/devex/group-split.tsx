@@ -50,7 +50,7 @@ export function GroupSplit({ words }: { readonly words: LocaleWords }) {
 
   // Same parser and same ceiling as every other amount field on the site, so
   // "1.5m" and "300,000" behave here exactly as they do in the calculator.
-  const parsed = parseRobuxAmount(total, maxRobuxInput);
+  const parsed = parseRobuxAmount(total, maxRobuxInput, t.locale);
   const totalRobux = parsed.ok ? parsed.value.robux : 0n;
 
   const result = calculateGroupSplit(

@@ -29,7 +29,7 @@
         "p1": "Mevcut oran ile eski oran arasındaki fark 100.000 Earned Robux başına {rateValue} — yani mevcut oranda yaklaşık %8,6 daha fazla. ABD 18+ koşullu oranı, bir bakiyenin buna uygun olan kısmında standart orandan kabaca %42 daha fazla öder."
       },
       "changes": {
-        "p1": "Roblox standart oranı {date} tarihinde 0.0035'ten 0.0038'e taşıdı. Roblox'un dışından, oranın yeniden değişip değişmeyeceğini ya da ne zaman değişeceğini bilmenin bir yolu yok; bu nedenle bu sayfa hiçbir öngörüde bulunmuyor. Kaydettiği şey, buradaki her rakamın resmî belgelere karşı en son ne zaman kontrol edildiğidir; bu tarih sayfanın üstünde ve şurada gösterilir:",
+        "p1": "Roblox standart oranı {date} tarihinde 0.0035'ten 0,0038'e taşıdı. Roblox'un dışından, oranın yeniden değişip değişmeyeceğini ya da ne zaman değişeceğini bilmenin bir yolu yok; bu nedenle bu sayfa hiçbir öngörüde bulunmuyor. Kaydettiği şey, buradaki her rakamın resmî belgelere karşı en son ne zaman kontrol edildiğidir; bu tarih sayfanın üstünde ve şurada gösterilir:",
         "p2": "Kur değişikliklerinin tarihli geçmişini görün",
         "p3": "Bu sitenin verilerini en son ne zaman güncellediğini görün"
       }
@@ -389,7 +389,7 @@
     "ogImageAlt": "Yukarı yuvarlandı; çünkü Robux'un kesri ne kazanılabilir ne de takas edilebilir",
     "body": {
       "rounding": {
-        "p1": "1.000 dolarlık bir hedef 0.0038'e bölündüğünde 263.157,89 çıkar. Robux tam birimler hâlinde gelir; bu yüzden 263.157 {rate} öderdi — hedefin hemen altında. 263.158'e yukarı yuvarlamak {rate2} öder ve hedefi aşar. Bu sayfadaki her rakamın en yakın tam sayıya değil, yukarı yuvarlanmasının nedeni budur."
+        "p1": "1.000 dolarlık bir hedef 0,0038'e bölündüğünde 263.157,89 çıkar. Robux tam birimler hâlinde gelir; bu yüzden 263.157 {rate} öderdi — hedefin hemen altında. 263.158'e yukarı yuvarlamak {rate2} öder ve hedefi aşar. Bu sayfadaki her rakamın en yakın tam sayıya değil, yukarı yuvarlanmasının nedeni budur."
       },
       "minimum": {
         "p1": "Roblox, bir DevEx talebinin gönderilebilmesi için {minimumEarnedRobux} Earned Robux şartı koyar. Hedefiniz bundan azını gerektiriyorsa, gerçekte ulaşmanız gereken şey bu alt sınırdır — ve özgün hedefiniz yerine {rate} öderdi."

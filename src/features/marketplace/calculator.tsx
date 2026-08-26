@@ -49,8 +49,8 @@ export function MarketplaceCalculator({ words }: { readonly words: LocaleWords }
   const isProgressive = scheme?.progressive ?? false;
 
   const parsed = useMemo(
-    () => (amount.trim() === "" ? null : parseRobuxAmount(amount, maxRobuxInput)),
-    [amount],
+    () => (amount.trim() === "" ? null : parseRobuxAmount(amount, maxRobuxInput, t.locale)),
+    [amount, t.locale],
   );
   const robux = parsed?.ok ? parsed.value.robux : 0n;
 

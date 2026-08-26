@@ -395,7 +395,7 @@
     "ogImageAlt": "Aufgerundet, weil ein Bruchteil eines Robux weder verdient noch getauscht werden kann",
     "body": {
       "rounding": {
-        "p1": "Ein Ziel von 1.000 Dollar geteilt durch 0.0038 ergibt 263.157,89. Robux gibt es nur in ganzen Einheiten, daher würden 263.157 den Betrag {rate} zahlen — knapp unter dem Ziel. Aufgerundet auf 263.158 zahlt es {rate2} und erreicht das Ziel. Deshalb wird jede Zahl auf dieser Seite aufgerundet und nicht auf die nächste ganze Zahl gerundet."
+        "p1": "Ein Ziel von 1.000 Dollar geteilt durch 0,0038 ergibt 263.157,89. Robux gibt es nur in ganzen Einheiten, daher würden 263.157 den Betrag {rate} zahlen — knapp unter dem Ziel. Aufgerundet auf 263.158 zahlt es {rate2} und erreicht das Ziel. Deshalb wird jede Zahl auf dieser Seite aufgerundet und nicht auf die nächste ganze Zahl gerundet."
       },
       "minimum": {
         "p1": "Roblox verlangt {minimumEarnedRobux} Earned Robux, bevor überhaupt ein DevEx-Antrag eingereicht werden kann. Wenn Ihr Ziel weniger erfordert, ist das Minimum das, was Sie tatsächlich erreichen müssen — und es würde {rate} zahlen statt Ihres ursprünglichen Ziels."

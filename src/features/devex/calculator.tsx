@@ -169,43 +169,43 @@ export function Calculator({
   // ---- Parsing -----------------------------------------------------------
 
   const quickParse = useMemo(
-    () => (state.robux.trim() === "" ? null : parseRobuxAmount(state.robux, maxRobuxInput)),
-    [state.robux],
+    () => (state.robux.trim() === "" ? null : parseRobuxAmount(state.robux, maxRobuxInput, t.locale)),
+    [state.robux, t.locale],
   );
   const standardParse = useMemo(
     () =>
       state.standardRobux.trim() === ""
         ? null
-        : parseRobuxAmount(state.standardRobux, maxRobuxInput),
-    [state.standardRobux],
+        : parseRobuxAmount(state.standardRobux, maxRobuxInput, t.locale),
+    [state.standardRobux, t.locale],
   );
   const legacyParse = useMemo(
     () =>
-      state.legacyRobux.trim() === "" ? null : parseRobuxAmount(state.legacyRobux, maxRobuxInput),
-    [state.legacyRobux],
+      state.legacyRobux.trim() === "" ? null : parseRobuxAmount(state.legacyRobux, maxRobuxInput, t.locale),
+    [state.legacyRobux, t.locale],
   );
   const us18Parse = useMemo(
-    () => (state.us18Robux.trim() === "" ? null : parseRobuxAmount(state.us18Robux, maxRobuxInput)),
-    [state.us18Robux],
+    () => (state.us18Robux.trim() === "" ? null : parseRobuxAmount(state.us18Robux, maxRobuxInput, t.locale)),
+    [state.us18Robux, t.locale],
   );
   const targetParse = useMemo(
     () =>
       state.targetUsd.trim() === ""
         ? null
-        : parseCurrencyAmount(state.targetUsd, maxUsdTargetInput, minorUnitsFor(currency)),
-    [state.targetUsd, currency],
+        : parseCurrencyAmount(state.targetUsd, maxUsdTargetInput, minorUnitsFor(currency), t.locale),
+    [state.targetUsd, currency, t.locale],
   );
   const currentParse = useMemo(
     () =>
       state.currentRobux.trim() === ""
         ? null
-        : parseRobuxAmount(state.currentRobux, maxRobuxInput),
-    [state.currentRobux],
+        : parseRobuxAmount(state.currentRobux, maxRobuxInput, t.locale),
+    [state.currentRobux, t.locale],
   );
   const feeParse = useMemo(() => parsePercent(state.feePercent), [state.feePercent]);
   const flatFeeParse = useMemo(
-    () => parseCurrencyAmount(state.flatFeeUsd || "0", 10_000, 2),
-    [state.flatFeeUsd],
+    () => parseCurrencyAmount(state.flatFeeUsd || "0", 10_000, 2, t.locale),
+    [state.flatFeeUsd, t.locale],
   );
   const taxParse = useMemo(() => parsePercent(state.taxPercent), [state.taxPercent]);
 

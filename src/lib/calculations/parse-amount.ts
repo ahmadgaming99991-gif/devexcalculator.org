@@ -1,4 +1,18 @@
 import { Rational } from "./rational";
+import { DEFAULT_LOCALE, getLocaleMeta, isSupportedLocale } from "@/i18n/config";
+
+/**
+ * The locale is taken as a plain tag and resolved here.
+ *
+ * Client components carry it on their translator as a BCP 47 string, and a
+ * cast to the `Locale` union at each call site would be an assertion made in
+ * six places that a value from a props chain is one of sixteen literals. An
+ * unrecognised tag falls back to English, which is the same thing the rest of
+ * the site does with one.
+ */
+function resolve(locale: string) {
+  return isSupportedLocale(locale) ? locale : DEFAULT_LOCALE;
+}
 
 /**
  * Tolerant, bounded parsing of user-entered amounts.
@@ -8,6 +22,18 @@ import { Rational } from "./rational";
  * `100k`, `1.5m`, `R$ 250000` — while refusing anything ambiguous or unbounded
  * rather than guessing. A refusal always preserves the user's original text so
  * the UI can explain the problem without clearing the field.
+ *
+ * **Which formats those are depends on who is typing, and this used to ignore
+ * that.** The separators were hardcoded English: comma groups, full stop
+ * decimal. On `/de/` a reader who entered `30.000` — thirty thousand, written
+ * the way German writes it, and the way this site's own hint tells them to —
+ * had it read as thirty, and was shown a payout of $0.11 where $114.00 was
+ * correct. `1,5m` was rejected outright. The same held for Spanish,
+ * Portuguese, Indonesian and Turkish: five languages in which the calculator
+ * answered a thousandfold low, silently, on a page about somebody's income.
+ *
+ * So every entry point takes a locale and reads its separators from the
+ * registry. English behaviour is unchanged, which the existing tests pin.
  */
 
 export type ParseErrorCode =
@@ -79,7 +105,7 @@ interface Cleaned {
  * Shared normalisation: strips noise, resolves shorthand suffixes and validates
  * separator placement. Returns a plain decimal string plus a multiplier.
  */
-function clean(input: string): ParseResult<Cleaned> {
+function clean(input: string, locale: string = DEFAULT_LOCALE): ParseResult<Cleaned> {
   const stripped = input.replace(INVISIBLE_CHARACTERS, "").trim();
   if (stripped === "") {
     return fail("empty", "errors.input.empty");
@@ -118,23 +144,33 @@ function clean(input: string): ParseResult<Cleaned> {
     }
   }
 
+  // Space-class separators are grouping in every locale here, so they go
+  // before anything locale-specific looks at what is left.
   working = working.replace(GROUPING_CHARACTERS, "");
 
   if (working === "") {
     return fail("not-a-number", "errors.input.numberExample");
   }
 
-  // Comma handling. A comma is a thousands separator in this locale; a comma
-  // used as a decimal point is ambiguous, so reject rather than guess.
-  if (working.includes(",")) {
-    if (working.includes(".")) {
-      // Both present: the comma must come before the decimal point.
-      if (working.lastIndexOf(",") > working.indexOf(".")) {
+  /*
+   * The reader's own separators, from the registry.
+   *
+   * French groups with a narrow no-break space, which the line above has
+   * already removed, so there is no group character left to look for.
+   */
+  const meta = getLocaleMeta(resolve(locale));
+  const decimalChar = meta.decimalSeparator;
+  const groupChar = /\s/.test(meta.groupSeparator) ? "" : meta.groupSeparator;
+
+  if (groupChar !== "" && working.includes(groupChar)) {
+    if (working.includes(decimalChar)) {
+      // Both present: every group must come before the decimal mark.
+      if (working.lastIndexOf(groupChar) > working.indexOf(decimalChar)) {
         return fail("malformed-separators", "errors.input.mixedSeparators");
       }
     }
-    const [integerSection = ""] = working.split(".");
-    const groups = integerSection.split(",");
+    const [integerSection = ""] = working.split(decimalChar);
+    const groups = integerSection.split(groupChar);
     const wellFormed =
       groups.length > 1 &&
       groups[0] !== undefined &&
@@ -144,7 +180,33 @@ function clean(input: string): ParseResult<Cleaned> {
     if (!wellFormed) {
       return fail("malformed-separators", "errors.input.thousandsSeparators");
     }
-    working = working.replace(/,/g, "");
+    working = working.split(groupChar).join("");
+  }
+
+  /*
+   * One decimal mark with exactly three digits after it and no grouping
+   * anywhere is the ambiguous case, and it is refused rather than resolved.
+   *
+   * In a comma-decimal locale `1,000` reads as one to the parser and as one
+   * thousand to most people who typed it, and those differ by a thousandfold
+   * on a payout. `number-parser.ts` documents the same rule; this is the same
+   * decision applied at the same moment, so the two cannot disagree.
+   */
+  if (decimalChar !== "." && working.split(decimalChar).length === 2) {
+    const fraction = working.split(decimalChar)[1] ?? "";
+    if (fraction.length === 3 && !working.includes(".")) {
+      return fail("malformed-separators", "errors.input.thousandsSeparators");
+    }
+  }
+
+  // Everything downstream works in canonical form: digits and at most one dot.
+  if (decimalChar !== ".") {
+    if (working.includes(".")) {
+      // A full stop in a comma-decimal locale is a grouping character the
+      // block above should already have consumed. Anything left is malformed.
+      return fail("malformed-separators", "errors.input.mixedSeparators");
+    }
+    working = working.split(decimalChar).join(".");
   }
 
   // Check separator placement before the general shape test, so that a value
@@ -170,8 +232,12 @@ export interface ParsedRobux {
  * applying any shorthand multiplier must be a whole number: `1.5m` is fine
  * (1,500,000) but `100.5` is not.
  */
-export function parseRobuxAmount(input: string, maxRobux: number): ParseResult<ParsedRobux> {
-  const cleaned = clean(input);
+export function parseRobuxAmount(
+  input: string,
+  maxRobux: number,
+  locale: string = DEFAULT_LOCALE,
+): ParseResult<ParsedRobux> {
+  const cleaned = clean(input, locale);
   if (!cleaned.ok) return cleaned;
 
   const { digits, multiplier } = cleaned.value;
@@ -208,8 +274,9 @@ export function parseCurrencyAmount(
   input: string,
   maxValue: number,
   maxDecimals = 2,
+  locale: string = DEFAULT_LOCALE,
 ): ParseResult<Rational> {
-  const cleaned = clean(input);
+  const cleaned = clean(input, locale);
   if (!cleaned.ok) return cleaned;
 
   const { digits, multiplier } = cleaned.value;
@@ -242,11 +309,15 @@ export function parseCurrencyAmount(
  * Returns `Rational.ZERO` for blank input so an untouched optional control
  * behaves as "not applied" rather than as an error.
  */
-export function parsePercent(input: string, maxPercent = 100): ParseResult<Rational> {
+export function parsePercent(
+  input: string,
+  maxPercent = 100,
+  locale: string = DEFAULT_LOCALE,
+): ParseResult<Rational> {
   if (input.trim() === "") {
     return { ok: true, value: Rational.ZERO, canonical: "0" };
   }
-  const cleaned = clean(input.replace(/%/g, ""));
+  const cleaned = clean(input.replace(/%/g, ""), locale);
   if (!cleaned.ok) return cleaned;
 
   let value: Rational;

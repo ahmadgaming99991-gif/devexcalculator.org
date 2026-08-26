@@ -396,7 +396,7 @@
     "ogImageAlt": "Redondeado hacia arriba, porque un Robux parcial no se puede ganar ni cambiar",
     "body": {
       "rounding": {
-        "p1": "Un objetivo de 1.000 dólares dividido por 0.0038 da 263.157,89. Los Robux vienen en unidades enteras, así que 263.157 pagarían {rate}, justo por debajo del objetivo. Redondear al alza hasta 263.158 paga {rate2}, que sí lo alcanza. Por eso cada cifra de esta página se redondea al alza y no al entero más cercano."
+        "p1": "Un objetivo de 1.000 dólares dividido por 0,0038 da 263.157,89. Los Robux vienen en unidades enteras, así que 263.157 pagarían {rate}, justo por debajo del objetivo. Redondear al alza hasta 263.158 paga {rate2}, que sí lo alcanza. Por eso cada cifra de esta página se redondea al alza y no al entero más cercano."
       },
       "minimum": {
         "p1": "Roblox exige {minimumEarnedRobux} Earned Robux antes de que se pueda enviar siquiera una solicitud de DevEx. Si tu objetivo necesita menos que eso, el mínimo es lo que realmente tienes que alcanzar, y pagaría {rate} en lugar de tu objetivo original."

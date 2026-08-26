@@ -138,12 +138,12 @@ export function Planner({ words }: { readonly words: LocaleWords }) {
   const [flatFee, setFlatFee] = useState("");
   const [taxPercent, setTaxPercent] = useState("");
 
-  const parsedTarget = parseCurrencyAmount(targetUsd, maxUsdTargetInput, 2);
-  const parsedCurrent = parseRobuxAmount(currentRobux || "0", maxRobuxInput);
-  const parsedPace = parseRobuxAmount(paceAmount || "0", maxRobuxInput);
-  const parsedFee = parsePercent(feePercent);
-  const parsedFlat = parseCurrencyAmount(flatFee || "0", 10_000, 2);
-  const parsedTax = parsePercent(taxPercent);
+  const parsedTarget = parseCurrencyAmount(targetUsd, maxUsdTargetInput, 2, t.locale);
+  const parsedCurrent = parseRobuxAmount(currentRobux || "0", maxRobuxInput, t.locale);
+  const parsedPace = parseRobuxAmount(paceAmount || "0", maxRobuxInput, t.locale);
+  const parsedFee = parsePercent(feePercent, 100, t.locale);
+  const parsedFlat = parseCurrencyAmount(flatFee || "0", 10_000, 2, t.locale);
+  const parsedTax = parsePercent(taxPercent, 100, t.locale);
 
   const horizon: PlanHorizon | null =
     mode === "pace"

@@ -389,7 +389,7 @@
     "ogImageAlt": "Arrondi au supérieur, parce qu’un Robux partiel ne peut être ni gagné ni échangé",
     "body": {
       "rounding": {
-        "p1": "Un objectif de 1 000 dollars divisé par 0.0038 donne 263 157,89. Les Robux existent en unités entières : 263 157 rapporteraient {rate}, juste en dessous de l'objectif. Arrondir à 263 158 rapporte {rate2}, ce qui l'atteint. C'est pourquoi chaque chiffre de cette page est arrondi à l'unité supérieure plutôt qu'à l'entier le plus proche."
+        "p1": "Un objectif de 1 000 dollars divisé par 0,0038 donne 263 157,89. Les Robux existent en unités entières : 263 157 rapporteraient {rate}, juste en dessous de l'objectif. Arrondir à 263 158 rapporte {rate2}, ce qui l'atteint. C'est pourquoi chaque chiffre de cette page est arrondi à l'unité supérieure plutôt qu'à l'entier le plus proche."
       },
       "minimum": {
         "p1": "Roblox exige {minimumEarnedRobux} Earned Robux avant même qu'une demande DevEx puisse être soumise. Si votre objectif en demande moins, c'est le minimum que vous devez réellement atteindre — et il rapporterait {rate} plutôt que votre objectif initial."

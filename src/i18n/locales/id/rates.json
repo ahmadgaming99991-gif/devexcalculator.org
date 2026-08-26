@@ -389,7 +389,7 @@
     "ogImageAlt": "Dibulatkan ke atas, karena Robux pecahan tidak bisa diperoleh maupun ditukar",
     "body": {
       "rounding": {
-        "p1": "Target 1.000 dolar dibagi 0.0038 menghasilkan 263.157,89. Robux hadir dalam satuan bulat, jadi 263.157 akan membayar {rate} — sedikit di bawah target. Membulatkan ke atas menjadi 263.158 membayar {rate2}, yang melampaui target. Itulah sebabnya setiap angka di halaman ini dibulatkan ke atas, bukan ke bilangan bulat terdekat."
+        "p1": "Target 1.000 dolar dibagi 0,0038 menghasilkan 263.157,89. Robux hadir dalam satuan bulat, jadi 263.157 akan membayar {rate} — sedikit di bawah target. Membulatkan ke atas menjadi 263.158 membayar {rate2}, yang melampaui target. Itulah sebabnya setiap angka di halaman ini dibulatkan ke atas, bukan ke bilangan bulat terdekat."
       },
       "minimum": {
         "p1": "Roblox mensyaratkan {minimumEarnedRobux} Earned Robux sebelum permintaan DevEx dapat diajukan sama sekali. Jika target Anda membutuhkan lebih sedikit dari itu, minimum itulah yang sebenarnya harus Anda capai — dan itu akan membayar {rate}, bukan target awal Anda."

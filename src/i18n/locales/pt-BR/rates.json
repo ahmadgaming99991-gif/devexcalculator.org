@@ -389,7 +389,7 @@
     "ogImageAlt": "Arredondado para cima, porque um Robux parcial não pode ser ganho nem trocado",
     "body": {
       "rounding": {
-        "p1": "Uma meta de 1.000 dólares dividida por 0.0038 dá 263.157,89. Robux vêm em unidades inteiras, então 263.157 pagariam {rate} — logo abaixo da meta. Arredondar para cima até 263.158 paga {rate2}, o que a alcança. É por isso que todo número nesta página é arredondado para cima, e não para o inteiro mais próximo."
+        "p1": "Uma meta de 1.000 dólares dividida por 0,0038 dá 263.157,89. Robux vêm em unidades inteiras, então 263.157 pagariam {rate} — logo abaixo da meta. Arredondar para cima até 263.158 paga {rate2}, o que a alcança. É por isso que todo número nesta página é arredondado para cima, e não para o inteiro mais próximo."
       },
       "minimum": {
         "p1": "A Roblox exige {minimumEarnedRobux} Earned Robux antes que qualquer solicitação de DevEx possa ser enviada. Se sua meta exigir menos do que isso, o mínimo é o que você realmente precisa alcançar — e ele pagaria {rate} em vez da sua meta original."
