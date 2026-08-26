@@ -29,7 +29,7 @@
         "p1": "L'écart entre le taux actuel et l'ancien taux est de {rateValue} pour 100 000 Earned Robux, soit environ 8,6 % de plus avec le taux actuel. Le taux conditionnel États-Unis 18 ans et plus rapporte à peu près 42 % de plus que le taux standard sur la portion d'un solde qui y donne droit."
       },
       "changes": {
-        "p1": "Roblox a fait passer le taux standard de 0.0035 à 0.0038 le {date}. Depuis l'extérieur de Roblox, il est impossible de savoir s'il changera de nouveau ni quand, cette page ne fait donc aucune prévision. Ce qu'elle consigne, c'est la date à laquelle chaque chiffre présenté ici a été vérifié pour la dernière fois par rapport à la documentation officielle, affichée en haut de la page et dans",
+        "p1": "Roblox a fait passer le taux standard de 0,0035 à 0,0038 le {date}. Depuis l'extérieur de Roblox, il est impossible de savoir s'il changera de nouveau ni quand, cette page ne fait donc aucune prévision. Ce qu'elle consigne, c'est la date à laquelle chaque chiffre présenté ici a été vérifié pour la dernière fois par rapport à la documentation officielle, affichée en haut de la page et dans",
         "p2": "Voir l’historique daté des changements de taux",
         "p3": "Voir quand ce site a mis ses données à jour pour la dernière fois"
       }

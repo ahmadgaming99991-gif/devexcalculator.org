@@ -47,7 +47,7 @@
     "thousandsSeparators": "Periksa pemisah ribuannya, misalnya 1.000.000, bukan 1.00.000.",
     "multipleDecimalPoints": "Ada lebih dari satu tanda desimal.",
     "digitsOnly": "Masukkan angka saja, misalnya 100000.",
-    "robuxWholeUnits": "Robux hadir dalam satuan bulat. Masukkan bilangan bulat, atau gunakan akhiran seperti 1.5m.",
+    "robuxWholeUnits": "Robux hadir dalam satuan bulat. Masukkan bilangan bulat, atau gunakan akhiran seperti 1,5m.",
     "robuxLimit": "Kalkulator ini menerima sampai {limit} Robux. Itu batas kami sendiri, bukan batas dari Roblox.",
     "valueLimit": "Kalkulator ini menerima sampai {limit}. Itu batas kami sendiri, bukan batas dari Roblox.",
     "tooManyDecimalsOne": "Gunakan paling banyak {max} angka desimal.",

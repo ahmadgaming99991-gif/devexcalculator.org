@@ -1,5 +1,6 @@
 import type { Translate } from "@/i18n/get-dictionary";
 import type { ExperienceObservation } from "./roblox-api";
+import { plural } from "@/i18n/plural";
 
 /**
  * Observation history, stored in Workers KV.
@@ -766,12 +767,8 @@ export function describeSpan(t: Translate, series: HistorySeries): string {
   if (hours < 1) return t("common.spans.underAnHour");
   if (hours < 48) {
     const rounded = Math.round(hours);
-    return t(rounded === 1 ? "common.spans.hours.one" : "common.spans.hours.other", {
-      hours: String(rounded),
-    });
+    return plural(t, t.locale, "common.spans.hours", rounded, { hours: String(rounded) });
   }
   const days = Math.floor(hours / 24);
-  return t(days === 1 ? "common.spans.days.one" : "common.spans.days.other", {
-    days: String(days),
-  });
+  return plural(t, t.locale, "common.spans.days", days, { days: String(days) });
 }

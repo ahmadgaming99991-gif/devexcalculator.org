@@ -16,15 +16,15 @@ recorded by a person.
 
 | Locale | Strings | Critical | Meaning | Blocking | Quality | Lexicon queue |
 | --- | --- | --- | --- | --- | --- | --- |
-| `pt-BR` | 2638 | 0 | 0 | 0 | 7 | 791 |
-| `es` | 2638 | 0 | 0 | 0 | 7 | 791 |
-| `id` | 2638 | 0 | 0 | 0 | 7 | 791 |
-| `fr` | 2638 | 0 | 0 | 0 | 7 | 791 |
-| `de` | 2638 | 0 | 0 | 0 | 39 | 791 |
-| `tr` | 2638 | 3 | 0 | 0 | 6 | 791 |
+| `pt-BR` | 2638 | 0 | 0 | 0 | 1 | 791 |
+| `es` | 2638 | 0 | 0 | 0 | 1 | 791 |
+| `id` | 2638 | 0 | 0 | 0 | 1 | 791 |
+| `fr` | 2638 | 0 | 0 | 0 | 1 | 791 |
+| `de` | 2638 | 0 | 0 | 0 | 1 | 791 |
+| `tr` | 2638 | 0 | 0 | 0 | 1 | 791 |
 
 
-**Blocking total across all locales: 3** (critical + meaning + blocking).
+**Blocking total across all locales: 0** (critical + meaning + blocking).
 
 ## English-side findings
 
@@ -118,26 +118,8 @@ has to remember in seven languages when a rate moves.
 
 ### `pt-BR`
 
-**quality** — 7
+**quality** — 1
 
-- `errors.input.robuxWholeUnits` (english-number-notation) — The values are right and they are written with English separators. A reader of this locale parses those differently, and the site's own formatter would not produce them.
-  - en: "Robux come in whole units. Enter a whole number, or use a suffix such as 1.5m."
-  - pt-BR: "Robux vêm em unidades inteiras. Digite um número inteiro ou use um sufixo como 1.5m."
-- `rates.devexRates.body.changes.p1` (english-number-notation) — The values are right and they are written with English separators. A reader of this locale parses those differently, and the site's own formatter would not produce them.
-  - en: "Roblox moved the standard rate from 0.0035 to 0.0038 on {date}. There is no way to know from outside Roblox whether or when it will change again, so this page makes no forecast. What it does record is the date every figu"
-  - pt-BR: "A Roblox alterou a taxa padrão de 0.0035 para 0.0038 em {date}. Não há como saber, de fora da Roblox, se ou quando ela mudará de novo, então esta página não faz previsões. O que ela registra é a data em que cada número a"
-- `routes.accessibility.quickAnswer` (english-number-notation) — The values are right and they are written with English separators. A reader of this locale parses those differently, and the site's own formatter would not produce them.
-  - en: "This site targets WCAG 2.2 level AA. The calculator is fully keyboard operable, results are announced to screen readers, nothing scrolls sideways at 320 pixels, and the layout holds at 200% text zoom. If something blocks"
-  - pt-BR: "Este site busca o WCAG 2.2 nível AA. A calculadora é totalmente operável por teclado, os resultados são anunciados a leitores de tela, nada rola para os lados em 320 pixels, e o layout se mantém com zoom de texto de 200%"
-- `routes.accessibility.ogImageAlt` (english-number-notation) — The values are right and they are written with English separators. A reader of this locale parses those differently, and the site's own formatter would not produce them.
-  - en: "Accessibility statement targeting WCAG 2.2 level AA."
-  - pt-BR: "Declaração de acessibilidade buscando o WCAG 2.2 nível AA."
-- `trust.api.body.using.p1` (english-number-notation) — The values are right and they are written with English separators. A reader of this locale parses those differently, and the site's own formatter would not produce them.
-  - en: "describes every endpoint here as OpenAPI 3.1 — parameters, status codes, content types and the exact each one sends. It is generated from the same declaration this page reads, and a test compares that declaration against"
-  - pt-BR: "descreve todo endpoint daqui como OpenAPI 3.1 — parâmetros, códigos de status, tipos de conteúdo e o exato que cada um envia. É gerado a partir da mesma declaração que esta página lê, e um teste compara essa declaração c"
-- `trust.api.prose.openapi` (english-number-notation) — The values are right and they are written with English separators. A reader of this locale parses those differently, and the site's own formatter would not produce them.
-  - en: "{openapiLink} describes every endpoint here as OpenAPI 3.1 — parameters, status codes, content types and the exact {cacheControl} each one sends. It is generated from the same declaration this page reads, and a test comp"
-  - pt-BR: "{openapiLink} descreve cada endpoint daqui como OpenAPI 3.1 — parâmetros, códigos de status, tipos de conteúdo e o {cacheControl} exato que cada um envia. É gerado a partir da mesma declaração que esta página lê, e um te"
 - `rates.earnedRobux.pendingDescription` (glossary) — English says "Earned Robux"; this locale's approved rendering is "Earned Robux" and it does not appear. A distinct balance from ordinary Robux and the only kind DevEx converts. Translating it collapses the distinction the whole site rests on, so every locale keeps the English term.
   - en: "Newly earned Robux are not immediately available, which surprises creators watching a balance climb."
   - pt-BR: "Robux recém-ganhos não ficam disponíveis na hora, o que surpreende criadores vendo o saldo subir."
@@ -156,26 +138,8 @@ has to remember in seven languages when a rate moves.
 
 ### `es`
 
-**quality** — 7
+**quality** — 1
 
-- `errors.input.robuxWholeUnits` (english-number-notation) — The values are right and they are written with English separators. A reader of this locale parses those differently, and the site's own formatter would not produce them.
-  - en: "Robux come in whole units. Enter a whole number, or use a suffix such as 1.5m."
-  - es: "Los Robux vienen en unidades enteras. Introduce un número entero o usa un sufijo como 1.5m."
-- `rates.devexRates.body.changes.p1` (english-number-notation) — The values are right and they are written with English separators. A reader of this locale parses those differently, and the site's own formatter would not produce them.
-  - en: "Roblox moved the standard rate from 0.0035 to 0.0038 on {date}. There is no way to know from outside Roblox whether or when it will change again, so this page makes no forecast. What it does record is the date every figu"
-  - es: "Roblox cambió la tasa estándar de 0.0035 a 0.0038 el {date}. Desde fuera de Roblox no hay forma de saber si cambiará de nuevo ni cuándo, así que esta página no hace pronósticos. Lo que sí registra es la fecha en que cada"
-- `routes.accessibility.quickAnswer` (english-number-notation) — The values are right and they are written with English separators. A reader of this locale parses those differently, and the site's own formatter would not produce them.
-  - en: "This site targets WCAG 2.2 level AA. The calculator is fully keyboard operable, results are announced to screen readers, nothing scrolls sideways at 320 pixels, and the layout holds at 200% text zoom. If something blocks"
-  - es: "Este sitio persigue el nivel AA de WCAG 2.2. La calculadora es totalmente manejable con teclado, los resultados se anuncian a los lectores de pantalla, nada se desplaza en horizontal a 320 píxeles y la maquetación aguant"
-- `routes.accessibility.ogImageAlt` (english-number-notation) — The values are right and they are written with English separators. A reader of this locale parses those differently, and the site's own formatter would not produce them.
-  - en: "Accessibility statement targeting WCAG 2.2 level AA."
-  - es: "Declaración de accesibilidad orientada al nivel AA de WCAG 2.2."
-- `trust.api.body.using.p1` (english-number-notation) — The values are right and they are written with English separators. A reader of this locale parses those differently, and the site's own formatter would not produce them.
-  - en: "describes every endpoint here as OpenAPI 3.1 — parameters, status codes, content types and the exact each one sends. It is generated from the same declaration this page reads, and a test compares that declaration against"
-  - es: "describe cada endpoint de aquí como OpenAPI 3.1: parámetros, códigos de estado, tipos de contenido y el exacto que envía cada uno. Se genera a partir de la misma declaración que lee esta página, y una prueba compara esa "
-- `trust.api.prose.openapi` (english-number-notation) — The values are right and they are written with English separators. A reader of this locale parses those differently, and the site's own formatter would not produce them.
-  - en: "{openapiLink} describes every endpoint here as OpenAPI 3.1 — parameters, status codes, content types and the exact {cacheControl} each one sends. It is generated from the same declaration this page reads, and a test comp"
-  - es: "{openapiLink} describe cada endpoint de aquí como OpenAPI 3.1: parámetros, códigos de estado, tipos de contenido y el {cacheControl} exacto que envía cada uno. Se genera a partir de la misma declaración que lee esta pági"
 - `rates.earnedRobux.pendingDescription` (glossary) — English says "Earned Robux"; this locale's approved rendering is "Earned Robux" and it does not appear. A distinct balance from ordinary Robux and the only kind DevEx converts. Translating it collapses the distinction the whole site rests on, so every locale keeps the English term.
   - en: "Newly earned Robux are not immediately available, which surprises creators watching a balance climb."
   - es: "Los Robux recién ganados no están disponibles al instante, lo que sorprende a los creadores que ven subir un saldo."
@@ -194,52 +158,16 @@ has to remember in seven languages when a rate moves.
 
 ### `id`
 
-**quality** — 7
+**quality** — 1
 
-- `errors.input.robuxWholeUnits` (english-number-notation) — The values are right and they are written with English separators. A reader of this locale parses those differently, and the site's own formatter would not produce them.
-  - en: "Robux come in whole units. Enter a whole number, or use a suffix such as 1.5m."
-  - id: "Robux hadir dalam satuan bulat. Masukkan bilangan bulat, atau gunakan akhiran seperti 1.5m."
-- `rates.devexRates.body.changes.p1` (english-number-notation) — The values are right and they are written with English separators. A reader of this locale parses those differently, and the site's own formatter would not produce them.
-  - en: "Roblox moved the standard rate from 0.0035 to 0.0038 on {date}. There is no way to know from outside Roblox whether or when it will change again, so this page makes no forecast. What it does record is the date every figu"
-  - id: "Roblox mengubah tarif standar dari 0.0035 menjadi 0.0038 pada {date}. Dari luar Roblox tidak ada cara untuk mengetahui apakah atau kapan tarif itu akan berubah lagi, jadi halaman ini tidak membuat prakiraan. Yang dicatat"
-- `routes.accessibility.quickAnswer` (english-number-notation) — The values are right and they are written with English separators. A reader of this locale parses those differently, and the site's own formatter would not produce them.
-  - en: "This site targets WCAG 2.2 level AA. The calculator is fully keyboard operable, results are announced to screen readers, nothing scrolls sideways at 320 pixels, and the layout holds at 200% text zoom. If something blocks"
-  - id: "Situs ini menuju WCAG 2.2 tingkat AA. Kalkulatornya sepenuhnya dapat dioperasikan dengan papan ketik, hasilnya diumumkan ke pembaca layar, tidak ada yang menggulir ke samping pada lebar 320 piksel, dan tata letaknya bert"
-- `routes.accessibility.ogImageAlt` (english-number-notation) — The values are right and they are written with English separators. A reader of this locale parses those differently, and the site's own formatter would not produce them.
-  - en: "Accessibility statement targeting WCAG 2.2 level AA."
-  - id: "Pernyataan aksesibilitas yang menuju WCAG 2.2 tingkat AA."
-- `trust.api.body.using.p1` (english-number-notation) — The values are right and they are written with English separators. A reader of this locale parses those differently, and the site's own formatter would not produce them.
-  - en: "describes every endpoint here as OpenAPI 3.1 — parameters, status codes, content types and the exact each one sends. It is generated from the same declaration this page reads, and a test compares that declaration against"
-  - id: "menjelaskan setiap endpoint di sini sebagai OpenAPI 3.1 — parameter, kode status, tipe konten, dan yang tepat dikirim masing-masing. Ia dihasilkan dari deklarasi yang sama dengan yang dibaca halaman ini, dan sebuah pengu"
-- `trust.api.prose.openapi` (english-number-notation) — The values are right and they are written with English separators. A reader of this locale parses those differently, and the site's own formatter would not produce them.
-  - en: "{openapiLink} describes every endpoint here as OpenAPI 3.1 — parameters, status codes, content types and the exact {cacheControl} each one sends. It is generated from the same declaration this page reads, and a test comp"
-  - id: "{openapiLink} menjelaskan setiap endpoint di sini sebagai OpenAPI 3.1 — parameter, kode status, tipe konten, dan {cacheControl} persis yang dikirim masing-masing. Berkas itu dihasilkan dari deklarasi yang sama dengan yan"
 - `rates.earnedRobux.pendingDescription` (glossary) — English says "Earned Robux"; this locale's approved rendering is "Earned Robux" and it does not appear. A distinct balance from ordinary Robux and the only kind DevEx converts. Translating it collapses the distinction the whole site rests on, so every locale keeps the English term.
   - en: "Newly earned Robux are not immediately available, which surprises creators watching a balance climb."
   - id: "Robux yang baru diperoleh tidak langsung tersedia, dan itu mengejutkan kreator yang melihat saldonya naik."
 
 ### `fr`
 
-**quality** — 7
+**quality** — 1
 
-- `errors.input.robuxWholeUnits` (english-number-notation) — The values are right and they are written with English separators. A reader of this locale parses those differently, and the site's own formatter would not produce them.
-  - en: "Robux come in whole units. Enter a whole number, or use a suffix such as 1.5m."
-  - fr: "Les Robux existent en unités entières. Saisissez un nombre entier, ou utilisez un suffixe comme 1.5m."
-- `rates.devexRates.body.changes.p1` (english-number-notation) — The values are right and they are written with English separators. A reader of this locale parses those differently, and the site's own formatter would not produce them.
-  - en: "Roblox moved the standard rate from 0.0035 to 0.0038 on {date}. There is no way to know from outside Roblox whether or when it will change again, so this page makes no forecast. What it does record is the date every figu"
-  - fr: "Roblox a fait passer le taux standard de 0.0035 à 0.0038 le {date}. Depuis l'extérieur de Roblox, il est impossible de savoir s'il changera de nouveau ni quand, cette page ne fait donc aucune prévision. Ce qu'elle consig"
-- `routes.accessibility.quickAnswer` (english-number-notation) — The values are right and they are written with English separators. A reader of this locale parses those differently, and the site's own formatter would not produce them.
-  - en: "This site targets WCAG 2.2 level AA. The calculator is fully keyboard operable, results are announced to screen readers, nothing scrolls sideways at 320 pixels, and the layout holds at 200% text zoom. If something blocks"
-  - fr: "Ce site vise le niveau AA de WCAG 2.2. La calculatrice est entièrement utilisable au clavier, les résultats sont annoncés aux lecteurs d’écran, rien ne défile latéralement à 320 pixels, et la mise en page tient à 200 % d"
-- `routes.accessibility.ogImageAlt` (english-number-notation) — The values are right and they are written with English separators. A reader of this locale parses those differently, and the site's own formatter would not produce them.
-  - en: "Accessibility statement targeting WCAG 2.2 level AA."
-  - fr: "Déclaration d’accessibilité visant le niveau AA de WCAG 2.2."
-- `trust.api.body.using.p1` (english-number-notation) — The values are right and they are written with English separators. A reader of this locale parses those differently, and the site's own formatter would not produce them.
-  - en: "describes every endpoint here as OpenAPI 3.1 — parameters, status codes, content types and the exact each one sends. It is generated from the same declaration this page reads, and a test compares that declaration against"
-  - fr: "décrit chaque point d’accès d’ici en OpenAPI 3.1 — paramètres, codes de statut, types de contenu et l’exact que chacun envoie. Il est généré à partir de la même déclaration que celle lue par cette page, et un test compar"
-- `trust.api.prose.openapi` (english-number-notation) — The values are right and they are written with English separators. A reader of this locale parses those differently, and the site's own formatter would not produce them.
-  - en: "{openapiLink} describes every endpoint here as OpenAPI 3.1 — parameters, status codes, content types and the exact {cacheControl} each one sends. It is generated from the same declaration this page reads, and a test comp"
-  - fr: "{openapiLink} décrit chaque point d’accès ici en OpenAPI 3.1 — paramètres, codes d’état, types de contenu et le {cacheControl} exact que chacun envoie. Il est généré à partir de la même déclaration que lit cette page, et"
 - `rates.earnedRobux.pendingDescription` (glossary) — English says "Earned Robux"; this locale's approved rendering is "Earned Robux" and it does not appear. A distinct balance from ordinary Robux and the only kind DevEx converts. Translating it collapses the distinction the whole site rests on, so every locale keeps the English term.
   - en: "Newly earned Robux are not immediately available, which surprises creators watching a balance climb."
   - fr: "Les Robux fraîchement gagnés ne sont pas immédiatement disponibles, ce qui surprend les créateurs qui voient un solde grimper."
@@ -258,125 +186,11 @@ has to remember in seven languages when a rate moves.
 
 ### `de`
 
-**quality** — 39
+**quality** — 1
 
-- `errors.input.robuxWholeUnits` (english-number-notation) — The values are right and they are written with English separators. A reader of this locale parses those differently, and the site's own formatter would not produce them.
-  - en: "Robux come in whole units. Enter a whole number, or use a suffix such as 1.5m."
-  - de: "Robux gibt es nur in ganzen Einheiten. Geben Sie eine ganze Zahl ein oder verwenden Sie ein Kürzel wie 1.5m."
-- `rates.devexRates.body.changes.p1` (english-number-notation) — The values are right and they are written with English separators. A reader of this locale parses those differently, and the site's own formatter would not produce them.
-  - en: "Roblox moved the standard rate from 0.0035 to 0.0038 on {date}. There is no way to know from outside Roblox whether or when it will change again, so this page makes no forecast. What it does record is the date every figu"
-  - de: "Roblox hat den Standardsatz am {date} von 0.0035 auf 0.0038 geändert. Von außerhalb von Roblox lässt sich nicht wissen, ob oder wann er sich erneut ändert, daher trifft diese Seite keine Prognose. Festgehalten wird statt"
-- `routes.accessibility.quickAnswer` (english-number-notation) — The values are right and they are written with English separators. A reader of this locale parses those differently, and the site's own formatter would not produce them.
-  - en: "This site targets WCAG 2.2 level AA. The calculator is fully keyboard operable, results are announced to screen readers, nothing scrolls sideways at 320 pixels, and the layout holds at 200% text zoom. If something blocks"
-  - de: "Diese Website strebt WCAG 2.2 Stufe AA an. Der Rechner ist vollständig mit der Tastatur bedienbar, Ergebnisse werden Screenreadern angesagt, bei 320 Pixeln scrollt nichts seitwärts, und das Layout hält bei 200 % Textzoom"
-- `routes.accessibility.ogImageAlt` (english-number-notation) — The values are right and they are written with English separators. A reader of this locale parses those differently, and the site's own formatter would not produce them.
-  - en: "Accessibility statement targeting WCAG 2.2 level AA."
-  - de: "Erklärung zur Barrierefreiheit mit dem Ziel WCAG 2.2 Stufe AA."
-- `trust.api.body.using.p1` (english-number-notation) — The values are right and they are written with English separators. A reader of this locale parses those differently, and the site's own formatter would not produce them.
-  - en: "describes every endpoint here as OpenAPI 3.1 — parameters, status codes, content types and the exact each one sends. It is generated from the same declaration this page reads, and a test compares that declaration against"
-  - de: "beschreibt jeden Endpunkt hier als OpenAPI 3.1 — Parameter, Statuscodes, Inhaltstypen und das genaue, das jeder sendet. Sie wird aus derselben Deklaration erzeugt, die diese Seite liest, und ein Test vergleicht diese Dek"
-- `trust.api.prose.openapi` (english-number-notation) — The values are right and they are written with English separators. A reader of this locale parses those differently, and the site's own formatter would not produce them.
-  - en: "{openapiLink} describes every endpoint here as OpenAPI 3.1 — parameters, status codes, content types and the exact {cacheControl} each one sends. It is generated from the same declaration this page reads, and a test comp"
-  - de: "{openapiLink} beschreibt jeden Endpunkt hier als OpenAPI 3.1 — Parameter, Statuscodes, Inhaltstypen und das genaue {cacheControl}, das jeder sendet. Sie wird aus derselben Deklaration erzeugt, die diese Seite liest, und "
-- `accessibility.tables.commonAmounts` (glossary) — English says "Earned Robux"; this locale's approved rendering is "Earned Robux" and it does not appear. A distinct balance from ordinary Robux and the only kind DevEx converts. Translating it collapses the distinction the whole site rests on, so every locale keeps the English term.
-  - en: "Common Earned Robux amounts converted to US dollars"
-  - de: "Übliche Earned-Robux-Beträge, umgerechnet in US-Dollar"
-- `accessibility.tables.commonAmountsCaption` (glossary) — English says "Earned Robux"; this locale's approved rendering is "Earned Robux" and it does not appear. A distinct balance from ordinary Robux and the only kind DevEx converts. Translating it collapses the distinction the whole site rests on, so every locale keeps the English term.
-  - en: "Earned Robux amounts valued at the standard, legacy and conditional U.S. 18+ DevEx rates"
-  - de: "Earned-Robux-Beträge, bewertet zum Standard-, Alt- und bedingten USA-18+-DevEx-Kurs"
-- `rates.devexRates.workedExamplesCaption` (glossary) — English says "Earned Robux"; this locale's approved rendering is "Earned Robux" and it does not appear. A distinct balance from ordinary Robux and the only kind DevEx converts. Translating it collapses the distinction the whole site rests on, so every locale keeps the English term.
-  - en: "Payout for common Earned Robux amounts under each documented DevEx rate"
-  - de: "Auszahlung für übliche Earned-Robux-Beträge zu jedem dokumentierten DevEx-Kurs"
 - `rates.earnedRobux.pendingDescription` (glossary) — English says "Earned Robux"; this locale's approved rendering is "Earned Robux" and it does not appear. A distinct balance from ordinary Robux and the only kind DevEx converts. Translating it collapses the distinction the whole site rests on, so every locale keeps the English term.
   - en: "Newly earned Robux are not immediately available, which surprises creators watching a balance climb."
   - de: "Frisch verdiente Robux sind nicht sofort verfügbar, was Creator überrascht, die ein Guthaben steigen sehen."
-- `routes.home.faqs.q03.question` (glossary) — English says "Earned Robux"; this locale's approved rendering is "Earned Robux" and it does not appear. A distinct balance from ordinary Robux and the only kind DevEx converts. Translating it collapses the distinction the whole site rests on, so every locale keeps the English term.
-  - en: "What is the minimum Earned Robux for DevEx?"
-  - de: "Wie hoch ist das Earned-Robux-Minimum für DevEx?"
-- `routes.conversions.metaDescription` (glossary) — English says "Earned Robux"; this locale's approved rendering is "Earned Robux" and it does not appear. A distinct balance from ordinary Robux and the only kind DevEx converts. Translating it collapses the distinction the whole site rests on, so every locale keeps the English term.
-  - en: "Common Earned Robux amounts valued at the current, legacy and U.S. 18+ rates, plus an input for any amount you like."
-  - de: "Übliche Earned-Robux-Beträge, bewertet zum aktuellen, zum alten und zum USA-18+-Kurs, dazu ein Feld für jeden beliebigen Betrag."
-- `routes.devexRequirements.ogImageAlt` (glossary) — English says "Earned Robux"; this locale's approved rendering is "Earned Robux" and it does not appear. A distinct balance from ordinary Robux and the only kind DevEx converts. Translating it collapses the distinction the whole site rests on, so every locale keeps the English term.
-  - en: "DevEx requirements: minimum Earned Robux, verified email, portal account and tax forms."
-  - de: "DevEx-Voraussetzungen: Mindest-Earned-Robux, bestätigte E-Mail, Portalkonto und Steuerformulare."
-- `trust.api.fields.minimum` (glossary) — English says "Earned Robux"; this locale's approved rendering is "Earned Robux" and it does not appear. A distinct balance from ordinary Robux and the only kind DevEx converts. Translating it collapses the distinction the whole site rests on, so every locale keeps the English term.
-  - en: "The Earned Robux balance Roblox requires before a request can be submitted"
-  - de: "Das Earned-Robux-Guthaben, das Roblox verlangt, bevor ein Antrag gestellt werden kann"
-- `data.sources.roblox-monetization-overview.facts.1` (glossary) — English says "Developer Exchange"; this locale's approved rendering is "Developer Exchange" and it does not appear. Programme name, as Roblox writes it.
-  - en: "Earned Robux must be converted through the Developer Exchange programme to become real currency."
-  - de: "Earned Robux müssen über das Developer-Exchange-Programm umgewandelt werden, um zu echtem Geld zu werden."
-- `data.sources.roblox-q2-2026-earnings.facts.0` (glossary) — English says "Developer Exchange"; this locale's approved rendering is "Developer Exchange" and it does not appear. Programme name, as Roblox writes it.
-  - en: "Developer exchange fees of 363 million USD for the three months ended 30 June 2026, and 316 million USD for the same period in 2025."
-  - de: "Developer-Exchange-Aufwendungen von 363 Millionen USD für die drei Monate bis zum 30. Juni 2026 und 316 Millionen USD im selben Zeitraum 2025."
-- `data.sources.roblox-q2-2026-earnings.facts.1` (glossary) — English says "Developer Exchange"; this locale's approved rendering is "Developer Exchange" and it does not appear. Programme name, as Roblox writes it.
-  - en: "Developer exchange fees of 786 million USD for the six months ended 30 June 2026, and 598 million USD for the same period in 2025."
-  - de: "Developer-Exchange-Aufwendungen von 786 Millionen USD für die sechs Monate bis zum 30. Juni 2026 und 598 Millionen USD im selben Zeitraum 2025."
-- `data.sources.roblox-q2-2026-earnings.facts.3` (glossary) — English says "Developer Exchange"; this locale's approved rendering is "Developer Exchange" and it does not appear. Programme name, as Roblox writes it.
-  - en: "Developer exchange fees equal to 25 percent of revenue in Q2 2026 and 29 percent in Q2 2025."
-  - de: "Developer-Exchange-Aufwendungen in Höhe von 25 Prozent des Umsatzes im 2. Quartal 2026 und 29 Prozent im 2. Quartal 2025."
-- `data.sources.roblox-q4-2025-earnings.facts.0` (glossary) — English says "Developer Exchange"; this locale's approved rendering is "Developer Exchange" and it does not appear. Programme name, as Roblox writes it.
-  - en: "Developer exchange fees of 477,240 thousand USD for the three months ended 31 December 2025, and 280,610 thousand USD for the same period in 2024."
-  - de: "Developer-Exchange-Aufwendungen von 477.240 Tausend USD für die drei Monate bis zum 31. Dezember 2025 und 280.610 Tausend USD im selben Zeitraum 2024."
-- `data.sources.roblox-q4-2025-earnings.facts.1` (glossary) — English says "Developer Exchange"; this locale's approved rendering is "Developer Exchange" and it does not appear. Programme name, as Roblox writes it.
-  - en: "Developer exchange fees of 1,503,106 thousand USD for the twelve months ended 31 December 2025, and 922,821 thousand USD for 2024."
-  - de: "Developer-Exchange-Aufwendungen von 1.503.106 Tausend USD für die zwölf Monate bis zum 31. Dezember 2025 und 922.821 Tausend USD für 2024."
-- `data.metrics.developerExchangeFees.label` (glossary) — English says "Developer Exchange"; this locale's approved rendering is "Developer Exchange" and it does not appear. Programme name, as Roblox writes it.
-  - en: "Developer exchange fees"
-  - de: "Developer-Exchange-Aufwendungen"
-- `data.metrics.developerExchangeFees.description` (glossary) — English says "Developer Exchange"; this locale's approved rendering is "Developer Exchange" and it does not appear. Programme name, as Roblox writes it.
-  - en: "The money Roblox paid out through the Developer Exchange programme, as reported on its income statement."
-  - de: "Das Geld, das Roblox über das Developer-Exchange-Programm ausgezahlt hat, wie in der Gewinn- und Verlustrechnung ausgewiesen."
-- `data.metrics.shareOfRevenue.label` (glossary) — English says "Developer Exchange"; this locale's approved rendering is "Developer Exchange" and it does not appear. Programme name, as Roblox writes it.
-  - en: "Developer exchange fees as a share of revenue"
-  - de: "Developer-Exchange-Aufwendungen als Anteil am Umsatz"
-- `data.metrics.companyContext.figures.devex-share-revenue.label` (glossary) — English says "Developer Exchange"; this locale's approved rendering is "Developer Exchange" and it does not appear. Programme name, as Roblox writes it.
-  - en: "Developer exchange fees as a share of revenue"
-  - de: "Developer-Exchange-Aufwendungen als Anteil am Umsatz"
-- `data.metrics.companyContext.figures.devex-share-bookings.label` (glossary) — English says "Developer Exchange"; this locale's approved rendering is "Developer Exchange" and it does not appear. Programme name, as Roblox writes it.
-  - en: "Developer exchange fees as a share of bookings"
-  - de: "Developer-Exchange-Aufwendungen als Anteil an den Bookings"
-- `platform.stats.payoutsDescription` (glossary) — English says "Developer Exchange"; this locale's approved rendering is "Developer Exchange" and it does not appear. Programme name, as Roblox writes it.
-  - en: "Developer exchange fees are a line on Roblox’s income statement: the money it paid out through DevEx. It is the closest thing to a measure of what the creator economy earns."
-  - de: "Developer-Exchange-Gebühren sind eine Zeile in Roblox’ Gewinn- und Verlustrechnung: das Geld, das über DevEx ausgezahlt wurde. Es ist das, was einem Maß für die Einnahmen der Creator-Wirtschaft am nächsten kommt."
-- `platform.stats.paidIn2025Note` (glossary) — English says "Developer Exchange"; this locale's approved rendering is "Developer Exchange" and it does not appear. Programme name, as Roblox writes it.
-  - en: "Developer exchange fees, full year"
-  - de: "Developer-Exchange-Gebühren, Gesamtjahr"
-- `platform.stats.byYearChartCaption` (glossary) — English says "Developer Exchange"; this locale's approved rendering is "Developer Exchange" and it does not appear. Programme name, as Roblox writes it.
-  - en: "Developer exchange fees by financial year, as reported by Roblox."
-  - de: "Developer-Exchange-Gebühren nach Geschäftsjahr, wie von Roblox berichtet."
-- `platform.stats.byYearTableLabel` (glossary) — English says "Developer Exchange"; this locale's approved rendering is "Developer Exchange" and it does not appear. Programme name, as Roblox writes it.
-  - en: "Developer exchange fees by year"
-  - de: "Developer-Exchange-Gebühren nach Jahr"
-- `platform.stats.byYearTableCaption` (glossary) — English says "Developer Exchange"; this locale's approved rendering is "Developer Exchange" and it does not appear. Programme name, as Roblox writes it.
-  - en: "Roblox developer exchange fees by financial year, with the filing each figure comes from."
-  - de: "Roblox’ Developer-Exchange-Gebühren nach Geschäftsjahr, mit dem Bericht, aus dem jede Zahl stammt."
-- `platform.stats.byQuarterChartCaption` (glossary) — English says "Developer Exchange"; this locale's approved rendering is "Developer Exchange" and it does not appear. Programme name, as Roblox writes it.
-  - en: "Developer exchange fees by quarter. Hollow bars are derived by subtraction rather than reported directly."
-  - de: "Developer-Exchange-Gebühren nach Quartal. Hohle Balken sind durch Subtraktion abgeleitet statt direkt berichtet."
-- `platform.stats.byQuarterTableLabel` (glossary) — English says "Developer Exchange"; this locale's approved rendering is "Developer Exchange" and it does not appear. Programme name, as Roblox writes it.
-  - en: "Developer exchange fees by quarter"
-  - de: "Developer-Exchange-Gebühren nach Quartal"
-- `platform.stats.byQuarterTableCaption` (glossary) — English says "Developer Exchange"; this locale's approved rendering is "Developer Exchange" and it does not appear. Programme name, as Roblox writes it.
-  - en: "Roblox developer exchange fees by quarter, showing which figures were reported and which were derived."
-  - de: "Roblox’ Developer-Exchange-Gebühren nach Quartal, mit Angabe, welche Zahlen berichtet und welche abgeleitet wurden."
-- `platform.stats.prose.quarterOfRevenue` (glossary) — English says "Developer Exchange"; this locale's approved rendering is "Developer Exchange" and it does not appear. Programme name, as Roblox writes it.
-  - en: "The line worth reading twice is the second one. Developer exchange fees are about a quarter of Roblox’s revenue, so a meaningful share of what the platform takes in leaves again as creator payouts. Every figure in this t"
-  - de: "Die Zeile, die zweimal zu lesen lohnt, ist die zweite. Developer-Exchange-Gebühren machen etwa ein Viertel von Roblox’ Umsatz aus; ein erheblicher Teil dessen, was die Plattform einnimmt, verlässt sie also wieder als Cre"
-- `routes.robloxStats.ogImageAlt` (glossary) — English says "Developer Exchange"; this locale's approved rendering is "Developer Exchange" and it does not appear. Programme name, as Roblox writes it.
-  - en: "Roblox developer exchange payouts by quarter, charted from SEC filings."
-  - de: "Roblox’ Developer-Exchange-Auszahlungen nach Quartal, aus SEC-Berichten dargestellt."
-- `routes.robloxStats.faqs.q01.answer` (glossary) — English says "Developer Exchange"; this locale's approved rendering is "Developer Exchange" and it does not appear. Programme name, as Roblox writes it.
-  - en: "1,503,106 thousand US dollars in 2025, reported as developer exchange fees on its income statement, against 922,821 thousand in 2024. Both figures come from Roblox's filing with the SEC."
-  - de: "1.503.106 Tausend US-Dollar im Jahr 2025, in der Gewinn- und Verlustrechnung als Developer-Exchange-Gebühren ausgewiesen, gegenüber 922.821 Tausend im Jahr 2024. Beide Zahlen stammen aus Roblox’ Bericht an die SEC."
-- `schema.entities.robloxCorporation` (glossary) — English says "Developer Exchange"; this locale's approved rendering is "Developer Exchange" and it does not appear. Programme name, as Roblox writes it.
-  - en: "Operates the Roblox platform and the Developer Exchange programme. Not affiliated with this site."
-  - de: "Betreibt die Roblox-Plattform und das Developer-Exchange-Programm. Nicht mit dieser Website verbunden."
-- `schema.datasets.stats.description` (glossary) — English says "Developer Exchange"; this locale's approved rendering is "Developer Exchange" and it does not appear. Programme name, as Roblox writes it.
-  - en: "Developer exchange fees, revenue and engagement as Roblox reports them in its SEC filings, with each row labelled reported or derived and linked to the filing it came from. Includes the metrics Roblox does not publish, a"
-  - de: "Developer-Exchange-Gebühren, Umsatz und Engagement, wie Roblox sie in seinen SEC-Einreichungen berichtet — jede Zeile als berichtet oder abgeleitet gekennzeichnet und mit der Einreichung verlinkt, aus der sie stammt. Ent"
-- `trust.authors.ahmadRaza.bio` (glossary) — English says "Developer Exchange"; this locale's approved rendering is "Developer Exchange" and it does not appear. Programme name, as Roblox writes it.
-  - en: "Ahmad Raza is an independent web publisher and SEO specialist from Pakistan who builds and maintains reference tools and informational sites. He built DevExCalculator.org after finding that Roblox creators searching for "
-  - de: "Ahmad Raza ist ein unabhängiger Web-Publisher und SEO-Spezialist aus Pakistan, der Nachschlagewerkzeuge und Informationsseiten baut und pflegt. Er hat DevExCalculator.org gebaut, nachdem er festgestellt hatte, dass Roblo"
 
 **review** — 3
 
@@ -392,40 +206,13 @@ has to remember in seven languages when a rate moves.
 
 ### `tr`
 
-**critical** — 3
+**quality** — 1
 
-- `rates.devexRates.body.changes.p1` (number-mismatch) — English states 0.0035 and the translation has no such value. This is a published figure.
-  - en: "Roblox moved the standard rate from 0.0035 to 0.0038 on {date}. There is no way to know from outside Roblox whether or when it will change again, so this page makes no forecast. What it does record is the date every figu"
-  - tr: "Roblox standart oranı {date} tarihinde 0.0035'ten 0,0038'e taşıdı. Roblox'un dışından, oranın yeniden değişip değişmeyeceğini ya da ne zaman değişeceğini bilmenin bir yolu yok; bu nedenle bu sayfa hiçbir öngörüde bulunmu"
-- `rates.devexRates.body.changes.p1` (number-mismatch) — The translation states 0.003, which is not in the English.
-  - en: "Roblox moved the standard rate from 0.0035 to 0.0038 on {date}. There is no way to know from outside Roblox whether or when it will change again, so this page makes no forecast. What it does record is the date every figu"
-  - tr: "Roblox standart oranı {date} tarihinde 0.0035'ten 0,0038'e taşıdı. Roblox'un dışından, oranın yeniden değişip değişmeyeceğini ya da ne zaman değişeceğini bilmenin bir yolu yok; bu nedenle bu sayfa hiçbir öngörüde bulunmu"
-- `rates.devexRates.body.changes.p1` (number-mismatch) — The translation states 5, which is not in the English.
-  - en: "Roblox moved the standard rate from 0.0035 to 0.0038 on {date}. There is no way to know from outside Roblox whether or when it will change again, so this page makes no forecast. What it does record is the date every figu"
-  - tr: "Roblox standart oranı {date} tarihinde 0.0035'ten 0,0038'e taşıdı. Roblox'un dışından, oranın yeniden değişip değişmeyeceğini ya da ne zaman değişeceğini bilmenin bir yolu yok; bu nedenle bu sayfa hiçbir öngörüde bulunmu"
-
-**quality** — 6
-
-- `errors.input.robuxWholeUnits` (english-number-notation) — The values are right and they are written with English separators. A reader of this locale parses those differently, and the site's own formatter would not produce them.
-  - en: "Robux come in whole units. Enter a whole number, or use a suffix such as 1.5m."
-  - tr: "Robux tam birimler hâlinde gelir. Tam bir sayı girin ya da 1.5m gibi bir sonek kullanın."
-- `routes.accessibility.quickAnswer` (english-number-notation) — The values are right and they are written with English separators. A reader of this locale parses those differently, and the site's own formatter would not produce them.
-  - en: "This site targets WCAG 2.2 level AA. The calculator is fully keyboard operable, results are announced to screen readers, nothing scrolls sideways at 320 pixels, and the layout holds at 200% text zoom. If something blocks"
-  - tr: "Bu site WCAG 2.2 AA düzeyini hedefler. Hesaplayıcı baştan sona klavyeyle kullanılabilir, sonuçlar ekran okuyuculara seslendirilir, 320 pikselde hiçbir şey yana kaymaz ve düzen %200 metin yakınlaştırmada bozulmaz. Bir şey"
-- `routes.accessibility.ogImageAlt` (english-number-notation) — The values are right and they are written with English separators. A reader of this locale parses those differently, and the site's own formatter would not produce them.
-  - en: "Accessibility statement targeting WCAG 2.2 level AA."
-  - tr: "WCAG 2.2 AA düzeyini hedefleyen erişilebilirlik bildirimi."
-- `trust.api.body.using.p1` (english-number-notation) — The values are right and they are written with English separators. A reader of this locale parses those differently, and the site's own formatter would not produce them.
-  - en: "describes every endpoint here as OpenAPI 3.1 — parameters, status codes, content types and the exact each one sends. It is generated from the same declaration this page reads, and a test compares that declaration against"
-  - tr: "buradaki her uç noktayı OpenAPI 3.1 olarak tanımlar — parametreler, durum kodları, içerik türleri ve her birinin gönderdiği tam değer. Bu sayfanın okuduğu bildirimin aynısından üretilir ve bir test, o bildirimi gerçekte "
-- `trust.api.prose.openapi` (english-number-notation) — The values are right and they are written with English separators. A reader of this locale parses those differently, and the site's own formatter would not produce them.
-  - en: "{openapiLink} describes every endpoint here as OpenAPI 3.1 — parameters, status codes, content types and the exact {cacheControl} each one sends. It is generated from the same declaration this page reads, and a test comp"
-  - tr: "{openapiLink}, buradaki her uç noktayı OpenAPI 3.1 olarak tanımlar — parametreler, durum kodları, içerik türleri ve her birinin gönderdiği tam {cacheControl}. Bu sayfanın okuduğu bildirimin aynısından üretilir ve bir tes"
 - `rates.earnedRobux.pendingDescription` (glossary) — English says "Earned Robux"; this locale's approved rendering is "Earned Robux" and it does not appear. A distinct balance from ordinary Robux and the only kind DevEx converts. Translating it collapses the distinction the whole site rests on, so every locale keeps the English term.
   - en: "Newly earned Robux are not immediately available, which surprises creators watching a balance climb."
   - tr: "Yeni kazanılan Robux hemen kullanılabilir olmaz; bu, bakiyesinin yükselişini izleyen içerik üreticilerini şaşırtır."
 
-**review** — 3
+**review** — 7
 
 - `data.sources.roblox-q2-2026-earnings.facts.3` (label-quarter) — English states quarter 2, 2; the translation spells it out and the wording cannot be checked from here
   - en: "Developer exchange fees equal to 25 percent of revenue in Q2 2026 and 29 percent in Q2 2025."
@@ -436,6 +223,18 @@ has to remember in seven languages when a rate moves.
 - `data.metrics.developerExchangeFees.derivation.q1-2026` (label-quarter) — English states quarter 2; the translation spells it out and the wording cannot be checked from here
   - en: "Six months ended 30 June 2026 (786) minus Q2 2026 (363), both in millions."
   - tr: "30 Haziran 2026'da sona eren altı ay (786) eksi 2026'nın 2. çeyreği (363), ikisi de milyon olarak."
+- `calculator.home.meetingAllNote` (negation-morphological) — The negation appears to be carried by a verb suffix rather than a separate word, which is how this language negates. It reads as correct and cannot be confirmed from here — a reader of this language should say so explicitly.
+  - en: "Meeting all of these lets you submit a request. It does not guarantee one will be approved."
+  - tr: "Bunların hepsini karşılamak talep göndermenizi sağlar. Talebin onaylanacağını garanti etmez."
+- `calculator.planner.prose.estimateNotice` (negation-morphological) — The negation appears to be carried by a verb suffix rather than a separate word, which is how this language negates. It reads as correct and cannot be confirmed from here — a reader of this language should say so explicitly.
+  - en: "Every figure here is an estimate produced from what you entered. Reaching {minimumRobux} Earned Robux lets you submit a DevEx request; it does not mean the request will be approved. Roblox reviews eligibility, account st"
+  - tr: "Buradaki her rakam, girdiklerinizden üretilmiş bir tahmindir. {minimumRobux} Earned Robux'a ulaşmak bir DevEx talebi göndermenizi sağlar; talebin onaylanacağı anlamına gelmez. Roblox uygunluğu, hesap durumunu ve kurallar"
+- `common.footer.trademarkNotice` (negation-morphological) — The negation appears to be carried by a verb suffix rather than a separate word, which is how this language negates. It reads as correct and cannot be confirmed from here — a reader of this language should say so explicitly.
+  - en: "DevExCalculator.org is an independent tool. Roblox, Robux and Developer Exchange are trademarks of Roblox Corporation, used here only to describe the subject of these calculations. This site is not endorsed, sponsored or"
+  - tr: "DevExCalculator.org bağımsız bir araçtır. Roblox, Robux ve Developer Exchange, Roblox Corporation'ın ticari markalarıdır ve burada yalnızca bu hesaplamaların konusunu tanımlamak için kullanılır. Bu site Roblox Corporatio"
+- `guides.cashOut.body.safety.p3` (negation-morphological) — The negation appears to be carried by a verb suffix rather than a separate word, which is how this language negates. It reads as correct and cannot be confirmed from here — a reader of this language should say so explicitly.
+  - en: "Anyone guaranteeing approval is guaranteeing something they do not control."
+  - tr: "Onay garantisi veren biri, denetiminde olmayan bir şeyi garanti ediyordur."
 
 
 ## Lexicon review queue

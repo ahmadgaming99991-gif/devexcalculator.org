@@ -30,6 +30,7 @@ import {
   checkGlossary,
   checkHardcodedFigures,
   checkKeys,
+  checkNegation,
   checkNumbers,
   checkPlurals,
   checkTokens,
@@ -168,6 +169,7 @@ for (const locale of targets) {
     ...checkNumbers(english, target, englishSeparators, separators, figures),
     ...checkEnglishLeaks(english, target),
     ...checkGlossary(english, target, GLOSSARY),
+    ...checkNegation(english, target),
   ];
 
   const counts: Record<string, number> = {};

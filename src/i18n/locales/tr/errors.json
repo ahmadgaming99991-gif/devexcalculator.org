@@ -47,7 +47,7 @@
     "thousandsSeparators": "Binlik ayırıcıları kontrol edin; örneğin 1.00.000 değil 1.000.000.",
     "multipleDecimalPoints": "Birden fazla ondalık ayırıcı var.",
     "digitsOnly": "Yalnızca rakam girin, örneğin 100000.",
-    "robuxWholeUnits": "Robux tam birimler hâlinde gelir. Tam bir sayı girin ya da 1.5m gibi bir sonek kullanın.",
+    "robuxWholeUnits": "Robux tam birimler hâlinde gelir. Tam bir sayı girin ya da 1,5m gibi bir sonek kullanın.",
     "robuxLimit": "Bu hesaplayıcı en fazla {limit} Robux kabul eder. Bu, Roblox'un değil, bizim kendi sınırımızdır.",
     "valueLimit": "Bu hesaplayıcı en fazla {limit} kabul eder. Bu, Roblox'un değil, bizim kendi sınırımızdır.",
     "tooManyDecimalsOne": "En fazla {max} ondalık basamak kullanın.",

@@ -47,7 +47,7 @@
     "thousandsSeparators": "Vérifiez les séparateurs de milliers, par exemple 1 000 000 plutôt que 1 00 000.",
     "multipleDecimalPoints": "Il y a plus d’une virgule décimale.",
     "digitsOnly": "Saisissez uniquement des chiffres, par exemple 100000.",
-    "robuxWholeUnits": "Les Robux existent en unités entières. Saisissez un nombre entier, ou utilisez un suffixe comme 1.5m.",
+    "robuxWholeUnits": "Les Robux existent en unités entières. Saisissez un nombre entier, ou utilisez un suffixe comme 1,5m.",
     "robuxLimit": "Cette calculatrice accepte jusqu’à {limit} Robux. C’est notre propre limite, pas une limite de Roblox.",
     "valueLimit": "Cette calculatrice accepte jusqu’à {limit}. C’est notre propre limite, pas une limite de Roblox.",
     "tooManyDecimalsOne": "Utilisez au plus {max} décimale.",

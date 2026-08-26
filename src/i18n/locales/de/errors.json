@@ -47,7 +47,7 @@
     "thousandsSeparators": "Prüfen Sie die Tausendertrennzeichen, zum Beispiel 1.000.000 statt 1.00.000.",
     "multipleDecimalPoints": "Es gibt mehr als ein Dezimaltrennzeichen.",
     "digitsOnly": "Geben Sie nur Ziffern ein, zum Beispiel 100000.",
-    "robuxWholeUnits": "Robux gibt es nur in ganzen Einheiten. Geben Sie eine ganze Zahl ein oder verwenden Sie ein Kürzel wie 1.5m.",
+    "robuxWholeUnits": "Robux gibt es nur in ganzen Einheiten. Geben Sie eine ganze Zahl ein oder verwenden Sie ein Kürzel wie 1,5m.",
     "robuxLimit": "Dieser Rechner nimmt bis zu {limit} Robux an. Das ist unsere eigene Grenze, keine Grenze von Roblox.",
     "valueLimit": "Dieser Rechner nimmt bis zu {limit} an. Das ist unsere eigene Grenze, keine Grenze von Roblox.",
     "tooManyDecimalsOne": "Verwenden Sie höchstens {max} Nachkommastelle.",

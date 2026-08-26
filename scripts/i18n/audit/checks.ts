@@ -384,6 +384,14 @@ export function checkNumbers(
       }
     }
 
+    /*
+     * A version number is not a quantity.
+     *
+     * `WCAG 2.2` and `OpenAPI 3.1` are identifiers, written the same way in
+     * every language — nobody cites *WCAG 2,2*. Read as decimals they look
+     * like English notation surviving into a translated string, which is a
+     * real defect elsewhere and a false report here.
+     */
     if (best.mismatches.length === 0 && best.name === "english") {
       findings.push({
         severity: "quality",
@@ -599,7 +607,17 @@ export function checkGlossary(
       if (!pattern.test(entry.value)) continue;
       const translated = target.entries.get(key);
       if (translated === undefined) continue;
-      if (translated.value.toLowerCase().includes(expected.toLowerCase())) continue;
+      /*
+       * Hyphens count as spaces here, because German is right to use them.
+       *
+       * German compounds a borrowed term with the noun it qualifies:
+       * `Earned-Robux-Beträge`, not `Earned Robux Beträge`. The term is intact
+       * and the reader sees it; a substring search for the spaced form reported
+       * thirty-three correct German strings as having dropped it.
+       */
+      const flatten = (value: string): string =>
+        value.toLowerCase().replace(/[‐-―-]/g, " ").replace(/\s+/g, " ");
+      if (flatten(translated.value).includes(flatten(expected))) continue;
 
       findings.push({
         severity: "quality",
@@ -619,4 +637,117 @@ export function checkGlossary(
 
 export function entriesOf(catalog: Catalog): CatalogEntry[] {
   return [...catalog.entries.values()];
+}
+
+// ---------------------------------------------------------------------------
+// Negation, which is the failure that costs a reader money
+// ---------------------------------------------------------------------------
+
+/**
+ * How each shipped language says "not".
+ *
+ * The single sentence this site most needs to survive translation is
+ * *meeting the minimum does not guarantee approval*. Machine translation drops
+ * and re-attaches negation more readily than it does anything else, and a
+ * dropped one here turns a warning into a promise: reach thirty thousand and
+ * you will be paid. That is the most expensive misunderstanding this site can
+ * cause, so it gets a check of its own rather than relying on a reader.
+ *
+ * Turkish negates with a suffix rather than a word — `değil`, but also `-maz`,
+ * `-mez`, `-ma`, `-me` bound to the verb — so a word list cannot settle it.
+ * Turkish is therefore reported for a human to confirm rather than passed,
+ * which is the honest answer and not the convenient one.
+ */
+const NEGATION: Readonly<Record<string, readonly RegExp[]>> = {
+  "pt-BR": [/\bnão\b/i, /\bnem\b/i, /\bnenhum/i],
+  es: [/\bno\b/i, /\bni\b/i, /\bning[uú]n/i, /\btampoco\b/i],
+  id: [/\bbukan/i, /\btidak/i, /\bbelum/i, /\btanpa\b/i],
+  fr: [/\bne\b/i, /\bn['’]/i, /\bpas\b/i, /\baucun/i, /\bsans\b/i],
+  de: [/\bnicht\b/i, /\bkein/i, /\bohne\b/i],
+  tr: [/\bdeğil/i, /\bhiçbir/i, /\byok\b/i],
+};
+
+/**
+ * Negation carried by morphology rather than by a word.
+ *
+ * Turkish attaches it to the verb: `garanti etmez` is "does not guarantee",
+ * and there is no separate word to look for. A word list reported four correct
+ * Turkish sentences as having lost their negation, including the one that
+ * matters most on the site.
+ *
+ * These patterns are deliberately kept apart from the list above and produce a
+ * weaker verdict. `-maz` and `-mez` really are the negative aorist, but a
+ * pattern loose enough to catch them is loose enough to match something else,
+ * and a check that quietly passes a dropped negation on this sentence is worse
+ * than one that asks. So a match here is reported for a Turkish reader to
+ * confirm, not treated as proof.
+ */
+const MORPHOLOGICAL_NEGATION: Readonly<Record<string, readonly RegExp[]>> = {
+  tr: [/\w+m[ae]z\b/i, /\w+ma(?:yan|dan|ksızın)\b/i, /\w+me(?:yen|den)\b/i, /olmay/i],
+  id: [/\bbukanlah\b/i],
+};
+
+/**
+ * English sentences that carry a negation about approval or a guarantee.
+ *
+ * Derived from the English catalog rather than listed, so a new page that makes
+ * the claim is covered the day it is written.
+ */
+const APPROVAL_CLAIM =
+  /\b(?:not|never|no)\b[^.]*\b(?:guarantee|guaranteed|approv\w*|the same as)\b|\bguarantee\w*\b[^.]*\bnot\b/i;
+
+export function checkNegation(english: Catalog, target: Catalog): Finding[] {
+  const findings: Finding[] = [];
+  const markers = NEGATION[target.locale];
+  if (markers === undefined) return findings;
+
+  for (const [key, entry] of english.entries) {
+    if (!APPROVAL_CLAIM.test(entry.value)) continue;
+    const translated = target.entries.get(key);
+    if (translated === undefined) continue;
+
+    if (markers.some((marker) => marker.test(translated.value))) continue;
+
+    const morphological = MORPHOLOGICAL_NEGATION[target.locale] ?? [];
+    if (morphological.some((marker) => marker.test(translated.value))) {
+      findings.push({
+        severity: "review",
+        check: "negation-morphological",
+        locale: target.locale,
+        key,
+        file: entry.file,
+        message:
+          "The negation appears to be carried by a verb suffix rather than a separate word, " +
+          "which is how this language negates. It reads as correct and cannot be confirmed " +
+          "from here — a reader of this language should say so explicitly.",
+        english: entry.value,
+        translated: translated.value,
+      });
+      continue;
+    }
+
+    findings.push({
+      severity: "critical",
+      check: "negation-lost",
+      locale: target.locale,
+      key,
+      file: entry.file,
+      message:
+        "The English states that something is NOT guaranteed or NOT approval, and no negation " +
+        "marker for this language appears in the translation. If the negation really is gone, " +
+        "the sentence now promises the opposite of what it should.",
+      english: entry.value,
+      translated: translated.value,
+    });
+  }
+
+  return findings;
+}
+
+/** Every key carrying the approval claim, for the register in the docs. */
+export function approvalClaimKeys(english: Catalog): string[] {
+  return [...english.entries.entries()]
+    .filter(([, entry]) => APPROVAL_CLAIM.test(entry.value))
+    .map(([key]) => key)
+    .sort();
 }

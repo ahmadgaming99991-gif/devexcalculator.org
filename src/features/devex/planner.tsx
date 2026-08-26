@@ -34,6 +34,7 @@ import {
   Th,
   cx,
 } from "@/components/ui";
+import { plural } from "@/i18n/plural";
 
 /**
  * The earnings goal planner.
@@ -526,21 +527,15 @@ export function Planner({ words }: { readonly words: LocaleWords }) {
  * no amount of concatenation makes that work.
  */
 function days(t: Translate, count: number): string {
-  return t(count === 1 ? "common.spans.days.one" : "common.spans.days.other", {
-    days: String(count),
-  });
+  return plural(t, t.locale, "common.spans.days", count, { days: String(count) });
 }
 
 function weeks(t: Translate, count: number): string {
-  return t(count === 1 ? "common.spans.weeks.one" : "common.spans.weeks.other", {
-    weeks: String(count),
-  });
+  return plural(t, t.locale, "common.spans.weeks", count, { weeks: String(count) });
 }
 
 function months(t: Translate, count: number): string {
-  return t(count === 1 ? "common.spans.months.one" : "common.spans.months.other", {
-    months: String(count),
-  });
+  return plural(t, t.locale, "common.spans.months", count, { months: String(count) });
 }
 function PaceOutcome({
   plan,

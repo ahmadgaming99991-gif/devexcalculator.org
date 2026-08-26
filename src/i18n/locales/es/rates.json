@@ -36,7 +36,7 @@
         "p1": "La diferencia entre la tasa actual y la antigua es de {rateValue} por cada 100.000 Earned Robux, alrededor de un 8,6 % más con la tasa actual. La tasa condicional de EE. UU. para mayores de 18 años paga aproximadamente un 42 % más que la tasa estándar sobre la parte del saldo que reúne los requisitos."
       },
       "changes": {
-        "p1": "Roblox cambió la tasa estándar de 0.0035 a 0.0038 el {date}. Desde fuera de Roblox no hay forma de saber si cambiará de nuevo ni cuándo, así que esta página no hace pronósticos. Lo que sí registra es la fecha en que cada cifra de aquí se comprobó por última vez con la documentación oficial, mostrada en la parte superior de la página y en",
+        "p1": "Roblox cambió la tasa estándar de 0,0035 a 0,0038 el {date}. Desde fuera de Roblox no hay forma de saber si cambiará de nuevo ni cuándo, así que esta página no hace pronósticos. Lo que sí registra es la fecha en que cada cifra de aquí se comprobó por última vez con la documentación oficial, mostrada en la parte superior de la página y en",
         "p2": "Consulta el historial fechado de cambios de tasa",
         "p3": "Consulta cuándo actualizó este sitio sus datos por última vez"
       }

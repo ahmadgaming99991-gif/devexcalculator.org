@@ -49,7 +49,16 @@ export function ResultSummary({
   return (
     <div className="rounded-(--radius-card) border border-(--color-border) bg-(--color-surface-subtle) p-4 sm:p-5">
       <p className="text-sm font-medium text-(--color-text-muted)">{primaryLabel}</p>
-      <p className="numeric-display mt-1 text-3xl font-bold leading-tight text-(--color-text) sm:text-4xl">
+      {/*
+        The figure the reader came for, and the one a test has to be able to
+        find on its own. Searching the page for the expected amount matches the
+        worked-examples table as readily as the answer, which is how a suite
+        passed while the calculator was reporting a thousandfold low.
+      */}
+      <p
+        data-testid="primary-result"
+        className="numeric-display mt-1 text-3xl font-bold leading-tight text-(--color-text) sm:text-4xl"
+      >
         {primaryValue}
       </p>
       {secondary ? <div className="mt-1.5 text-sm text-(--color-text-muted)">{secondary}</div> : null}

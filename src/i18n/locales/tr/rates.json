@@ -29,7 +29,7 @@
         "p1": "Mevcut oran ile eski oran arasındaki fark 100.000 Earned Robux başına {rateValue} — yani mevcut oranda yaklaşık %8,6 daha fazla. ABD 18+ koşullu oranı, bir bakiyenin buna uygun olan kısmında standart orandan kabaca %42 daha fazla öder."
       },
       "changes": {
-        "p1": "Roblox standart oranı {date} tarihinde 0.0035'ten 0,0038'e taşıdı. Roblox'un dışından, oranın yeniden değişip değişmeyeceğini ya da ne zaman değişeceğini bilmenin bir yolu yok; bu nedenle bu sayfa hiçbir öngörüde bulunmuyor. Kaydettiği şey, buradaki her rakamın resmî belgelere karşı en son ne zaman kontrol edildiğidir; bu tarih sayfanın üstünde ve şurada gösterilir:",
+        "p1": "Roblox standart oranı {date} tarihinde 0,0035'ten 0,0038'e taşıdı. Roblox'un dışından, oranın yeniden değişip değişmeyeceğini ya da ne zaman değişeceğini bilmenin bir yolu yok; bu nedenle bu sayfa hiçbir öngörüde bulunmuyor. Kaydettiği şey, buradaki her rakamın resmî belgelere karşı en son ne zaman kontrol edildiğidir; bu tarih sayfanın üstünde ve şurada gösterilir:",
         "p2": "Kur değişikliklerinin tarihli geçmişini görün",
         "p3": "Bu sitenin verilerini en son ne zaman güncellediğini görün"
       }

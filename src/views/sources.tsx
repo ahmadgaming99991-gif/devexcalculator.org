@@ -11,6 +11,7 @@ import { PageHeader, QuickAnswer, RelatedLinks } from "@/components/content";
 import { rateRegistry, registryFreshness, sources } from "@/lib/calculations/rate-registry";
 import { formatDate } from "@/lib/calculations/format";
 import { evidenceLabel, sourceFacts } from "@/i18n/data-text";
+import { plural } from "@/i18n/plural";
 
 const ROUTE = "/sources/";
 
@@ -75,7 +76,7 @@ export async function SourcesView({ locale }: { readonly locale: Locale }) {
                     ) : null}
                     <div className="flex gap-1.5">
                       <dt className="font-semibold">{t("trust.sources.reviewCadenceLabel")}</dt>
-                      <dd>{t(source.reviewCadenceDays === 1 ? "trust.sources.everyNDays.one" : "trust.sources.everyNDays.other", { days: source.reviewCadenceDays })}</dd>
+                      <dd>{plural(t, locale, "trust.sources.everyNDays", source.reviewCadenceDays, { days: source.reviewCadenceDays })}</dd>
                     </div>
                   </dl>
                 </article>
@@ -108,13 +109,13 @@ export async function SourcesView({ locale }: { readonly locale: Locale }) {
                 <div className="flex flex-wrap justify-between gap-2">
                   <dt className="text-(--color-text-muted)">{t("trust.sources.reviewDueAfter")}</dt>
                   <dd className="font-semibold text-(--color-text)">
-                    {t(rateRegistry.reviewCadenceDays === 1 ? "trust.sources.nDays.one" : "trust.sources.nDays.other", { days: rateRegistry.reviewCadenceDays })}
+                    {plural(t, locale, "trust.sources.nDays", rateRegistry.reviewCadenceDays, { days: rateRegistry.reviewCadenceDays })}
                   </dd>
                 </div>
                 <div className="flex flex-wrap justify-between gap-2">
                   <dt className="text-(--color-text-muted)">{t("trust.sources.escalatesAfter")}</dt>
                   <dd className="font-semibold text-(--color-text)">
-                    {t(rateRegistry.criticalReviewAgeDays === 1 ? "trust.sources.nDays.one" : "trust.sources.nDays.other", { days: rateRegistry.criticalReviewAgeDays })}
+                    {plural(t, locale, "trust.sources.nDays", rateRegistry.criticalReviewAgeDays, { days: rateRegistry.criticalReviewAgeDays })}
                   </dd>
                 </div>
               </dl>

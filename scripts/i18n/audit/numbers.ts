@@ -335,6 +335,16 @@ const TIME_DOT = /\b(\d{1,2})\.(\d{2})\b/g;
  */
 const QUARTER = /\bQ([1-4])\b/g;
 
+/**
+ * A version identifier: `WCAG 2.2`, `OpenAPI 3.1`, `HTTP 1.1`.
+ *
+ * Written the same way in every language — nobody cites *WCAG 2,2* — so the
+ * dot is not a decimal point, and reading it as one reported every correct
+ * translation of the accessibility and API pages as carrying English notation.
+ * The named standard has to come first: a bare `2.2` in prose is a number.
+ */
+const VERSION = /\b(?:WCAG|OpenAPI|HTTP|TLS|ECMAScript|ISO|RFC)\s*\d+(?:\.\d+)*/gi;
+
 export interface Labels {
   readonly times: readonly string[];
   readonly quarters: readonly string[];
@@ -354,7 +364,11 @@ export function extractLabels(text: string, allowHourLetter = false): Labels {
   const times: string[] = [];
   const quarters: string[] = [];
 
-  let rest = text.replace(TIME_COLON, (whole, hour: string, minute: string) => {
+  // Standards and their version numbers, out first: they contain both a name
+  // and digits, and neither is a quantity.
+  let rest = text.replace(VERSION, " ");
+
+  rest = rest.replace(TIME_COLON, (whole, hour: string, minute: string) => {
     times.push(`${Number(hour)}:${minute}`);
     return " ";
   });

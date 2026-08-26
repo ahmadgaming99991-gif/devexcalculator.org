@@ -29,7 +29,7 @@
         "p1": "Selisih antara tarif saat ini dan tarif lama adalah {rateValue} per 100.000 Earned Robux — sekitar 8,6% lebih tinggi dengan tarif saat ini. Tarif bersyarat untuk pengguna AS berusia 18+ membayar kira-kira 42% lebih besar daripada tarif standar atas bagian saldo yang memenuhi syarat."
       },
       "changes": {
-        "p1": "Roblox mengubah tarif standar dari 0.0035 menjadi 0.0038 pada {date}. Dari luar Roblox tidak ada cara untuk mengetahui apakah atau kapan tarif itu akan berubah lagi, jadi halaman ini tidak membuat prakiraan. Yang dicatat halaman ini adalah tanggal setiap angka di sini terakhir diperiksa terhadap dokumentasi resmi, yang ditampilkan di bagian atas halaman dan di",
+        "p1": "Roblox mengubah tarif standar dari 0,0035 menjadi 0,0038 pada {date}. Dari luar Roblox tidak ada cara untuk mengetahui apakah atau kapan tarif itu akan berubah lagi, jadi halaman ini tidak membuat prakiraan. Yang dicatat halaman ini adalah tanggal setiap angka di sini terakhir diperiksa terhadap dokumentasi resmi, yang ditampilkan di bagian atas halaman dan di",
         "p2": "Lihat riwayat bertanggal perubahan kurs",
         "p3": "Lihat kapan situs ini terakhir memperbarui datanya"
       }

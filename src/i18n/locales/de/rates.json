@@ -35,7 +35,7 @@
         "p1": "Der Unterschied zwischen dem aktuellen und dem alten Satz beträgt {rateValue} je 100.000 Earned Robux — rund 8,6 % mehr beim aktuellen Satz. Der bedingte US-Satz für 18+ zahlt etwa 42 % mehr als der Standardsatz auf den Teil eines Guthabens, der dafür infrage kommt."
       },
       "changes": {
-        "p1": "Roblox hat den Standardsatz am {date} von 0.0035 auf 0.0038 geändert. Von außerhalb von Roblox lässt sich nicht wissen, ob oder wann er sich erneut ändert, daher trifft diese Seite keine Prognose. Festgehalten wird stattdessen das Datum, an dem jede Zahl hier zuletzt gegen die offizielle Dokumentation geprüft wurde — angezeigt oben auf der Seite und in",
+        "p1": "Roblox hat den Standardsatz am {date} von 0,0035 auf 0,0038 geändert. Von außerhalb von Roblox lässt sich nicht wissen, ob oder wann er sich erneut ändert, daher trifft diese Seite keine Prognose. Festgehalten wird stattdessen das Datum, an dem jede Zahl hier zuletzt gegen die offizielle Dokumentation geprüft wurde — angezeigt oben auf der Seite und in",
         "p2": "Die datierte Geschichte der Kursänderungen ansehen",
         "p3": "Nachsehen, wann diese Website ihre Daten zuletzt aktualisiert hat"
       }

@@ -50,7 +50,7 @@
     "thousandsSeparators": "Revisa los separadores de miles, por ejemplo 1.000.000 en lugar de 1.00.000.",
     "multipleDecimalPoints": "Hay más de una coma decimal.",
     "digitsOnly": "Introduce solo cifras, por ejemplo 100000.",
-    "robuxWholeUnits": "Los Robux vienen en unidades enteras. Introduce un número entero o usa un sufijo como 1.5m.",
+    "robuxWholeUnits": "Los Robux vienen en unidades enteras. Introduce un número entero o usa un sufijo como 1,5m.",
     "robuxLimit": "Esta calculadora acepta hasta {limit} Robux. Es un límite nuestro, no un límite de Roblox.",
     "valueLimit": "Esta calculadora acepta hasta {limit}. Es un límite nuestro, no un límite de Roblox.",
     "tooManyDecimalsOne": "Usa como mucho {max} decimal.",

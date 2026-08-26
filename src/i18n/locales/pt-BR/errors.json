@@ -47,7 +47,7 @@
     "thousandsSeparators": "Verifique os separadores de milhar, por exemplo 1.000.000 em vez de 1.00.000.",
     "multipleDecimalPoints": "Há mais de uma vírgula decimal.",
     "digitsOnly": "Digite apenas algarismos, por exemplo 100000.",
-    "robuxWholeUnits": "Robux vêm em unidades inteiras. Digite um número inteiro ou use um sufixo como 1.5m.",
+    "robuxWholeUnits": "Robux vêm em unidades inteiras. Digite um número inteiro ou use um sufixo como 1,5m.",
     "robuxLimit": "Esta calculadora aceita até {limit} Robux. Esse é um limite nosso, não um limite do Roblox.",
     "valueLimit": "Esta calculadora aceita até {limit}. Esse é um limite nosso, não um limite do Roblox.",
     "tooManyDecimalsOne": "Use no máximo {max} casa decimal.",

@@ -107,9 +107,18 @@ test.describe("localized calculator", () => {
         // produces, and the shape the page itself prints.
         await input.fill(asTyped(locale));
 
-        await expect(
-          page.getByText(formatCurrency(locale, expectedPayout, "USD")).first(),
-        ).toBeVisible();
+        /*
+         * Scoped to the result, and that is the whole point of this assertion.
+         *
+         * An earlier version searched the page for the expected payout and
+         * took the first match, which passed while the calculator was broken:
+         * `formatCurrency(locale, 380, "USD")` also appears in the worked-
+         * examples table further down, so the test found a static figure and
+         * reported success. The calculator was reading `100.000` as a hundred
+         * and answering $0.38, and this test said it was fine.
+         */
+        const result = page.getByTestId("primary-result");
+        await expect(result).toContainText(formatCurrency(locale, expectedPayout, "USD"));
       });
 
       test("an island that throws would fail here, not silently", async ({ page }) => {
@@ -125,9 +134,9 @@ test.describe("localized calculator", () => {
 
         await page.goto(`${meta.prefix}/`);
         await page.getByLabel(amountLabel(locale)).fill(asTyped(locale));
-        await expect(
-          page.getByText(formatCurrency(locale, expectedPayout, "USD")).first(),
-        ).toBeVisible();
+        await expect(page.getByTestId("primary-result")).toContainText(
+          formatCurrency(locale, expectedPayout, "USD"),
+        );
 
         expect(errors, `console errors on ${meta.prefix}/`).toEqual([]);
       });

@@ -29,7 +29,7 @@
         "p1": "A diferença entre a taxa atual e a antiga é de {rateValue} por 100.000 Earned Robux — cerca de 8,6% a mais sob a taxa atual. A taxa condicional dos EUA para maiores de 18 anos paga aproximadamente 42% a mais do que a taxa padrão sobre a parte do saldo que se qualifica para ela."
       },
       "changes": {
-        "p1": "A Roblox alterou a taxa padrão de 0.0035 para 0.0038 em {date}. Não há como saber, de fora da Roblox, se ou quando ela mudará de novo, então esta página não faz previsões. O que ela registra é a data em que cada número aqui foi verificado pela última vez em relação à documentação oficial, exibida no topo da página e em",
+        "p1": "A Roblox alterou a taxa padrão de 0,0035 para 0,0038 em {date}. Não há como saber, de fora da Roblox, se ou quando ela mudará de novo, então esta página não faz previsões. O que ela registra é a data em que cada número aqui foi verificado pela última vez em relação à documentação oficial, exibida no topo da página e em",
         "p2": "Veja o histórico datado das mudanças de taxa",
         "p3": "Veja quando este site atualizou seus dados pela última vez"
       }
