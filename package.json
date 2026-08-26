@@ -11,7 +11,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
+    "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview -- --var DISABLE_HTTPS_UPGRADE:1",
     "upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload",
     "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy && npm run purge:cache",
     "cf-build": "opennextjs-cloudflare build",
