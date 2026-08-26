@@ -27,6 +27,7 @@ import {
 } from "@/lib/calculations/rate-registry";
 import {
   formatCurrency,
+  formatDecimal,
   formatRate,
   formatRobux,
   isSupportedCurrency,
@@ -495,6 +496,7 @@ export function Calculator({
           {mode === "quick" ? (
             <>
               <AmountInput
+                locale={t.locale}
                 label={t("calculator.inputs.eligibleEarnedRobux.label")}
                 value={state.robux}
                 onChange={(value) => update({ robux: value })}
@@ -522,6 +524,7 @@ export function Calculator({
             <>
               <p className="text-sm text-(--color-text-muted)">{t("calculator.body.intro.p1")}</p>
               <AmountInput
+                locale={t.locale}
                 label={`${getRate(standardRateId).label} bucket`}
                 value={state.standardRobux}
                 onChange={(value) => update({ standardRobux: value })}
@@ -529,6 +532,7 @@ export function Calculator({
                 hint={t("calculator.inputs.standardBucketHint")}
               />
               <AmountInput
+                locale={t.locale}
                 label={`${getRate(legacyRateId).label} bucket`}
                 value={state.legacyRobux}
                 onChange={(value) => update({ legacyRobux: value })}
@@ -536,6 +540,7 @@ export function Calculator({
                 hint={t("calculator.inputs.legacyBucketHint")}
               />
               <AmountInput
+                locale={t.locale}
                 label={`${getRate(us18RateId).label} bucket`}
                 value={state.us18Robux}
                 onChange={(value) => update({ us18Robux: value })}
@@ -548,12 +553,13 @@ export function Calculator({
           {mode === "target" ? (
             <>
               <AmountInput
+                locale={t.locale}
                 label={t("calculator.inputs.payoutTarget.label")}
                 value={state.targetUsd}
                 onChange={(value) => update({ targetUsd: value })}
                 error={parseMessage(t, targetParse)}
                 hint={t("calculator.inputs.payoutTarget.hint")}
-                placeholder="1,000"
+                placeholder={formatRobux(t.locale, 1_000)}
                 suffix="USD"
               />
               <RateSelector
@@ -563,12 +569,13 @@ export function Calculator({
                 onChange={(value) => update({ rateId: value })}
               />
               <AmountInput
+                locale={t.locale}
                 label={t("calculator.inputs.currentBalance.label")}
                 value={state.currentRobux}
                 onChange={(value) => update({ currentRobux: value })}
                 error={errorOf(currentParse)}
                 hint={t("calculator.inputs.currentBalance.hint")}
-                placeholder="0"
+                placeholder={formatRobux(t.locale, 0)}
               />
             </>
           ) : null}
@@ -588,6 +595,7 @@ export function Calculator({
               <p>{t("calculator.deductions.yourFiguresNote")}</p>
               <div className="grid gap-3 sm:grid-cols-2">
                 <PercentInput
+                locale={t.locale}
                   label={t("calculator.deductions.percentageFeeLabel")}
                   value={state.feePercent}
                   onChange={(value) => {
@@ -596,24 +604,26 @@ export function Calculator({
                     savePreferences({ advancedOpen: true });
                   }}
                   error={parseMessage(t, feeParse)}
-                  placeholder="2.9"
+                  placeholder={formatDecimal(t.locale, 2.9, 1)}
                 />
                 <PercentInput
+                locale={t.locale}
                   label={t("calculator.deductions.flatFeeLabel")}
                   value={state.flatFeeUsd}
                   onChange={(value) => update({ flatFeeUsd: value })}
                   error={parseMessage(t, flatFeeParse)}
-                  placeholder="0.30"
+                  placeholder={formatDecimal(t.locale, 0.3, 2)}
                   suffix="$"
                 />
               </div>
               <PercentInput
+                locale={t.locale}
                 label={t("calculator.deductions.taxLabel")}
                 value={state.taxPercent}
                 onChange={(value) => update({ taxPercent: value })}
                 error={parseMessage(t, taxParse)}
                 hint={t("calculator.deductions.taxHint")}
-                placeholder="20"
+                placeholder={formatRobux(t.locale, 20)}
               />
             </div>
           </Disclosure>

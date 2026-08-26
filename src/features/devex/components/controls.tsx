@@ -5,7 +5,13 @@ import { rateCondition, rateLabel, rateSummary } from "@/i18n/data-text";
 import { currencyName } from "@/i18n/currency-name";
 import { useId } from "react";
 import { selectableRates } from "@/lib/calculations/rate-registry";
-import { supportedCurrencies, formatCompactRobux, formatRate } from "@/lib/calculations/format";
+import {
+  supportedCurrencies,
+  formatCompactRobux,
+  formatDecimal,
+  formatRate,
+  formatRobux,
+} from "@/lib/calculations/format";
 import { Rational } from "@/lib/calculations/rational";
 import { cx } from "@/components/ui";
 
@@ -23,16 +29,28 @@ import { cx } from "@/components/ui";
 // ---------------------------------------------------------------------------
 
 export function AmountInput({
+  locale,
   label,
   value,
   onChange,
   error,
   hint,
-  placeholder = "100,000",
+  placeholder,
   suffix = "Robux",
   autoFocus = false,
   id: providedId,
 }: {
+  /**
+   * Which notation this field expects.
+   *
+   * A placeholder on a numeric input is the site telling the reader whether a
+   * comma groups thousands or marks the decimal. Written as an English literal
+   * it told six languages the wrong one: `100,000` reads as one hundred to a
+   * German, Spanish, Portuguese, Turkish or Indonesian reader, in the field
+   * where they are trying to enter a hundred thousand — and the parser, which
+   * is locale-aware, would then reject what the placeholder had proposed.
+   */
+  readonly locale: string;
   label: string;
   value: string;
   onChange: (value: string) => void;
@@ -43,6 +61,7 @@ export function AmountInput({
   autoFocus?: boolean;
   id?: string;
 }) {
+  const example = placeholder ?? formatRobux(locale, 100_000);
   const generatedId = useId();
   const id = providedId ?? generatedId;
   const errorId = `${id}-error`;
@@ -66,7 +85,7 @@ export function AmountInput({
           autoComplete="off"
           enterKeyHint="done"
           value={value}
-          placeholder={placeholder}
+          placeholder={example}
           autoFocus={autoFocus}
           onChange={(event) => onChange(event.target.value)}
           aria-invalid={error ? true : undefined}
@@ -261,14 +280,17 @@ export function QuickPresets({
 // ---------------------------------------------------------------------------
 
 export function PercentInput({
+  locale,
   label,
   value,
   onChange,
   error,
   hint,
-  placeholder = "0",
+  placeholder,
   suffix = "%",
 }: {
+  /** Which notation this field expects. See `AmountInput`. */
+  readonly locale: string;
   label: string;
   value: string;
   onChange: (value: string) => void;
@@ -281,6 +303,7 @@ export function PercentInput({
   const errorId = `${id}-error`;
   const hintId = `${id}-hint`;
   const describedBy = [hint ? hintId : null, error ? errorId : null].filter(Boolean).join(" ");
+  const example = placeholder ?? formatDecimal(locale, 0);
 
   return (
     <div>
@@ -294,7 +317,7 @@ export function PercentInput({
           inputMode="decimal"
           autoComplete="off"
           value={value}
-          placeholder={placeholder}
+          placeholder={example}
           onChange={(event) => onChange(event.target.value)}
           aria-invalid={error ? true : undefined}
           aria-describedby={describedBy || undefined}

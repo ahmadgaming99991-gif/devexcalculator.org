@@ -162,6 +162,7 @@ export function MarketplaceCalculator({ words }: { readonly words: LocaleWords }
           </div>
 
           <AmountInput
+                locale={t.locale}
             label={t(
               mode === "after" ? "marketplace.inputs.salePrice" : "marketplace.inputs.amountToKeep",
             )}

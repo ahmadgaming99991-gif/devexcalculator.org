@@ -128,6 +128,21 @@ export function formatRobuxLabel(locale: string, value: bigint | number): string
   return `${formatted} Earned ${isOne ? "Robux" : "Robux"}`;
 }
 
+/**
+ * A plain decimal, written the way this locale writes one.
+ *
+ * For the example values on numeric inputs — a fee of `2.9`, a flat charge of
+ * `0.30`. Those are the site showing a reader which notation it expects, and a
+ * locale whose decimal mark is a comma has to be shown a comma or the example
+ * contradicts the parser standing behind the field.
+ */
+export function formatDecimal(locale: string, value: number, decimalPlaces = 0): string {
+  return new Intl.NumberFormat(intlTag(locale, "number"), {
+    minimumFractionDigits: decimalPlaces,
+    maximumFractionDigits: Math.max(decimalPlaces, 2),
+  }).format(value);
+}
+
 /** Formats a percentage such as a fee or a difference. */
 export function formatPercent(locale: string, value: Rational, decimalPlaces = 2): string {
   const rounded = value.toFixed(decimalPlaces, "half-up");

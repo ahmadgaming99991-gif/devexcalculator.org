@@ -190,8 +190,8 @@ export async function PlatformView({ locale, searchParams }: PageProps) {
                 <p className="mt-2 text-sm text-(--color-text-muted)">
                   {t("platform.method.historyBody", {
                     interval: String(COLLECTION_INTERVAL_MINUTES),
-                    retentionDays: String(RETENTION_DAYS),
-                    gameHistoryDays: String(GAME_HISTORY_DAYS),
+                    retention: String(RETENTION_DAYS),
+                    gameDays: String(GAME_HISTORY_DAYS),
                   })}
                 </p>
               </Card>
