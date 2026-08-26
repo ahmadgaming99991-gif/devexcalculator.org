@@ -39,7 +39,8 @@
         "answers": "Apa saja yang dipotong dari pembayaran sebelum sampai ke saya?",
         "assumes": "Bahwa Anda sudah punya angka pembayaran sebagai titik awal."
       }
-    }
+    },
+    "assumesLabel": "Mengasumsikan: {assumes}"
   },
   "calculators": {
     "intro": "Empat kalkulator, masing-masing menjawab satu pertanyaan dengan benar, alih-alih satu alat yang mencoba menjawab segalanya.",
@@ -144,7 +145,11 @@
       },
       "after": {
         "p1": "Pembayaran adalah penghasilan, dan bagaimana ia dikenai pajak sepenuhnya bergantung pada tempat tinggal Anda. Penyedia pembayaran Anda mungkin mengenakan biaya, dan jika Anda dibayar dalam mata uang selain dolar AS akan ada selisih kurs di atasnya.",
-        "p2": "Modelkan potongan-potongan itu dengan angka Anda sendiri"
+        "p2": "Modelkan potongan-potongan itu dengan angka Anda sendiri",
+        "p3": "Situs ini tidak memberikan nasihat pajak."
+      },
+      "where": {
+        "nowhereElse": "Tidak di tempat lain."
       }
     },
     "prose": {

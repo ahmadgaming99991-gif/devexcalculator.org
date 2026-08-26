@@ -8,19 +8,7 @@ import Link from "next/link";
 import { JsonLd } from "@/components/seo/json-ld";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { DataDownload } from "@/components/content/data-download";
-import {
-  Badge,
-  Callout,
-  Card,
-  Container,
-  InlineLink,
-  Section,
-  SourceLink,
-  Table,
-  TableWrapper,
-  Td,
-  Th,
-} from "@/components/ui";
+import { Badge, Callout, Card, Container, Foreign, InlineLink, Section, SourceLink, Table, TableWrapper, Td, Th } from "@/components/ui";
 import {
   EstimateDisclaimer,
   FAQAccordion,
@@ -322,7 +310,7 @@ function RankingTabs({
                     : "inline-flex min-h-[44px] items-center rounded-(--radius-control) border border-(--color-border) bg-(--color-surface) px-4 text-sm font-semibold text-(--color-text) motion-safe:transition-colors hover:border-(--color-primary) hover:text-(--color-primary)"
                 }
               >
-                {ranking.name}
+                <Foreign>{ranking.name}</Foreign>
               </Link>
             </li>
           );
@@ -381,9 +369,15 @@ async function LiveExperiences({
   
         <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           <Stat label={t("platform.live.stats.playersInRanking")} value={numberFormat.format(totalPlaying)} />
-          <Stat label={t("platform.live.stats.experiencesShown")} value={`${experiences.length} of ${selected.size}`} />
-          <Stat label={t("platform.live.stats.robloxRanking")} value={selected.name} />
-          <Stat label={t("platform.live.stats.busiestRightNow")} value={busiest.name} />
+          <Stat
+            label={t("platform.live.stats.experiencesShown")}
+            value={t("platform.live.stats.experiencesShownValue", {
+              shown: experiences.length,
+              total: selected.size,
+            })}
+          />
+          <Stat label={t("platform.live.stats.robloxRanking")} value={selected.name} foreign />
+          <Stat label={t("platform.live.stats.busiestRightNow")} value={busiest.name} foreign />
         </div>
   
         <RankingTabs locale={locale} t={t} rankings={rankings} selectedId={selected.id} days={chartWindow.days} />
@@ -541,6 +535,7 @@ async function TopExperiencesOverTime({ days,
         <Stat
           label={t("platform.history.stats.busiestTracked")}
           value={plottable[0]?.name ?? "—"}
+          foreign
           note={
             plottable[0]
               ? t("platform.history.stats.busiestNote", {
@@ -779,6 +774,31 @@ function ExperienceDetail({
   );
 }
 
+/**
+ * Roblox's age recommendation, with the label in the reader's language.
+ *
+ * The API returns one string — `"Maturity: Minimal"` — label and rating
+ * together, so a translated page printed an English label. The label is this
+ * site's chrome and gets translated; the rating is Roblox's published value
+ * and does not, because inventing a translation for a content rating would be
+ * presenting a descriptor Roblox has not issued. It is marked `lang="en"` so a
+ * screen reader pronounces it as English rather than as the page language.
+ *
+ * Anything not in `Label: Rating` shape is passed through untouched: Roblox
+ * changing its wording must not blank the field.
+ */
+function MaturityNote({ value, t }: { readonly value: string; readonly t: Translate }) {
+  const split = value.indexOf(":");
+  if (split === -1) return <span lang="en">{value}</span>;
+
+  const rating = value.slice(split + 1).trim();
+  if (rating === "") return <span lang="en">{value}</span>;
+
+  return rich(t("platform.live.maturity"), {
+    rating: <span lang="en">{rating}</span>,
+  });
+}
+
 function ExperienceRow({
   locale,
   experience,
@@ -811,9 +831,9 @@ function ExperienceRow({
       <Td className="tabular">{rank}</Td>
       <Td>
         {url ? (
-          <SourceLink t={t} href={url}>{experience.name}</SourceLink>
+          <SourceLink t={t} href={url}><Foreign>{experience.name}</Foreign></SourceLink>
         ) : (
-          experience.name
+          <Foreign>{experience.name}</Foreign>
         )}
         {experience.isSponsored ? (
           <>
@@ -824,12 +844,14 @@ function ExperienceRow({
         <span className="block text-sm text-(--color-text-muted)">
           {experience.creatorName ? (
             <>
-              {t("platform.live.byCreator", { creator: experience.creatorName })}
+              {rich(t("platform.live.byCreator"), {
+                creator: <Foreign>{experience.creatorName}</Foreign>,
+              })}
               {experience.creatorVerified ? ` ${t("platform.live.verifiedSuffix")}` : ""}
             </>
           ) : null}
           {experience.creatorName && experience.maturity ? " · " : null}
-          {experience.maturity}
+          {experience.maturity ? <MaturityNote value={experience.maturity} t={t} /> : null}
           {experience.favourites !== null ? (
             <>
               {experience.creatorName || experience.maturity ? " · " : null}
@@ -1179,11 +1201,24 @@ async function ObservedHistory({
   );
 }
 
-function Stat({ label, value, note }: { label: string; value: string; note?: string }) {
+function Stat({
+  label,
+  value,
+  note,
+  foreign,
+}: {
+  label: string;
+  value: string;
+  note?: string;
+  /** The value is a name Roblox published, not prose this site wrote. */
+  foreign?: boolean;
+}) {
   return (
     <Card tone="subtle" className="min-w-0">
       <p className="text-sm text-(--color-text-muted)">{label}</p>
-      <p className="tabular mt-1 text-xl font-bold break-words text-(--color-text)">{value}</p>
+      <p className="tabular mt-1 text-xl font-bold break-words text-(--color-text)">
+        {foreign ? <Foreign>{value}</Foreign> : value}
+      </p>
       {note ? <p className="mt-1 text-xs text-(--color-text-muted)">{note}</p> : null}
     </Card>
   );

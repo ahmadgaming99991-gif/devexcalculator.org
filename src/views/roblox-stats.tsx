@@ -19,19 +19,7 @@ import type { Locale } from "@/i18n/types";
 import { JsonLd } from "@/components/seo/json-ld";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { DataDownload } from "@/components/content/data-download";
-import {
-  Badge,
-  Callout,
-  Card,
-  Container,
-  InlineLink,
-  Section,
-  SourceLink,
-  Table,
-  TableWrapper,
-  Td,
-  Th,
-} from "@/components/ui";
+import { Badge, Callout, Card, Container, Foreign, InlineLink, Section, SourceLink, Table, TableWrapper, Td, Th } from "@/components/ui";
 import {
   EstimateDisclaimer,
   FAQAccordion,
@@ -200,7 +188,7 @@ export async function RobloxStatsView({ locale }: { readonly locale: Locale }) {
                             </Td>
                             <Td>
                               <SourceLink t={t} href={getSource(period.sourceId).url}>
-                                {getSource(period.sourceId).title}
+                                <Foreign>{getSource(period.sourceId).title}</Foreign>
                               </SourceLink>
                             </Td>
                           </tr>
@@ -258,7 +246,7 @@ export async function RobloxStatsView({ locale }: { readonly locale: Locale }) {
                         </Td>
                         <Td>
                           <SourceLink t={t} href={getSource(period.sourceId).url}>
-                            {getSource(period.sourceId).title}
+                            <Foreign>{getSource(period.sourceId).title}</Foreign>
                           </SourceLink>
                         </Td>
                       </tr>
@@ -367,7 +355,7 @@ export async function RobloxStatsView({ locale }: { readonly locale: Locale }) {
               {rich(t("platform.stats.prose.engagementSource"), {
                 filings: (
                   <SourceLink t={t} href={getSource(engagement.sourceId).url}>
-                    {getSource(engagement.sourceId).title}
+                    <Foreign>{getSource(engagement.sourceId).title}</Foreign>
                   </SourceLink>
                 ),
               })}
@@ -421,7 +409,7 @@ export async function RobloxStatsView({ locale }: { readonly locale: Locale }) {
                       {rich(t("platform.stats.prose.quarterOfRevenue"), {
                         filings: (
                           <SourceLink t={t} href={getSource(companyContext.sourceId).url}>
-                            {getSource(companyContext.sourceId).title}
+                            <Foreign>{getSource(companyContext.sourceId).title}</Foreign>
                           </SourceLink>
                         ),
                       })}

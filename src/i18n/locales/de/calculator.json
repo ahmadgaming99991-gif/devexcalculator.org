@@ -183,7 +183,9 @@
     "perEligibleRobux": "{rate} je anrechenbarem Earned Robux",
     "groupBalanceLabel": "Die anrechenbaren Earned Robux der Gruppe",
     "percentageForLabel": "Anteil für {member}",
-    "memberFallback": "Mitglied {index}"
+    "memberFallback": "Mitglied {index}",
+    "addMember": "Mitglied hinzufügen",
+    "sharesTotal": "Die Anteile ergeben {percent} %"
   },
   "preparation": {
     "earnedRobuxLink": "Was als Earned Robux zählt",
@@ -204,7 +206,8 @@
     "balanceStep": "Bestätigen Sie, dass das Guthaben wirklich aus Earned Robux besteht und {minimum} erreicht hat. {earnedRobuxLink}",
     "taxFormStep": "Füllen Sie das richtige Steuerformular aus — W-9 für Steuerpflichtige in den USA, sonst W-8.",
     "standingStep": "Prüfen Sie, ob das Konto den Nutzungsbedingungen und Community-Standards entsprechend in Ordnung ist.",
-    "destinationStep": "Entscheiden Sie, wohin das Geld geht, und prüfen Sie, was die Bank oder der Zahlungsdienstleister für den Empfang berechnet. {feesLink}"
+    "destinationStep": "Entscheiden Sie, wohin das Geld geht, und prüfen Sie, was die Bank oder der Zahlungsdienstleister für den Empfang berechnet. {feesLink}",
+    "clear": "Löschen"
   },
   "currency": {
     "loading": "Referenzkurse werden geladen…",
@@ -240,7 +243,7 @@
     "body": {
       "howItWorks": {
         "p1": "Warum die Rechnung exakt geführt wird",
-        "p2": "Ein Kurs wie 0,0038 lässt sich in binärer Gleitkommadarstellung nicht exakt abbilden, deshalb driftet eine naive Rechnung ab: 17.000 Robux zum USA-18+-Kurs kommen als 91.80000000000001 heraus statt als 91,80. Jede Zahl auf dieser Website wird als exakter Bruch berechnet und genau einmal gerundet, im Moment der Anzeige."
+        "p2": "Ein Kurs wie {rateStandard} lässt sich in binärer Gleitkommadarstellung nicht exakt abbilden, deshalb driftet eine naive Rechnung ab: 17.000 Robux zum USA-18+-Kurs kommen als 91.80000000000001 heraus statt als 91,80. Jede Zahl auf dieser Website wird als exakter Bruch berechnet und genau einmal gerundet, im Moment der Anzeige."
       },
       "currentRates": {
         "p1": "Alle Einzelheiten zu jedem Kurs, mit Gültigkeitsdaten und Rechenbeispielen",
@@ -333,7 +336,15 @@
     "payoutNote": "Zu {rate}, vor Gebühren und Steuern.",
     "targetHint": "Vor Gebühren des Zahlungsdienstleisters und vor Steuern.",
     "worksOutDate": "Der Plan errechnet das Datum.",
-    "worksOutPace": "Der Plan errechnet das Tempo."
+    "worksOutPace": "Der Plan errechnet das Tempo.",
+    "planHeading": "Der Plan",
+    "rateToPlanAgainst": "Kurs für die Planung",
+    "perLabel": "Pro",
+    "pacePeriod": {
+      "day": "pro Tag",
+      "week": "pro Woche",
+      "month": "pro Monat (30 Tage)"
+    }
   },
   "controls": {
     "body": {
@@ -363,7 +374,11 @@
     "copiedLabel": "Kopiert",
     "copyFailedLabel": "Kopieren fehlgeschlagen",
     "share": "Teilen",
-    "copyLink": "Link kopieren"
+    "copyLink": "Link kopieren",
+    "reset": "Zurücksetzen",
+    "confirmReset": "Zurücksetzen bestätigen",
+    "cancel": "Abbrechen",
+    "resetAnnouncement": "Rechner zurückgesetzt."
   },
   "checklist": {
     "meterLabel": "{completed} von {total} Vorbereitungsschritten erledigt"
@@ -374,6 +389,7 @@
     "clearedAnnouncement": "Gespeicherte Berechnungen gelöscht.",
     "targetLabel": "Ziel {amount}",
     "robuxLabel": "{robux} Robux",
-    "saveButton": "Diese Berechnung speichern"
+    "saveButton": "Diese Berechnung speichern",
+    "clear": "Verlauf löschen"
   }
 }

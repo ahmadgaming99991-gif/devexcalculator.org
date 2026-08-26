@@ -1,5 +1,6 @@
 import { DEFAULT_LOCALE, getLocaleMeta } from "./config";
 import { interpolate } from "./interpolate";
+import { withFigures } from "./figures";
 import { isRenderable } from "./visibility";
 import type { Dictionary, DictionaryNamespace, Locale } from "./types";
 
@@ -175,7 +176,13 @@ export function translator(dictionary: Partial<Dictionary>, locale: Locale): Tra
     if (typeof value !== "string") {
       throw new Error(`No string at "${key}".`);
     }
-    return values === undefined ? value : interpolate(value, values);
+    /*
+     * Always interpolated, even with no caller values, because the registry
+     * figures are supplied here rather than by the call site. See
+     * `./figures` — a rate written into a sentence as text is a rate that
+     * stops matching the calculator the day it changes.
+     */
+    return interpolate(value, withFigures(getLocaleMeta(locale).bcp47, values));
   };
   return Object.assign(read, { locale: getLocaleMeta(locale).bcp47 });
 }

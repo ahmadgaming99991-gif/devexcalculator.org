@@ -100,7 +100,8 @@
       },
       "changes": {
         "p1": "Ces conditions peuvent être mises à jour. La date de relecture en haut de cette page correspond à la modification la plus récente, et les changements significatifs sont consignés dans le",
-        "p2": "au même titre que tout ce qui change ici."
+        "p2": "au même titre que tout ce qui change ici.",
+        "changelogLink": "le changelog"
       }
     },
     "prose": {

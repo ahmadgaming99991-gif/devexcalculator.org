@@ -87,7 +87,7 @@
       "marketplaceTerm": "Taxa do marketplace",
       "marketplaceDetail": "Arredonda para baixo, então um número exibido nunca é maior do que você realmente receberia.",
       "payoutFormula": "USD bruto = Earned Robux elegíveis × taxa por Robux",
-      "mixedFormula": "USD bruto = (padrão × 0,0038) + (antigo × 0,0035) + (EUA 18+ × 0,0054)",
+      "mixedFormula": "USD bruto = (padrão × {rateStandard}) + (antigo × {rateLegacy}) + (EUA 18+ × {rateUs18})",
       "blendedFormula": "taxa combinada = USD bruto ÷ total de Earned Robux",
       "feesFormula": "líquido antes do imposto = bruto − (bruto × taxa%) − tarifa fixa",
       "taxFormula": "líquido após a estimativa = líquido antes do imposto − (líquido antes do imposto × seu imposto%)",
@@ -128,7 +128,7 @@
       }
     },
     "prose": {
-      "floatingPoint": "Uma taxa como 0,0038 não pode ser representada exatamente em ponto flutuante binário, que é como o JavaScript guarda números comuns. Multiplique 17.000 por 0,0054 no console de um navegador e você obtém 91,80000000000001 em vez de 91,80. Em valores pequenos isso se esconde atrás do arredondamento; num saldo grande, ou numa cadeia de cálculos de tarifa e imposto, o desvio se acumula."
+      "floatingPoint": "Uma taxa como {rateStandard} não pode ser representada exatamente em ponto flutuante binário, que é como o JavaScript guarda números comuns. Multiplique 17.000 por {rateUs18} no console de um navegador e você obtém 91,80000000000001 em vez de 91,80. Em valores pequenos isso se esconde atrás do arredondamento; num saldo grande, ou numa cadeia de cálculos de tarifa e imposto, o desvio se acumula."
     }
   },
   "sources": {
@@ -251,7 +251,9 @@
     },
     "prose": {
       "rateHistory": "As mudanças de taxa feitas pelo Roblox também aparecem no {rateHistory}, que é um registro separado: o changelog acompanha o que este site fez, o histórico de taxas acompanha o que o Roblox fez.",
-      "notSilent": "Uma correção não é aplicada em silêncio — se um número neste site estava errado, o registro de que estava errado continua visível. Isso importa mais, para um site em torno do qual as pessoas planejam finanças, do que um histórico arrumado."
+      "notSilent": "Uma correção não é aplicada em silêncio — se um número neste site estava errado, o registro de que estava errado continua visível. Isso importa mais, para um site em torno do qual as pessoas planejam finanças, do que um histórico arrumado.",
+      "publiclyIn": "Publicamente, {changelog}.",
+      "changelogWhere": "no changelog"
     }
   },
   "changelog": {
@@ -271,7 +273,7 @@
       "marketplaceRecorded": "Comissões do marketplace registradas",
       "levRemoved": "Lev búlgaro removido das moedas suportadas",
       "siteLaunched": "Site lançado",
-      "registryEstablishedDetail": "Taxa padrão registrada em 0,0038 USD por Earned Robux elegível (114 USD por 30.000), a taxa antiga em 0,0035 para saldos ganhos antes de 5 de setembro de 2025 às 10:00 PT, e a taxa condicional EUA 18+ em 0,0054. O mínimo de 30.000 Earned Robux e a lista completa de elegibilidade foram verificados ao mesmo tempo. Tudo conferido diretamente na documentação de DevEx do Roblox Creator Hub.",
+      "registryEstablishedDetail": "Taxa padrão registrada em {rateStandard} USD por Earned Robux elegível ({payout30000Plain} USD por {minimumRobux}), a taxa antiga em {rateLegacy} para saldos ganhos antes de 5 de setembro de 2025 às 10:00 PT, e a taxa condicional EUA 18+ em {rateUs18}. O mínimo de {minimumRobux} Earned Robux e a lista completa de elegibilidade foram verificados ao mesmo tempo. Tudo conferido diretamente na documentação de DevEx do Roblox Creator Hub.",
       "marketplaceRecordedDetail": "Compras dentro da experiência registradas como 70% para o criador e 30% para o Roblox. Vendas de itens de avatar no Marketplace registradas com a tabela progressiva de repartição de receita, de 30% no preço mínimo a 70% em seis vezes esse piso. Itens de avatar vendidos dentro de uma experiência registrados como 30% criador, 40% dono da experiência, 30% Roblox.",
       "levRemovedDetail": "O Banco Central Europeu deixou de publicar uma taxa de referência para o BGN depois de 31 de dezembro de 2025. Em vez de continuar exibindo uma taxa congelada nessa data, o BGN foi removido do seletor de moedas. Listar uma moeda que o provedor configurado não fornece mais daria uma ideia falsa de quão atual o número é.",
       "siteLaunchedDetail": "Lançamento inicial: calculadora de DevEx com os modos rápido, dividido e por meta; páginas de Robux para USD e de meta de pagamento; calculadora de comissão do marketplace; central de conversão com oito páginas de valores selecionadas; e o conjunto completo de guias e páginas de transparência. Toda página sensível a taxas traz citação da fonte e data de verificação desde o lançamento."
@@ -392,7 +394,7 @@
       }
     },
     "prose": {
-      "ratesVersion": "A resposta traz um {registryVersion} e um {lastVerifiedAt}. Esses dois campos são o ponto central: uma taxa isolada é um número que já pode estar errado, e este site já mudou de taxa uma vez — a mudança de setembro de 2025, de US$ 0,0035 para US$ 0,0038 por Robux, que é por isso que {rateCount} taxas são publicadas em vez de uma. Leia a versão e você saberá se o que armazenou em cache ainda é o que este site está servindo.",
+      "ratesVersion": "A resposta traz um {registryVersion} e um {lastVerifiedAt}. Esses dois campos são o ponto central: uma taxa isolada é um número que já pode estar errado, e este site já mudou de taxa uma vez — a mudança de setembro de 2025, de US$ {rateLegacy} para US$ {rateStandard} por Robux, que é por isso que {rateCount} taxas são publicadas em vez de uma. Leia a versão e você saberá se o que armazenou em cache ainda é o que este site está servindo.",
       "fxReference": "Estas são taxas de referência, não uma taxa de negociação: ninguém converte dinheiro por elas. São publicadas pelo BCE uma vez por dia útil, e a resposta informa de que dia ela está falando. Se o provedor não puder ser alcançado, um instantâneo embutido é retornado e marcado como {fallback} em vez de passar por atual — então confira {metaCache} antes de tratar um número como sendo de hoje.",
       "stats": "Os números exibidos em {statisticsPage}, publicados como dados para que um gráfico possa ser conferido em vez de acreditado. Acrescente {formatCsv} para uma planilha. Cada linha nomeia o documento de origem e leva até ele, e cada linha diz se o Roblox informou o número ou se este site o derivou — uma distinção que desaparece no instante em que dois números ficam na mesma coluna sem ela.",
       "platform": "O que {platformPage} exibe em gráfico. Acrescente {formatCsv} para uma planilha, ou {seriesExperiences} para linhas por experiência em vez de totais. Lê-lo não faz nenhuma requisição ao Roblox: o coletor faz isso no próprio cronograma, e uma exportação que disparasse uma busca externa deixaria qualquer pessoa elevar a taxa de requisições deste site ao Roblox apenas recarregando uma URL.",

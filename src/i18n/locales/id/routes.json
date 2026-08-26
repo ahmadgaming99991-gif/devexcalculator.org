@@ -12,10 +12,10 @@
   ],
   "home": {
     "title": "Kalkulator DevEx: konversikan Earned Robux ke USD",
-    "metaDescription": "Berapa nilai Earned Robux Anda yang memenuhi syarat dalam USD pada kurs DevEx saat ini 0,0038, dengan perbandingan kurs lama dan AS 18+ serta sumber untuk tiap angka.",
+    "metaDescription": "Berapa nilai Earned Robux Anda yang memenuhi syarat dalam USD pada kurs DevEx saat ini {rateStandard}, dengan perbandingan kurs lama dan AS 18+ serta sumber untuk tiap angka.",
     "h1": "Kalkulator DevEx: konversikan Earned Robux ke USD",
     "navLabel": "Kalkulator",
-    "quickAnswer": "Pada kurs DevEx saat ini 0,0038 USD per Earned Robux yang memenuhi syarat, 30.000 Earned Robux menjadi sekitar 114 dolar AS dan 100.000 menjadi sekitar 380. Hanya Earned Robux yang memenuhi syarat, 30.000 adalah batas minimum yang diterima Roblox, dan setiap angka di sini adalah perkiraan — hanya Roblox yang menentukan Robux mana yang memenuhi syarat dan apakah sebuah permohonan disetujui.",
+    "quickAnswer": "Pada kurs DevEx saat ini {rateStandard} USD per Earned Robux yang memenuhi syarat, {minimumRobux} Earned Robux menjadi sekitar {payout30000Plain} dolar AS dan {robux100000} menjadi sekitar {payout100000Plain}. Hanya Earned Robux yang memenuhi syarat, {minimumRobux} adalah batas minimum yang diterima Roblox, dan setiap angka di sini adalah perkiraan — hanya Roblox yang menentukan Robux mana yang memenuhi syarat dan apakah sebuah permohonan disetujui.",
     "ogImageAlt": "Kalkulator DevEx: mengubah Earned Robux yang memenuhi syarat menjadi perkiraan pembayaran dalam dolar AS.",
     "sections": {
       "calculator": "Kalkulator DevEx",
@@ -30,11 +30,11 @@
     "faqs": {
       "q01": {
         "question": "Berapa kurs DevEx Roblox saat ini?",
-        "answer": "Roblox mendokumentasikan kurs standar 0,0038 USD per Earned Robux yang memenuhi syarat, yang dinyatakannya sebagai 114 USD untuk 30.000 Earned Robux. Kurs ini berlaku sejak 5 September 2025 pukul 10.00 PT."
+        "answer": "Roblox mendokumentasikan kurs standar {rateStandard} USD per Earned Robux yang memenuhi syarat, yang dinyatakannya sebagai {payout30000Plain} USD untuk {minimumRobux} Earned Robux. Kurs ini berlaku sejak 5 September 2025 pukul 10.00 PT."
       },
       "q02": {
         "question": "Berapa nilai 100.000 Earned Robux di DevEx?",
-        "answer": "100.000 Earned Robux yang memenuhi syarat sekitar 380 dolar AS pada kurs standar, sebelum biaya penyedia pembayaran atau pajak. Jumlah yang sama akan menjadi 350 dolar AS pada kurs lama 0,0035."
+        "answer": "{robux100000} Earned Robux yang memenuhi syarat sekitar {payout100000Plain} dolar AS pada kurs standar, sebelum biaya penyedia pembayaran atau pajak. Jumlah yang sama akan menjadi {payoutLegacy100000Plain} dolar AS pada kurs lama {rateLegacy}."
       },
       "q03": {
         "question": "Berapa batas minimum Earned Robux untuk DevEx?",
@@ -190,7 +190,7 @@
     "metaDescription": "Jumlah Earned Robux yang umum dinilai pada kurs saat ini, kurs lama, dan kurs AS 18+, ditambah kolom isian untuk jumlah berapa pun yang Anda mau.",
     "h1": "Konversi Robux ke USD",
     "navLabel": "Konversi",
-    "quickAnswer": "Setiap jumlah di bawah dikonversi pada kurs DevEx saat ini 0,0038 USD per Earned Robux yang memenuhi syarat, dengan kurs lama dan kurs bersyarat ditampilkan di sebelahnya sebagai pembanding. Jumlah di bawah 30.000 disertakan sebagai rujukan tetapi tidak bisa dicairkan, karena itulah batas minimum yang terdokumentasi.",
+    "quickAnswer": "Setiap jumlah di bawah dikonversi pada kurs DevEx saat ini {rateStandard} USD per Earned Robux yang memenuhi syarat, dengan kurs lama dan kurs bersyarat ditampilkan di sebelahnya sebagai pembanding. Jumlah di bawah 30.000 disertakan sebagai rujukan tetapi tidak bisa dicairkan, karena itulah batas minimum yang terdokumentasi.",
     "ogImageAlt": "Tabel konversi jumlah Robux yang umum ke dolar AS.",
     "sections": {
       "converter": "Konversikan jumlah berapa pun",
@@ -210,7 +210,7 @@
     "metaDescription": "100.000 Earned Robux yang memenuhi syarat kira-kira $380,00 pada kurs DevEx saat ini. Dibandingkan dengan kurs lama dan kurs AS 18+.",
     "h1": "100.000 Robux ke USD",
     "navLabel": "100.000 Robux",
-    "quickAnswer": "100.000 Earned Robux yang memenuhi syarat menjadi $380,00 pada kurs DevEx saat ini, yaitu 0,0038 USD per Robux. Pada kurs lama 0,0035 jumlah yang sama akan membayar $350,00, selisih $30,00. 100.000 adalah angka bulat yang paling banyak dicari di kisaran ini, dan di titik itulah jarak antara kurs saat ini dan kurs lama menjadi cukup besar untuk terasa: tiga puluh dolar memisahkan keduanya.",
+    "quickAnswer": "{robux100000} Earned Robux yang memenuhi syarat menjadi {payout100000} pada kurs DevEx saat ini, yaitu {rateStandard} USD per Robux. Pada kurs lama {rateLegacy} jumlah yang sama akan membayar {payoutLegacy100000}, selisih {payoutDifference100000}. {robux100000} adalah angka bulat yang paling banyak dicari di kisaran ini, dan di titik itulah jarak antara kurs saat ini dan kurs lama menjadi cukup besar untuk terasa: tiga puluh dolar memisahkan keduanya.",
     "ogImageAlt": "100.000 Robux dikonversi menjadi perkiraan pembayaran DevEx dalam dolar AS.",
     "sections": {
       "value": "Berapa nilai 100.000 Robux",
@@ -242,7 +242,7 @@
     "metaDescription": "1.000.000 Earned Robux yang memenuhi syarat kira-kira $3.800,00 pada kurs DevEx saat ini. Dibandingkan dengan kurs lama dan kurs AS 18+.",
     "h1": "1.000.000 Robux ke USD",
     "navLabel": "1.000.000 Robux",
-    "quickAnswer": "1.000.000 Earned Robux yang memenuhi syarat menjadi $3.800,00 pada kurs DevEx saat ini, yaitu 0,0038 USD per Robux. Pada kurs lama 0,0035 jumlah yang sama akan membayar $3.500,00, selisih $300,00. Satu juta Robux adalah tonggak utama yang benar-benar dicari kreator, dan itulah gambaran paling jelas mengapa harga pembelian dan pembayaran DevEx bukan angka yang sama.",
+    "quickAnswer": "{robux1000000} Earned Robux yang memenuhi syarat menjadi {payout1000000} pada kurs DevEx saat ini, yaitu {rateStandard} USD per Robux. Pada kurs lama {rateLegacy} jumlah yang sama akan membayar {payoutLegacy1000000}, selisih {payoutDifference1000000}. Satu juta Robux adalah tonggak utama yang benar-benar dicari kreator, dan itulah gambaran paling jelas mengapa harga pembelian dan pembayaran DevEx bukan angka yang sama.",
     "ogImageAlt": "1.000.000 Robux dikonversi menjadi perkiraan pembayaran DevEx dalam dolar AS.",
     "sections": {
       "value": "Berapa nilai 1.000.000 Robux",
@@ -274,7 +274,7 @@
     "metaDescription": "10.000.000 Earned Robux yang memenuhi syarat kira-kira $38.000,00 pada kurs DevEx saat ini. Dibandingkan dengan kurs lama dan kurs AS 18+.",
     "h1": "10.000.000 Robux ke USD",
     "navLabel": "10.000.000 Robux",
-    "quickAnswer": "10.000.000 Earned Robux yang memenuhi syarat menjadi $38.000,00 pada kurs DevEx saat ini, yaitu 0,0038 USD per Robux. Pada kurs lama 0,0035 jumlah yang sama akan membayar $35.000,00, selisih $3.000,00. Sepuluh juta Earned Robux mewakili penghasilan berkelanjutan dari sebuah experience besar. Pada skala itu, pembagian antara saldo standar dan saldo lama, serta bagian mana pun yang memenuhi syarat AS 18+, mengubah totalnya sebesar ribuan dolar.",
+    "quickAnswer": "{robux10000000} Earned Robux yang memenuhi syarat menjadi {payout10000000} pada kurs DevEx saat ini, yaitu {rateStandard} USD per Robux. Pada kurs lama {rateLegacy} jumlah yang sama akan membayar {payoutLegacy10000000}, selisih {payoutDifference10000000}. Sepuluh juta Earned Robux mewakili penghasilan berkelanjutan dari sebuah experience besar. Pada skala itu, pembagian antara saldo standar dan saldo lama, serta bagian mana pun yang memenuhi syarat AS 18+, mengubah totalnya sebesar ribuan dolar.",
     "ogImageAlt": "10.000.000 Robux dikonversi menjadi perkiraan pembayaran DevEx dalam dolar AS.",
     "sections": {
       "value": "Berapa nilai 10.000.000 Robux",
@@ -306,7 +306,7 @@
     "metaDescription": "200.000 Earned Robux yang memenuhi syarat kira-kira $760,00 pada kurs DevEx saat ini. Dibandingkan dengan kurs lama dan kurs AS 18+.",
     "h1": "200.000 Robux ke USD",
     "navLabel": "200.000 Robux",
-    "quickAnswer": "200.000 Earned Robux yang memenuhi syarat menjadi $760,00 pada kurs DevEx saat ini, yaitu 0,0038 USD per Robux. Pada kurs lama 0,0035 jumlah yang sama akan membayar $700,00, selisih $60,00. Pada 200.000 Earned Robux, seorang kreator biasanya mencairkan secara berkala alih-alih sekali saja, sehingga selisih antarkelompok kurs layak dilacak, bukan sekadar diperkirakan.",
+    "quickAnswer": "{robux200000} Earned Robux yang memenuhi syarat menjadi {payout200000} pada kurs DevEx saat ini, yaitu {rateStandard} USD per Robux. Pada kurs lama {rateLegacy} jumlah yang sama akan membayar {payoutLegacy200000}, selisih {payoutDifference200000}. Pada {robux200000} Earned Robux, seorang kreator biasanya mencairkan secara berkala alih-alih sekali saja, sehingga selisih antarkelompok kurs layak dilacak, bukan sekadar diperkirakan.",
     "ogImageAlt": "200.000 Robux dikonversi menjadi perkiraan pembayaran DevEx dalam dolar AS.",
     "sections": {
       "value": "Berapa nilai 200.000 Robux",
@@ -338,7 +338,7 @@
     "metaDescription": "30.000 Earned Robux yang memenuhi syarat kira-kira $114,00 pada kurs DevEx saat ini. Dibandingkan dengan kurs lama dan kurs AS 18+.",
     "h1": "30.000 Robux ke USD",
     "navLabel": "30.000 Robux",
-    "quickAnswer": "30.000 Earned Robux yang memenuhi syarat menjadi $114,00 pada kurs DevEx saat ini, yaitu 0,0038 USD per Robux. Pada kurs lama 0,0035 jumlah yang sama akan membayar $105,00, selisih $9,00. 30.000 adalah jumlah yang paling penting, karena itulah saldo Earned Robux minimum yang disyaratkan Roblox sebelum sebuah permohonan DevEx bahkan bisa diajukan. Di bawah angka itu pertanyaannya bukan berapa pembayarannya, melainkan apakah permohonan bisa dibuat.",
+    "quickAnswer": "{robux30000} Earned Robux yang memenuhi syarat menjadi {payout30000} pada kurs DevEx saat ini, yaitu {rateStandard} USD per Robux. Pada kurs lama {rateLegacy} jumlah yang sama akan membayar {payoutLegacy30000}, selisih {payoutDifference30000}. {robux30000} adalah jumlah yang paling penting, karena itulah saldo Earned Robux minimum yang disyaratkan Roblox sebelum sebuah permohonan DevEx bahkan bisa diajukan. Di bawah angka itu pertanyaannya bukan berapa pembayarannya, melainkan apakah permohonan bisa dibuat.",
     "ogImageAlt": "30.000 Robux dikonversi menjadi perkiraan pembayaran DevEx dalam dolar AS.",
     "sections": {
       "value": "Berapa nilai 30.000 Robux",
@@ -370,7 +370,7 @@
     "metaDescription": "300.000 Earned Robux yang memenuhi syarat kira-kira $1.140,00 pada kurs DevEx saat ini. Dibandingkan dengan kurs lama dan kurs AS 18+.",
     "h1": "300.000 Robux ke USD",
     "navLabel": "300.000 Robux",
-    "quickAnswer": "300.000 Earned Robux yang memenuhi syarat menjadi $1.140,00 pada kurs DevEx saat ini, yaitu 0,0038 USD per Robux. Pada kurs lama 0,0035 jumlah yang sama akan membayar $1.050,00, selisih $90,00. 300.000 Earned Robux adalah sepuluh kali batas minimum DevEx. Ini titik acuan yang berguna bagi kreator yang menghitung berapa siklus pencairan yang diwakili penghasilan setahun.",
+    "quickAnswer": "{robux300000} Earned Robux yang memenuhi syarat menjadi {payout300000} pada kurs DevEx saat ini, yaitu {rateStandard} USD per Robux. Pada kurs lama {rateLegacy} jumlah yang sama akan membayar {payoutLegacy300000}, selisih {payoutDifference300000}. {robux300000} Earned Robux adalah sepuluh kali batas minimum DevEx. Ini titik acuan yang berguna bagi kreator yang menghitung berapa siklus pencairan yang diwakili penghasilan setahun.",
     "ogImageAlt": "300.000 Robux dikonversi menjadi perkiraan pembayaran DevEx dalam dolar AS.",
     "sections": {
       "value": "Berapa nilai 300.000 Robux",
@@ -402,7 +402,7 @@
     "metaDescription": "50.000 Earned Robux yang memenuhi syarat kira-kira $190,00 pada kurs DevEx saat ini. Dibandingkan dengan kurs lama dan kurs AS 18+.",
     "h1": "50.000 Robux ke USD",
     "navLabel": "50.000 Robux",
-    "quickAnswer": "50.000 Earned Robux yang memenuhi syarat menjadi $190,00 pada kurs DevEx saat ini, yaitu 0,0038 USD per Robux. Pada kurs lama 0,0035 jumlah yang sama akan membayar $175,00, selisih $15,00. 50.000 Earned Robux melewati batas minimum dengan longgar, jadi ini pencairan pertama yang umum bagi kreator yang experience-nya baru mulai menghasilkan secara ajeg.",
+    "quickAnswer": "{robux50000} Earned Robux yang memenuhi syarat menjadi {payout50000} pada kurs DevEx saat ini, yaitu {rateStandard} USD per Robux. Pada kurs lama {rateLegacy} jumlah yang sama akan membayar {payoutLegacy50000}, selisih {payoutDifference50000}. {robux50000} Earned Robux melewati batas minimum dengan longgar, jadi ini pencairan pertama yang umum bagi kreator yang experience-nya baru mulai menghasilkan secara ajeg.",
     "ogImageAlt": "50.000 Robux dikonversi menjadi perkiraan pembayaran DevEx dalam dolar AS.",
     "sections": {
       "value": "Berapa nilai 50.000 Robux",
@@ -434,7 +434,7 @@
     "metaDescription": "500.000 Earned Robux yang memenuhi syarat kira-kira $1.900,00 pada kurs DevEx saat ini. Dibandingkan dengan kurs lama dan kurs AS 18+.",
     "h1": "500.000 Robux ke USD",
     "navLabel": "500.000 Robux",
-    "quickAnswer": "500.000 Earned Robux yang memenuhi syarat menjadi $1.900,00 pada kurs DevEx saat ini, yaitu 0,0038 USD per Robux. Pada kurs lama 0,0035 jumlah yang sama akan membayar $1.750,00, selisih $150,00. Setengah juta Earned Robux adalah skala ketika biaya penyedia pembayaran dan kewajiban pajak pribadi berhenti menjadi angka yang bisa diabaikan, dan karena itulah halaman ini menautkan langsung ke panduan biaya dan pajak.",
+    "quickAnswer": "{robux500000} Earned Robux yang memenuhi syarat menjadi {payout500000} pada kurs DevEx saat ini, yaitu {rateStandard} USD per Robux. Pada kurs lama {rateLegacy} jumlah yang sama akan membayar {payoutLegacy500000}, selisih {payoutDifference500000}. Setengah juta Earned Robux adalah skala ketika biaya penyedia pembayaran dan kewajiban pajak pribadi berhenti menjadi angka yang bisa diabaikan, dan karena itulah halaman ini menautkan langsung ke panduan biaya dan pajak.",
     "ogImageAlt": "500.000 Robux dikonversi menjadi perkiraan pembayaran DevEx dalam dolar AS.",
     "sections": {
       "value": "Berapa nilai 500.000 Robux",
@@ -518,12 +518,12 @@
     }
   },
   "devexRateHistory": {
-    "title": "Riwayat kurs DevEx: perubahan 2025 dari 0,0035",
-    "metaDescription": "Catatan bertanggal kurs DevEx yang terverifikasi, termasuk kenaikan September 2025 dari 0,0035 ke 0,0038 dan bagaimana saldo lama diperlakukan.",
+    "title": "Riwayat kurs DevEx: perubahan 2025 dari {rateLegacy}",
+    "metaDescription": "Catatan bertanggal kurs DevEx yang terverifikasi, termasuk kenaikan September 2025 dari {rateLegacy} ke {rateStandard} dan bagaimana saldo lama diperlakukan.",
     "h1": "Riwayat kurs DevEx",
     "navLabel": "Riwayat kurs",
-    "quickAnswer": "Perubahan yang terdokumentasi adalah dari 0,0035 ke 0,0038 USD per Earned Robux, berlaku 5 September 2025 pukul 10.00 PT. Untuk 30.000 Earned Robux itu memindahkan pembayaran dari 105 ke 114 dolar. Saldo yang diperoleh sebelum perubahan dicairkan lebih dulu pada kurs lama, jadi satu saldo bisa mencakup keduanya.",
-    "ogImageAlt": "Riwayat kurs DevEx: perubahan September 2025 dari 0,0035 ke 0,0038.",
+    "quickAnswer": "Perubahan yang terdokumentasi adalah dari {rateLegacy} ke {rateStandard} USD per Earned Robux, berlaku 5 September 2025 pukul 10.00 PT. Untuk {minimumRobux} Earned Robux itu memindahkan pembayaran dari {payoutLegacy30000Plain} ke {payout30000Plain} dolar. Saldo yang diperoleh sebelum perubahan dicairkan lebih dulu pada kurs lama, jadi satu saldo bisa mencakup keduanya.",
+    "ogImageAlt": "Riwayat kurs DevEx: perubahan September 2025 dari {rateLegacy} ke {rateStandard}.",
     "sections": {
       "timeline": "Lini masa terverifikasi",
       "comparison": "Berapa nilai perubahannya",
@@ -534,11 +534,11 @@
     "faqs": {
       "q01": {
         "question": "Berapa kurs DevEx sebelum September 2025?",
-        "answer": "0,0035 USD per Earned Robux, yang dinyatakan Roblox sebagai 105 dolar untuk 30.000 Earned Robux."
+        "answer": "{rateLegacy} USD per Earned Robux, yang dinyatakan Roblox sebagai {payoutLegacy30000Plain} dolar untuk {minimumRobux} Earned Robux."
       },
       "q02": {
         "question": "Apakah saldo lama saya dikonversi pada kurs lama?",
-        "answer": "Robux yang diperoleh sebelum 5 September 2025 pukul 10.00 PT dicairkan lebih dulu pada 0,0035, menurut aturan peralihan Roblox. Pembagiannya adalah pembukuan Roblox, bukan sesuatu yang dipilih kreator."
+        "answer": "Robux yang diperoleh sebelum 5 September 2025 pukul 10.00 PT dicairkan lebih dulu pada {rateLegacy}, menurut aturan peralihan Roblox. Pembagiannya adalah pembukuan Roblox, bukan sesuatu yang dipilih kreator."
       },
       "q03": {
         "question": "Apakah kursnya akan naik lagi?",
@@ -556,7 +556,7 @@
     "metaDescription": "Tiga kurs DevEx yang didokumentasikan Roblox, berapa yang dibayar masing-masing per 1.000 dan per 30.000 Robux, dan kapan tiap kurs berlaku.",
     "h1": "Kurs DevEx Roblox",
     "navLabel": "Kurs",
-    "quickAnswer": "Roblox mendokumentasikan tiga kurs DevEx. Kurs standarnya 0,0038 USD per Earned Robux yang memenuhi syarat, atau 114 dolar untuk 30.000. Saldo yang diperoleh sebelum 5 September 2025 pukul 10.00 PT dikonversi pada kurs lama 0,0035. Earned Robux tertentu dari pemain Amerika Serikat terverifikasi berusia 18 tahun ke atas dikonversi pada 0,0054. Roblox, bukan kreator, yang menentukan mana yang berlaku.",
+    "quickAnswer": "Roblox mendokumentasikan tiga kurs DevEx. Kurs standarnya {rateStandard} USD per Earned Robux yang memenuhi syarat, atau {payout30000Plain} dolar untuk {minimumRobux}. Saldo yang diperoleh sebelum 5 September 2025 pukul 10.00 PT dikonversi pada kurs lama {rateLegacy}. Earned Robux tertentu dari pemain Amerika Serikat terverifikasi berusia 18 tahun ke atas dikonversi pada {rateUs18}. Roblox, bukan kreator, yang menentukan mana yang berlaku.",
     "ogImageAlt": "Kurs DevEx Roblox: standar, lama, dan bersyarat AS 18+ dibandingkan.",
     "sections": {
       "current-rates": "Tiga kurs yang didokumentasikan",
@@ -572,11 +572,11 @@
         "answer": "3,80 dolar AS per 1.000 Earned Robux yang memenuhi syarat pada kurs standar. Kurs lama membayar 3,50 dan kurs bersyarat AS 18+ membayar 5,40."
       },
       "q02": {
-        "question": "Kapan kurs DevEx berubah menjadi 0,0038?",
-        "answer": "Pada 5 September 2025 pukul 10.00 PT. Saldo yang diperoleh sebelum saat itu dicairkan lebih dulu pada kurs sebelumnya 0,0035, menurut pembukuan Roblox sendiri."
+        "question": "Kapan kurs DevEx berubah menjadi {rateStandard}?",
+        "answer": "Pada 5 September 2025 pukul 10.00 PT. Saldo yang diperoleh sebelum saat itu dicairkan lebih dulu pada kurs sebelumnya {rateLegacy}, menurut pembukuan Roblox sendiri."
       },
       "q03": {
-        "question": "Siapa yang memenuhi syarat untuk kurs 0,0054?",
+        "question": "Siapa yang memenuhi syarat untuk kurs {rateUs18}?",
         "answer": "Roblox menerapkannya pada sebagian Earned Robux dari pembelian developer product, pass, langganan, dan server privat oleh pemain Amerika Serikat yang telah memverifikasi bahwa mereka setidaknya berusia 18 tahun. Ini bukan kurs yang bisa dipilih kreator."
       },
       "q04": {
@@ -615,7 +615,7 @@
       },
       "q02": {
         "question": "Berapa usia yang diperlukan untuk DevEx?",
-        "answer": "Roblox mendokumentasikan usia minimum 13 tahun untuk ikut serta. Secara terpisah, kurs yang lebih tinggi 0,0054 bergantung pada verifikasi usia pemain yang membelanjakan Robux itu, bukan pada usia kreatornya."
+        "answer": "Roblox mendokumentasikan usia minimum 13 tahun untuk ikut serta. Secara terpisah, kurs yang lebih tinggi {rateUs18} bergantung pada verifikasi usia pemain yang membelanjakan Robux itu, bukan pada usia kreatornya."
       },
       "q03": {
         "question": "Apakah saya perlu mengirimkan formulir pajak?",
@@ -975,7 +975,7 @@
     "metaDescription": "Ada dua angka yang menjawab ini. Bandingkan berapa yang dibayar DevEx kepada kreator dengan berapa biaya membeli Robux, dan konversikan jumlah berapa pun dengan kurs yang dinyatakan terbuka.",
     "h1": "Robux ke USD",
     "navLabel": "Robux ke USD",
-    "quickAnswer": "\"Robux ke USD\" punya dua jawaban yang jujur, tergantung siapa yang bertanya. Kreator yang mencairkan Earned Robux yang memenuhi syarat menerima 0,0038 USD per Robux lewat DevEx, jadi 100.000 Robux sekitar 380 dolar. Pemain yang membeli Robux membayar harga eceran yang ditetapkan Roblox, dan itu transaksi yang sama sekali berbeda. Halaman ini memisahkan keduanya.",
+    "quickAnswer": "\"Robux ke USD\" punya dua jawaban yang jujur, tergantung siapa yang bertanya. Kreator yang mencairkan Earned Robux yang memenuhi syarat menerima {rateStandard} USD per Robux lewat DevEx, jadi {robux100000} Robux sekitar {payout100000Plain} dolar. Pemain yang membeli Robux membayar harga eceran yang ditetapkan Roblox, dan itu transaksi yang sama sekali berbeda. Halaman ini memisahkan keduanya.",
     "ogImageAlt": "Robux ke USD: pembayaran DevEx kepada kreator dibandingkan dengan harga pembelian eceran.",
     "sections": {
       "converter": "Konversikan Robux ke USD",
@@ -1071,7 +1071,7 @@
     "faqs": {
       "q01": {
         "question": "Berapa Earned Robux yang saya butuhkan untuk 1.000 USD?",
-        "answer": "263.158 Earned Robux yang memenuhi syarat pada kurs saat ini 0,0038. Membagi 1.000 dengan 0,0038 menghasilkan 263.157,89, dan hasilnya dibulatkan ke atas agar pembayarannya benar-benar mencapai target."
+        "answer": "{targetRobuxUp} Earned Robux yang memenuhi syarat pada kurs saat ini {rateStandard}. Membagi {targetUsd} dengan {rateStandard} menghasilkan {targetRobuxExact}, dan hasilnya dibulatkan ke atas agar pembayarannya benar-benar mencapai target."
       },
       "q02": {
         "question": "Berapa Earned Robux yang saya butuhkan untuk 100 USD?",
@@ -1083,7 +1083,7 @@
       },
       "q04": {
         "question": "Apakah jawabannya berubah jika sebagian saldo saya adalah saldo lama?",
-        "answer": "Ya. Saldo lama dikonversi pada 0,0035, jadi mencapai target dolar yang sama membutuhkan lebih banyak Robux. Gunakan mode terbagi pada kalkulator untuk memodelkan saldo campuran."
+        "answer": "Ya. Saldo lama dikonversi pada {rateLegacy}, jadi mencapai target dolar yang sama membutuhkan lebih banyak Robux. Gunakan mode terbagi pada kalkulator untuk memodelkan saldo campuran."
       }
     },
     "links": {

@@ -77,7 +77,7 @@
       "marketplaceTerm": "Marketplace fee",
       "marketplaceDetail": "Rounds down, so a figure shown is never more than you would actually receive.",
       "payoutFormula": "gross USD = eligible Earned Robux × rate per Robux",
-      "mixedFormula": "gross USD = (standard × 0.0038) + (legacy × 0.0035) + (U.S. 18+ × 0.0054)",
+      "mixedFormula": "gross USD = (standard × {rateStandard}) + (legacy × {rateLegacy}) + (U.S. 18+ × {rateUs18})",
       "blendedFormula": "blended rate = gross USD ÷ total Earned Robux",
       "feesFormula": "net before tax = gross − (gross × fee%) − flat fee",
       "taxFormula": "net after estimate = net before tax − (net before tax × your tax%)",
@@ -118,7 +118,7 @@
       }
     },
     "prose": {
-      "floatingPoint": "A rate like 0.0038 cannot be represented exactly in binary floating point, which is how JavaScript stores ordinary numbers. Multiply 17,000 by 0.0054 in a browser console and you get 91.80000000000001 rather than 91.80. At small amounts that hides behind rounding; across a large balance, or a chain of fee and tax calculations, the drift compounds."
+      "floatingPoint": "A rate like {rateStandard} cannot be represented exactly in binary floating point, which is how JavaScript stores ordinary numbers. Multiply 17,000 by {rateUs18} in a browser console and you get 91.80000000000001 rather than 91.80. At small amounts that hides behind rounding; across a large balance, or a chain of fee and tax calculations, the drift compounds."
     }
   },
   "sources": {
@@ -241,7 +241,9 @@
     },
     "prose": {
       "rateHistory": "Rate changes made by Roblox are also reflected in the {rateHistory}, which is a separate record: the changelog tracks what this site did, the rate history tracks what Roblox did.",
-      "notSilent": "A correction is not silently applied — if a figure on this site was wrong, the record of it being wrong stays visible. That matters more for a site people plan finances around than a tidy history does."
+      "notSilent": "A correction is not silently applied — if a figure on this site was wrong, the record of it being wrong stays visible. That matters more for a site people plan finances around than a tidy history does.",
+      "publiclyIn": "Publicly, {changelog}.",
+      "changelogWhere": "in the changelog"
     }
   },
   "changelog": {
@@ -261,7 +263,7 @@
       "marketplaceRecorded": "Marketplace commission rates recorded",
       "levRemoved": "Bulgarian lev removed from supported currencies",
       "siteLaunched": "Site launched",
-      "registryEstablishedDetail": "Standard rate recorded at 0.0038 USD per eligible Earned Robux (114 USD per 30,000), the legacy rate at 0.0035 for balances earned before 5 September 2025 at 10:00 PT, and the conditional U.S. 18+ rate at 0.0054. The 30,000 Earned Robux minimum and the full eligibility list were verified at the same time. All checked directly against the Roblox Creator Hub DevEx documentation.",
+      "registryEstablishedDetail": "Standard rate recorded at {rateStandard} USD per eligible Earned Robux ({payout30000Plain} USD per {minimumRobux}), the legacy rate at {rateLegacy} for balances earned before 5 September 2025 at 10:00 PT, and the conditional U.S. 18+ rate at {rateUs18}. The {minimumRobux} Earned Robux minimum and the full eligibility list were verified at the same time. All checked directly against the Roblox Creator Hub DevEx documentation.",
       "marketplaceRecordedDetail": "In-experience purchases recorded at 70% to the creator and 30% to Roblox. Marketplace avatar item sales recorded with the progressive revenue share table from 30% at the price floor to 70% at six times the floor. Avatar items sold inside an experience recorded as 30% creator, 40% experience owner, 30% Roblox.",
       "levRemovedDetail": "The European Central Bank stopped publishing a BGN reference rate after 31 December 2025. Rather than continue showing a rate frozen at that date, BGN was removed from the currency selector. Listing a currency the configured provider no longer supplies would misrepresent how current the figure is.",
       "siteLaunchedDetail": "Initial release: DevEx calculator with quick, split and target modes; Robux to USD and payout target pages; marketplace fee calculator; conversion hub with eight curated amount pages; and the full guide and trust set. Every rate-sensitive page carries a source citation and verification date from launch."
@@ -382,7 +384,7 @@
       }
     },
     "prose": {
-      "ratesVersion": "The response carries a {registryVersion} and a {lastVerifiedAt}. Those two fields are the point: a rate on its own is a number that may already be wrong, and this site changed rate once already — the September 2025 move from $0.0035 to $0.0038 per Robux, which is why {rateCount} rates are published rather than one. Read the version, and you can tell whether what you cached is still what this site is serving.",
+      "ratesVersion": "The response carries a {registryVersion} and a {lastVerifiedAt}. Those two fields are the point: a rate on its own is a number that may already be wrong, and this site changed rate once already — the September 2025 move from ${rateLegacy} to ${rateStandard} per Robux, which is why {rateCount} rates are published rather than one. Read the version, and you can tell whether what you cached is still what this site is serving.",
       "fxReference": "These are reference rates, not a dealing rate: nobody converts money at them. They are published by the ECB once per working day, and the response says which day it is reporting. If the provider cannot be reached, a bundled snapshot is returned and marked {fallback} rather than passed off as current — so check {metaCache} before treating a figure as today's.",
       "stats": "The figures charted on {statisticsPage}, published as data so a chart can be checked rather than believed. Add {formatCsv} for a spreadsheet. Every row names its filing and links to it, and every row says whether Roblox reported the figure or this site derived it — a distinction that disappears the moment two numbers sit in the same column without it.",
       "platform": "What {platformPage} charts. Add {formatCsv} for a spreadsheet, or {seriesExperiences} for per-experience rows rather than totals. Reading it makes no request to Roblox: the collector does that on its own schedule, and an export that triggered an upstream fetch would let anyone raise this site's request rate against Roblox by reloading a URL.",

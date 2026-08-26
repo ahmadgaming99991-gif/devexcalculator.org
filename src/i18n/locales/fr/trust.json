@@ -90,7 +90,7 @@
       "marketplaceTerm": "Commission du marketplace",
       "marketplaceDetail": "Arrondit au inférieur, de sorte qu’un chiffre affiché n’est jamais supérieur à ce que vous recevriez réellement.",
       "payoutFormula": "USD brut = Earned Robux éligibles × taux par Robux",
-      "mixedFormula": "USD brut = (standard × 0,0038) + (ancien × 0,0035) + (É.-U. 18+ × 0,0054)",
+      "mixedFormula": "USD brut = (standard × {rateStandard}) + (ancien × {rateLegacy}) + (É.-U. 18+ × {rateUs18})",
       "blendedFormula": "taux mixte = USD brut ÷ total des Earned Robux",
       "feesFormula": "net avant impôt = brut − (brut × frais%) − frais fixes",
       "taxFormula": "net après estimation = net avant impôt − (net avant impôt × votre impôt%)",
@@ -131,7 +131,7 @@
       }
     },
     "prose": {
-      "floatingPoint": "Un taux comme 0,0038 ne peut pas être représenté exactement en virgule flottante binaire, qui est la façon dont JavaScript stocke les nombres ordinaires. Multipliez 17 000 par 0,0054 dans une console de navigateur et vous obtenez 91,80000000000001 plutôt que 91,80. Sur de petits montants cela se cache derrière l’arrondi ; sur un solde important, ou dans une chaîne de calculs de frais et d’impôt, l’écart s’accumule."
+      "floatingPoint": "Un taux comme {rateStandard} ne peut pas être représenté exactement en virgule flottante binaire, qui est la façon dont JavaScript stocke les nombres ordinaires. Multipliez 17 000 par {rateUs18} dans une console de navigateur et vous obtenez 91,80000000000001 plutôt que 91,80. Sur de petits montants cela se cache derrière l’arrondi ; sur un solde important, ou dans une chaîne de calculs de frais et d’impôt, l’écart s’accumule."
     }
   },
   "sources": {
@@ -254,7 +254,9 @@
     },
     "prose": {
       "rateHistory": "Les changements de taux opérés par Roblox se reflètent aussi dans l’{rateHistory}, qui est un registre distinct : le changelog suit ce qu’a fait ce site, l’historique des taux suit ce qu’a fait Roblox.",
-      "notSilent": "Une correction n’est pas appliquée en silence : si un chiffre de ce site était faux, la trace de cette erreur reste visible. Sur un site autour duquel des gens organisent leurs finances, cela compte plus qu’un historique bien rangé."
+      "notSilent": "Une correction n’est pas appliquée en silence : si un chiffre de ce site était faux, la trace de cette erreur reste visible. Sur un site autour duquel des gens organisent leurs finances, cela compte plus qu’un historique bien rangé.",
+      "publiclyIn": "Publiquement, {changelog}.",
+      "changelogWhere": "dans le changelog"
     }
   },
   "changelog": {
@@ -274,7 +276,7 @@
       "marketplaceRecorded": "Commissions du marketplace consignées",
       "levRemoved": "Lev bulgare retiré des devises prises en charge",
       "siteLaunched": "Site lancé",
-      "registryEstablishedDetail": "Taux standard consigné à 0,0038 USD par Earned Robux éligible (114 USD pour 30 000), taux ancien à 0,0035 pour les soldes gagnés avant le 5 septembre 2025 à 10 h 00 PT, et taux conditionnel É.-U. 18+ à 0,0054. Le minimum de 30 000 Earned Robux et la liste complète des conditions ont été vérifiés en même temps. Le tout contrôlé directement dans la documentation DevEx du Roblox Creator Hub.",
+      "registryEstablishedDetail": "Taux standard consigné à {rateStandard} USD par Earned Robux éligible ({payout30000Plain} USD pour {minimumRobux}), taux ancien à {rateLegacy} pour les soldes gagnés avant le 5 septembre 2025 à 10 h 00 PT, et taux conditionnel É.-U. 18+ à {rateUs18}. Le minimum de {minimumRobux} Earned Robux et la liste complète des conditions ont été vérifiés en même temps. Le tout contrôlé directement dans la documentation DevEx du Roblox Creator Hub.",
       "marketplaceRecordedDetail": "Achats en expérience consignés à 70 % pour le créateur et 30 % pour Roblox. Ventes d’objets d’avatar sur le Marketplace consignées avec le barème progressif de partage des revenus, de 30 % au prix plancher à 70 % à six fois ce plancher. Objets d’avatar vendus au sein d’une expérience consignés à 30 % créateur, 40 % propriétaire de l’expérience, 30 % Roblox.",
       "levRemovedDetail": "La Banque centrale européenne a cessé de publier un taux de référence pour le BGN après le 31 décembre 2025. Plutôt que de continuer à afficher un taux figé à cette date, le BGN a été retiré du sélecteur de devises. Répertorier une devise que le fournisseur configuré ne fournit plus donnerait une fausse idée de l’actualité du chiffre.",
       "siteLaunchedDetail": "Version initiale : calculatrice DevEx avec les modes rapide, réparti et objectif ; pages Robux vers USD et objectif de versement ; calculatrice de commission du marketplace ; centre de conversion avec huit pages de montants sélectionnées ; et l’ensemble complet des guides et des pages de transparence. Chaque page sensible aux taux porte une citation de source et une date de vérification depuis le lancement."
@@ -395,7 +397,7 @@
       }
     },
     "prose": {
-      "ratesVersion": "La réponse porte un {registryVersion} et un {lastVerifiedAt}. Ces deux champs sont l’essentiel : un taux isolé est un nombre qui peut déjà être faux, et ce site a déjà changé de taux une fois — le passage de septembre 2025 de 0,0035 à 0,0038 USD par Robux, raison pour laquelle {rateCount} taux sont publiés plutôt qu’un seul. Lisez la version et vous saurez si ce que vous avez mis en cache est encore ce que ce site sert.",
+      "ratesVersion": "La réponse porte un {registryVersion} et un {lastVerifiedAt}. Ces deux champs sont l’essentiel : un taux isolé est un nombre qui peut déjà être faux, et ce site a déjà changé de taux une fois — le passage de septembre 2025 de {rateLegacy} à {rateStandard} USD par Robux, raison pour laquelle {rateCount} taux sont publiés plutôt qu’un seul. Lisez la version et vous saurez si ce que vous avez mis en cache est encore ce que ce site sert.",
       "fxReference": "Ce sont des taux de référence, pas un taux de transaction : personne ne convertit d’argent à ces taux. Ils sont publiés par la BCE une fois par jour ouvré, et la réponse indique de quel jour elle rend compte. Si le fournisseur est injoignable, un instantané embarqué est renvoyé et marqué {fallback} plutôt que présenté comme courant — vérifiez donc {metaCache} avant de traiter un chiffre comme celui du jour.",
       "stats": "Les chiffres tracés sur {statisticsPage}, publiés sous forme de données afin qu’un graphique puisse être vérifié plutôt que cru. Ajoutez {formatCsv} pour un tableur. Chaque ligne nomme le document dont elle provient et y renvoie, et chaque ligne indique si Roblox a déclaré le chiffre ou si ce site l’a dérivé — une distinction qui disparaît dès que deux nombres partagent une colonne sans elle.",
       "platform": "Ce que trace {platformPage}. Ajoutez {formatCsv} pour un tableur, ou {seriesExperiences} pour des lignes par expérience plutôt que des totaux. Le lire n’envoie aucune requête à Roblox : le collecteur s’en charge selon son propre calendrier, et un export qui déclencherait un appel en amont permettrait à n’importe qui d’augmenter le taux de requêtes de ce site vers Roblox en rechargeant une URL.",

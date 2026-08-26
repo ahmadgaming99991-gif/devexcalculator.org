@@ -693,6 +693,7 @@ export function Calculator({
               onAnnounce={setAnnouncement}
             />
             <ResetButton
+              t={t}
               hasData={hasData}
               onReset={() => setState({ ...defaultState, mode, currency })}
               onAnnounce={setAnnouncement}
@@ -791,7 +792,7 @@ function HistoryPanel({
             disabled={history.length === 0}
             className="min-h-[44px] rounded-(--radius-control) px-3 text-sm font-semibold text-(--color-danger) disabled:opacity-50"
           >
-            Clear history
+            {t("calculator.history.clear")}
           </button>
         </div>
       </div>

@@ -100,7 +100,8 @@
       },
       "changes": {
         "p1": "Estes termos podem ser atualizados. A data de revisão no topo desta página reflete a mudança mais recente, e mudanças relevantes são registradas no",
-        "p2": "junto com tudo o mais que muda aqui."
+        "p2": "junto com tudo o mais que muda aqui.",
+        "changelogLink": "o changelog"
       }
     },
     "prose": {

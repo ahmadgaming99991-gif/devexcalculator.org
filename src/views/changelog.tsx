@@ -6,7 +6,7 @@ import { localizedRoute } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
 import { JsonLd } from "@/components/seo/json-ld";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
-import { Badge, Callout, Container, InlineLink, Section, SourceLink } from "@/components/ui";
+import { Badge, Callout, Container, Foreign, InlineLink, Section, SourceLink } from "@/components/ui";
 import { PageHeader, QuickAnswer, RelatedLinks } from "@/components/content";
 import { formatDate } from "@/lib/calculations/format";
 import { rateRegistry } from "@/lib/calculations/rate-registry";
@@ -94,7 +94,7 @@ export async function ChangelogView({ locale }: { readonly locale: Locale }) {
                             </p>
                             {entry.sourceUrl && entry.sourceLabel ? (
                               <p className="mt-2 text-sm">
-                                <SourceLink t={t} href={entry.sourceUrl}>{entry.sourceLabel}</SourceLink>
+                                <SourceLink t={t} href={entry.sourceUrl}><Foreign>{entry.sourceLabel}</Foreign></SourceLink>
                               </p>
                             ) : null}
                           </li>

@@ -39,7 +39,8 @@
         "answers": "Was wird von der Auszahlung abgezogen, bevor sie bei mir ankommt?",
         "assumes": "Dass Sie bereits einen Auszahlungsbetrag haben, von dem Sie ausgehen können."
       }
-    }
+    },
+    "assumesLabel": "Setzt voraus: {assumes}"
   },
   "calculators": {
     "intro": "Vier Rechner, von denen jeder eine Frage richtig beantwortet — statt eines Werkzeugs, das alles auf einmal versucht.",
@@ -144,7 +145,11 @@
       },
       "after": {
         "p1": "Eine Auszahlung ist Einkommen, und wie sie besteuert wird, hängt ganz davon ab, wo du lebst. Dein Zahlungsdienstleister kann eine Gebühr erheben, und wenn du in einer anderen Währung als US-Dollar bezahlt wirst, kommt eine Umrechnungsspanne obendrauf.",
-        "p2": "Rechne diese Abzüge mit deinen eigenen Zahlen durch"
+        "p2": "Rechne diese Abzüge mit deinen eigenen Zahlen durch",
+        "p3": "Diese Website gibt keine Steuerberatung."
+      },
+      "where": {
+        "nowhereElse": "Nirgendwo sonst."
       }
     },
     "prose": {

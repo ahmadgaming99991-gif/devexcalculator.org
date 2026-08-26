@@ -1,6 +1,6 @@
 import { getTranslator, type Translate } from "@/i18n/get-dictionary";
 import { localizedPath } from "@/i18n/locale-path";
-import { localizedRoute } from "@/i18n/localized-route";
+import { localizedRoute, routeLabels } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
 import Link from "next/link";
 import { getRoute } from "@/lib/content/route-registry";
@@ -62,6 +62,9 @@ const READING_ORDER = (t: Translate): readonly { route: string; answers: string;
 export async function GuidesView({ locale }: { readonly locale: Locale }) {
   const t = await getTranslator(locale, ["guides"]);
   const record = await localizedRoute(locale, ROUTE);
+  // `getRoute` answers from the English registry, so `target.navLabel` printed
+  // the English label on every localized page. The reading order is a menu.
+  const navLabel = await routeLabels(locale);
 
   return (
     <>
@@ -99,13 +102,13 @@ export async function GuidesView({ locale }: { readonly locale: Locale }) {
                       </span>
                       <span className="min-w-0">
                         <span className="block text-lg font-semibold text-(--color-text)">
-                          {target.navLabel}
+                          {navLabel(entry.route)}
                         </span>
                         <span className="mt-1 block text-sm font-medium text-(--color-primary)">
                           {entry.answers}
                         </span>
                         <span className="mt-1.5 block text-sm text-(--color-text-muted)">
-                          Assumes: {entry.assumes}
+                          {t("guides.index.assumesLabel", { assumes: entry.assumes })}
                         </span>
                         <span className="mt-1.5 block text-xs text-(--color-text-muted)">
                           {t("guides.index.body.readingOrder.p1", {
@@ -131,7 +134,7 @@ export async function GuidesView({ locale }: { readonly locale: Locale }) {
             >
               <span>
                 <span className="block text-lg font-semibold text-(--color-text)">
-                  All calculators
+                  {navLabel("/calculators/")}
                 </span>
                 <span className="mt-1 block text-sm text-(--color-text-muted)">{t("guides.index.body.calculators.p1")}</span>
               </span>

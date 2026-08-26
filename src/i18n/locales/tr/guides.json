@@ -39,7 +39,8 @@
         "answers": "Ödeme bana ulaşmadan önce üzerinden neler kesiliyor?",
         "assumes": "Üzerinden gidebileceğiniz bir ödeme tutarınızın olduğunu."
       }
-    }
+    },
+    "assumesLabel": "Ön koşul: {assumes}"
   },
   "calculators": {
     "intro": "Dört hesaplayıcı; her biri tek bir soruyu düzgün yanıtlıyor — her şeyi yanıtlamaya çalışan tek bir araç yerine.",
@@ -144,7 +145,11 @@
       },
       "after": {
         "p1": "Ödeme bir gelirdir ve nasıl vergilendirileceği tamamen yaşadığınız yere bağlıdır. Ödeme sağlayıcınız bir ücret alabilir ve ABD doları dışında bir para biriminde ödeme alıyorsanız bunun üzerine bir de dönüşüm farkı biner.",
-        "p2": "Bu kesintileri kendi rakamlarınızla modelleyin"
+        "p2": "Bu kesintileri kendi rakamlarınızla modelleyin",
+        "p3": "Bu site vergi danışmanlığı vermez."
+      },
+      "where": {
+        "nowhereElse": "Başka hiçbir yerde değil."
       }
     },
     "prose": {

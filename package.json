@@ -31,7 +31,7 @@
     "validate:routes": "tsx scripts/quality/check-routes.ts",
     "validate:worker": "tsx scripts/quality/check-worker-size.ts",
     "validate:bundle": "tsx scripts/quality/check-bundle-budget.ts",
-    "check": "npm run lint && npm run typecheck && npm run test && npm run validate:content && npm run validate:seo && npm run validate:i18n && npm run validate:data-dictionary && npm run validate:client-words && npm run validate:interpolation && npm run i18n:audit && npm run validate:localized-og && npm run build && npm run validate:routes && npm run validate:links && npm run validate:duplicates && npm run validate:bundle && npm run cf-build && npm run cf-populate && npm run validate:worker",
+    "check": "npm run lint && npm run typecheck && npm run test && npm run validate:content && npm run validate:seo && npm run validate:i18n && npm run validate:data-dictionary && npm run validate:jsx-text && npm run validate:hardcoded && npm run validate:client-words && npm run validate:interpolation && npm run i18n:audit && npm run validate:localized-og && npm run build && npm run validate:routes && npm run validate:links && npm run validate:duplicates && npm run validate:bundle && npm run cf-build && npm run cf-populate && npm run validate:worker",
     "fx:snapshot": "tsx scripts/content/generate-fx-snapshot.ts",
     "test:visual": "playwright test --project=visual",
     "validate:duplicates": "tsx scripts/seo/detect-near-duplicate-content.ts",
@@ -56,7 +56,9 @@
     "i18n:wiring": "tsx scripts/i18n/build-wiring-map.ts",
     "i18n:extract-templates": "tsx scripts/i18n/extract-templates.ts",
     "i18n:rename": "tsx scripts/i18n/rename-keys.ts",
-    "purge:cache": "tsx scripts/deploy/purge-cache.ts"
+    "purge:cache": "tsx scripts/deploy/purge-cache.ts",
+    "validate:jsx-text": "tsx scripts/i18n/validate-jsx-text.ts",
+    "validate:hardcoded": "tsx scripts/i18n/detect-hardcoded.ts --check"
   },
   "dependencies": {
     "next": "16.3.1",

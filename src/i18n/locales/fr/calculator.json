@@ -182,7 +182,9 @@
     "perEligibleRobux": "{rate} par Earned Robux éligible",
     "groupBalanceLabel": "Les Earned Robux éligibles du groupe",
     "percentageForLabel": "Pourcentage pour {member}",
-    "memberFallback": "membre {index}"
+    "memberFallback": "membre {index}",
+    "addMember": "Ajouter un membre",
+    "sharesTotal": "Les parts totalisent {percent} %"
   },
   "preparation": {
     "earnedRobuxLink": "Ce qui compte comme Earned Robux",
@@ -203,7 +205,8 @@
     "balanceStep": "Vérifiez que le solde est bien constitué d’Earned Robux et qu’il a atteint {minimum}. {earnedRobuxLink}",
     "taxFormStep": "Remplissez le bon formulaire fiscal — W-9 pour un contribuable des États-Unis, W-8 sinon.",
     "standingStep": "Vérifiez que le compte est en règle au regard des Conditions d’utilisation et des Règles de la communauté.",
-    "destinationStep": "Décidez où va l’argent et vérifiez ce que la banque ou le prestataire de paiement facturera pour le recevoir. {feesLink}"
+    "destinationStep": "Décidez où va l’argent et vérifiez ce que la banque ou le prestataire de paiement facturera pour le recevoir. {feesLink}",
+    "clear": "Effacer"
   },
   "currency": {
     "loading": "Chargement des taux de référence…",
@@ -239,7 +242,7 @@
     "body": {
       "howItWorks": {
         "p1": "Pourquoi l’arithmétique est faite exactement",
-        "p2": "Un taux comme 0,0038 ne peut pas être représenté exactement en virgule flottante binaire : un calcul naïf dérive donc, et 17 000 Robux au taux États-Unis 18+ ressortent à 91.80000000000001 au lieu de 91,80. Chaque chiffre de ce site est calculé comme une fraction exacte et arrondi une seule fois, au moment de l’affichage."
+        "p2": "Un taux comme {rateStandard} ne peut pas être représenté exactement en virgule flottante binaire : un calcul naïf dérive donc, et 17 000 Robux au taux États-Unis 18+ ressortent à 91.80000000000001 au lieu de 91,80. Chaque chiffre de ce site est calculé comme une fraction exacte et arrondi une seule fois, au moment de l’affichage."
       },
       "currentRates": {
         "p1": "Le détail complet de chaque taux, avec dates d’entrée en vigueur et exemples chiffrés",
@@ -332,7 +335,15 @@
     "payoutNote": "Au {rate}, avant frais et impôts.",
     "targetHint": "Avant tout frais de prestataire de paiement ou impôt.",
     "worksOutDate": "Le plan calcule la date.",
-    "worksOutPace": "Le plan calcule le rythme."
+    "worksOutPace": "Le plan calcule le rythme.",
+    "planHeading": "Le plan",
+    "rateToPlanAgainst": "Taux de référence pour le plan",
+    "perLabel": "Par",
+    "pacePeriod": {
+      "day": "par jour",
+      "week": "par semaine",
+      "month": "par mois (30 jours)"
+    }
   },
   "controls": {
     "body": {
@@ -362,7 +373,11 @@
     "copiedLabel": "Copié",
     "copyFailedLabel": "Échec de la copie",
     "share": "Partager",
-    "copyLink": "Copier le lien"
+    "copyLink": "Copier le lien",
+    "reset": "Réinitialiser",
+    "confirmReset": "Confirmer la réinitialisation",
+    "cancel": "Annuler",
+    "resetAnnouncement": "Calculatrice réinitialisée."
   },
   "checklist": {
     "meterLabel": "{completed} étapes de préparation sur {total} effectuées"
@@ -373,6 +388,7 @@
     "clearedAnnouncement": "Calculs enregistrés effacés.",
     "targetLabel": "Objectif de {amount}",
     "robuxLabel": "{robux} Robux",
-    "saveButton": "Enregistrer ce calcul"
+    "saveButton": "Enregistrer ce calcul",
+    "clear": "Effacer l’historique"
   }
 }

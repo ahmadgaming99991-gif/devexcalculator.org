@@ -114,8 +114,11 @@ export async function RobuxTaxView({ locale }: { readonly locale: Locale }) {
                   {(progressive.progressiveTiers ?? []).map((tier) => (
                     <tr key={tier.priceFloorMultiple}>
                       <Th scope="row">
-                        {tier.priceFloorMultiple}×
-                        {tier.priceFloorMultiple === "6" ? " and above" : ""}
+                        {tier.priceFloorMultiple === "6"
+                          ? t("rates.robuxTax.tierMultipleAndAbove", {
+                              multiple: tier.priceFloorMultiple,
+                            })
+                          : `${tier.priceFloorMultiple}×`}
                       </Th>
                       <Td numeric className="font-semibold">
                         {tier.creatorSharePercent}%

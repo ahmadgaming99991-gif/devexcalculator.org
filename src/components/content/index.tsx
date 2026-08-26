@@ -4,7 +4,7 @@ import type { FaqEntry, RouteRecord, SectionRef } from "@/types/content";
 import { getRoute } from "@/lib/content/route-registry";
 import { getSources, rateRegistry, registryFreshness } from "@/lib/calculations/rate-registry";
 import { formatDate } from "@/lib/calculations/format";
-import { Badge, Callout, Card, Disclosure, InlineLink, SourceLink, cx } from "@/components/ui";
+import { Badge, Callout, Card, Disclosure, Foreign, InlineLink, SourceLink, cx } from "@/components/ui";
 import { getTranslator } from "@/i18n/get-dictionary";
 import { routeLabels } from "@/i18n/localized-route";
 import { getLocaleMeta } from "@/i18n/config";
@@ -145,7 +145,7 @@ export async function SourceNote({
       <ul className="mt-2 flex flex-col gap-2">
         {sources.map((source) => (
           <li key={source.id}>
-            <SourceLink t={t} href={source.url}>{source.title}</SourceLink>
+            <SourceLink t={t} href={source.url}><Foreign>{source.title}</Foreign></SourceLink>
             <span className="text-(--color-text-muted)">
               {" "}
               {t("common.sections.sourceLine", {
@@ -340,7 +340,7 @@ export async function FAQAccordion({
                 {getSources(faq.sourceIds).map((source, i) => (
                   <span key={source.id}>
                     {i > 0 ? ", " : ""}
-                    <SourceLink t={t} href={source.url}>{source.title}</SourceLink>
+                    <SourceLink t={t} href={source.url}><Foreign>{source.title}</Foreign></SourceLink>
                   </span>
                 ))}
               </p>

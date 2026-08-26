@@ -39,7 +39,8 @@
         "answers": "O que é descontado do pagamento antes de chegar até mim?",
         "assumes": "Que você já tenha um valor de pagamento como ponto de partida."
       }
-    }
+    },
+    "assumesLabel": "Pressupõe: {assumes}"
   },
   "calculators": {
     "intro": "Quatro calculadoras, cada uma respondendo bem a uma pergunta, em vez de uma ferramenta tentando responder a tudo.",
@@ -144,7 +145,11 @@
       },
       "after": {
         "p1": "Um pagamento é renda, e como ele é tributado depende inteiramente de onde você mora. Seu provedor de pagamento pode cobrar uma taxa, e se você for pago em uma moeda que não seja o dólar americano haverá um spread de conversão por cima.",
-        "p2": "Modele essas deduções com seus próprios números"
+        "p2": "Modele essas deduções com seus próprios números",
+        "p3": "Este site não dá orientação fiscal."
+      },
+      "where": {
+        "nowhereElse": "Em nenhum outro lugar."
       }
     },
     "prose": {

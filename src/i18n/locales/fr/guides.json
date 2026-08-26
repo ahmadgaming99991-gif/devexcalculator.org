@@ -39,7 +39,8 @@
         "answers": "Qu’est-ce qui est prélevé sur le versement avant qu’il me parvienne ?",
         "assumes": "Que vous disposiez déjà d’un montant de versement comme point de départ."
       }
-    }
+    },
+    "assumesLabel": "Suppose acquis : {assumes}"
   },
   "calculators": {
     "intro": "Quatre calculatrices, chacune répondant correctement à une question, plutôt qu’un seul outil qui essaie de tout traiter.",
@@ -144,7 +145,11 @@
       },
       "after": {
         "p1": "Un paiement est un revenu, et sa fiscalité dépend entièrement de l’endroit où vous vivez. Votre prestataire de paiement peut prélever des frais, et si vous êtes payé dans une devise autre que le dollar américain, un écart de conversion s’ajoute.",
-        "p2": "Modélisez ces prélèvements avec vos propres chiffres"
+        "p2": "Modélisez ces prélèvements avec vos propres chiffres",
+        "p3": "Ce site ne donne aucun conseil fiscal."
+      },
+      "where": {
+        "nowhereElse": "Nulle part ailleurs."
       }
     },
     "prose": {

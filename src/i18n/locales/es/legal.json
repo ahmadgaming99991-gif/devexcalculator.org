@@ -100,7 +100,8 @@
       },
       "changes": {
         "p1": "Estas condiciones pueden actualizarse. La fecha de revisión al principio de esta página refleja el cambio más reciente, y los cambios materiales quedan registrados en el",
-        "p2": "junto con todo lo demás que cambia aquí."
+        "p2": "junto con todo lo demás que cambia aquí.",
+        "changelogLink": "el changelog"
       }
     },
     "prose": {

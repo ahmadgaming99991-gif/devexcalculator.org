@@ -79,7 +79,8 @@
     "sponsored": "Bersponsor",
     "byCreator": "oleh {creator}",
     "verifiedSuffix": "(terverifikasi)",
-    "favouritesCount": "{count} favorit"
+    "favouritesCount": "{count} favorit",
+    "maturity": "Klasifikasi: {rating}"
   },
   "platformFigure": {
     "label": "Pemain di seluruh experience yang sedang diperingkat Roblox",

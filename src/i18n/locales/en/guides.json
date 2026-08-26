@@ -39,7 +39,8 @@
         "answers": "What comes off the payout before it reaches me?",
         "assumes": "That you have a payout figure to work from."
       }
-    }
+    },
+    "assumesLabel": "Assumes: {assumes}"
   },
   "calculators": {
     "intro": "Four calculators, each answering one question properly rather than one tool trying to answer everything.",
@@ -144,7 +145,11 @@
       },
       "after": {
         "p1": "A payout is income, and how it is taxed depends entirely on where you live. Your payment provider may charge a fee, and if you are paid in a currency other than US dollars there will be a conversion spread on top.",
-        "p2": "Model those deductions with your own figures"
+        "p2": "Model those deductions with your own figures",
+        "p3": "This site gives no tax advice."
+      },
+      "where": {
+        "nowhereElse": "Nowhere else."
       }
     },
     "prose": {

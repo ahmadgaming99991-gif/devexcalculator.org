@@ -88,7 +88,7 @@
       "marketplaceTerm": "Marketplace-Gebühr",
       "marketplaceDetail": "Rundet ab, damit eine angezeigte Zahl nie höher ist als das, was tatsächlich ankommt.",
       "payoutFormula": "USD brutto = berechtigte Earned Robux × Satz pro Robux",
-      "mixedFormula": "USD brutto = (Standard × 0,0038) + (alt × 0,0035) + (USA 18+ × 0,0054)",
+      "mixedFormula": "USD brutto = (Standard × {rateStandard}) + (alt × {rateLegacy}) + (USA 18+ × {rateUs18})",
       "blendedFormula": "Mischsatz = USD brutto ÷ Earned Robux gesamt",
       "feesFormula": "netto vor Steuer = brutto − (brutto × Gebühr%) − Pauschalgebühr",
       "taxFormula": "netto nach Schätzung = netto vor Steuer − (netto vor Steuer × Ihre Steuer%)",
@@ -129,7 +129,7 @@
       }
     },
     "prose": {
-      "floatingPoint": "Ein Satz wie 0,0038 lässt sich in binärer Gleitkommadarstellung — so speichert JavaScript gewöhnliche Zahlen — nicht exakt abbilden. Multiplizieren Sie 17.000 mit 0,0054 in einer Browserkonsole, und Sie erhalten 91,80000000000001 statt 91,80. Bei kleinen Beträgen verbirgt sich das hinter der Rundung; über ein großes Guthaben oder eine Kette aus Gebühren- und Steuerrechnungen summiert sich die Abweichung."
+      "floatingPoint": "Ein Satz wie {rateStandard} lässt sich in binärer Gleitkommadarstellung — so speichert JavaScript gewöhnliche Zahlen — nicht exakt abbilden. Multiplizieren Sie 17.000 mit {rateUs18} in einer Browserkonsole, und Sie erhalten 91,80000000000001 statt 91,80. Bei kleinen Beträgen verbirgt sich das hinter der Rundung; über ein großes Guthaben oder eine Kette aus Gebühren- und Steuerrechnungen summiert sich die Abweichung."
     }
   },
   "sources": {
@@ -252,7 +252,9 @@
     },
     "prose": {
       "rateHistory": "Von Roblox vorgenommene Satzänderungen erscheinen auch in der {rateHistory}, einem eigenen Verzeichnis: Das Changelog verfolgt, was diese Website getan hat, die Satzhistorie, was Roblox getan hat.",
-      "notSilent": "Eine Korrektur wird nicht stillschweigend vorgenommen — war eine Zahl auf dieser Website falsch, bleibt der Vermerk darüber sichtbar. Für eine Website, um die herum Menschen ihre Finanzen planen, zählt das mehr als eine aufgeräumte Historie."
+      "notSilent": "Eine Korrektur wird nicht stillschweigend vorgenommen — war eine Zahl auf dieser Website falsch, bleibt der Vermerk darüber sichtbar. Für eine Website, um die herum Menschen ihre Finanzen planen, zählt das mehr als eine aufgeräumte Historie.",
+      "publiclyIn": "Öffentlich, {changelog}.",
+      "changelogWhere": "im Changelog"
     }
   },
   "changelog": {
@@ -272,7 +274,7 @@
       "marketplaceRecorded": "Marketplace-Provisionen erfasst",
       "levRemoved": "Bulgarischer Lew aus den unterstützten Währungen entfernt",
       "siteLaunched": "Website gestartet",
-      "registryEstablishedDetail": "Standardsatz mit 0,0038 USD je berechtigtem Earned Robux erfasst (114 USD je 30.000), der alte Satz mit 0,0035 für Guthaben, das vor dem 5. September 2025 um 10:00 PT verdient wurde, und der bedingte USA-18+-Satz mit 0,0054. Das Minimum von 30.000 Earned Robux und die vollständige Liste der Voraussetzungen wurden zur gleichen Zeit geprüft. Alles direkt anhand der DevEx-Dokumentation im Roblox Creator Hub kontrolliert.",
+      "registryEstablishedDetail": "Standardsatz mit {rateStandard} USD je berechtigtem Earned Robux erfasst ({payout30000Plain} USD je {minimumRobux}), der alte Satz mit {rateLegacy} für Guthaben, das vor dem 5. September 2025 um 10:00 PT verdient wurde, und der bedingte USA-18+-Satz mit {rateUs18}. Das Minimum von {minimumRobux} Earned Robux und die vollständige Liste der Voraussetzungen wurden zur gleichen Zeit geprüft. Alles direkt anhand der DevEx-Dokumentation im Roblox Creator Hub kontrolliert.",
       "marketplaceRecordedDetail": "Käufe innerhalb einer Experience mit 70 % für den Creator und 30 % für Roblox erfasst. Verkäufe von Avatar-Artikeln im Marketplace mit der progressiven Umsatzbeteiligungstabelle erfasst, von 30 % beim Mindestpreis bis 70 % beim Sechsfachen davon. In einer Experience verkaufte Avatar-Artikel erfasst mit 30 % Creator, 40 % Experience-Inhaber, 30 % Roblox.",
       "levRemovedDetail": "Die Europäische Zentralbank hat nach dem 31. Dezember 2025 keinen BGN-Referenzkurs mehr veröffentlicht. Statt weiterhin einen auf dieses Datum eingefrorenen Kurs zu zeigen, wurde BGN aus der Währungsauswahl entfernt. Eine Währung zu listen, die der konfigurierte Anbieter nicht mehr liefert, würde falsch darstellen, wie aktuell die Zahl ist.",
       "siteLaunchedDetail": "Erstveröffentlichung: DevEx-Rechner mit den Modi Schnell, Aufteilung und Ziel; Seiten für Robux zu USD und für ein Auszahlungsziel; Marketplace-Gebührenrechner; Umrechnungszentrale mit acht kuratierten Betragsseiten; sowie der vollständige Satz an Leitfäden und Transparenzseiten. Jede satzabhängige Seite trägt seit dem Start eine Quellenangabe und ein Prüfdatum."
@@ -393,7 +395,7 @@
       }
     },
     "prose": {
-      "ratesVersion": "Die Antwort führt ein {registryVersion} und ein {lastVerifiedAt} mit. Auf diese beiden Felder kommt es an: Ein Satz für sich genommen ist eine Zahl, die schon falsch sein kann, und diese Website hat den Satz bereits einmal gewechselt — der Schritt vom September 2025 von 0,0035 auf 0,0038 USD je Robux, weshalb {rateCount} Sätze veröffentlicht werden statt einem. Lesen Sie die Version, und Sie erkennen, ob das, was Sie zwischengespeichert haben, noch das ist, was diese Website ausliefert.",
+      "ratesVersion": "Die Antwort führt ein {registryVersion} und ein {lastVerifiedAt} mit. Auf diese beiden Felder kommt es an: Ein Satz für sich genommen ist eine Zahl, die schon falsch sein kann, und diese Website hat den Satz bereits einmal gewechselt — der Schritt vom September 2025 von {rateLegacy} auf {rateStandard} USD je Robux, weshalb {rateCount} Sätze veröffentlicht werden statt einem. Lesen Sie die Version, und Sie erkennen, ob das, was Sie zwischengespeichert haben, noch das ist, was diese Website ausliefert.",
       "fxReference": "Das sind Referenzkurse, kein Handelskurs: Niemand tauscht Geld zu ihnen. Die EZB veröffentlicht sie einmal je Werktag, und die Antwort nennt den Tag, über den sie berichtet. Ist der Anbieter nicht erreichbar, wird eine mitgelieferte Momentaufnahme zurückgegeben und als {fallback} gekennzeichnet, statt sie als aktuell auszugeben — prüfen Sie also {metaCache}, bevor Sie eine Zahl als die von heute behandeln.",
       "stats": "Die auf {statisticsPage} dargestellten Zahlen, als Daten veröffentlicht, damit ein Diagramm geprüft und nicht geglaubt werden muss. Hängen Sie {formatCsv} an für eine Tabelle. Jede Zeile nennt ihre Einreichung und verlinkt sie, und jede Zeile sagt, ob Roblox die Zahl berichtet oder diese Website sie abgeleitet hat — ein Unterschied, der in dem Moment verschwindet, in dem zwei Zahlen ohne ihn in derselben Spalte stehen.",
       "platform": "Was {platformPage} darstellt. Hängen Sie {formatCsv} an für eine Tabelle oder {seriesExperiences} für Zeilen je Experience statt Summen. Das Lesen stellt keine Anfrage an Roblox: Das erledigt der Sammler nach eigenem Zeitplan, und ein Export, der einen Abruf stromaufwärts auslöste, ließe jeden die Anfragerate dieser Website gegenüber Roblox durch Neuladen einer URL hochtreiben.",

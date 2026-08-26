@@ -5,7 +5,7 @@ import { localizedRoute } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
 import { JsonLd } from "@/components/seo/json-ld";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
-import { ButtonLink, Callout, Container, InlineLink, Section, SourceLink } from "@/components/ui";
+import { ButtonLink, Callout, Container, Foreign, InlineLink, Section, SourceLink } from "@/components/ui";
 import { GroupSplit } from "@/features/devex/group-split";
 import { GROUP_SPLIT_WORDS } from "@/features/devex/group-split.words";
 import {
@@ -107,9 +107,10 @@ export async function CashOutView({ locale }: { readonly locale: Locale }) {
                             <strong className="text-(--color-text)">{t("guides.cashOut.list.submitPortal")}</strong>
                   {t("guides.cashOut.body.process.p5")}
                 <SourceLink t={t} href="https://create.roblox.com/docs/production/monetization/developer-exchange">
-                              Roblox Creator Hub DevEx documentation
+                              <Foreign>Roblox Creator Hub DevEx documentation</Foreign>
                             </SourceLink>
-                            . Nowhere else.
+                            {". "}
+                            {t("guides.cashOut.body.where.nowhereElse")}
                           </li>
                           <li>
                             <strong className="text-(--color-text)">{t("guides.cashOut.list.robloxReviews")}</strong>
@@ -186,7 +187,8 @@ export async function CashOutView({ locale }: { readonly locale: Locale }) {
                         <p className="text-(--color-text-muted)">
                   {t("guides.cashOut.body.after.p1")}
                 <InlineLink href={localizedPath(locale, "/devex-fees-and-taxes/")}>{t("guides.cashOut.body.after.p2")}</InlineLink>
-                          . This site gives no tax advice.
+                          {". "}
+                          {t("guides.cashOut.body.after.p3")}
                         </p>
                       </Section>
             

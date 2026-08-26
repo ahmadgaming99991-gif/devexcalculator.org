@@ -10,10 +10,10 @@
   "sources": {
     "roblox-devex-program": {
       "facts": [
-        "Taux DevEx standard de 0,0038 USD par Earned Robux éligible (114 USD pour 30 000).",
-        "Taux supérieur de 0,0054 USD par Robux pour certains Earned Robux issus des dépenses de joueurs américains dont la majorité (18 ans) a été vérifiée.",
-        "Ancien taux de 0,0035 USD par Robux pour les soldes gagnés avant le 5 septembre 2025 à 10h00 PT.",
-        "Minimum de 30 000 Earned Robux pour participer.",
+        "Taux DevEx standard de {rateStandard} USD par Earned Robux éligible ({payout30000Plain} USD pour {minimumRobux}).",
+        "Taux supérieur de {rateUs18} USD par Robux pour certains Earned Robux issus des dépenses de joueurs américains dont la majorité (18 ans) a été vérifiée.",
+        "Ancien taux de {rateLegacy} USD par Robux pour les soldes gagnés avant le 5 septembre 2025 à 10h00 PT.",
+        "Minimum de {minimumRobux} Earned Robux pour participer.",
         "Conditions d'éligibilité : âge minimum de 13 ans, adresse e-mail vérifiée par Roblox, compte valide sur le portail DevEx, formulaire IRS W-9 ou W-8 déposé, et respect des Conditions d'utilisation et des Règles de la communauté Roblox."
       ]
     },
@@ -103,7 +103,7 @@
     "standard-current": {
       "label": "Taux standard",
       "shortLabel": "Standard",
-      "eligibilitySummary": "Le taux DevEx standard appliqué aux Earned Robux éligibles. Roblox le documente à 0,0038 USD par Earned Robux, soit 114 USD pour 30 000 Earned Robux."
+      "eligibilitySummary": "Le taux DevEx standard appliqué aux Earned Robux éligibles. Roblox le documente à {rateStandard} USD par Earned Robux, soit {payout30000Plain} USD pour {minimumRobux} Earned Robux."
     },
     "us-18-plus-qualified": {
       "label": "Taux États-Unis 18+ éligible",
@@ -114,7 +114,7 @@
     "legacy-pre-2025-09-05": {
       "label": "Taux des soldes antérieurs",
       "shortLabel": "Antérieur",
-      "eligibilitySummary": "Le taux en vigueur avant le 5 septembre 2025 à 10h00 PT, soit 105 USD pour 30 000 Earned Robux. Roblox convertit d'abord à cet ancien taux les soldes gagnés avant ce moment.",
+      "eligibilitySummary": "Le taux en vigueur avant le 5 septembre 2025 à 10h00 PT, soit {payoutLegacy30000Plain} USD pour {minimumRobux} Earned Robux. Roblox convertit d'abord à cet ancien taux les soldes gagnés avant ce moment.",
       "conditionNote": "Ne s'applique qu'à la part d'un solde gagnée avant la transition, selon la comptabilité propre à Roblox. Un créateur ne peut pas choisir ce taux."
     }
   },

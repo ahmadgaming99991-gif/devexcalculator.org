@@ -10,10 +10,10 @@
   "sources": {
     "roblox-devex-program": {
       "facts": [
-        "Standard-DevEx-Satz von 0,0038 USD je anrechenbarem Earned Robux (114 USD je 30.000).",
-        "Höherer Satz von 0,0054 USD je Robux für bestimmte Earned Robux aus Ausgaben von US-Spielern, die als mindestens 18 Jahre alt verifiziert sind.",
-        "Altsatz von 0,0035 USD je Robux für Guthaben, das vor dem 5. September 2025 um 10:00 PT verdient wurde.",
-        "Mindestens 30.000 Earned Robux zur Teilnahme.",
+        "Standard-DevEx-Satz von {rateStandard} USD je anrechenbarem Earned Robux ({payout30000Plain} USD je {minimumRobux}).",
+        "Höherer Satz von {rateUs18} USD je Robux für bestimmte Earned Robux aus Ausgaben von US-Spielern, die als mindestens 18 Jahre alt verifiziert sind.",
+        "Altsatz von {rateLegacy} USD je Robux für Guthaben, das vor dem 5. September 2025 um 10:00 PT verdient wurde.",
+        "Mindestens {minimumRobux} Earned Robux zur Teilnahme.",
         "Voraussetzungen: Mindestalter 13 Jahre, von Roblox verifizierte E-Mail-Adresse, gültiges Konto im DevEx-Portal, hinterlegtes IRS-Formular W-9 oder W-8 sowie Einhaltung der Roblox-Nutzungsbedingungen und der Community-Standards."
       ]
     },
@@ -103,7 +103,7 @@
     "standard-current": {
       "label": "Standardsatz",
       "shortLabel": "Standard",
-      "eligibilitySummary": "Der Standard-DevEx-Satz für anrechenbare Earned Robux. Roblox dokumentiert ihn mit 0,0038 USD je Earned Robux, also 114 USD für 30.000 Earned Robux."
+      "eligibilitySummary": "Der Standard-DevEx-Satz für anrechenbare Earned Robux. Roblox dokumentiert ihn mit {rateStandard} USD je Earned Robux, also {payout30000Plain} USD für {minimumRobux} Earned Robux."
     },
     "us-18-plus-qualified": {
       "label": "Satz für anrechenbare US-18+-Käufe",
@@ -114,7 +114,7 @@
     "legacy-pre-2025-09-05": {
       "label": "Satz für Altguthaben",
       "shortLabel": "Alt",
-      "eligibilitySummary": "Der Satz, der vor dem 5. September 2025 um 10:00 PT galt, entsprechend 105 USD für 30.000 Earned Robux. Roblox zahlt Guthaben, das vor diesem Zeitpunkt verdient wurde, zuerst zu diesem älteren Satz aus.",
+      "eligibilitySummary": "Der Satz, der vor dem 5. September 2025 um 10:00 PT galt, entsprechend {payoutLegacy30000Plain} USD für {minimumRobux} Earned Robux. Roblox zahlt Guthaben, das vor diesem Zeitpunkt verdient wurde, zuerst zu diesem älteren Satz aus.",
       "conditionNote": "Gilt nur für den Teil eines Guthabens, der vor der Umstellung verdient wurde, nach Robloxʼ eigener Rechnung. Ein Creator kann diesen Satz nicht wählen."
     }
   },

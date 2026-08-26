@@ -36,13 +36,13 @@
         "p1": "La diferencia entre la tasa actual y la antigua es de {rateValue} por cada 100.000 Earned Robux, alrededor de un 8,6 % más con la tasa actual. La tasa condicional de EE. UU. para mayores de 18 años paga aproximadamente un 42 % más que la tasa estándar sobre la parte del saldo que reúne los requisitos."
       },
       "changes": {
-        "p1": "Roblox cambió la tasa estándar de 0,0035 a 0,0038 el {date}. Desde fuera de Roblox no hay forma de saber si cambiará de nuevo ni cuándo, así que esta página no hace pronósticos. Lo que sí registra es la fecha en que cada cifra de aquí se comprobó por última vez con la documentación oficial, mostrada en la parte superior de la página y en",
+        "p1": "Roblox cambió la tasa estándar de {rateLegacy} a {rateStandard} el {date}. Desde fuera de Roblox no hay forma de saber si cambiará de nuevo ni cuándo, así que esta página no hace pronósticos. Lo que sí registra es la fecha en que cada cifra de aquí se comprobó por última vez con la documentación oficial, mostrada en la parte superior de la página y en",
         "p2": "Consulta el historial fechado de cambios de tasa",
         "p3": "Consulta cuándo actualizó este sitio sus datos por última vez"
       }
     },
     "prose": {
-      "noForecast": "Roblox cambió la tasa estándar de 0,0035 a 0,0038 el {date}. Desde fuera de Roblox no hay forma de saber si volverá a cambiar ni cuándo, así que esta página no hace ningún pronóstico. Lo que sí registra es la fecha en que cada cifra de aquí se comprobó por última vez con la documentación oficial, mostrada en la parte superior de la página y en el {sourceRegistry}."
+      "noForecast": "Roblox cambió la tasa estándar de {rateLegacy} a {rateStandard} el {date}. Desde fuera de Roblox no hay forma de saber si volverá a cambiar ni cuándo, así que esta página no hace ningún pronóstico. Lo que sí registra es la fecha en que cada cifra de aquí se comprobó por última vez con la documentación oficial, mostrada en la parte superior de la página y en el {sourceRegistry}."
     }
   },
   "rateHistory": {
@@ -53,7 +53,7 @@
     "worthHeading": "Cuánto valió el cambio",
     "worthDescription": "Los mismos saldos valorados antes y después de la subida de septiembre de 2025.",
     "comparisonLabel": "Pago antes y después del cambio de tasa de septiembre de 2025",
-    "comparisonCaption": "Comparación de pagos con la tasa antigua de 0,0035 y la actual de 0,0038",
+    "comparisonCaption": "Comparación de pagos con la tasa antigua de {rateLegacy} y la actual de {rateStandard}",
     "legacyHeading": "Cómo se tratan los saldos antiguos",
     "legacyDescription": "Un saldo puede abarcar ambas tasas, y tú no eliges el reparto.",
     "noForecastHeading": "Por qué aquí no hay previsiones",
@@ -63,12 +63,12 @@
     "publicChangelogLink": "changelog público",
     "body": {
       "timeline": {
-        "p1": "Tasa estándar subida a 0,0038 USD por Earned Robux",
+        "p1": "Tasa estándar subida a {rateStandard} USD por Earned Robux",
         "p2": "Roblox lo expresa como 114 USD por 30.000 Earned Robux, frente a 105. Los saldos ganados antes de ese momento se siguen convirtiendo a la tasa anterior y se cobran primero.",
-        "p3": "Tasa estándar de 0,0035 USD por Earned Robux",
+        "p3": "Tasa estándar de {rateLegacy} USD por Earned Robux",
         "p4": "105 USD por 30.000 Earned Robux. Sigue aplicándose a la parte de cualquier saldo ganada antes de la transición.",
         "p5": "Fecha de entrada en vigor no publicada",
-        "p6": "Tasa superior de 0,0054 para gasto cualificado de EE. UU. 18+",
+        "p6": "Tasa superior de {rateUs18} para gasto cualificado de EE. UU. 18+",
         "p7": "Roblox documenta esta tasa para ciertos Earned Robux procedentes de compras de jugadores de Estados Unidos que han verificado tener al menos 18 años. La documentación que comprobó este sitio no indica fecha de entrada en vigor, así que aquí no se registra ninguna en lugar de inferir una."
       },
       "comparison": {
@@ -83,7 +83,7 @@
       }
     },
     "prose": {
-      "legacySplit": "Roblox convierte primero la parte del saldo anterior a la transición a 0,0035 y luego el resto a 0,0038. El reparto es la contabilidad del propio Roblox sobre cuándo se ganó cada Robux: no es algo que el creador elija ni pueda ajustar.",
+      "legacySplit": "Roblox convierte primero la parte del saldo anterior a la transición a {rateLegacy} y luego el resto a {rateStandard}. El reparto es la contabilidad del propio Roblox sobre cuándo se ganó cada Robux: no es algo que el creador elija ni pueda ajustar.",
       "whenItChanges": "Roblox ya ha cambiado la tasa antes y puede volver a cambiarla. Nadie fuera de Roblox sabe si lo hará ni cuándo, y una predicción disfrazada de análisis sería una conjetura con tono seguro. Esta página registra solo los cambios que confirma la documentación oficial, cada uno con su fecha de entrada en vigor. Cuando se produce un cambio, aparece aquí y en el {changelog}, junto con la fecha en que se verificó."
     },
     "comparisonAtRate": "A {rate}",
@@ -326,7 +326,7 @@
       "directionPayout": "Roblox te paga",
       "directionPurchase": "Tú pagas a Roblox",
       "rateRow": "Tasa",
-      "ratePayout": "Documentada y fija en 0,0038 USD por Earned Robux elegible",
+      "ratePayout": "Documentada y fija en {rateStandard} USD por Earned Robux elegible",
       "ratePurchase": "Varía según paquete, región, plataforma y promoción",
       "whichRobuxRow": "Qué Robux",
       "whichRobuxPayout": "Solo Earned Robux elegibles",
@@ -396,7 +396,7 @@
     "ogImageAlt": "Redondeado hacia arriba, porque un Robux parcial no se puede ganar ni cambiar",
     "body": {
       "rounding": {
-        "p1": "Un objetivo de 1.000 dólares dividido por 0,0038 da 263.157,89. Los Robux vienen en unidades enteras, así que 263.157 pagarían {rate}, justo por debajo del objetivo. Redondear al alza hasta 263.158 paga {rate2}, que sí lo alcanza. Por eso cada cifra de esta página se redondea al alza y no al entero más cercano."
+        "p1": "Un objetivo de {targetUsd} dólares dividido por {rateStandard} da {targetRobuxExact}. Los Robux vienen en unidades enteras, así que {targetRobuxDown} pagarían {rate}, justo por debajo del objetivo. Redondear al alza hasta {targetRobuxUp} paga {rate2}, que sí lo alcanza. Por eso cada cifra de esta página se redondea al alza y no al entero más cercano."
       },
       "minimum": {
         "p1": "Roblox exige {minimumEarnedRobux} Earned Robux antes de que se pueda enviar siquiera una solicitud de DevEx. Si tu objetivo necesita menos que eso, el mínimo es lo que realmente tienes que alcanzar, y pagaría {rate} en lugar de tu objetivo original."
@@ -465,7 +465,8 @@
     "prose": {
       "priceFloors": "Los precios mínimos varían según la categoría del artículo y Roblox los ha ajustado con el tiempo, así que fijar un único mínimo universal daría respuestas erróneas para la mayoría de los artículos. Introducir el múltiplo mantiene el resultado correcto sea cual sea el mínimo de tu categoría."
     },
-    "columnRoblox": "Roblox"
+    "columnRoblox": "Roblox",
+    "tierMultipleAndAbove": "{multiple}× o más"
   },
   "conversions": {
     "intro": "Una tabla renderizada en el servidor con cantidades habituales a las tres tasas documentadas, más un campo para cualquier cantidad no listada.",

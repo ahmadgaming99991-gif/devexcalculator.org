@@ -12,10 +12,10 @@
   ],
   "home": {
     "title": "DevEx Hesaplayıcı: Earned Robux'u USD'ye çevirin",
-    "metaDescription": "Uygun Earned Robux'unuzun güncel 0,0038 DevEx kurunda USD karşılığı; eski kur ve ABD 18+ karşılaştırmalarıyla ve her rakam için bir kaynakla.",
+    "metaDescription": "Uygun Earned Robux'unuzun güncel {rateStandard} DevEx kurunda USD karşılığı; eski kur ve ABD 18+ karşılaştırmalarıyla ve her rakam için bir kaynakla.",
     "h1": "DevEx Hesaplayıcı: Earned Robux'u USD'ye çevirin",
     "navLabel": "Hesaplayıcı",
-    "quickAnswer": "Uygun Earned Robux başına 0,0038 USD olan güncel DevEx kurunda 30.000 Earned Robux yaklaşık 114 ABD dolarına, 100.000 ise yaklaşık 380'e denk gelir. Yalnızca Earned Robux uygundur, 30.000 Roblox'un kabul ettiği alt sınırdır ve buradaki her rakam bir tahmindir — hangi Robux'un uygun olduğuna ve bir talebin onaylanıp onaylanmayacağına yalnızca Roblox karar verir.",
+    "quickAnswer": "Uygun Earned Robux başına {rateStandard} USD olan güncel DevEx kurunda {minimumRobux} Earned Robux yaklaşık {payout30000Plain} ABD dolarına, {robux100000} ise yaklaşık {payout100000Plain}'e denk gelir. Yalnızca Earned Robux uygundur, {minimumRobux} Roblox'un kabul ettiği alt sınırdır ve buradaki her rakam bir tahmindir — hangi Robux'un uygun olduğuna ve bir talebin onaylanıp onaylanmayacağına yalnızca Roblox karar verir.",
     "ogImageAlt": "DevEx Hesaplayıcı: uygun Earned Robux'u ABD doları cinsinden tahmini bir ödemeye çevirin.",
     "sections": {
       "calculator": "DevEx hesaplayıcı",
@@ -30,11 +30,11 @@
     "faqs": {
       "q01": {
         "question": "Roblox'un güncel DevEx kuru nedir?",
-        "answer": "Roblox, uygun Earned Robux başına 0,0038 USD'lik standart bir kur belgeliyor ve bunu 30.000 Earned Robux için 114 USD olarak ifade ediyor. Bu kur 5 Eylül 2025'te saat 10.00 PT'de yürürlüğe girdi."
+        "answer": "Roblox, uygun Earned Robux başına {rateStandard} USD'lik standart bir kur belgeliyor ve bunu {minimumRobux} Earned Robux için {payout30000Plain} USD olarak ifade ediyor. Bu kur 5 Eylül 2025'te saat 10.00 PT'de yürürlüğe girdi."
       },
       "q02": {
         "question": "100.000 Earned Robux DevEx'te ne kadar eder?",
-        "answer": "100.000 uygun Earned Robux, standart kurda yaklaşık 380 ABD dolarıdır; ödeme sağlayıcı ücretleri ve vergiler düşülmeden önce. Aynı tutar eski 0,0035 kurunda 350 ABD doları olurdu."
+        "answer": "{robux100000} uygun Earned Robux, standart kurda yaklaşık {payout100000Plain} ABD dolarıdır; ödeme sağlayıcı ücretleri ve vergiler düşülmeden önce. Aynı tutar eski {rateLegacy} kurunda {payoutLegacy100000Plain} ABD doları olurdu."
       },
       "q03": {
         "question": "DevEx için asgari Earned Robux nedir?",
@@ -190,7 +190,7 @@
     "metaDescription": "Yaygın Earned Robux tutarları güncel, eski ve ABD 18+ kurlarında değerlendirildi; ayrıca istediğiniz tutar için bir giriş alanı.",
     "h1": "Robux'tan USD'ye dönüşümler",
     "navLabel": "Dönüşümler",
-    "quickAnswer": "Aşağıdaki her tutar, uygun Earned Robux başına 0,0038 USD olan güncel DevEx kurunda çevrilir; karşılaştırma için eski ve koşullu kurlar da yanında gösterilir. 30.000'in altındaki tutarlar başvuru için verilmiştir ama nakde çevrilemez; çünkü belgelenmiş alt sınır budur.",
+    "quickAnswer": "Aşağıdaki her tutar, uygun Earned Robux başına {rateStandard} USD olan güncel DevEx kurunda çevrilir; karşılaştırma için eski ve koşullu kurlar da yanında gösterilir. 30.000'in altındaki tutarlar başvuru için verilmiştir ama nakde çevrilemez; çünkü belgelenmiş alt sınır budur.",
     "ogImageAlt": "Yaygın Robux tutarlarının ABD dolarına dönüşüm tablosu.",
     "sections": {
       "converter": "Herhangi bir tutarı çevirin",
@@ -210,7 +210,7 @@
     "metaDescription": "100.000 uygun Earned Robux, güncel DevEx kurunda yaklaşık 380,00 $ eder. Eski kur ve ABD 18+ kuruyla karşılaştırmalı.",
     "h1": "100.000 Robux'tan USD'ye",
     "navLabel": "100.000 Robux",
-    "quickAnswer": "100.000 uygun Earned Robux, Robux başına 0,0038 USD olan güncel DevEx kurunda 380,00 $ eder. Eski 0,0035 kurunda aynı tutar 350,00 $ öderdi; aradaki fark 30,00 $. 100.000, bu aralıkta en çok aranan yuvarlak rakamdır ve güncel kurla eski kur arasındaki farkın fark edilecek kadar büyüdüğü noktadır: aralarında otuz dolar var.",
+    "quickAnswer": "{robux100000} uygun Earned Robux, Robux başına {rateStandard} USD olan güncel DevEx kurunda {payout100000} eder. Eski {rateLegacy} kurunda aynı tutar {payoutLegacy100000} öderdi; aradaki fark {payoutDifference100000}. {robux100000}, bu aralıkta en çok aranan yuvarlak rakamdır ve güncel kurla eski kur arasındaki farkın fark edilecek kadar büyüdüğü noktadır: aralarında otuz dolar var.",
     "ogImageAlt": "100.000 Robux'un tahmini bir DevEx ödemesine, ABD doları cinsinden çevrimi.",
     "sections": {
       "value": "100.000 Robux ne değer taşır",
@@ -242,7 +242,7 @@
     "metaDescription": "1.000.000 uygun Earned Robux, güncel DevEx kurunda yaklaşık 3.800,00 $ eder. Eski kur ve ABD 18+ kuruyla karşılaştırmalı.",
     "h1": "1.000.000 Robux'tan USD'ye",
     "navLabel": "1.000.000 Robux",
-    "quickAnswer": "1.000.000 uygun Earned Robux, Robux başına 0,0038 USD olan güncel DevEx kurunda 3.800,00 $ eder. Eski 0,0035 kurunda aynı tutar 3.500,00 $ öderdi; aradaki fark 300,00 $. Bir milyon Robux, içerik üreticilerinin gerçekten arattığı öne çıkan eşiktir ve satın alma fiyatıyla DevEx ödemesinin neden aynı rakam olmadığının en açık örneğidir.",
+    "quickAnswer": "{robux1000000} uygun Earned Robux, Robux başına {rateStandard} USD olan güncel DevEx kurunda {payout1000000} eder. Eski {rateLegacy} kurunda aynı tutar {payoutLegacy1000000} öderdi; aradaki fark {payoutDifference1000000}. Bir milyon Robux, içerik üreticilerinin gerçekten arattığı öne çıkan eşiktir ve satın alma fiyatıyla DevEx ödemesinin neden aynı rakam olmadığının en açık örneğidir.",
     "ogImageAlt": "1.000.000 Robux'un tahmini bir DevEx ödemesine, ABD doları cinsinden çevrimi.",
     "sections": {
       "value": "1.000.000 Robux ne değer taşır",
@@ -274,7 +274,7 @@
     "metaDescription": "10.000.000 uygun Earned Robux, güncel DevEx kurunda yaklaşık 38.000,00 $ eder. Eski kur ve ABD 18+ kuruyla karşılaştırmalı.",
     "h1": "10.000.000 Robux'tan USD'ye",
     "navLabel": "10.000.000 Robux",
-    "quickAnswer": "10.000.000 uygun Earned Robux, Robux başına 0,0038 USD olan güncel DevEx kurunda 38.000,00 $ eder. Eski 0,0035 kurunda aynı tutar 35.000,00 $ öderdi; aradaki fark 3.000,00 $. On milyon Earned Robux, büyük bir experience'tan gelen sürekli kazancı temsil eder. Bu ölçekte standart ve eski bakiyeler arasındaki bölünme ile ABD 18+ kapsamına giren herhangi bir pay, toplamı binlerce dolar değiştirir.",
+    "quickAnswer": "{robux10000000} uygun Earned Robux, Robux başına {rateStandard} USD olan güncel DevEx kurunda {payout10000000} eder. Eski {rateLegacy} kurunda aynı tutar {payoutLegacy10000000} öderdi; aradaki fark {payoutDifference10000000}. On milyon Earned Robux, büyük bir experience'tan gelen sürekli kazancı temsil eder. Bu ölçekte standart ve eski bakiyeler arasındaki bölünme ile ABD 18+ kapsamına giren herhangi bir pay, toplamı binlerce dolar değiştirir.",
     "ogImageAlt": "10.000.000 Robux'un tahmini bir DevEx ödemesine, ABD doları cinsinden çevrimi.",
     "sections": {
       "value": "10.000.000 Robux ne değer taşır",
@@ -306,7 +306,7 @@
     "metaDescription": "200.000 uygun Earned Robux, güncel DevEx kurunda yaklaşık 760,00 $ eder. Eski kur ve ABD 18+ kuruyla karşılaştırmalı.",
     "h1": "200.000 Robux'tan USD'ye",
     "navLabel": "200.000 Robux",
-    "quickAnswer": "200.000 uygun Earned Robux, Robux başına 0,0038 USD olan güncel DevEx kurunda 760,00 $ eder. Eski 0,0035 kurunda aynı tutar 700,00 $ öderdi; aradaki fark 60,00 $. 200.000 Earned Robux'ta bir içerik üreticisi genellikle tek seferlik değil düzenli olarak nakde çevirir; bu da kur grupları arasındaki farkı tahmin etmek yerine izlemeye değer kılar.",
+    "quickAnswer": "{robux200000} uygun Earned Robux, Robux başına {rateStandard} USD olan güncel DevEx kurunda {payout200000} eder. Eski {rateLegacy} kurunda aynı tutar {payoutLegacy200000} öderdi; aradaki fark {payoutDifference200000}. {robux200000} Earned Robux'ta bir içerik üreticisi genellikle tek seferlik değil düzenli olarak nakde çevirir; bu da kur grupları arasındaki farkı tahmin etmek yerine izlemeye değer kılar.",
     "ogImageAlt": "200.000 Robux'un tahmini bir DevEx ödemesine, ABD doları cinsinden çevrimi.",
     "sections": {
       "value": "200.000 Robux ne değer taşır",
@@ -338,7 +338,7 @@
     "metaDescription": "30.000 uygun Earned Robux, güncel DevEx kurunda yaklaşık 114,00 $ eder. Eski kur ve ABD 18+ kuruyla karşılaştırmalı.",
     "h1": "30.000 Robux'tan USD'ye",
     "navLabel": "30.000 Robux",
-    "quickAnswer": "30.000 uygun Earned Robux, Robux başına 0,0038 USD olan güncel DevEx kurunda 114,00 $ eder. Eski 0,0035 kurunda aynı tutar 105,00 $ öderdi; aradaki fark 9,00 $. 30.000, en çok önem taşıyan tutardır; çünkü bir DevEx talebinin gönderilebilmesi için Roblox'un istediği asgari Earned Robux bakiyesi budur. Bu rakamın altında soru, ödemenin ne kadar olacağı değil, talebin yapılıp yapılamayacağıdır.",
+    "quickAnswer": "{robux30000} uygun Earned Robux, Robux başına {rateStandard} USD olan güncel DevEx kurunda {payout30000} eder. Eski {rateLegacy} kurunda aynı tutar {payoutLegacy30000} öderdi; aradaki fark {payoutDifference30000}. {robux30000}, en çok önem taşıyan tutardır; çünkü bir DevEx talebinin gönderilebilmesi için Roblox'un istediği asgari Earned Robux bakiyesi budur. Bu rakamın altında soru, ödemenin ne kadar olacağı değil, talebin yapılıp yapılamayacağıdır.",
     "ogImageAlt": "30.000 Robux'un tahmini bir DevEx ödemesine, ABD doları cinsinden çevrimi.",
     "sections": {
       "value": "30.000 Robux ne değer taşır",
@@ -370,7 +370,7 @@
     "metaDescription": "300.000 uygun Earned Robux, güncel DevEx kurunda yaklaşık 1.140,00 $ eder. Eski kur ve ABD 18+ kuruyla karşılaştırmalı.",
     "h1": "300.000 Robux'tan USD'ye",
     "navLabel": "300.000 Robux",
-    "quickAnswer": "300.000 uygun Earned Robux, Robux başına 0,0038 USD olan güncel DevEx kurunda 1.140,00 $ eder. Eski 0,0035 kurunda aynı tutar 1.050,00 $ öderdi; aradaki fark 90,00 $. 300.000 Earned Robux, DevEx alt sınırının on katıdır. Bir yıllık kazancın kaç nakde çevirme döngüsüne denk geldiğini hesaplayan bir içerik üreticisi için yararlı bir referans noktasıdır.",
+    "quickAnswer": "{robux300000} uygun Earned Robux, Robux başına {rateStandard} USD olan güncel DevEx kurunda {payout300000} eder. Eski {rateLegacy} kurunda aynı tutar {payoutLegacy300000} öderdi; aradaki fark {payoutDifference300000}. {robux300000} Earned Robux, DevEx alt sınırının on katıdır. Bir yıllık kazancın kaç nakde çevirme döngüsüne denk geldiğini hesaplayan bir içerik üreticisi için yararlı bir referans noktasıdır.",
     "ogImageAlt": "300.000 Robux'un tahmini bir DevEx ödemesine, ABD doları cinsinden çevrimi.",
     "sections": {
       "value": "300.000 Robux ne değer taşır",
@@ -402,7 +402,7 @@
     "metaDescription": "50.000 uygun Earned Robux, güncel DevEx kurunda yaklaşık 190,00 $ eder. Eski kur ve ABD 18+ kuruyla karşılaştırmalı.",
     "h1": "50.000 Robux'tan USD'ye",
     "navLabel": "50.000 Robux",
-    "quickAnswer": "50.000 uygun Earned Robux, Robux başına 0,0038 USD olan güncel DevEx kurunda 190,00 $ eder. Eski 0,0035 kurunda aynı tutar 175,00 $ öderdi; aradaki fark 15,00 $. 50.000 Earned Robux alt sınırı rahatça aşar; bu yüzden experience'ı yeni yeni düzenli kazanmaya başlamış bir içerik üreticisi için yaygın bir ilk nakde çevirme tutarıdır.",
+    "quickAnswer": "{robux50000} uygun Earned Robux, Robux başına {rateStandard} USD olan güncel DevEx kurunda {payout50000} eder. Eski {rateLegacy} kurunda aynı tutar {payoutLegacy50000} öderdi; aradaki fark {payoutDifference50000}. {robux50000} Earned Robux alt sınırı rahatça aşar; bu yüzden experience'ı yeni yeni düzenli kazanmaya başlamış bir içerik üreticisi için yaygın bir ilk nakde çevirme tutarıdır.",
     "ogImageAlt": "50.000 Robux'un tahmini bir DevEx ödemesine, ABD doları cinsinden çevrimi.",
     "sections": {
       "value": "50.000 Robux ne değer taşır",
@@ -434,7 +434,7 @@
     "metaDescription": "500.000 uygun Earned Robux, güncel DevEx kurunda yaklaşık 1.900,00 $ eder. Eski kur ve ABD 18+ kuruyla karşılaştırmalı.",
     "h1": "500.000 Robux'tan USD'ye",
     "navLabel": "500.000 Robux",
-    "quickAnswer": "500.000 uygun Earned Robux, Robux başına 0,0038 USD olan güncel DevEx kurunda 1.900,00 $ eder. Eski 0,0035 kurunda aynı tutar 1.750,00 $ öderdi; aradaki fark 150,00 $. Yarım milyon Earned Robux, ödeme sağlayıcı ücretlerinin ve kişisel vergi yükümlülüklerinin artık yuvarlama hatası olmaktan çıktığı ölçektir; bu sayfanın doğrudan ücretler ve vergiler rehberine bağlanmasının nedeni de budur.",
+    "quickAnswer": "{robux500000} uygun Earned Robux, Robux başına {rateStandard} USD olan güncel DevEx kurunda {payout500000} eder. Eski {rateLegacy} kurunda aynı tutar {payoutLegacy500000} öderdi; aradaki fark {payoutDifference500000}. Yarım milyon Earned Robux, ödeme sağlayıcı ücretlerinin ve kişisel vergi yükümlülüklerinin artık yuvarlama hatası olmaktan çıktığı ölçektir; bu sayfanın doğrudan ücretler ve vergiler rehberine bağlanmasının nedeni de budur.",
     "ogImageAlt": "500.000 Robux'un tahmini bir DevEx ödemesine, ABD doları cinsinden çevrimi.",
     "sections": {
       "value": "500.000 Robux ne değer taşır",
@@ -518,12 +518,12 @@
     }
   },
   "devexRateHistory": {
-    "title": "DevEx kur geçmişi: 2025'te 0,0035'ten yapılan değişiklik",
-    "metaDescription": "Doğrulanmış DevEx kurlarının tarihli kaydı; Eylül 2025'te 0,0035'ten 0,0038'e çıkış ve eski bakiyelerin nasıl ele alındığı dâhil.",
+    "title": "DevEx kur geçmişi: 2025'te {rateLegacy}'ten yapılan değişiklik",
+    "metaDescription": "Doğrulanmış DevEx kurlarının tarihli kaydı; Eylül 2025'te {rateLegacy}'ten {rateStandard}'e çıkış ve eski bakiyelerin nasıl ele alındığı dâhil.",
     "h1": "DevEx kur geçmişi",
     "navLabel": "Kur geçmişi",
-    "quickAnswer": "Belgelenmiş değişiklik, Earned Robux başına 0,0035'ten 0,0038 USD'ye geçiştir; 5 Eylül 2025 saat 10.00 PT'de yürürlüğe girdi. 30.000 Earned Robux için bu, ödemeyi 105 dolardan 114 dolara taşıdı. Değişiklikten önce kazanılan bakiyeler önce eski kurla nakde çevrilir; dolayısıyla tek bir bakiye ikisini birden kapsayabilir.",
-    "ogImageAlt": "DevEx kur geçmişi: Eylül 2025'te 0,0035'ten 0,0038'e değişiklik.",
+    "quickAnswer": "Belgelenmiş değişiklik, Earned Robux başına {rateLegacy}'ten {rateStandard} USD'ye geçiştir; 5 Eylül 2025 saat 10.00 PT'de yürürlüğe girdi. {minimumRobux} Earned Robux için bu, ödemeyi {payoutLegacy30000Plain} dolardan {payout30000Plain} dolara taşıdı. Değişiklikten önce kazanılan bakiyeler önce eski kurla nakde çevrilir; dolayısıyla tek bir bakiye ikisini birden kapsayabilir.",
+    "ogImageAlt": "DevEx kur geçmişi: Eylül 2025'te {rateLegacy}'ten {rateStandard}'e değişiklik.",
     "sections": {
       "timeline": "Doğrulanmış zaman çizelgesi",
       "comparison": "Değişiklik ne değer taşıyordu",
@@ -534,11 +534,11 @@
     "faqs": {
       "q01": {
         "question": "Eylül 2025'ten önce DevEx kuru neydi?",
-        "answer": "Earned Robux başına 0,0035 USD; Roblox bunu 30.000 Earned Robux için 105 dolar olarak belirtiyordu."
+        "answer": "Earned Robux başına {rateLegacy} USD; Roblox bunu {minimumRobux} Earned Robux için {payoutLegacy30000Plain} dolar olarak belirtiyordu."
       },
       "q02": {
         "question": "Eski bakiyem eski kurdan mı çevriliyor?",
-        "answer": "5 Eylül 2025 saat 10.00 PT'den önce kazanılan Robux, Roblox'un geçiş kurallarına göre önce 0,0035'ten nakde çevrilir. Bölünme Roblox'un muhasebesidir, içerik üreticisinin seçtiği bir şey değil."
+        "answer": "5 Eylül 2025 saat 10.00 PT'den önce kazanılan Robux, Roblox'un geçiş kurallarına göre önce {rateLegacy}'ten nakde çevrilir. Bölünme Roblox'un muhasebesidir, içerik üreticisinin seçtiği bir şey değil."
       },
       "q03": {
         "question": "Kur yine yükselecek mi?",
@@ -556,7 +556,7 @@
     "metaDescription": "Roblox'un belgelediği üç DevEx kuru, her birinin 1.000 ve 30.000 Robux için ne ödediği ve hangisinin ne zaman geçerli olduğu.",
     "h1": "Roblox DevEx kurları",
     "navLabel": "Kurlar",
-    "quickAnswer": "Roblox üç DevEx kuru belgeliyor. Standart kur, uygun Earned Robux başına 0,0038 USD, yani 30.000 için 114 dolardır. 5 Eylül 2025 saat 10.00 PT'den önce kazanılan bakiyeler eski 0,0035 kurundan çevrilir. 18 yaş ve üzeri olduğu doğrulanmış Amerika Birleşik Devletleri oyuncularından gelen belirli Earned Robux 0,0054'ten çevrilir. Hangisinin geçerli olacağına içerik üreticisi değil, Roblox karar verir.",
+    "quickAnswer": "Roblox üç DevEx kuru belgeliyor. Standart kur, uygun Earned Robux başına {rateStandard} USD, yani {minimumRobux} için {payout30000Plain} dolardır. 5 Eylül 2025 saat 10.00 PT'den önce kazanılan bakiyeler eski {rateLegacy} kurundan çevrilir. 18 yaş ve üzeri olduğu doğrulanmış Amerika Birleşik Devletleri oyuncularından gelen belirli Earned Robux {rateUs18}'ten çevrilir. Hangisinin geçerli olacağına içerik üreticisi değil, Roblox karar verir.",
     "ogImageAlt": "Roblox DevEx kurları: standart, eski ve koşullu ABD 18+ karşılaştırmalı.",
     "sections": {
       "current-rates": "Belgelenmiş üç kur",
@@ -572,11 +572,11 @@
         "answer": "Standart kurda 1.000 uygun Earned Robux için 3,80 ABD doları. Eski kur 3,50 ödüyordu ve koşullu ABD 18+ kuru 5,40 ödüyor."
       },
       "q02": {
-        "question": "DevEx kuru 0,0038'e ne zaman değişti?",
-        "answer": "5 Eylül 2025'te saat 10.00 PT'de. O andan önce kazanılan bakiyeler, Roblox'un kendi muhasebesine göre önce önceki 0,0035 kurundan nakde çevrilir."
+        "question": "DevEx kuru {rateStandard}'e ne zaman değişti?",
+        "answer": "5 Eylül 2025'te saat 10.00 PT'de. O andan önce kazanılan bakiyeler, Roblox'un kendi muhasebesine göre önce önceki {rateLegacy} kurundan nakde çevrilir."
       },
       "q03": {
-        "question": "0,0054 kuruna kimler girer?",
+        "question": "{rateUs18} kuruna kimler girer?",
         "answer": "Roblox bunu, en az 18 yaşında olduğunu doğrulamış Amerika Birleşik Devletleri oyuncularının developer product, pass, abonelik ve özel sunucu satın almalarından gelen belirli Earned Robux'a uygular. İçerik üreticisinin seçebileceği bir kur değildir."
       },
       "q04": {
@@ -615,7 +615,7 @@
       },
       "q02": {
         "question": "DevEx için kaç yaşında olmak gerekir?",
-        "answer": "Roblox katılım için asgari 13 yaş belgeliyor. Bundan ayrı olarak, daha yüksek 0,0054 kuru içerik üreticisinin yaşına değil, Robux'u harcayan oyuncuların yaş doğrulamasına bağlıdır."
+        "answer": "Roblox katılım için asgari 13 yaş belgeliyor. Bundan ayrı olarak, daha yüksek {rateUs18} kuru içerik üreticisinin yaşına değil, Robux'u harcayan oyuncuların yaş doğrulamasına bağlıdır."
       },
       "q03": {
         "question": "Vergi formu göndermem gerekiyor mu?",
@@ -975,7 +975,7 @@
     "metaDescription": "Bunun iki yanıtı var. DevEx'in bir içerik üreticisine ne ödediğiyle Robux satın almanın ne tuttuğunu karşılaştırın ve herhangi bir tutarı açıkça belirtilen kurla çevirin.",
     "h1": "Robux'tan USD'ye",
     "navLabel": "Robux'tan USD'ye",
-    "quickAnswer": "\"Robux'tan USD'ye\" sorusunun, kimin sorduğuna göre iki dürüst yanıtı vardır. Uygun Earned Robux'u nakde çeviren bir içerik üreticisi DevEx yoluyla Robux başına 0,0038 USD alır; yani 100.000 Robux yaklaşık 380 dolardır. Robux satın alan bir oyuncu ise Roblox'un belirlediği perakende fiyatı öder ve bu tamamen başka bir işlemdir. Bu sayfa ikisini ayrı tutar.",
+    "quickAnswer": "\"Robux'tan USD'ye\" sorusunun, kimin sorduğuna göre iki dürüst yanıtı vardır. Uygun Earned Robux'u nakde çeviren bir içerik üreticisi DevEx yoluyla Robux başına {rateStandard} USD alır; yani {robux100000} Robux yaklaşık {payout100000Plain} dolardır. Robux satın alan bir oyuncu ise Roblox'un belirlediği perakende fiyatı öder ve bu tamamen başka bir işlemdir. Bu sayfa ikisini ayrı tutar.",
     "ogImageAlt": "Robux'tan USD'ye: içerik üreticisine DevEx ödemesiyle perakende satın alma fiyatının karşılaştırması.",
     "sections": {
       "converter": "Robux'u USD'ye çevir",
@@ -1071,7 +1071,7 @@
     "faqs": {
       "q01": {
         "question": "1.000 USD için kaç Earned Robux gerekir?",
-        "answer": "Güncel 0,0038 kurunda 263.158 uygun Earned Robux. 1.000'i 0,0038'e bölmek 263.157,89 verir ve ödemenin hedefe gerçekten ulaşması için sonuç yukarı yuvarlanır."
+        "answer": "Güncel {rateStandard} kurunda {targetRobuxUp} uygun Earned Robux. {targetUsd}'i {rateStandard}'e bölmek {targetRobuxExact} verir ve ödemenin hedefe gerçekten ulaşması için sonuç yukarı yuvarlanır."
       },
       "q02": {
         "question": "100 USD için kaç Earned Robux gerekir?",
@@ -1083,7 +1083,7 @@
       },
       "q04": {
         "question": "Bakiyemin bir kısmı eskiyse yanıt değişir mi?",
-        "answer": "Evet. Eski bakiyeler 0,0035'ten çevrilir; dolayısıyla aynı dolar hedefine ulaşmak daha fazla Robux gerektirir. Karışık bir bakiyeyi modellemek için hesaplayıcının bölünmüş kipini kullanın."
+        "answer": "Evet. Eski bakiyeler {rateLegacy}'ten çevrilir; dolayısıyla aynı dolar hedefine ulaşmak daha fazla Robux gerektirir. Karışık bir bakiyeyi modellemek için hesaplayıcının bölünmüş kipini kullanın."
       }
     },
     "links": {

@@ -1,6 +1,6 @@
 import { getTranslator, type Translate } from "@/i18n/get-dictionary";
 import { localizedPath } from "@/i18n/locale-path";
-import { localizedRoute } from "@/i18n/localized-route";
+import { localizedRoute, routeLabels } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
 import Link from "next/link";
 import { getRoute } from "@/lib/content/route-registry";
@@ -45,6 +45,7 @@ const TOOLS = (t: Translate): readonly { route: string; answers: string; useWhen
 export async function CalculatorsView({ locale }: { readonly locale: Locale }) {
   const t = await getTranslator(locale, ["guides", "routes"]);
   const record = await localizedRoute(locale, ROUTE);
+  const navLabel = await routeLabels(locale);
 
   return (
     <>
@@ -113,7 +114,7 @@ export async function CalculatorsView({ locale }: { readonly locale: Locale }) {
             >
               <span>
                 <span className="block text-lg font-semibold text-(--color-text)">
-                  DevEx guides
+                  {navLabel("/guides/")}
                 </span>
                 <span className="mt-1 block text-sm text-(--color-text-muted)">{t("guides.calculators.body.guides.p1")}</span>
               </span>

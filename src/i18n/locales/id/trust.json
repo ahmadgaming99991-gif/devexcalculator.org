@@ -88,7 +88,7 @@
       "marketplaceTerm": "Biaya marketplace",
       "marketplaceDetail": "Membulatkan ke bawah, sehingga angka yang ditampilkan tidak pernah lebih besar daripada yang benar-benar Anda terima.",
       "payoutFormula": "USD kotor = Earned Robux yang memenuhi syarat × tarif per Robux",
-      "mixedFormula": "USD kotor = (standar × 0,0038) + (lama × 0,0035) + (AS 18+ × 0,0054)",
+      "mixedFormula": "USD kotor = (standar × {rateStandard}) + (lama × {rateLegacy}) + (AS 18+ × {rateUs18})",
       "blendedFormula": "tarif gabungan = USD kotor ÷ total Earned Robux",
       "feesFormula": "neto sebelum pajak = kotor − (kotor × biaya%) − biaya tetap",
       "taxFormula": "neto setelah perkiraan = neto sebelum pajak − (neto sebelum pajak × pajak Anda%)",
@@ -129,7 +129,7 @@
       }
     },
     "prose": {
-      "floatingPoint": "Tarif seperti 0,0038 tidak bisa direpresentasikan secara tepat dalam bilangan titik-mengambang biner, yang merupakan cara JavaScript menyimpan bilangan biasa. Kalikan 17.000 dengan 0,0054 di konsol peramban dan Anda mendapat 91,80000000000001, bukan 91,80. Pada jumlah kecil hal itu tersembunyi di balik pembulatan; pada saldo besar, atau pada rangkaian perhitungan biaya dan pajak, penyimpangannya menumpuk."
+      "floatingPoint": "Tarif seperti {rateStandard} tidak bisa direpresentasikan secara tepat dalam bilangan titik-mengambang biner, yang merupakan cara JavaScript menyimpan bilangan biasa. Kalikan 17.000 dengan {rateUs18} di konsol peramban dan Anda mendapat 91,80000000000001, bukan 91,80. Pada jumlah kecil hal itu tersembunyi di balik pembulatan; pada saldo besar, atau pada rangkaian perhitungan biaya dan pajak, penyimpangannya menumpuk."
     }
   },
   "sources": {
@@ -252,7 +252,9 @@
     },
     "prose": {
       "rateHistory": "Perubahan tarif yang dilakukan Roblox juga tercermin di {rateHistory}, yang merupakan catatan terpisah: changelog melacak apa yang dilakukan situs ini, riwayat tarif melacak apa yang dilakukan Roblox.",
-      "notSilent": "Sebuah koreksi tidak diterapkan diam-diam — jika sebuah angka di situs ini keliru, catatan bahwa angka itu keliru tetap terlihat. Bagi situs yang dipakai orang untuk merencanakan keuangan, itu lebih penting daripada riwayat yang rapi."
+      "notSilent": "Sebuah koreksi tidak diterapkan diam-diam — jika sebuah angka di situs ini keliru, catatan bahwa angka itu keliru tetap terlihat. Bagi situs yang dipakai orang untuk merencanakan keuangan, itu lebih penting daripada riwayat yang rapi.",
+      "publiclyIn": "Secara publik, {changelog}.",
+      "changelogWhere": "di changelog"
     }
   },
   "changelog": {
@@ -272,7 +274,7 @@
       "marketplaceRecorded": "Komisi marketplace dicatat",
       "levRemoved": "Lev Bulgaria dihapus dari mata uang yang didukung",
       "siteLaunched": "Situs diluncurkan",
-      "registryEstablishedDetail": "Tarif standar dicatat sebesar 0,0038 USD per Earned Robux yang memenuhi syarat (114 USD per 30.000), tarif lama sebesar 0,0035 untuk saldo yang diperoleh sebelum 5 September 2025 pukul 10:00 PT, dan tarif bersyarat AS 18+ sebesar 0,0054. Batas minimum 30.000 Earned Robux dan daftar kelayakan lengkap diverifikasi pada waktu yang sama. Semuanya diperiksa langsung terhadap dokumentasi DevEx di Roblox Creator Hub.",
+      "registryEstablishedDetail": "Tarif standar dicatat sebesar {rateStandard} USD per Earned Robux yang memenuhi syarat ({payout30000Plain} USD per {minimumRobux}), tarif lama sebesar {rateLegacy} untuk saldo yang diperoleh sebelum 5 September 2025 pukul 10:00 PT, dan tarif bersyarat AS 18+ sebesar {rateUs18}. Batas minimum {minimumRobux} Earned Robux dan daftar kelayakan lengkap diverifikasi pada waktu yang sama. Semuanya diperiksa langsung terhadap dokumentasi DevEx di Roblox Creator Hub.",
       "marketplaceRecordedDetail": "Pembelian di dalam experience dicatat sebagai 70% untuk kreator dan 30% untuk Roblox. Penjualan item avatar di Marketplace dicatat dengan tabel bagi hasil progresif, dari 30% pada harga terendah hingga 70% pada enam kali harga terendah itu. Item avatar yang terjual di dalam sebuah experience dicatat sebagai 30% kreator, 40% pemilik experience, 30% Roblox.",
       "levRemovedDetail": "Bank Sentral Eropa berhenti menerbitkan kurs referensi BGN setelah 31 Desember 2025. Alih-alih terus menampilkan kurs yang beku pada tanggal itu, BGN dihapus dari pemilih mata uang. Mencantumkan mata uang yang tidak lagi dipasok oleh penyedia terkonfigurasi akan menyesatkan soal seberapa mutakhir angka tersebut.",
       "siteLaunchedDetail": "Rilis awal: kalkulator DevEx dengan mode cepat, terpisah, dan target; halaman Robux ke USD serta target pembayaran; kalkulator biaya marketplace; pusat konversi dengan delapan halaman nominal pilihan; dan rangkaian lengkap panduan serta halaman transparansi. Setiap halaman yang bergantung pada tarif memuat kutipan sumber dan tanggal verifikasi sejak peluncuran."
@@ -393,7 +395,7 @@
       }
     },
     "prose": {
-      "ratesVersion": "Responsnya membawa {registryVersion} dan {lastVerifiedAt}. Kedua bidang itulah intinya: sebuah tarif yang berdiri sendiri adalah angka yang mungkin sudah keliru, dan situs ini sudah pernah sekali berganti tarif — perpindahan September 2025 dari 0,0035 ke 0,0038 USD per Robux, dan karena itulah {rateCount} tarif diterbitkan, bukan satu. Baca versinya, dan Anda tahu apakah yang Anda simpan di cache masih sama dengan yang disajikan situs ini.",
+      "ratesVersion": "Responsnya membawa {registryVersion} dan {lastVerifiedAt}. Kedua bidang itulah intinya: sebuah tarif yang berdiri sendiri adalah angka yang mungkin sudah keliru, dan situs ini sudah pernah sekali berganti tarif — perpindahan September 2025 dari {rateLegacy} ke {rateStandard} USD per Robux, dan karena itulah {rateCount} tarif diterbitkan, bukan satu. Baca versinya, dan Anda tahu apakah yang Anda simpan di cache masih sama dengan yang disajikan situs ini.",
       "fxReference": "Ini adalah kurs referensi, bukan kurs transaksi: tidak ada yang menukar uang dengan kurs ini. Kurs ini diterbitkan ECB sekali tiap hari kerja, dan responsnya menyebutkan hari mana yang dilaporkan. Jika penyedianya tidak dapat dihubungi, sebuah cuplikan bawaan dikembalikan dan ditandai {fallback} alih-alih disodorkan sebagai kurs terkini — jadi periksa {metaCache} sebelum menganggap sebuah angka sebagai angka hari ini.",
       "stats": "Angka-angka yang digambarkan di {statisticsPage}, diterbitkan sebagai data supaya sebuah grafik bisa diperiksa alih-alih dipercaya begitu saja. Tambahkan {formatCsv} untuk lembar kerja. Setiap baris menyebutkan dokumen sumbernya dan menautkannya, dan setiap baris menyatakan apakah Roblox melaporkan angka itu atau situs ini yang menurunkannya — pembedaan yang lenyap begitu dua angka duduk di kolom yang sama tanpanya.",
       "platform": "Apa yang digambarkan {platformPage}. Tambahkan {formatCsv} untuk lembar kerja, atau {seriesExperiences} untuk baris per experience alih-alih total. Membacanya tidak membuat permintaan apa pun ke Roblox: pengumpul data melakukannya menurut jadwalnya sendiri, dan ekspor yang memicu pengambilan ke hulu akan memungkinkan siapa pun menaikkan laju permintaan situs ini ke Roblox hanya dengan memuat ulang sebuah URL.",

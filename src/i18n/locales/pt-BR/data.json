@@ -1,16 +1,18 @@
 {
   "$comment": "Tradução das strings espelhadas de src/data/*.json. As chaves são geradas por scripts/i18n/sync-data-dictionary.ts; traduza os valores à mão e nunca altere um número, uma data, uma porcentagem ou um identificador.",
-  "$identical": ["metrics.companyContext.figures.adjusted-ebitda.label"],
+  "$identical": [
+    "metrics.companyContext.figures.adjusted-ebitda.label"
+  ],
   "evidence": {
     "verified-through-official-source": "Verificado na fonte oficial"
   },
   "sources": {
     "roblox-devex-program": {
       "facts": [
-        "Taxa DevEx padrão de 0,0038 USD por Earned Robux elegível (114 USD por 30.000).",
-        "Taxa mais alta de 0,0054 USD por Robux para determinados Earned Robux originados de gastos de jogadores dos EUA verificados como maiores de 18 anos.",
-        "Taxa legada de 0,0035 USD por Robux para saldos acumulados antes de 5 de setembro de 2025 às 10:00 PT.",
-        "Mínimo de 30.000 Earned Robux para participar.",
+        "Taxa DevEx padrão de {rateStandard} USD por Earned Robux elegível ({payout30000Plain} USD por {minimumRobux}).",
+        "Taxa mais alta de {rateUs18} USD por Robux para determinados Earned Robux originados de gastos de jogadores dos EUA verificados como maiores de 18 anos.",
+        "Taxa legada de {rateLegacy} USD por Robux para saldos acumulados antes de 5 de setembro de 2025 às 10:00 PT.",
+        "Mínimo de {minimumRobux} Earned Robux para participar.",
         "Requisitos de elegibilidade: idade mínima de 13 anos, endereço de e-mail verificado pela Roblox, conta válida no portal DevEx, formulário W-9 ou W-8 do IRS registrado e conformidade com os Termos de Uso e os Padrões da Comunidade da Roblox."
       ]
     },
@@ -100,7 +102,7 @@
     "standard-current": {
       "label": "Taxa padrão",
       "shortLabel": "Padrão",
-      "eligibilitySummary": "A taxa DevEx padrão aplicada aos Earned Robux elegíveis. A Roblox documenta isso como 0,0038 USD por Earned Robux, o que dá 114 USD por 30.000 Earned Robux."
+      "eligibilitySummary": "A taxa DevEx padrão aplicada aos Earned Robux elegíveis. A Roblox documenta isso como {rateStandard} USD por Earned Robux, o que dá {payout30000Plain} USD por {minimumRobux} Earned Robux."
     },
     "us-18-plus-qualified": {
       "label": "Taxa para EUA 18+ elegível",
@@ -111,7 +113,7 @@
     "legacy-pre-2025-09-05": {
       "label": "Taxa de saldo legado",
       "shortLabel": "Legado",
-      "eligibilitySummary": "A taxa que valia antes de 5 de setembro de 2025 às 10:00 PT, equivalente a 105 USD por 30.000 Earned Robux. A Roblox paga primeiro, a esta taxa antiga, os saldos acumulados antes daquele momento.",
+      "eligibilitySummary": "A taxa que valia antes de 5 de setembro de 2025 às 10:00 PT, equivalente a {payoutLegacy30000Plain} USD por {minimumRobux} Earned Robux. A Roblox paga primeiro, a esta taxa antiga, os saldos acumulados antes daquele momento.",
       "conditionNote": "Vale apenas para a parte do saldo acumulada antes da transição, segundo a contabilidade da própria Roblox. O criador não pode escolher esta taxa."
     }
   },

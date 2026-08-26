@@ -148,10 +148,12 @@ export function ShareButton({
 }
 
 export function ResetButton({
+  t,
   onReset,
   hasData,
   onAnnounce,
 }: {
+  readonly t: Translate;
   onReset: () => void;
   hasData: boolean;
   onAnnounce: (message: string) => void;
@@ -163,7 +165,7 @@ export function ResetButton({
   if (!hasData) {
     return (
       <Button variant="ghost" onClick={onReset} disabled>
-        Reset
+        {t("calculator.actions.reset")}
       </Button>
     );
   }
@@ -176,13 +178,13 @@ export function ResetButton({
           onClick={() => {
             onReset();
             setConfirming(false);
-            onAnnounce("Calculator reset.");
+            onAnnounce(t("calculator.actions.resetAnnouncement"));
           }}
         >
-          Confirm reset
+          {t("calculator.actions.confirmReset")}
         </Button>
         <Button variant="ghost" onClick={() => setConfirming(false)}>
-          Cancel
+          {t("calculator.actions.cancel")}
         </Button>
       </span>
     );
@@ -190,7 +192,7 @@ export function ResetButton({
 
   return (
     <Button variant="ghost" onClick={() => setConfirming(true)}>
-      Reset
+      {t("calculator.actions.reset")}
     </Button>
   );
 }

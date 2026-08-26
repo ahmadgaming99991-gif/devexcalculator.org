@@ -1,16 +1,18 @@
 {
   "$comment": "Terjemahan string yang dicerminkan dari src/data/*.json. Kuncinya dibuat oleh scripts/i18n/sync-data-dictionary.ts; terjemahkan nilainya secara manual dan jangan pernah mengubah angka, tanggal, persentase, atau pengenal.",
-  "$identical": ["metrics.companyContext.figures.adjusted-ebitda.label"],
+  "$identical": [
+    "metrics.companyContext.figures.adjusted-ebitda.label"
+  ],
   "evidence": {
     "verified-through-official-source": "Diverifikasi melalui sumber resmi"
   },
   "sources": {
     "roblox-devex-program": {
       "facts": [
-        "Tarif DevEx standar sebesar 0,0038 USD per Earned Robux yang memenuhi syarat (114 USD per 30.000).",
-        "Tarif lebih tinggi 0,0054 USD per Robux untuk sebagian Earned Robux yang berasal dari pembelanjaan pemain Amerika Serikat yang terverifikasi berusia 18 tahun ke atas.",
-        "Tarif lama 0,0035 USD per Robux untuk saldo yang diperoleh sebelum 5 September 2025 pukul 10.00 PT.",
-        "Minimal 30.000 Earned Robux untuk ikut serta.",
+        "Tarif DevEx standar sebesar {rateStandard} USD per Earned Robux yang memenuhi syarat ({payout30000Plain} USD per {minimumRobux}).",
+        "Tarif lebih tinggi {rateUs18} USD per Robux untuk sebagian Earned Robux yang berasal dari pembelanjaan pemain Amerika Serikat yang terverifikasi berusia 18 tahun ke atas.",
+        "Tarif lama {rateLegacy} USD per Robux untuk saldo yang diperoleh sebelum 5 September 2025 pukul 10.00 PT.",
+        "Minimal {minimumRobux} Earned Robux untuk ikut serta.",
         "Syarat kelayakan: usia minimal 13 tahun, alamat email yang diverifikasi Roblox, akun portal DevEx yang sah, formulir IRS W-9 atau W-8 yang sudah diserahkan, serta kepatuhan pada Ketentuan Penggunaan dan Standar Komunitas Roblox."
       ]
     },
@@ -100,7 +102,7 @@
     "standard-current": {
       "label": "Tarif standar",
       "shortLabel": "Standar",
-      "eligibilitySummary": "Tarif DevEx standar yang berlaku untuk Earned Robux yang memenuhi syarat. Roblox mendokumentasikannya sebagai 0,0038 USD per Earned Robux, yaitu 114 USD untuk 30.000 Earned Robux."
+      "eligibilitySummary": "Tarif DevEx standar yang berlaku untuk Earned Robux yang memenuhi syarat. Roblox mendokumentasikannya sebagai {rateStandard} USD per Earned Robux, yaitu {payout30000Plain} USD untuk {minimumRobux} Earned Robux."
     },
     "us-18-plus-qualified": {
       "label": "Tarif AS 18+ yang memenuhi syarat",
@@ -111,7 +113,7 @@
     "legacy-pre-2025-09-05": {
       "label": "Tarif saldo lama",
       "shortLabel": "Lama",
-      "eligibilitySummary": "Tarif yang berlaku sebelum 5 September 2025 pukul 10.00 PT, setara 105 USD untuk 30.000 Earned Robux. Roblox mencairkan saldo yang diperoleh sebelum saat itu dengan tarif lama ini terlebih dahulu.",
+      "eligibilitySummary": "Tarif yang berlaku sebelum 5 September 2025 pukul 10.00 PT, setara {payoutLegacy30000Plain} USD untuk {minimumRobux} Earned Robux. Roblox mencairkan saldo yang diperoleh sebelum saat itu dengan tarif lama ini terlebih dahulu.",
       "conditionNote": "Hanya berlaku untuk bagian saldo yang diperoleh sebelum masa transisi, menurut pembukuan Roblox sendiri. Kreator tidak bisa memilih tarif ini."
     }
   },

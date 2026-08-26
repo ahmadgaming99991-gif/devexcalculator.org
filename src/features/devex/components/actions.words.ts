@@ -10,11 +10,15 @@
  * one list holds every sentence one island can say.
  */
 export const ACTION_WORDS: readonly string[] = [
+  "calculator.actions.cancel",
+  "calculator.actions.confirmReset",
   "calculator.actions.copied",
   "calculator.actions.copiedLabel",
   "calculator.actions.copyFailed",
   "calculator.actions.copyFailedLabel",
   "calculator.actions.copyLink",
+  "calculator.actions.reset",
+  "calculator.actions.resetAnnouncement",
   "calculator.actions.share",
   "calculator.actions.shareCopied",
   "calculator.actions.shareCopyFailed",

@@ -29,13 +29,13 @@
         "p1": "Mevcut oran ile eski oran arasındaki fark 100.000 Earned Robux başına {rateValue} — yani mevcut oranda yaklaşık %8,6 daha fazla. ABD 18+ koşullu oranı, bir bakiyenin buna uygun olan kısmında standart orandan kabaca %42 daha fazla öder."
       },
       "changes": {
-        "p1": "Roblox standart oranı {date} tarihinde 0,0035'ten 0,0038'e taşıdı. Roblox'un dışından, oranın yeniden değişip değişmeyeceğini ya da ne zaman değişeceğini bilmenin bir yolu yok; bu nedenle bu sayfa hiçbir öngörüde bulunmuyor. Kaydettiği şey, buradaki her rakamın resmî belgelere karşı en son ne zaman kontrol edildiğidir; bu tarih sayfanın üstünde ve şurada gösterilir:",
+        "p1": "Roblox standart oranı {date} tarihinde {rateLegacy}'ten {rateStandard}'e taşıdı. Roblox'un dışından, oranın yeniden değişip değişmeyeceğini ya da ne zaman değişeceğini bilmenin bir yolu yok; bu nedenle bu sayfa hiçbir öngörüde bulunmuyor. Kaydettiği şey, buradaki her rakamın resmî belgelere karşı en son ne zaman kontrol edildiğidir; bu tarih sayfanın üstünde ve şurada gösterilir:",
         "p2": "Kur değişikliklerinin tarihli geçmişini görün",
         "p3": "Bu sitenin verilerini en son ne zaman güncellediğini görün"
       }
     },
     "prose": {
-      "noForecast": "Roblox standart oranı {date} tarihinde 0,0035'ten 0,0038'e taşıdı. Roblox'un dışından, oranın yeniden değişip değişmeyeceğini ya da ne zaman değişeceğini bilmenin yolu yok; bu yüzden bu sayfa öngörüde bulunmaz. Kaydettiği şey, buradaki her rakamın resmi belgelere karşı en son ne zaman denetlendiğidir; bu, sayfanın üstünde ve {sourceRegistry} içinde gösterilir."
+      "noForecast": "Roblox standart oranı {date} tarihinde {rateLegacy}'ten {rateStandard}'e taşıdı. Roblox'un dışından, oranın yeniden değişip değişmeyeceğini ya da ne zaman değişeceğini bilmenin yolu yok; bu yüzden bu sayfa öngörüde bulunmaz. Kaydettiği şey, buradaki her rakamın resmi belgelere karşı en son ne zaman denetlendiğidir; bu, sayfanın üstünde ve {sourceRegistry} içinde gösterilir."
     }
   },
   "rateHistory": {
@@ -46,7 +46,7 @@
     "worthHeading": "Değişiklik ne değer taşıyordu",
     "worthDescription": "Aynı bakiyeler, Eylül 2025 artışından önce ve sonra değerlendirildi.",
     "comparisonLabel": "Eylül 2025 kur değişikliğinden önce ve sonra ödeme",
-    "comparisonCaption": "Eski 0,0035 kuru ile güncel 0,0038 kurundaki ödemelerin karşılaştırması",
+    "comparisonCaption": "Eski {rateLegacy} kuru ile güncel {rateStandard} kurundaki ödemelerin karşılaştırması",
     "legacyHeading": "Eski bakiyeler nasıl ele alınıyor",
     "legacyDescription": "Bir bakiye iki kuru birden kapsayabilir ve bölünmeyi siz seçmezsiniz.",
     "noForecastHeading": "Burada neden öngörü yok",
@@ -56,12 +56,12 @@
     "publicChangelogLink": "herkese açık changelog",
     "body": {
       "timeline": {
-        "p1": "Standart kur Earned Robux başına 0,0038 USD'ye yükseltildi",
+        "p1": "Standart kur Earned Robux başına {rateStandard} USD'ye yükseltildi",
         "p2": "Roblox bunu 30.000 Earned Robux için 114 USD olarak belirtiyor; önceden 105'ti. O andan önce kazanılan bakiyeler önceki kurla çevrilmeye devam eder ve önce nakde çevrilir.",
-        "p3": "Earned Robux başına 0,0035 USD standart kur",
+        "p3": "Earned Robux başına {rateLegacy} USD standart kur",
         "p4": "30.000 Earned Robux için 105 USD. Herhangi bir bakiyenin geçişten önce kazanılan kısmına hâlâ uygulanıyor.",
         "p5": "Yürürlük tarihi yayımlanmadı",
-        "p6": "Uygun ABD 18+ harcamaları için daha yüksek 0,0054 kuru",
+        "p6": "Uygun ABD 18+ harcamaları için daha yüksek {rateUs18} kuru",
         "p7": "Roblox bu kuru, en az 18 yaşında olduğunu doğrulamış Amerika Birleşik Devletleri oyuncularının satın almalarından gelen belirli Earned Robux için belgeliyor. Bu sitenin denetlediği belgelerde bir yürürlük tarihi belirtilmiyor; bu yüzden bir tarih çıkarımı yapmak yerine burada hiçbiri kaydedilmiyor."
       },
       "comparison": {
@@ -76,7 +76,7 @@
       }
     },
     "prose": {
-      "legacySplit": "Roblox, bakiyenin geçiş öncesi bölümünü önce 0,0035'ten, kalanını ise 0,0038'den nakde çevirir. Bu ayrım, her Robux'un ne zaman kazanıldığına dair Roblox'un kendi muhasebesidir — bir yaratıcının seçtiği ya da ayarlayabildiği bir şey değildir.",
+      "legacySplit": "Roblox, bakiyenin geçiş öncesi bölümünü önce {rateLegacy}'ten, kalanını ise {rateStandard}'den nakde çevirir. Bu ayrım, her Robux'un ne zaman kazanıldığına dair Roblox'un kendi muhasebesidir — bir yaratıcının seçtiği ya da ayarlayabildiği bir şey değildir.",
       "whenItChanges": "Roblox oranı daha önce değiştirdi ve yeniden değiştirebilir. Roblox'un dışında hiç kimse bunun olup olmayacağını ya da ne zaman olacağını bilmez; analiz kılığına sokulmuş bir tahmin, kendinden emin bir tonda söylenmiş bir varsayım olurdu. Bu sayfa yalnızca resmi belgelerin doğruladığı değişiklikleri, her birini yürürlük tarihiyle birlikte kaydeder. Bir değişiklik olduğunda burada ve {changelog} içinde, doğrulandığı tarihle birlikte görünür."
     },
     "comparisonAtRate": "{rate} oranında",
@@ -319,7 +319,7 @@
       "directionPayout": "Roblox size öder",
       "directionPurchase": "Roblox'a siz ödersiniz",
       "rateRow": "Kur",
-      "ratePayout": "Belgelenmiş ve uygun Earned Robux başına 0,0038 USD olarak sabit",
+      "ratePayout": "Belgelenmiş ve uygun Earned Robux başına {rateStandard} USD olarak sabit",
       "ratePurchase": "Pakete, bölgeye, platforma ve kampanyaya göre değişir",
       "whichRobuxRow": "Hangi Robux",
       "whichRobuxPayout": "Yalnızca uygun Earned Robux",
@@ -389,7 +389,7 @@
     "ogImageAlt": "Yukarı yuvarlandı; çünkü Robux'un kesri ne kazanılabilir ne de takas edilebilir",
     "body": {
       "rounding": {
-        "p1": "1.000 dolarlık bir hedef 0,0038'e bölündüğünde 263.157,89 çıkar. Robux tam birimler hâlinde gelir; bu yüzden 263.157 {rate} öderdi — hedefin hemen altında. 263.158'e yukarı yuvarlamak {rate2} öder ve hedefi aşar. Bu sayfadaki her rakamın en yakın tam sayıya değil, yukarı yuvarlanmasının nedeni budur."
+        "p1": "{targetUsd} dolarlık bir hedef {rateStandard}'e bölündüğünde {targetRobuxExact} çıkar. Robux tam birimler hâlinde gelir; bu yüzden {targetRobuxDown} {rate} öderdi — hedefin hemen altında. {targetRobuxUp}'e yukarı yuvarlamak {rate2} öder ve hedefi aşar. Bu sayfadaki her rakamın en yakın tam sayıya değil, yukarı yuvarlanmasının nedeni budur."
       },
       "minimum": {
         "p1": "Roblox, bir DevEx talebinin gönderilebilmesi için {minimumEarnedRobux} Earned Robux şartı koyar. Hedefiniz bundan azını gerektiriyorsa, gerçekte ulaşmanız gereken şey bu alt sınırdır — ve özgün hedefiniz yerine {rate} öderdi."
@@ -458,7 +458,8 @@
     "prose": {
       "priceFloors": "Taban fiyatlar ürün kategorisine göre değişir ve Roblox bunları zaman içinde ayarlamıştır; bu yüzden tek bir evrensel tabanı koda gömmek çoğu ürün için yanlış yanıt üretirdi. Katsayıyı girmek, kategorinizin tabanı ne olursa olsun sonucu doğru tutar."
     },
-    "columnRoblox": "Roblox"
+    "columnRoblox": "Roblox",
+    "tierMultipleAndAbove": "{multiple}× ve üzeri"
   },
   "conversions": {
     "intro": "Belgelenmiş üç kurun tamamında yaygın tutarları içeren, sunucuda oluşturulmuş bir tablo; ayrıca listede olmayanlar için bir giriş alanı.",

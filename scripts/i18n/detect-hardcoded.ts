@@ -137,3 +137,41 @@ console.log(
 );
 console.log(`  words: covered ${coveredWords} · hardcoded ${hardcodedWords}`);
 console.log(`  report written to docs/i18n/hardcoded-remaining.json`);
+
+/**
+ * `--check`: fail on reader-facing English anywhere it is not the source.
+ *
+ * This script found every one of the strings the first audit missed —
+ * `The plan`, `. This site gives no tax advice.`, `" and above"`,
+ * `All calculators`, `Assumes:` — and reported them as a number in a list
+ * nobody had to act on. It ran, it was right, and it failed nothing, so five
+ * English strings rendered on six translated languages for months while the
+ * rendered-output check sat under a budget of 60 and said "ok".
+ *
+ * The two files below are the exception and not a waiver: `route-registry.ts`
+ * and `changelog.ts` hold the English *source* that
+ * `scripts/i18n/sync-data-dictionary.ts` mirrors into the catalogs. English
+ * there is the original, and the dictionary validator already fails if a
+ * locale is missing its translation.
+ */
+const SOURCE_OF_TRUTH = new Set([
+  "src/lib/content/route-registry.ts",
+  "src/lib/content/changelog.ts",
+]);
+
+if (process.argv.includes("--check")) {
+  const offenders = [...hardcoded].filter((row) => !SOURCE_OF_TRUTH.has(row.file));
+  if (offenders.length > 0) {
+    console.error(
+      `\n${offenders.length} hardcoded reader-facing string(s) outside the English source:\n`,
+    );
+    for (const row of offenders.sort(
+      (a, b) => a.file.localeCompare(b.file) || a.line - b.line,
+    )) {
+      console.error(`  ${row.file}:${row.line}  ${JSON.stringify(row.text.slice(0, 90))}`);
+    }
+    console.error("\nEach of these renders in English in every language. Move it to a key.");
+    process.exit(1);
+  }
+  console.log("\nNo hardcoded reader-facing English outside the English source.");
+}

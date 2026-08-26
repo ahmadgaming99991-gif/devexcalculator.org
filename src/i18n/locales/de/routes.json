@@ -11,10 +11,10 @@
   ],
   "home": {
     "title": "DevEx-Rechner: Earned Robux in USD umrechnen",
-    "metaDescription": "Was deine anrechenbaren Earned Robux zum aktuellen DevEx-Kurs von 0,0038 in USD wert sind, mit Vergleichen zum alten Kurs und zum USA-18+-Kurs und einer Quelle für jede Zahl.",
+    "metaDescription": "Was deine anrechenbaren Earned Robux zum aktuellen DevEx-Kurs von {rateStandard} in USD wert sind, mit Vergleichen zum alten Kurs und zum USA-18+-Kurs und einer Quelle für jede Zahl.",
     "h1": "DevEx-Rechner: Earned Robux in USD umrechnen",
     "navLabel": "Rechner",
-    "quickAnswer": "Zum aktuellen DevEx-Kurs von 0,0038 USD pro anrechenbarem Earned Robux ergeben 30.000 Earned Robux rund 114 US-Dollar und 100.000 rund 380. Nur Earned Robux zählen, 30.000 ist das Minimum, das Roblox akzeptiert, und jede Zahl hier ist eine Schätzung — allein Roblox entscheidet, welche Robux anrechenbar sind und ob ein Antrag genehmigt wird.",
+    "quickAnswer": "Zum aktuellen DevEx-Kurs von {rateStandard} USD pro anrechenbarem Earned Robux ergeben {minimumRobux} Earned Robux rund {payout30000Plain} US-Dollar und {robux100000} rund {payout100000Plain}. Nur Earned Robux zählen, {minimumRobux} ist das Minimum, das Roblox akzeptiert, und jede Zahl hier ist eine Schätzung — allein Roblox entscheidet, welche Robux anrechenbar sind und ob ein Antrag genehmigt wird.",
     "ogImageAlt": "DevEx-Rechner: anrechenbare Earned Robux in eine geschätzte Auszahlung in US-Dollar umrechnen.",
     "sections": {
       "calculator": "DevEx-Rechner",
@@ -29,11 +29,11 @@
     "faqs": {
       "q01": {
         "question": "Wie hoch ist der aktuelle DevEx-Kurs von Roblox?",
-        "answer": "Roblox dokumentiert einen Standardkurs von 0,0038 USD pro anrechenbarem Earned Robux, den es als 114 USD für 30.000 Earned Robux angibt. Dieser Kurs gilt seit dem 5. September 2025 um 10:00 PT."
+        "answer": "Roblox dokumentiert einen Standardkurs von {rateStandard} USD pro anrechenbarem Earned Robux, den es als {payout30000Plain} USD für {minimumRobux} Earned Robux angibt. Dieser Kurs gilt seit dem 5. September 2025 um 10:00 PT."
       },
       "q02": {
         "question": "Wie viel sind 100.000 Earned Robux bei DevEx?",
-        "answer": "100.000 anrechenbare Earned Robux sind zum Standardkurs rund 380 US-Dollar, vor Gebühren des Zahlungsdienstleisters und vor Steuern. Derselbe Betrag wären zum älteren Kurs von 0,0035 350 US-Dollar gewesen."
+        "answer": "{robux100000} anrechenbare Earned Robux sind zum Standardkurs rund {payout100000Plain} US-Dollar, vor Gebühren des Zahlungsdienstleisters und vor Steuern. Derselbe Betrag wären zum älteren Kurs von {rateLegacy} {payoutLegacy100000Plain} US-Dollar gewesen."
       },
       "q03": {
         "question": "Wie hoch ist das Earned-Robux-Minimum für DevEx?",
@@ -189,7 +189,7 @@
     "metaDescription": "Übliche Earned-Robux-Beträge, bewertet zum aktuellen, zum alten und zum USA-18+-Kurs, dazu ein Feld für jeden beliebigen Betrag.",
     "h1": "Robux-zu-USD-Umrechnungen",
     "navLabel": "Umrechnungen",
-    "quickAnswer": "Jeder Betrag unten wird zum aktuellen DevEx-Kurs von 0,0038 USD pro anrechenbarem Earned Robux umgerechnet, mit dem alten und dem bedingten Kurs zum Vergleich daneben. Beträge unter 30.000 stehen zur Orientierung dabei, können aber nicht ausgezahlt werden, denn das ist das dokumentierte Minimum.",
+    "quickAnswer": "Jeder Betrag unten wird zum aktuellen DevEx-Kurs von {rateStandard} USD pro anrechenbarem Earned Robux umgerechnet, mit dem alten und dem bedingten Kurs zum Vergleich daneben. Beträge unter 30.000 stehen zur Orientierung dabei, können aber nicht ausgezahlt werden, denn das ist das dokumentierte Minimum.",
     "ogImageAlt": "Umrechnungstabelle üblicher Robux-Beträge in US-Dollar.",
     "sections": {
       "converter": "Beliebigen Betrag umrechnen",
@@ -209,7 +209,7 @@
     "metaDescription": "100.000 anrechenbare Earned Robux sind zum aktuellen DevEx-Kurs rund 380,00 $. Verglichen mit dem alten Kurs und dem USA-18+-Kurs.",
     "h1": "100.000 Robux in USD",
     "navLabel": "100.000 Robux",
-    "quickAnswer": "100.000 anrechenbare Earned Robux ergeben zum aktuellen DevEx-Kurs von 0,0038 USD pro Robux 380,00 $. Zum alten Kurs von 0,0035 würde derselbe Betrag 350,00 $ zahlen, ein Unterschied von 30,00 $. 100.000 ist die meistgesuchte runde Zahl in diesem Bereich, und es ist der Punkt, an dem der Abstand zwischen aktuellem und altem Kurs groß genug wird, um aufzufallen: dreißig Dollar trennen sie.",
+    "quickAnswer": "{robux100000} anrechenbare Earned Robux ergeben zum aktuellen DevEx-Kurs von {rateStandard} USD pro Robux {payout100000}. Zum alten Kurs von {rateLegacy} würde derselbe Betrag {payoutLegacy100000} zahlen, ein Unterschied von {payoutDifference100000}. {robux100000} ist die meistgesuchte runde Zahl in diesem Bereich, und es ist der Punkt, an dem der Abstand zwischen aktuellem und altem Kurs groß genug wird, um aufzufallen: dreißig Dollar trennen sie.",
     "ogImageAlt": "100.000 Robux umgerechnet in eine geschätzte DevEx-Auszahlung in US-Dollar.",
     "sections": {
       "value": "Was 100.000 Robux wert sind",
@@ -241,7 +241,7 @@
     "metaDescription": "1.000.000 anrechenbare Earned Robux sind zum aktuellen DevEx-Kurs rund 3.800,00 $. Verglichen mit dem alten Kurs und dem USA-18+-Kurs.",
     "h1": "1.000.000 Robux in USD",
     "navLabel": "1.000.000 Robux",
-    "quickAnswer": "1.000.000 anrechenbare Earned Robux ergeben zum aktuellen DevEx-Kurs von 0,0038 USD pro Robux 3.800,00 $. Zum alten Kurs von 0,0035 würde derselbe Betrag 3.500,00 $ zahlen, ein Unterschied von 300,00 $. Eine Million Robux ist die Marke, nach der Creator tatsächlich suchen, und sie zeigt am deutlichsten, warum Kaufpreis und DevEx-Auszahlung nicht dieselbe Zahl sind.",
+    "quickAnswer": "{robux1000000} anrechenbare Earned Robux ergeben zum aktuellen DevEx-Kurs von {rateStandard} USD pro Robux {payout1000000}. Zum alten Kurs von {rateLegacy} würde derselbe Betrag {payoutLegacy1000000} zahlen, ein Unterschied von {payoutDifference1000000}. Eine Million Robux ist die Marke, nach der Creator tatsächlich suchen, und sie zeigt am deutlichsten, warum Kaufpreis und DevEx-Auszahlung nicht dieselbe Zahl sind.",
     "ogImageAlt": "1.000.000 Robux umgerechnet in eine geschätzte DevEx-Auszahlung in US-Dollar.",
     "sections": {
       "value": "Was 1.000.000 Robux wert sind",
@@ -273,7 +273,7 @@
     "metaDescription": "10.000.000 anrechenbare Earned Robux sind zum aktuellen DevEx-Kurs rund 38.000,00 $. Verglichen mit dem alten Kurs und dem USA-18+-Kurs.",
     "h1": "10.000.000 Robux in USD",
     "navLabel": "10.000.000 Robux",
-    "quickAnswer": "10.000.000 anrechenbare Earned Robux ergeben zum aktuellen DevEx-Kurs von 0,0038 USD pro Robux 38.000,00 $. Zum alten Kurs von 0,0035 würde derselbe Betrag 35.000,00 $ zahlen, ein Unterschied von 3.000,00 $. Zehn Millionen Earned Robux stehen für anhaltende Einnahmen aus einer großen Experience. In dieser Größenordnung verändert die Aufteilung zwischen Standard- und Altguthaben, und jeder anrechenbare USA-18+-Anteil, die Summe um Tausende von Dollar.",
+    "quickAnswer": "{robux10000000} anrechenbare Earned Robux ergeben zum aktuellen DevEx-Kurs von {rateStandard} USD pro Robux {payout10000000}. Zum alten Kurs von {rateLegacy} würde derselbe Betrag {payoutLegacy10000000} zahlen, ein Unterschied von {payoutDifference10000000}. Zehn Millionen Earned Robux stehen für anhaltende Einnahmen aus einer großen Experience. In dieser Größenordnung verändert die Aufteilung zwischen Standard- und Altguthaben, und jeder anrechenbare USA-18+-Anteil, die Summe um Tausende von Dollar.",
     "ogImageAlt": "10.000.000 Robux umgerechnet in eine geschätzte DevEx-Auszahlung in US-Dollar.",
     "sections": {
       "value": "Was 10.000.000 Robux wert sind",
@@ -305,7 +305,7 @@
     "metaDescription": "200.000 anrechenbare Earned Robux sind zum aktuellen DevEx-Kurs rund 760,00 $. Verglichen mit dem alten Kurs und dem USA-18+-Kurs.",
     "h1": "200.000 Robux in USD",
     "navLabel": "200.000 Robux",
-    "quickAnswer": "200.000 anrechenbare Earned Robux ergeben zum aktuellen DevEx-Kurs von 0,0038 USD pro Robux 760,00 $. Zum alten Kurs von 0,0035 würde derselbe Betrag 700,00 $ zahlen, ein Unterschied von 60,00 $. Bei 200.000 Earned Robux lässt sich ein Creator meist regelmäßig auszahlen statt einmalig, und dann lohnt es sich, den Unterschied zwischen den Kursgruppen zu verfolgen statt ihn zu schätzen.",
+    "quickAnswer": "{robux200000} anrechenbare Earned Robux ergeben zum aktuellen DevEx-Kurs von {rateStandard} USD pro Robux {payout200000}. Zum alten Kurs von {rateLegacy} würde derselbe Betrag {payoutLegacy200000} zahlen, ein Unterschied von {payoutDifference200000}. Bei {robux200000} Earned Robux lässt sich ein Creator meist regelmäßig auszahlen statt einmalig, und dann lohnt es sich, den Unterschied zwischen den Kursgruppen zu verfolgen statt ihn zu schätzen.",
     "ogImageAlt": "200.000 Robux umgerechnet in eine geschätzte DevEx-Auszahlung in US-Dollar.",
     "sections": {
       "value": "Was 200.000 Robux wert sind",
@@ -337,7 +337,7 @@
     "metaDescription": "30.000 anrechenbare Earned Robux sind zum aktuellen DevEx-Kurs rund 114,00 $. Verglichen mit dem alten Kurs und dem USA-18+-Kurs.",
     "h1": "30.000 Robux in USD",
     "navLabel": "30.000 Robux",
-    "quickAnswer": "30.000 anrechenbare Earned Robux ergeben zum aktuellen DevEx-Kurs von 0,0038 USD pro Robux 114,00 $. Zum alten Kurs von 0,0035 würde derselbe Betrag 105,00 $ zahlen, ein Unterschied von 9,00 $. 30.000 ist der Betrag, auf den es am meisten ankommt, denn es ist das Mindestguthaben an Earned Robux, das Roblox verlangt, bevor überhaupt ein DevEx-Antrag gestellt werden kann. Unterhalb dieser Zahl lautet die Frage nicht, wie hoch die Auszahlung wäre, sondern ob ein Antrag möglich ist.",
+    "quickAnswer": "{robux30000} anrechenbare Earned Robux ergeben zum aktuellen DevEx-Kurs von {rateStandard} USD pro Robux {payout30000}. Zum alten Kurs von {rateLegacy} würde derselbe Betrag {payoutLegacy30000} zahlen, ein Unterschied von {payoutDifference30000}. {robux30000} ist der Betrag, auf den es am meisten ankommt, denn es ist das Mindestguthaben an Earned Robux, das Roblox verlangt, bevor überhaupt ein DevEx-Antrag gestellt werden kann. Unterhalb dieser Zahl lautet die Frage nicht, wie hoch die Auszahlung wäre, sondern ob ein Antrag möglich ist.",
     "ogImageAlt": "30.000 Robux umgerechnet in eine geschätzte DevEx-Auszahlung in US-Dollar.",
     "sections": {
       "value": "Was 30.000 Robux wert sind",
@@ -369,7 +369,7 @@
     "metaDescription": "300.000 anrechenbare Earned Robux sind zum aktuellen DevEx-Kurs rund 1.140,00 $. Verglichen mit dem alten Kurs und dem USA-18+-Kurs.",
     "h1": "300.000 Robux in USD",
     "navLabel": "300.000 Robux",
-    "quickAnswer": "300.000 anrechenbare Earned Robux ergeben zum aktuellen DevEx-Kurs von 0,0038 USD pro Robux 1.140,00 $. Zum alten Kurs von 0,0035 würde derselbe Betrag 1.050,00 $ zahlen, ein Unterschied von 90,00 $. 300.000 Earned Robux sind das Zehnfache des DevEx-Minimums. Ein nützlicher Bezugspunkt, wenn ein Creator ausrechnet, wie vielen Auszahlungszyklen ein Jahr an Einnahmen entspricht.",
+    "quickAnswer": "{robux300000} anrechenbare Earned Robux ergeben zum aktuellen DevEx-Kurs von {rateStandard} USD pro Robux {payout300000}. Zum alten Kurs von {rateLegacy} würde derselbe Betrag {payoutLegacy300000} zahlen, ein Unterschied von {payoutDifference300000}. {robux300000} Earned Robux sind das Zehnfache des DevEx-Minimums. Ein nützlicher Bezugspunkt, wenn ein Creator ausrechnet, wie vielen Auszahlungszyklen ein Jahr an Einnahmen entspricht.",
     "ogImageAlt": "300.000 Robux umgerechnet in eine geschätzte DevEx-Auszahlung in US-Dollar.",
     "sections": {
       "value": "Was 300.000 Robux wert sind",
@@ -401,7 +401,7 @@
     "metaDescription": "50.000 anrechenbare Earned Robux sind zum aktuellen DevEx-Kurs rund 190,00 $. Verglichen mit dem alten Kurs und dem USA-18+-Kurs.",
     "h1": "50.000 Robux in USD",
     "navLabel": "50.000 Robux",
-    "quickAnswer": "50.000 anrechenbare Earned Robux ergeben zum aktuellen DevEx-Kurs von 0,0038 USD pro Robux 190,00 $. Zum alten Kurs von 0,0035 würde derselbe Betrag 175,00 $ zahlen, ein Unterschied von 15,00 $. 50.000 Earned Robux liegen mit Luft über dem Minimum, deshalb ist das eine häufige erste Auszahlung für Creator, deren Experience gerade angefangen hat, regelmäßig einzubringen.",
+    "quickAnswer": "{robux50000} anrechenbare Earned Robux ergeben zum aktuellen DevEx-Kurs von {rateStandard} USD pro Robux {payout50000}. Zum alten Kurs von {rateLegacy} würde derselbe Betrag {payoutLegacy50000} zahlen, ein Unterschied von {payoutDifference50000}. {robux50000} Earned Robux liegen mit Luft über dem Minimum, deshalb ist das eine häufige erste Auszahlung für Creator, deren Experience gerade angefangen hat, regelmäßig einzubringen.",
     "ogImageAlt": "50.000 Robux umgerechnet in eine geschätzte DevEx-Auszahlung in US-Dollar.",
     "sections": {
       "value": "Was 50.000 Robux wert sind",
@@ -433,7 +433,7 @@
     "metaDescription": "500.000 anrechenbare Earned Robux sind zum aktuellen DevEx-Kurs rund 1.900,00 $. Verglichen mit dem alten Kurs und dem USA-18+-Kurs.",
     "h1": "500.000 Robux in USD",
     "navLabel": "500.000 Robux",
-    "quickAnswer": "500.000 anrechenbare Earned Robux ergeben zum aktuellen DevEx-Kurs von 0,0038 USD pro Robux 1.900,00 $. Zum alten Kurs von 0,0035 würde derselbe Betrag 1.750,00 $ zahlen, ein Unterschied von 150,00 $. Eine halbe Million Earned Robux ist die Größenordnung, in der Gebühren des Zahlungsdienstleisters und die eigene Steuerpflicht keine Rundungsfehler mehr sind — deshalb verlinkt diese Seite direkt auf den Leitfaden zu Gebühren und Steuern.",
+    "quickAnswer": "{robux500000} anrechenbare Earned Robux ergeben zum aktuellen DevEx-Kurs von {rateStandard} USD pro Robux {payout500000}. Zum alten Kurs von {rateLegacy} würde derselbe Betrag {payoutLegacy500000} zahlen, ein Unterschied von {payoutDifference500000}. Eine halbe Million Earned Robux ist die Größenordnung, in der Gebühren des Zahlungsdienstleisters und die eigene Steuerpflicht keine Rundungsfehler mehr sind — deshalb verlinkt diese Seite direkt auf den Leitfaden zu Gebühren und Steuern.",
     "ogImageAlt": "500.000 Robux umgerechnet in eine geschätzte DevEx-Auszahlung in US-Dollar.",
     "sections": {
       "value": "Was 500.000 Robux wert sind",
@@ -517,12 +517,12 @@
     }
   },
   "devexRateHistory": {
-    "title": "DevEx-Kurshistorie: die Änderung von 0,0035 im Jahr 2025",
-    "metaDescription": "Ein datiertes Verzeichnis geprüfter DevEx-Kurse, einschließlich der Anhebung von 0,0035 auf 0,0038 im September 2025 und wie Altguthaben behandelt werden.",
+    "title": "DevEx-Kurshistorie: die Änderung von {rateLegacy} im Jahr 2025",
+    "metaDescription": "Ein datiertes Verzeichnis geprüfter DevEx-Kurse, einschließlich der Anhebung von {rateLegacy} auf {rateStandard} im September 2025 und wie Altguthaben behandelt werden.",
     "h1": "DevEx-Kurshistorie",
     "navLabel": "Kurshistorie",
-    "quickAnswer": "Die dokumentierte Änderung geht von 0,0035 auf 0,0038 USD pro Earned Robux, gültig ab dem 5. September 2025 um 10:00 PT. Für 30.000 Earned Robux stieg die Auszahlung damit von 105 auf 114 Dollar. Vor der Änderung verdiente Guthaben werden zuerst zum älteren Kurs ausgezahlt, ein einzelnes Guthaben kann also beide umfassen.",
-    "ogImageAlt": "DevEx-Kurshistorie: die Änderung vom September 2025 von 0,0035 auf 0,0038.",
+    "quickAnswer": "Die dokumentierte Änderung geht von {rateLegacy} auf {rateStandard} USD pro Earned Robux, gültig ab dem 5. September 2025 um 10:00 PT. Für {minimumRobux} Earned Robux stieg die Auszahlung damit von {payoutLegacy30000Plain} auf {payout30000Plain} Dollar. Vor der Änderung verdiente Guthaben werden zuerst zum älteren Kurs ausgezahlt, ein einzelnes Guthaben kann also beide umfassen.",
+    "ogImageAlt": "DevEx-Kurshistorie: die Änderung vom September 2025 von {rateLegacy} auf {rateStandard}.",
     "sections": {
       "timeline": "Geprüfter Zeitstrahl",
       "comparison": "Was die Änderung wert war",
@@ -533,11 +533,11 @@
     "faqs": {
       "q01": {
         "question": "Wie hoch war der DevEx-Kurs vor September 2025?",
-        "answer": "0,0035 USD pro Earned Robux, was Roblox als 105 Dollar für 30.000 Earned Robux angab."
+        "answer": "{rateLegacy} USD pro Earned Robux, was Roblox als {payoutLegacy30000Plain} Dollar für {minimumRobux} Earned Robux angab."
       },
       "q02": {
         "question": "Wird mein altes Guthaben zum alten Kurs umgerechnet?",
-        "answer": "Vor dem 5. September 2025 um 10:00 PT verdiente Robux werden nach Roblox’ Übergangsregeln zuerst zu 0,0035 ausgezahlt. Die Aufteilung ist Roblox’ Buchführung, nichts, was ein Creator auswählt."
+        "answer": "Vor dem 5. September 2025 um 10:00 PT verdiente Robux werden nach Roblox’ Übergangsregeln zuerst zu {rateLegacy} ausgezahlt. Die Aufteilung ist Roblox’ Buchführung, nichts, was ein Creator auswählt."
       },
       "q03": {
         "question": "Wird der Kurs wieder steigen?",
@@ -555,7 +555,7 @@
     "metaDescription": "Die drei DevEx-Kurse, die Roblox dokumentiert, was jeder pro 1.000 und pro 30.000 Robux zahlt, und wann welcher gilt.",
     "h1": "Roblox-DevEx-Kurse",
     "navLabel": "Kurse",
-    "quickAnswer": "Roblox dokumentiert drei DevEx-Kurse. Der Standardkurs beträgt 0,0038 USD pro anrechenbarem Earned Robux, also 114 Dollar für 30.000. Vor dem 5. September 2025 um 10:00 PT verdiente Guthaben werden zum älteren Kurs von 0,0035 umgerechnet. Bestimmte Earned Robux von verifizierten Spielenden aus den Vereinigten Staaten ab 18 Jahren werden zu 0,0054 umgerechnet. Welcher gilt, entscheidet Roblox, nicht der Creator.",
+    "quickAnswer": "Roblox dokumentiert drei DevEx-Kurse. Der Standardkurs beträgt {rateStandard} USD pro anrechenbarem Earned Robux, also {payout30000Plain} Dollar für {minimumRobux}. Vor dem 5. September 2025 um 10:00 PT verdiente Guthaben werden zum älteren Kurs von {rateLegacy} umgerechnet. Bestimmte Earned Robux von verifizierten Spielenden aus den Vereinigten Staaten ab 18 Jahren werden zu {rateUs18} umgerechnet. Welcher gilt, entscheidet Roblox, nicht der Creator.",
     "ogImageAlt": "Roblox-DevEx-Kurse: Standard, alt und bedingt USA 18+ im Vergleich.",
     "sections": {
       "current-rates": "Die drei dokumentierten Kurse",
@@ -571,11 +571,11 @@
         "answer": "3,80 US-Dollar pro 1.000 anrechenbaren Earned Robux zum Standardkurs. Der alte Kurs zahlte 3,50 und der bedingte USA-18+-Kurs zahlt 5,40."
       },
       "q02": {
-        "question": "Wann wurde der DevEx-Kurs auf 0,0038 geändert?",
-        "answer": "Am 5. September 2025 um 10:00 PT. Vor diesem Zeitpunkt verdiente Guthaben werden nach Roblox’ eigener Buchführung zuerst zum vorherigen Kurs von 0,0035 ausgezahlt."
+        "question": "Wann wurde der DevEx-Kurs auf {rateStandard} geändert?",
+        "answer": "Am 5. September 2025 um 10:00 PT. Vor diesem Zeitpunkt verdiente Guthaben werden nach Roblox’ eigener Buchführung zuerst zum vorherigen Kurs von {rateLegacy} ausgezahlt."
       },
       "q03": {
-        "question": "Wer kommt für den Kurs von 0,0054 infrage?",
+        "question": "Wer kommt für den Kurs von {rateUs18} infrage?",
         "answer": "Roblox wendet ihn auf bestimmte Earned Robux aus Käufen von Developer Products, Pässen, Abonnements und privaten Servern durch Spielende aus den Vereinigten Staaten an, die bestätigt haben, mindestens 18 zu sein. Es ist kein Kurs, den ein Creator wählen kann."
       },
       "q04": {
@@ -614,7 +614,7 @@
       },
       "q02": {
         "question": "Wie alt muss man für DevEx sein?",
-        "answer": "Roblox dokumentiert ein Mindestalter von 13 Jahren für die Teilnahme. Davon getrennt hängt der höhere Kurs von 0,0054 an der Altersverifizierung der Spielenden, die die Robux ausgegeben haben, nicht am Alter des Creators."
+        "answer": "Roblox dokumentiert ein Mindestalter von 13 Jahren für die Teilnahme. Davon getrennt hängt der höhere Kurs von {rateUs18} an der Altersverifizierung der Spielenden, die die Robux ausgegeben haben, nicht am Alter des Creators."
       },
       "q03": {
         "question": "Muss ich Steuerformulare einreichen?",
@@ -974,7 +974,7 @@
     "metaDescription": "Darauf gibt es zwei Antworten. Vergleiche, was DevEx einem Creator zahlt, mit dem, was der Kauf von Robux kostet, und rechne jeden Betrag mit offen genanntem Kurs um.",
     "h1": "Robux zu USD",
     "navLabel": "Robux zu USD",
-    "quickAnswer": "„Robux zu USD“ hat je nach Fragestellerin zwei ehrliche Antworten. Ein Creator, der anrechenbare Earned Robux auszahlen lässt, bekommt über DevEx 0,0038 USD pro Robux, 100.000 Robux sind also rund 380 Dollar. Wer Robux kauft, zahlt einen von Roblox festgelegten Verkaufspreis — ein völlig anderes Geschäft. Diese Seite hält beides auseinander.",
+    "quickAnswer": "„Robux zu USD“ hat je nach Fragestellerin zwei ehrliche Antworten. Ein Creator, der anrechenbare Earned Robux auszahlen lässt, bekommt über DevEx {rateStandard} USD pro Robux, {robux100000} Robux sind also rund {payout100000Plain} Dollar. Wer Robux kauft, zahlt einen von Roblox festgelegten Verkaufspreis — ein völlig anderes Geschäft. Diese Seite hält beides auseinander.",
     "ogImageAlt": "Robux zu USD: DevEx-Auszahlung an Creator im Vergleich zum Verkaufspreis im Handel.",
     "sections": {
       "converter": "Robux in USD umrechnen",
@@ -1070,7 +1070,7 @@
     "faqs": {
       "q01": {
         "question": "Wie viele Earned Robux brauche ich für 1.000 USD?",
-        "answer": "263.158 anrechenbare Earned Robux zum aktuellen Kurs von 0,0038. 1.000 geteilt durch 0,0038 ergibt 263.157,89, und das Ergebnis wird aufgerundet, damit die Auszahlung das Ziel tatsächlich erreicht."
+        "answer": "{targetRobuxUp} anrechenbare Earned Robux zum aktuellen Kurs von {rateStandard}. {targetUsd} geteilt durch {rateStandard} ergibt {targetRobuxExact}, und das Ergebnis wird aufgerundet, damit die Auszahlung das Ziel tatsächlich erreicht."
       },
       "q02": {
         "question": "Wie viele Earned Robux brauche ich für 100 USD?",
@@ -1082,7 +1082,7 @@
       },
       "q04": {
         "question": "Ändert sich die Antwort, wenn ein Teil meines Guthabens alt ist?",
-        "answer": "Ja. Altguthaben wird zu 0,0035 umgerechnet, dasselbe Dollarziel braucht also mehr Robux. Nutze den Aufteilungsmodus des Rechners, um ein gemischtes Guthaben abzubilden."
+        "answer": "Ja. Altguthaben wird zu {rateLegacy} umgerechnet, dasselbe Dollarziel braucht also mehr Robux. Nutze den Aufteilungsmodus des Rechners, um ein gemischtes Guthaben abzubilden."
       }
     },
     "links": {

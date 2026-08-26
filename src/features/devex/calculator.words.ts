@@ -17,6 +17,7 @@ import { RESULTS_WORDS } from "./components/results.words";
  * remember.
  */
 export const CALCULATOR_WORDS: readonly string[] = [
+  "calculator.history.clear",
   "routes.home.sections.rate-comparison",
   ...PARSE_MESSAGE_WORDS,
   ...ACTION_WORDS,

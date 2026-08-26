@@ -96,7 +96,8 @@
       },
       "changes": {
         "p1": "These terms may be updated. The review date at the top of this page reflects the most recent change, and material changes are recorded in the",
-        "p2": "alongside everything else that changes here."
+        "p2": "alongside everything else that changes here.",
+        "changelogLink": "the changelog"
       }
     },
     "prose": {

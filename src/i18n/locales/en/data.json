@@ -6,10 +6,10 @@
   "sources": {
     "roblox-devex-program": {
       "facts": [
-        "Standard DevEx rate of 0.0038 USD per eligible Earned Robux (114 USD per 30,000).",
-        "Higher 0.0054 USD per Robux rate for certain Earned Robux from verified U.S. 18+ player spending.",
-        "Legacy 0.0035 USD per Robux rate for balances earned before 5 September 2025 at 10:00 PT.",
-        "Minimum of 30,000 Earned Robux to participate.",
+        "Standard DevEx rate of {rateStandard} USD per eligible Earned Robux ({payout30000Plain} USD per {minimumRobux}).",
+        "Higher {rateUs18} USD per Robux rate for certain Earned Robux from verified U.S. 18+ player spending.",
+        "Legacy {rateLegacy} USD per Robux rate for balances earned before 5 September 2025 at 10:00 PT.",
+        "Minimum of {minimumRobux} Earned Robux to participate.",
         "Eligibility requirements: minimum age 13, Roblox-verified email address, valid DevEx portal account, IRS form W-9 or W-8 on file, compliance with the Roblox Terms of Use and Community Standards."
       ]
     },
@@ -99,7 +99,7 @@
     "standard-current": {
       "label": "Standard rate",
       "shortLabel": "Standard",
-      "eligibilitySummary": "The standard DevEx rate applied to eligible Earned Robux. Roblox documents this as 0.0038 USD per Earned Robux, which is 114 USD for 30,000 Earned Robux."
+      "eligibilitySummary": "The standard DevEx rate applied to eligible Earned Robux. Roblox documents this as {rateStandard} USD per Earned Robux, which is {payout30000Plain} USD for {minimumRobux} Earned Robux."
     },
     "us-18-plus-qualified": {
       "label": "Eligible U.S. 18+ rate",
@@ -110,7 +110,7 @@
     "legacy-pre-2025-09-05": {
       "label": "Legacy balance rate",
       "shortLabel": "Legacy",
-      "eligibilitySummary": "The rate that applied before 5 September 2025 at 10:00 PT, equal to 105 USD for 30,000 Earned Robux. Roblox cashes out balances earned before that moment at this older rate first.",
+      "eligibilitySummary": "The rate that applied before 5 September 2025 at 10:00 PT, equal to {payoutLegacy30000Plain} USD for {minimumRobux} Earned Robux. Roblox cashes out balances earned before that moment at this older rate first.",
       "conditionNote": "Applies only to the portion of a balance earned before the transition, under Roblox's own accounting. A creator cannot choose this rate."
     }
   },

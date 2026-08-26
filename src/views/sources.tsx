@@ -3,7 +3,7 @@ import { localizedRoute } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
 import { JsonLd } from "@/components/seo/json-ld";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
-import { Badge, Container, Section, SourceLink } from "@/components/ui";
+import { Badge, Container, Foreign, Section, SourceLink } from "@/components/ui";
 import { RateSourceCheck } from "@/components/layout/rate-source-check";
 import { sourceCheckWords } from "@/components/layout/source-check-words";
 import { getTranslator } from "@/i18n/get-dictionary";
@@ -49,7 +49,7 @@ export async function SourcesView({ locale }: { readonly locale: Locale }) {
                 >
                   <div className="flex flex-wrap items-baseline justify-between gap-2">
                     <h3 className="text-base font-semibold text-(--color-text)">
-                      <SourceLink t={t} href={source.url}>{source.title}</SourceLink>
+                      <SourceLink t={t} href={source.url}><Foreign>{source.title}</Foreign></SourceLink>
                     </h3>
                     <Badge tone="neutral">{evidenceLabel(t, source)}</Badge>
                   </div>

@@ -72,7 +72,8 @@
     "sponsored": "Patrocinado",
     "byCreator": "por {creator}",
     "verifiedSuffix": "(verificado)",
-    "favouritesCount": "{count} favoritos"
+    "favouritesCount": "{count} favoritos",
+    "maturity": "Classificação: {rating}"
   },
   "platformFigure": {
     "label": "Jogadores em todas as experiências que o Roblox está rankeando",

@@ -101,7 +101,8 @@
       },
       "changes": {
         "p1": "Ketentuan ini dapat diperbarui. Tanggal peninjauan di bagian atas halaman ini mencerminkan perubahan terbaru, dan perubahan yang berarti dicatat di",
-        "p2": "bersama segala hal lain yang berubah di sini."
+        "p2": "bersama segala hal lain yang berubah di sini.",
+        "changelogLink": "changelog"
       }
     },
     "prose": {

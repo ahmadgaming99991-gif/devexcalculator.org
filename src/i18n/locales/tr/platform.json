@@ -76,7 +76,8 @@
     "sponsored": "Sponsorlu",
     "byCreator": "{creator} tarafından",
     "verifiedSuffix": "(doğrulanmış)",
-    "favouritesCount": "{count} favori"
+    "favouritesCount": "{count} favori",
+    "maturity": "Yaş sınıfı: {rating}"
   },
   "platformFigure": {
     "label": "Roblox'un sıraladığı bütün experience'lardaki oyuncular",

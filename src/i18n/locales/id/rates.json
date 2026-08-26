@@ -29,13 +29,13 @@
         "p1": "Selisih antara tarif saat ini dan tarif lama adalah {rateValue} per 100.000 Earned Robux — sekitar 8,6% lebih tinggi dengan tarif saat ini. Tarif bersyarat untuk pengguna AS berusia 18+ membayar kira-kira 42% lebih besar daripada tarif standar atas bagian saldo yang memenuhi syarat."
       },
       "changes": {
-        "p1": "Roblox mengubah tarif standar dari 0,0035 menjadi 0,0038 pada {date}. Dari luar Roblox tidak ada cara untuk mengetahui apakah atau kapan tarif itu akan berubah lagi, jadi halaman ini tidak membuat prakiraan. Yang dicatat halaman ini adalah tanggal setiap angka di sini terakhir diperiksa terhadap dokumentasi resmi, yang ditampilkan di bagian atas halaman dan di",
+        "p1": "Roblox mengubah tarif standar dari {rateLegacy} menjadi {rateStandard} pada {date}. Dari luar Roblox tidak ada cara untuk mengetahui apakah atau kapan tarif itu akan berubah lagi, jadi halaman ini tidak membuat prakiraan. Yang dicatat halaman ini adalah tanggal setiap angka di sini terakhir diperiksa terhadap dokumentasi resmi, yang ditampilkan di bagian atas halaman dan di",
         "p2": "Lihat riwayat bertanggal perubahan kurs",
         "p3": "Lihat kapan situs ini terakhir memperbarui datanya"
       }
     },
     "prose": {
-      "noForecast": "Roblox memindahkan tarif standar dari 0,0035 ke 0,0038 pada {date}. Dari luar Roblox tidak ada cara untuk tahu apakah dan kapan tarif itu akan berubah lagi, jadi halaman ini tidak membuat ramalan. Yang dicatatnya adalah tanggal setiap angka di sini terakhir diperiksa terhadap dokumentasi resmi, ditampilkan di bagian atas halaman dan di {sourceRegistry}."
+      "noForecast": "Roblox memindahkan tarif standar dari {rateLegacy} ke {rateStandard} pada {date}. Dari luar Roblox tidak ada cara untuk tahu apakah dan kapan tarif itu akan berubah lagi, jadi halaman ini tidak membuat ramalan. Yang dicatatnya adalah tanggal setiap angka di sini terakhir diperiksa terhadap dokumentasi resmi, ditampilkan di bagian atas halaman dan di {sourceRegistry}."
     }
   },
   "rateHistory": {
@@ -46,7 +46,7 @@
     "worthHeading": "Berapa nilai perubahannya",
     "worthDescription": "Saldo yang sama dinilai sebelum dan sesudah kenaikan September 2025.",
     "comparisonLabel": "Pembayaran sebelum dan sesudah perubahan kurs September 2025",
-    "comparisonCaption": "Perbandingan pembayaran pada kurs lama 0,0035 dan kurs saat ini 0,0038",
+    "comparisonCaption": "Perbandingan pembayaran pada kurs lama {rateLegacy} dan kurs saat ini {rateStandard}",
     "legacyHeading": "Bagaimana saldo lama diperlakukan",
     "legacyDescription": "Satu saldo bisa mencakup kedua kurs, dan Anda tidak memilih pembagiannya.",
     "noForecastHeading": "Mengapa di sini tidak ada ramalan",
@@ -56,12 +56,12 @@
     "publicChangelogLink": "changelog publik",
     "body": {
       "timeline": {
-        "p1": "Kurs standar dinaikkan menjadi 0,0038 USD per Earned Robux",
+        "p1": "Kurs standar dinaikkan menjadi {rateStandard} USD per Earned Robux",
         "p2": "Roblox menyatakannya sebagai 114 USD untuk 30.000 Earned Robux, naik dari 105. Saldo yang diperoleh sebelum saat itu tetap dikonversi pada kurs sebelumnya dan dicairkan lebih dulu.",
-        "p3": "Kurs standar 0,0035 USD per Earned Robux",
+        "p3": "Kurs standar {rateLegacy} USD per Earned Robux",
         "p4": "105 USD untuk 30.000 Earned Robux. Masih diterapkan pada bagian saldo mana pun yang diperoleh sebelum peralihan.",
         "p5": "Tanggal berlaku tidak diterbitkan",
-        "p6": "Kurs lebih tinggi 0,0054 untuk pembelanjaan AS 18+ yang memenuhi syarat",
+        "p6": "Kurs lebih tinggi {rateUs18} untuk pembelanjaan AS 18+ yang memenuhi syarat",
         "p7": "Roblox mendokumentasikan kurs ini untuk sebagian Earned Robux dari pembelian oleh pemain Amerika Serikat yang telah memverifikasi bahwa mereka setidaknya berusia 18 tahun. Dokumentasi yang diperiksa situs ini tidak menyebutkan tanggal berlaku, jadi di sini tidak ada yang dicatat alih-alih menyimpulkan satu."
       },
       "comparison": {
@@ -76,7 +76,7 @@
       }
     },
     "prose": {
-      "legacySplit": "Roblox mencairkan bagian saldo dari sebelum transisi lebih dulu dengan tarif 0,0035, lalu sisanya dengan 0,0038. Pembagian itu adalah pembukuan Roblox sendiri tentang kapan tiap Robux diperoleh — bukan sesuatu yang dipilih atau bisa diatur oleh kreator.",
+      "legacySplit": "Roblox mencairkan bagian saldo dari sebelum transisi lebih dulu dengan tarif {rateLegacy}, lalu sisanya dengan {rateStandard}. Pembagian itu adalah pembukuan Roblox sendiri tentang kapan tiap Robux diperoleh — bukan sesuatu yang dipilih atau bisa diatur oleh kreator.",
       "whenItChanges": "Roblox pernah mengubah tarifnya dan bisa mengubahnya lagi. Tidak ada pihak di luar Roblox yang tahu apakah dan kapan, dan sebuah ramalan yang dikemas sebagai analisis hanyalah tebakan dengan nada percaya diri. Halaman ini hanya mencatat perubahan yang dikonfirmasi dokumentasi resmi, masing-masing dengan tanggal berlakunya. Ketika sebuah perubahan terjadi, ia muncul di sini dan di {changelog}, beserta tanggal verifikasinya."
     },
     "comparisonAtRate": "Pada {rate}",
@@ -319,7 +319,7 @@
       "directionPayout": "Roblox membayar Anda",
       "directionPurchase": "Kamu membayar Roblox",
       "rateRow": "Kurs",
-      "ratePayout": "Terdokumentasi dan tetap pada 0,0038 USD per Earned Robux yang memenuhi syarat",
+      "ratePayout": "Terdokumentasi dan tetap pada {rateStandard} USD per Earned Robux yang memenuhi syarat",
       "ratePurchase": "Berbeda menurut paket, wilayah, platform, dan promosi",
       "whichRobuxRow": "Robux yang mana",
       "whichRobuxPayout": "Hanya Earned Robux yang memenuhi syarat",
@@ -389,7 +389,7 @@
     "ogImageAlt": "Dibulatkan ke atas, karena Robux pecahan tidak bisa diperoleh maupun ditukar",
     "body": {
       "rounding": {
-        "p1": "Target 1.000 dolar dibagi 0,0038 menghasilkan 263.157,89. Robux hadir dalam satuan bulat, jadi 263.157 akan membayar {rate} — sedikit di bawah target. Membulatkan ke atas menjadi 263.158 membayar {rate2}, yang melampaui target. Itulah sebabnya setiap angka di halaman ini dibulatkan ke atas, bukan ke bilangan bulat terdekat."
+        "p1": "Target {targetUsd} dolar dibagi {rateStandard} menghasilkan {targetRobuxExact}. Robux hadir dalam satuan bulat, jadi {targetRobuxDown} akan membayar {rate} — sedikit di bawah target. Membulatkan ke atas menjadi {targetRobuxUp} membayar {rate2}, yang melampaui target. Itulah sebabnya setiap angka di halaman ini dibulatkan ke atas, bukan ke bilangan bulat terdekat."
       },
       "minimum": {
         "p1": "Roblox mensyaratkan {minimumEarnedRobux} Earned Robux sebelum permintaan DevEx dapat diajukan sama sekali. Jika target Anda membutuhkan lebih sedikit dari itu, minimum itulah yang sebenarnya harus Anda capai — dan itu akan membayar {rate}, bukan target awal Anda."
@@ -458,7 +458,8 @@
     "prose": {
       "priceFloors": "Harga dasar berbeda menurut kategori item dan Roblox pernah menyesuaikannya dari waktu ke waktu, jadi menetapkan satu harga dasar universal di dalam kode akan menghasilkan jawaban yang salah untuk sebagian besar item. Memasukkan kelipatannya menjaga hasilnya tetap benar, berapa pun harga dasar kategori Anda."
     },
-    "columnRoblox": "Roblox"
+    "columnRoblox": "Roblox",
+    "tierMultipleAndAbove": "{multiple}× ke atas"
   },
   "conversions": {
     "intro": "Tabel yang dirender di server berisi jumlah-jumlah umum pada ketiga kurs yang didokumentasikan, ditambah kolom isian untuk apa pun yang tidak tercantum.",

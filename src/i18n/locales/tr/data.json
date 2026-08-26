@@ -1,16 +1,18 @@
 {
   "$comment": "src/data/*.json dosyalarından aynalanan metinlerin çevirisi. Anahtarları scripts/i18n/sync-data-dictionary.ts üretir; değerleri elle çevirin ve hiçbir sayıyı, tarihi, yüzdeyi veya tanımlayıcıyı değiştirmeyin.",
-  "$identical": ["metrics.companyContext.figures.adjusted-ebitda.label"],
+  "$identical": [
+    "metrics.companyContext.figures.adjusted-ebitda.label"
+  ],
   "evidence": {
     "verified-through-official-source": "Resmî kaynaktan doğrulandı"
   },
   "sources": {
     "roblox-devex-program": {
       "facts": [
-        "Uygun Earned Robux başına 0,0038 USD tutarındaki standart DevEx oranı (30.000 için 114 USD).",
-        "18 yaşından büyük olduğu doğrulanmış ABD'li oyuncuların harcamalarından gelen belirli Earned Robux için 0,0054 USD'lik daha yüksek oran.",
-        "5 Eylül 2025 saat 10.00 PT'den önce kazanılan bakiyeler için Robux başına 0,0035 USD tutarındaki eski oran.",
-        "Katılmak için en az 30.000 Earned Robux.",
+        "Uygun Earned Robux başına {rateStandard} USD tutarındaki standart DevEx oranı ({minimumRobux} için {payout30000Plain} USD).",
+        "18 yaşından büyük olduğu doğrulanmış ABD'li oyuncuların harcamalarından gelen belirli Earned Robux için {rateUs18} USD'lik daha yüksek oran.",
+        "5 Eylül 2025 saat 10.00 PT'den önce kazanılan bakiyeler için Robux başına {rateLegacy} USD tutarındaki eski oran.",
+        "Katılmak için en az {minimumRobux} Earned Robux.",
         "Uygunluk koşulları: en az 13 yaş, Roblox tarafından doğrulanmış e-posta adresi, geçerli DevEx portal hesabı, dosyada IRS W-9 veya W-8 formu ve Roblox Kullanım Koşulları ile Topluluk Standartlarına uyum."
       ]
     },
@@ -100,7 +102,7 @@
     "standard-current": {
       "label": "Standart oran",
       "shortLabel": "Standart",
-      "eligibilitySummary": "Uygun Earned Robux'a uygulanan standart DevEx oranı. Roblox bunu Earned Robux başına 0,0038 USD olarak belgeliyor; yani 30.000 Earned Robux için 114 USD."
+      "eligibilitySummary": "Uygun Earned Robux'a uygulanan standart DevEx oranı. Roblox bunu Earned Robux başına {rateStandard} USD olarak belgeliyor; yani {minimumRobux} Earned Robux için {payout30000Plain} USD."
     },
     "us-18-plus-qualified": {
       "label": "Uygun ABD 18+ oranı",
@@ -111,7 +113,7 @@
     "legacy-pre-2025-09-05": {
       "label": "Eski bakiye oranı",
       "shortLabel": "Eski",
-      "eligibilitySummary": "5 Eylül 2025 saat 10.00 PT'den önce geçerli olan, 30.000 Earned Robux için 105 USD'ye denk gelen oran. Roblox, o andan önce kazanılmış bakiyeleri önce bu eski orandan öder.",
+      "eligibilitySummary": "5 Eylül 2025 saat 10.00 PT'den önce geçerli olan, {minimumRobux} Earned Robux için {payoutLegacy30000Plain} USD'ye denk gelen oran. Roblox, o andan önce kazanılmış bakiyeleri önce bu eski orandan öder.",
       "conditionNote": "Yalnızca bakiyenin geçişten önce kazanılan bölümü için, Roblox'un kendi muhasebesine göre geçerlidir. Yaratıcı bu oranı seçemez."
     }
   },

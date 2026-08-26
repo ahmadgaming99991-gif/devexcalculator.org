@@ -6,7 +6,9 @@
   "criticalReviewAgeDays": 90,
   "minimum": {
     "eligibleEarnedRobux": 30000,
-    "sourceIds": ["roblox-devex-program"],
+    "sourceIds": [
+      "roblox-devex-program"
+    ],
     "lastVerifiedAt": "2026-08-17T00:00:00Z",
     "note": "Roblox states a minimum of 30,000 Earned Robux to submit a DevEx request. Meeting the number is not the same as being approved."
   },
@@ -20,9 +22,11 @@
       "effectiveFrom": "2025-09-05T10:00:00-07:00",
       "effectiveTo": null,
       "status": "active",
-      "eligibilitySummary": "The standard DevEx rate applied to eligible Earned Robux. Roblox documents this as 0.0038 USD per Earned Robux, which is 114 USD for 30,000 Earned Robux.",
+      "eligibilitySummary": "The standard DevEx rate applied to eligible Earned Robux. Roblox documents this as {rateStandard} USD per Earned Robux, which is {payout30000Plain} USD for {minimumRobux} Earned Robux.",
       "conditionNote": null,
-      "sourceIds": ["roblox-devex-program"],
+      "sourceIds": [
+        "roblox-devex-program"
+      ],
       "lastVerifiedAt": "2026-08-17T00:00:00Z"
     },
     {
@@ -36,7 +40,9 @@
       "status": "conditional",
       "eligibilitySummary": "A higher rate Roblox applies to certain Earned Robux from purchases of developer products, passes, subscriptions, and private servers made by United States players who have verified that they are at least 18 years old.",
       "conditionNote": "This rate is not selectable by the creator. Roblox determines which portion of a balance qualifies. Do not assume a whole balance earns this rate.",
-      "sourceIds": ["roblox-devex-program"],
+      "sourceIds": [
+        "roblox-devex-program"
+      ],
       "lastVerifiedAt": "2026-08-17T00:00:00Z"
     },
     {
@@ -48,15 +54,20 @@
       "effectiveFrom": null,
       "effectiveTo": "2025-09-05T10:00:00-07:00",
       "status": "legacy",
-      "eligibilitySummary": "The rate that applied before 5 September 2025 at 10:00 PT, equal to 105 USD for 30,000 Earned Robux. Roblox cashes out balances earned before that moment at this older rate first.",
+      "eligibilitySummary": "The rate that applied before 5 September 2025 at 10:00 PT, equal to {payoutLegacy30000Plain} USD for {minimumRobux} Earned Robux. Roblox cashes out balances earned before that moment at this older rate first.",
       "conditionNote": "Applies only to the portion of a balance earned before the transition, under Roblox's own accounting. A creator cannot choose this rate.",
-      "sourceIds": ["roblox-devex-program"],
+      "sourceIds": [
+        "roblox-devex-program"
+      ],
       "lastVerifiedAt": "2026-08-17T00:00:00Z"
     }
   ],
   "marketplace": {
     "lastVerifiedAt": "2026-08-17T00:00:00Z",
-    "sourceIds": ["roblox-marketplace-fees", "roblox-monetization-overview"],
+    "sourceIds": [
+      "roblox-marketplace-fees",
+      "roblox-monetization-overview"
+    ],
     "schemes": [
       {
         "id": "in-experience",
@@ -65,7 +76,9 @@
         "creatorSharePercent": "70",
         "platformSharePercent": "30",
         "progressive": false,
-        "sourceIds": ["roblox-monetization-overview"]
+        "sourceIds": [
+          "roblox-monetization-overview"
+        ]
       },
       {
         "id": "marketplace-avatar-item",
@@ -75,18 +88,50 @@
         "platformSharePercent": "70",
         "progressive": true,
         "progressiveTiers": [
-          { "priceFloorMultiple": "1", "creatorSharePercent": "30" },
-          { "priceFloorMultiple": "1.3", "creatorSharePercent": "37" },
-          { "priceFloorMultiple": "1.5", "creatorSharePercent": "41" },
-          { "priceFloorMultiple": "2", "creatorSharePercent": "50" },
-          { "priceFloorMultiple": "2.5", "creatorSharePercent": "57" },
-          { "priceFloorMultiple": "3", "creatorSharePercent": "62" },
-          { "priceFloorMultiple": "3.5", "creatorSharePercent": "65" },
-          { "priceFloorMultiple": "4", "creatorSharePercent": "67" },
-          { "priceFloorMultiple": "5", "creatorSharePercent": "69" },
-          { "priceFloorMultiple": "6", "creatorSharePercent": "70" }
+          {
+            "priceFloorMultiple": "1",
+            "creatorSharePercent": "30"
+          },
+          {
+            "priceFloorMultiple": "1.3",
+            "creatorSharePercent": "37"
+          },
+          {
+            "priceFloorMultiple": "1.5",
+            "creatorSharePercent": "41"
+          },
+          {
+            "priceFloorMultiple": "2",
+            "creatorSharePercent": "50"
+          },
+          {
+            "priceFloorMultiple": "2.5",
+            "creatorSharePercent": "57"
+          },
+          {
+            "priceFloorMultiple": "3",
+            "creatorSharePercent": "62"
+          },
+          {
+            "priceFloorMultiple": "3.5",
+            "creatorSharePercent": "65"
+          },
+          {
+            "priceFloorMultiple": "4",
+            "creatorSharePercent": "67"
+          },
+          {
+            "priceFloorMultiple": "5",
+            "creatorSharePercent": "69"
+          },
+          {
+            "priceFloorMultiple": "6",
+            "creatorSharePercent": "70"
+          }
         ],
-        "sourceIds": ["roblox-marketplace-fees"]
+        "sourceIds": [
+          "roblox-marketplace-fees"
+        ]
       },
       {
         "id": "avatar-item-in-experience",
@@ -96,7 +141,9 @@
         "platformSharePercent": "30",
         "experienceOwnerSharePercent": "40",
         "progressive": false,
-        "sourceIds": ["roblox-marketplace-fees"]
+        "sourceIds": [
+          "roblox-marketplace-fees"
+        ]
       }
     ]
   },

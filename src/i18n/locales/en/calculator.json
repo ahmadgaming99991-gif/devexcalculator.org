@@ -176,7 +176,9 @@
     "perEligibleRobux": "{rate} per eligible Earned Robux",
     "groupBalanceLabel": "The group's eligible Earned Robux",
     "percentageForLabel": "Percentage for {member}",
-    "memberFallback": "member {index}"
+    "memberFallback": "member {index}",
+    "addMember": "Add a member",
+    "sharesTotal": "Shares total {percent}%"
   },
   "preparation": {
     "earnedRobuxLink": "What counts as Earned Robux",
@@ -197,7 +199,8 @@
     "balanceStep": "Confirm the balance is genuinely Earned Robux and has reached {minimum}. {earnedRobuxLink}",
     "taxFormStep": "Complete the correct tax form — W-9 for a United States taxpayer, W-8 otherwise.",
     "standingStep": "Check the account is in good standing against the Terms of Use and Community Standards.",
-    "destinationStep": "Decide where the money is going, and check what the bank or payment provider will charge to receive it. {feesLink}"
+    "destinationStep": "Decide where the money is going, and check what the bank or payment provider will charge to receive it. {feesLink}",
+    "clear": "Clear"
   },
   "currency": {
     "loading": "Loading reference rates…",
@@ -233,7 +236,7 @@
     "body": {
       "howItWorks": {
         "p1": "Why the arithmetic is done exactly",
-        "p2": "A rate like 0.0038 cannot be represented exactly in binary floating point, so a naive calculation drifts: 17,000 Robux at the U.S. 18+ rate comes out as 91.80000000000001 rather than 91.80. Every figure on this site is computed as an exact fraction and rounded once, at the moment it is displayed."
+        "p2": "A rate like {rateStandard} cannot be represented exactly in binary floating point, so a naive calculation drifts: 17,000 Robux at the U.S. 18+ rate comes out as 91.80000000000001 rather than 91.80. Every figure on this site is computed as an exact fraction and rounded once, at the moment it is displayed."
       },
       "currentRates": {
         "p1": "Full detail on each rate, with effective dates and worked examples",
@@ -326,7 +329,15 @@
     "payoutNote": "At {rate}, before fees and tax.",
     "targetHint": "Before any payment-provider fee or tax.",
     "worksOutDate": "The plan works out the date.",
-    "worksOutPace": "The plan works out the pace."
+    "worksOutPace": "The plan works out the pace.",
+    "planHeading": "The plan",
+    "rateToPlanAgainst": "Rate to plan against",
+    "perLabel": "Per",
+    "pacePeriod": {
+      "day": "a day",
+      "week": "a week",
+      "month": "a month (30 days)"
+    }
   },
   "actions": {
     "copied": "{label} copied to the clipboard.",
@@ -336,7 +347,11 @@
     "copiedLabel": "Copied",
     "copyFailedLabel": "Copy failed",
     "share": "Share",
-    "copyLink": "Copy link"
+    "copyLink": "Copy link",
+    "reset": "Reset",
+    "confirmReset": "Confirm reset",
+    "cancel": "Cancel",
+    "resetAnnouncement": "Calculator reset."
   },
   "controls": {
     "body": {
@@ -367,6 +382,7 @@
     "clearedAnnouncement": "Saved calculations cleared.",
     "targetLabel": "Target {amount}",
     "robuxLabel": "{robux} Robux",
-    "saveButton": "Save this calculation"
+    "saveButton": "Save this calculation",
+    "clear": "Clear history"
   }
 }

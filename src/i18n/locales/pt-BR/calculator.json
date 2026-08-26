@@ -184,7 +184,9 @@
     "perEligibleRobux": "{rate} por Earned Robux elegível",
     "groupBalanceLabel": "Os Earned Robux elegíveis do grupo",
     "percentageForLabel": "Porcentagem de {member}",
-    "memberFallback": "integrante {index}"
+    "memberFallback": "integrante {index}",
+    "addMember": "Adicionar membro",
+    "sharesTotal": "As cotas somam {percent}%"
   },
   "preparation": {
     "earnedRobuxLink": "O que conta como Earned Robux",
@@ -205,7 +207,8 @@
     "balanceStep": "Confirme que o saldo é genuinamente Earned Robux e chegou a {minimum}. {earnedRobuxLink}",
     "taxFormStep": "Preencha o formulário fiscal correto — W-9 para contribuintes dos Estados Unidos, W-8 nos demais casos.",
     "standingStep": "Verifique se a conta está em situação regular perante os Termos de Uso e os Padrões da Comunidade.",
-    "destinationStep": "Decida para onde o dinheiro vai e verifique quanto o banco ou provedor de pagamento vai cobrar para recebê-lo. {feesLink}"
+    "destinationStep": "Decida para onde o dinheiro vai e verifique quanto o banco ou provedor de pagamento vai cobrar para recebê-lo. {feesLink}",
+    "clear": "Limpar"
   },
   "currency": {
     "loading": "Carregando taxas de referência…",
@@ -241,7 +244,7 @@
     "body": {
       "howItWorks": {
         "p1": "Por que a aritmética é feita de forma exata",
-        "p2": "Uma taxa como 0,0038 não pode ser representada exatamente em ponto flutuante binário, então um cálculo ingênuo desvia: 17.000 Robux à taxa dos EUA 18+ sai como 91.80000000000001 em vez de 91,80. Todo número neste site é computado como fração exata e arredondado uma única vez, no momento em que é exibido."
+        "p2": "Uma taxa como {rateStandard} não pode ser representada exatamente em ponto flutuante binário, então um cálculo ingênuo desvia: 17.000 Robux à taxa dos EUA 18+ sai como 91.80000000000001 em vez de 91,80. Todo número neste site é computado como fração exata e arredondado uma única vez, no momento em que é exibido."
       },
       "currentRates": {
         "p1": "Detalhe completo de cada taxa, com datas de vigência e exemplos calculados",
@@ -334,7 +337,15 @@
     "payoutNote": "Com {rate}, antes de taxas e impostos.",
     "targetHint": "Antes de qualquer taxa do provedor de pagamento ou imposto.",
     "worksOutDate": "O plano calcula a data.",
-    "worksOutPace": "O plano calcula o ritmo."
+    "worksOutPace": "O plano calcula o ritmo.",
+    "planHeading": "O plano",
+    "rateToPlanAgainst": "Taxa para planejar",
+    "perLabel": "Por",
+    "pacePeriod": {
+      "day": "por dia",
+      "week": "por semana",
+      "month": "por mês (30 dias)"
+    }
   },
   "controls": {
     "body": {
@@ -364,7 +375,11 @@
     "copiedLabel": "Copiado",
     "copyFailedLabel": "Falha ao copiar",
     "share": "Compartilhar",
-    "copyLink": "Copiar link"
+    "copyLink": "Copiar link",
+    "reset": "Redefinir",
+    "confirmReset": "Confirmar redefinição",
+    "cancel": "Cancelar",
+    "resetAnnouncement": "Calculadora redefinida."
   },
   "checklist": {
     "meterLabel": "{completed} de {total} passos de preparação concluídos"
@@ -375,6 +390,7 @@
     "clearedAnnouncement": "Cálculos salvos apagados.",
     "targetLabel": "Meta de {amount}",
     "robuxLabel": "{robux} Robux",
-    "saveButton": "Salvar este cálculo"
+    "saveButton": "Salvar este cálculo",
+    "clear": "Limpar histórico"
   }
 }

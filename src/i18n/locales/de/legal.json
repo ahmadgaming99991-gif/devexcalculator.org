@@ -100,7 +100,8 @@
       },
       "changes": {
         "p1": "Diese Bedingungen können aktualisiert werden. Das Prüfdatum oben auf dieser Seite steht für die jüngste Änderung, und wesentliche Änderungen werden im",
-        "p2": "festgehalten, zusammen mit allem anderen, was sich hier ändert."
+        "p2": "festgehalten, zusammen mit allem anderen, was sich hier ändert.",
+        "changelogLink": "das Changelog"
       }
     },
     "prose": {

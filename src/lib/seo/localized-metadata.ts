@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { absoluteUrl, siteConfig } from "@/config/site";
 import { requireRoute } from "@/lib/content/route-registry";
 import { DEFAULT_LOCALE, getLocaleMeta } from "@/i18n/config";
-import { getNamespace } from "@/i18n/get-dictionary";
+import { getNamespace, interpolate } from "@/i18n/get-dictionary";
+import { withFigures } from "@/i18n/figures";
 import { localizedPath } from "@/i18n/locale-path";
 import { routeKey } from "@/i18n/route-key";
 import { isPubliclyVisible, publicLocales } from "@/i18n/visibility";
@@ -75,8 +76,8 @@ export async function buildLocalizedMetadata(
 ): Promise<Metadata> {
   const record = requireRoute(route);
   const routes = await getNamespace<Record<string, RouteStrings>>(locale, "routes");
-  const strings = routes[routeKey(route)];
-  if (!strings) {
+  const raw = routes[routeKey(route)];
+  if (!raw) {
     // Every indexable route is extracted into the dictionary, so this is a
     // route added without re-running the extractor rather than a reader error.
     throw new Error(`No "routes" entry for ${route} in locale "${locale}".`);
@@ -84,6 +85,18 @@ export async function buildLocalizedMetadata(
 
   const meta = getLocaleMeta(locale);
   const canonical = absoluteUrl(localizedPath(locale, route));
+
+  /*
+   * Same reason as `localizedRoute`: these strings come from the namespace
+   * rather than from `t`, and a title carrying a raw `{rateStandard}` is the
+   * one place nobody looks at while developing.
+   */
+  const fill = (value: string): string => interpolate(value, withFigures(meta.bcp47));
+  const strings = {
+    title: fill(raw.title),
+    metaDescription: fill(raw.metaDescription),
+    ogImageAlt: fill(raw.ogImageAlt),
+  };
 
   // Append the brand only when there is room, rather than truncating the task.
   const title =

@@ -72,10 +72,13 @@ export async function CorrectionsView({ locale }: { readonly locale: Locale }) {
 
           <Section id="record" heading={t("trust.corrections.recordHeading")}>
             <p className="text-(--color-text-muted)">
-              Publicly, in the{" "}
-              <InlineLink href={localizedPath(locale, "/changelog/")}>
-                {t("trust.api.changelogLink")}
-              </InlineLink>{" "}
+              {rich(t("trust.corrections.prose.publiclyIn"), {
+                changelog: (
+                  <InlineLink href={localizedPath(locale, "/changelog/")}>
+                    {t("trust.corrections.prose.changelogWhere")}
+                  </InlineLink>
+                ),
+              })}{" "}
               {t("trust.corrections.prose.notSilent")}
             </p>
             <p className="mt-3 text-(--color-text-muted)">

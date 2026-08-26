@@ -238,6 +238,24 @@ export function ButtonLink({
 }
 
 /**
+ * Text that stays English on a page that is not, because it names something.
+ *
+ * The title of an English document this site cites, and the name a Roblox
+ * creator gave their experience. Neither is translatable: "Fling Things and
+ * People" is what the experience is called, and rendering it in German would
+ * be inventing a name nobody can search for.
+ *
+ * `lang="en"` is the honest way to say so. A screen reader switches voice
+ * rather than reading English with German phonemes, and — because the page now
+ * states which of its words are foreign — `detect-language-leakage` can skip
+ * them instead of carrying a growing regex of proper nouns it has to guess at.
+ * That check counts what is left, so anything not marked here is a real leak.
+ */
+export function Foreign({ children }: { readonly children: ReactNode }) {
+  return <span lang="en">{children}</span>;
+}
+
+/**
  * A link to an official external source.
  *
  * Opens in a new tab with `noopener noreferrer`, but deliberately without

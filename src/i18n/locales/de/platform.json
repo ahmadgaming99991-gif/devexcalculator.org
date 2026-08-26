@@ -77,7 +77,8 @@
     "sponsored": "Gesponsert",
     "byCreator": "von {creator}",
     "verifiedSuffix": "(verifiziert)",
-    "favouritesCount": "{count} Favoriten"
+    "favouritesCount": "{count} Favoriten",
+    "maturity": "Altersfreigabe: {rating}"
   },
   "platformFigure": {
     "label": "Spielende über alle Experiences, die Roblox in einer Rangliste führt",

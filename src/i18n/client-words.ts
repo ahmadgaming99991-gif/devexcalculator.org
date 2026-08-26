@@ -1,4 +1,5 @@
 import { interpolate } from "@/i18n/interpolate";
+import { withFigures } from "@/i18n/figures";
 import type { Translate } from "@/i18n/get-dictionary";
 
 /*
@@ -60,12 +61,24 @@ export type LocaleWords = Readonly<Record<string, string>>;
  * where a sentence should be is not.
  */
 export function translatorFor(words: LocaleWords): Translate {
+  const locale = words[LOCALE_KEY] ?? DEFAULT_BCP47;
   const read = (key: string, values?: Readonly<Record<string, string | number>>): string => {
     const value = words[key];
     if (value === undefined) {
       throw new Error(`"${key}" was not among the words handed to this component.`);
     }
-    return values === undefined ? value : interpolate(value, values);
+    /*
+     * The registry figures are filled in here as well as on the server.
+     *
+     * Three of the strings an island renders carry `{minimumRobux}` — the
+     * results summary, and the planner's estimate notice. The server
+     * translator supplies those tokens; this one did not, so the moment the
+     * island hydrated the sentence would have shown the reader a brace where
+     * the minimum should be. `figures` reads the same registry the calculator
+     * beside it already imports, so this costs nothing the bundle was not
+     * already carrying.
+     */
+    return interpolate(value, withFigures(locale, values));
   };
-  return Object.assign(read, { locale: words[LOCALE_KEY] ?? DEFAULT_BCP47 });
+  return Object.assign(read, { locale });
 }

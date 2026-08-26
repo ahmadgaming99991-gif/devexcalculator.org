@@ -195,7 +195,7 @@ export function GroupSplit({ words }: { readonly words: LocaleWords }) {
                         disabled={rows.length <= 1}
                         className="px-2 text-sm"
                       >
-                        Remove
+                        {t("calculator.groupSplit.removeMember")}
                         <span className="sr-only"> {row.name || `member ${index + 1}`}</span>
                       </Button>
                     </Td>
@@ -208,10 +208,12 @@ export function GroupSplit({ words }: { readonly words: LocaleWords }) {
 
         <div className="mt-4 flex flex-wrap items-center gap-3">
           <Button variant="secondary" onClick={add} disabled={rows.length >= MAX_MEMBERS}>
-            Add a member
+            {t("calculator.groupSplit.addMember")}
           </Button>
           <p className="text-sm text-(--color-text-muted)">
-            Shares total {result.allocatedPercent.toFixed(2, "half-up")}%
+            {t("calculator.groupSplit.sharesTotal", {
+              percent: result.allocatedPercent.toFixed(2, "half-up"),
+            })}
             {result.unallocatedRobux > 0n ? (
               <> · {formatRobux(t.locale, result.unallocatedRobux)} Robux unallocated</>
             ) : null}

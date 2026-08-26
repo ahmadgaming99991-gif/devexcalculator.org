@@ -238,7 +238,45 @@ six.
 | `id` | PASS | PASS | **not done** |
 | `fr` | PASS | PASS | **not done** |
 | `de` | PASS | PASS | **not done** |
-| `tr` | PASS | PASS, 4 sentences flagged for a Turkish reader | **not done** |
+| `tr` | PASS | **BLOCKED-PENDING-REVIEW** — see below | **not done** |
+
+### Rendered output is not clean, in any locale
+
+The catalog audit passing is not the same as the page being in one language.
+Five English strings are hardcoded in components rather than looked up, so they
+render in English in all six locales:
+
+| String | Source |
+| --- | --- |
+| `The plan` | `src/features/devex/planner.tsx:363` |
+| `. This site gives no tax advice.` | `src/views/how-to-cash-out-robux.tsx:189` |
+| `" and above"` | `src/views/robux-tax-calculator.tsx:118` |
+| `Publicly, in the` | `src/views/corrections.tsx:75` |
+| `Fees and taxes` (nav label) | `src/lib/content/route-registry.ts:869` |
+
+Separately, `Maturity: Minimal` / `Maturity: Mild` renders as an English label
+inside otherwise-translated live-data rows on `/platform/`. The leakage
+detector cannot see it: it counts English function words, and that label has
+none.
+
+These are open leaks, not allow-list entries. No locale is clean on rendered
+output until they are fixed.
+
+### Turkish is blocked, not passed
+
+`tr` carries the no-guarantee claim morphologically: the negation is a verb
+suffix (`garanti et**mez**`, `aynı şey değildir`), not a separate word. The
+automated `negation-lost` check cannot confirm a suffix it does not know how to
+segment, and the author of these translations is not a Turkish speaker. Four
+sentences are affected — the keys reported as `negation-morphological` in
+`dist/reports/i18n/audit-tr.json`.
+
+On the site's single most load-bearing sentence, a self-flagged uncertainty is
+not a pass. `tr` is **BLOCKED-PENDING-REVIEW** until a Turkish reader confirms
+that each of those four sentences negates the approval claim and attaches the
+negation to the right clause. This is stricter than the other five locales by
+design: the others carry the negation as a separate word that the check can
+see.
 
 The third column is the one that gates publication, and nothing in this audit
 changes it. `docs/i18n/publishing-a-locale.md` has the procedure.

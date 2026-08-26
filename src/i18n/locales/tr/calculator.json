@@ -183,7 +183,9 @@
     "perEligibleRobux": "uygun Earned Robux başına {rate}",
     "groupBalanceLabel": "Grubun uygun Earned Robux miktarı",
     "percentageForLabel": "{member} için yüzde",
-    "memberFallback": "{index}. üye"
+    "memberFallback": "{index}. üye",
+    "addMember": "Üye ekle",
+    "sharesTotal": "Paylar toplamı %{percent}"
   },
   "preparation": {
     "earnedRobuxLink": "Neler Earned Robux sayılır",
@@ -204,7 +206,8 @@
     "balanceStep": "Bakiyenin gerçekten Earned Robux olduğunu ve {minimum} değerine ulaştığını doğrulayın. {earnedRobuxLink}",
     "taxFormStep": "Doğru vergi formunu doldurun — ABD'de vergi mükellefiyseniz W-9, değilseniz W-8.",
     "standingStep": "Hesabın Kullanım Koşulları ve Topluluk Standartları açısından kurallara uygun olduğunu kontrol edin.",
-    "destinationStep": "Paranın nereye gideceğine karar verin ve bankanın ya da ödeme sağlayıcısının bunu almak için ne kadar ücret alacağını kontrol edin. {feesLink}"
+    "destinationStep": "Paranın nereye gideceğine karar verin ve bankanın ya da ödeme sağlayıcısının bunu almak için ne kadar ücret alacağını kontrol edin. {feesLink}",
+    "clear": "Temizle"
   },
   "currency": {
     "loading": "Referans kurlar yükleniyor…",
@@ -240,7 +243,7 @@
     "body": {
       "howItWorks": {
         "p1": "Aritmetik neden tam olarak yapılıyor",
-        "p2": "0,0038 gibi bir kur ikili kayan noktada tam olarak temsil edilemez; bu yüzden dikkatsiz bir hesap kayar: ABD 18+ kurunda 17.000 Robux, 91,80 yerine 91.80000000000001 çıkar. Bu sitedeki her rakam tam kesir olarak hesaplanır ve yalnızca bir kez, gösterildiği anda yuvarlanır."
+        "p2": "{rateStandard} gibi bir kur ikili kayan noktada tam olarak temsil edilemez; bu yüzden dikkatsiz bir hesap kayar: ABD 18+ kurunda 17.000 Robux, 91,80 yerine 91.80000000000001 çıkar. Bu sitedeki her rakam tam kesir olarak hesaplanır ve yalnızca bir kez, gösterildiği anda yuvarlanır."
       },
       "currentRates": {
         "p1": "Her kurun tam ayrıntısı; yürürlük tarihleri ve örnek hesaplamalarla",
@@ -333,7 +336,15 @@
     "payoutNote": "{rate} ile, ücretler ve vergi öncesi.",
     "targetHint": "Ödeme sağlayıcısı ücretleri ve vergiler öncesi.",
     "worksOutDate": "Plan tarihi hesaplar.",
-    "worksOutPace": "Plan hızı hesaplar."
+    "worksOutPace": "Plan hızı hesaplar.",
+    "planHeading": "Plan",
+    "rateToPlanAgainst": "Planlamada kullanılacak kur",
+    "perLabel": "Başına",
+    "pacePeriod": {
+      "day": "günde",
+      "week": "haftada",
+      "month": "ayda (30 gün)"
+    }
   },
   "controls": {
     "body": {
@@ -363,7 +374,11 @@
     "copiedLabel": "Kopyalandı",
     "copyFailedLabel": "Kopyalama başarısız",
     "share": "Paylaş",
-    "copyLink": "Bağlantıyı kopyala"
+    "copyLink": "Bağlantıyı kopyala",
+    "reset": "Sıfırla",
+    "confirmReset": "Sıfırlamayı onayla",
+    "cancel": "Vazgeç",
+    "resetAnnouncement": "Hesaplayıcı sıfırlandı."
   },
   "checklist": {
     "meterLabel": "{total} hazırlık adımından {completed} tanesi tamamlandı"
@@ -374,6 +389,7 @@
     "clearedAnnouncement": "Kaydedilen hesaplamalar silindi.",
     "targetLabel": "Hedef {amount}",
     "robuxLabel": "{robux} Robux",
-    "saveButton": "Bu hesaplamayı kaydet"
+    "saveButton": "Bu hesaplamayı kaydet",
+    "clear": "Geçmişi temizle"
   }
 }

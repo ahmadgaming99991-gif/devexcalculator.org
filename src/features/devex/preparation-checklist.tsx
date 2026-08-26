@@ -153,7 +153,7 @@ export function PreparationChecklist({
               onClick={clear}
               className="rounded-(--radius-control) px-2 py-1 text-sm font-medium text-(--color-primary) hover:bg-(--color-primary-soft)"
             >
-              Clear
+              {t("calculator.preparation.clear")}
             </button>
           ) : null}
         </div>

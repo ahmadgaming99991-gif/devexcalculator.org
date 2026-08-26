@@ -6,6 +6,7 @@
     "history.robuxLabel",
     "history.targetLabel",
     "modes.target.label",
+    "planner.perLabel",
     "results.columnPerRobux",
     "results.columnSubtotal",
     "results.summary.bucketLine",
@@ -188,7 +189,9 @@
     "perEligibleRobux": "{rate} per Earned Robux yang memenuhi syarat",
     "groupBalanceLabel": "Earned Robux grup yang memenuhi syarat",
     "percentageForLabel": "Persentase untuk {member}",
-    "memberFallback": "anggota {index}"
+    "memberFallback": "anggota {index}",
+    "addMember": "Tambah anggota",
+    "sharesTotal": "Total bagian {percent}%"
   },
   "preparation": {
     "earnedRobuxLink": "Apa yang dihitung sebagai Earned Robux",
@@ -209,7 +212,8 @@
     "balanceStep": "Pastikan saldonya benar-benar Earned Robux dan sudah mencapai {minimum}. {earnedRobuxLink}",
     "taxFormStep": "Lengkapi formulir pajak yang tepat — W-9 untuk wajib pajak Amerika Serikat, W-8 untuk selainnya.",
     "standingStep": "Periksa apakah akun berstatus baik menurut Ketentuan Penggunaan dan Standar Komunitas.",
-    "destinationStep": "Tentukan ke mana uangnya akan dikirim, dan periksa berapa yang akan dikenakan bank atau penyedia pembayaran untuk menerimanya. {feesLink}"
+    "destinationStep": "Tentukan ke mana uangnya akan dikirim, dan periksa berapa yang akan dikenakan bank atau penyedia pembayaran untuk menerimanya. {feesLink}",
+    "clear": "Kosongkan"
   },
   "currency": {
     "loading": "Memuat kurs acuan…",
@@ -245,7 +249,7 @@
     "body": {
       "howItWorks": {
         "p1": "Mengapa aritmetikanya dikerjakan secara eksak",
-        "p2": "Kurs seperti 0,0038 tidak bisa diwakili persis dalam bilangan pecahan biner, sehingga perhitungan yang naif akan meleset: 17.000 Robux pada kurs AS 18+ keluar sebagai 91.80000000000001, bukan 91,80. Setiap angka di situs ini dihitung sebagai pecahan eksak dan dibulatkan sekali saja, tepat saat ditampilkan."
+        "p2": "Kurs seperti {rateStandard} tidak bisa diwakili persis dalam bilangan pecahan biner, sehingga perhitungan yang naif akan meleset: 17.000 Robux pada kurs AS 18+ keluar sebagai 91.80000000000001, bukan 91,80. Setiap angka di situs ini dihitung sebagai pecahan eksak dan dibulatkan sekali saja, tepat saat ditampilkan."
       },
       "currentRates": {
         "p1": "Rincian lengkap tiap kurs, dengan tanggal berlaku dan contoh perhitungan",
@@ -338,7 +342,15 @@
     "payoutNote": "Pada {rate}, sebelum biaya dan pajak.",
     "targetHint": "Sebelum biaya penyedia pembayaran atau pajak apa pun.",
     "worksOutDate": "Rencana ini menghitung tanggalnya.",
-    "worksOutPace": "Rencana ini menghitung lajunya."
+    "worksOutPace": "Rencana ini menghitung lajunya.",
+    "planHeading": "Rencana",
+    "rateToPlanAgainst": "Tarif untuk perencanaan",
+    "perLabel": "Per",
+    "pacePeriod": {
+      "day": "per hari",
+      "week": "per minggu",
+      "month": "per bulan (30 hari)"
+    }
   },
   "controls": {
     "body": {
@@ -368,7 +380,11 @@
     "copiedLabel": "Tersalin",
     "copyFailedLabel": "Gagal menyalin",
     "share": "Bagikan",
-    "copyLink": "Salin tautan"
+    "copyLink": "Salin tautan",
+    "reset": "Atur ulang",
+    "confirmReset": "Konfirmasi atur ulang",
+    "cancel": "Batal",
+    "resetAnnouncement": "Kalkulator diatur ulang."
   },
   "checklist": {
     "meterLabel": "{completed} dari {total} langkah persiapan selesai"
@@ -379,6 +395,7 @@
     "clearedAnnouncement": "Perhitungan tersimpan dihapus.",
     "targetLabel": "Target {amount}",
     "robuxLabel": "{robux} Robux",
-    "saveButton": "Simpan perhitungan ini"
+    "saveButton": "Simpan perhitungan ini",
+    "clear": "Hapus riwayat"
   }
 }

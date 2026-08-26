@@ -39,7 +39,8 @@
         "answers": "¿Qué se descuenta del pago antes de que me llegue?",
         "assumes": "Que ya tengas una cifra de pago de la que partir."
       }
-    }
+    },
+    "assumesLabel": "Da por sabido: {assumes}"
   },
   "calculators": {
     "intro": "Cuatro calculadoras, cada una respondiendo bien a una pregunta, en lugar de una herramienta intentando responder a todo.",
@@ -144,7 +145,11 @@
       },
       "after": {
         "p1": "Un pago es un ingreso, y cómo tributa depende por completo de dónde vivas. Tu proveedor de pagos puede cobrar una comisión, y si te pagan en una moneda distinta del dólar estadounidense habrá además un diferencial de conversión.",
-        "p2": "Modela esas deducciones con tus propias cifras"
+        "p2": "Modela esas deducciones con tus propias cifras",
+        "p3": "Este sitio no da asesoramiento fiscal."
+      },
+      "where": {
+        "nowhereElse": "En ningún otro sitio."
       }
     },
     "prose": {

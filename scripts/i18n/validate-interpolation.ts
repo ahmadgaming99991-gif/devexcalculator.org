@@ -31,6 +31,17 @@ import { join } from "node:path";
 import { DICTIONARY_NAMESPACES } from "../../src/i18n/types";
 import { DEFAULT_LOCALE } from "../../src/i18n/config";
 
+import { figures } from "../../src/i18n/figures";
+
+/**
+ * Tokens the translator fills in for every string, from the rate registry.
+ *
+ * These are not passed by any call site and must not be reported as missing —
+ * see `src/i18n/figures.ts`. Derived from the module itself rather than listed
+ * here, so a new figure cannot drift out of step with this check.
+ */
+const FIGURE_TOKENS = new Set(Object.keys(figures("en")));
+
 const ROOT = process.cwd();
 const LOCALES = join(ROOT, "src/i18n/locales", DEFAULT_LOCALE);
 
@@ -195,10 +206,14 @@ for (const file of files) {
 
     checked += 1;
     const wanted = tokensIn(declared);
-    const given = new Set([...passed, ...(byRich.get(key) ?? [])]);
+    const given = new Set([...passed, ...(byRich.get(key) ?? []), ...FIGURE_TOKENS]);
 
     const unfilled = [...wanted].filter((token) => !given.has(token));
-    const unused = [...given].filter((token) => !wanted.has(token));
+    // A figure token nobody used is not a call-site mistake: the whole set is
+    // supplied to every string, so "unused" is the normal case for all but one.
+    const unused = [...given].filter(
+      (token) => !wanted.has(token) && !FIGURE_TOKENS.has(token),
+    );
 
     if (unfilled.length === 0 && unused.length === 0) continue;
 

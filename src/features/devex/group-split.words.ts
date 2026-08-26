@@ -14,6 +14,7 @@ import { PARSE_MESSAGE_WORDS } from "@/i18n/parse-message.words";
  */
 export const GROUP_SPLIT_WORDS: readonly string[] = [
   ...PARSE_MESSAGE_WORDS,
+  "calculator.groupSplit.addMember",
   "calculator.groupSplit.belowMinimumBody.one",
   "calculator.groupSplit.belowMinimumBody.other",
   "calculator.groupSplit.belowMinimumTitle.one",
@@ -35,8 +36,10 @@ export const GROUP_SPLIT_WORDS: readonly string[] = [
   "calculator.groupSplit.perEligibleRobux",
   "calculator.groupSplit.prose.robloxDoesNotDivide",
   "calculator.groupSplit.remainderTitle",
+  "calculator.groupSplit.removeMember",
   "calculator.groupSplit.removeRow",
   "calculator.groupSplit.sharesDoNotAddUpTitle",
+  "calculator.groupSplit.sharesTotal",
   "calculator.groupSplit.tableCaption",
   "calculator.groupSplit.tableLabel",
   "calculator.groupSplit.valuedAt",

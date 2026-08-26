@@ -1,5 +1,7 @@
 import { requireRoute } from "@/lib/content/route-registry";
-import { getNamespace } from "@/i18n/get-dictionary";
+import { getNamespace, interpolate } from "@/i18n/get-dictionary";
+import { withFigures } from "@/i18n/figures";
+import { getLocaleMeta } from "@/i18n/config";
 import { routeKey } from "@/i18n/route-key";
 import type { Locale } from "@/i18n/types";
 import type { RouteRecord } from "@/types/content";
@@ -78,21 +80,30 @@ export async function localizedRoute(locale: Locale, route: string): Promise<Rou
     throw new Error(`No "routes.${key}" entry for ${route} in locale "${locale}".`);
   }
 
+  /*
+   * The route strings are read straight out of the namespace rather than
+   * through `t`, so the registry figures have to be filled in here too. A
+   * quick answer that resolves `{payout30000}` on the page and prints the
+   * token in the `<title>` is the failure this is guarding against.
+   */
+  const values = withFigures(getLocaleMeta(locale).bcp47);
+  const fill = (value: string): string => interpolate(value, values);
+
   const need = (value: string | undefined, what: string): string => {
     if (value === undefined) {
       throw new Error(`No "routes.${key}.${what}" for ${route} in locale "${locale}".`);
     }
-    return value;
+    return fill(value);
   };
 
   return {
     ...record,
-    title: strings.title,
-    metaDescription: strings.metaDescription,
-    h1: strings.h1,
-    navLabel: strings.navLabel,
-    quickAnswer: strings.quickAnswer,
-    ogImageAlt: strings.ogImageAlt,
+    title: fill(strings.title),
+    metaDescription: fill(strings.metaDescription),
+    h1: fill(strings.h1),
+    navLabel: fill(strings.navLabel),
+    quickAnswer: fill(strings.quickAnswer),
+    ogImageAlt: fill(strings.ogImageAlt),
     sections: record.sections.map((section) => ({
       ...section,
       heading: need(strings.sections[section.id], `sections.${section.id}`),
@@ -104,7 +115,7 @@ export async function localizedRoute(locale: Locale, route: string): Promise<Rou
           `No "routes.${key}.faqs.${faqKey(index)}" for ${route} in locale "${locale}".`,
         );
       }
-      return { ...faq, question: translated.question, answer: translated.answer };
+      return { ...faq, question: fill(translated.question), answer: fill(translated.answer) };
     }),
     internalLinks: record.internalLinks.map((link) => ({
       ...link,

@@ -9,10 +9,10 @@
       "title": "Developer Exchange (DevEx)",
       "url": "https://create.roblox.com/docs/production/monetization/developer-exchange",
       "factsSupported": [
-        "Standard DevEx rate of 0.0038 USD per eligible Earned Robux (114 USD per 30,000).",
-        "Higher 0.0054 USD per Robux rate for certain Earned Robux from verified U.S. 18+ player spending.",
-        "Legacy 0.0035 USD per Robux rate for balances earned before 5 September 2025 at 10:00 PT.",
-        "Minimum of 30,000 Earned Robux to participate.",
+        "Standard DevEx rate of {rateStandard} USD per eligible Earned Robux ({payout30000Plain} USD per {minimumRobux}).",
+        "Higher {rateUs18} USD per Robux rate for certain Earned Robux from verified U.S. 18+ player spending.",
+        "Legacy {rateLegacy} USD per Robux rate for balances earned before 5 September 2025 at 10:00 PT.",
+        "Minimum of {minimumRobux} Earned Robux to participate.",
         "Eligibility requirements: minimum age 13, Roblox-verified email address, valid DevEx portal account, IRS form W-9 or W-8 on file, compliance with the Roblox Terms of Use and Community Standards."
       ],
       "lastCheckedAt": "2026-08-17T00:00:00Z",

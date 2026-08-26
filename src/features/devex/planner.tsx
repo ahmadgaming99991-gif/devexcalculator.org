@@ -81,11 +81,6 @@ export function localDay(now: Date): string {
   return `${now.getFullYear()}-${month}-${day}`;
 }
 
-const PERIOD_LABELS: Record<PacePeriod, string> = {
-  day: "a day",
-  week: "a week",
-  month: "a month (30 days)",
-};
 
 export function Planner({ words }: { readonly words: LocaleWords }) {
   const t = useMemo(() => translatorFor(words), [words]);
@@ -195,7 +190,7 @@ export function Planner({ words }: { readonly words: LocaleWords }) {
               htmlFor={`${fieldId}-rate`}
               className="block text-sm font-semibold text-(--color-text)"
             >
-              Rate to plan against
+              {t("calculator.planner.rateToPlanAgainst")}
             </label>
             <select
               id={`${fieldId}-rate`}
@@ -275,7 +270,7 @@ export function Planner({ words }: { readonly words: LocaleWords }) {
                   htmlFor={`${fieldId}-period`}
                   className="block text-sm font-semibold text-(--color-text)"
                 >
-                  Per
+                  {t("calculator.planner.perLabel")}
                 </label>
                 <select
                   id={`${fieldId}-period`}
@@ -285,7 +280,7 @@ export function Planner({ words }: { readonly words: LocaleWords }) {
                 >
                   {(Object.keys(PACE_PERIOD_DAYS) as PacePeriod[]).map((period) => (
                     <option key={period} value={period}>
-                      {PERIOD_LABELS[period]}
+                      {t(`calculator.planner.pacePeriod.${period}`)}
                     </option>
                   ))}
                 </select>
@@ -360,7 +355,7 @@ export function Planner({ words }: { readonly words: LocaleWords }) {
 
       <Card className="mt-6">
         <h3 className="text-sm font-semibold tracking-wide text-(--color-text-muted) uppercase">
-          The plan
+          {t("calculator.planner.planHeading")}
         </h3>
 
         <div className="mt-4 grid gap-5 sm:grid-cols-3">

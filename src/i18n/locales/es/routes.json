@@ -11,10 +11,10 @@
   ],
   "home": {
     "title": "Calculadora DevEx: convierte Earned Robux a USD",
-    "metaDescription": "Cuánto valen en USD tus Earned Robux elegibles a la tasa DevEx actual de 0,0038, con comparaciones de la tasa antigua y la de EE. UU. 18+ y una fuente para cada cifra.",
+    "metaDescription": "Cuánto valen en USD tus Earned Robux elegibles a la tasa DevEx actual de {rateStandard}, con comparaciones de la tasa antigua y la de EE. UU. 18+ y una fuente para cada cifra.",
     "h1": "Calculadora DevEx: convierte Earned Robux a USD",
     "navLabel": "Calculadora",
-    "quickAnswer": "A la tasa DevEx actual de 0,0038 USD por Earned Robux elegible, 30.000 Earned Robux se convierten en unos 114 dólares estadounidenses y 100.000 en unos 380. Solo cuentan los Earned Robux, 30.000 es el mínimo que acepta Roblox, y toda cifra de aquí es una estimación: solo Roblox decide qué Robux cumplen y si se aprueba una solicitud.",
+    "quickAnswer": "A la tasa DevEx actual de {rateStandard} USD por Earned Robux elegible, {minimumRobux} Earned Robux se convierten en unos {payout30000Plain} dólares estadounidenses y {robux100000} en unos {payout100000Plain}. Solo cuentan los Earned Robux, {minimumRobux} es el mínimo que acepta Roblox, y toda cifra de aquí es una estimación: solo Roblox decide qué Robux cumplen y si se aprueba una solicitud.",
     "ogImageAlt": "Calculadora DevEx: convierte Earned Robux elegibles en una estimación de pago en dólares estadounidenses.",
     "sections": {
       "calculator": "Calculadora DevEx",
@@ -29,11 +29,11 @@
     "faqs": {
       "q01": {
         "question": "¿Cuál es la tasa DevEx actual de Roblox?",
-        "answer": "Roblox documenta una tasa estándar de 0,0038 USD por Earned Robux elegible, que expresa como 114 USD por 30.000 Earned Robux. Esa tasa entró en vigor el 5 de septiembre de 2025 a las 10:00 PT."
+        "answer": "Roblox documenta una tasa estándar de {rateStandard} USD por Earned Robux elegible, que expresa como {payout30000Plain} USD por {minimumRobux} Earned Robux. Esa tasa entró en vigor el 5 de septiembre de 2025 a las 10:00 PT."
       },
       "q02": {
         "question": "¿Cuánto son 100.000 Earned Robux en DevEx?",
-        "answer": "100.000 Earned Robux elegibles son unos 380 dólares estadounidenses a la tasa estándar, antes de comisiones del proveedor de pagos o impuestos. La misma cantidad habrían sido 350 dólares con la tasa anterior de 0,0035."
+        "answer": "{robux100000} Earned Robux elegibles son unos {payout100000Plain} dólares estadounidenses a la tasa estándar, antes de comisiones del proveedor de pagos o impuestos. La misma cantidad habrían sido {payoutLegacy100000Plain} dólares con la tasa anterior de {rateLegacy}."
       },
       "q03": {
         "question": "¿Cuál es el mínimo de Earned Robux para DevEx?",
@@ -189,7 +189,7 @@
     "metaDescription": "Cantidades habituales de Earned Robux valoradas a las tasas actual, antigua y de EE. UU. 18+, además de un campo para la cantidad que quieras.",
     "h1": "Conversiones de Robux a USD",
     "navLabel": "Conversiones",
-    "quickAnswer": "Toda cantidad de abajo se convierte a la tasa DevEx actual de 0,0038 USD por Earned Robux elegible, con las tasas antigua y condicional al lado para comparar. Las cantidades por debajo de 30.000 se incluyen como referencia pero no pueden cobrarse, porque ese es el mínimo documentado.",
+    "quickAnswer": "Toda cantidad de abajo se convierte a la tasa DevEx actual de {rateStandard} USD por Earned Robux elegible, con las tasas antigua y condicional al lado para comparar. Las cantidades por debajo de 30.000 se incluyen como referencia pero no pueden cobrarse, porque ese es el mínimo documentado.",
     "ogImageAlt": "Tabla de conversión de cantidades habituales de Robux a dólares estadounidenses.",
     "sections": {
       "converter": "Convierte cualquier cantidad",
@@ -209,7 +209,7 @@
     "metaDescription": "100.000 Earned Robux elegibles son unos 380,00 $ a la tasa actual de DevEx. Comparado con las tasas antigua y de EE. UU. 18+.",
     "h1": "100.000 Robux a USD",
     "navLabel": "100.000 Robux",
-    "quickAnswer": "100.000 Earned Robux elegibles se convierten en 380,00 $ a la tasa actual de DevEx de 0,0038 USD por Robux. Con la tasa antigua de 0,0035 la misma cantidad pagaría 350,00 $, una diferencia de 30,00 $. 100.000 es la cifra redonda más buscada de este rango, y es el punto en el que la diferencia entre la tasa actual y la antigua se hace lo bastante grande como para notarse: treinta dólares las separan.",
+    "quickAnswer": "{robux100000} Earned Robux elegibles se convierten en {payout100000} a la tasa actual de DevEx de {rateStandard} USD por Robux. Con la tasa antigua de {rateLegacy} la misma cantidad pagaría {payoutLegacy100000}, una diferencia de {payoutDifference100000}. {robux100000} es la cifra redonda más buscada de este rango, y es el punto en el que la diferencia entre la tasa actual y la antigua se hace lo bastante grande como para notarse: treinta dólares las separan.",
     "ogImageAlt": "100.000 Robux convertidos en una estimación de pago DevEx en dólares estadounidenses.",
     "sections": {
       "value": "Cuánto valen 100.000 Robux",
@@ -241,7 +241,7 @@
     "metaDescription": "1.000.000 Earned Robux elegibles son unos 3.800,00 $ a la tasa actual de DevEx. Comparado con las tasas antigua y de EE. UU. 18+.",
     "h1": "1.000.000 Robux a USD",
     "navLabel": "1.000.000 Robux",
-    "quickAnswer": "1.000.000 Earned Robux elegibles se convierten en 3.800,00 $ a la tasa actual de DevEx de 0,0038 USD por Robux. Con la tasa antigua de 0,0035 la misma cantidad pagaría 3.500,00 $, una diferencia de 300,00 $. Un millón de Robux es el hito destacado que los creadores buscan de verdad, y es la ilustración más clara de por qué el precio de compra y el pago de DevEx no son la misma cifra.",
+    "quickAnswer": "{robux1000000} Earned Robux elegibles se convierten en {payout1000000} a la tasa actual de DevEx de {rateStandard} USD por Robux. Con la tasa antigua de {rateLegacy} la misma cantidad pagaría {payoutLegacy1000000}, una diferencia de {payoutDifference1000000}. Un millón de Robux es el hito destacado que los creadores buscan de verdad, y es la ilustración más clara de por qué el precio de compra y el pago de DevEx no son la misma cifra.",
     "ogImageAlt": "1.000.000 Robux convertidos en una estimación de pago DevEx en dólares estadounidenses.",
     "sections": {
       "value": "Cuánto valen 1.000.000 Robux",
@@ -273,7 +273,7 @@
     "metaDescription": "10.000.000 Earned Robux elegibles son unos 38.000,00 $ a la tasa actual de DevEx. Comparado con las tasas antigua y de EE. UU. 18+.",
     "h1": "10.000.000 Robux a USD",
     "navLabel": "10.000.000 Robux",
-    "quickAnswer": "10.000.000 Earned Robux elegibles se convierten en 38.000,00 $ a la tasa actual de DevEx de 0,0038 USD por Robux. Con la tasa antigua de 0,0035 la misma cantidad pagaría 35.000,00 $, una diferencia de 3.000,00 $. Diez millones de Earned Robux representan ingresos sostenidos de una experiencia grande. A esa escala, el reparto entre saldos estándar y antiguos, y cualquier parte que cumpla como EE. UU. 18+, cambia el total en miles de dólares.",
+    "quickAnswer": "{robux10000000} Earned Robux elegibles se convierten en {payout10000000} a la tasa actual de DevEx de {rateStandard} USD por Robux. Con la tasa antigua de {rateLegacy} la misma cantidad pagaría {payoutLegacy10000000}, una diferencia de {payoutDifference10000000}. Diez millones de Earned Robux representan ingresos sostenidos de una experiencia grande. A esa escala, el reparto entre saldos estándar y antiguos, y cualquier parte que cumpla como EE. UU. 18+, cambia el total en miles de dólares.",
     "ogImageAlt": "10.000.000 Robux convertidos en una estimación de pago DevEx en dólares estadounidenses.",
     "sections": {
       "value": "Cuánto valen 10.000.000 Robux",
@@ -305,7 +305,7 @@
     "metaDescription": "200.000 Earned Robux elegibles son unos 760,00 $ a la tasa actual de DevEx. Comparado con las tasas antigua y de EE. UU. 18+.",
     "h1": "200.000 Robux a USD",
     "navLabel": "200.000 Robux",
-    "quickAnswer": "200.000 Earned Robux elegibles se convierten en 760,00 $ a la tasa actual de DevEx de 0,0038 USD por Robux. Con la tasa antigua de 0,0035 la misma cantidad pagaría 700,00 $, una diferencia de 60,00 $. Con 200.000 Earned Robux un creador suele cobrar de forma periódica en lugar de puntual, lo que hace que merezca la pena seguir la diferencia entre tramos de tasa en vez de estimarla.",
+    "quickAnswer": "{robux200000} Earned Robux elegibles se convierten en {payout200000} a la tasa actual de DevEx de {rateStandard} USD por Robux. Con la tasa antigua de {rateLegacy} la misma cantidad pagaría {payoutLegacy200000}, una diferencia de {payoutDifference200000}. Con {robux200000} Earned Robux un creador suele cobrar de forma periódica en lugar de puntual, lo que hace que merezca la pena seguir la diferencia entre tramos de tasa en vez de estimarla.",
     "ogImageAlt": "200.000 Robux convertidos en una estimación de pago DevEx en dólares estadounidenses.",
     "sections": {
       "value": "Cuánto valen 200.000 Robux",
@@ -337,7 +337,7 @@
     "metaDescription": "30.000 Earned Robux elegibles son unos 114,00 $ a la tasa actual de DevEx. Comparado con las tasas antigua y de EE. UU. 18+.",
     "h1": "30.000 Robux a USD",
     "navLabel": "30.000 Robux",
-    "quickAnswer": "30.000 Earned Robux elegibles se convierten en 114,00 $ a la tasa actual de DevEx de 0,0038 USD por Robux. Con la tasa antigua de 0,0035 la misma cantidad pagaría 105,00 $, una diferencia de 9,00 $. 30.000 es la cantidad que más importa, porque es el saldo mínimo de Earned Robux que Roblox exige antes de poder enviar siquiera una solicitud de DevEx. Por debajo de esa cifra la pregunta no es cuánto sería el pago, sino si se puede presentar una solicitud.",
+    "quickAnswer": "{robux30000} Earned Robux elegibles se convierten en {payout30000} a la tasa actual de DevEx de {rateStandard} USD por Robux. Con la tasa antigua de {rateLegacy} la misma cantidad pagaría {payoutLegacy30000}, una diferencia de {payoutDifference30000}. {robux30000} es la cantidad que más importa, porque es el saldo mínimo de Earned Robux que Roblox exige antes de poder enviar siquiera una solicitud de DevEx. Por debajo de esa cifra la pregunta no es cuánto sería el pago, sino si se puede presentar una solicitud.",
     "ogImageAlt": "30.000 Robux convertidos en una estimación de pago DevEx en dólares estadounidenses.",
     "sections": {
       "value": "Cuánto valen 30.000 Robux",
@@ -369,7 +369,7 @@
     "metaDescription": "300.000 Earned Robux elegibles son unos 1.140,00 $ a la tasa actual de DevEx. Comparado con las tasas antigua y de EE. UU. 18+.",
     "h1": "300.000 Robux a USD",
     "navLabel": "300.000 Robux",
-    "quickAnswer": "300.000 Earned Robux elegibles se convierten en 1.140,00 $ a la tasa actual de DevEx de 0,0038 USD por Robux. Con la tasa antigua de 0,0035 la misma cantidad pagaría 1.050,00 $, una diferencia de 90,00 $. 300.000 Earned Robux son diez veces el mínimo de DevEx. Es un punto de referencia útil para que un creador calcule cuántos ciclos de cobro representa un año de ingresos.",
+    "quickAnswer": "{robux300000} Earned Robux elegibles se convierten en {payout300000} a la tasa actual de DevEx de {rateStandard} USD por Robux. Con la tasa antigua de {rateLegacy} la misma cantidad pagaría {payoutLegacy300000}, una diferencia de {payoutDifference300000}. {robux300000} Earned Robux son diez veces el mínimo de DevEx. Es un punto de referencia útil para que un creador calcule cuántos ciclos de cobro representa un año de ingresos.",
     "ogImageAlt": "300.000 Robux convertidos en una estimación de pago DevEx en dólares estadounidenses.",
     "sections": {
       "value": "Cuánto valen 300.000 Robux",
@@ -401,7 +401,7 @@
     "metaDescription": "50.000 Earned Robux elegibles son unos 190,00 $ a la tasa actual de DevEx. Comparado con las tasas antigua y de EE. UU. 18+.",
     "h1": "50.000 Robux a USD",
     "navLabel": "50.000 Robux",
-    "quickAnswer": "50.000 Earned Robux elegibles se convierten en 190,00 $ a la tasa actual de DevEx de 0,0038 USD por Robux. Con la tasa antigua de 0,0035 la misma cantidad pagaría 175,00 $, una diferencia de 15,00 $. 50.000 Earned Robux superan el mínimo con margen, así que es un primer cobro habitual para un creador cuya experiencia acaba de empezar a generar ingresos de forma constante.",
+    "quickAnswer": "{robux50000} Earned Robux elegibles se convierten en {payout50000} a la tasa actual de DevEx de {rateStandard} USD por Robux. Con la tasa antigua de {rateLegacy} la misma cantidad pagaría {payoutLegacy50000}, una diferencia de {payoutDifference50000}. {robux50000} Earned Robux superan el mínimo con margen, así que es un primer cobro habitual para un creador cuya experiencia acaba de empezar a generar ingresos de forma constante.",
     "ogImageAlt": "50.000 Robux convertidos en una estimación de pago DevEx en dólares estadounidenses.",
     "sections": {
       "value": "Cuánto valen 50.000 Robux",
@@ -433,7 +433,7 @@
     "metaDescription": "500.000 Earned Robux elegibles son unos 1.900,00 $ a la tasa actual de DevEx. Comparado con las tasas antigua y de EE. UU. 18+.",
     "h1": "500.000 Robux a USD",
     "navLabel": "500.000 Robux",
-    "quickAnswer": "500.000 Earned Robux elegibles se convierten en 1.900,00 $ a la tasa actual de DevEx de 0,0038 USD por Robux. Con la tasa antigua de 0,0035 la misma cantidad pagaría 1.750,00 $, una diferencia de 150,00 $. Medio millón de Earned Robux es la escala a la que las comisiones del proveedor de pagos y las obligaciones fiscales personales dejan de ser cifras despreciables, y por eso esta página enlaza directamente con la guía de comisiones e impuestos.",
+    "quickAnswer": "{robux500000} Earned Robux elegibles se convierten en {payout500000} a la tasa actual de DevEx de {rateStandard} USD por Robux. Con la tasa antigua de {rateLegacy} la misma cantidad pagaría {payoutLegacy500000}, una diferencia de {payoutDifference500000}. Medio millón de Earned Robux es la escala a la que las comisiones del proveedor de pagos y las obligaciones fiscales personales dejan de ser cifras despreciables, y por eso esta página enlaza directamente con la guía de comisiones e impuestos.",
     "ogImageAlt": "500.000 Robux convertidos en una estimación de pago DevEx en dólares estadounidenses.",
     "sections": {
       "value": "Cuánto valen 500.000 Robux",
@@ -517,12 +517,12 @@
     }
   },
   "devexRateHistory": {
-    "title": "Historial de la tasa DevEx: el cambio de 0,0035 en 2025",
-    "metaDescription": "Un registro fechado de las tasas DevEx verificadas, incluida la subida de septiembre de 2025 de 0,0035 a 0,0038 y cómo se tratan los saldos antiguos.",
+    "title": "Historial de la tasa DevEx: el cambio de {rateLegacy} en 2025",
+    "metaDescription": "Un registro fechado de las tasas DevEx verificadas, incluida la subida de septiembre de 2025 de {rateLegacy} a {rateStandard} y cómo se tratan los saldos antiguos.",
     "h1": "Historial de la tasa DevEx",
     "navLabel": "Historial de tasas",
-    "quickAnswer": "El cambio documentado va de 0,0035 a 0,0038 USD por Earned Robux, en vigor desde el 5 de septiembre de 2025 a las 10:00 PT. Para 30.000 Earned Robux eso llevó el pago de 105 a 114 dólares. Los saldos ganados antes del cambio se cobran primero a la tasa antigua, así que un mismo saldo puede abarcar ambas.",
-    "ogImageAlt": "Historial de la tasa DevEx: el cambio de septiembre de 2025 de 0,0035 a 0,0038.",
+    "quickAnswer": "El cambio documentado va de {rateLegacy} a {rateStandard} USD por Earned Robux, en vigor desde el 5 de septiembre de 2025 a las 10:00 PT. Para {minimumRobux} Earned Robux eso llevó el pago de {payoutLegacy30000Plain} a {payout30000Plain} dólares. Los saldos ganados antes del cambio se cobran primero a la tasa antigua, así que un mismo saldo puede abarcar ambas.",
+    "ogImageAlt": "Historial de la tasa DevEx: el cambio de septiembre de 2025 de {rateLegacy} a {rateStandard}.",
     "sections": {
       "timeline": "Cronología verificada",
       "comparison": "Cuánto valió el cambio",
@@ -533,11 +533,11 @@
     "faqs": {
       "q01": {
         "question": "¿Cuál era la tasa DevEx antes de septiembre de 2025?",
-        "answer": "0,0035 USD por Earned Robux, que Roblox expresaba como 105 dólares por 30.000 Earned Robux."
+        "answer": "{rateLegacy} USD por Earned Robux, que Roblox expresaba como {payoutLegacy30000Plain} dólares por {minimumRobux} Earned Robux."
       },
       "q02": {
         "question": "¿Mi saldo antiguo se convierte a la tasa antigua?",
-        "answer": "Los Robux ganados antes del 5 de septiembre de 2025 a las 10:00 PT se cobran primero a 0,0035, según las reglas de transición de Roblox. El reparto es contabilidad de Roblox, no algo que elija el creador."
+        "answer": "Los Robux ganados antes del 5 de septiembre de 2025 a las 10:00 PT se cobran primero a {rateLegacy}, según las reglas de transición de Roblox. El reparto es contabilidad de Roblox, no algo que elija el creador."
       },
       "q03": {
         "question": "¿Volverá a subir la tasa?",
@@ -555,7 +555,7 @@
     "metaDescription": "Las tres tasas DevEx que documenta Roblox, cuánto paga cada una por 1.000 y por 30.000 Robux, y cuándo se aplica cada una.",
     "h1": "Tasas DevEx de Roblox",
     "navLabel": "Tasas",
-    "quickAnswer": "Roblox documenta tres tasas DevEx. La estándar es 0,0038 USD por Earned Robux elegible, o 114 dólares por 30.000. Los saldos ganados antes del 5 de septiembre de 2025 a las 10:00 PT se convierten a la tasa antigua de 0,0035. Ciertos Earned Robux procedentes de jugadores de Estados Unidos verificados de 18 años o más se convierten a 0,0054. Quien decide cuál se aplica es Roblox, no el creador.",
+    "quickAnswer": "Roblox documenta tres tasas DevEx. La estándar es {rateStandard} USD por Earned Robux elegible, o {payout30000Plain} dólares por {minimumRobux}. Los saldos ganados antes del 5 de septiembre de 2025 a las 10:00 PT se convierten a la tasa antigua de {rateLegacy}. Ciertos Earned Robux procedentes de jugadores de Estados Unidos verificados de 18 años o más se convierten a {rateUs18}. Quien decide cuál se aplica es Roblox, no el creador.",
     "ogImageAlt": "Tasas DevEx de Roblox: estándar, antigua y condicional de EE. UU. 18+ comparadas.",
     "sections": {
       "current-rates": "Las tres tasas documentadas",
@@ -571,11 +571,11 @@
         "answer": "3,80 dólares estadounidenses por 1.000 Earned Robux elegibles a la tasa estándar. La tasa antigua pagaba 3,50 y la condicional de EE. UU. 18+ paga 5,40."
       },
       "q02": {
-        "question": "¿Cuándo cambió la tasa DevEx a 0,0038?",
-        "answer": "El 5 de septiembre de 2025 a las 10:00 PT. Los saldos ganados antes de ese momento se cobran primero a la tasa anterior de 0,0035, según la propia contabilidad de Roblox."
+        "question": "¿Cuándo cambió la tasa DevEx a {rateStandard}?",
+        "answer": "El 5 de septiembre de 2025 a las 10:00 PT. Los saldos ganados antes de ese momento se cobran primero a la tasa anterior de {rateLegacy}, según la propia contabilidad de Roblox."
       },
       "q03": {
-        "question": "¿Quién cumple para la tasa de 0,0054?",
+        "question": "¿Quién cumple para la tasa de {rateUs18}?",
         "answer": "Roblox la aplica a ciertos Earned Robux procedentes de compras de productos de desarrollador, pases, suscripciones y servidores privados hechas por jugadores de Estados Unidos que han verificado tener al menos 18 años. No es una tasa que un creador pueda elegir."
       },
       "q04": {
@@ -614,7 +614,7 @@
       },
       "q02": {
         "question": "¿Qué edad hay que tener para DevEx?",
-        "answer": "Roblox documenta una edad mínima de 13 años para participar. Aparte, la tasa más alta de 0,0054 depende de la verificación de edad de los jugadores que gastaron los Robux, no de la edad del creador."
+        "answer": "Roblox documenta una edad mínima de 13 años para participar. Aparte, la tasa más alta de {rateUs18} depende de la verificación de edad de los jugadores que gastaron los Robux, no de la edad del creador."
       },
       "q03": {
         "question": "¿Tengo que presentar formularios fiscales?",
@@ -974,7 +974,7 @@
     "metaDescription": "Esto tiene dos respuestas. Compara lo que paga DevEx a un creador con lo que cuesta comprar Robux, y convierte cualquier cantidad con la tasa expuesta abiertamente.",
     "h1": "Robux a USD",
     "navLabel": "Robux a USD",
-    "quickAnswer": "\"Robux a USD\" tiene dos respuestas honestas según quién pregunte. Un creador que cobra Earned Robux elegibles recibe 0,0038 USD por Robux mediante DevEx, así que 100.000 Robux son unos 380 dólares. Un jugador que compra Robux paga un precio minorista fijado por Roblox, que es una transacción completamente distinta. Esta página mantiene ambas separadas.",
+    "quickAnswer": "\"Robux a USD\" tiene dos respuestas honestas según quién pregunte. Un creador que cobra Earned Robux elegibles recibe {rateStandard} USD por Robux mediante DevEx, así que {robux100000} Robux son unos {payout100000Plain} dólares. Un jugador que compra Robux paga un precio minorista fijado por Roblox, que es una transacción completamente distinta. Esta página mantiene ambas separadas.",
     "ogImageAlt": "Robux a USD: pago DevEx al creador comparado con el precio de compra minorista.",
     "sections": {
       "converter": "Convertir Robux a USD",
@@ -1070,7 +1070,7 @@
     "faqs": {
       "q01": {
         "question": "¿Cuántos Earned Robux necesito para 1.000 USD?",
-        "answer": "263.158 Earned Robux elegibles a la tasa actual de 0,0038. Dividir 1.000 entre 0,0038 da 263.157,89, y el resultado redondea hacia arriba para que el pago alcance realmente el objetivo."
+        "answer": "{targetRobuxUp} Earned Robux elegibles a la tasa actual de {rateStandard}. Dividir {targetUsd} entre {rateStandard} da {targetRobuxExact}, y el resultado redondea hacia arriba para que el pago alcance realmente el objetivo."
       },
       "q02": {
         "question": "¿Cuántos Earned Robux necesito para 100 USD?",
@@ -1082,7 +1082,7 @@
       },
       "q04": {
         "question": "¿Cambia la respuesta si parte de mi saldo es antiguo?",
-        "answer": "Sí. Los saldos antiguos se convierten a 0,0035, así que alcanzar el mismo objetivo en dólares requiere más Robux. Usa el modo repartido de la calculadora para modelar un saldo mixto."
+        "answer": "Sí. Los saldos antiguos se convierten a {rateLegacy}, así que alcanzar el mismo objetivo en dólares requiere más Robux. Usa el modo repartido de la calculadora para modelar un saldo mixto."
       }
     },
     "links": {
