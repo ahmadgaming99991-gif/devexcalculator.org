@@ -1,4 +1,5 @@
 import { getTranslator, type Translate } from "@/i18n/get-dictionary";
+import { localizedPath } from "@/i18n/locale-path";
 import { rich } from "@/i18n/rich";
 import Link from "next/link";
 import { localizedRoute } from "@/i18n/localized-route";
@@ -108,7 +109,7 @@ export async function EarnedRobuxView({ locale }: { readonly locale: Locale }) {
 
             <Callout tone="info" title={t("rates.earnedRobux.balanceDiffersTitle")} className="mt-4">
               {t("rates.earnedRobux.body.definition.p4")}
-            <Link href="/devex-requirements/">{t("rates.earnedRobux.seeRequirementsLink")}{" "}</Link>.
+            <Link href={localizedPath(locale, "/devex-requirements/")}>{t("rates.earnedRobux.seeRequirementsLink")}{" "}</Link>.
                     </Callout>
                   </Section>
         
@@ -124,7 +125,7 @@ export async function EarnedRobuxView({ locale }: { readonly locale: Locale }) {
                     </ul>
                     <p className="mt-4 text-sm text-(--color-text-muted)">
               {t("rates.earnedRobux.body.qualifying.p1")}
-            <InlineLink href="/robux-tax-calculator/">{t("rates.earnedRobux.body.qualifying.p2")}</InlineLink>
+            <InlineLink href={localizedPath(locale, "/robux-tax-calculator/")}>{t("rates.earnedRobux.body.qualifying.p2")}</InlineLink>
                       .
                     </p>
                   </Section>
@@ -141,7 +142,7 @@ export async function EarnedRobuxView({ locale }: { readonly locale: Locale }) {
                     </ul>
                     <p className="mt-4 text-sm text-(--color-text-muted)">
               {t("rates.earnedRobux.prose.retailUnrelated")}
-            <InlineLink href="/robux-to-usd/">{t("rates.earnedRobux.body.notQualifying.p1")}</InlineLink>
+            <InlineLink href={localizedPath(locale, "/robux-to-usd/")}>{t("rates.earnedRobux.body.notQualifying.p1")}</InlineLink>
                       .
                     </p>
                   </Section>

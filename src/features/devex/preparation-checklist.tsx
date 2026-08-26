@@ -84,11 +84,13 @@ export function PreparationChecklist({
   words,
   earnedRobuxHref,
   feesHref,
+  cashOutHref,
 }: {
   readonly words: LocaleWords;
-  /** Both in the locale this page is being read in. */
+  /** All three in the locale this page is being read in. */
   readonly earnedRobuxHref: string;
   readonly feesHref: string;
+  readonly cashOutHref: string;
 }) {
   const t = useMemo(() => translatorFor(words), [words]);
   const groupId = useId();
@@ -217,7 +219,7 @@ export function PreparationChecklist({
                 </p>
                 <p className="mt-2">
             {t("calculator.preparation.body.intro.p3")}
-          <InlineLink href="/how-to-cash-out-robux/">{t("calculator.preparation.body.intro.p4")}</InlineLink>
+          <InlineLink href={cashOutHref}>{t("calculator.preparation.body.intro.p4")}</InlineLink>
                 </p>
               </Callout>
             ) : null}

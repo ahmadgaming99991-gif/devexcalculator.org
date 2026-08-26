@@ -180,7 +180,10 @@
       "other": "Das Minimum von {minimum} gilt für das Guthaben, das eine Person einreicht, nicht für das, was die Gruppe verdient hat. Diese Gruppe hält {total} Earned Robux, und {names} liegen einzeln betrachtet noch unter dem Minimum."
     },
     "removeRow": "Entfernen",
-    "perEligibleRobux": "{rate} je anrechenbarem Earned Robux"
+    "perEligibleRobux": "{rate} je anrechenbarem Earned Robux",
+    "groupBalanceLabel": "Die anrechenbaren Earned Robux der Gruppe",
+    "percentageForLabel": "Anteil für {member}",
+    "memberFallback": "Mitglied {index}"
   },
   "preparation": {
     "earnedRobuxLink": "Was als Earned Robux zählt",

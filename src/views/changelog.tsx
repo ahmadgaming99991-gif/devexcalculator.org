@@ -1,4 +1,5 @@
 import { rich } from "@/i18n/rich";
+import { localizedPath } from "@/i18n/locale-path";
 import { getTranslator } from "@/i18n/get-dictionary";
 import type { Translate } from "@/i18n/get-dictionary";
 import { localizedRoute } from "@/i18n/localized-route";
@@ -110,11 +111,11 @@ export async function ChangelogView({ locale }: { readonly locale: Locale }) {
                     <p className="text-(--color-text-muted)">{t("trust.changelog.body.scope.p1")}</p>
                     <p className="mt-3 text-(--color-text-muted)">
               {t("trust.changelog.body.scope.p2")}
-            <InlineLink href="/devex-rate-history/">{t("trust.changelog.body.scope.p3")}</InlineLink>
+            <InlineLink href={localizedPath(locale, "/devex-rate-history/")}>{t("trust.changelog.body.scope.p3")}</InlineLink>
                       {" "}
                       {rich(t("trust.changelog.body.scope.p4"), {
                         correctionsLink: (
-                          <InlineLink href="/corrections/">
+                          <InlineLink href={localizedPath(locale, "/corrections/")}>
                             {t("trust.changelog.correctionsPolicyLink")}
                           </InlineLink>
                         ),

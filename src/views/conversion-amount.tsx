@@ -1,4 +1,5 @@
 import { getTranslator } from "@/i18n/get-dictionary";
+import { localizedPath } from "@/i18n/locale-path";
 import { localizedRoute } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
 import Link from "next/link";
@@ -107,7 +108,7 @@ export async function AmountView({
                     })}
               </p>
               <p className="mt-4">
-                <InlineLink href={`/?robux=${amount}`}>{t("rates.amountPage.body.value.p1")}</InlineLink>
+                <InlineLink href={`${localizedPath(locale, "/")}?robux=${amount}`}>{t("rates.amountPage.body.value.p1")}</InlineLink>
               </p>
             </div>
           </Section>
@@ -172,7 +173,7 @@ export async function AmountView({
               {t("rates.amountPage.body.rateComparison.p1", {
                 standardVsLegacyUsd: values.standardVsLegacyUsd,
               })}
-            <InlineLink href="/devex-rate-history/">{t("rates.amountPage.body.rateComparison.p2")}</InlineLink>
+            <InlineLink href={localizedPath(locale, "/devex-rate-history/")}>{t("rates.amountPage.body.rateComparison.p2")}</InlineLink>
                       .
                     </p>
                   </Section>
@@ -227,7 +228,7 @@ export async function AmountView({
               </Table>
             </TableWrapper>
             <p className="mt-3 text-sm text-(--color-text-muted)">
-              <InlineLink href="/usd-to-robux/">{t("rates.amountPage.body.reverse.p2")}</InlineLink>
+              <InlineLink href={localizedPath(locale, "/usd-to-robux/")}>{t("rates.amountPage.body.reverse.p2")}</InlineLink>
             </p>
           </Section>
 
@@ -242,7 +243,7 @@ export async function AmountView({
                 return (
                   <li key={related}>
                     <Link
-                      href={amountPageRoute(related)}
+                      href={localizedPath(locale, amountPageRoute(related))}
                       className="flex items-baseline justify-between gap-3 rounded-(--radius-control) border border-(--color-border) bg-(--color-surface) p-4 hover:border-(--color-primary)"
                     >
                       <span className="font-semibold text-(--color-text)">
@@ -257,11 +258,11 @@ export async function AmountView({
               })}
             </ul>
             <p className="mt-4 text-sm text-(--color-text-muted)">
-              <InlineLink href="/conversions/">{t("rates.amountPage.body.nearby.p1")}</InlineLink>{" "}
+              <InlineLink href={localizedPath(locale, "/conversions/")}>{t("rates.amountPage.body.nearby.p1")}</InlineLink>{" "}
               ·{" "}
-              <InlineLink href="/robux-to-usd/">{t("rates.amountPage.body.nearby.p2")}</InlineLink>{" "}
+              <InlineLink href={localizedPath(locale, "/robux-to-usd/")}>{t("rates.amountPage.body.nearby.p2")}</InlineLink>{" "}
               ·{" "}
-              <InlineLink href="/devex-rates/">{t("rates.amountPage.ratesUsedHeading")}</InlineLink>
+              <InlineLink href={localizedPath(locale, "/devex-rates/")}>{t("rates.amountPage.ratesUsedHeading")}</InlineLink>
             </p>
           </Section>
 

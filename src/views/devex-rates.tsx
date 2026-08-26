@@ -93,8 +93,8 @@ export async function DevexRatesView({ locale }: { readonly locale: Locale }) {
               </Table>
             </TableWrapper>
             <p className="mt-3 text-sm text-(--color-text-muted)">
-              <InlineLink href="/">{t("rates.devexRates.useCalculatorLink")}</InlineLink>, or{" "}
-              <InlineLink href="/conversions/">{t("rates.devexRates.browseHubLink")}</InlineLink>.
+              <InlineLink href={localizedPath(locale, "/")}>{t("rates.devexRates.useCalculatorLink")}</InlineLink>, or{" "}
+              <InlineLink href={localizedPath(locale, "/conversions/")}>{t("rates.devexRates.browseHubLink")}</InlineLink>.
             </p>
           </Section>
 
@@ -117,7 +117,7 @@ export async function DevexRatesView({ locale }: { readonly locale: Locale }) {
             </div>
             <p className="mt-4 text-sm text-(--color-text-muted)">
               {t("rates.devexRates.body.whichApplies.p1")}
-            <InlineLink href="/">{t("rates.devexRates.body.whichApplies.p2")}</InlineLink>
+            <InlineLink href={localizedPath(locale, "/")}>{t("rates.devexRates.body.whichApplies.p2")}</InlineLink>
                       .
                     </p>
                   </Section>
@@ -139,7 +139,7 @@ export async function DevexRatesView({ locale }: { readonly locale: Locale }) {
               })}
             </p>
               <p className="mt-3">
-                <InlineLink href="/">{t("rates.devexRates.openCalculatorLink")}</InlineLink>
+                <InlineLink href={localizedPath(locale, "/")}>{t("rates.devexRates.openCalculatorLink")}</InlineLink>
               </p>
             </div>
           </Section>
@@ -164,9 +164,9 @@ export async function DevexRatesView({ locale }: { readonly locale: Locale }) {
               )}
             </p>
                     <p className="mt-3 text-(--color-text-muted)">
-                      <InlineLink href="/devex-rate-history/">{t("rates.devexRates.body.changes.p2")}</InlineLink>{" "}
+                      <InlineLink href={localizedPath(locale, "/devex-rate-history/")}>{t("rates.devexRates.body.changes.p2")}</InlineLink>{" "}
                       ·{" "}
-                      <InlineLink href="/changelog/">{t("rates.devexRates.body.changes.p3")}</InlineLink>
+                      <InlineLink href={localizedPath(locale, "/changelog/")}>{t("rates.devexRates.body.changes.p3")}</InlineLink>
                     </p>
                   </Section>
         

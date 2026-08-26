@@ -71,7 +71,7 @@ export async function TermsView({ locale }: { readonly locale: Locale }) {
                   <Section id="changes" heading={t("legal.terms.changesHeading")}>
                     <p className="text-(--color-text-muted)">
               {t("legal.terms.body.changes.p1")}
-            <InlineLink href="/changelog/">changelog</InlineLink>{t("legal.terms.body.changes.p2")}</p>
+            <InlineLink href={localizedPath(locale, "/changelog/")}>changelog</InlineLink>{t("legal.terms.body.changes.p2")}</p>
                   </Section>
         
                   <RelatedLinks locale={locale}

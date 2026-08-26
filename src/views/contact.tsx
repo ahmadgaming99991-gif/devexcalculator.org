@@ -66,7 +66,7 @@ export async function ContactView({ locale }: { readonly locale: Locale }) {
                             <ContactForm words={await loadWords(locale, CONTACT_WORDS)} turnstileSiteKey={turnstileConfig.siteKey} />
                             <p className="mt-4 text-xs text-(--color-text-muted)">
                   {t("contact.page.body.form.p4")}
-                <InlineLink href="/privacy/">{t("contact.page.body.form.p5")}</InlineLink>
+                <InlineLink href={localizedPath(locale, "/privacy/")}>{t("contact.page.body.form.p5")}</InlineLink>
                               .
                             </p>
                           </>

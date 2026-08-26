@@ -1,4 +1,5 @@
 import { loadWords } from "@/i18n/server-words";
+import { localizedPath } from "@/i18n/locale-path";
 import { getTranslator } from "@/i18n/get-dictionary";
 import { localizedRoute } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
@@ -82,9 +83,9 @@ export async function HomeView({
           >
             <RateTable t={t} />
             <p className="mt-3 text-sm text-(--color-text-muted)">
-              <InlineLink href="/devex-rates/">{t("calculator.home.body.currentRates.p1")}</InlineLink>
+              <InlineLink href={localizedPath(locale, "/devex-rates/")}>{t("calculator.home.body.currentRates.p1")}</InlineLink>
               , or{" "}
-              <InlineLink href="/devex-rate-history/">{t("calculator.home.body.currentRates.p2")}</InlineLink>
+              <InlineLink href={localizedPath(locale, "/devex-rate-history/")}>{t("calculator.home.body.currentRates.p2")}</InlineLink>
               .
             </p>
           </Section>
@@ -114,7 +115,7 @@ export async function HomeView({
             </div>
             <p className="mt-3 text-sm text-(--color-text-muted)">
               {t("calculator.home.body.earnedRobux.p1")}
-            <InlineLink href="/earned-robux/">{t("calculator.home.body.earnedRobux.p2")}</InlineLink>
+            <InlineLink href={localizedPath(locale, "/earned-robux/")}>{t("calculator.home.body.earnedRobux.p2")}</InlineLink>
                       .
                     </p>
                   </Section>
@@ -124,9 +125,9 @@ export async function HomeView({
                     heading={t("calculator.home.commonAmountsHeading")}
                     description={t("calculator.home.commonAmountsDescription")}
                   >
-                    <AmountTable t={t} />
+                    <AmountTable locale={locale} t={t} />
                     <p className="mt-3 text-sm text-(--color-text-muted)">
-                      <InlineLink href="/conversions/">{t("calculator.home.body.popularAmounts.p1")}</InlineLink>
+                      <InlineLink href={localizedPath(locale, "/conversions/")}>{t("calculator.home.body.popularAmounts.p1")}</InlineLink>
                       .
                     </p>
                   </Section>
@@ -138,9 +139,9 @@ export async function HomeView({
                   >
                     <RequirementsList t={t} />
                     <p className="mt-3 text-sm text-(--color-text-muted)">
-                      <InlineLink href="/devex-requirements/">{t("calculator.home.body.requirements.p1")}</InlineLink>{" "}
+                      <InlineLink href={localizedPath(locale, "/devex-requirements/")}>{t("calculator.home.body.requirements.p1")}</InlineLink>{" "}
                       ·{" "}
-                      <InlineLink href="/how-to-cash-out-robux/">{t("routes.home.links.howToCashOutRobux")}</InlineLink>
+                      <InlineLink href={localizedPath(locale, "/how-to-cash-out-robux/")}>{t("routes.home.links.howToCashOutRobux")}</InlineLink>
                     </p>
                   </Section>
         
@@ -176,7 +177,7 @@ export async function HomeView({
         
                   <p className="text-sm text-(--color-text-muted)">
               {t("calculator.home.body.relatedGuides.p1")}
-            <Link href="/corrections/" className="text-(--color-primary) underline">{t("calculator.home.body.relatedGuides.p2")}</Link>
+            <Link href={localizedPath(locale, "/corrections/")} className="text-(--color-primary) underline">{t("calculator.home.body.relatedGuides.p2")}</Link>
                     .
                   </p>
                 </div>

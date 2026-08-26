@@ -1,4 +1,5 @@
 import { loadWords } from "@/i18n/server-words";
+import { localizedPath } from "@/i18n/locale-path";
 import { getTranslator } from "@/i18n/get-dictionary";
 import { localizedRoute } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
@@ -152,9 +153,9 @@ export async function RobuxTaxView({ locale }: { readonly locale: Locale }) {
           >
             <p className="text-(--color-text-muted)">{t("rates.robuxTax.body.notDevex.p1")}</p>
             <p className="mt-3 text-(--color-text-muted)">
-              <InlineLink href="/">{t("rates.robuxTax.body.notDevex.p2")}</InlineLink>{" "}
+              <InlineLink href={localizedPath(locale, "/")}>{t("rates.robuxTax.body.notDevex.p2")}</InlineLink>{" "}
               ·{" "}
-              <InlineLink href="/devex-fees-and-taxes/">{t("rates.robuxTax.body.notDevex.p3")}</InlineLink>
+              <InlineLink href={localizedPath(locale, "/devex-fees-and-taxes/")}>{t("rates.robuxTax.body.notDevex.p3")}</InlineLink>
             </p>
           </Section>
 

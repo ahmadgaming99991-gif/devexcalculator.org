@@ -156,9 +156,9 @@ export async function RobuxToUsdView({
                     heading={t("rates.robuxToUsd.commonAmountsHeading")}
                     description={t("rates.robuxToUsd.commonAmountsDescription")}
                   >
-                    <AmountTable t={t} />
+                    <AmountTable locale={locale} t={t} />
                     <p className="mt-3 text-sm text-(--color-text-muted)">
-                      <InlineLink href="/conversions/">{t("rates.robuxToUsd.body.amounts.p1")}</InlineLink>
+                      <InlineLink href={localizedPath(locale, "/conversions/")}>{t("rates.robuxToUsd.body.amounts.p1")}</InlineLink>
               {t("rates.robuxToUsd.body.amounts.p2")}
             </p>
           </Section>

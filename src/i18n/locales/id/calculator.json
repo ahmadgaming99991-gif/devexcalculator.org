@@ -185,7 +185,10 @@
       "other": "Batas minimum {minimum} berlaku untuk saldo yang diajukan satu orang, bukan untuk yang dihasilkan grup. Grup ini memegang {total} Earned Robux, dan {names} masih di bawah batas minimum secara perorangan."
     },
     "removeRow": "Hapus",
-    "perEligibleRobux": "{rate} per Earned Robux yang memenuhi syarat"
+    "perEligibleRobux": "{rate} per Earned Robux yang memenuhi syarat",
+    "groupBalanceLabel": "Earned Robux grup yang memenuhi syarat",
+    "percentageForLabel": "Persentase untuk {member}",
+    "memberFallback": "anggota {index}"
   },
   "preparation": {
     "earnedRobuxLink": "Apa yang dihitung sebagai Earned Robux",

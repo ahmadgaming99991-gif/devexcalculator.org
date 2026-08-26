@@ -136,7 +136,7 @@ export async function RateHistoryView({ locale }: { readonly locale: Locale }) {
           >
             <p className="text-(--color-text-muted)">
               {t("rates.rateHistory.prose.legacySplit")}
-            <InlineLink href="/">{t("rates.rateHistory.body.legacyBalances.p1")}</InlineLink>
+            <InlineLink href={localizedPath(locale, "/")}>{t("rates.rateHistory.body.legacyBalances.p1")}</InlineLink>
               {t("rates.rateHistory.body.legacyBalances.p2")}
             </p>
           </Section>

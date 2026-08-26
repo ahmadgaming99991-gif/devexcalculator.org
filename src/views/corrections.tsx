@@ -31,7 +31,7 @@ export async function CorrectionsView({ locale }: { readonly locale: Locale }) {
           <Section id="report" heading={t("trust.corrections.reportHeading")}>
             <p className="text-(--color-text-muted)">{t("trust.corrections.body.report.p1")}</p>
             <div className="mt-4">
-              <ButtonLink href="/contact/">{t("trust.corrections.reportButton")}</ButtonLink>
+              <ButtonLink href={localizedPath(locale, "/contact/")}>{t("trust.corrections.reportButton")}</ButtonLink>
             </div>
 
             <Callout tone="info" title={t("trust.corrections.cannotHelpTitle")} className="mt-6">{t("trust.corrections.body.report.p2")}</Callout>

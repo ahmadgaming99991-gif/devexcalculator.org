@@ -45,7 +45,7 @@ export async function AboutView({ locale }: { readonly locale: Locale }) {
               <li>
                 <strong className="text-(--color-text)">{t("trust.about.principles.exactArithmetic")}</strong>
                   {t("trust.about.body.principles.p1")}
-                <InlineLink href="/methodology/">{t("trust.about.principles.methodologyExplains")}</InlineLink>.
+                <InlineLink href={localizedPath(locale, "/methodology/")}>{t("trust.about.principles.methodologyExplains")}</InlineLink>.
                           </li>
                           <li>
                             <strong className="text-(--color-text)">{t("trust.about.principles.worksWithoutJs")}</strong>
@@ -54,7 +54,7 @@ export async function AboutView({ locale }: { readonly locale: Locale }) {
               <li>
                 <strong className="text-(--color-text)">{t("trust.about.principles.nothingCollected")}</strong>
                   {t("trust.about.body.principles.p3")}
-                <InlineLink href="/privacy/">{t("trust.about.principles.privacyIsSpecific")}{" "}</InlineLink>.
+                <InlineLink href={localizedPath(locale, "/privacy/")}>{t("trust.about.principles.privacyIsSpecific")}{" "}</InlineLink>.
                           </li>
                           <li>
                             <strong className="text-(--color-text)">

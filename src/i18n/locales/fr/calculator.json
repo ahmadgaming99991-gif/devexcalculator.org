@@ -179,7 +179,10 @@
       "other": "Le minimum de {minimum} s’applique au solde qu’une personne dépose, pas à ce que le groupe a gagné. Ce groupe détient {total} Earned Robux, et {names} restent en dessous du minimum à titre individuel."
     },
     "removeRow": "Retirer",
-    "perEligibleRobux": "{rate} par Earned Robux éligible"
+    "perEligibleRobux": "{rate} par Earned Robux éligible",
+    "groupBalanceLabel": "Les Earned Robux éligibles du groupe",
+    "percentageForLabel": "Pourcentage pour {member}",
+    "memberFallback": "membre {index}"
   },
   "preparation": {
     "earnedRobuxLink": "Ce qui compte comme Earned Robux",

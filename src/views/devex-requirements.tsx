@@ -98,7 +98,7 @@ export async function RequirementsView({ locale }: { readonly locale: Locale }) 
               <strong className="text-(--color-text)">
                             {formatCurrency(t.locale, minimumPayout, "USD")}
                           </strong>{" "}
-                          before any payment-provider fees or tax.
+                          {t("rates.requirements.body.minimum.p2")}
                         </p>
                         <p className="mt-3 text-(--color-text-muted)">
                           {rich(t("rates.requirements.prose.earnedOnly"), {
@@ -111,7 +111,7 @@ export async function RequirementsView({ locale }: { readonly locale: Locale }) 
                           })}
                         </p>
                         <div className="mt-4">
-                          <ButtonLink href="/">{t("rates.requirements.checkBalanceLink")}</ButtonLink>
+                          <ButtonLink href={localizedPath(locale, "/")}>{t("rates.requirements.checkBalanceLink")}</ButtonLink>
                         </div>
                       </div>
                     </Section>
@@ -147,7 +147,7 @@ export async function RequirementsView({ locale }: { readonly locale: Locale }) 
                 <li>{t("rates.requirements.body.checklist.p3")}</li>
                 <li>
                   {t("rates.requirements.body.checklist.p4")}
-                <InlineLink href="/devex-fees-and-taxes/">{t("calculator.preparation.feesLink")}</InlineLink>
+                <InlineLink href={localizedPath(locale, "/devex-fees-and-taxes/")}>{t("calculator.preparation.feesLink")}</InlineLink>
                               .
                             </li>
                           </ol>
@@ -157,6 +157,7 @@ export async function RequirementsView({ locale }: { readonly locale: Locale }) 
                           words={await loadWords(locale, PREPARATION_WORDS)}
                           earnedRobuxHref={localizedPath(locale, "/earned-robux/")}
                           feesHref={localizedPath(locale, "/devex-fees-and-taxes/")}
+                          cashOutHref={localizedPath(locale, "/how-to-cash-out-robux/")}
                         />
                       </Section>
             

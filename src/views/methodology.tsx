@@ -1,4 +1,5 @@
 import { getTranslator, type Translate } from "@/i18n/get-dictionary";
+import { localizedPath } from "@/i18n/locale-path";
 import { localizedRoute } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -146,7 +147,7 @@ export async function MethodologyView({ locale }: { readonly locale: Locale }) {
               <p>{t("trust.methodology.body.currency.p2")}</p>
               <p>
                 {t("trust.methodology.body.currency.p3")}
-              <InlineLink href="/devex-fees-and-taxes/">{t("trust.methodology.body.currency.p4")}</InlineLink>
+              <InlineLink href={localizedPath(locale, "/devex-fees-and-taxes/")}>{t("trust.methodology.body.currency.p4")}</InlineLink>
                           .
                         </p>
                         <p>{t("trust.methodology.body.currency.p5")}</p>

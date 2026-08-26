@@ -140,7 +140,7 @@ export async function AccessibilityView({ locale }: { readonly locale: Locale })
           <Section id="feedback" heading={t("legal.accessibility.feedbackHeading")}>
             <p className="text-(--color-text-muted)">{t("legal.accessibility.body.feedback.p1")}</p>
             <div className="mt-4">
-              <ButtonLink href="/contact/">{t("routes.accessibility.links.contact")}</ButtonLink>
+              <ButtonLink href={localizedPath(locale, "/contact/")}>{t("routes.accessibility.links.contact")}</ButtonLink>
             </div>
             <p className="mt-4 text-sm text-(--color-text-muted)">
               {rich(t("legal.accessibility.prose.aboutLink"), {

@@ -1,4 +1,5 @@
 import { getTranslator, type Translate } from "@/i18n/get-dictionary";
+import { localizedPath } from "@/i18n/locale-path";
 import { localizedRoute } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
 import Link from "next/link";
@@ -87,7 +88,7 @@ export async function GuidesView({ locale }: { readonly locale: Locale }) {
                 return (
                   <li key={entry.route}>
                     <Link
-                      href={entry.route}
+                      href={localizedPath(locale, entry.route)}
                       className="flex gap-4 rounded-(--radius-card) border border-(--color-border) bg-(--color-surface) p-5 hover:border-(--color-primary) hover:bg-(--color-surface-subtle)"
                     >
                       <span
@@ -125,7 +126,7 @@ export async function GuidesView({ locale }: { readonly locale: Locale }) {
             description={t("guides.index.preferCalculateDescription")}
           >
             <Link
-              href="/calculators/"
+              href={localizedPath(locale, "/calculators/")}
               className="inline-flex rounded-(--radius-card) border border-(--color-border) bg-(--color-surface) p-5 hover:border-(--color-primary)"
             >
               <span>

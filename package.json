@@ -43,6 +43,7 @@
     "og:localized": "tsx scripts/og/build-localized-cards.ts",
     "validate:localized-og": "tsx scripts/og/build-localized-cards.ts --check",
     "validate:leakage": "tsx scripts/i18n/detect-language-leakage.ts",
+    "validate:localized-html": "tsx scripts/i18n/validate-localized-html.ts",
     "i18n:inventory": "tsx scripts/i18n/inventory-english.ts",
     "i18n:extract-routes": "tsx scripts/i18n/extract-routes.ts",
     "i18n:dictionaries": "tsx scripts/i18n/inventory-dictionaries.ts",

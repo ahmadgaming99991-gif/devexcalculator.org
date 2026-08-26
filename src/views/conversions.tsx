@@ -1,4 +1,5 @@
 import { loadWords } from "@/i18n/server-words";
+import { localizedPath } from "@/i18n/locale-path";
 import { getTranslator } from "@/i18n/get-dictionary";
 import { localizedRoute } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
@@ -66,7 +67,7 @@ export async function ConversionsView({
             heading={t("rates.conversions.everyAmountHeading")}
             description={t("rates.conversions.everyAmountDescription")}
           >
-            <AmountTable t={t} />
+            <AmountTable locale={locale} t={t} />
             <p className="mt-4 text-sm text-(--color-text-muted)">{" "}{t("rates.conversions.prose.notRoundNumbers")}{" "}</p>
           </Section>
 
@@ -81,7 +82,7 @@ export async function ConversionsView({
                 return (
                   <li key={definition.amount}>
                     <Link
-                      href={amountPageRoute(definition.amount)}
+                      href={localizedPath(locale, amountPageRoute(definition.amount))}
                       className="flex h-full flex-col rounded-(--radius-control) border border-(--color-border) bg-(--color-surface) p-4 hover:border-(--color-primary) hover:bg-(--color-surface-subtle)"
                     >
                       <span className="font-semibold text-(--color-text)">
@@ -104,7 +105,7 @@ export async function ConversionsView({
             </ul>
             <p className="mt-4 text-sm text-(--color-text-muted)">
               {t("rates.conversions.body.detailed.p1")}
-            <InlineLink href="/editorial-policy/">{t("rates.conversions.body.detailed.p2")}</InlineLink>
+            <InlineLink href={localizedPath(locale, "/editorial-policy/")}>{t("rates.conversions.body.detailed.p2")}</InlineLink>
                       .
                     </p>
                   </Section>
@@ -116,7 +117,7 @@ export async function ConversionsView({
                   >
                     <p className="text-(--color-text-muted)">
               {t("rates.conversions.body.rounding.p1")}
-            <InlineLink href="/methodology/">{t("rates.conversions.fullMethodologyLink")}</InlineLink>.
+            <InlineLink href={localizedPath(locale, "/methodology/")}>{t("rates.conversions.fullMethodologyLink")}</InlineLink>.
                     </p>
                   </Section>
         

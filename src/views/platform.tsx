@@ -136,7 +136,7 @@ export async function PlatformView({ locale, searchParams }: PageProps) {
               timeout — a slow Roblox produces a stated outage, not a hanging
               page.
             */}
-            <LiveExperiences t={t}
+            <LiveExperiences locale={locale} t={t}
               requested={requested}
               window={chartWindow}
               experience={Number.isFinite(experience) ? experience : undefined}
@@ -168,7 +168,7 @@ export async function PlatformView({ locale, searchParams }: PageProps) {
           >
             {/* Same reasoning as above; this one is a KV read, so there was
                 little to stream in the first place. */}
-            <ObservedHistory t={t} window={chartWindow} selectedRanking={requested} />
+            <ObservedHistory locale={locale} t={t} window={chartWindow} selectedRanking={requested} />
           </Section>
 
           <Section id="how" heading={t("platform.method.heading")}>
@@ -258,11 +258,13 @@ export async function PlatformView({ locale, searchParams }: PageProps) {
  * stays the canonical one instead of collecting redundant query strings.
  */
 function platformHref({
+  locale,
   ranking,
   days,
   experience,
   hash,
 }: {
+  readonly locale: Locale;
   ranking?: string;
   days?: number;
   experience?: number;
@@ -275,7 +277,7 @@ function platformHref({
   }
   if (experience !== undefined) query.set("experience", String(experience));
   const search = query.toString();
-  return `${ROUTE}${search ? `?${search}` : ""}${hash ?? ""}`;
+  return `${localizedPath(locale, ROUTE)}${search ? `?${search}` : ""}${hash ?? ""}`;
 }
 
 /**
@@ -287,11 +289,13 @@ function platformHref({
  * crawlable, and adds no bytes to the bundle.
  */
 function RankingTabs({
+  locale,
   rankings,
   selectedId,
   days,
   t,
 }: {
+  readonly locale: Locale;
   rankings: readonly Ranking[];
   selectedId: string;
   days: number;
@@ -307,8 +311,7 @@ function RankingTabs({
           return (
             <li key={ranking.id}>
               <Link
-                href={platformHref({
-                  ranking: current ? undefined : ranking.id,
+                href={platformHref({ locale, ranking: current ? undefined : ranking.id,
                   days,
                 })}
                 scroll={false}
@@ -330,11 +333,13 @@ function RankingTabs({
 }
 
 async function LiveExperiences({
+  locale,
   requested,
   window: chartWindow,
   experience,
   t,
 }: {
+  readonly locale: Locale;
   requested?: string;
   window: ChartWindow;
   experience?: number;
@@ -349,7 +354,7 @@ async function LiveExperiences({
         {t("platform.live.body.related.p1", {
           reason: result.reason,
         })}
-      <InlineLink href="/">{t("platform.live.calculatorStillWorks")}</InlineLink>{t("platform.live.body.related.p2")}</Callout>
+      <InlineLink href={localizedPath(locale, "/")}>{t("platform.live.calculatorStillWorks")}</InlineLink>{t("platform.live.body.related.p2")}</Callout>
       );
     }
   
@@ -381,7 +386,7 @@ async function LiveExperiences({
           <Stat label={t("platform.live.stats.busiestRightNow")} value={busiest.name} />
         </div>
   
-        <RankingTabs t={t} rankings={rankings} selectedId={selected.id} days={chartWindow.days} />
+        <RankingTabs locale={locale} t={t} rankings={rankings} selectedId={selected.id} days={chartWindow.days} />
   
         <p className="mt-4 text-sm text-(--color-text-muted)">
           {selected.subtitle ? `${selected.subtitle}. ` : null}
@@ -420,7 +425,7 @@ async function LiveExperiences({
             </thead>
             <tbody>
               {experiences.map((row, index) => (
-                <ExperienceRow t={t}
+                <ExperienceRow locale={locale} t={t}
                   key={row.universeId}
                   experience={row}
                   rank={index + 1}
@@ -437,7 +442,7 @@ async function LiveExperiences({
         </TableWrapper>
   
         {history && experience !== undefined && history.players[String(experience)] ? (
-          <ExperienceDetail t={t}
+          <ExperienceDetail locale={locale} t={t}
             history={history}
             universeId={experience}
             ranking={requested}
@@ -692,12 +697,14 @@ function PlatformFigure({
  * JavaScript and can be shared.
  */
 function ExperienceDetail({
+  locale,
   history,
   universeId,
   ranking,
   days,
   t,
 }: {
+  readonly locale: Locale;
   history: GameHistory;
   universeId: number;
   ranking?: string;
@@ -713,7 +720,7 @@ function ExperienceDetail({
     <Card>
       <div className="flex flex-wrap items-baseline justify-between gap-3">
         <h3 className="text-lg font-bold text-(--color-text)">{name}</h3>
-        <InlineLink href={platformHref({ ranking, days, hash: "#live" })}>{t("platform.live.body.experience.p1")}</InlineLink>
+        <InlineLink href={platformHref({ locale, ranking, days, hash: "#live" })}>{t("platform.live.body.experience.p1")}</InlineLink>
       </div>
 
       {series.chartable ? (
@@ -773,6 +780,7 @@ function ExperienceDetail({
 }
 
 function ExperienceRow({
+  locale,
   experience,
   rank,
   showVisits,
@@ -783,6 +791,7 @@ function ExperienceRow({
   days,
   t,
 }: {
+  readonly locale: Locale;
   experience: ExperienceObservation;
   rank: number;
   showVisits: boolean;
@@ -836,8 +845,7 @@ function ExperienceRow({
         <Td>
           {trend && trend.points.length >= 2 ? (
             <Link
-              href={platformHref({
-                ranking,
+              href={platformHref({ locale, ranking,
                 days,
                 experience: experience.universeId,
                 hash: "#experience",
@@ -904,11 +912,13 @@ function ExperienceRow({
  * much was actually collected so the axis cannot imply more.
  */
 function ChartRangeTabs({
+  locale,
   selected,
   ranking,
   counts,
   t,
 }: {
+  readonly locale: Locale;
   selected: ChartWindow;
   ranking?: string;
   /** Observations each range would chart, so a button that changes nothing says so. */
@@ -923,7 +933,7 @@ function ChartRangeTabs({
           return (
             <li key={option.days}>
               <Link
-                href={platformHref({ ranking, days: option.days, hash: "#history" })}
+                href={platformHref({ locale, ranking, days: option.days, hash: "#history" })}
                 scroll={false}
                 aria-current={current ? "true" : undefined}
                 className={
@@ -959,10 +969,12 @@ function ChartRangeTabs({
 }
 
 async function ObservedHistory({
+  locale,
   window: chartWindow,
   selectedRanking,
   t,
 }: {
+  readonly locale: Locale;
   window: ChartWindow;
   selectedRanking?: string;
   readonly t: Translate;
@@ -1009,7 +1021,7 @@ async function ObservedHistory({
   if (series.points.length === 0) {
     return (
       <div className="min-w-0">
-        <ChartRangeTabs
+        <ChartRangeTabs locale={locale}
           selected={chartWindow}
           ranking={selectedRanking}
           counts={counts}
@@ -1036,7 +1048,7 @@ async function ObservedHistory({
   if (!series.chartable) {
     return (
       <div className="min-w-0">
-        <ChartRangeTabs
+        <ChartRangeTabs locale={locale}
           selected={chartWindow}
           ranking={selectedRanking}
           counts={counts}
@@ -1071,7 +1083,7 @@ async function ObservedHistory({
 
   return (
     <div className="min-w-0">
-      <ChartRangeTabs
+      <ChartRangeTabs locale={locale}
           selected={chartWindow}
           ranking={selectedRanking}
           counts={counts}

@@ -3,7 +3,7 @@
 import { parseMessage } from "@/i18n/parse-message";
 import { translatorFor, type LocaleWords } from "@/i18n/client-words";
 import type { Translate } from "@/i18n/get-dictionary";
-import { schemeLabel } from "@/i18n/data-text";
+import { schemeDescription, schemeLabel } from "@/i18n/data-text";
 import { useId, useMemo, useState } from "react";
 import {
   calculateAfterFee,
@@ -152,12 +152,12 @@ export function MarketplaceCalculator({ words }: { readonly words: LocaleWords }
             >
               {marketplaceSchemes.map((entry) => (
                 <option key={entry.id} value={entry.id}>
-                  {entry.label}
+                  {schemeLabel(t, entry)}
                 </option>
               ))}
             </select>
             <p id={`${schemeSelectId}-note`} className="mt-1.5 text-xs text-(--color-text-muted)">
-              {scheme?.description}
+              {scheme ? schemeDescription(t, scheme) : null}
             </p>
           </div>
 

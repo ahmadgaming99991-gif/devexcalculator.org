@@ -27,7 +27,16 @@ interface JsonObject {
   [key: string]: JsonValue | undefined;
 }
 
-const WEBSITE_ID = `${siteConfig.url}/#website`;
+/**
+ * The WebSite entity for one language.
+ *
+ * Per locale rather than site-wide. One `@id` cannot carry seven values of
+ * `inLanguage`, and a German page declaring itself part of the English site
+ * is a claim about structure that is simply not true.
+ */
+function websiteId(locale: Locale): string {
+  return `${localeUrl(locale, "/")}#website`;
+}
 
 /**
  * The canonical URL of a route in one language.
@@ -61,8 +70,8 @@ function websiteNode(locale: Locale, t: Translate): JsonObject {
 
   return {
     "@type": "WebSite",
-    "@id": WEBSITE_ID,
-    url: `${siteConfig.url}/`,
+    "@id": websiteId(locale),
+    url: localeUrl(locale, "/"),
     name: t("seo.site.name"),
     description: t("seo.site.description"),
     inLanguage: getLocaleMeta(locale).locale,
@@ -172,7 +181,7 @@ function pageNode(locale: Locale, record: RouteRecord): JsonObject {
     name: record.title,
     description: record.metaDescription,
     inLanguage: getLocaleMeta(locale).locale,
-    isPartOf: { "@id": WEBSITE_ID },
+    isPartOf: { "@id": websiteId(locale) },
     dateModified: record.dateModified,
     ...(breadcrumbTrail(record.route).length > 0
       ? { breadcrumb: { "@id": `${localeUrl(locale, record.route)}#breadcrumb` } }

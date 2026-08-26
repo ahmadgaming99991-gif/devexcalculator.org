@@ -1,4 +1,5 @@
 import { rich } from "@/i18n/rich";
+import { localizedPath } from "@/i18n/locale-path";
 import { loadWords } from "@/i18n/server-words";
 import { getTranslator } from "@/i18n/get-dictionary";
 import Link from "next/link";
@@ -108,7 +109,7 @@ export async function UsdToRobuxView({
                 minimumEarnedRobux: formatRobux(t.locale, minimumEarnedRobux),
                 rate: formatCurrency(t.locale, Rational.fromInt(minimumEarnedRobux).mul(rate), "USD"),
               })}
-            <Link href="/devex-requirements/">{t("rates.usdToRobux.seeRequirementsLink")}{" "}</Link>.
+            <Link href={localizedPath(locale, "/devex-requirements/")}>{t("rates.usdToRobux.seeRequirementsLink")}{" "}</Link>.
                     </Callout>
                   </Section>
         
@@ -191,7 +192,7 @@ export async function UsdToRobuxView({
           >
             <p className="text-(--color-text-muted)">
               {t("rates.usdToRobux.body.buyingRobux.p1")}
-            <InlineLink href="/robux-to-usd/">{t("rates.usdToRobux.body.buyingRobux.p2")}</InlineLink>
+            <InlineLink href={localizedPath(locale, "/robux-to-usd/")}>{t("rates.usdToRobux.body.buyingRobux.p2")}</InlineLink>
                       .
                     </p>
                   </Section>

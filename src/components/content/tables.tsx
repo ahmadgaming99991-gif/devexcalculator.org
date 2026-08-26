@@ -1,4 +1,6 @@
 import type { Translate } from "@/i18n/get-dictionary";
+import { localizedPath } from "@/i18n/locale-path";
+import type { Locale } from "@/i18n/types";
 import Link from "next/link";
 import { allRates, getRateValue, minimumEarnedRobux } from "@/lib/calculations/rate-registry";
 import { legacyRateId, standardRateId, us18RateId } from "@/lib/calculations/devex";
@@ -142,10 +144,13 @@ const DEFAULT_AMOUNTS: readonly number[] = [
  */
 
 export function AmountTable({
+  locale,
   amounts = DEFAULT_AMOUNTS,
   linkApproved = true,
   t,
 }: {
+  /** Approved amounts link to their own page, and it has to be the one in this language. */
+  readonly locale: Locale;
   amounts?: readonly number[];
   linkApproved?: boolean;
   readonly t: Translate;
@@ -177,7 +182,7 @@ export function AmountTable({
                 <Th scope="row">
                   {hasPage ? (
                     <Link
-                      href={amountPageRoute(amount)}
+                      href={localizedPath(locale, amountPageRoute(amount))}
                       className="font-semibold text-(--color-primary) underline underline-offset-2"
                     >
                       {formatRobux(t.locale, amount)}

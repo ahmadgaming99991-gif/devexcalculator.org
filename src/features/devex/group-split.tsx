@@ -90,7 +90,7 @@ export function GroupSplit({ words }: { readonly words: LocaleWords }) {
               htmlFor={`${fieldId}-total`}
               className="block text-sm font-semibold text-(--color-text)"
             >
-              The group&rsquo;s eligible Earned Robux
+              {t("calculator.groupSplit.groupBalanceLabel")}
             </label>
             <input
               id={`${fieldId}-total`}
@@ -154,7 +154,11 @@ export function GroupSplit({ words }: { readonly words: LocaleWords }) {
                     </Td>
                     <Td>
                       <label className="sr-only" htmlFor={`${fieldId}-pct-${row.id}`}>
-                        Percentage for {row.name || `member ${index + 1}`}
+                        {t("calculator.groupSplit.percentageForLabel", {
+                          member:
+                            row.name ||
+                            t("calculator.groupSplit.memberFallback", { index: index + 1 }),
+                        })}
                       </label>
                       <div className="flex items-center gap-1">
                         <input

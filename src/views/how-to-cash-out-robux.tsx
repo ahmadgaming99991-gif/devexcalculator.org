@@ -1,4 +1,5 @@
 import { loadWords } from "@/i18n/server-words";
+import { localizedPath } from "@/i18n/locale-path";
 import { getTranslator } from "@/i18n/get-dictionary";
 import { localizedRoute } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
@@ -94,13 +95,13 @@ export async function CashOutView({ locale }: { readonly locale: Locale }) {
                   })}
                 </strong>
                   {t("guides.cashOut.body.process.p2")}
-                <InlineLink href="/earned-robux/">{t("guides.cashOut.body.process.p3")}</InlineLink>
+                <InlineLink href={localizedPath(locale, "/earned-robux/")}>{t("guides.cashOut.body.process.p3")}</InlineLink>
                             .
                           </li>
                           <li>
                             <strong className="text-(--color-text)">{t("guides.cashOut.list.meetRequirements")}</strong>
                   {t("guides.cashOut.body.process.p4")}
-                <InlineLink href="/devex-requirements/">{t("guides.cashOut.list.fullListLink")}</InlineLink>.
+                <InlineLink href={localizedPath(locale, "/devex-requirements/")}>{t("guides.cashOut.list.fullListLink")}</InlineLink>.
                           </li>
                           <li>
                             <strong className="text-(--color-text)">{t("guides.cashOut.list.submitPortal")}</strong>
@@ -117,13 +118,13 @@ export async function CashOutView({ locale }: { readonly locale: Locale }) {
               <li>
                 <strong className="text-(--color-text)">{t("guides.cashOut.list.paymentIssued")}</strong>
                   {t("guides.cashOut.body.process.p7")}
-                <InlineLink href="/devex-fees-and-taxes/">{t("guides.cashOut.body.process.p8")}</InlineLink>
+                <InlineLink href={localizedPath(locale, "/devex-fees-and-taxes/")}>{t("guides.cashOut.body.process.p8")}</InlineLink>
                             .
                           </li>
                         </ol>
             
                         <div className="mt-6">
-                          <ButtonLink href="/">{t("routes.howToCashOutRobux.links.home")}</ButtonLink>
+                          <ButtonLink href={localizedPath(locale, "/")}>{t("routes.howToCashOutRobux.links.home")}</ButtonLink>
                         </div>
                       </Section>
             
@@ -184,7 +185,7 @@ export async function CashOutView({ locale }: { readonly locale: Locale }) {
                       >
                         <p className="text-(--color-text-muted)">
                   {t("guides.cashOut.body.after.p1")}
-                <InlineLink href="/devex-fees-and-taxes/">{t("guides.cashOut.body.after.p2")}</InlineLink>
+                <InlineLink href={localizedPath(locale, "/devex-fees-and-taxes/")}>{t("guides.cashOut.body.after.p2")}</InlineLink>
                           . This site gives no tax advice.
                         </p>
                       </Section>

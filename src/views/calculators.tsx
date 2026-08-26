@@ -1,4 +1,5 @@
 import { getTranslator, type Translate } from "@/i18n/get-dictionary";
+import { localizedPath } from "@/i18n/locale-path";
 import { localizedRoute } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
 import Link from "next/link";
@@ -66,7 +67,7 @@ export async function CalculatorsView({ locale }: { readonly locale: Locale }) {
                 return (
                   <li key={tool.route}>
                     <Link
-                      href={tool.route}
+                      href={localizedPath(locale, tool.route)}
                       className="flex h-full flex-col rounded-(--radius-card) border border-(--color-border) bg-(--color-surface) p-5 hover:border-(--color-primary) hover:bg-(--color-surface-subtle)"
                     >
                       <span className="text-lg font-semibold text-(--color-text)">
@@ -91,7 +92,7 @@ export async function CalculatorsView({ locale }: { readonly locale: Locale }) {
             description={t("guides.calculators.lookingUpDescription")}
           >
             <Link
-              href="/conversions/"
+              href={localizedPath(locale, "/conversions/")}
               className="inline-flex rounded-(--radius-card) border border-(--color-border) bg-(--color-surface) p-5 hover:border-(--color-primary)"
             >
               <span>
@@ -107,7 +108,7 @@ export async function CalculatorsView({ locale }: { readonly locale: Locale }) {
             description={t("guides.calculators.understandDescription")}
           >
             <Link
-              href="/guides/"
+              href={localizedPath(locale, "/guides/")}
               className="inline-flex rounded-(--radius-card) border border-(--color-border) bg-(--color-surface) p-5 hover:border-(--color-primary)"
             >
               <span>

@@ -173,7 +173,10 @@
       "other": "The {minimum} minimum applies to the balance one person submits, not to what the group earned. This group holds {total} Earned Robux, and {names} are still below the minimum individually."
     },
     "removeRow": "Remove",
-    "perEligibleRobux": "{rate} per eligible Earned Robux"
+    "perEligibleRobux": "{rate} per eligible Earned Robux",
+    "groupBalanceLabel": "The group's eligible Earned Robux",
+    "percentageForLabel": "Percentage for {member}",
+    "memberFallback": "member {index}"
   },
   "preparation": {
     "earnedRobuxLink": "What counts as Earned Robux",

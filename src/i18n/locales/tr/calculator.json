@@ -180,7 +180,10 @@
       "other": "{minimum} alt sınırı, grubun kazandığına değil, bir kişinin gönderdiği bakiyeye uygulanır. Bu grubun {total} Earned Robux'ı var ve {names} tek tek bakıldığında hâlâ alt sınırın altında."
     },
     "removeRow": "Kaldır",
-    "perEligibleRobux": "uygun Earned Robux başına {rate}"
+    "perEligibleRobux": "uygun Earned Robux başına {rate}",
+    "groupBalanceLabel": "Grubun uygun Earned Robux miktarı",
+    "percentageForLabel": "{member} için yüzde",
+    "memberFallback": "{index}. üye"
   },
   "preparation": {
     "earnedRobuxLink": "Neler Earned Robux sayılır",

@@ -1,4 +1,5 @@
 import { loadWords } from "@/i18n/server-words";
+import { localizedPath } from "@/i18n/locale-path";
 import { getTranslator } from "@/i18n/get-dictionary";
 import { localizedRoute } from "@/i18n/localized-route";
 import type { Locale } from "@/i18n/types";
@@ -121,7 +122,7 @@ export async function FeesAndTaxesView({
           >
             <p className="text-(--color-text-muted)">
               {t("rates.feesAndTaxes.body.currency.p1")}
-            <InlineLink href="/methodology/">{t("rates.feesAndTaxes.body.currency.p2")}</InlineLink>
+            <InlineLink href={localizedPath(locale, "/methodology/")}>{t("rates.feesAndTaxes.body.currency.p2")}</InlineLink>
                       .
                     </p>
                   </Section>
@@ -170,11 +171,11 @@ export async function FeesAndTaxesView({
         
                     <p className="text-(--color-text-muted)">
               {t("rates.feesAndTaxes.body.notTheMarketplaceFee.p1")}
-            <InlineLink href="/robux-tax-calculator/">{t("rates.feesAndTaxes.body.notTheMarketplaceFee.p2")}</InlineLink>
+            <InlineLink href={localizedPath(locale, "/robux-tax-calculator/")}>{t("rates.feesAndTaxes.body.notTheMarketplaceFee.p2")}</InlineLink>
                       .
                     </p>
                     <div className="mt-4">
-                      <ButtonLink href="/robux-tax-calculator/" variant="secondary">{t("rates.feesAndTaxes.body.notTheMarketplaceFee.p3")}</ButtonLink>
+                      <ButtonLink href={localizedPath(locale, "/robux-tax-calculator/")} variant="secondary">{t("rates.feesAndTaxes.body.notTheMarketplaceFee.p3")}</ButtonLink>
                     </div>
                   </Section>
         
