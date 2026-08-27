@@ -67,6 +67,22 @@ describe("figures", () => {
       }
     }
   });
+
+  it("builds each locale's set once", () => {
+    /*
+     * Not a micro-optimisation. The translator merges this set into every
+     * `t()` call, and each figure constructs an `Intl.NumberFormat`. Rebuilding
+     * per call meant a page with two hundred strings built eight thousand
+     * formatters: every page still rendered correctly and took a second to do
+     * it, which pushed the two E2E specs that walk all thirty-six routes past
+     * their timeout the moment workers ran in parallel.
+     *
+     * Identity is the assertion because it is the thing that broke — a fresh
+     * object per call is the defect, whatever its contents.
+     */
+    expect(figures("de")).toBe(figures("de"));
+    expect(figures("fr")).not.toBe(figures("de"));
+  });
 });
 
 describe("the client translator", () => {

@@ -60,13 +60,34 @@ function payout(amount: number, rateId: string): Rational {
 }
 
 /**
- * Computed per call rather than cached per locale.
+ * Built once per locale, and it has to be.
  *
- * The registry is read at module load and the arithmetic is a few dozen
- * `BigInt` operations, so this is cheaper than the cache invalidation it would
- * need to stay correct across a rate change in a long-lived Worker isolate.
+ * This was computed on every call, on the reasoning that the arithmetic is a
+ * few dozen `BigInt` operations. The arithmetic was never the cost: the set is
+ * some forty figures and each one constructs an `Intl.NumberFormat`. Because
+ * the translator merges these into *every* `t()` call, a page with two hundred
+ * strings built eight thousand formatters to render once.
+ *
+ * It did not fail anything — every page still returned 200 with the right
+ * words — it just made a prerendered page take a second instead of thirty
+ * milliseconds, which pushed two E2E specs that walk all thirty-six routes past
+ * their timeout as soon as workers ran in parallel.
+ *
+ * Caching is safe because the inputs cannot change while the process lives:
+ * `rateRegistry` is read from JSON at module load, and a rate change is a
+ * deploy. A Worker isolate that outlives a deploy is not a thing.
  */
+const cache = new Map<string, Readonly<Record<string, string>>>();
+
 export function figures(locale: string): Readonly<Record<string, string>> {
+  const hit = cache.get(locale);
+  if (hit !== undefined) return hit;
+  const built = buildFigures(locale);
+  cache.set(locale, built);
+  return built;
+}
+
+function buildFigures(locale: string): Readonly<Record<string, string>> {
   const standard = getRateValue(STANDARD);
   const legacy = getRateValue(LEGACY);
   const us18 = getRateValue(US_18_PLUS);
