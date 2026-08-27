@@ -66,7 +66,7 @@
     "conversions": "Durchgerechnete Beispiele für gängige Beträge",
     "calculators": "Alle Rechner auf dieser Website",
     "devexRates": "Aktuelle, alte und bedingte Sätze",
-    "devexRequirements": "Voraussetzungen und das Minimum von 30.000",
+    "devexRequirements": "Voraussetzungen und das Minimum von {minimumRobux}",
     "earnedRobux": "Welche Robux tatsächlich zählen",
     "devexFeesAndTaxes": "Was abgezogen wird, und von wem",
     "devexRateHistory": "Jede Satzänderung, mit Datum",

@@ -297,7 +297,7 @@
       "whatItMeans": {
         "p1": "Direkt sehr wenig — und das gehört deutlich gesagt. Die Summen auf dieser Seite beschreiben die gesamte Plattform. Sie ändern nichts daran, was dein eigenes Guthaben ergibt, sie sind keine Prognose, und eine steigende Summe bedeutet keinen steigenden Kurs. Was deine Auszahlung bestimmt, ist der Kurs, der auf deine anrechenbaren Earned Robux angewandt wird — und den kannst du ausrechnen mit",
         "p2": "Das Einzige, was diese Zahlen tatsächlich zeigen, ist die Größenordnung: DevEx ist ein Programm, über das Roblox",
-        "p3": "in einem einzigen Jahr ausgezahlt hat — ein Zusammenhang, den man kennen sollte, bevor man entscheidet, ob das Minimum von 30.000 Robux die Mühe wert ist."
+        "p3": "in einem einzigen Jahr ausgezahlt hat — ein Zusammenhang, den man kennen sollte, bevor man entscheidet, ob das Minimum von {minimumRobux} Robux die Mühe wert ist."
       },
       "noLiveData": {
         "p1": "Roblox veröffentlicht diese Zahlen einmal pro Quartal, in einem Bericht. Das ist die feinste Auflösung, die es gibt — ein Diagramm, das behauptet, sie sich minütlich ändern zu sehen, würde also etwas Erfundenes zeigen. Diese Website betreibt keine Datenerhebung, tastet nichts ab und schätzt nichts — sie liest die Berichte und verlinkt sie."
@@ -308,7 +308,7 @@
       "quarterOfRevenue": "Die Zeile, die zweimal zu lesen lohnt, ist die zweite. Developer-Exchange-Gebühren machen etwa ein Viertel von Roblox’ Umsatz aus; ein erheblicher Teil dessen, was die Plattform einnimmt, verlässt sie also wieder als Creator-Auszahlungen. Jede Zahl in dieser Tabelle stammt aus {filings}.",
       "precision": "Zahlen werden in der Genauigkeit erfasst, die die Einreichung verwendet hat. Wo Roblox in Tausenden berichtete, ist der Betrag auf den Dollar genau; wo in Millionen, auf die Million genau und nicht weiter. Zwei Quartale sind als abgeleitet gekennzeichnet, weil sie aus der Differenz eines berichteten Quartals zu einer berichteten Halbjahressumme stammen. Mehr dazu, wie diese Website mit Zahlen umgeht, steht in {methodology}.",
       "whatItMeansIntro": "Sehr wenig, unmittelbar — und das gehört klar gesagt. Die Summen auf dieser Seite beschreiben die ganze Plattform. Sie ändern nichts daran, was Ihr eigenes Guthaben ergibt, sie sind keine Prognose, und eine steigende Summe bedeutet keinen steigenden Satz. Über Ihre Auszahlung entscheidet der Satz auf Ihre berechtigten Earned Robux, den Sie auf {calculator} ausrechnen können.",
-      "whatItMeans": "Was diese Zahlen tatsächlich zeigen, ist die Größenordnung: DevEx ist ein Programm, über das Roblox in einem einzigen Jahr {amount} ausgezahlt hat — ein Zusammenhang, den man kennen sollte, bevor man entscheidet, ob das Minimum von 30.000 Robux die Mühe wert ist.",
+      "whatItMeans": "Was diese Zahlen tatsächlich zeigen, ist die Größenordnung: DevEx ist ein Programm, über das Roblox in einem einzigen Jahr {amount} ausgezahlt hat — ein Zusammenhang, den man kennen sollte, bevor man entscheidet, ob das Minimum von {minimumRobux} Robux die Mühe wert ist.",
       "engagementSource": "Alle Zahlen oben außer der letzten stammen aus {filings}, für die drei Monate bis zum 30. Juni 2026."
     },
     "yearOnYearNote": "{from} auf {to}",

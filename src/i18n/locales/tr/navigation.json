@@ -69,7 +69,7 @@
     "conversions": "Yaygın tutarlar için çözümlü örnekler",
     "calculators": "Sitedeki tüm hesaplayıcılar",
     "devexRates": "Mevcut, eski ve koşullu oranlar",
-    "devexRequirements": "Uygunluk ve 30.000 alt sınırı",
+    "devexRequirements": "Uygunluk ve {minimumRobux} alt sınırı",
     "earnedRobux": "Hangi Robux gerçekten sayılır",
     "devexFeesAndTaxes": "Neyin, kim tarafından kesildiği",
     "devexRateHistory": "Tarihleriyle birlikte her oran değişikliği",

@@ -57,9 +57,9 @@
     "body": {
       "timeline": {
         "p1": "Standard rate increased to {rateStandard} USD per Earned Robux",
-        "p2": "Roblox states this as 114 USD for 30,000 Earned Robux, up from 105. Balances earned before this moment continue to convert at the previous rate and are cashed out first.",
+        "p2": "Roblox states this as 114 USD for {minimumRobux} Earned Robux, up from 105. Balances earned before this moment continue to convert at the previous rate and are cashed out first.",
         "p3": "Standard rate of {rateLegacy} USD per Earned Robux",
-        "p4": "105 USD for 30,000 Earned Robux. Still applied to the portion of any balance earned before the transition.",
+        "p4": "105 USD for {minimumRobux} Earned Robux. Still applied to the portion of any balance earned before the transition.",
         "p5": "Effective date not published",
         "p6": "Higher {rateUs18} rate for qualifying U.S. 18+ spending",
         "p7": "Roblox documents this rate for certain Earned Robux from purchases by United States players who have verified they are at least 18. The documentation this site checked does not state an effective date, so none is recorded here rather than one being inferred."
@@ -135,14 +135,14 @@
     "misunderstandings": {
       "minimum10k": {
         "claim": "The minimum is 10,000 Robux.",
-        "reality": "It is 30,000 Earned Robux. The lower figure circulates on third-party sites that have not been updated, and it is not what current Roblox documentation says."
+        "reality": "It is {minimumRobux} Earned Robux. The lower figure circulates on third-party sites that have not been updated, and it is not what current Roblox documentation says."
       },
       "anyBalance": {
         "claim": "Any Robux balance counts toward the minimum.",
         "reality": "Only Earned Robux count. A balance made up of purchased Robux does not qualify however large it is."
       },
       "reaching30k": {
-        "claim": "Reaching 30,000 means you will be paid.",
+        "claim": "Reaching {minimumRobux} means you will be paid.",
         "reality": "It means you can submit a request. Roblox reviews each one and decides which Robux qualify as earned."
       },
       "age18": {
@@ -171,7 +171,7 @@
     "doesNotCountHeading": "What generally does not",
     "doesNotCountDescription": "Robux acquired these ways sit in the same balance but are treated differently.",
     "pendingHeading": "Pending and available balances",
-    "pendingDescription": "Newly earned Robux are not immediately available, which surprises creators watching a balance climb.",
+    "pendingDescription": "Earned Robux you have just acquired do not appear in your balance immediately, which surprises creators watching it climb.",
     "groupFundsHeading": "Group funds",
     "groupFundsDescription": "Robux held by a group are not the same as Robux held by you.",
     "faqsHeading": "Questions about Earned Robux",
@@ -182,10 +182,10 @@
       "definition": {
         "p1": "The portion of your Robux balance that came from creator activity — other people spending Robux on something you made — rather than from Robux you acquired any other way. DevEx converts Earned Robux only. Your account shows a single Robux number, but Roblox tracks where each part of it came from, and that internal accounting is what determines eligibility.",
         "p2": "— the balance DevEx converts, and the only balance that counts toward the {minimumEarnedRobux} minimum. Roblox makes the final determination for any specific balance.",
-        "p4": "If you have ever bought Robux, received them from a membership, or redeemed a gift card, part of your balance is not earned. That part cannot be cashed out, and it does not count toward the 30,000 minimum either."
+        "p4": "If you have ever bought Robux, received them from a membership, or redeemed a gift card, part of your balance is not earned. That part cannot be cashed out, and it does not count toward the {minimumRobux} minimum either."
       },
       "qualifying": {
-        "p1": "In each case Roblox has already taken its platform commission before the Robux reach you — creators receive 70% of what a player spends on an in-experience purchase.",
+        "p1": "In each case Roblox has already taken its platform commission before the Robux reach you — creators receive {inExperienceCreatorShare}% of what a player spends on an in-experience purchase.",
         "p2": "Work out what you keep on a sale"
       },
       "notQualifying": {
@@ -248,7 +248,7 @@
     "modelHeading": "Model your own figures",
     "modelDescription": "Open the fee and tax controls below the currency selector and enter your own percentages.",
     "notMarketplaceHeading": "Not to be confused with the marketplace fee",
-    "notMarketplaceDescription": "The 30% platform commission is a different thing at a different point in time.",
+    "notMarketplaceDescription": "The {inExperiencePlatformShare}% platform commission is a different thing at a different point in time.",
     "marketplaceDiagramCaption": "The split happens when the player spends, long before DevEx is involved. Percentages come from the rate registry, not from this drawing.",
     "faqsHeading": "Questions about fees and tax",
     "diagram": {
@@ -286,7 +286,7 @@
         "p2": "A practical note that is not advice: the tax is generally owed on the income, not on what is left after fees, and it is usually owed in the year the payout is received rather than the year the Robux were earned. Confirm both with someone qualified."
       },
       "notTheMarketplaceFee": {
-        "p1": "Roblox takes 30% when a player spends Robux in your experience — you receive 70%, and that 70% is what becomes Earned Robux. DevEx then converts those Earned Robux. The commission is not applied a second time at cash-out, and any calculator that subtracts 30% from a DevEx payout is double-counting it.",
+        "p1": "Roblox takes {inExperiencePlatformShare}% when a player spends Robux in your experience — you receive {inExperienceCreatorShare}%, and that {inExperienceCreatorShare}% is what becomes Earned Robux. DevEx then converts those Earned Robux. The commission is not applied a second time at cash-out, and any calculator that subtracts {inExperiencePlatformShare}% from a DevEx payout is double-counting it.",
         "p2": "Work out the marketplace fee separately",
         "p3": "Open the marketplace fee calculator"
       }
@@ -342,7 +342,7 @@
     "body": {
       "twoAnswers": {
         "p1": "Money coming out — creator payout",
-        "p2": "You earned Robux from players spending in your experience, and you want to convert them to cash. That goes through DevEx at a documented rate, and it is what the calculator above estimates. It applies only to eligible Earned Robux, and only from 30,000 upward.",
+        "p2": "You earned Robux from players spending in your experience, and you want to convert them to cash. That goes through DevEx at a documented rate, and it is what the calculator above estimates. It applies only to eligible Earned Robux, and only from {minimumRobux} upward.",
         "p3": "Money going in — purchase price",
         "p4": "You want to know what a Robux package costs. Roblox sets that price by package, region, platform and any promotion running at the time. It is a retail price, not an exchange rate, and it moves independently of what DevEx pays.",
         "p5": "There is no single number that is true for every package, country and platform, so quoting one would be inventing a figure. Check the current prices on",
@@ -350,8 +350,8 @@
         "p7": "for what you would actually pay."
       },
       "comparison": {
-        "p1": "The gap between the two exists because Roblox operates a platform, handles payment processing, and has already taken its 30% share at the point the Robux were spent.",
-        "p2": "That earlier 30% is the marketplace fee"
+        "p1": "The gap between the two exists because Roblox operates a platform, handles payment processing, and has already taken its {inExperiencePlatformShare}% share at the point the Robux were spent.",
+        "p2": "That earlier {inExperiencePlatformShare}% is the marketplace fee"
       },
       "amounts": {
         "p1": "Browse the full conversion hub",
@@ -440,10 +440,10 @@
         "p4": "Progressive by price — see below",
         "p5": "Avatar item bought inside an experience",
         "p6": "Item creator and experience owner are paid separately",
-        "p7": "If you sell your own item inside your own experience you receive both the creator share and the experience owner share, which comes to 70%."
+        "p7": "If you sell your own item inside your own experience you receive both the creator share and the experience owner share, which comes to {inExperienceCreatorShare}%."
       },
       "notDevex": {
-        "p1": "The commission on this page applies at the moment a player spends Robux. What you keep becomes Earned Robux. DevEx then converts those Earned Robux to cash at its own rate, on a balance that has already had the commission taken. Subtracting 30% from a DevEx payout applies the same fee twice and understates what a creator receives.",
+        "p1": "The commission on this page applies at the moment a player spends Robux. What you keep becomes Earned Robux. DevEx then converts those Earned Robux to cash at its own rate, on a balance that has already had the commission taken. Subtracting {inExperiencePlatformShare}% from a DevEx payout applies the same fee twice and understates what a creator receives.",
         "p2": "Convert your Earned Robux to a payout estimate",
         "p3": "What actually comes off a DevEx payout"
       }
@@ -520,7 +520,7 @@
       }
     },
     "context": {
-      "robux30000": "30,000 is the amount that matters most, because it is the minimum Earned Robux balance Roblox requires before a DevEx request can be submitted at all. Below this figure the question is not what the payout would be but whether a request can be made.",
+      "robux30000": "{minimumRobux} is the amount that matters most, because it is the minimum Earned Robux balance Roblox requires before a DevEx request can be submitted at all. Below this figure the question is not what the payout would be but whether a request can be made.",
       "robux50000": "50,000 Earned Robux clears the minimum with room to spare, so it is a common first cash-out for a creator whose experience has just started earning consistently.",
       "robux100000": "100,000 is the most searched round figure in this range, and it is the point where the gap between the current and legacy rates becomes large enough to notice: thirty dollars separates them.",
       "robux200000": "At 200,000 Earned Robux a creator is usually cashing out on a schedule rather than as a one-off, which makes the difference between rate buckets worth tracking rather than estimating.",

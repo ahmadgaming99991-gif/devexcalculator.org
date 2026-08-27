@@ -66,7 +66,7 @@
     "conversions": "Exemplos resolvidos para valores comuns",
     "calculators": "Todas as calculadoras do site",
     "devexRates": "Taxas atuais, antigas e condicionais",
-    "devexRequirements": "Elegibilidade e o mínimo de 30.000",
+    "devexRequirements": "Elegibilidade e o mínimo de {minimumRobux}",
     "earnedRobux": "Quais Robux realmente contam",
     "devexFeesAndTaxes": "O que é descontado, e por quem",
     "devexRateHistory": "Todas as mudanças de taxa, com data",

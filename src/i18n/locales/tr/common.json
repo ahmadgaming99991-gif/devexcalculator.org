@@ -108,7 +108,7 @@
     "robux": "Robux",
     "perRobux": "Robux başına",
     "perThousand": "1.000 başına",
-    "perThirtyThousand": "30.000 başına",
+    "perThirtyThousand": "{minimumRobux} başına",
     "appliesTo": "Şunlar için geçerli:",
     "earnedRobux": "Earned Robux",
     "standard": "Standard",

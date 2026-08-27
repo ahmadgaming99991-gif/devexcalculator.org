@@ -68,6 +68,6 @@
     }
   },
   "prose": {
-    "notAppliedTwice": "Cette commission est prélevée au moment où les Robux sont gagnés. Convertir en argent, via DevEx, les Robux qui vous restent est une étape distincte avec son propre taux — les 30 % ne s’appliquent pas deux fois."
+    "notAppliedTwice": "Cette commission est prélevée au moment où les Robux sont gagnés. Convertir en argent, via DevEx, les Robux qui vous restent est une étape distincte avec son propre taux — les {inExperiencePlatformShare} % ne s’appliquent pas deux fois."
   }
 }

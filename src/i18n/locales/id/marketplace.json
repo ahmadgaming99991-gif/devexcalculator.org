@@ -69,6 +69,6 @@
     }
   },
   "prose": {
-    "notAppliedTwice": "Komisi ini diambil saat Robux dihasilkan. Mengubah Robux yang Anda simpan menjadi uang lewat DevEx adalah langkah terpisah dengan tarifnya sendiri — 30% itu tidak dikenakan dua kali."
+    "notAppliedTwice": "Komisi ini diambil saat Robux dihasilkan. Mengubah Robux yang Anda simpan menjadi uang lewat DevEx adalah langkah terpisah dengan tarifnya sendiri — {inExperiencePlatformShare}% itu tidak dikenakan dua kali."
   }
 }

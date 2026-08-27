@@ -40,8 +40,8 @@
       "title": "Marketplace fees and commissions",
       "url": "https://create.roblox.com/docs/marketplace/marketplace-fees-and-commissions",
       "factsSupported": [
-        "Marketplace avatar item sale: creator receives 30%, Roblox receives 70%.",
-        "Avatar item bought inside an experience: item creator 30%, experience owner 40%, Roblox 30%.",
+        "Marketplace avatar item sale: creator receives {marketplaceAvatarItemCreatorShare}%, Roblox receives {marketplaceAvatarItemPlatformShare}%.",
+        "Avatar item bought inside an experience: item creator {avatarItemInExperienceCreatorShare}%, experience owner {avatarItemInExperienceOwnerShare}%, Roblox {avatarItemInExperiencePlatformShare}%.",
         "Progressive Marketplace revenue share by price-floor multiple: 1x=30%, 1.3x=37%, 1.5x=41%, 2x=50%, 2.5x=57%, 3x=62%, 3.5x=65%, 4x=67%, 5x=69%, 6x and above=70%.",
         "Progressive revenue share applies only to Marketplace purchases; in-experience purchases use the base commission."
       ],
@@ -56,7 +56,7 @@
       "title": "How do I make money?",
       "url": "https://create.roblox.com/docs/get-started/monetization",
       "factsSupported": [
-        "Creators receive 70% of Robux spent on in-experience purchases such as developer products and passes; Roblox retains 30%.",
+        "Creators receive {inExperienceCreatorShare}% of Robux spent on in-experience purchases such as developer products and passes; Roblox retains {inExperiencePlatformShare}%.",
         "Earned Robux must be converted through the Developer Exchange programme to become real currency."
       ],
       "lastCheckedAt": "2026-08-17T00:00:00Z",

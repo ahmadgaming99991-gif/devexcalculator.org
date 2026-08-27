@@ -69,7 +69,7 @@
     "conversions": "Ejemplos resueltos para cantidades habituales",
     "calculators": "Todas las calculadoras del sitio",
     "devexRates": "Tasas actuales, antiguas y condicionales",
-    "devexRequirements": "Requisitos y el mínimo de 30.000",
+    "devexRequirements": "Requisitos y el mínimo de {minimumRobux}",
     "earnedRobux": "Qué Robux cuentan realmente",
     "devexFeesAndTaxes": "Qué se descuenta, y quién lo descuenta",
     "devexRateHistory": "Todos los cambios de tasa, con fecha",

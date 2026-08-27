@@ -74,7 +74,7 @@
     "conversions": "Exemples chiffrés pour les montants courants",
     "calculators": "Toutes les calculatrices du site",
     "devexRates": "Taux actuels, anciens et conditionnels",
-    "devexRequirements": "Admissibilité et le minimum de 30 000",
+    "devexRequirements": "Admissibilité et le minimum de {minimumRobux}",
     "earnedRobux": "Quels Robux comptent réellement",
     "devexFeesAndTaxes": "Ce qui est prélevé, et par qui",
     "devexRateHistory": "Chaque changement de taux, daté",

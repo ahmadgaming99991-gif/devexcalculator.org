@@ -43,7 +43,7 @@ const ENTRIES: readonly ChangeEntry[] = [
     kind: "rate",
     title: "Rate registry established and verified",
     detail:
-      "Standard rate recorded at 0.0038 USD per eligible Earned Robux (114 USD per 30,000), the legacy rate at 0.0035 for balances earned before 5 September 2025 at 10:00 PT, and the conditional U.S. 18+ rate at 0.0054. The 30,000 Earned Robux minimum and the full eligibility list were verified at the same time. All checked directly against the Roblox Creator Hub DevEx documentation.",
+      "Standard rate recorded at {rateStandard} USD per eligible Earned Robux ({payout30000Plain} USD per {minimumRobux}), the legacy rate at {rateLegacy} for balances earned before 5 September 2025 at 10:00 PT, and the conditional U.S. 18+ rate at {rateUs18}. The {minimumRobux} Earned Robux minimum and the full eligibility list were verified at the same time. All checked directly against the Roblox Creator Hub DevEx documentation.",
     sourceUrl: "https://create.roblox.com/docs/production/monetization/developer-exchange",
     sourceLabel: "Roblox Creator Hub — Developer Exchange",
   },
@@ -53,7 +53,7 @@ const ENTRIES: readonly ChangeEntry[] = [
     kind: "rate",
     title: "Marketplace commission rates recorded",
     detail:
-      "In-experience purchases recorded at 70% to the creator and 30% to Roblox. Marketplace avatar item sales recorded with the progressive revenue share table from 30% at the price floor to 70% at six times the floor. Avatar items sold inside an experience recorded as 30% creator, 40% experience owner, 30% Roblox.",
+      "In-experience purchases recorded at {inExperienceCreatorShare}% to the creator and {inExperiencePlatformShare}% to Roblox. Marketplace avatar item sales recorded with the progressive revenue share table from {inExperiencePlatformShare}% at the price floor to {inExperienceCreatorShare}% at six times the floor. Avatar items sold inside an experience recorded as {inExperiencePlatformShare}% creator, 40% experience owner, {inExperiencePlatformShare}% Roblox.",
     sourceUrl: "https://create.roblox.com/docs/marketplace/marketplace-fees-and-commissions",
     sourceLabel: "Roblox Creator Hub — Marketplace fees and commissions",
   },

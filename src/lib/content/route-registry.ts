@@ -1,4 +1,6 @@
 import type { RouteRecord } from "@/types/content";
+import { figures } from "@/i18n/figures";
+import { interpolate } from "@/i18n/interpolate";
 import { APPROVED_AMOUNTS, amountPageRoute, computeAmountValues } from "./amount-pages";
 import { DISPLAY_LOCALE, formatRobux } from "@/lib/calculations/format";
 
@@ -27,7 +29,7 @@ const staticRoutes: readonly RouteRecord[] = [
     pageType: "tool",
     title: "DevEx Calculator: Convert Earned Robux to USD",
     metaDescription:
-      "What your eligible Earned Robux are worth in USD at the current 0.0038 DevEx rate, with legacy and U.S. 18+ comparisons and a source for every figure.",
+      "What your eligible Earned Robux are worth in USD at the current {rateStandard} DevEx rate, with legacy and U.S. 18+ comparisons and a source for every figure.",
     h1: "DevEx Calculator: Convert Earned Robux to USD",
     navLabel: "Calculator",
     primaryIntent: "core-devex-calculator",
@@ -48,7 +50,7 @@ const staticRoutes: readonly RouteRecord[] = [
     lastReviewedAt: REVIEWED,
     dateModified: REVIEWED,
     quickAnswer:
-      "At the current DevEx rate of 0.0038 USD per eligible Earned Robux, 30,000 Earned Robux converts to about 114 US dollars and 100,000 converts to about 380. Only Earned Robux qualify, 30,000 is the minimum Roblox accepts, and every figure here is an estimate — Roblox alone decides which Robux qualify and whether a request is approved.",
+      "At the current DevEx rate of {rateStandard} USD per eligible Earned Robux, {minimumRobux} Earned Robux converts to about {payout30000Plain} US dollars and {robux100000} converts to about {payout100000Plain}. Only Earned Robux qualify, {minimumRobux} is the minimum Roblox accepts, and every figure here is an estimate — Roblox alone decides which Robux qualify and whether a request is approved.",
     sections: [
       { id: "calculator", heading: "DevEx calculator" },
       { id: "rate-comparison", heading: "What each rate would pay" },
@@ -63,19 +65,19 @@ const staticRoutes: readonly RouteRecord[] = [
       {
         question: "What is the current Roblox DevEx rate?",
         answer:
-          "Roblox documents a standard rate of 0.0038 USD per eligible Earned Robux, which it states as 114 USD for 30,000 Earned Robux. This rate took effect on 5 September 2025 at 10:00 PT.",
+          "Roblox documents a standard rate of {rateStandard} USD per eligible Earned Robux, which it states as {payout30000Plain} USD for {minimumRobux} Earned Robux. This rate took effect on 5 September 2025 at 10:00 PT.",
         sourceIds: ["roblox-devex-program"],
       },
       {
         question: "How much is 100,000 Earned Robux in DevEx?",
         answer:
-          "100,000 eligible Earned Robux is about 380 US dollars at the standard rate before any payment-provider fees or tax. The same amount would have been 350 US dollars under the older 0.0035 rate.",
+          "{robux100000} eligible Earned Robux is about {payout100000Plain} US dollars at the standard rate before any payment-provider fees or tax. The same amount would have been {payoutLegacy100000Plain} US dollars under the older {rateLegacy} rate.",
         sourceIds: ["roblox-devex-program"],
       },
       {
         question: "What is the minimum Earned Robux for DevEx?",
         answer:
-          "Roblox requires a minimum of 30,000 Earned Robux in your account before you can participate in DevEx. Reaching that number is a requirement, not an approval — Roblox still reviews every request.",
+          "Roblox requires a minimum of {minimumRobux} Earned Robux in your account before you can participate in DevEx. Reaching that number is a requirement, not an approval — Roblox still reviews every request.",
         sourceIds: ["roblox-devex-program"],
       },
       {
@@ -159,13 +161,13 @@ const staticRoutes: readonly RouteRecord[] = [
       {
         question: "How much is 1,000 Robux in USD?",
         answer:
-          "For a creator cashing out eligible Earned Robux, 1,000 Robux is 3.80 US dollars at the current DevEx rate. That figure is a payout rate, not the price a player pays to buy 1,000 Robux.",
+          "For a creator cashing out eligible Earned Robux, 1,000 Robux is {rateStandardPerThousand} US dollars at the current DevEx rate. That figure is a payout rate, not the price a player pays to buy 1,000 Robux.",
         sourceIds: ["roblox-devex-program"],
       },
       {
         question: "Can I convert any Robux to USD?",
         answer:
-          "No. Only eligible Earned Robux can be converted through DevEx, and only once your balance reaches 30,000. Robux you bought cannot be converted back into money.",
+          "No. Only eligible Earned Robux can be converted through DevEx, and only once your balance reaches {minimumRobux}. Robux you bought cannot be converted back into money.",
         sourceIds: ["roblox-devex-program"],
       },
       {
@@ -222,7 +224,7 @@ const staticRoutes: readonly RouteRecord[] = [
     lastReviewedAt: REVIEWED,
     dateModified: REVIEWED_PLANNER,
     quickAnswer:
-      "To reach a 1,000 US dollar DevEx payout at the current rate you need 263,158 eligible Earned Robux. The figure always rounds up, because a fraction of a Robux does not exist and rounding down would leave you short of your target. Below 30,000 Earned Robux no payout is possible regardless of the goal.",
+      "To reach a 1,000 US dollar DevEx payout at the current rate you need {targetRobuxUp} eligible Earned Robux. The figure always rounds up, because a fraction of a Robux does not exist and rounding down would leave you short of your target. Below {minimumRobux} Earned Robux no payout is possible regardless of the goal.",
     sections: [
       { id: "target-calculator", heading: "Earned Robux needed for your target" },
       { id: "rounding", heading: "Why the answer rounds up" },
@@ -236,13 +238,13 @@ const staticRoutes: readonly RouteRecord[] = [
       {
         question: "How many Earned Robux do I need for 1,000 USD?",
         answer:
-          "263,158 eligible Earned Robux at the current 0.0038 rate. Dividing 1,000 by 0.0038 gives 263,157.89, and the result rounds up so the payout actually reaches the target.",
+          "{targetRobuxUp} eligible Earned Robux at the current {rateStandard} rate. Dividing {targetUsd} by {rateStandard} gives {targetRobuxExact}, and the result rounds up so the payout actually reaches the target.",
         sourceIds: ["roblox-devex-program"],
       },
       {
         question: "How many Earned Robux do I need for 100 USD?",
         answer:
-          "26,316 Earned Robux would reach 100 dollars arithmetically, but that is below the 30,000 minimum, so you would need 30,000 before a request can be submitted at all — which pays about 114 dollars.",
+          "26,316 Earned Robux would reach 100 dollars arithmetically, but that is below the {minimumRobux} minimum, so you would need {minimumRobux} before a request can be submitted at all — which pays about 114 dollars.",
         sourceIds: ["roblox-devex-program"],
       },
       {
@@ -253,7 +255,7 @@ const staticRoutes: readonly RouteRecord[] = [
       {
         question: "Does the answer change if part of my balance is legacy?",
         answer:
-          "Yes. Legacy balances convert at 0.0035, so reaching the same dollar target takes more Robux. Use the split mode on the calculator to model a mixed balance.",
+          "Yes. Legacy balances convert at {rateLegacy}, so reaching the same dollar target takes more Robux. Use the split mode on the calculator to model a mixed balance.",
         sourceIds: ["roblox-devex-program"],
       },
     ],
@@ -281,7 +283,7 @@ const staticRoutes: readonly RouteRecord[] = [
     pageType: "pillar-guide",
     title: "Roblox DevEx Rates: Current, Legacy and U.S. 18+",
     metaDescription:
-      "The three DevEx rates Roblox documents, what each pays per 1,000 and 30,000 Robux, and when each applies.",
+      "The three DevEx rates Roblox documents, what each pays per 1,000 and {minimumRobux} Robux, and when each applies.",
     h1: "Roblox DevEx rates",
     navLabel: "Rates",
     primaryIntent: "devex-rate",
@@ -301,7 +303,7 @@ const staticRoutes: readonly RouteRecord[] = [
     lastReviewedAt: REVIEWED,
     dateModified: REVIEWED,
     quickAnswer:
-      "Roblox documents three DevEx rates. The standard rate is 0.0038 USD per eligible Earned Robux, or 114 dollars for 30,000. Balances earned before 5 September 2025 at 10:00 PT convert at the older 0.0035 rate. Certain Earned Robux from verified United States players aged 18 or over convert at 0.0054. Roblox, not the creator, decides which applies.",
+      "Roblox documents three DevEx rates. The standard rate is {rateStandard} USD per eligible Earned Robux, or {payout30000Plain} dollars for {minimumRobux}. Balances earned before 5 September 2025 at 10:00 PT convert at the older {rateLegacy} rate. Certain Earned Robux from verified United States players aged 18 or over convert at {rateUs18}. Roblox, not the creator, decides which applies.",
     sections: [
       { id: "current-rates", heading: "The three documented rates" },
       { id: "examples", heading: "What each rate pays" },
@@ -314,17 +316,17 @@ const staticRoutes: readonly RouteRecord[] = [
       {
         question: "What is the DevEx rate per 1,000 Robux?",
         answer:
-          "3.80 US dollars per 1,000 eligible Earned Robux at the standard rate. The legacy rate paid 3.50 and the conditional U.S. 18+ rate pays 5.40.",
+          "{rateStandardPerThousand} US dollars per 1,000 eligible Earned Robux at the standard rate. The legacy rate paid {rateLegacyPerThousand} and the conditional U.S. 18+ rate pays {rateUs18PerThousand}.",
         sourceIds: ["roblox-devex-program"],
       },
       {
-        question: "When did the DevEx rate change to 0.0038?",
+        question: "When did the DevEx rate change to {rateStandard}?",
         answer:
-          "On 5 September 2025 at 10:00 PT. Balances earned before that moment are cashed out at the previous 0.0035 rate first, under Roblox's own accounting.",
+          "On 5 September 2025 at 10:00 PT. Balances earned before that moment are cashed out at the previous {rateLegacy} rate first, under Roblox's own accounting.",
         sourceIds: ["roblox-devex-program"],
       },
       {
-        question: "Who qualifies for the 0.0054 rate?",
+        question: "Who qualifies for the {rateUs18} rate?",
         answer:
           "Roblox applies it to certain Earned Robux from purchases of developer products, passes, subscriptions and private servers made by United States players who have verified that they are at least 18 years old. It is not a rate a creator can select.",
         sourceIds: ["roblox-devex-program"],
@@ -575,7 +577,7 @@ const staticRoutes: readonly RouteRecord[] = [
     pageType: "pillar-guide",
     title: "DevEx Requirements: Minimum Robux and Eligibility",
     metaDescription:
-      "What Roblox requires for DevEx: 30,000 Earned Robux, a verified email, a portal account, a W-9 or W-8, and an account in good standing.",
+      "What Roblox requires for DevEx: {minimumRobux} Earned Robux, a verified email, a portal account, a W-9 or W-8, and an account in good standing.",
     h1: "DevEx requirements",
     navLabel: "Requirements",
     primaryIntent: "devex-eligibility",
@@ -592,10 +594,10 @@ const staticRoutes: readonly RouteRecord[] = [
     lastReviewedAt: REVIEWED,
     dateModified: REVIEWED,
     quickAnswer:
-      "Roblox documents five requirements for DevEx: at least 30,000 Earned Robux, a minimum age of 13, a Roblox-verified email address, a valid DevEx portal account, and an IRS form W-9 or W-8 on file. You must also comply with the Roblox Terms of Use and Community Standards. Meeting all five is a condition of applying, not a guarantee of approval.",
+      "Roblox documents five requirements for DevEx: at least {minimumRobux} Earned Robux, a minimum age of 13, a Roblox-verified email address, a valid DevEx portal account, and an IRS form W-9 or W-8 on file. You must also comply with the Roblox Terms of Use and Community Standards. Meeting all five is a condition of applying, not a guarantee of approval.",
     sections: [
       { id: "requirements", heading: "What Roblox requires" },
-      { id: "minimum", heading: "The 30,000 Earned Robux minimum" },
+      { id: "minimum", heading: "The {minimumRobux} Earned Robux minimum" },
       { id: "not-approval", heading: "Meeting the threshold is not approval" },
       { id: "checklist", heading: "Preparation checklist" },
       { id: "misunderstandings", heading: "Common misunderstandings" },
@@ -605,13 +607,13 @@ const staticRoutes: readonly RouteRecord[] = [
       {
         question: "What is the minimum Robux needed for DevEx?",
         answer:
-          "30,000 Earned Robux. Older figures such as 10,000 or 100,000 circulate on third-party sites but do not match current official documentation.",
+          "{minimumRobux} Earned Robux. Older figures such as 10,000 or 100,000 circulate on third-party sites but do not match current official documentation.",
         sourceIds: ["roblox-devex-program"],
       },
       {
         question: "How old do you have to be for DevEx?",
         answer:
-          "Roblox documents a minimum age of 13 to participate. Separately, the higher 0.0054 rate depends on the age verification of the players who spent the Robux, not on the creator's age.",
+          "Roblox documents a minimum age of 13 to participate. Separately, the higher {rateUs18} rate depends on the age verification of the players who spent the Robux, not on the creator's age.",
         sourceIds: ["roblox-devex-program"],
       },
       {
@@ -621,7 +623,7 @@ const staticRoutes: readonly RouteRecord[] = [
         sourceIds: ["roblox-devex-program"],
       },
       {
-        question: "Does reaching 30,000 Earned Robux mean I will be paid?",
+        question: "Does reaching {minimumRobux} Earned Robux mean I will be paid?",
         answer:
           "No. The threshold lets you submit a request. Roblox reviews each request against its own criteria and decides which Robux qualify as Earned Robux. No calculator, including this one, can determine eligibility.",
         sourceIds: ["roblox-devex-program"],
@@ -683,7 +685,7 @@ const staticRoutes: readonly RouteRecord[] = [
         sourceIds: ["roblox-devex-program"],
       },
       {
-        question: "Do Robux I bought count toward the 30,000 minimum?",
+        question: "Do Robux I bought count toward the {minimumRobux} minimum?",
         answer:
           "Purchased Robux are not Earned Robux, so they do not make a balance eligible for DevEx. The minimum refers specifically to Earned Robux.",
         sourceIds: ["roblox-devex-program"],
@@ -691,7 +693,7 @@ const staticRoutes: readonly RouteRecord[] = [
       {
         question: "How do creators earn Robux in the first place?",
         answer:
-          "Roblox pays creators 70% of the Robux spent on in-experience purchases such as developer products and passes, retaining 30%. That 70% is what accumulates as Earned Robux.",
+          "Roblox pays creators {inExperienceCreatorShare}% of the Robux spent on in-experience purchases such as developer products and passes, retaining {inExperiencePlatformShare}%. That {inExperienceCreatorShare}% is what accumulates as Earned Robux.",
         sourceIds: ["roblox-monetization-overview"],
       },
       {
@@ -741,7 +743,7 @@ const staticRoutes: readonly RouteRecord[] = [
     lastReviewedAt: REVIEWED,
     dateModified: REVIEWED,
     quickAnswer:
-      "Cashing out Robux means submitting a DevEx request through the official Roblox DevEx portal once you hold at least 30,000 Earned Robux, have a verified email, and have a W-9 or W-8 on file. Roblox reviews each request and decides the outcome. There is no legitimate route outside the official programme.",
+      "Cashing out Robux means submitting a DevEx request through the official Roblox DevEx portal once you hold at least {minimumRobux} Earned Robux, have a verified email, and have a W-9 or W-8 on file. Roblox reviews each request and decides the outcome. There is no legitimate route outside the official programme.",
     sections: [
       { id: "process", heading: "The process Roblox documents" },
       { id: "checklist", heading: "Prepare before you apply" },
@@ -796,9 +798,9 @@ const staticRoutes: readonly RouteRecord[] = [
     status: "published",
     indexation: "index",
     pageType: "pillar-guide",
-    title: "DevEx Rate History: The 2025 Change from 0.0035",
+    title: "DevEx Rate History: The 2025 Change from {rateLegacy}",
     metaDescription:
-      "A dated record of verified DevEx rates, including the September 2025 rise from 0.0035 to 0.0038 and how legacy balances are treated.",
+      "A dated record of verified DevEx rates, including the September 2025 rise from {rateLegacy} to {rateStandard} and how legacy balances are treated.",
     h1: "DevEx rate history",
     navLabel: "Rate history",
     primaryIntent: "devex-rate-history",
@@ -815,7 +817,7 @@ const staticRoutes: readonly RouteRecord[] = [
     lastReviewedAt: REVIEWED,
     dateModified: REVIEWED,
     quickAnswer:
-      "The documented change is from 0.0035 to 0.0038 USD per Earned Robux, effective 5 September 2025 at 10:00 PT. For 30,000 Earned Robux that moved the payout from 105 to 114 dollars. Balances earned before the change are cashed out at the older rate first, so a single balance can span both.",
+      "The documented change is from {rateLegacy} to {rateStandard} USD per Earned Robux, effective 5 September 2025 at 10:00 PT. For {minimumRobux} Earned Robux that moved the payout from {payoutLegacy30000Plain} to {payout30000Plain} dollars. Balances earned before the change are cashed out at the older rate first, so a single balance can span both.",
     sections: [
       { id: "timeline", heading: "Verified timeline" },
       { id: "comparison", heading: "What the change was worth" },
@@ -827,13 +829,13 @@ const staticRoutes: readonly RouteRecord[] = [
       {
         question: "What was the DevEx rate before September 2025?",
         answer:
-          "0.0035 USD per Earned Robux, which Roblox stated as 105 dollars for 30,000 Earned Robux.",
+          "{rateLegacy} USD per Earned Robux, which Roblox stated as {payoutLegacy30000Plain} dollars for {minimumRobux} Earned Robux.",
         sourceIds: ["roblox-devex-program"],
       },
       {
         question: "Does my old balance convert at the old rate?",
         answer:
-          "Robux earned before 5 September 2025 at 10:00 PT are cashed out at 0.0035 first, according to Roblox's transition rules. The split is Roblox's accounting, not something a creator selects.",
+          "Robux earned before 5 September 2025 at 10:00 PT are cashed out at {rateLegacy} first, according to Roblox's transition rules. The split is Roblox's accounting, not something a creator selects.",
         sourceIds: ["roblox-devex-program"],
       },
       {
@@ -851,7 +853,7 @@ const staticRoutes: readonly RouteRecord[] = [
     parent: "/devex-rates/",
     inPrimaryNav: true,
     rateSensitive: true,
-    ogImageAlt: "DevEx rate history: the September 2025 change from 0.0035 to 0.0038.",
+    ogImageAlt: "DevEx rate history: the September 2025 change from {rateLegacy} to {rateStandard}.",
   },
 
   // -------------------------------------------------------------------------
@@ -893,7 +895,7 @@ const staticRoutes: readonly RouteRecord[] = [
       {
         question: "Does Roblox take a fee on top of the DevEx rate?",
         answer:
-          "The DevEx rate is what Roblox pays per eligible Earned Robux. The 30% platform commission was already applied earlier, when the Robux were earned — it is not applied a second time at cash-out.",
+          "The DevEx rate is what Roblox pays per eligible Earned Robux. The {inExperiencePlatformShare}% platform commission was already applied earlier, when the Robux were earned — it is not applied a second time at cash-out.",
         sourceIds: ["roblox-monetization-overview"],
       },
       {
@@ -961,7 +963,7 @@ const staticRoutes: readonly RouteRecord[] = [
       {
         question: "How much is the Roblox tax?",
         answer:
-          "On in-experience purchases the creator keeps 70% and Roblox retains 30%. On Marketplace avatar item sales the base creator share is 30%, rising through a documented tier table to 70% for items priced at six times the price floor or above.",
+          "On in-experience purchases the creator keeps {inExperienceCreatorShare}% and Roblox retains {inExperiencePlatformShare}%. On Marketplace avatar item sales the base creator share is {inExperiencePlatformShare}%, rising through a documented tier table to {inExperienceCreatorShare}% for items priced at six times the price floor or above.",
         sourceIds: ["roblox-marketplace-fees", "roblox-monetization-overview"],
       },
       {
@@ -1086,7 +1088,7 @@ const staticRoutes: readonly RouteRecord[] = [
     lastReviewedAt: REVIEWED,
     dateModified: REVIEWED,
     quickAnswer:
-      "Every amount below is converted at the current DevEx rate of 0.0038 USD per eligible Earned Robux, with the legacy and conditional rates shown alongside for comparison. Amounts under 30,000 are included for reference but cannot be cashed out, because that is the documented minimum.",
+      "Every amount below is converted at the current DevEx rate of {rateStandard} USD per eligible Earned Robux, with the legacy and conditional rates shown alongside for comparison. Amounts under {minimumRobux} are included for reference but cannot be cashed out, because that is the documented minimum.",
     sections: [
       { id: "converter", heading: "Convert any amount" },
       { id: "table", heading: "Common amounts" },
@@ -1654,11 +1656,58 @@ function amountRouteRecord(definition: (typeof APPROVED_AMOUNTS)[number]): Route
   };
 }
 
+/**
+ * Fills the registry's own figures into its own prose.
+ *
+ * The English written here is the source the dictionary is extracted from, and
+ * it carries `{minimumRobux}` and `{rateStandard}` for the same reason the
+ * dictionary does: a rate that lives in the registry must not also live as
+ * digits in forty sentences about it.
+ *
+ * Everything that reads a record for its words rather than its routing — the
+ * English metadata builder, the JSON-LD, `llms.txt` — gets the filled text, so
+ * none of them has to know tokens exist. The localized path is untouched: it
+ * reads `routes.json` and fills per locale.
+ */
+let cachedEnglishFigures: Readonly<Record<string, string>> | null = null;
+
+/** Built once: the registry is read on every request and the values are fixed. */
+function englishFigures(): Readonly<Record<string, string>> {
+  cachedEnglishFigures ??= figures("en");
+  return cachedEnglishFigures;
+}
+
+function fillFigures<T extends RouteRecord>(record: T): T {
+  const fill = (value: string): string => interpolate(value, englishFigures());
+  return {
+    ...record,
+    title: fill(record.title),
+    metaDescription: fill(record.metaDescription),
+    h1: fill(record.h1),
+    navLabel: fill(record.navLabel),
+    quickAnswer: fill(record.quickAnswer),
+    ogImageAlt: fill(record.ogImageAlt),
+    sections: record.sections.map((section) => ({
+      ...section,
+      heading: fill(section.heading),
+    })),
+    faqs: record.faqs.map((faq) => ({
+      ...faq,
+      question: fill(faq.question),
+      answer: fill(faq.answer),
+    })),
+    internalLinks: record.internalLinks.map((link) => ({
+      ...link,
+      anchor: fill(link.anchor),
+    })),
+  };
+}
+
 /** Every route on the site, static pages plus approved amount pages. */
 export const routeRegistry: readonly RouteRecord[] = [
   ...staticRoutes,
   ...APPROVED_AMOUNTS.map(amountRouteRecord),
-];
+].map(fillFigures);
 
 const byRoute = new Map(routeRegistry.map((record) => [record.route, record]));
 

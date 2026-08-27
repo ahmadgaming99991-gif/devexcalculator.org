@@ -2,68 +2,23 @@
   "$comment": "Reader-facing English still written into src, after subtracting anything that already exists verbatim in an English dictionary. Deterministic: no timestamp, so a diff means the code changed.",
   "totals": {
     "scanned": 513,
-    "covered": 493,
-    "hardcoded": 20,
-    "coveredWords": 5520,
-    "hardcodedWords": 633,
-    "coveragePercent": 96.1
+    "covered": 511,
+    "hardcoded": 2,
+    "coveredWords": 6040,
+    "hardcodedWords": 113,
+    "coveragePercent": 99.6
   },
   "byFile": [
     {
       "file": "src/lib/content/route-registry.ts",
-      "strings": 19,
-      "words": 570
-    },
-    {
-      "file": "src/lib/content/changelog.ts",
-      "strings": 1,
-      "words": 63
+      "strings": 2,
+      "words": 113
     }
   ],
   "hardcoded": [
     {
-      "file": "src/lib/content/changelog.ts",
-      "line": 45,
-      "category": "registry-prose",
-      "words": 63,
-      "hasTokens": false,
-      "text": "Standard rate recorded at 0.0038 USD per eligible Earned Robux (114 USD per 30,000), the legacy rate at 0.0035 for balances earned before 5 September 2025 at 10:00 PT, and the conditional U.S. 18+ rate at 0.0054. The 30,000 Earned Robux minimum and the full eligibility list were verified at the same time. All checked directly against the Roblox Creator Hub DevEx documentation."
-    },
-    {
       "file": "src/lib/content/route-registry.ts",
-      "line": 29,
-      "category": "registry-prose",
-      "words": 27,
-      "hasTokens": false,
-      "text": "What your eligible Earned Robux are worth in USD at the current 0.0038 DevEx rate, with legacy and U.S. 18+ comparisons and a source for every figure."
-    },
-    {
-      "file": "src/lib/content/route-registry.ts",
-      "line": 50,
-      "category": "registry-prose",
-      "words": 57,
-      "hasTokens": false,
-      "text": "At the current DevEx rate of 0.0038 USD per eligible Earned Robux, 30,000 Earned Robux converts to about 114 US dollars and 100,000 converts to about 380. Only Earned Robux qualify, 30,000 is the minimum Roblox accepts, and every figure here is an estimate — Roblox alone decides which Robux qualify and whether a request is approved."
-    },
-    {
-      "file": "src/lib/content/route-registry.ts",
-      "line": 65,
-      "category": "registry-prose",
-      "words": 33,
-      "hasTokens": false,
-      "text": "Roblox documents a standard rate of 0.0038 USD per eligible Earned Robux, which it states as 114 USD for 30,000 Earned Robux. This rate took effect on 5 September 2025 at 10:00 PT."
-    },
-    {
-      "file": "src/lib/content/route-registry.ts",
-      "line": 71,
-      "category": "registry-prose",
-      "words": 33,
-      "hasTokens": false,
-      "text": "100,000 eligible Earned Robux is about 380 US dollars at the standard rate before any payment-provider fees or tax. The same amount would have been 350 US dollars under the older 0.0035 rate."
-    },
-    {
-      "file": "src/lib/content/route-registry.ts",
-      "line": 148,
+      "line": 150,
       "category": "registry-prose",
       "words": 56,
       "hasTokens": false,
@@ -71,115 +26,11 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 238,
-      "category": "registry-prose",
-      "words": 27,
-      "hasTokens": false,
-      "text": "263,158 eligible Earned Robux at the current 0.0038 rate. Dividing 1,000 by 0.0038 gives 263,157.89, and the result rounds up so the payout actually reaches the target."
-    },
-    {
-      "file": "src/lib/content/route-registry.ts",
-      "line": 255,
-      "category": "registry-prose",
-      "words": 27,
-      "hasTokens": false,
-      "text": "Yes. Legacy balances convert at 0.0035, so reaching the same dollar target takes more Robux. Use the split mode on the calculator to model a mixed balance."
-    },
-    {
-      "file": "src/lib/content/route-registry.ts",
-      "line": 303,
+      "line": 952,
       "category": "registry-prose",
       "words": 57,
       "hasTokens": false,
-      "text": "Roblox documents three DevEx rates. The standard rate is 0.0038 USD per eligible Earned Robux, or 114 dollars for 30,000. Balances earned before 5 September 2025 at 10:00 PT convert at the older 0.0035 rate. Certain Earned Robux from verified United States players aged 18 or over convert at 0.0054. Roblox, not the creator, decides which applies."
-    },
-    {
-      "file": "src/lib/content/route-registry.ts",
-      "line": 321,
-      "category": "registry-prose",
-      "words": 8,
-      "hasTokens": false,
-      "text": "When did the DevEx rate change to 0.0038?"
-    },
-    {
-      "file": "src/lib/content/route-registry.ts",
-      "line": 322,
-      "category": "registry-prose",
-      "words": 25,
-      "hasTokens": false,
-      "text": "On 5 September 2025 at 10:00 PT. Balances earned before that moment are cashed out at the previous 0.0035 rate first, under Roblox's own accounting."
-    },
-    {
-      "file": "src/lib/content/route-registry.ts",
-      "line": 327,
-      "category": "registry-prose",
-      "words": 6,
-      "hasTokens": false,
-      "text": "Who qualifies for the 0.0054 rate?"
-    },
-    {
-      "file": "src/lib/content/route-registry.ts",
-      "line": 613,
-      "category": "registry-prose",
-      "words": 31,
-      "hasTokens": false,
-      "text": "Roblox documents a minimum age of 13 to participate. Separately, the higher 0.0054 rate depends on the age verification of the players who spent the Robux, not on the creator's age."
-    },
-    {
-      "file": "src/lib/content/route-registry.ts",
-      "line": 799,
-      "category": "registry-prose",
-      "words": 8,
-      "hasTokens": false,
-      "text": "DevEx Rate History: The 2025 Change from 0.0035"
-    },
-    {
-      "file": "src/lib/content/route-registry.ts",
-      "line": 800,
-      "category": "registry-prose",
-      "words": 22,
-      "hasTokens": false,
-      "text": "A dated record of verified DevEx rates, including the September 2025 rise from 0.0035 to 0.0038 and how legacy balances are treated."
-    },
-    {
-      "file": "src/lib/content/route-registry.ts",
-      "line": 817,
-      "category": "registry-prose",
-      "words": 52,
-      "hasTokens": false,
-      "text": "The documented change is from 0.0035 to 0.0038 USD per Earned Robux, effective 5 September 2025 at 10:00 PT. For 30,000 Earned Robux that moved the payout from 105 to 114 dollars. Balances earned before the change are cashed out at the older rate first, so a single balance can span both."
-    },
-    {
-      "file": "src/lib/content/route-registry.ts",
-      "line": 829,
-      "category": "registry-prose",
-      "words": 15,
-      "hasTokens": false,
-      "text": "0.0035 USD per Earned Robux, which Roblox stated as 105 dollars for 30,000 Earned Robux."
-    },
-    {
-      "file": "src/lib/content/route-registry.ts",
-      "line": 835,
-      "category": "registry-prose",
-      "words": 30,
-      "hasTokens": false,
-      "text": "Robux earned before 5 September 2025 at 10:00 PT are cashed out at 0.0035 first, according to Roblox's transition rules. The split is Roblox's accounting, not something a creator selects."
-    },
-    {
-      "file": "src/lib/content/route-registry.ts",
-      "line": 854,
-      "category": "registry-prose",
-      "words": 11,
-      "hasTokens": false,
-      "text": "DevEx rate history: the September 2025 change from 0.0035 to 0.0038."
-    },
-    {
-      "file": "src/lib/content/route-registry.ts",
-      "line": 1088,
-      "category": "registry-prose",
-      "words": 45,
-      "hasTokens": false,
-      "text": "Every amount below is converted at the current DevEx rate of 0.0038 USD per eligible Earned Robux, with the legacy and conditional rates shown alongside for comparison. Amounts under 30,000 are included for reference but cannot be cashed out, because that is the documented minimum."
+      "text": "The \"Roblox tax\" is the platform commission, and it depends on what you sold. On in-experience purchases such as developer products and passes you keep 70% and Roblox takes 30%. On Marketplace avatar items the creator share starts at 30% and rises with price, reaching 70% at six times the price floor. This is separate from DevEx."
     }
   ]
 }

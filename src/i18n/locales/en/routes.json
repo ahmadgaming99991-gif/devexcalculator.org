@@ -28,7 +28,7 @@
       },
       "q03": {
         "question": "What is the minimum Earned Robux for DevEx?",
-        "answer": "Roblox requires a minimum of 30,000 Earned Robux in your account before you can participate in DevEx. Reaching that number is a requirement, not an approval — Roblox still reviews every request."
+        "answer": "Roblox requires a minimum of {minimumRobux} Earned Robux in your account before you can participate in DevEx. Reaching that number is a requirement, not an approval — Roblox still reviews every request."
       },
       "q04": {
         "question": "Does every Robux balance qualify for DevEx?",
@@ -180,7 +180,7 @@
     "metaDescription": "Common Earned Robux amounts valued at the current, legacy and U.S. 18+ rates, plus an input for any amount you like.",
     "h1": "Robux to USD conversions",
     "navLabel": "Conversions",
-    "quickAnswer": "Every amount below is converted at the current DevEx rate of {rateStandard} USD per eligible Earned Robux, with the legacy and conditional rates shown alongside for comparison. Amounts under 30,000 are included for reference but cannot be cashed out, because that is the documented minimum.",
+    "quickAnswer": "Every amount below is converted at the current DevEx rate of {rateStandard} USD per eligible Earned Robux, with the legacy and conditional rates shown alongside for comparison. Amounts under {minimumRobux} are included for reference but cannot be cashed out, because that is the documented minimum.",
     "ogImageAlt": "Conversion table of common Robux amounts to US dollars.",
     "sections": {
       "converter": "Convert any amount",
@@ -216,7 +216,7 @@
       },
       "q02": {
         "question": "Does 100,000 Robux meet the DevEx minimum?",
-        "answer": "100,000 Earned Robux is 3.3 times the documented 30,000 minimum, so it clears the threshold. Clearing the threshold is not the same as being approved — Roblox reviews every request."
+        "answer": "100,000 Earned Robux is 3.3 times the documented {minimumRobux} minimum, so it clears the threshold. Clearing the threshold is not the same as being approved — Roblox reviews every request."
       }
     },
     "links": {
@@ -248,7 +248,7 @@
       },
       "q02": {
         "question": "Does 1,000,000 Robux meet the DevEx minimum?",
-        "answer": "1,000,000 Earned Robux is 33.3 times the documented 30,000 minimum, so it clears the threshold. Clearing the threshold is not the same as being approved — Roblox reviews every request."
+        "answer": "1,000,000 Earned Robux is 33.3 times the documented {minimumRobux} minimum, so it clears the threshold. Clearing the threshold is not the same as being approved — Roblox reviews every request."
       }
     },
     "links": {
@@ -280,7 +280,7 @@
       },
       "q02": {
         "question": "Does 10,000,000 Robux meet the DevEx minimum?",
-        "answer": "10,000,000 Earned Robux is 333.3 times the documented 30,000 minimum, so it clears the threshold. Clearing the threshold is not the same as being approved — Roblox reviews every request."
+        "answer": "10,000,000 Earned Robux is 333.3 times the documented {minimumRobux} minimum, so it clears the threshold. Clearing the threshold is not the same as being approved — Roblox reviews every request."
       }
     },
     "links": {
@@ -312,7 +312,7 @@
       },
       "q02": {
         "question": "Does 200,000 Robux meet the DevEx minimum?",
-        "answer": "200,000 Earned Robux is 6.7 times the documented 30,000 minimum, so it clears the threshold. Clearing the threshold is not the same as being approved — Roblox reviews every request."
+        "answer": "200,000 Earned Robux is 6.7 times the documented {minimumRobux} minimum, so it clears the threshold. Clearing the threshold is not the same as being approved — Roblox reviews every request."
       }
     },
     "links": {
@@ -344,7 +344,7 @@
       },
       "q02": {
         "question": "Does 30,000 Robux meet the DevEx minimum?",
-        "answer": "30,000 Earned Robux is 1.0 times the documented 30,000 minimum, so it clears the threshold. Clearing the threshold is not the same as being approved — Roblox reviews every request."
+        "answer": "30,000 Earned Robux is 1.0 times the documented {minimumRobux} minimum, so it clears the threshold. Clearing the threshold is not the same as being approved — Roblox reviews every request."
       }
     },
     "links": {
@@ -376,7 +376,7 @@
       },
       "q02": {
         "question": "Does 300,000 Robux meet the DevEx minimum?",
-        "answer": "300,000 Earned Robux is 10.0 times the documented 30,000 minimum, so it clears the threshold. Clearing the threshold is not the same as being approved — Roblox reviews every request."
+        "answer": "300,000 Earned Robux is 10.0 times the documented {minimumRobux} minimum, so it clears the threshold. Clearing the threshold is not the same as being approved — Roblox reviews every request."
       }
     },
     "links": {
@@ -408,7 +408,7 @@
       },
       "q02": {
         "question": "Does 50,000 Robux meet the DevEx minimum?",
-        "answer": "50,000 Earned Robux is 1.7 times the documented 30,000 minimum, so it clears the threshold. Clearing the threshold is not the same as being approved — Roblox reviews every request."
+        "answer": "50,000 Earned Robux is 1.7 times the documented {minimumRobux} minimum, so it clears the threshold. Clearing the threshold is not the same as being approved — Roblox reviews every request."
       }
     },
     "links": {
@@ -440,7 +440,7 @@
       },
       "q02": {
         "question": "Does 500,000 Robux meet the DevEx minimum?",
-        "answer": "500,000 Earned Robux is 16.7 times the documented 30,000 minimum, so it clears the threshold. Clearing the threshold is not the same as being approved — Roblox reviews every request."
+        "answer": "500,000 Earned Robux is 16.7 times the documented {minimumRobux} minimum, so it clears the threshold. Clearing the threshold is not the same as being approved — Roblox reviews every request."
       }
     },
     "links": {
@@ -489,7 +489,7 @@
     "faqs": {
       "q01": {
         "question": "Does Roblox take a fee on top of the DevEx rate?",
-        "answer": "The DevEx rate is what Roblox pays per eligible Earned Robux. The 30% platform commission was already applied earlier, when the Robux were earned — it is not applied a second time at cash-out."
+        "answer": "The DevEx rate is what Roblox pays per eligible Earned Robux. The {inExperiencePlatformShare}% platform commission was already applied earlier, when the Robux were earned — it is not applied a second time at cash-out."
       },
       "q02": {
         "question": "What tax rate applies to a DevEx payout?",
@@ -543,7 +543,7 @@
   },
   "devexRates": {
     "title": "Roblox DevEx Rates: Current, Legacy and U.S. 18+",
-    "metaDescription": "The three DevEx rates Roblox documents, what each pays per 1,000 and 30,000 Robux, and when each applies.",
+    "metaDescription": "The three DevEx rates Roblox documents, what each pays per 1,000 and {minimumRobux} Robux, and when each applies.",
     "h1": "Roblox DevEx rates",
     "navLabel": "Rates",
     "quickAnswer": "Roblox documents three DevEx rates. The standard rate is {rateStandard} USD per eligible Earned Robux, or {payout30000Plain} dollars for {minimumRobux}. Balances earned before 5 September 2025 at 10:00 PT convert at the older {rateLegacy} rate. Certain Earned Robux from verified United States players aged 18 or over convert at {rateUs18}. Roblox, not the creator, decides which applies.",
@@ -559,7 +559,7 @@
     "faqs": {
       "q01": {
         "question": "What is the DevEx rate per 1,000 Robux?",
-        "answer": "3.80 US dollars per 1,000 eligible Earned Robux at the standard rate. The legacy rate paid 3.50 and the conditional U.S. 18+ rate pays 5.40."
+        "answer": "{rateStandardPerThousand} US dollars per 1,000 eligible Earned Robux at the standard rate. The legacy rate paid {rateLegacyPerThousand} and the conditional U.S. 18+ rate pays {rateUs18PerThousand}."
       },
       "q02": {
         "question": "When did the DevEx rate change to {rateStandard}?",
@@ -585,14 +585,14 @@
   },
   "devexRequirements": {
     "title": "DevEx Requirements: Minimum Robux and Eligibility",
-    "metaDescription": "What Roblox requires for DevEx: 30,000 Earned Robux, a verified email, a portal account, a W-9 or W-8, and an account in good standing.",
+    "metaDescription": "What Roblox requires for DevEx: {minimumRobux} Earned Robux, a verified email, a portal account, a W-9 or W-8, and an account in good standing.",
     "h1": "DevEx requirements",
     "navLabel": "Requirements",
-    "quickAnswer": "Roblox documents five requirements for DevEx: at least 30,000 Earned Robux, a minimum age of 13, a Roblox-verified email address, a valid DevEx portal account, and an IRS form W-9 or W-8 on file. You must also comply with the Roblox Terms of Use and Community Standards. Meeting all five is a condition of applying, not a guarantee of approval.",
+    "quickAnswer": "Roblox documents five requirements for DevEx: at least {minimumRobux} Earned Robux, a minimum age of 13, a Roblox-verified email address, a valid DevEx portal account, and an IRS form W-9 or W-8 on file. You must also comply with the Roblox Terms of Use and Community Standards. Meeting all five is a condition of applying, not a guarantee of approval.",
     "ogImageAlt": "DevEx requirements: minimum Earned Robux, verified email, portal account and tax forms.",
     "sections": {
       "requirements": "What Roblox requires",
-      "minimum": "The 30,000 Earned Robux minimum",
+      "minimum": "The {minimumRobux} Earned Robux minimum",
       "not-approval": "Meeting the threshold is not approval",
       "checklist": "Preparation checklist",
       "misunderstandings": "Common misunderstandings",
@@ -601,7 +601,7 @@
     "faqs": {
       "q01": {
         "question": "What is the minimum Robux needed for DevEx?",
-        "answer": "30,000 Earned Robux. Older figures such as 10,000 or 100,000 circulate on third-party sites but do not match current official documentation."
+        "answer": "{minimumRobux} Earned Robux. Older figures such as 10,000 or 100,000 circulate on third-party sites but do not match current official documentation."
       },
       "q02": {
         "question": "How old do you have to be for DevEx?",
@@ -612,7 +612,7 @@
         "answer": "Yes. Roblox requires an IRS form W-9 for United States taxpayers or a W-8 for non-United States taxpayers to be on file before a DevEx request can proceed."
       },
       "q04": {
-        "question": "Does reaching 30,000 Earned Robux mean I will be paid?",
+        "question": "Does reaching {minimumRobux} Earned Robux mean I will be paid?",
         "answer": "No. The threshold lets you submit a request. Roblox reviews each request against its own criteria and decides which Robux qualify as Earned Robux. No calculator, including this one, can determine eligibility."
       }
     },
@@ -665,12 +665,12 @@
         "answer": "Almost certainly not. A balance can mix Robux you earned as a creator with Robux you bought or received. Only the earned portion is eligible for DevEx, and Roblox makes that determination."
       },
       "q02": {
-        "question": "Do Robux I bought count toward the 30,000 minimum?",
+        "question": "Do Robux I bought count toward the {minimumRobux} minimum?",
         "answer": "Purchased Robux are not Earned Robux, so they do not make a balance eligible for DevEx. The minimum refers specifically to Earned Robux."
       },
       "q03": {
         "question": "How do creators earn Robux in the first place?",
-        "answer": "Roblox pays creators 70% of the Robux spent on in-experience purchases such as developer products and passes, retaining 30%. That 70% is what accumulates as Earned Robux."
+        "answer": "Roblox pays creators {inExperienceCreatorShare}% of the Robux spent on in-experience purchases such as developer products and passes, retaining {inExperiencePlatformShare}%. That {inExperienceCreatorShare}% is what accumulates as Earned Robux."
       },
       "q04": {
         "question": "Can group funds be cashed out?",
@@ -731,7 +731,7 @@
     "metaDescription": "The official steps for converting eligible Earned Robux into real money, what to prepare first, and which services to avoid.",
     "h1": "How to cash out Robux",
     "navLabel": "Cashing out",
-    "quickAnswer": "Cashing out Robux means submitting a DevEx request through the official Roblox DevEx portal once you hold at least 30,000 Earned Robux, have a verified email, and have a W-9 or W-8 on file. Roblox reviews each request and decides the outcome. There is no legitimate route outside the official programme.",
+    "quickAnswer": "Cashing out Robux means submitting a DevEx request through the official Roblox DevEx portal once you hold at least {minimumRobux} Earned Robux, have a verified email, and have a W-9 or W-8 on file. Roblox reviews each request and decides the outcome. There is no legitimate route outside the official programme.",
     "ogImageAlt": "How to cash out Robux: the official DevEx request process step by step.",
     "sections": {
       "process": "The process Roblox documents",
@@ -929,7 +929,7 @@
     "metaDescription": "What you keep after the Roblox platform commission, or what to charge to clear a target. Covers in-experience and Marketplace sales.",
     "h1": "Roblox tax calculator",
     "navLabel": "Roblox tax",
-    "quickAnswer": "The \"Roblox tax\" is the platform commission, and it depends on what you sold. On in-experience purchases such as developer products and passes you keep 70% and Roblox takes 30%. On Marketplace avatar items the creator share starts at 30% and rises with price, reaching 70% at six times the price floor. This is separate from DevEx.",
+    "quickAnswer": "The \"Roblox tax\" is the platform commission, and it depends on what you sold. On in-experience purchases such as developer products and passes you keep {inExperienceCreatorShare}% and Roblox takes {inExperiencePlatformShare}%. On Marketplace avatar items the creator share starts at {marketplaceAvatarItemCreatorShare}% and rises with price, reaching {marketplaceAvatarItemPlatformShare}% at six times the price floor. This is separate from DevEx.",
     "ogImageAlt": "Roblox tax calculator: marketplace commission on in-experience and Marketplace sales.",
     "sections": {
       "calculator": "Marketplace fee calculator",
@@ -942,7 +942,7 @@
     "faqs": {
       "q01": {
         "question": "How much is the Roblox tax?",
-        "answer": "On in-experience purchases the creator keeps 70% and Roblox retains 30%. On Marketplace avatar item sales the base creator share is 30%, rising through a documented tier table to 70% for items priced at six times the price floor or above."
+        "answer": "On in-experience purchases the creator keeps {inExperienceCreatorShare}% and Roblox retains {inExperiencePlatformShare}%. On Marketplace avatar item sales the base creator share is {inExperiencePlatformShare}%, rising through a documented tier table to {inExperienceCreatorShare}% for items priced at six times the price floor or above."
       },
       "q02": {
         "question": "Is the Roblox tax applied again when I use DevEx?",
@@ -978,11 +978,11 @@
     "faqs": {
       "q01": {
         "question": "How much is 1,000 Robux in USD?",
-        "answer": "For a creator cashing out eligible Earned Robux, 1,000 Robux is 3.80 US dollars at the current DevEx rate. That figure is a payout rate, not the price a player pays to buy 1,000 Robux."
+        "answer": "For a creator cashing out eligible Earned Robux, 1,000 Robux is {rateStandardPerThousand} US dollars at the current DevEx rate. That figure is a payout rate, not the price a player pays to buy 1,000 Robux."
       },
       "q02": {
         "question": "Can I convert any Robux to USD?",
-        "answer": "No. Only eligible Earned Robux can be converted through DevEx, and only once your balance reaches 30,000. Robux you bought cannot be converted back into money."
+        "answer": "No. Only eligible Earned Robux can be converted through DevEx, and only once your balance reaches {minimumRobux}. Robux you bought cannot be converted back into money."
       },
       "q03": {
         "question": "Why does this site not publish a single Robux purchase price?",
@@ -1047,7 +1047,7 @@
     "metaDescription": "Set a payout goal in dollars and see how many eligible Earned Robux it takes, rounded up, with progress against your current balance.",
     "h1": "USD to Robux: work backwards from a payout target",
     "navLabel": "Payout target",
-    "quickAnswer": "To reach a 1,000 US dollar DevEx payout at the current rate you need 263,158 eligible Earned Robux. The figure always rounds up, because a fraction of a Robux does not exist and rounding down would leave you short of your target. Below 30,000 Earned Robux no payout is possible regardless of the goal.",
+    "quickAnswer": "To reach a 1,000 US dollar DevEx payout at the current rate you need {targetRobuxUp} eligible Earned Robux. The figure always rounds up, because a fraction of a Robux does not exist and rounding down would leave you short of your target. Below {minimumRobux} Earned Robux no payout is possible regardless of the goal.",
     "ogImageAlt": "USD to Robux: how many Earned Robux a target DevEx payout requires.",
     "sections": {
       "target-calculator": "Earned Robux needed for your target",
@@ -1065,7 +1065,7 @@
       },
       "q02": {
         "question": "How many Earned Robux do I need for 100 USD?",
-        "answer": "26,316 Earned Robux would reach 100 dollars arithmetically, but that is below the 30,000 minimum, so you would need 30,000 before a request can be submitted at all — which pays about 114 dollars."
+        "answer": "26,316 Earned Robux would reach 100 dollars arithmetically, but that is below the {minimumRobux} minimum, so you would need {minimumRobux} before a request can be submitted at all — which pays about 114 dollars."
       },
       "q03": {
         "question": "Does this tell me how much Robux I can buy for a dollar amount?",

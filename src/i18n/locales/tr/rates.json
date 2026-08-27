@@ -57,9 +57,9 @@
     "body": {
       "timeline": {
         "p1": "Standart kur Earned Robux başına {rateStandard} USD'ye yükseltildi",
-        "p2": "Roblox bunu 30.000 Earned Robux için 114 USD olarak belirtiyor; önceden 105'ti. O andan önce kazanılan bakiyeler önceki kurla çevrilmeye devam eder ve önce nakde çevrilir.",
+        "p2": "Roblox bunu {minimumRobux} Earned Robux için 114 USD olarak belirtiyor; önceden 105'ti. O andan önce kazanılan bakiyeler önceki kurla çevrilmeye devam eder ve önce nakde çevrilir.",
         "p3": "Earned Robux başına {rateLegacy} USD standart kur",
-        "p4": "30.000 Earned Robux için 105 USD. Herhangi bir bakiyenin geçişten önce kazanılan kısmına hâlâ uygulanıyor.",
+        "p4": "{minimumRobux} Earned Robux için 105 USD. Herhangi bir bakiyenin geçişten önce kazanılan kısmına hâlâ uygulanıyor.",
         "p5": "Yürürlük tarihi yayımlanmadı",
         "p6": "Uygun ABD 18+ harcamaları için daha yüksek {rateUs18} kuru",
         "p7": "Roblox bu kuru, en az 18 yaşında olduğunu doğrulamış Amerika Birleşik Devletleri oyuncularının satın almalarından gelen belirli Earned Robux için belgeliyor. Bu sitenin denetlediği belgelerde bir yürürlük tarihi belirtilmiyor; bu yüzden bir tarih çıkarımı yapmak yerine burada hiçbiri kaydedilmiyor."
@@ -135,14 +135,14 @@
     "misunderstandings": {
       "minimum10k": {
         "claim": "Alt sınır 10.000 Robux'tur.",
-        "reality": "Doğrusu 30.000 Earned Robux. Daha düşük rakam, güncellenmemiş üçüncü taraf sitelerinde dolaşıyor ve Roblox'un güncel belgelerinde yazan bu değil."
+        "reality": "Doğrusu {minimumRobux} Earned Robux. Daha düşük rakam, güncellenmemiş üçüncü taraf sitelerinde dolaşıyor ve Roblox'un güncel belgelerinde yazan bu değil."
       },
       "anyBalance": {
         "claim": "Herhangi bir Robux bakiyesi alt sınıra sayılır.",
         "reality": "Yalnızca Earned Robux sayılır. Satın alınmış Robux'tan oluşan bir bakiye, ne kadar büyük olursa olsun uygun değildir."
       },
       "reaching30k": {
-        "claim": "30.000'e ulaşmak, ödeme alacağınız anlamına gelir.",
+        "claim": "{minimumRobux}'e ulaşmak, ödeme alacağınız anlamına gelir.",
         "reality": "Talep gönderebileceğiniz anlamına gelir. Roblox her talebi inceler ve hangi Robux'ların kazanılmış sayıldığına karar verir."
       },
       "age18": {
@@ -171,7 +171,7 @@
     "doesNotCountHeading": "Genelde neler sayılmaz",
     "doesNotCountDescription": "Bu yollarla edinilen Robux aynı bakiyede durur ama farklı ele alınır.",
     "pendingHeading": "Bekleyen ve kullanılabilir bakiyeler",
-    "pendingDescription": "Yeni kazanılan Robux hemen kullanılabilir olmaz; bu, bakiyesinin yükselişini izleyen içerik üreticilerini şaşırtır.",
+    "pendingDescription": "Az önce elde ettiğiniz Earned Robux bakiyenizde hemen görünmez; bu, bakiyesinin yükselişini izleyen içerik üreticilerini şaşırtır.",
     "groupFundsHeading": "Grup fonları",
     "groupFundsDescription": "Bir grubun elindeki Robux, sizin elinizdeki Robux ile aynı şey değildir.",
     "faqsHeading": "Earned Robux hakkında sorular",
@@ -182,10 +182,10 @@
       "definition": {
         "p1": "Robux bakiyenizin, başka insanların sizin yaptığınız bir şeye Robux harcamasından — yani içerik üreticiliği faaliyetinden — gelen kısmı; başka herhangi bir yolla edindiğiniz Robux'tan değil. DevEx yalnızca Earned Robux'u çevirir. Hesabınız tek bir Robux sayısı gösterir, ama Roblox her parçasının nereden geldiğini izler ve uygunluğu belirleyen şey o iç muhasebedir.",
         "p2": "— DevEx'in dönüştürdüğü bakiye ve {minimumEarnedRobux} alt sınırına sayılan tek bakiye. Belirli bir bakiye hakkındaki nihai kararı Roblox verir.",
-        "p4": "Hiç Robux satın aldıysanız, bir üyelikten aldıysanız ya da bir hediye kartı kullandıysanız, bakiyenizin bir kısmı kazanılmış değildir. O kısım nakde çevrilemez ve 30.000 alt sınırına da sayılmaz."
+        "p4": "Hiç Robux satın aldıysanız, bir üyelikten aldıysanız ya da bir hediye kartı kullandıysanız, bakiyenizin bir kısmı kazanılmış değildir. O kısım nakde çevrilemez ve {minimumRobux} alt sınırına da sayılmaz."
       },
       "qualifying": {
-        "p1": "Her durumda Roblox, Robux size ulaşmadan önce platform komisyonunu çoktan almıştır — içerik üreticileri, bir oyuncunun experience içi bir satın almada harcadığının %70'ini alır.",
+        "p1": "Her durumda Roblox, Robux size ulaşmadan önce platform komisyonunu çoktan almıştır — içerik üreticileri, bir oyuncunun experience içi bir satın almada harcadığının %{inExperienceCreatorShare}'ini alır.",
         "p2": "Bir satıştan size ne kaldığını hesaplayın"
       },
       "notQualifying": {
@@ -248,7 +248,7 @@
     "modelHeading": "Kendi rakamlarınızı modelleyin",
     "modelDescription": "Para birimi seçicinin altındaki ücret ve vergi denetimlerini açın ve kendi yüzdelerinizi girin.",
     "notMarketplaceHeading": "Marketplace ücretiyle karıştırmayın",
-    "notMarketplaceDescription": "%30'luk platform komisyonu, başka bir zamanda gerçekleşen başka bir şeydir.",
+    "notMarketplaceDescription": "%{inExperiencePlatformShare}'luk platform komisyonu, başka bir zamanda gerçekleşen başka bir şeydir.",
     "marketplaceDiagramCaption": "Bölüşme, oyuncu harcadığı anda gerçekleşir; DevEx işin içine girmeden çok önce. Yüzdeler bu çizimden değil, kur kaydından gelir.",
     "faqsHeading": "Ücretler ve vergi hakkında sorular",
     "diagram": {
@@ -286,7 +286,7 @@
         "p2": "Danışmanlık olmayan pratik bir not: vergi genellikle ücretlerden sonra kalana değil gelire uygulanır ve genellikle Robux'un kazanıldığı yıl değil, ödemenin alındığı yıl doğar. İkisini de yetkin birine doğrulatın."
       },
       "notTheMarketplaceFee": {
-        "p1": "Bir oyuncu experience'ınızda Robux harcadığında Roblox %30 alır — siz %70 alırsınız ve Earned Robux olan da o %70'tir. DevEx sonra o Earned Robux'u çevirir. Komisyon, nakde çevirmede ikinci kez uygulanmaz ve bir DevEx ödemesinden %30 düşen her hesaplayıcı onu iki kez saymış olur.",
+        "p1": "Bir oyuncu experience'ınızda Robux harcadığında Roblox %{inExperiencePlatformShare} alır — siz %{inExperienceCreatorShare} alırsınız ve Earned Robux olan da o %{inExperienceCreatorShare}'tir. DevEx sonra o Earned Robux'u çevirir. Komisyon, nakde çevirmede ikinci kez uygulanmaz ve bir DevEx ödemesinden %{inExperiencePlatformShare} düşen her hesaplayıcı onu iki kez saymış olur.",
         "p2": "Marketplace ücretini ayrıca hesaplayın",
         "p3": "Marketplace ücret hesaplayıcısını aç"
       }
@@ -342,7 +342,7 @@
     "body": {
       "twoAnswers": {
         "p1": "Çıkan para — içerik üreticisi ödemesi",
-        "p2": "Oyuncuların experience'ınızda harcamasından Robux kazandınız ve bunları nakde çevirmek istiyorsunuz. Bu, belgelenmiş bir kurla DevEx üzerinden olur ve yukarıdaki hesaplayıcının tahmin ettiği şey budur. Yalnızca uygun Earned Robux için ve yalnızca 30.000'den itibaren geçerlidir.",
+        "p2": "Oyuncuların experience'ınızda harcamasından Robux kazandınız ve bunları nakde çevirmek istiyorsunuz. Bu, belgelenmiş bir kurla DevEx üzerinden olur ve yukarıdaki hesaplayıcının tahmin ettiği şey budur. Yalnızca uygun Earned Robux için ve yalnızca {minimumRobux}'den itibaren geçerlidir.",
         "p3": "Giren para — satın alma fiyatı",
         "p4": "Bir Robux paketinin ne kadar tuttuğunu bilmek istiyorsunuz. Roblox bu fiyatı pakete, bölgeye, platforma ve o sırada yürüyen kampanyaya göre belirler. Bu bir perakende fiyatıdır, döviz kuru değil ve DevEx'in ödediğinden bağımsız hareket eder.",
         "p5": "Her paket, ülke ve platform için doğru olan tek bir sayı yoktur; dolayısıyla bir tane söylemek rakam uydurmak olurdu. Güncel fiyatları şurada kontrol edin:",
@@ -350,8 +350,8 @@
         "p7": "gerçekte ne ödeyeceğinizi görmek için."
       },
       "comparison": {
-        "p1": "İkisi arasındaki fark, Roblox'un bir platform işletmesi, ödeme işlemlerini yürütmesi ve Robux harcandığı anda %30'luk payını çoktan almış olmasından kaynaklanır.",
-        "p2": "Daha önceki o %30 marketplace ücretidir"
+        "p1": "İkisi arasındaki fark, Roblox'un bir platform işletmesi, ödeme işlemlerini yürütmesi ve Robux harcandığı anda %{inExperiencePlatformShare}'luk payını çoktan almış olmasından kaynaklanır.",
+        "p2": "Daha önceki o %{inExperiencePlatformShare} marketplace ücretidir"
       },
       "amounts": {
         "p1": "Dönüşüm merkezinin tamamına göz atın",
@@ -440,10 +440,10 @@
         "p4": "Fiyata göre artan oranlı — aşağıya bakın",
         "p5": "Bir experience içinde satın alınan avatar ürünü",
         "p6": "Ürünün üreticisi ile experience sahibine ayrı ayrı ödenir",
-        "p7": "Kendi ürününüzü kendi experience'ınızda satarsanız hem içerik üreticisi payını hem de experience sahibi payını alırsınız; bu da %70 eder."
+        "p7": "Kendi ürününüzü kendi experience'ınızda satarsanız hem içerik üreticisi payını hem de experience sahibi payını alırsınız; bu da %{inExperienceCreatorShare} eder."
       },
       "notDevex": {
-        "p1": "Bu sayfadaki komisyon, bir oyuncunun Robux harcadığı anda uygulanır. Elinizde kalan Earned Robux olur. DevEx sonra o Earned Robux'u kendi kuruyla, komisyonu çoktan alınmış bir bakiye üzerinden nakde çevirir. Bir DevEx ödemesinden %30 düşmek aynı ücreti iki kez uygulamak ve bir içerik üreticisinin aldığını olduğundan az göstermek demektir.",
+        "p1": "Bu sayfadaki komisyon, bir oyuncunun Robux harcadığı anda uygulanır. Elinizde kalan Earned Robux olur. DevEx sonra o Earned Robux'u kendi kuruyla, komisyonu çoktan alınmış bir bakiye üzerinden nakde çevirir. Bir DevEx ödemesinden %{inExperiencePlatformShare} düşmek aynı ücreti iki kez uygulamak ve bir içerik üreticisinin aldığını olduğundan az göstermek demektir.",
         "p2": "Earned Robux'unuzu bir ödeme tahminine çevirin",
         "p3": "Bir DevEx ödemesinden gerçekte neler düşülür"
       }
@@ -520,7 +520,7 @@
       }
     },
     "context": {
-      "robux30000": "En çok önem taşıyan tutar 30.000'dir, çünkü bir DevEx talebinin gönderilebilmesi için Roblox'un istediği asgari Earned Robux bakiyesi budur. Bu rakamın altında soru, ödemenin ne kadar olacağı değil, talebin gönderilip gönderilemeyeceğidir.",
+      "robux30000": "En çok önem taşıyan tutar {minimumRobux}'dir, çünkü bir DevEx talebinin gönderilebilmesi için Roblox'un istediği asgari Earned Robux bakiyesi budur. Bu rakamın altında soru, ödemenin ne kadar olacağı değil, talebin gönderilip gönderilemeyeceğidir.",
       "robux50000": "50.000 Earned Robux alt sınırı rahatça aşar; bu yüzden deneyimi yeni yeni düzenli kazanç getirmeye başlayan bir yaratıcı için sık görülen ilk nakde çevirme tutarıdır.",
       "robux100000": "100.000, bu aralıkta en çok aranan yuvarlak rakamdır ve güncel oranla eski oran arasındaki farkın fark edilir hâle geldiği noktadır: aralarında otuz dolar vardır.",
       "robux200000": "200.000 Earned Robux'ta bir yaratıcı genellikle tek seferlik değil, düzenli aralıklarla nakde çevirir; bu da oran dilimleri arasındaki farkı tahmin etmek yerine izlemeye değer kılar.",

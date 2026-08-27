@@ -296,7 +296,7 @@
       "whatItMeans": {
         "p1": "Doğrudan çok az — ve bunu açıkça söylemeye değer. Bu sayfadaki toplamlar bütün platformu anlatır. Kendi bakiyenizin neye dönüştüğünü değiştirmezler, bir öngörü değildirler ve artan bir toplam, artan bir kur anlamına gelmez. Ödemenizi belirleyen şey, uygun Earned Robux'unuza uygulanan kurdur; bunu şurada hesaplayabilirsiniz:",
         "p2": "Bu rakamların gerçekten gösterdiği tek şey ölçektir: DevEx, Roblox'un tek bir yılda şu kadarını ödediği bir programdır:",
-        "p3": "30.000 Robux alt sınırına doğru çalışmaya değip değmeyeceğine karar vermeden önce bilinmeye değer bir bağlam."
+        "p3": "{minimumRobux} Robux alt sınırına doğru çalışmaya değip değmeyeceğine karar vermeden önce bilinmeye değer bir bağlam."
       },
       "noLiveData": {
         "p1": "Roblox bu rakamları çeyrekte bir kez, bir bildirimle yayımlar. Var olan en ince çözünürlük budur; dolayısıyla bunları dakika dakika değişiyormuş gibi gösterdiğini iddia eden bir grafik, uydurulmuş bir şey gösteriyor olurdu. Bu site hiçbir veri toplama işletmez, hiçbir şey örneklemez ve hiçbir şey tahmin etmez — bildirimleri okur ve onlara bağlantı verir."
@@ -307,7 +307,7 @@
       "quarterOfRevenue": "İki kez okunmayı hak eden satır ikincisidir. Developer Exchange ücretleri, Roblox'un gelirinin yaklaşık dörtte biridir; yani platformun aldığının kayda değer bir bölümü, yaratıcı ödemeleri olarak yeniden dışarı çıkar. Bu tablodaki her rakam {filings} kaynağından alınmıştır.",
       "precision": "Rakamlar, dosyalamanın kullandığı hassasiyette kaydedilir. Roblox'un binler cinsinden bildirdiği yerde tutar dolara kadar kesindir; milyonlar cinsinden bildirdiği yerde milyona kadar kesindir, daha ötesi değil. İki çeyrek, bildirilmiş bir çeyreğin bildirilmiş altı aylık bir toplamdan çıkarılmasıyla elde edildiği için türetilmiş olarak işaretlenmiştir. Bu sitenin rakamları nasıl ele aldığını {methodology} sayfasında okuyabilirsiniz.",
       "whatItMeansIntro": "Doğrudan çok az — ve bunu açıkça söylemekte fayda var. Bu sayfadaki toplamlar platformun tamamını anlatır. Kendi bakiyenizin neye dönüştüğünü değiştirmezler, bir öngörü değildirler ve yükselen bir toplam yükselen bir oran anlamına gelmez. Ödemenizi belirleyen şey, uygun Earned Robux'ınıza uygulanan orandır; bunu {calculator} üzerinde hesaplayabilirsiniz.",
-      "whatItMeans": "Bu rakamların gerçekten gösterdiği tek şey ölçektir: DevEx, Roblox'un tek bir yılda {amount} ödediği bir programdır; 30.000 Robux'luk alt sınırın uğraşmaya değip değmediğine karar vermeden önce bilinmesi gereken bir bağlam.",
+      "whatItMeans": "Bu rakamların gerçekten gösterdiği tek şey ölçektir: DevEx, Roblox'un tek bir yılda {amount} ödediği bir programdır; {minimumRobux} Robux'luk alt sınırın uğraşmaya değip değmediğine karar vermeden önce bilinmesi gereken bir bağlam.",
       "engagementSource": "Yukarıdaki sonuncusu dışındaki tüm rakamlar, 30 Haziran 2026'da sona eren üç aya ait olmak üzere {filings} kaynağından alınmıştır."
     },
     "yearOnYearNote": "{from} – {to}",

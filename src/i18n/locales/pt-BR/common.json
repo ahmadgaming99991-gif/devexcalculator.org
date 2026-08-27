@@ -110,7 +110,7 @@
     "robux": "Robux",
     "perRobux": "Por Robux",
     "perThousand": "Por 1.000",
-    "perThirtyThousand": "Por 30.000",
+    "perThirtyThousand": "Por {minimumRobux}",
     "appliesTo": "Aplica-se a",
     "earnedRobux": "Earned Robux",
     "standard": "Standard",

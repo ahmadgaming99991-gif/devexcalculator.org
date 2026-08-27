@@ -292,7 +292,7 @@
       "whatItMeans": {
         "p1": "Very little, directly — and that is worth saying plainly. The totals on this page describe the whole platform. They do not change what your own balance converts to, they are not a forecast, and a rising total does not mean a rising rate. What decides your payout is the rate applied to your eligible Earned Robux, which you can work out on",
         "p2": "The one thing these figures do show is scale: DevEx is a programme through which Roblox paid out",
-        "p3": "in a single year, which is context worth having before deciding whether the 30,000 Robux minimum is worth working towards."
+        "p3": "in a single year, which is context worth having before deciding whether the {minimumRobux} Robux minimum is worth working towards."
       },
       "noLiveData": {
         "p1": "Roblox publishes these numbers once a quarter, in a filing. That is the finest resolution that exists, so a chart claiming to show them changing by the minute would be showing something invented. This site runs no data collection, samples nothing and estimates nothing — it reads the filings and links to them."
@@ -303,7 +303,7 @@
       "quarterOfRevenue": "The line worth reading twice is the second one. Developer exchange fees are about a quarter of Roblox’s revenue, so a meaningful share of what the platform takes in leaves again as creator payouts. Every figure in this table is quoted from {filings}.",
       "precision": "Figures are recorded to the precision the filing used. Where Roblox reported in thousands the amount is exact to the dollar; where it reported in millions, it is exact to the million and no further. Two quarters are marked as derived because they come from subtracting a reported quarter from a reported six-month total. Read more about how this site handles figures in {methodology}.",
       "whatItMeansIntro": "Very little, directly — and that is worth saying plainly. The totals on this page describe the whole platform. They do not change what your own balance converts to, they are not a forecast, and a rising total does not mean a rising rate. What decides your payout is the rate applied to your eligible Earned Robux, which you can work out on {calculator}.",
-      "whatItMeans": "The one thing these figures do show is scale: DevEx is a programme through which Roblox paid out {amount} in a single year, which is context worth having before deciding whether the 30,000 Robux minimum is worth working towards.",
+      "whatItMeans": "The one thing these figures do show is scale: DevEx is a programme through which Roblox paid out {amount} in a single year, which is context worth having before deciding whether the {minimumRobux} Robux minimum is worth working towards.",
       "engagementSource": "Every figure above except the last is quoted from {filings}, for the three months ended 30 June 2026."
     },
     "yearOnYearNote": "{from} to {to}",

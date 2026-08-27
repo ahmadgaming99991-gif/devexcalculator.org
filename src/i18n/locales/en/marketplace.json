@@ -61,6 +61,6 @@
     }
   },
   "prose": {
-    "notAppliedTwice": "This commission is taken when the Robux are earned. Converting the Robux you keep into cash through DevEx is a separate step with its own rate — the 30% is not applied twice."
+    "notAppliedTwice": "This commission is taken when the Robux are earned. Converting the Robux you keep into cash through DevEx is a separate step with its own rate — the {inExperiencePlatformShare}% is not applied twice."
   }
 }

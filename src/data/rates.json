@@ -10,7 +10,7 @@
       "roblox-devex-program"
     ],
     "lastVerifiedAt": "2026-08-17T00:00:00Z",
-    "note": "Roblox states a minimum of 30,000 Earned Robux to submit a DevEx request. Meeting the number is not the same as being approved."
+    "note": "Roblox states a minimum of {minimumRobux} Earned Robux to submit a DevEx request. Meeting the number is not the same as being approved."
   },
   "rates": [
     {

@@ -24,15 +24,15 @@
     },
     "roblox-marketplace-fees": {
       "facts": [
-        "Penjualan item avatar di Marketplace: kreator menerima 30%, Roblox menerima 70%.",
-        "Item avatar yang dibeli di dalam sebuah experience: kreator item 30%, pemilik experience 40%, Roblox 30%.",
+        "Penjualan item avatar di Marketplace: kreator menerima {marketplaceAvatarItemCreatorShare}%, Roblox menerima {marketplaceAvatarItemPlatformShare}%.",
+        "Item avatar yang dibeli di dalam sebuah experience: kreator item {avatarItemInExperienceCreatorShare}%, pemilik experience {avatarItemInExperienceOwnerShare}%, Roblox {avatarItemInExperiencePlatformShare}%.",
         "Bagi hasil progresif Marketplace menurut kelipatan harga dasar: 1x=30%, 1,3x=37%, 1,5x=41%, 2x=50%, 2,5x=57%, 3x=62%, 3,5x=65%, 4x=67%, 5x=69%, 6x ke atas=70%.",
         "Bagi hasil progresif hanya berlaku untuk pembelian di Marketplace; pembelian di dalam experience memakai komisi dasar."
       ]
     },
     "roblox-monetization-overview": {
       "facts": [
-        "Kreator menerima 70% dari Robux yang dibelanjakan pada pembelian di dalam experience seperti developer product dan pass; Roblox menahan 30%.",
+        "Kreator menerima {inExperienceCreatorShare}% dari Robux yang dibelanjakan pada pembelian di dalam experience seperti developer product dan pass; Roblox menahan {inExperiencePlatformShare}%.",
         "Earned Robux harus dikonversi lewat program Developer Exchange agar menjadi uang sungguhan."
       ]
     },
@@ -118,7 +118,7 @@
     }
   },
   "minimum": {
-    "note": "Roblox menyatakan minimal 30.000 Earned Robux untuk mengajukan permintaan DevEx. Mencapai angka itu tidak sama dengan disetujui."
+    "note": "Roblox menyatakan minimal {minimumRobux} Earned Robux untuk mengajukan permintaan DevEx. Mencapai angka itu tidak sama dengan disetujui."
   },
   "limits": {
     "note": "Ini adalah batas pengaman aplikasi yang dipilih DevExCalculator.org agar perhitungan dan penampilan tetap terbatas. Ini bukan batas dari Roblox dan tidak boleh disajikan seolah-olah demikian."

@@ -57,9 +57,9 @@
     "body": {
       "timeline": {
         "p1": "Kurs standar dinaikkan menjadi {rateStandard} USD per Earned Robux",
-        "p2": "Roblox menyatakannya sebagai 114 USD untuk 30.000 Earned Robux, naik dari 105. Saldo yang diperoleh sebelum saat itu tetap dikonversi pada kurs sebelumnya dan dicairkan lebih dulu.",
+        "p2": "Roblox menyatakannya sebagai 114 USD untuk {minimumRobux} Earned Robux, naik dari 105. Saldo yang diperoleh sebelum saat itu tetap dikonversi pada kurs sebelumnya dan dicairkan lebih dulu.",
         "p3": "Kurs standar {rateLegacy} USD per Earned Robux",
-        "p4": "105 USD untuk 30.000 Earned Robux. Masih diterapkan pada bagian saldo mana pun yang diperoleh sebelum peralihan.",
+        "p4": "105 USD untuk {minimumRobux} Earned Robux. Masih diterapkan pada bagian saldo mana pun yang diperoleh sebelum peralihan.",
         "p5": "Tanggal berlaku tidak diterbitkan",
         "p6": "Kurs lebih tinggi {rateUs18} untuk pembelanjaan AS 18+ yang memenuhi syarat",
         "p7": "Roblox mendokumentasikan kurs ini untuk sebagian Earned Robux dari pembelian oleh pemain Amerika Serikat yang telah memverifikasi bahwa mereka setidaknya berusia 18 tahun. Dokumentasi yang diperiksa situs ini tidak menyebutkan tanggal berlaku, jadi di sini tidak ada yang dicatat alih-alih menyimpulkan satu."
@@ -135,14 +135,14 @@
     "misunderstandings": {
       "minimum10k": {
         "claim": "Batas minimumnya adalah 10.000 Robux.",
-        "reality": "Angkanya 30.000 Earned Robux. Angka yang lebih rendah beredar di situs pihak ketiga yang belum diperbarui, dan bukan itu yang tertulis dalam dokumentasi Roblox saat ini."
+        "reality": "Angkanya {minimumRobux} Earned Robux. Angka yang lebih rendah beredar di situs pihak ketiga yang belum diperbarui, dan bukan itu yang tertulis dalam dokumentasi Roblox saat ini."
       },
       "anyBalance": {
         "claim": "Saldo Robux apa pun dihitung untuk memenuhi batas minimum.",
         "reality": "Hanya Earned Robux yang dihitung. Saldo yang terdiri dari Robux hasil pembelian tidak memenuhi syarat, sebesar apa pun jumlahnya."
       },
       "reaching30k": {
-        "claim": "Mencapai 30.000 berarti Anda pasti dibayar.",
+        "claim": "Mencapai {minimumRobux} berarti Anda pasti dibayar.",
         "reality": "Artinya Anda bisa mengajukan permintaan. Roblox meninjau setiap permintaan dan memutuskan Robux mana yang dianggap hasil pendapatan."
       },
       "age18": {
@@ -171,7 +171,7 @@
     "doesNotCountHeading": "Apa yang umumnya tidak dihitung",
     "doesNotCountDescription": "Robux yang diperoleh lewat jalur-jalur ini berada di saldo yang sama tetapi diperlakukan berbeda.",
     "pendingHeading": "Saldo tertunda dan tersedia",
-    "pendingDescription": "Robux yang baru diperoleh tidak langsung tersedia, dan itu mengejutkan kreator yang melihat saldonya naik.",
+    "pendingDescription": "Earned Robux yang baru saja Anda peroleh tidak langsung muncul di saldo Anda, dan itu mengejutkan kreator yang melihatnya naik.",
     "groupFundsHeading": "Dana grup",
     "groupFundsDescription": "Robux yang dipegang sebuah grup bukanlah Robux yang Anda pegang.",
     "faqsHeading": "Pertanyaan tentang Earned Robux",
@@ -182,10 +182,10 @@
       "definition": {
         "p1": "Bagian dari saldo Robux Anda yang berasal dari aktivitas sebagai kreator — orang lain membelanjakan Robux untuk sesuatu yang Anda buat — bukan dari Robux yang Anda peroleh dengan cara lain. DevEx hanya mengonversi Earned Robux. Akun Anda menampilkan satu angka Robux, tetapi Roblox melacak dari mana tiap bagiannya berasal, dan pembukuan internal itulah yang menentukan kelayakan.",
         "p2": "— saldo yang dikonversi DevEx, dan satu-satunya saldo yang dihitung untuk minimum {minimumEarnedRobux}. Roblox yang menentukan keputusan akhir untuk saldo tertentu.",
-        "p4": "Jika Anda pernah membeli Robux, menerimanya dari keanggotaan, atau menukarkan kartu hadiah, sebagian saldo Anda bukan hasil perolehan. Bagian itu tidak bisa dicairkan, dan juga tidak dihitung untuk batas minimum 30.000."
+        "p4": "Jika Anda pernah membeli Robux, menerimanya dari keanggotaan, atau menukarkan kartu hadiah, sebagian saldo Anda bukan hasil perolehan. Bagian itu tidak bisa dicairkan, dan juga tidak dihitung untuk batas minimum {minimumRobux}."
       },
       "qualifying": {
-        "p1": "Dalam tiap kasus, Roblox sudah mengambil komisi platformnya sebelum Robux itu sampai ke Anda — kreator menerima 70% dari yang dibelanjakan pemain pada pembelian di dalam experience.",
+        "p1": "Dalam tiap kasus, Roblox sudah mengambil komisi platformnya sebelum Robux itu sampai ke Anda — kreator menerima {inExperienceCreatorShare}% dari yang dibelanjakan pemain pada pembelian di dalam experience.",
         "p2": "Hitung berapa yang Anda terima dari sebuah penjualan"
       },
       "notQualifying": {
@@ -248,7 +248,7 @@
     "modelHeading": "Modelkan angka Anda sendiri",
     "modelDescription": "Buka kendali biaya dan pajak di bawah pemilih mata uang lalu masukkan persentase Anda sendiri.",
     "notMarketplaceHeading": "Jangan dikelirukan dengan biaya marketplace",
-    "notMarketplaceDescription": "Komisi platform 30% adalah hal yang berbeda, pada saat yang berbeda.",
+    "notMarketplaceDescription": "Komisi platform {inExperiencePlatformShare}% adalah hal yang berbeda, pada saat yang berbeda.",
     "marketplaceDiagramCaption": "Pembagiannya terjadi ketika pemain membelanjakan, jauh sebelum DevEx terlibat. Persentasenya berasal dari registri kurs, bukan dari gambar ini.",
     "faqsHeading": "Pertanyaan tentang biaya dan pajak",
     "diagram": {
@@ -286,7 +286,7 @@
         "p2": "Catatan praktis yang bukan nasihat: pajak umumnya dikenakan atas penghasilan, bukan atas sisa setelah biaya, dan biasanya terutang pada tahun pembayaran diterima, bukan tahun Robux-nya diperoleh. Pastikan keduanya kepada orang yang berkualifikasi."
       },
       "notTheMarketplaceFee": {
-        "p1": "Roblox mengambil 30% ketika seorang pemain membelanjakan Robux di experience Anda — Anda menerima 70%, dan 70% itulah yang menjadi Earned Robux. DevEx lalu mengonversi Earned Robux itu. Komisinya tidak dikenakan kedua kali saat pencairan, dan kalkulator mana pun yang mengurangi 30% dari pembayaran DevEx sedang menghitungnya dua kali.",
+        "p1": "Roblox mengambil {inExperiencePlatformShare}% ketika seorang pemain membelanjakan Robux di experience Anda — Anda menerima {inExperienceCreatorShare}%, dan {inExperienceCreatorShare}% itulah yang menjadi Earned Robux. DevEx lalu mengonversi Earned Robux itu. Komisinya tidak dikenakan kedua kali saat pencairan, dan kalkulator mana pun yang mengurangi {inExperiencePlatformShare}% dari pembayaran DevEx sedang menghitungnya dua kali.",
         "p2": "Hitung biaya marketplace secara terpisah",
         "p3": "Buka kalkulator biaya marketplace"
       }
@@ -342,7 +342,7 @@
     "body": {
       "twoAnswers": {
         "p1": "Uang yang keluar — pembayaran kreator",
-        "p2": "Anda memperoleh Robux dari pemain yang berbelanja di experience Anda, dan Anda ingin mengubahnya menjadi uang tunai. Itu lewat DevEx pada kurs yang terdokumentasi, dan itulah yang diperkirakan kalkulator di atas. Ini hanya berlaku untuk Earned Robux yang memenuhi syarat, dan hanya mulai dari 30.000.",
+        "p2": "Anda memperoleh Robux dari pemain yang berbelanja di experience Anda, dan Anda ingin mengubahnya menjadi uang tunai. Itu lewat DevEx pada kurs yang terdokumentasi, dan itulah yang diperkirakan kalkulator di atas. Ini hanya berlaku untuk Earned Robux yang memenuhi syarat, dan hanya mulai dari {minimumRobux}.",
         "p3": "Uang yang masuk — harga pembelian",
         "p4": "Anda ingin tahu berapa harga sebuah paket Robux. Roblox menetapkan harga itu menurut paket, wilayah, platform, dan promosi apa pun yang sedang berjalan. Itu harga eceran, bukan kurs, dan bergerak terlepas dari berapa yang dibayar DevEx.",
         "p5": "Tidak ada satu angka pun yang benar untuk setiap paket, negara, dan platform; jadi mengutip satu berarti mengarang angka. Periksa harga terkini di",
@@ -350,8 +350,8 @@
         "p7": "untuk mengetahui berapa yang benar-benar Anda bayar."
       },
       "comparison": {
-        "p1": "Selisih di antara keduanya ada karena Roblox menjalankan sebuah platform, menangani pemrosesan pembayaran, dan sudah mengambil bagiannya sebesar 30% pada saat Robux itu dibelanjakan.",
-        "p2": "30% yang lebih dulu itu adalah biaya marketplace"
+        "p1": "Selisih di antara keduanya ada karena Roblox menjalankan sebuah platform, menangani pemrosesan pembayaran, dan sudah mengambil bagiannya sebesar {inExperiencePlatformShare}% pada saat Robux itu dibelanjakan.",
+        "p2": "{inExperiencePlatformShare}% yang lebih dulu itu adalah biaya marketplace"
       },
       "amounts": {
         "p1": "Telusuri pusat konversi selengkapnya",
@@ -440,10 +440,10 @@
         "p4": "Progresif menurut harga — lihat di bawah",
         "p5": "Item avatar yang dibeli di dalam sebuah experience",
         "p6": "Kreator item dan pemilik experience dibayar terpisah",
-        "p7": "Jika Anda menjual item Anda sendiri di dalam experience Anda sendiri, Anda menerima bagian kreator sekaligus bagian pemilik experience, yang totalnya 70%."
+        "p7": "Jika Anda menjual item Anda sendiri di dalam experience Anda sendiri, Anda menerima bagian kreator sekaligus bagian pemilik experience, yang totalnya {inExperienceCreatorShare}%."
       },
       "notDevex": {
-        "p1": "Komisi di halaman ini berlaku pada saat seorang pemain membelanjakan Robux. Yang Anda terima menjadi Earned Robux. DevEx kemudian mengonversi Earned Robux itu menjadi uang pada kursnya sendiri, atas saldo yang komisinya sudah diambil. Mengurangi 30% dari pembayaran DevEx berarti mengenakan biaya yang sama dua kali dan meremehkan apa yang diterima seorang kreator.",
+        "p1": "Komisi di halaman ini berlaku pada saat seorang pemain membelanjakan Robux. Yang Anda terima menjadi Earned Robux. DevEx kemudian mengonversi Earned Robux itu menjadi uang pada kursnya sendiri, atas saldo yang komisinya sudah diambil. Mengurangi {inExperiencePlatformShare}% dari pembayaran DevEx berarti mengenakan biaya yang sama dua kali dan meremehkan apa yang diterima seorang kreator.",
         "p2": "Konversikan Earned Robux Anda menjadi perkiraan pembayaran",
         "p3": "Apa yang sebenarnya dipotong dari pembayaran DevEx"
       }
@@ -520,7 +520,7 @@
       }
     },
     "context": {
-      "robux30000": "30.000 adalah jumlah yang paling menentukan, karena itulah saldo Earned Robux minimum yang disyaratkan Roblox sebelum sebuah permohonan DevEx bisa diajukan sama sekali. Di bawah angka ini, pertanyaannya bukan berapa pembayarannya, melainkan apakah permohonan bisa diajukan.",
+      "robux30000": "{minimumRobux} adalah jumlah yang paling menentukan, karena itulah saldo Earned Robux minimum yang disyaratkan Roblox sebelum sebuah permohonan DevEx bisa diajukan sama sekali. Di bawah angka ini, pertanyaannya bukan berapa pembayarannya, melainkan apakah permohonan bisa diajukan.",
       "robux50000": "50.000 Earned Robux melampaui batas minimum dengan cukup longgar, sehingga ini sering menjadi pencairan pertama bagi kreator yang experience-nya baru mulai menghasilkan secara konsisten.",
       "robux100000": "100.000 adalah angka bulat yang paling banyak dicari pada rentang ini, dan di titik inilah selisih antara tarif saat ini dan tarif lama menjadi cukup besar untuk terasa: tiga puluh dolar memisahkan keduanya.",
       "robux200000": "Pada 200.000 Earned Robux, seorang kreator biasanya mencairkan dana secara terjadwal, bukan sekali saja, sehingga selisih antar kelompok tarif layak dicatat alih-alih sekadar diperkirakan.",

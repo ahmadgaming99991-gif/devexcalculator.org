@@ -16,19 +16,19 @@ recorded by a person.
 
 | Locale | Strings | Critical | Meaning | Blocking | Quality | Lexicon queue |
 | --- | --- | --- | --- | --- | --- | --- |
-| `pt-BR` | 2660 | 0 | 0 | 0 | 1 | 792 |
-| `es` | 2660 | 0 | 0 | 0 | 1 | 792 |
-| `id` | 2660 | 0 | 0 | 0 | 1 | 792 |
-| `fr` | 2660 | 0 | 0 | 0 | 1 | 792 |
-| `de` | 2660 | 0 | 0 | 0 | 1 | 792 |
-| `tr` | 2660 | 0 | 0 | 0 | 1 | 792 |
+| `pt-BR` | 2660 | 0 | 0 | 0 | 0 | 792 |
+| `es` | 2660 | 0 | 0 | 0 | 0 | 792 |
+| `id` | 2660 | 0 | 0 | 0 | 0 | 792 |
+| `fr` | 2660 | 0 | 0 | 0 | 0 | 792 |
+| `de` | 2660 | 0 | 0 | 0 | 0 | 792 |
+| `tr` | 2660 | 0 | 0 | 0 | 0 | 792 |
 
 
 **Blocking total across all locales: 0** (critical + meaning + blocking).
 
 ## English-side findings
 
-83 English string(s) carry a published figure as literal text
+33 English string(s) carry a published figure as literal text
 rather than interpolating it. Each is correct today and each is an edit somebody
 has to remember in seven languages when a rate moves.
 
@@ -36,16 +36,8 @@ has to remember in seven languages when a rate moves.
   - "That is {perWeek} a week, or {perMonth} over 30 days. Each figure is rounded up: earning the rounded-down amount would miss the date."
 - `calculator.planner.pacePeriod.month` — Carries marketplace-avatar-item creator share % (30) as literal text. Sourced from src/data/rates.json marketplace.schemes[].creatorSharePercent; interpolating it would make a rate change one edit rather than seven.
   - "a month (30 days)"
-- `common.units.perThirtyThousand` — Carries minimum eligible Earned Robux (30000) as literal text. Sourced from src/data/rates.json minimum.eligibleEarnedRobux; interpolating it would make a rate change one edit rather than seven.
-  - "Per 30,000"
-- `data.sources.roblox-marketplace-fees.facts.0` — Carries in-experience creator share % (70), marketplace-avatar-item creator share % (30) as literal text. Sourced from src/data/rates.json marketplace.schemes[].creatorSharePercent; interpolating it would make a rate change one edit rather than seven.
-  - "Marketplace avatar item sale: creator receives 30%, Roblox receives 70%."
-- `data.sources.roblox-marketplace-fees.facts.1` — Carries marketplace-avatar-item creator share % (30) as literal text. Sourced from src/data/rates.json marketplace.schemes[].creatorSharePercent; interpolating it would make a rate change one edit rather than seven.
-  - "Avatar item bought inside an experience: item creator 30%, experience owner 40%, Roblox 30%."
 - `data.sources.roblox-marketplace-fees.facts.2` — Carries legacy-pre-2025-09-05 USD per 1,000 (3.5), in-experience creator share % (70), marketplace-avatar-item creator share % (30) as literal text. Sourced from src/data/rates.json rates[].usdPerThousandRobux; interpolating it would make a rate change one edit rather than seven.
   - "Progressive Marketplace revenue share by price-floor multiple: 1x=30%, 1.3x=37%, 1.5x=41%, 2x=50%, 2.5x=57%, 3x=62%, 3.5x=65%, 4x=67%, 5x=69%, 6x and above=70%."
-- `data.sources.roblox-monetization-overview.facts.0` — Carries in-experience creator share % (70), marketplace-avatar-item creator share % (30) as literal text. Sourced from src/data/rates.json marketplace.schemes[].creatorSharePercent; interpolating it would make a rate change one edit rather than seven.
-  - "Creators receive 70% of Robux spent on in-experience purchases such as developer products and passes; Roblox retains 30%."
 - `data.sources.roblox-q2-2026-earnings.facts.0` — Carries marketplace-avatar-item creator share % (30) as literal text. Sourced from src/data/rates.json marketplace.schemes[].creatorSharePercent; interpolating it would make a rate change one edit rather than seven.
   - "Developer exchange fees of 363 million USD for the three months ended 30 June 2026, and 316 million USD for the same period in 2025."
 - `data.sources.roblox-q2-2026-earnings.facts.1` — Carries marketplace-avatar-item creator share % (30) as literal text. Sourced from src/data/rates.json marketplace.schemes[].creatorSharePercent; interpolating it would make a rate change one edit rather than seven.
@@ -58,8 +50,6 @@ has to remember in seven languages when a rate moves.
   - "Hours engaged grew 5% year over year to 29 billion for the three months ended 30 June 2026."
 - `data.rates.legacy-pre-2025-09-05.eligibilitySummary` — Carries minimum eligible Earned Robux (30000) as literal text. Sourced from src/data/rates.json minimum.eligibleEarnedRobux; interpolating it would make a rate change one edit rather than seven.
   - "The rate that applied before 5 September 2025 at 10:00 PT, equal to {payoutLegacy30000Plain} USD for {minimumRobux} Earned Robux. Roblox cashes out balances earned before that moment at this older rat"
-- `data.minimum.note` — Carries minimum eligible Earned Robux (30000) as literal text. Sourced from src/data/rates.json minimum.eligibleEarnedRobux; interpolating it would make a rate change one edit rather than seven.
-  - "Roblox states a minimum of 30,000 Earned Robux to submit a DevEx request. Meeting the number is not the same as being approved."
 - `data.metrics.developerExchangeFees.derivation.q1-2025` — Carries marketplace-avatar-item creator share % (30) as literal text. Sourced from src/data/rates.json marketplace.schemes[].creatorSharePercent; interpolating it would make a rate change one edit rather than seven.
   - "Six months ended 30 June 2025 (598) minus Q2 2025 (316), both in millions."
 - `data.metrics.developerExchangeFees.derivation.q1-2026` — Carries marketplace-avatar-item creator share % (30) as literal text. Sourced from src/data/rates.json marketplace.schemes[].creatorSharePercent; interpolating it would make a rate change one edit rather than seven.
@@ -68,61 +58,51 @@ has to remember in seven languages when a rate moves.
   - "Reported results for the three months ended 30 June, for readers judging how solid the platform they earn from is."
 - `data.metrics.engagement.figures.hours.note` — Carries marketplace-avatar-item creator share % (30) as literal text. Sourced from src/data/rates.json marketplace.schemes[].creatorSharePercent; interpolating it would make a rate change one edit rather than seven.
   - "Total across every user for the three months ended 30 June 2026."
-- `marketplace.prose.notAppliedTwice` — Carries marketplace-avatar-item creator share % (30) as literal text. Sourced from src/data/rates.json marketplace.schemes[].creatorSharePercent; interpolating it would make a rate change one edit rather than seven.
-  - "This commission is taken when the Robux are earned. Converting the Robux you keep into cash through DevEx is a separate step with its own rate — the 30% is not applied twice."
-- `navigation.descriptions.devexRequirements` — Carries minimum eligible Earned Robux (30000) as literal text. Sourced from src/data/rates.json minimum.eligibleEarnedRobux; interpolating it would make a rate change one edit rather than seven.
-  - "Eligibility and the 30,000 minimum"
 - `platform.stats.quarterNote` — Carries marketplace-avatar-item creator share % (30) as literal text. Sourced from src/data/rates.json marketplace.schemes[].creatorSharePercent; interpolating it would make a rate change one edit rather than seven.
   - "Three months ended 30 June 2026"
-- `platform.stats.body.whatItMeans.p3` — Carries minimum eligible Earned Robux (30000) as literal text. Sourced from src/data/rates.json minimum.eligibleEarnedRobux; interpolating it would make a rate change one edit rather than seven.
-  - "in a single year, which is context worth having before deciding whether the 30,000 Robux minimum is worth working towards."
-- `platform.stats.prose.whatItMeans` — Carries minimum eligible Earned Robux (30000) as literal text. Sourced from src/data/rates.json minimum.eligibleEarnedRobux; interpolating it would make a rate change one edit rather than seven.
-  - "The one thing these figures do show is scale: DevEx is a programme through which Roblox paid out {amount} in a single year, which is context worth having before deciding whether the 30,000 Robux minim"
 - `platform.stats.prose.engagementSource` — Carries marketplace-avatar-item creator share % (30) as literal text. Sourced from src/data/rates.json marketplace.schemes[].creatorSharePercent; interpolating it would make a rate change one edit rather than seven.
   - "Every figure above except the last is quoted from {filings}, for the three months ended 30 June 2026."
-- `rates.rateHistory.body.timeline.p2` — Carries minimum eligible Earned Robux (30000) as literal text. Sourced from src/data/rates.json minimum.eligibleEarnedRobux; interpolating it would make a rate change one edit rather than seven.
-  - "Roblox states this as 114 USD for 30,000 Earned Robux, up from 105. Balances earned before this moment continue to convert at the previous rate and are cashed out first."
-- `rates.rateHistory.body.timeline.p4` — Carries minimum eligible Earned Robux (30000) as literal text. Sourced from src/data/rates.json minimum.eligibleEarnedRobux; interpolating it would make a rate change one edit rather than seven.
-  - "105 USD for 30,000 Earned Robux. Still applied to the portion of any balance earned before the transition."
-- `rates.requirements.misunderstandings.minimum10k.reality` — Carries minimum eligible Earned Robux (30000) as literal text. Sourced from src/data/rates.json minimum.eligibleEarnedRobux; interpolating it would make a rate change one edit rather than seven.
-  - "It is 30,000 Earned Robux. The lower figure circulates on third-party sites that have not been updated, and it is not what current Roblox documentation says."
-- `rates.requirements.misunderstandings.reaching30k.claim` — Carries minimum eligible Earned Robux (30000) as literal text. Sourced from src/data/rates.json minimum.eligibleEarnedRobux; interpolating it would make a rate change one edit rather than seven.
-  - "Reaching 30,000 means you will be paid."
-- `rates.earnedRobux.body.definition.p4` — Carries minimum eligible Earned Robux (30000) as literal text. Sourced from src/data/rates.json minimum.eligibleEarnedRobux; interpolating it would make a rate change one edit rather than seven.
-  - "If you have ever bought Robux, received them from a membership, or redeemed a gift card, part of your balance is not earned. That part cannot be cashed out, and it does not count toward the 30,000 min"
-- `rates.earnedRobux.body.qualifying.p1` — Carries in-experience creator share % (70) as literal text. Sourced from src/data/rates.json marketplace.schemes[].creatorSharePercent; interpolating it would make a rate change one edit rather than seven.
-  - "In each case Roblox has already taken its platform commission before the Robux reach you — creators receive 70% of what a player spends on an in-experience purchase."
-- `rates.feesAndTaxes.notMarketplaceDescription` — Carries marketplace-avatar-item creator share % (30) as literal text. Sourced from src/data/rates.json marketplace.schemes[].creatorSharePercent; interpolating it would make a rate change one edit rather than seven.
-  - "The 30% platform commission is a different thing at a different point in time."
-- `rates.feesAndTaxes.body.notTheMarketplaceFee.p1` — Carries in-experience creator share % (70), marketplace-avatar-item creator share % (30) as literal text. Sourced from src/data/rates.json marketplace.schemes[].creatorSharePercent; interpolating it would make a rate change one edit rather than seven.
-  - "Roblox takes 30% when a player spends Robux in your experience — you receive 70%, and that 70% is what becomes Earned Robux. DevEx then converts those Earned Robux. The commission is not applied a sec"
-- `rates.robuxToUsd.body.twoAnswers.p2` — Carries minimum eligible Earned Robux (30000) as literal text. Sourced from src/data/rates.json minimum.eligibleEarnedRobux; interpolating it would make a rate change one edit rather than seven.
-  - "You earned Robux from players spending in your experience, and you want to convert them to cash. That goes through DevEx at a documented rate, and it is what the calculator above estimates. It applies"
-- `rates.robuxToUsd.body.comparison.p1` — Carries marketplace-avatar-item creator share % (30) as literal text. Sourced from src/data/rates.json marketplace.schemes[].creatorSharePercent; interpolating it would make a rate change one edit rather than seven.
-  - "The gap between the two exists because Roblox operates a platform, handles payment processing, and has already taken its 30% share at the point the Robux were spent."
-- `rates.robuxToUsd.body.comparison.p2` — Carries marketplace-avatar-item creator share % (30) as literal text. Sourced from src/data/rates.json marketplace.schemes[].creatorSharePercent; interpolating it would make a rate change one edit rather than seven.
-  - "That earlier 30% is the marketplace fee"
-- `rates.robuxTax.body.schemes.p7` — Carries in-experience creator share % (70) as literal text. Sourced from src/data/rates.json marketplace.schemes[].creatorSharePercent; interpolating it would make a rate change one edit rather than seven.
-  - "If you sell your own item inside your own experience you receive both the creator share and the experience owner share, which comes to 70%."
-- `rates.robuxTax.body.notDevex.p1` — Carries marketplace-avatar-item creator share % (30) as literal text. Sourced from src/data/rates.json marketplace.schemes[].creatorSharePercent; interpolating it would make a rate change one edit rather than seven.
-  - "The commission on this page applies at the moment a player spends Robux. What you keep becomes Earned Robux. DevEx then converts those Earned Robux to cash at its own rate, on a balance that has alrea"
-- `rates.amountPage.context.robux30000` — Carries minimum eligible Earned Robux (30000) as literal text. Sourced from src/data/rates.json minimum.eligibleEarnedRobux; interpolating it would make a rate change one edit rather than seven.
-  - "30,000 is the amount that matters most, because it is the minimum Earned Robux balance Roblox requires before a DevEx request can be submitted at all. Below this figure the question is not what the pa"
 - `routes.home.faqs.q01.answer` — Carries minimum eligible Earned Robux (30000) as literal text. Sourced from src/data/rates.json minimum.eligibleEarnedRobux; interpolating it would make a rate change one edit rather than seven.
   - "Roblox documents a standard rate of {rateStandard} USD per eligible Earned Robux, which it states as {payout30000Plain} USD for {minimumRobux} Earned Robux. This rate took effect on 5 September 2025 a"
-- `routes.home.faqs.q03.answer` — Carries minimum eligible Earned Robux (30000) as literal text. Sourced from src/data/rates.json minimum.eligibleEarnedRobux; interpolating it would make a rate change one edit rather than seven.
-  - "Roblox requires a minimum of 30,000 Earned Robux in your account before you can participate in DevEx. Reaching that number is a requirement, not an approval — Roblox still reviews every request."
-- …and 43 more.
+- `routes.conversions.30000RobuxToUsd.title` — Carries minimum eligible Earned Robux (30000) as literal text. Sourced from src/data/rates.json minimum.eligibleEarnedRobux; interpolating it would make a rate change one edit rather than seven.
+  - "30,000 Robux to USD: DevEx Payout Estimate"
+- `routes.conversions.30000RobuxToUsd.metaDescription` — Carries minimum eligible Earned Robux (30000) as literal text. Sourced from src/data/rates.json minimum.eligibleEarnedRobux; interpolating it would make a rate change one edit rather than seven.
+  - "30,000 eligible Earned Robux is about $114.00 at the current DevEx rate. Compared against the legacy and U.S. 18+ rates."
+- `routes.conversions.30000RobuxToUsd.h1` — Carries minimum eligible Earned Robux (30000) as literal text. Sourced from src/data/rates.json minimum.eligibleEarnedRobux; interpolating it would make a rate change one edit rather than seven.
+  - "30,000 Robux to USD"
+- `routes.conversions.30000RobuxToUsd.navLabel` — Carries minimum eligible Earned Robux (30000) as literal text. Sourced from src/data/rates.json minimum.eligibleEarnedRobux; interpolating it would make a rate change one edit rather than seven.
+  - "30,000 Robux"
+- `routes.conversions.30000RobuxToUsd.ogImageAlt` — Carries minimum eligible Earned Robux (30000) as literal text. Sourced from src/data/rates.json minimum.eligibleEarnedRobux; interpolating it would make a rate change one edit rather than seven.
+  - "30,000 Robux converted to an estimated US dollar DevEx payout."
+- `routes.conversions.30000RobuxToUsd.sections.value` — Carries minimum eligible Earned Robux (30000) as literal text. Sourced from src/data/rates.json minimum.eligibleEarnedRobux; interpolating it would make a rate change one edit rather than seven.
+  - "What 30,000 Robux is worth"
+- `routes.conversions.30000RobuxToUsd.faqs.q01.question` — Carries minimum eligible Earned Robux (30000) as literal text. Sourced from src/data/rates.json minimum.eligibleEarnedRobux; interpolating it would make a rate change one edit rather than seven.
+  - "How much is 30,000 Robux in USD?"
+- `routes.conversions.30000RobuxToUsd.faqs.q02.question` — Carries minimum eligible Earned Robux (30000) as literal text. Sourced from src/data/rates.json minimum.eligibleEarnedRobux; interpolating it would make a rate change one edit rather than seven.
+  - "Does 30,000 Robux meet the DevEx minimum?"
+- `routes.conversions.30000RobuxToUsd.faqs.q02.answer` — Carries minimum eligible Earned Robux (30000) as literal text. Sourced from src/data/rates.json minimum.eligibleEarnedRobux; interpolating it would make a rate change one edit rather than seven.
+  - "30,000 Earned Robux is 1.0 times the documented {minimumRobux} minimum, so it clears the threshold. Clearing the threshold is not the same as being approved — Roblox reviews every request."
+- `routes.conversions.30000RobuxToUsd.links.conversions` — Carries minimum eligible Earned Robux (30000) as literal text. Sourced from src/data/rates.json minimum.eligibleEarnedRobux; interpolating it would make a rate change one edit rather than seven.
+  - "the amounts either side of 30,000"
+- `routes.conversions.30000RobuxToUsd.links.robuxToUsd` — Carries minimum eligible Earned Robux (30000) as literal text. Sourced from src/data/rates.json minimum.eligibleEarnedRobux; interpolating it would make a rate change one edit rather than seven.
+  - "convert something other than 30,000 Robux"
+- `routes.conversions.50000RobuxToUsd.links.conversions.30000RobuxToUsd` — Carries minimum eligible Earned Robux (30000) as literal text. Sourced from src/data/rates.json minimum.eligibleEarnedRobux; interpolating it would make a rate change one edit rather than seven.
+  - "30,000 Robux to USD"
+- `routes.devexRateHistory.quickAnswer` — Carries minimum eligible Earned Robux (30000) as literal text. Sourced from src/data/rates.json minimum.eligibleEarnedRobux; interpolating it would make a rate change one edit rather than seven.
+  - "The documented change is from {rateLegacy} to {rateStandard} USD per Earned Robux, effective 5 September 2025 at 10:00 PT. For {minimumRobux} Earned Robux that moved the payout from {payoutLegacy30000"
+- `routes.devexRates.quickAnswer` — Carries minimum eligible Earned Robux (30000) as literal text. Sourced from src/data/rates.json minimum.eligibleEarnedRobux; interpolating it would make a rate change one edit rather than seven.
+  - "Roblox documents three DevEx rates. The standard rate is {rateStandard} USD per eligible Earned Robux, or {payout30000Plain} dollars for {minimumRobux}. Balances earned before 5 September 2025 at 10:0"
+- `routes.platform.stock.quickAnswer` — Carries marketplace-avatar-item creator share % (30) as literal text. Sourced from src/data/rates.json marketplace.schemes[].creatorSharePercent; interpolating it would make a rate change one edit rather than seven.
+  - "Roblox reported revenue of 1,469 million US dollars for the quarter ended 30 June 2026, against a consolidated net loss of 185 million, and paid creators 363 million through the Developer Exchange. Th"
+- `routes.platform.stock.faqs.q02.answer` — Carries marketplace-avatar-item creator share % (30) as literal text. Sourced from src/data/rates.json marketplace.schemes[].creatorSharePercent; interpolating it would make a rate change one edit rather than seven.
+  - "It reported a consolidated net loss of 185 million US dollars for the quarter ended 30 June 2026, narrower than the 280 million loss a year earlier, with adjusted EBITDA of 152 million. Those are the "
+- `trust.changelog.entries.registryEstablishedDetail` — Carries minimum eligible Earned Robux (30000) as literal text. Sourced from src/data/rates.json minimum.eligibleEarnedRobux; interpolating it would make a rate change one edit rather than seven.
+  - "Standard rate recorded at {rateStandard} USD per eligible Earned Robux ({payout30000Plain} USD per {minimumRobux}), the legacy rate at {rateLegacy} for balances earned before 5 September 2025 at 10:00"
+
 
 ## Per locale
 
 ### `pt-BR`
-
-**quality** — 1
-
-- `rates.earnedRobux.pendingDescription` (glossary) — English says "Earned Robux"; this locale's approved rendering is "Earned Robux" and it does not appear. A distinct balance from ordinary Robux and the only kind DevEx converts. Translating it collapses the distinction the whole site rests on, so every locale keeps the English term.
-  - en: "Newly earned Robux are not immediately available, which surprises creators watching a balance climb."
-  - pt-BR: "Robux recém-ganhos não ficam disponíveis na hora, o que surpreende criadores vendo o saldo subir."
 
 **review** — 3
 
@@ -138,12 +118,6 @@ has to remember in seven languages when a rate moves.
 
 ### `es`
 
-**quality** — 1
-
-- `rates.earnedRobux.pendingDescription` (glossary) — English says "Earned Robux"; this locale's approved rendering is "Earned Robux" and it does not appear. A distinct balance from ordinary Robux and the only kind DevEx converts. Translating it collapses the distinction the whole site rests on, so every locale keeps the English term.
-  - en: "Newly earned Robux are not immediately available, which surprises creators watching a balance climb."
-  - es: "Los Robux recién ganados no están disponibles al instante, lo que sorprende a los creadores que ven subir un saldo."
-
 **review** — 3
 
 - `data.sources.roblox-q2-2026-earnings.facts.3` (label-quarter) — English states quarter 2, 2; the translation spells it out and the wording cannot be checked from here
@@ -158,19 +132,9 @@ has to remember in seven languages when a rate moves.
 
 ### `id`
 
-**quality** — 1
-
-- `rates.earnedRobux.pendingDescription` (glossary) — English says "Earned Robux"; this locale's approved rendering is "Earned Robux" and it does not appear. A distinct balance from ordinary Robux and the only kind DevEx converts. Translating it collapses the distinction the whole site rests on, so every locale keeps the English term.
-  - en: "Newly earned Robux are not immediately available, which surprises creators watching a balance climb."
-  - id: "Robux yang baru diperoleh tidak langsung tersedia, dan itu mengejutkan kreator yang melihat saldonya naik."
+No catalog findings.
 
 ### `fr`
-
-**quality** — 1
-
-- `rates.earnedRobux.pendingDescription` (glossary) — English says "Earned Robux"; this locale's approved rendering is "Earned Robux" and it does not appear. A distinct balance from ordinary Robux and the only kind DevEx converts. Translating it collapses the distinction the whole site rests on, so every locale keeps the English term.
-  - en: "Newly earned Robux are not immediately available, which surprises creators watching a balance climb."
-  - fr: "Les Robux fraîchement gagnés ne sont pas immédiatement disponibles, ce qui surprend les créateurs qui voient un solde grimper."
 
 **review** — 3
 
@@ -186,12 +150,6 @@ has to remember in seven languages when a rate moves.
 
 ### `de`
 
-**quality** — 1
-
-- `rates.earnedRobux.pendingDescription` (glossary) — English says "Earned Robux"; this locale's approved rendering is "Earned Robux" and it does not appear. A distinct balance from ordinary Robux and the only kind DevEx converts. Translating it collapses the distinction the whole site rests on, so every locale keeps the English term.
-  - en: "Newly earned Robux are not immediately available, which surprises creators watching a balance climb."
-  - de: "Frisch verdiente Robux sind nicht sofort verfügbar, was Creator überrascht, die ein Guthaben steigen sehen."
-
 **review** — 3
 
 - `data.sources.roblox-q2-2026-earnings.facts.3` (label-quarter) — English states quarter 2, 2; the translation spells it out and the wording cannot be checked from here
@@ -205,12 +163,6 @@ has to remember in seven languages when a rate moves.
   - de: "Sechs Monate bis zum 30. Juni 2026 (786) minus 2. Quartal 2026 (363), beides in Millionen."
 
 ### `tr`
-
-**quality** — 1
-
-- `rates.earnedRobux.pendingDescription` (glossary) — English says "Earned Robux"; this locale's approved rendering is "Earned Robux" and it does not appear. A distinct balance from ordinary Robux and the only kind DevEx converts. Translating it collapses the distinction the whole site rests on, so every locale keeps the English term.
-  - en: "Newly earned Robux are not immediately available, which surprises creators watching a balance climb."
-  - tr: "Yeni kazanılan Robux hemen kullanılabilir olmaz; bu, bakiyesinin yükselişini izleyen içerik üreticilerini şaşırtır."
 
 **review** — 7
 

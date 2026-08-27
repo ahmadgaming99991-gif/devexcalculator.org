@@ -292,7 +292,7 @@
       "whatItMeans": {
         "p1": "Muito pouco, diretamente — e vale dizer isso com clareza. Os totais desta página descrevem a plataforma inteira. Eles não mudam quanto o seu próprio saldo converte, não são uma previsão, e um total crescente não significa uma taxa crescente. O que decide o seu pagamento é a taxa aplicada aos seus Earned Robux elegíveis, o que você pode calcular em",
         "p2": "A única coisa que estes números realmente mostram é escala: o DevEx é um programa através do qual o Roblox pagou",
-        "p3": "em um único ano, o que é um contexto que vale ter antes de decidir se o mínimo de 30.000 Robux vale o esforço."
+        "p3": "em um único ano, o que é um contexto que vale ter antes de decidir se o mínimo de {minimumRobux} Robux vale o esforço."
       },
       "noLiveData": {
         "p1": "O Roblox publica estes números uma vez por trimestre, em um registro oficial. Essa é a resolução mais fina que existe, então um gráfico que alegasse mostrá-los mudando a cada minuto estaria mostrando algo inventado. Este site não faz coleta de dados, não amostra nada e não estima nada — ele lê os registros oficiais e leva a eles."
@@ -303,7 +303,7 @@
       "quarterOfRevenue": "A linha que vale a pena ler duas vezes é a segunda. As taxas do Developer Exchange são cerca de um quarto da receita do Roblox, então uma parcela significativa do que a plataforma arrecada sai de novo como pagamentos a criadores. Todo número desta tabela é citado de {filings}.",
       "precision": "Os números são registrados na precisão que o documento usou. Onde o Roblox informou em milhares, o valor é exato até o dólar; onde informou em milhões, é exato até o milhão e nada além. Dois trimestres são marcados como derivados porque vêm da subtração de um trimestre informado de um total semestral informado. Leia mais sobre como este site lida com números em {methodology}.",
       "whatItMeansIntro": "Muito pouco, diretamente — e vale dizer isso com todas as letras. Os totais desta página descrevem a plataforma inteira. Eles não mudam no que o seu próprio saldo se converte, não são uma previsão, e um total em alta não significa uma taxa em alta. O que decide o seu pagamento é a taxa aplicada aos seus Earned Robux elegíveis, que você pode calcular em {calculator}.",
-      "whatItMeans": "A única coisa que estes números realmente mostram é escala: o DevEx é um programa pelo qual o Roblox pagou {amount} em um único ano, um contexto que vale a pena ter antes de decidir se o mínimo de 30.000 Robux compensa perseguir.",
+      "whatItMeans": "A única coisa que estes números realmente mostram é escala: o DevEx é um programa pelo qual o Roblox pagou {amount} em um único ano, um contexto que vale a pena ter antes de decidir se o mínimo de {minimumRobux} Robux compensa perseguir.",
       "engagementSource": "Todos os números acima, exceto o último, são citados de {filings}, referentes aos três meses encerrados em 30 de junho de 2026."
     },
     "yearOnYearNote": "de {from} a {to}",

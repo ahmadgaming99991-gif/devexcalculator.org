@@ -17,6 +17,7 @@
     "units.earnedWord",
     "units.minimum",
     "units.perRobux",
+    "units.perThirtyThousand",
     "units.standard"
   ],
   "brand": {
@@ -116,7 +117,7 @@
     "robux": "Robux",
     "perRobux": "Per Robux",
     "perThousand": "Per 1.000",
-    "perThirtyThousand": "Per 30.000",
+    "perThirtyThousand": "Per {minimumRobux}",
     "appliesTo": "Berlaku untuk",
     "earnedRobux": "Earned Robux",
     "standard": "Standard",

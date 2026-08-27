@@ -69,6 +69,6 @@
     }
   },
   "prose": {
-    "notAppliedTwice": "Esta comisión se cobra cuando se ganan los Robux. Convertir en dinero, mediante DevEx, los Robux que te quedas es un paso aparte con su propia tasa: el 30% no se aplica dos veces."
+    "notAppliedTwice": "Esta comisión se cobra cuando se ganan los Robux. Convertir en dinero, mediante DevEx, los Robux que te quedas es un paso aparte con su propia tasa: el {inExperiencePlatformShare}% no se aplica dos veces."
   }
 }

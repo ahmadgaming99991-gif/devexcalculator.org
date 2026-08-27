@@ -24,15 +24,15 @@
     },
     "roblox-marketplace-fees": {
       "facts": [
-        "Venda de item de avatar no Marketplace: o criador recebe 30%, a Roblox recebe 70%.",
-        "Item de avatar comprado dentro de uma experiência: criador do item 30%, dono da experiência 40%, Roblox 30%.",
+        "Venda de item de avatar no Marketplace: o criador recebe {marketplaceAvatarItemCreatorShare}%, a Roblox recebe {marketplaceAvatarItemPlatformShare}%.",
+        "Item de avatar comprado dentro de uma experiência: criador do item {avatarItemInExperienceCreatorShare}%, dono da experiência {avatarItemInExperienceOwnerShare}%, Roblox {avatarItemInExperiencePlatformShare}%.",
         "Divisão progressiva de receita do Marketplace por múltiplo do preço mínimo: 1x=30%, 1,3x=37%, 1,5x=41%, 2x=50%, 2,5x=57%, 3x=62%, 3,5x=65%, 4x=67%, 5x=69%, 6x ou mais=70%.",
         "A divisão progressiva de receita vale apenas para compras no Marketplace; compras dentro da experiência usam a comissão base."
       ]
     },
     "roblox-monetization-overview": {
       "facts": [
-        "Criadores recebem 70% dos Robux gastos em compras dentro da experiência, como produtos de desenvolvedor e passes; a Roblox retém 30%.",
+        "Criadores recebem {inExperienceCreatorShare}% dos Robux gastos em compras dentro da experiência, como produtos de desenvolvedor e passes; a Roblox retém {inExperiencePlatformShare}%.",
         "Earned Robux precisam ser convertidos pelo programa Developer Exchange para virar dinheiro real."
       ]
     },
@@ -118,7 +118,7 @@
     }
   },
   "minimum": {
-    "note": "A Roblox declara um mínimo de 30.000 Earned Robux para enviar uma solicitação DevEx. Atingir o número não é o mesmo que ser aprovado."
+    "note": "A Roblox declara um mínimo de {minimumRobux} Earned Robux para enviar uma solicitação DevEx. Atingir o número não é o mesmo que ser aprovado."
   },
   "limits": {
     "note": "Estes são limites de segurança da aplicação escolhidos pelo DevExCalculator.org para manter o cálculo e a renderização dentro de fronteiras conhecidas. Não são limites da Roblox e nunca devem ser apresentados como tal."

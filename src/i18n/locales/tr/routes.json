@@ -38,7 +38,7 @@
       },
       "q03": {
         "question": "DevEx için asgari Earned Robux nedir?",
-        "answer": "Roblox, DevEx'e katılabilmeniz için hesabınızda en az 30.000 Earned Robux olmasını şart koşar. O sayıya ulaşmak bir koşuldur, onay değil — Roblox yine de her talebi inceler."
+        "answer": "Roblox, DevEx'e katılabilmeniz için hesabınızda en az {minimumRobux} Earned Robux olmasını şart koşar. O sayıya ulaşmak bir koşuldur, onay değil — Roblox yine de her talebi inceler."
       },
       "q04": {
         "question": "Her Robux bakiyesi DevEx için uygun mudur?",
@@ -190,7 +190,7 @@
     "metaDescription": "Yaygın Earned Robux tutarları güncel, eski ve ABD 18+ kurlarında değerlendirildi; ayrıca istediğiniz tutar için bir giriş alanı.",
     "h1": "Robux'tan USD'ye dönüşümler",
     "navLabel": "Dönüşümler",
-    "quickAnswer": "Aşağıdaki her tutar, uygun Earned Robux başına {rateStandard} USD olan güncel DevEx kurunda çevrilir; karşılaştırma için eski ve koşullu kurlar da yanında gösterilir. 30.000'in altındaki tutarlar başvuru için verilmiştir ama nakde çevrilemez; çünkü belgelenmiş alt sınır budur.",
+    "quickAnswer": "Aşağıdaki her tutar, uygun Earned Robux başına {rateStandard} USD olan güncel DevEx kurunda çevrilir; karşılaştırma için eski ve koşullu kurlar da yanında gösterilir. {minimumRobux}'in altındaki tutarlar başvuru için verilmiştir ama nakde çevrilemez; çünkü belgelenmiş alt sınır budur.",
     "ogImageAlt": "Yaygın Robux tutarlarının ABD dolarına dönüşüm tablosu.",
     "sections": {
       "converter": "Herhangi bir tutarı çevirin",
@@ -226,7 +226,7 @@
       },
       "q02": {
         "question": "100.000 Robux DevEx alt sınırını karşılıyor mu?",
-        "answer": "100.000 Earned Robux, belgelenmiş 30.000 alt sınırının 3,3 katıdır; yani eşiği aşar. Eşiği aşmak onaylanmakla aynı şey değildir — Roblox her talebi inceler."
+        "answer": "100.000 Earned Robux, belgelenmiş {minimumRobux} alt sınırının 3,3 katıdır; yani eşiği aşar. Eşiği aşmak onaylanmakla aynı şey değildir — Roblox her talebi inceler."
       }
     },
     "links": {
@@ -258,7 +258,7 @@
       },
       "q02": {
         "question": "1.000.000 Robux DevEx alt sınırını karşılıyor mu?",
-        "answer": "1.000.000 Earned Robux, belgelenmiş 30.000 alt sınırının 33,3 katıdır; yani eşiği aşar. Eşiği aşmak onaylanmakla aynı şey değildir — Roblox her talebi inceler."
+        "answer": "1.000.000 Earned Robux, belgelenmiş {minimumRobux} alt sınırının 33,3 katıdır; yani eşiği aşar. Eşiği aşmak onaylanmakla aynı şey değildir — Roblox her talebi inceler."
       }
     },
     "links": {
@@ -290,7 +290,7 @@
       },
       "q02": {
         "question": "10.000.000 Robux DevEx alt sınırını karşılıyor mu?",
-        "answer": "10.000.000 Earned Robux, belgelenmiş 30.000 alt sınırının 333,3 katıdır; yani eşiği aşar. Eşiği aşmak onaylanmakla aynı şey değildir — Roblox her talebi inceler."
+        "answer": "10.000.000 Earned Robux, belgelenmiş {minimumRobux} alt sınırının 333,3 katıdır; yani eşiği aşar. Eşiği aşmak onaylanmakla aynı şey değildir — Roblox her talebi inceler."
       }
     },
     "links": {
@@ -322,7 +322,7 @@
       },
       "q02": {
         "question": "200.000 Robux DevEx alt sınırını karşılıyor mu?",
-        "answer": "200.000 Earned Robux, belgelenmiş 30.000 alt sınırının 6,7 katıdır; yani eşiği aşar. Eşiği aşmak onaylanmakla aynı şey değildir — Roblox her talebi inceler."
+        "answer": "200.000 Earned Robux, belgelenmiş {minimumRobux} alt sınırının 6,7 katıdır; yani eşiği aşar. Eşiği aşmak onaylanmakla aynı şey değildir — Roblox her talebi inceler."
       }
     },
     "links": {
@@ -354,7 +354,7 @@
       },
       "q02": {
         "question": "30.000 Robux DevEx alt sınırını karşılıyor mu?",
-        "answer": "30.000 Earned Robux, belgelenmiş 30.000 alt sınırının 1,0 katıdır; yani eşiği aşar. Eşiği aşmak onaylanmakla aynı şey değildir — Roblox her talebi inceler."
+        "answer": "30.000 Earned Robux, belgelenmiş {minimumRobux} alt sınırının 1,0 katıdır; yani eşiği aşar. Eşiği aşmak onaylanmakla aynı şey değildir — Roblox her talebi inceler."
       }
     },
     "links": {
@@ -386,7 +386,7 @@
       },
       "q02": {
         "question": "300.000 Robux DevEx alt sınırını karşılıyor mu?",
-        "answer": "300.000 Earned Robux, belgelenmiş 30.000 alt sınırının 10,0 katıdır; yani eşiği aşar. Eşiği aşmak onaylanmakla aynı şey değildir — Roblox her talebi inceler."
+        "answer": "300.000 Earned Robux, belgelenmiş {minimumRobux} alt sınırının 10,0 katıdır; yani eşiği aşar. Eşiği aşmak onaylanmakla aynı şey değildir — Roblox her talebi inceler."
       }
     },
     "links": {
@@ -418,7 +418,7 @@
       },
       "q02": {
         "question": "50.000 Robux DevEx alt sınırını karşılıyor mu?",
-        "answer": "50.000 Earned Robux, belgelenmiş 30.000 alt sınırının 1,7 katıdır; yani eşiği aşar. Eşiği aşmak onaylanmakla aynı şey değildir — Roblox her talebi inceler."
+        "answer": "50.000 Earned Robux, belgelenmiş {minimumRobux} alt sınırının 1,7 katıdır; yani eşiği aşar. Eşiği aşmak onaylanmakla aynı şey değildir — Roblox her talebi inceler."
       }
     },
     "links": {
@@ -450,7 +450,7 @@
       },
       "q02": {
         "question": "500.000 Robux DevEx alt sınırını karşılıyor mu?",
-        "answer": "500.000 Earned Robux, belgelenmiş 30.000 alt sınırının 16,7 katıdır; yani eşiği aşar. Eşiği aşmak onaylanmakla aynı şey değildir — Roblox her talebi inceler."
+        "answer": "500.000 Earned Robux, belgelenmiş {minimumRobux} alt sınırının 16,7 katıdır; yani eşiği aşar. Eşiği aşmak onaylanmakla aynı şey değildir — Roblox her talebi inceler."
       }
     },
     "links": {
@@ -499,7 +499,7 @@
     "faqs": {
       "q01": {
         "question": "Roblox DevEx kurunun üstüne ayrıca ücret alıyor mu?",
-        "answer": "DevEx kuru, Roblox'un uygun her Earned Robux için ödediği tutardır. %30'luk platform komisyonu daha önce, Robux kazanıldığında uygulanmıştı — nakde çevirmede ikinci kez uygulanmaz."
+        "answer": "DevEx kuru, Roblox'un uygun her Earned Robux için ödediği tutardır. %{inExperiencePlatformShare}'luk platform komisyonu daha önce, Robux kazanıldığında uygulanmıştı — nakde çevirmede ikinci kez uygulanmaz."
       },
       "q02": {
         "question": "Bir DevEx ödemesine hangi vergi oranı uygulanır?",
@@ -553,7 +553,7 @@
   },
   "devexRates": {
     "title": "Roblox DevEx kurları: güncel, eski ve ABD 18+",
-    "metaDescription": "Roblox'un belgelediği üç DevEx kuru, her birinin 1.000 ve 30.000 Robux için ne ödediği ve hangisinin ne zaman geçerli olduğu.",
+    "metaDescription": "Roblox'un belgelediği üç DevEx kuru, her birinin 1.000 ve {minimumRobux} Robux için ne ödediği ve hangisinin ne zaman geçerli olduğu.",
     "h1": "Roblox DevEx kurları",
     "navLabel": "Kurlar",
     "quickAnswer": "Roblox üç DevEx kuru belgeliyor. Standart kur, uygun Earned Robux başına {rateStandard} USD, yani {minimumRobux} için {payout30000Plain} dolardır. 5 Eylül 2025 saat 10.00 PT'den önce kazanılan bakiyeler eski {rateLegacy} kurundan çevrilir. 18 yaş ve üzeri olduğu doğrulanmış Amerika Birleşik Devletleri oyuncularından gelen belirli Earned Robux {rateUs18}'ten çevrilir. Hangisinin geçerli olacağına içerik üreticisi değil, Roblox karar verir.",
@@ -569,7 +569,7 @@
     "faqs": {
       "q01": {
         "question": "1.000 Robux başına DevEx kuru nedir?",
-        "answer": "Standart kurda 1.000 uygun Earned Robux için 3,80 ABD doları. Eski kur 3,50 ödüyordu ve koşullu ABD 18+ kuru 5,40 ödüyor."
+        "answer": "Standart kurda 1.000 uygun Earned Robux için {rateStandardPerThousand} ABD doları. Eski kur {rateLegacyPerThousand} ödüyordu ve koşullu ABD 18+ kuru {rateUs18PerThousand} ödüyor."
       },
       "q02": {
         "question": "DevEx kuru {rateStandard}'e ne zaman değişti?",
@@ -595,14 +595,14 @@
   },
   "devexRequirements": {
     "title": "DevEx koşulları: asgari Robux ve uygunluk",
-    "metaDescription": "Roblox'un DevEx için istedikleri: 30.000 Earned Robux, doğrulanmış e-posta, portal hesabı, W-9 ya da W-8 ve kuralları ihlal etmemiş bir hesap.",
+    "metaDescription": "Roblox'un DevEx için istedikleri: {minimumRobux} Earned Robux, doğrulanmış e-posta, portal hesabı, W-9 ya da W-8 ve kuralları ihlal etmemiş bir hesap.",
     "h1": "DevEx koşulları",
     "navLabel": "Koşullar",
-    "quickAnswer": "Roblox DevEx için beş koşul belgeliyor: en az 30.000 Earned Robux, en az 13 yaş, Roblox tarafından doğrulanmış bir e-posta adresi, geçerli bir DevEx portal hesabı ve dosyada bir IRS W-9 ya da W-8 formu. Ayrıca Roblox Kullanım Koşulları'na ve Topluluk Standartları'na uymanız gerekir. Beşini de karşılamak başvurmanın koşuludur, onay güvencesi değil.",
+    "quickAnswer": "Roblox DevEx için beş koşul belgeliyor: en az {minimumRobux} Earned Robux, en az 13 yaş, Roblox tarafından doğrulanmış bir e-posta adresi, geçerli bir DevEx portal hesabı ve dosyada bir IRS W-9 ya da W-8 formu. Ayrıca Roblox Kullanım Koşulları'na ve Topluluk Standartları'na uymanız gerekir. Beşini de karşılamak başvurmanın koşuludur, onay güvencesi değil.",
     "ogImageAlt": "DevEx koşulları: asgari Earned Robux, doğrulanmış e-posta, portal hesabı ve vergi formları.",
     "sections": {
       "requirements": "Roblox neyi şart koşuyor",
-      "minimum": "30.000 Earned Robux alt sınırı",
+      "minimum": "{minimumRobux} Earned Robux alt sınırı",
       "not-approval": "Eşiği karşılamak onay değildir",
       "checklist": "Hazırlık listesi",
       "misunderstandings": "Sık görülen yanlış anlamalar",
@@ -611,7 +611,7 @@
     "faqs": {
       "q01": {
         "question": "DevEx için gereken asgari Robux nedir?",
-        "answer": "30.000 Earned Robux. 10.000 ya da 100.000 gibi eski rakamlar üçüncü taraf sitelerde dolaşıyor ama güncel resmî belgelerle örtüşmüyor."
+        "answer": "{minimumRobux} Earned Robux. 10.000 ya da 100.000 gibi eski rakamlar üçüncü taraf sitelerde dolaşıyor ama güncel resmî belgelerle örtüşmüyor."
       },
       "q02": {
         "question": "DevEx için kaç yaşında olmak gerekir?",
@@ -622,7 +622,7 @@
         "answer": "Evet. Bir DevEx talebinin ilerleyebilmesi için Roblox, Amerika Birleşik Devletleri mükellefleri için IRS W-9 formunun ya da ABD dışındaki mükellefler için W-8'in dosyada olmasını şart koşar."
       },
       "q04": {
-        "question": "30.000 Earned Robux'a ulaşmak ödeme alacağım anlamına mı geliyor?",
+        "question": "{minimumRobux} Earned Robux'a ulaşmak ödeme alacağım anlamına mı geliyor?",
         "answer": "Hayır. Eşik, talep göndermenizi sağlar. Roblox her talebi kendi ölçütlerine göre inceler ve hangi Robux'un Earned Robux sayılacağına karar verir. Hiçbir hesaplayıcı — bu da dâhil — uygunluğu belirleyemez."
       }
     },
@@ -675,12 +675,12 @@
         "answer": "Neredeyse kesinlikle değil. Bir bakiye, içerik üreticisi olarak kazandığınız Robux ile satın aldığınız ya da aldığınız Robux'u karıştırabilir. DevEx için yalnızca kazanılmış bölüm uygundur ve bu belirlemeyi Roblox yapar."
       },
       "q02": {
-        "question": "Satın aldığım Robux 30.000 alt sınırına sayılır mı?",
+        "question": "Satın aldığım Robux {minimumRobux} alt sınırına sayılır mı?",
         "answer": "Satın alınan Robux, Earned Robux değildir; dolayısıyla bir bakiyeyi DevEx için uygun hâle getirmez. Alt sınır özellikle Earned Robux'u kasteder."
       },
       "q03": {
         "question": "İçerik üreticileri Robux'u en baştan nasıl kazanıyor?",
-        "answer": "Roblox, developer product ve pass gibi experience içi satın almalara harcanan Robux'un %70'ini içerik üreticilerine öder, %30'unu tutar. Earned Robux olarak biriken şey işte o %70'tir."
+        "answer": "Roblox, developer product ve pass gibi experience içi satın almalara harcanan Robux'un %{inExperienceCreatorShare}'ini içerik üreticilerine öder, %{inExperiencePlatformShare}'unu tutar. Earned Robux olarak biriken şey işte o %{inExperienceCreatorShare}'tir."
       },
       "q04": {
         "question": "Grup fonları nakde çevrilebilir mi?",
@@ -741,7 +741,7 @@
     "metaDescription": "Uygun Earned Robux'u gerçek paraya çevirmenin resmî adımları, önce nelerin hazırlanacağı ve hangi hizmetlerden kaçınılacağı.",
     "h1": "Robux nasıl nakde çevrilir",
     "navLabel": "Nakde çevirme",
-    "quickAnswer": "Robux'u nakde çevirmek; en az 30.000 Earned Robux'a sahip olduğunuzda, doğrulanmış bir e-postanız ve dosyada bir W-9 ya da W-8 bulunduğunda resmî Roblox DevEx portalı üzerinden bir DevEx talebi göndermek demektir. Roblox her talebi inceler ve sonucu belirler. Resmî programın dışında meşru bir yol yoktur.",
+    "quickAnswer": "Robux'u nakde çevirmek; en az {minimumRobux} Earned Robux'a sahip olduğunuzda, doğrulanmış bir e-postanız ve dosyada bir W-9 ya da W-8 bulunduğunda resmî Roblox DevEx portalı üzerinden bir DevEx talebi göndermek demektir. Roblox her talebi inceler ve sonucu belirler. Resmî programın dışında meşru bir yol yoktur.",
     "ogImageAlt": "Robux nasıl nakde çevrilir: resmî DevEx talep süreci adım adım.",
     "sections": {
       "process": "Roblox'un belgelediği süreç",
@@ -939,7 +939,7 @@
     "metaDescription": "Roblox platform komisyonundan sonra size ne kaldığı ya da bir hedefe ulaşmak için ne kadar isteyeceğiniz. Experience içi ve Marketplace satışlarını kapsar.",
     "h1": "Roblox ücret hesaplayıcısı",
     "navLabel": "Roblox ücreti",
-    "quickAnswer": "\"Roblox ücreti\" platform komisyonudur ve ne sattığınıza bağlıdır. Developer product ve pass gibi experience içi satın almalarda siz %70 alırsınız, Roblox %30 alır. Marketplace avatar ürünlerinde içerik üreticisi payı %30'dan başlar ve fiyatla birlikte yükselerek taban fiyatın altı katında %70'e ulaşır. Bu, DevEx'ten ayrıdır.",
+    "quickAnswer": "\"Roblox ücreti\" platform komisyonudur ve ne sattığınıza bağlıdır. Developer product ve pass gibi experience içi satın almalarda siz %{inExperienceCreatorShare} alırsınız, Roblox %{inExperiencePlatformShare} alır. Marketplace avatar ürünlerinde içerik üreticisi payı %{marketplaceAvatarItemCreatorShare}'dan başlar ve fiyatla birlikte yükselerek taban fiyatın altı katında %{marketplaceAvatarItemPlatformShare}'e ulaşır. Bu, DevEx'ten ayrıdır.",
     "ogImageAlt": "Roblox ücret hesaplayıcısı: experience içi ve Marketplace satışlarındaki marketplace komisyonu.",
     "sections": {
       "calculator": "Marketplace ücret hesaplayıcısı",
@@ -952,7 +952,7 @@
     "faqs": {
       "q01": {
         "question": "Roblox ücreti ne kadar?",
-        "answer": "Experience içi satın almalarda içerik üreticisi %70 alır, Roblox %30 tutar. Marketplace avatar ürünü satışlarında içerik üreticisinin taban payı %30'dur; belgelenmiş bir kademe tablosu üzerinden yükselerek taban fiyatın altı katı veya üzeri fiyatlanan ürünler için %70'e çıkar."
+        "answer": "Experience içi satın almalarda içerik üreticisi %{inExperienceCreatorShare} alır, Roblox %{inExperiencePlatformShare} tutar. Marketplace avatar ürünü satışlarında içerik üreticisinin taban payı %{inExperiencePlatformShare}'dur; belgelenmiş bir kademe tablosu üzerinden yükselerek taban fiyatın altı katı veya üzeri fiyatlanan ürünler için %{inExperienceCreatorShare}'e çıkar."
       },
       "q02": {
         "question": "DevEx kullandığımda Roblox ücreti yeniden uygulanıyor mu?",
@@ -988,11 +988,11 @@
     "faqs": {
       "q01": {
         "question": "1.000 Robux kaç USD eder?",
-        "answer": "Uygun Earned Robux'u nakde çeviren bir içerik üreticisi için 1.000 Robux, güncel DevEx kurunda 3,80 ABD dolarıdır. Bu rakam bir ödeme kurudur; bir oyuncunun 1.000 Robux satın almak için ödediği fiyat değil."
+        "answer": "Uygun Earned Robux'u nakde çeviren bir içerik üreticisi için 1.000 Robux, güncel DevEx kurunda {rateStandardPerThousand} ABD dolarıdır. Bu rakam bir ödeme kurudur; bir oyuncunun 1.000 Robux satın almak için ödediği fiyat değil."
       },
       "q02": {
         "question": "Herhangi bir Robux'u USD'ye çevirebilir miyim?",
-        "answer": "Hayır. DevEx yoluyla yalnızca uygun Earned Robux çevrilebilir ve ancak bakiyeniz 30.000'e ulaştığında. Satın aldığınız Robux paraya geri çevrilemez."
+        "answer": "Hayır. DevEx yoluyla yalnızca uygun Earned Robux çevrilebilir ve ancak bakiyeniz {minimumRobux}'e ulaştığında. Satın aldığınız Robux paraya geri çevrilemez."
       },
       "q03": {
         "question": "Bu site neden tek bir Robux satın alma fiyatı yayımlamıyor?",
@@ -1057,7 +1057,7 @@
     "metaDescription": "Dolar cinsinden bir ödeme hedefi belirleyin ve kaç uygun Earned Robux gerektiğini yukarı yuvarlanmış olarak, mevcut bakiyenize göre ilerlemeyle birlikte görün.",
     "h1": "USD'den Robux'a: bir ödeme hedefinden geriye doğru hesaplayın",
     "navLabel": "Ödeme hedefi",
-    "quickAnswer": "Güncel kurda 1.000 ABD dolarlık bir DevEx ödemesine ulaşmak için 263.158 uygun Earned Robux gerekir. Rakam her zaman yukarı yuvarlanır; çünkü Robux'un kesri diye bir şey yoktur ve aşağı yuvarlamak sizi hedefinizin altında bırakırdı. 30.000 Earned Robux'un altında, hedef ne olursa olsun hiçbir ödeme mümkün değildir.",
+    "quickAnswer": "Güncel kurda 1.000 ABD dolarlık bir DevEx ödemesine ulaşmak için {targetRobuxUp} uygun Earned Robux gerekir. Rakam her zaman yukarı yuvarlanır; çünkü Robux'un kesri diye bir şey yoktur ve aşağı yuvarlamak sizi hedefinizin altında bırakırdı. {minimumRobux} Earned Robux'un altında, hedef ne olursa olsun hiçbir ödeme mümkün değildir.",
     "ogImageAlt": "USD'den Robux'a: hedeflenen bir DevEx ödemesi kaç Earned Robux gerektirir.",
     "sections": {
       "target-calculator": "Hedefiniz için gereken Earned Robux",
@@ -1075,7 +1075,7 @@
       },
       "q02": {
         "question": "100 USD için kaç Earned Robux gerekir?",
-        "answer": "26.316 Earned Robux aritmetik olarak 100 dolara ulaşırdı; ama bu 30.000 alt sınırının altında. Dolayısıyla bir talebin gönderilebilmesi için önce 30.000'e ihtiyacınız olurdu — ki bu da yaklaşık 114 dolar öder."
+        "answer": "26.316 Earned Robux aritmetik olarak 100 dolara ulaşırdı; ama bu {minimumRobux} alt sınırının altında. Dolayısıyla bir talebin gönderilebilmesi için önce {minimumRobux}'e ihtiyacınız olurdu — ki bu da yaklaşık 114 dolar öder."
       },
       "q03": {
         "question": "Bu bana belirli bir parayla kaç Robux alabileceğimi söyler mi?",

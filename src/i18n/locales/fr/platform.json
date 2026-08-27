@@ -299,7 +299,7 @@
       "whatItMeans": {
         "p1": "Très peu de chose, directement — et cela mérite d’être dit clairement. Les totaux de cette page décrivent la plateforme entière. Ils ne changent rien à ce que vaut votre propre solde, ce ne sont pas des prévisions, et un total qui monte ne signifie pas un taux qui monte. Ce qui détermine votre paiement, c’est le taux appliqué à vos Earned Robux éligibles, que vous pouvez calculer sur",
         "p2": "La seule chose que ces chiffres montrent vraiment, c’est l’échelle : DevEx est un programme par lequel Roblox a versé",
-        "p3": "en une seule année, un contexte utile avant de décider si le minimum de 30 000 Robux vaut la peine d’être visé."
+        "p3": "en une seule année, un contexte utile avant de décider si le minimum de {minimumRobux} Robux vaut la peine d’être visé."
       },
       "noLiveData": {
         "p1": "Roblox publie ces chiffres une fois par trimestre, dans un dépôt officiel. C’est la résolution la plus fine qui existe : un graphique prétendant les montrer évoluer à la minute montrerait donc quelque chose d’inventé. Ce site ne collecte aucune donnée, n’échantillonne rien et n’estime rien — il lit les dépôts et y renvoie."
@@ -310,7 +310,7 @@
       "quarterOfRevenue": "La ligne qui mérite d’être lue deux fois est la seconde. Les frais du Developer Exchange représentent environ un quart des revenus de Roblox : une part non négligeable de ce que la plateforme encaisse en ressort donc sous forme de versements aux créateurs. Chaque chiffre de ce tableau est tiré de {filings}.",
       "precision": "Les chiffres sont consignés à la précision employée par le dépôt. Là où Roblox a déclaré en milliers, le montant est exact au dollar près ; là où il a déclaré en millions, il est exact au million près et pas au-delà. Deux trimestres sont marqués comme dérivés parce qu’ils proviennent de la soustraction d’un trimestre déclaré à un total semestriel déclaré. Pour savoir comment ce site traite les chiffres, voyez {methodology}.",
       "whatItMeansIntro": "Très peu, directement — et cela mérite d’être dit franchement. Les totaux de cette page décrivent l’ensemble de la plateforme. Ils ne changent rien à ce que votre propre solde donne, ne sont pas une prévision, et un total en hausse ne signifie pas un taux en hausse. Ce qui détermine votre versement, c’est le taux appliqué à vos Earned Robux éligibles, que vous pouvez calculer sur {calculator}.",
-      "whatItMeans": "La seule chose que ces chiffres montrent vraiment, c’est l’échelle : DevEx est un programme par lequel Roblox a versé {amount} en une seule année, un contexte utile avant de décider si le minimum de 30 000 Robux vaut la peine d’être visé.",
+      "whatItMeans": "La seule chose que ces chiffres montrent vraiment, c’est l’échelle : DevEx est un programme par lequel Roblox a versé {amount} en une seule année, un contexte utile avant de décider si le minimum de {minimumRobux} Robux vaut la peine d’être visé.",
       "engagementSource": "Tous les chiffres ci-dessus, sauf le dernier, proviennent de {filings}, pour les trois mois clos le 30 juin 2026."
     },
     "yearOnYearNote": "de {from} à {to}",

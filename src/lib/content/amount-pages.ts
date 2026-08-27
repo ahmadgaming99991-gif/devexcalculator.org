@@ -30,7 +30,7 @@ export const APPROVED_AMOUNTS: readonly AmountPageDefinition[] = [
   {
     amount: 30_000,
     context:
-      "30,000 is the amount that matters most, because it is the minimum Earned Robux balance Roblox requires before a DevEx request can be submitted at all. Below this figure the question is not what the payout would be but whether a request can be made.",
+      "{minimumRobux} is the amount that matters most, because it is the minimum Earned Robux balance Roblox requires before a DevEx request can be submitted at all. Below this figure the question is not what the payout would be but whether a request can be made.",
     relatedAmounts: [50_000, 100_000],
   },
   {

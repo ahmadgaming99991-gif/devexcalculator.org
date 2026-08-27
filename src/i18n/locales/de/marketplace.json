@@ -67,6 +67,6 @@
     }
   },
   "prose": {
-    "notAppliedTwice": "Diese Provision wird einbehalten, wenn die Robux verdient werden. Die Robux, die Ihnen bleiben, über DevEx in Geld umzuwandeln ist ein eigener Schritt mit eigenem Satz — die 30 % werden nicht zweimal abgezogen."
+    "notAppliedTwice": "Diese Provision wird einbehalten, wenn die Robux verdient werden. Die Robux, die Ihnen bleiben, über DevEx in Geld umzuwandeln ist ein eigener Schritt mit eigenem Satz — die {inExperiencePlatformShare} % werden nicht zweimal abgezogen."
   }
 }

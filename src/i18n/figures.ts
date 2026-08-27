@@ -1,5 +1,9 @@
 import { formatCurrency, formatDecimal, formatRate, formatRobux } from "@/lib/calculations/format";
-import { getRateValue, minimumEarnedRobux } from "@/lib/calculations/rate-registry";
+import {
+  getRateValue,
+  marketplaceSchemes,
+  minimumEarnedRobux,
+} from "@/lib/calculations/rate-registry";
 import { Rational } from "@/lib/calculations/rational";
 
 /**
@@ -86,6 +90,30 @@ export function figures(locale: string): Readonly<Record<string, string>> {
 
     minimumRobux: formatRobux(locale, minimumEarnedRobux),
   };
+
+  /*
+   * The revenue splits, named by scheme rather than by number.
+   *
+   * `30` means three different things on this site — the creator's share of a
+   * Marketplace avatar item, Roblox's share of an in-experience purchase, and
+   * the item creator's share when an avatar item is bought inside somebody
+   * else's experience. A token per role is the only way a sentence can say
+   * which one it means, and the only way a change to one does not silently
+   * rewrite the other two.
+   */
+  for (const scheme of marketplaceSchemes) {
+    const id = scheme.id
+      .split("-")
+      .map((part, index) => (index === 0 ? part : part[0]?.toUpperCase() + part.slice(1)))
+      .join("");
+    values[`${id}CreatorShare`] = formatDecimal(locale, Number(scheme.creatorSharePercent));
+    values[`${id}PlatformShare`] = formatDecimal(locale, Number(scheme.platformSharePercent));
+    // Only the three-way split has one; the other two schemes pay nobody else.
+    const owner = (scheme as { experienceOwnerSharePercent?: string }).experienceOwnerSharePercent;
+    if (owner !== undefined) {
+      values[`${id}OwnerShare`] = formatDecimal(locale, Number(owner));
+    }
+  }
 
   for (const amount of CONVERSION_AMOUNTS) {
     const atStandard = payout(amount, STANDARD);

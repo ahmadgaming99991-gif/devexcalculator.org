@@ -24,15 +24,15 @@
     },
     "roblox-marketplace-fees": {
       "facts": [
-        "Venta de un artículo de avatar en el Marketplace: el creador recibe el 30%, Roblox recibe el 70%.",
-        "Artículo de avatar comprado dentro de una experiencia: creador del artículo 30%, propietario de la experiencia 40%, Roblox 30%.",
+        "Venta de un artículo de avatar en el Marketplace: el creador recibe el {marketplaceAvatarItemCreatorShare}%, Roblox recibe el {marketplaceAvatarItemPlatformShare}%.",
+        "Artículo de avatar comprado dentro de una experiencia: creador del artículo {avatarItemInExperienceCreatorShare}%, propietario de la experiencia {avatarItemInExperienceOwnerShare}%, Roblox {avatarItemInExperiencePlatformShare}%.",
         "Reparto progresivo de ingresos del Marketplace según el múltiplo del precio mínimo: 1x=30%, 1,3x=37%, 1,5x=41%, 2x=50%, 2,5x=57%, 3x=62%, 3,5x=65%, 4x=67%, 5x=69%, 6x o más=70%.",
         "El reparto progresivo de ingresos solo se aplica a las compras del Marketplace; las compras dentro de una experiencia usan la comisión base."
       ]
     },
     "roblox-monetization-overview": {
       "facts": [
-        "Los creadores reciben el 70% de los Robux gastados en compras dentro de la experiencia, como productos de desarrollador y pases; Roblox retiene el 30%.",
+        "Los creadores reciben el {inExperienceCreatorShare}% de los Robux gastados en compras dentro de la experiencia, como productos de desarrollador y pases; Roblox retiene el {inExperiencePlatformShare}%.",
         "Los Earned Robux deben convertirse a través del programa Developer Exchange para convertirse en dinero real."
       ]
     },
@@ -118,7 +118,7 @@
     }
   },
   "minimum": {
-    "note": "Roblox declara un mínimo de 30.000 Earned Robux para enviar una solicitud DevEx. Alcanzar la cifra no es lo mismo que ser aprobado."
+    "note": "Roblox declara un mínimo de {minimumRobux} Earned Robux para enviar una solicitud DevEx. Alcanzar la cifra no es lo mismo que ser aprobado."
   },
   "limits": {
     "note": "Estos son límites de seguridad de la aplicación elegidos por DevExCalculator.org para mantener acotados el cálculo y la representación. No son límites de Roblox y nunca deben presentarse como tales."

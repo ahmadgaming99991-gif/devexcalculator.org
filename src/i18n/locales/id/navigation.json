@@ -69,7 +69,7 @@
     "conversions": "Contoh perhitungan untuk jumlah yang umum",
     "calculators": "Semua kalkulator di situs ini",
     "devexRates": "Tarif saat ini, tarif lama, dan tarif bersyarat",
-    "devexRequirements": "Kelayakan dan minimum 30.000",
+    "devexRequirements": "Kelayakan dan minimum {minimumRobux}",
     "earnedRobux": "Robux mana yang benar-benar dihitung",
     "devexFeesAndTaxes": "Apa saja yang dipotong, dan oleh siapa",
     "devexRateHistory": "Setiap perubahan tarif, lengkap dengan tanggal",

@@ -31,8 +31,8 @@
       "line": 32,
       "category": "registry-prose",
       "words": 45,
-      "hasTokens": false,
-      "text": "30,000 is the amount that matters most, because it is the minimum Earned Robux balance Roblox requires before a DevEx request can be submitted at all. Below this figure the question is not what the payout would be but whether a request can be made."
+      "hasTokens": true,
+      "text": "{minimumRobux} is the amount that matters most, because it is the minimum Earned Robux balance Roblox requires before a DevEx request can be submitted at all. Below this figure the question is not what the payout would be but whether a request can be made."
     },
     {
       "file": "src/lib/content/amount-pages.ts",
@@ -143,8 +143,8 @@
       "line": 45,
       "category": "registry-prose",
       "words": 63,
-      "hasTokens": false,
-      "text": "Standard rate recorded at 0.0038 USD per eligible Earned Robux (114 USD per 30,000), the legacy rate at 0.0035 for balances earned before 5 September 2025 at 10:00 PT, and the conditional U.S. 18+ rate at 0.0054. The 30,000 Earned Robux minimum and the full eligibility list were verified at the same time. All checked directly against the Roblox Creator Hub DevEx documentation."
+      "hasTokens": true,
+      "text": "Standard rate recorded at {rateStandard} USD per eligible Earned Robux ({payout30000Plain} USD per {minimumRobux}), the legacy rate at {rateLegacy} for balances earned before 5 September 2025 at 10:00 PT, and the conditional U.S. 18+ rate at {rateUs18}. The {minimumRobux} Earned Robux minimum and the full eligibility list were verified at the same time. All checked directly against the Roblox Creator Hub DevEx documentation."
     },
     {
       "file": "src/lib/content/changelog.ts",
@@ -159,8 +159,8 @@
       "line": 55,
       "category": "registry-prose",
       "words": 51,
-      "hasTokens": false,
-      "text": "In-experience purchases recorded at 70% to the creator and 30% to Roblox. Marketplace avatar item sales recorded with the progressive revenue share table from 30% at the price floor to 70% at six times the floor. Avatar items sold inside an experience recorded as 30% creator, 40% experience owner, 30% Roblox."
+      "hasTokens": true,
+      "text": "In-experience purchases recorded at {inExperienceCreatorShare}% to the creator and {inExperiencePlatformShare}% to Roblox. Marketplace avatar item sales recorded with the progressive revenue share table from {inExperiencePlatformShare}% at the price floor to {inExperienceCreatorShare}% at six times the floor. Avatar items sold inside an experience recorded as {inExperiencePlatformShare}% creator, 40% experience owner, {inExperiencePlatformShare}% Roblox."
     },
     {
       "file": "src/lib/content/changelog.ts",
@@ -196,7 +196,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 28,
+      "line": 30,
       "category": "registry-prose",
       "words": 7,
       "hasTokens": false,
@@ -204,15 +204,15 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 29,
+      "line": 31,
       "category": "registry-prose",
       "words": 27,
-      "hasTokens": false,
-      "text": "What your eligible Earned Robux are worth in USD at the current 0.0038 DevEx rate, with legacy and U.S. 18+ comparisons and a source for every figure."
+      "hasTokens": true,
+      "text": "What your eligible Earned Robux are worth in USD at the current {rateStandard} DevEx rate, with legacy and U.S. 18+ comparisons and a source for every figure."
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 32,
+      "line": 34,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
@@ -220,15 +220,15 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 50,
+      "line": 52,
       "category": "registry-prose",
       "words": 57,
-      "hasTokens": false,
-      "text": "At the current DevEx rate of 0.0038 USD per eligible Earned Robux, 30,000 Earned Robux converts to about 114 US dollars and 100,000 converts to about 380. Only Earned Robux qualify, 30,000 is the minimum Roblox accepts, and every figure here is an estimate — Roblox alone decides which Robux qualify and whether a request is approved."
+      "hasTokens": true,
+      "text": "At the current DevEx rate of {rateStandard} USD per eligible Earned Robux, {minimumRobux} Earned Robux converts to about {payout30000Plain} US dollars and {robux100000} converts to about {payout100000Plain}. Only Earned Robux qualify, {minimumRobux} is the minimum Roblox accepts, and every figure here is an estimate — Roblox alone decides which Robux qualify and whether a request is approved."
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 53,
+      "line": 55,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -236,7 +236,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 54,
+      "line": 56,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -244,7 +244,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 55,
+      "line": 57,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -252,7 +252,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 56,
+      "line": 58,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -260,7 +260,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 57,
+      "line": 59,
       "category": "registry-prose",
       "words": 7,
       "hasTokens": false,
@@ -268,7 +268,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 58,
+      "line": 60,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -276,7 +276,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 59,
+      "line": 61,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -284,7 +284,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 60,
+      "line": 62,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -292,7 +292,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 64,
+      "line": 66,
       "category": "registry-prose",
       "words": 7,
       "hasTokens": false,
@@ -300,15 +300,15 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 65,
+      "line": 67,
       "category": "registry-prose",
       "words": 33,
-      "hasTokens": false,
-      "text": "Roblox documents a standard rate of 0.0038 USD per eligible Earned Robux, which it states as 114 USD for 30,000 Earned Robux. This rate took effect on 5 September 2025 at 10:00 PT."
+      "hasTokens": true,
+      "text": "Roblox documents a standard rate of {rateStandard} USD per eligible Earned Robux, which it states as {payout30000Plain} USD for {minimumRobux} Earned Robux. This rate took effect on 5 September 2025 at 10:00 PT."
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 70,
+      "line": 72,
       "category": "registry-prose",
       "words": 8,
       "hasTokens": false,
@@ -316,15 +316,15 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 71,
+      "line": 73,
       "category": "registry-prose",
       "words": 33,
-      "hasTokens": false,
-      "text": "100,000 eligible Earned Robux is about 380 US dollars at the standard rate before any payment-provider fees or tax. The same amount would have been 350 US dollars under the older 0.0035 rate."
+      "hasTokens": true,
+      "text": "{robux100000} eligible Earned Robux is about {payout100000Plain} US dollars at the standard rate before any payment-provider fees or tax. The same amount would have been {payoutLegacy100000Plain} US dollars under the older {rateLegacy} rate."
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 76,
+      "line": 78,
       "category": "registry-prose",
       "words": 8,
       "hasTokens": false,
@@ -332,15 +332,15 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 77,
+      "line": 79,
       "category": "registry-prose",
       "words": 32,
-      "hasTokens": false,
-      "text": "Roblox requires a minimum of 30,000 Earned Robux in your account before you can participate in DevEx. Reaching that number is a requirement, not an approval — Roblox still reviews every request."
+      "hasTokens": true,
+      "text": "Roblox requires a minimum of {minimumRobux} Earned Robux in your account before you can participate in DevEx. Reaching that number is a requirement, not an approval — Roblox still reviews every request."
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 82,
+      "line": 84,
       "category": "registry-prose",
       "words": 7,
       "hasTokens": false,
@@ -348,7 +348,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 83,
+      "line": 85,
       "category": "registry-prose",
       "words": 35,
       "hasTokens": false,
@@ -356,7 +356,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 88,
+      "line": 90,
       "category": "registry-prose",
       "words": 12,
       "hasTokens": false,
@@ -364,7 +364,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 89,
+      "line": 91,
       "category": "registry-prose",
       "words": 40,
       "hasTokens": false,
@@ -372,7 +372,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 93,
+      "line": 95,
       "category": "registry-prose",
       "words": 9,
       "hasTokens": false,
@@ -380,7 +380,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 94,
+      "line": 96,
       "category": "registry-prose",
       "words": 55,
       "hasTokens": false,
@@ -388,7 +388,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 100,
+      "line": 102,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -396,7 +396,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 101,
+      "line": 103,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -404,7 +404,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 102,
+      "line": 104,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -412,7 +412,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 103,
+      "line": 105,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -420,7 +420,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 105,
+      "line": 107,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -428,7 +428,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 106,
+      "line": 108,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -436,7 +436,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 107,
+      "line": 109,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -444,7 +444,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 108,
+      "line": 110,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -452,7 +452,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 114,
+      "line": 116,
       "category": "registry-prose",
       "words": 12,
       "hasTokens": false,
@@ -460,7 +460,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 126,
+      "line": 128,
       "category": "registry-prose",
       "words": 8,
       "hasTokens": false,
@@ -468,7 +468,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 127,
+      "line": 129,
       "category": "registry-prose",
       "words": 24,
       "hasTokens": false,
@@ -476,7 +476,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 130,
+      "line": 132,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -484,7 +484,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 148,
+      "line": 150,
       "category": "registry-prose",
       "words": 56,
       "hasTokens": false,
@@ -492,7 +492,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 151,
+      "line": 153,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -500,7 +500,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 152,
+      "line": 154,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -508,7 +508,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 153,
+      "line": 155,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -516,7 +516,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 154,
+      "line": 156,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -524,7 +524,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 155,
+      "line": 157,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -532,7 +532,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 156,
+      "line": 158,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -540,7 +540,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 160,
+      "line": 162,
       "category": "registry-prose",
       "words": 7,
       "hasTokens": false,
@@ -548,15 +548,15 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 161,
+      "line": 163,
       "category": "registry-prose",
       "words": 35,
-      "hasTokens": false,
-      "text": "For a creator cashing out eligible Earned Robux, 1,000 Robux is 3.80 US dollars at the current DevEx rate. That figure is a payout rate, not the price a player pays to buy 1,000 Robux."
+      "hasTokens": true,
+      "text": "For a creator cashing out eligible Earned Robux, 1,000 Robux is {rateStandardPerThousand} US dollars at the current DevEx rate. That figure is a payout rate, not the price a player pays to buy 1,000 Robux."
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 166,
+      "line": 168,
       "category": "registry-prose",
       "words": 7,
       "hasTokens": false,
@@ -564,15 +564,15 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 167,
+      "line": 169,
       "category": "registry-prose",
       "words": 26,
-      "hasTokens": false,
-      "text": "No. Only eligible Earned Robux can be converted through DevEx, and only once your balance reaches 30,000. Robux you bought cannot be converted back into money."
+      "hasTokens": true,
+      "text": "No. Only eligible Earned Robux can be converted through DevEx, and only once your balance reaches {minimumRobux}. Robux you bought cannot be converted back into money."
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 172,
+      "line": 174,
       "category": "registry-prose",
       "words": 11,
       "hasTokens": false,
@@ -580,7 +580,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 173,
+      "line": 175,
       "category": "registry-prose",
       "words": 35,
       "hasTokens": false,
@@ -588,7 +588,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 177,
+      "line": 179,
       "category": "registry-prose",
       "words": 8,
       "hasTokens": false,
@@ -596,7 +596,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 178,
+      "line": 180,
       "category": "registry-prose",
       "words": 35,
       "hasTokens": false,
@@ -604,27 +604,11 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 184,
+      "line": 186,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
       "text": "the full DevEx calculator"
-    },
-    {
-      "file": "src/lib/content/route-registry.ts",
-      "line": 185,
-      "category": "registry-prose",
-      "words": 5,
-      "hasTokens": false,
-      "text": "the rate behind this conversion"
-    },
-    {
-      "file": "src/lib/content/route-registry.ts",
-      "line": 186,
-      "category": "registry-prose",
-      "words": 5,
-      "hasTokens": false,
-      "text": "convert in the other direction"
     },
     {
       "file": "src/lib/content/route-registry.ts",
@@ -632,7 +616,7 @@
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
-      "text": "what makes a Robux eligible"
+      "text": "the rate behind this conversion"
     },
     {
       "file": "src/lib/content/route-registry.ts",
@@ -640,11 +624,27 @@
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
+      "text": "convert in the other direction"
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
+      "line": 189,
+      "category": "registry-prose",
+      "words": 5,
+      "hasTokens": false,
+      "text": "what makes a Robux eligible"
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
+      "line": 190,
+      "category": "registry-prose",
+      "words": 5,
+      "hasTokens": false,
       "text": "a table of common amounts"
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 194,
+      "line": 196,
       "category": "registry-prose",
       "words": 11,
       "hasTokens": false,
@@ -652,7 +652,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 205,
+      "line": 207,
       "category": "registry-prose",
       "words": 10,
       "hasTokens": false,
@@ -660,7 +660,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 206,
+      "line": 208,
       "category": "registry-prose",
       "words": 23,
       "hasTokens": false,
@@ -668,7 +668,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 209,
+      "line": 211,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -676,15 +676,15 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 224,
+      "line": 226,
       "category": "registry-prose",
       "words": 54,
-      "hasTokens": false,
-      "text": "To reach a 1,000 US dollar DevEx payout at the current rate you need 263,158 eligible Earned Robux. The figure always rounds up, because a fraction of a Robux does not exist and rounding down would leave you short of your target. Below 30,000 Earned Robux no payout is possible regardless of the goal."
+      "hasTokens": true,
+      "text": "To reach a 1,000 US dollar DevEx payout at the current rate you need {targetRobuxUp} eligible Earned Robux. The figure always rounds up, because a fraction of a Robux does not exist and rounding down would leave you short of your target. Below {minimumRobux} Earned Robux no payout is possible regardless of the goal."
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 227,
+      "line": 229,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -692,7 +692,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 228,
+      "line": 230,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -700,7 +700,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 229,
+      "line": 231,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -708,7 +708,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 230,
+      "line": 232,
       "category": "registry-prose",
       "words": 7,
       "hasTokens": false,
@@ -716,7 +716,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 231,
+      "line": 233,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -724,7 +724,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 232,
+      "line": 234,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -732,7 +732,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 233,
+      "line": 235,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -740,7 +740,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 237,
+      "line": 239,
       "category": "registry-prose",
       "words": 10,
       "hasTokens": false,
@@ -748,15 +748,15 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 238,
+      "line": 240,
       "category": "registry-prose",
       "words": 27,
-      "hasTokens": false,
-      "text": "263,158 eligible Earned Robux at the current 0.0038 rate. Dividing 1,000 by 0.0038 gives 263,157.89, and the result rounds up so the payout actually reaches the target."
+      "hasTokens": true,
+      "text": "{targetRobuxUp} eligible Earned Robux at the current {rateStandard} rate. Dividing {targetUsd} by {rateStandard} gives {targetRobuxExact}, and the result rounds up so the payout actually reaches the target."
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 243,
+      "line": 245,
       "category": "registry-prose",
       "words": 10,
       "hasTokens": false,
@@ -764,15 +764,15 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 244,
+      "line": 246,
       "category": "registry-prose",
       "words": 34,
-      "hasTokens": false,
-      "text": "26,316 Earned Robux would reach 100 dollars arithmetically, but that is below the 30,000 minimum, so you would need 30,000 before a request can be submitted at all — which pays about 114 dollars."
+      "hasTokens": true,
+      "text": "26,316 Earned Robux would reach 100 dollars arithmetically, but that is below the {minimumRobux} minimum, so you would need {minimumRobux} before a request can be submitted at all — which pays about 114 dollars."
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 249,
+      "line": 251,
       "category": "registry-prose",
       "words": 14,
       "hasTokens": false,
@@ -780,7 +780,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 250,
+      "line": 252,
       "category": "registry-prose",
       "words": 35,
       "hasTokens": false,
@@ -788,7 +788,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 254,
+      "line": 256,
       "category": "registry-prose",
       "words": 11,
       "hasTokens": false,
@@ -796,15 +796,15 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 255,
+      "line": 257,
       "category": "registry-prose",
       "words": 27,
-      "hasTokens": false,
-      "text": "Yes. Legacy balances convert at 0.0035, so reaching the same dollar target takes more Robux. Use the split mode on the calculator to model a mixed balance."
+      "hasTokens": true,
+      "text": "Yes. Legacy balances convert at {rateLegacy}, so reaching the same dollar target takes more Robux. Use the split mode on the calculator to model a mixed balance."
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 261,
+      "line": 263,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -812,7 +812,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 262,
+      "line": 264,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -820,7 +820,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 263,
+      "line": 265,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -828,7 +828,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 264,
+      "line": 266,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -836,7 +836,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 265,
+      "line": 267,
       "category": "registry-prose",
       "words": 7,
       "hasTokens": false,
@@ -844,7 +844,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 271,
+      "line": 273,
       "category": "registry-prose",
       "words": 12,
       "hasTokens": false,
@@ -852,7 +852,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 282,
+      "line": 284,
       "category": "registry-prose",
       "words": 8,
       "hasTokens": false,
@@ -860,15 +860,15 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 283,
+      "line": 285,
       "category": "registry-prose",
       "words": 18,
-      "hasTokens": false,
-      "text": "The three DevEx rates Roblox documents, what each pays per 1,000 and 30,000 Robux, and when each applies."
+      "hasTokens": true,
+      "text": "The three DevEx rates Roblox documents, what each pays per 1,000 and {minimumRobux} Robux, and when each applies."
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 286,
+      "line": 288,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
@@ -876,15 +876,15 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 303,
+      "line": 305,
       "category": "registry-prose",
       "words": 57,
-      "hasTokens": false,
-      "text": "Roblox documents three DevEx rates. The standard rate is 0.0038 USD per eligible Earned Robux, or 114 dollars for 30,000. Balances earned before 5 September 2025 at 10:00 PT convert at the older 0.0035 rate. Certain Earned Robux from verified United States players aged 18 or over convert at 0.0054. Roblox, not the creator, decides which applies."
+      "hasTokens": true,
+      "text": "Roblox documents three DevEx rates. The standard rate is {rateStandard} USD per eligible Earned Robux, or {payout30000Plain} dollars for {minimumRobux}. Balances earned before 5 September 2025 at 10:00 PT convert at the older {rateLegacy} rate. Certain Earned Robux from verified United States players aged 18 or over convert at {rateUs18}. Roblox, not the creator, decides which applies."
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 306,
+      "line": 308,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -892,7 +892,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 307,
+      "line": 309,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -900,7 +900,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 308,
+      "line": 310,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -908,7 +908,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 309,
+      "line": 311,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -916,7 +916,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 310,
+      "line": 312,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -924,7 +924,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 311,
+      "line": 313,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -932,7 +932,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 315,
+      "line": 317,
       "category": "registry-prose",
       "words": 8,
       "hasTokens": false,
@@ -940,39 +940,39 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 316,
+      "line": 318,
       "category": "registry-prose",
       "words": 25,
-      "hasTokens": false,
-      "text": "3.80 US dollars per 1,000 eligible Earned Robux at the standard rate. The legacy rate paid 3.50 and the conditional U.S. 18+ rate pays 5.40."
+      "hasTokens": true,
+      "text": "{rateStandardPerThousand} US dollars per 1,000 eligible Earned Robux at the standard rate. The legacy rate paid {rateLegacyPerThousand} and the conditional U.S. 18+ rate pays {rateUs18PerThousand}."
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 321,
+      "line": 323,
       "category": "registry-prose",
       "words": 8,
-      "hasTokens": false,
-      "text": "When did the DevEx rate change to 0.0038?"
+      "hasTokens": true,
+      "text": "When did the DevEx rate change to {rateStandard}?"
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 322,
+      "line": 324,
       "category": "registry-prose",
       "words": 25,
-      "hasTokens": false,
-      "text": "On 5 September 2025 at 10:00 PT. Balances earned before that moment are cashed out at the previous 0.0035 rate first, under Roblox's own accounting."
+      "hasTokens": true,
+      "text": "On 5 September 2025 at 10:00 PT. Balances earned before that moment are cashed out at the previous {rateLegacy} rate first, under Roblox's own accounting."
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 327,
+      "line": 329,
       "category": "registry-prose",
       "words": 6,
-      "hasTokens": false,
-      "text": "Who qualifies for the 0.0054 rate?"
+      "hasTokens": true,
+      "text": "Who qualifies for the {rateUs18} rate?"
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 328,
+      "line": 330,
       "category": "registry-prose",
       "words": 42,
       "hasTokens": false,
@@ -980,7 +980,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 333,
+      "line": 335,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -988,7 +988,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 334,
+      "line": 336,
       "category": "registry-prose",
       "words": 35,
       "hasTokens": false,
@@ -996,7 +996,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 340,
+      "line": 342,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -1004,7 +1004,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 341,
+      "line": 343,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -1012,7 +1012,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 342,
+      "line": 344,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -1020,7 +1020,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 343,
+      "line": 345,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -1028,7 +1028,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 344,
+      "line": 346,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -1036,7 +1036,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 345,
+      "line": 347,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -1044,7 +1044,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 351,
+      "line": 353,
       "category": "registry-prose",
       "words": 10,
       "hasTokens": false,
@@ -1052,7 +1052,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 364,
+      "line": 366,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -1060,7 +1060,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 365,
+      "line": 367,
       "category": "registry-prose",
       "words": 25,
       "hasTokens": false,
@@ -1068,7 +1068,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 368,
+      "line": 370,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
@@ -1076,7 +1076,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 382,
+      "line": 384,
       "category": "registry-prose",
       "words": 49,
       "hasTokens": false,
@@ -1084,7 +1084,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 385,
+      "line": 387,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -1092,7 +1092,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 386,
+      "line": 388,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -1100,7 +1100,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 387,
+      "line": 389,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -1108,7 +1108,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 388,
+      "line": 390,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -1116,7 +1116,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 389,
+      "line": 391,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -1124,7 +1124,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 393,
+      "line": 395,
       "category": "registry-prose",
       "words": 8,
       "hasTokens": false,
@@ -1132,7 +1132,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 394,
+      "line": 396,
       "category": "registry-prose",
       "words": 38,
       "hasTokens": false,
@@ -1140,7 +1140,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 399,
+      "line": 401,
       "category": "registry-prose",
       "words": 9,
       "hasTokens": false,
@@ -1148,7 +1148,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 400,
+      "line": 402,
       "category": "registry-prose",
       "words": 41,
       "hasTokens": false,
@@ -1156,7 +1156,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 404,
+      "line": 406,
       "category": "registry-prose",
       "words": 8,
       "hasTokens": false,
@@ -1164,7 +1164,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 405,
+      "line": 407,
       "category": "registry-prose",
       "words": 20,
       "hasTokens": false,
@@ -1172,7 +1172,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 411,
+      "line": 413,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -1180,7 +1180,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 412,
+      "line": 414,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -1188,7 +1188,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 413,
+      "line": 415,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -1196,7 +1196,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 419,
+      "line": 421,
       "category": "registry-prose",
       "words": 9,
       "hasTokens": false,
@@ -1204,7 +1204,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 427,
+      "line": 429,
       "category": "registry-prose",
       "words": 8,
       "hasTokens": false,
@@ -1212,7 +1212,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 428,
+      "line": 430,
       "category": "registry-prose",
       "words": 24,
       "hasTokens": false,
@@ -1220,7 +1220,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 431,
+      "line": 433,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
@@ -1228,7 +1228,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 445,
+      "line": 447,
       "category": "registry-prose",
       "words": 58,
       "hasTokens": false,
@@ -1236,7 +1236,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 448,
+      "line": 450,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -1244,7 +1244,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 449,
+      "line": 451,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -1252,7 +1252,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 450,
+      "line": 452,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -1260,7 +1260,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 451,
+      "line": 453,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
@@ -1268,7 +1268,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 455,
+      "line": 457,
       "category": "registry-prose",
       "words": 7,
       "hasTokens": false,
@@ -1276,7 +1276,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 456,
+      "line": 458,
       "category": "registry-prose",
       "words": 38,
       "hasTokens": false,
@@ -1284,7 +1284,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 460,
+      "line": 462,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -1292,7 +1292,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 461,
+      "line": 463,
       "category": "registry-prose",
       "words": 39,
       "hasTokens": false,
@@ -1300,7 +1300,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 466,
+      "line": 468,
       "category": "registry-prose",
       "words": 8,
       "hasTokens": false,
@@ -1308,7 +1308,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 467,
+      "line": 469,
       "category": "registry-prose",
       "words": 29,
       "hasTokens": false,
@@ -1316,7 +1316,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 473,
+      "line": 475,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -1324,7 +1324,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 474,
+      "line": 476,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -1332,7 +1332,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 475,
+      "line": 477,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -1340,7 +1340,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 481,
+      "line": 483,
       "category": "registry-prose",
       "words": 8,
       "hasTokens": false,
@@ -1348,7 +1348,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 492,
+      "line": 494,
       "category": "registry-prose",
       "words": 8,
       "hasTokens": false,
@@ -1356,7 +1356,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 493,
+      "line": 495,
       "category": "registry-prose",
       "words": 24,
       "hasTokens": false,
@@ -1364,7 +1364,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 496,
+      "line": 498,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
@@ -1372,7 +1372,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 515,
+      "line": 517,
       "category": "registry-prose",
       "words": 54,
       "hasTokens": false,
@@ -1380,7 +1380,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 518,
+      "line": 520,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -1388,7 +1388,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 519,
+      "line": 521,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -1396,7 +1396,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 520,
+      "line": 522,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -1404,7 +1404,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 521,
+      "line": 523,
       "category": "registry-prose",
       "words": 9,
       "hasTokens": false,
@@ -1412,7 +1412,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 522,
+      "line": 524,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -1420,7 +1420,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 523,
+      "line": 525,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -1428,7 +1428,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 524,
+      "line": 526,
       "category": "registry-prose",
       "words": 7,
       "hasTokens": false,
@@ -1436,7 +1436,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 525,
+      "line": 527,
       "category": "registry-prose",
       "words": 7,
       "hasTokens": false,
@@ -1444,7 +1444,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 526,
+      "line": 528,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -1452,7 +1452,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 530,
+      "line": 532,
       "category": "registry-prose",
       "words": 8,
       "hasTokens": false,
@@ -1460,7 +1460,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 531,
+      "line": 533,
       "category": "registry-prose",
       "words": 29,
       "hasTokens": false,
@@ -1468,7 +1468,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 536,
+      "line": 538,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -1476,7 +1476,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 537,
+      "line": 539,
       "category": "registry-prose",
       "words": 33,
       "hasTokens": false,
@@ -1484,7 +1484,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 542,
+      "line": 544,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -1492,7 +1492,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 543,
+      "line": 545,
       "category": "registry-prose",
       "words": 42,
       "hasTokens": false,
@@ -1500,7 +1500,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 548,
+      "line": 550,
       "category": "registry-prose",
       "words": 10,
       "hasTokens": false,
@@ -1508,7 +1508,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 549,
+      "line": 551,
       "category": "registry-prose",
       "words": 30,
       "hasTokens": false,
@@ -1516,7 +1516,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 555,
+      "line": 557,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -1524,7 +1524,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 556,
+      "line": 558,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -1532,7 +1532,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 557,
+      "line": 559,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -1540,7 +1540,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 558,
+      "line": 560,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -1548,7 +1548,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 564,
+      "line": 566,
       "category": "registry-prose",
       "words": 10,
       "hasTokens": false,
@@ -1556,7 +1556,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 576,
+      "line": 578,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -1564,15 +1564,15 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 577,
+      "line": 579,
       "category": "registry-prose",
       "words": 24,
-      "hasTokens": false,
-      "text": "What Roblox requires for DevEx: 30,000 Earned Robux, a verified email, a portal account, a W-9 or W-8, and an account in good standing."
+      "hasTokens": true,
+      "text": "What Roblox requires for DevEx: {minimumRobux} Earned Robux, a verified email, a portal account, a W-9 or W-8, and an account in good standing."
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 580,
+      "line": 582,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
@@ -1580,15 +1580,15 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 594,
+      "line": 596,
       "category": "registry-prose",
       "words": 60,
-      "hasTokens": false,
-      "text": "Roblox documents five requirements for DevEx: at least 30,000 Earned Robux, a minimum age of 13, a Roblox-verified email address, a valid DevEx portal account, and an IRS form W-9 or W-8 on file. You must also comply with the Roblox Terms of Use and Community Standards. Meeting all five is a condition of applying, not a guarantee of approval."
+      "hasTokens": true,
+      "text": "Roblox documents five requirements for DevEx: at least {minimumRobux} Earned Robux, a minimum age of 13, a Roblox-verified email address, a valid DevEx portal account, and an IRS form W-9 or W-8 on file. You must also comply with the Roblox Terms of Use and Community Standards. Meeting all five is a condition of applying, not a guarantee of approval."
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 597,
+      "line": 599,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -1596,15 +1596,15 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 598,
+      "line": 600,
       "category": "registry-prose",
       "words": 5,
-      "hasTokens": false,
-      "text": "The 30,000 Earned Robux minimum"
+      "hasTokens": true,
+      "text": "The {minimumRobux} Earned Robux minimum"
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 599,
+      "line": 601,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -1612,7 +1612,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 600,
+      "line": 602,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -1620,7 +1620,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 601,
+      "line": 603,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -1628,7 +1628,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 602,
+      "line": 604,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -1636,7 +1636,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 606,
+      "line": 608,
       "category": "registry-prose",
       "words": 8,
       "hasTokens": false,
@@ -1644,15 +1644,15 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 607,
+      "line": 609,
       "category": "registry-prose",
       "words": 21,
-      "hasTokens": false,
-      "text": "30,000 Earned Robux. Older figures such as 10,000 or 100,000 circulate on third-party sites but do not match current official documentation."
+      "hasTokens": true,
+      "text": "{minimumRobux} Earned Robux. Older figures such as 10,000 or 100,000 circulate on third-party sites but do not match current official documentation."
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 612,
+      "line": 614,
       "category": "registry-prose",
       "words": 9,
       "hasTokens": false,
@@ -1660,15 +1660,15 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 613,
+      "line": 615,
       "category": "registry-prose",
       "words": 31,
-      "hasTokens": false,
-      "text": "Roblox documents a minimum age of 13 to participate. Separately, the higher 0.0054 rate depends on the age verification of the players who spent the Robux, not on the creator's age."
+      "hasTokens": true,
+      "text": "Roblox documents a minimum age of 13 to participate. Separately, the higher {rateUs18} rate depends on the age verification of the players who spent the Robux, not on the creator's age."
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 618,
+      "line": 620,
       "category": "registry-prose",
       "words": 7,
       "hasTokens": false,
@@ -1676,7 +1676,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 619,
+      "line": 621,
       "category": "registry-prose",
       "words": 28,
       "hasTokens": false,
@@ -1684,15 +1684,15 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 624,
+      "line": 626,
       "category": "registry-prose",
       "words": 10,
-      "hasTokens": false,
-      "text": "Does reaching 30,000 Earned Robux mean I will be paid?"
+      "hasTokens": true,
+      "text": "Does reaching {minimumRobux} Earned Robux mean I will be paid?"
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 625,
+      "line": 627,
       "category": "registry-prose",
       "words": 32,
       "hasTokens": false,
@@ -1700,7 +1700,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 631,
+      "line": 633,
       "category": "registry-prose",
       "words": 7,
       "hasTokens": false,
@@ -1708,7 +1708,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 632,
+      "line": 634,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -1716,7 +1716,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 634,
+      "line": 636,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -1724,7 +1724,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 640,
+      "line": 642,
       "category": "registry-prose",
       "words": 12,
       "hasTokens": false,
@@ -1732,7 +1732,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 651,
+      "line": 653,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -1740,7 +1740,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 652,
+      "line": 654,
       "category": "registry-prose",
       "words": 22,
       "hasTokens": false,
@@ -1748,7 +1748,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 655,
+      "line": 657,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -1756,7 +1756,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 668,
+      "line": 670,
       "category": "registry-prose",
       "words": 55,
       "hasTokens": false,
@@ -1764,7 +1764,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 671,
+      "line": 673,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -1772,7 +1772,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 672,
+      "line": 674,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -1780,7 +1780,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 673,
+      "line": 675,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -1788,7 +1788,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 674,
+      "line": 676,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -1796,7 +1796,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 675,
+      "line": 677,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -1804,7 +1804,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 676,
+      "line": 678,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -1812,7 +1812,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 680,
+      "line": 682,
       "category": "registry-prose",
       "words": 7,
       "hasTokens": false,
@@ -1820,7 +1820,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 681,
+      "line": 683,
       "category": "registry-prose",
       "words": 32,
       "hasTokens": false,
@@ -1828,15 +1828,15 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 686,
+      "line": 688,
       "category": "registry-prose",
       "words": 9,
-      "hasTokens": false,
-      "text": "Do Robux I bought count toward the 30,000 minimum?"
+      "hasTokens": true,
+      "text": "Do Robux I bought count toward the {minimumRobux} minimum?"
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 687,
+      "line": 689,
       "category": "registry-prose",
       "words": 23,
       "hasTokens": false,
@@ -1844,7 +1844,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 692,
+      "line": 694,
       "category": "registry-prose",
       "words": 9,
       "hasTokens": false,
@@ -1852,15 +1852,15 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 693,
+      "line": 695,
       "category": "registry-prose",
       "words": 27,
-      "hasTokens": false,
-      "text": "Roblox pays creators 70% of the Robux spent on in-experience purchases such as developer products and passes, retaining 30%. That 70% is what accumulates as Earned Robux."
+      "hasTokens": true,
+      "text": "Roblox pays creators {inExperienceCreatorShare}% of the Robux spent on in-experience purchases such as developer products and passes, retaining {inExperiencePlatformShare}%. That {inExperienceCreatorShare}% is what accumulates as Earned Robux."
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 698,
+      "line": 700,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -1868,7 +1868,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 699,
+      "line": 701,
       "category": "registry-prose",
       "words": 36,
       "hasTokens": false,
@@ -1876,7 +1876,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 705,
+      "line": 707,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -1884,7 +1884,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 706,
+      "line": 708,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -1892,7 +1892,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 707,
+      "line": 709,
       "category": "registry-prose",
       "words": 7,
       "hasTokens": false,
@@ -1900,7 +1900,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 708,
+      "line": 710,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -1908,7 +1908,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 714,
+      "line": 716,
       "category": "registry-prose",
       "words": 12,
       "hasTokens": false,
@@ -1916,7 +1916,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 725,
+      "line": 727,
       "category": "registry-prose",
       "words": 7,
       "hasTokens": false,
@@ -1924,7 +1924,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 726,
+      "line": 728,
       "category": "registry-prose",
       "words": 20,
       "hasTokens": false,
@@ -1932,7 +1932,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 729,
+      "line": 731,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -1940,27 +1940,11 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 743,
+      "line": 745,
       "category": "registry-prose",
       "words": 51,
-      "hasTokens": false,
-      "text": "Cashing out Robux means submitting a DevEx request through the official Roblox DevEx portal once you hold at least 30,000 Earned Robux, have a verified email, and have a W-9 or W-8 on file. Roblox reviews each request and decides the outcome. There is no legitimate route outside the official programme."
-    },
-    {
-      "file": "src/lib/content/route-registry.ts",
-      "line": 746,
-      "category": "registry-prose",
-      "words": 4,
-      "hasTokens": false,
-      "text": "The process Roblox documents"
-    },
-    {
-      "file": "src/lib/content/route-registry.ts",
-      "line": 747,
-      "category": "registry-prose",
-      "words": 4,
-      "hasTokens": false,
-      "text": "Prepare before you apply"
+      "hasTokens": true,
+      "text": "Cashing out Robux means submitting a DevEx request through the official Roblox DevEx portal once you hold at least {minimumRobux} Earned Robux, have a verified email, and have a W-9 or W-8 on file. Roblox reviews each request and decides the outcome. There is no legitimate route outside the official programme."
     },
     {
       "file": "src/lib/content/route-registry.ts",
@@ -1968,23 +1952,23 @@
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
-      "text": "How long it takes"
+      "text": "The process Roblox documents"
     },
     {
       "file": "src/lib/content/route-registry.ts",
       "line": 749,
       "category": "registry-prose",
-      "words": 3,
+      "words": 4,
       "hasTokens": false,
-      "text": "Avoid unofficial services"
+      "text": "Prepare before you apply"
     },
     {
       "file": "src/lib/content/route-registry.ts",
       "line": 750,
       "category": "registry-prose",
-      "words": 5,
+      "words": 4,
       "hasTokens": false,
-      "text": "When a group earned it"
+      "text": "How long it takes"
     },
     {
       "file": "src/lib/content/route-registry.ts",
@@ -1992,11 +1976,27 @@
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
-      "text": "After the payout"
+      "text": "Avoid unofficial services"
     },
     {
       "file": "src/lib/content/route-registry.ts",
       "line": 752,
+      "category": "registry-prose",
+      "words": 5,
+      "hasTokens": false,
+      "text": "When a group earned it"
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
+      "line": 753,
+      "category": "registry-prose",
+      "words": 3,
+      "hasTokens": false,
+      "text": "After the payout"
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
+      "line": 754,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -2004,7 +2004,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 756,
+      "line": 758,
       "category": "registry-prose",
       "words": 7,
       "hasTokens": false,
@@ -2012,7 +2012,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 757,
+      "line": 759,
       "category": "registry-prose",
       "words": 22,
       "hasTokens": false,
@@ -2020,7 +2020,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 762,
+      "line": 764,
       "category": "registry-prose",
       "words": 7,
       "hasTokens": false,
@@ -2028,7 +2028,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 763,
+      "line": 765,
       "category": "registry-prose",
       "words": 30,
       "hasTokens": false,
@@ -2036,7 +2036,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 768,
+      "line": 770,
       "category": "registry-prose",
       "words": 8,
       "hasTokens": false,
@@ -2044,7 +2044,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 769,
+      "line": 771,
       "category": "registry-prose",
       "words": 39,
       "hasTokens": false,
@@ -2052,7 +2052,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 773,
+      "line": 775,
       "category": "registry-prose",
       "words": 8,
       "hasTokens": false,
@@ -2060,7 +2060,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 774,
+      "line": 776,
       "category": "registry-prose",
       "words": 35,
       "hasTokens": false,
@@ -2068,7 +2068,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 779,
+      "line": 781,
       "category": "registry-prose",
       "words": 7,
       "hasTokens": false,
@@ -2076,7 +2076,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 780,
+      "line": 782,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -2084,7 +2084,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 781,
+      "line": 783,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -2092,7 +2092,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 782,
+      "line": 784,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -2100,7 +2100,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 788,
+      "line": 790,
       "category": "registry-prose",
       "words": 13,
       "hasTokens": false,
@@ -2108,23 +2108,23 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 799,
+      "line": 801,
       "category": "registry-prose",
       "words": 8,
-      "hasTokens": false,
-      "text": "DevEx Rate History: The 2025 Change from 0.0035"
+      "hasTokens": true,
+      "text": "DevEx Rate History: The 2025 Change from {rateLegacy}"
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 800,
+      "line": 802,
       "category": "registry-prose",
       "words": 22,
-      "hasTokens": false,
-      "text": "A dated record of verified DevEx rates, including the September 2025 rise from 0.0035 to 0.0038 and how legacy balances are treated."
+      "hasTokens": true,
+      "text": "A dated record of verified DevEx rates, including the September 2025 rise from {rateLegacy} to {rateStandard} and how legacy balances are treated."
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 803,
+      "line": 805,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -2132,15 +2132,15 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 817,
+      "line": 819,
       "category": "registry-prose",
       "words": 52,
-      "hasTokens": false,
-      "text": "The documented change is from 0.0035 to 0.0038 USD per Earned Robux, effective 5 September 2025 at 10:00 PT. For 30,000 Earned Robux that moved the payout from 105 to 114 dollars. Balances earned before the change are cashed out at the older rate first, so a single balance can span both."
+      "hasTokens": true,
+      "text": "The documented change is from {rateLegacy} to {rateStandard} USD per Earned Robux, effective 5 September 2025 at 10:00 PT. For {minimumRobux} Earned Robux that moved the payout from {payoutLegacy30000Plain} to {payout30000Plain} dollars. Balances earned before the change are cashed out at the older rate first, so a single balance can span both."
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 820,
+      "line": 822,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -2148,7 +2148,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 821,
+      "line": 823,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -2156,7 +2156,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 822,
+      "line": 824,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -2164,7 +2164,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 823,
+      "line": 825,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -2172,7 +2172,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 824,
+      "line": 826,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -2180,7 +2180,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 828,
+      "line": 830,
       "category": "registry-prose",
       "words": 8,
       "hasTokens": false,
@@ -2188,15 +2188,15 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 829,
+      "line": 831,
       "category": "registry-prose",
       "words": 15,
-      "hasTokens": false,
-      "text": "0.0035 USD per Earned Robux, which Roblox stated as 105 dollars for 30,000 Earned Robux."
+      "hasTokens": true,
+      "text": "{rateLegacy} USD per Earned Robux, which Roblox stated as {payoutLegacy30000Plain} dollars for {minimumRobux} Earned Robux."
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 834,
+      "line": 836,
       "category": "registry-prose",
       "words": 9,
       "hasTokens": false,
@@ -2204,15 +2204,15 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 835,
+      "line": 837,
       "category": "registry-prose",
       "words": 30,
-      "hasTokens": false,
-      "text": "Robux earned before 5 September 2025 at 10:00 PT are cashed out at 0.0035 first, according to Roblox's transition rules. The split is Roblox's accounting, not something a creator selects."
+      "hasTokens": true,
+      "text": "Robux earned before 5 September 2025 at 10:00 PT are cashed out at {rateLegacy} first, according to Roblox's transition rules. The split is Roblox's accounting, not something a creator selects."
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 840,
+      "line": 842,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -2220,7 +2220,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 841,
+      "line": 843,
       "category": "registry-prose",
       "words": 23,
       "hasTokens": false,
@@ -2228,7 +2228,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 846,
+      "line": 848,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -2236,7 +2236,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 847,
+      "line": 849,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -2244,7 +2244,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 848,
+      "line": 850,
       "category": "registry-prose",
       "words": 7,
       "hasTokens": false,
@@ -2252,15 +2252,15 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 854,
+      "line": 856,
       "category": "registry-prose",
       "words": 11,
-      "hasTokens": false,
-      "text": "DevEx rate history: the September 2025 change from 0.0035 to 0.0038."
+      "hasTokens": true,
+      "text": "DevEx rate history: the September 2025 change from {rateLegacy} to {rateStandard}."
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 865,
+      "line": 867,
       "category": "registry-prose",
       "words": 9,
       "hasTokens": false,
@@ -2268,7 +2268,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 866,
+      "line": 868,
       "category": "registry-prose",
       "words": 23,
       "hasTokens": false,
@@ -2276,7 +2276,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 869,
+      "line": 871,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -2284,7 +2284,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 882,
+      "line": 884,
       "category": "registry-prose",
       "words": 54,
       "hasTokens": false,
@@ -2292,7 +2292,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 885,
+      "line": 887,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -2300,7 +2300,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 886,
+      "line": 888,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -2308,7 +2308,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 887,
+      "line": 889,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -2316,7 +2316,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 888,
+      "line": 890,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -2324,7 +2324,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 889,
+      "line": 891,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -2332,7 +2332,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 890,
+      "line": 892,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -2340,7 +2340,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 894,
+      "line": 896,
       "category": "registry-prose",
       "words": 11,
       "hasTokens": false,
@@ -2348,15 +2348,15 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 895,
+      "line": 897,
       "category": "registry-prose",
       "words": 34,
-      "hasTokens": false,
-      "text": "The DevEx rate is what Roblox pays per eligible Earned Robux. The 30% platform commission was already applied earlier, when the Robux were earned — it is not applied a second time at cash-out."
+      "hasTokens": true,
+      "text": "The DevEx rate is what Roblox pays per eligible Earned Robux. The {inExperiencePlatformShare}% platform commission was already applied earlier, when the Robux were earned — it is not applied a second time at cash-out."
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 900,
+      "line": 902,
       "category": "registry-prose",
       "words": 8,
       "hasTokens": false,
@@ -2364,7 +2364,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 901,
+      "line": 903,
       "category": "registry-prose",
       "words": 33,
       "hasTokens": false,
@@ -2372,7 +2372,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 905,
+      "line": 907,
       "category": "registry-prose",
       "words": 9,
       "hasTokens": false,
@@ -2380,7 +2380,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 906,
+      "line": 908,
       "category": "registry-prose",
       "words": 32,
       "hasTokens": false,
@@ -2388,7 +2388,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 912,
+      "line": 914,
       "category": "registry-prose",
       "words": 8,
       "hasTokens": false,
@@ -2396,7 +2396,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 914,
+      "line": 916,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -2404,7 +2404,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 915,
+      "line": 917,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -2412,7 +2412,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 921,
+      "line": 923,
       "category": "registry-prose",
       "words": 12,
       "hasTokens": false,
@@ -2420,7 +2420,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 932,
+      "line": 934,
       "category": "registry-prose",
       "words": 8,
       "hasTokens": false,
@@ -2428,7 +2428,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 933,
+      "line": 935,
       "category": "registry-prose",
       "words": 21,
       "hasTokens": false,
@@ -2436,7 +2436,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 936,
+      "line": 938,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -2444,7 +2444,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 950,
+      "line": 952,
       "category": "registry-prose",
       "words": 57,
       "hasTokens": false,
@@ -2452,7 +2452,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 953,
+      "line": 955,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -2460,7 +2460,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 954,
+      "line": 956,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -2468,7 +2468,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 955,
+      "line": 957,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -2476,7 +2476,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 956,
+      "line": 958,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -2484,7 +2484,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 957,
+      "line": 959,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -2492,7 +2492,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 958,
+      "line": 960,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -2500,7 +2500,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 962,
+      "line": 964,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -2508,15 +2508,15 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 963,
+      "line": 965,
       "category": "registry-prose",
       "words": 41,
-      "hasTokens": false,
-      "text": "On in-experience purchases the creator keeps 70% and Roblox retains 30%. On Marketplace avatar item sales the base creator share is 30%, rising through a documented tier table to 70% for items priced at six times the price floor or above."
+      "hasTokens": true,
+      "text": "On in-experience purchases the creator keeps {inExperienceCreatorShare}% and Roblox retains {inExperiencePlatformShare}%. On Marketplace avatar item sales the base creator share is {inExperiencePlatformShare}%, rising through a documented tier table to {inExperienceCreatorShare}% for items priced at six times the price floor or above."
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 968,
+      "line": 970,
       "category": "registry-prose",
       "words": 10,
       "hasTokens": false,
@@ -2524,7 +2524,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 969,
+      "line": 971,
       "category": "registry-prose",
       "words": 28,
       "hasTokens": false,
@@ -2532,7 +2532,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 974,
+      "line": 976,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -2540,7 +2540,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 975,
+      "line": 977,
       "category": "registry-prose",
       "words": 31,
       "hasTokens": false,
@@ -2548,7 +2548,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 981,
+      "line": 983,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -2556,7 +2556,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 982,
+      "line": 984,
       "category": "registry-prose",
       "words": 7,
       "hasTokens": false,
@@ -2564,7 +2564,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 983,
+      "line": 985,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -2572,7 +2572,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 984,
+      "line": 986,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -2580,7 +2580,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 990,
+      "line": 992,
       "category": "registry-prose",
       "words": 10,
       "hasTokens": false,
@@ -2588,7 +2588,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1001,
+      "line": 1003,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -2596,7 +2596,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1002,
+      "line": 1004,
       "category": "registry-prose",
       "words": 18,
       "hasTokens": false,
@@ -2604,7 +2604,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1005,
+      "line": 1007,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
@@ -2612,7 +2612,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1013,
+      "line": 1015,
       "category": "registry-prose",
       "words": 44,
       "hasTokens": false,
@@ -2620,7 +2620,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1015,
+      "line": 1017,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -2628,7 +2628,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1018,
+      "line": 1020,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -2636,7 +2636,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1019,
+      "line": 1021,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -2644,7 +2644,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1020,
+      "line": 1022,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -2652,7 +2652,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1021,
+      "line": 1023,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -2660,7 +2660,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1022,
+      "line": 1024,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -2668,7 +2668,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1028,
+      "line": 1030,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -2676,7 +2676,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1035,
+      "line": 1037,
       "category": "registry-prose",
       "words": 7,
       "hasTokens": false,
@@ -2684,7 +2684,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1036,
+      "line": 1038,
       "category": "registry-prose",
       "words": 18,
       "hasTokens": false,
@@ -2692,7 +2692,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1039,
+      "line": 1041,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
@@ -2700,7 +2700,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1047,
+      "line": 1049,
       "category": "registry-prose",
       "words": 45,
       "hasTokens": false,
@@ -2708,7 +2708,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1049,
+      "line": 1051,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -2716,7 +2716,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1052,
+      "line": 1054,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -2724,7 +2724,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1053,
+      "line": 1055,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -2732,7 +2732,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1054,
+      "line": 1056,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -2740,7 +2740,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1055,
+      "line": 1057,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -2748,7 +2748,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1056,
+      "line": 1058,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -2756,7 +2756,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1057,
+      "line": 1059,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -2764,7 +2764,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1058,
+      "line": 1060,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -2772,7 +2772,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1059,
+      "line": 1061,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -2780,7 +2780,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1065,
+      "line": 1067,
       "category": "registry-prose",
       "words": 8,
       "hasTokens": false,
@@ -2788,7 +2788,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1072,
+      "line": 1074,
       "category": "registry-prose",
       "words": 7,
       "hasTokens": false,
@@ -2796,7 +2796,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1073,
+      "line": 1075,
       "category": "registry-prose",
       "words": 21,
       "hasTokens": false,
@@ -2804,7 +2804,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1076,
+      "line": 1078,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
@@ -2812,15 +2812,15 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1088,
+      "line": 1090,
       "category": "registry-prose",
       "words": 45,
-      "hasTokens": false,
-      "text": "Every amount below is converted at the current DevEx rate of 0.0038 USD per eligible Earned Robux, with the legacy and conditional rates shown alongside for comparison. Amounts under 30,000 are included for reference but cannot be cashed out, because that is the documented minimum."
+      "hasTokens": true,
+      "text": "Every amount below is converted at the current DevEx rate of {rateStandard} USD per eligible Earned Robux, with the legacy and conditional rates shown alongside for comparison. Amounts under {minimumRobux} are included for reference but cannot be cashed out, because that is the documented minimum."
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1091,
+      "line": 1093,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -2828,7 +2828,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1092,
+      "line": 1094,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -2836,7 +2836,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1093,
+      "line": 1095,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -2844,7 +2844,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1094,
+      "line": 1096,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -2852,7 +2852,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1098,
+      "line": 1100,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -2860,7 +2860,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1099,
+      "line": 1101,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -2868,7 +2868,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1100,
+      "line": 1102,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -2876,7 +2876,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1106,
+      "line": 1108,
       "category": "registry-prose",
       "words": 9,
       "hasTokens": false,
@@ -2884,7 +2884,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1117,
+      "line": 1119,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -2892,7 +2892,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1118,
+      "line": 1120,
       "category": "registry-prose",
       "words": 23,
       "hasTokens": false,
@@ -2900,7 +2900,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1121,
+      "line": 1123,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
@@ -2908,7 +2908,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1129,
+      "line": 1131,
       "category": "registry-prose",
       "words": 40,
       "hasTokens": false,
@@ -2916,7 +2916,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1132,
+      "line": 1134,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -2924,7 +2924,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1133,
+      "line": 1135,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -2932,7 +2932,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1134,
+      "line": 1136,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -2940,7 +2940,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1135,
+      "line": 1137,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
@@ -2948,7 +2948,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1139,
+      "line": 1141,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -2956,7 +2956,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1140,
+      "line": 1142,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -2964,7 +2964,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1141,
+      "line": 1143,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -2972,7 +2972,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1142,
+      "line": 1144,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -2980,7 +2980,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1143,
+      "line": 1145,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -2988,7 +2988,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1149,
+      "line": 1151,
       "category": "registry-prose",
       "words": 9,
       "hasTokens": false,
@@ -2996,7 +2996,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1156,
+      "line": 1158,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -3004,7 +3004,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1157,
+      "line": 1159,
       "category": "registry-prose",
       "words": 21,
       "hasTokens": false,
@@ -3012,7 +3012,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1160,
+      "line": 1162,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
@@ -3020,7 +3020,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1168,
+      "line": 1170,
       "category": "registry-prose",
       "words": 46,
       "hasTokens": false,
@@ -3028,7 +3028,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1171,
+      "line": 1173,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -3036,7 +3036,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1172,
+      "line": 1174,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -3044,7 +3044,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1173,
+      "line": 1175,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -3052,7 +3052,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1174,
+      "line": 1176,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -3060,7 +3060,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1175,
+      "line": 1177,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -3068,7 +3068,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1179,
+      "line": 1181,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -3076,7 +3076,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1180,
+      "line": 1182,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -3084,7 +3084,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1181,
+      "line": 1183,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -3092,7 +3092,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1182,
+      "line": 1184,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -3100,7 +3100,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1183,
+      "line": 1185,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -3108,7 +3108,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1189,
+      "line": 1191,
       "category": "registry-prose",
       "words": 8,
       "hasTokens": false,
@@ -3116,7 +3116,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1196,
+      "line": 1198,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -3124,7 +3124,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1197,
+      "line": 1199,
       "category": "registry-prose",
       "words": 24,
       "hasTokens": false,
@@ -3132,7 +3132,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1200,
+      "line": 1202,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
@@ -3140,7 +3140,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1210,
+      "line": 1212,
       "category": "registry-prose",
       "words": 46,
       "hasTokens": false,
@@ -3148,7 +3148,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1213,
+      "line": 1215,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -3156,27 +3156,11 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1214,
+      "line": 1216,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
       "text": "Review cadence"
-    },
-    {
-      "file": "src/lib/content/route-registry.ts",
-      "line": 1218,
-      "category": "registry-prose",
-      "words": 5,
-      "hasTokens": false,
-      "text": "read these sources as JSON"
-    },
-    {
-      "file": "src/lib/content/route-registry.ts",
-      "line": 1219,
-      "category": "registry-prose",
-      "words": 5,
-      "hasTokens": false,
-      "text": "how the figures are calculated"
     },
     {
       "file": "src/lib/content/route-registry.ts",
@@ -3184,7 +3168,15 @@
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
-      "text": "the rates these sources support"
+      "text": "read these sources as JSON"
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
+      "line": 1221,
+      "category": "registry-prose",
+      "words": 5,
+      "hasTokens": false,
+      "text": "how the figures are calculated"
     },
     {
       "file": "src/lib/content/route-registry.ts",
@@ -3192,11 +3184,19 @@
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
+      "text": "the rates these sources support"
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
+      "line": 1224,
+      "category": "registry-prose",
+      "words": 5,
+      "hasTokens": false,
       "text": "the calculator these sources feed"
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1228,
+      "line": 1230,
       "category": "registry-prose",
       "words": 9,
       "hasTokens": false,
@@ -3204,7 +3204,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1235,
+      "line": 1237,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -3212,7 +3212,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1236,
+      "line": 1238,
       "category": "registry-prose",
       "words": 25,
       "hasTokens": false,
@@ -3220,7 +3220,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1239,
+      "line": 1241,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -3228,7 +3228,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1247,
+      "line": 1249,
       "category": "registry-prose",
       "words": 43,
       "hasTokens": false,
@@ -3236,7 +3236,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1250,
+      "line": 1252,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -3244,7 +3244,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1251,
+      "line": 1253,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -3252,7 +3252,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1252,
+      "line": 1254,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -3260,7 +3260,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1253,
+      "line": 1255,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -3268,7 +3268,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1257,
+      "line": 1259,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -3276,7 +3276,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1258,
+      "line": 1260,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -3284,7 +3284,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1259,
+      "line": 1261,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -3292,7 +3292,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1265,
+      "line": 1267,
       "category": "registry-prose",
       "words": 9,
       "hasTokens": false,
@@ -3300,7 +3300,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1272,
+      "line": 1274,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -3308,7 +3308,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1273,
+      "line": 1275,
       "category": "registry-prose",
       "words": 25,
       "hasTokens": false,
@@ -3316,7 +3316,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1276,
+      "line": 1278,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
@@ -3324,7 +3324,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1284,
+      "line": 1286,
       "category": "registry-prose",
       "words": 47,
       "hasTokens": false,
@@ -3332,7 +3332,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1287,
+      "line": 1289,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -3340,7 +3340,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1288,
+      "line": 1290,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -3348,7 +3348,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1289,
+      "line": 1291,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -3356,7 +3356,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1293,
+      "line": 1295,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -3364,7 +3364,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1294,
+      "line": 1296,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -3372,7 +3372,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1295,
+      "line": 1297,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -3380,7 +3380,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1296,
+      "line": 1298,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -3388,7 +3388,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1302,
+      "line": 1304,
       "category": "registry-prose",
       "words": 8,
       "hasTokens": false,
@@ -3396,7 +3396,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1312,
+      "line": 1314,
       "category": "registry-prose",
       "words": 7,
       "hasTokens": false,
@@ -3404,7 +3404,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1313,
+      "line": 1315,
       "category": "registry-prose",
       "words": 24,
       "hasTokens": false,
@@ -3412,7 +3412,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1324,
+      "line": 1326,
       "category": "registry-prose",
       "words": 61,
       "hasTokens": false,
@@ -3420,7 +3420,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1327,
+      "line": 1329,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -3428,7 +3428,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1328,
+      "line": 1330,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -3436,7 +3436,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1329,
+      "line": 1331,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -3444,7 +3444,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1330,
+      "line": 1332,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -3452,7 +3452,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1331,
+      "line": 1333,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -3460,7 +3460,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1332,
+      "line": 1334,
       "category": "registry-prose",
       "words": 7,
       "hasTokens": false,
@@ -3468,7 +3468,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1336,
+      "line": 1338,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -3476,7 +3476,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1337,
+      "line": 1339,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -3484,7 +3484,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1338,
+      "line": 1340,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -3492,7 +3492,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1339,
+      "line": 1341,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -3500,7 +3500,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1345,
+      "line": 1347,
       "category": "registry-prose",
       "words": 12,
       "hasTokens": false,
@@ -3508,7 +3508,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1352,
+      "line": 1354,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
@@ -3516,7 +3516,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1353,
+      "line": 1355,
       "category": "registry-prose",
       "words": 24,
       "hasTokens": false,
@@ -3524,7 +3524,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1356,
+      "line": 1358,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
@@ -3532,7 +3532,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1364,
+      "line": 1366,
       "category": "registry-prose",
       "words": 39,
       "hasTokens": false,
@@ -3540,7 +3540,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1366,
+      "line": 1368,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -3548,7 +3548,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1369,
+      "line": 1371,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -3556,7 +3556,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1370,
+      "line": 1372,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -3564,7 +3564,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1371,
+      "line": 1373,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -3572,7 +3572,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1372,
+      "line": 1374,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -3580,7 +3580,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1378,
+      "line": 1380,
       "category": "registry-prose",
       "words": 10,
       "hasTokens": false,
@@ -3588,7 +3588,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1385,
+      "line": 1387,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
@@ -3596,7 +3596,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1386,
+      "line": 1388,
       "category": "registry-prose",
       "words": 17,
       "hasTokens": false,
@@ -3604,7 +3604,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1389,
+      "line": 1391,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
@@ -3612,7 +3612,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1397,
+      "line": 1399,
       "category": "registry-prose",
       "words": 50,
       "hasTokens": false,
@@ -3620,7 +3620,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1400,
+      "line": 1402,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -3628,7 +3628,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1401,
+      "line": 1403,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -3636,7 +3636,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1405,
+      "line": 1407,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -3644,7 +3644,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1406,
+      "line": 1408,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -3652,7 +3652,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1407,
+      "line": 1409,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -3660,7 +3660,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1413,
+      "line": 1415,
       "category": "registry-prose",
       "words": 7,
       "hasTokens": false,
@@ -3668,7 +3668,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1424,
+      "line": 1426,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -3676,7 +3676,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1425,
+      "line": 1427,
       "category": "registry-prose",
       "words": 26,
       "hasTokens": false,
@@ -3684,7 +3684,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1428,
+      "line": 1430,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
@@ -3692,7 +3692,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1436,
+      "line": 1438,
       "category": "registry-prose",
       "words": 48,
       "hasTokens": false,
@@ -3700,7 +3700,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1439,
+      "line": 1441,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -3708,7 +3708,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1440,
+      "line": 1442,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -3716,7 +3716,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1441,
+      "line": 1443,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
@@ -3724,7 +3724,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1442,
+      "line": 1444,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -3732,7 +3732,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1443,
+      "line": 1445,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -3740,7 +3740,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1444,
+      "line": 1446,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -3748,7 +3748,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1445,
+      "line": 1447,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -3756,7 +3756,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1449,
+      "line": 1451,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -3764,7 +3764,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1450,
+      "line": 1452,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -3772,7 +3772,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1452,
+      "line": 1454,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -3780,7 +3780,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1458,
+      "line": 1460,
       "category": "registry-prose",
       "words": 8,
       "hasTokens": false,
@@ -3788,7 +3788,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1465,
+      "line": 1467,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -3796,7 +3796,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1466,
+      "line": 1468,
       "category": "registry-prose",
       "words": 22,
       "hasTokens": false,
@@ -3804,7 +3804,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1469,
+      "line": 1471,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
@@ -3812,7 +3812,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1477,
+      "line": 1479,
       "category": "registry-prose",
       "words": 44,
       "hasTokens": false,
@@ -3820,7 +3820,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1480,
+      "line": 1482,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -3828,7 +3828,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1481,
+      "line": 1483,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -3836,7 +3836,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1482,
+      "line": 1484,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -3844,7 +3844,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1483,
+      "line": 1485,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -3852,7 +3852,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1484,
+      "line": 1486,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -3860,7 +3860,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1488,
+      "line": 1490,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -3868,7 +3868,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1489,
+      "line": 1491,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -3876,7 +3876,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1490,
+      "line": 1492,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -3884,7 +3884,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1496,
+      "line": 1498,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -3892,7 +3892,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1503,
+      "line": 1505,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
@@ -3900,7 +3900,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1504,
+      "line": 1506,
       "category": "registry-prose",
       "words": 22,
       "hasTokens": false,
@@ -3908,7 +3908,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1507,
+      "line": 1509,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
@@ -3916,7 +3916,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1515,
+      "line": 1517,
       "category": "registry-prose",
       "words": 45,
       "hasTokens": false,
@@ -3924,7 +3924,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1518,
+      "line": 1520,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -3932,7 +3932,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1519,
+      "line": 1521,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -3940,7 +3940,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1520,
+      "line": 1522,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
@@ -3948,7 +3948,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1521,
+      "line": 1523,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -3956,7 +3956,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1525,
+      "line": 1527,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -3964,7 +3964,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1526,
+      "line": 1528,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -3972,7 +3972,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1527,
+      "line": 1529,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -3980,7 +3980,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1528,
+      "line": 1530,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -3988,7 +3988,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1534,
+      "line": 1536,
       "category": "registry-prose",
       "words": 8,
       "hasTokens": false,
@@ -3996,7 +3996,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1541,
+      "line": 1543,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -4004,7 +4004,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1542,
+      "line": 1544,
       "category": "registry-prose",
       "words": 21,
       "hasTokens": false,
@@ -4012,7 +4012,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1545,
+      "line": 1547,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
@@ -4020,7 +4020,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1553,
+      "line": 1555,
       "category": "registry-prose",
       "words": 42,
       "hasTokens": false,
@@ -4028,7 +4028,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1556,
+      "line": 1558,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -4036,7 +4036,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1557,
+      "line": 1559,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -4044,7 +4044,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1558,
+      "line": 1560,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -4052,7 +4052,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1559,
+      "line": 1561,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -4060,7 +4060,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1560,
+      "line": 1562,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -4068,7 +4068,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1564,
+      "line": 1566,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -4076,7 +4076,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1565,
+      "line": 1567,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -4084,7 +4084,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1571,
+      "line": 1573,
       "category": "registry-prose",
       "words": 7,
       "hasTokens": false,
@@ -4092,7 +4092,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1603,
+      "line": 1605,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -4100,7 +4100,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1604,
+      "line": 1606,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -4108,7 +4108,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1605,
+      "line": 1607,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -4116,7 +4116,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1606,
+      "line": 1608,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,

@@ -69,7 +69,7 @@
     "conversions": "Worked examples for common amounts",
     "calculators": "Every calculator on the site",
     "devexRates": "Current, legacy and conditional rates",
-    "devexRequirements": "Eligibility and the 30,000 minimum",
+    "devexRequirements": "Eligibility and the {minimumRobux} minimum",
     "earnedRobux": "Which Robux actually count",
     "devexFeesAndTaxes": "What is taken out, and by whom",
     "devexRateHistory": "Every rate change, dated",

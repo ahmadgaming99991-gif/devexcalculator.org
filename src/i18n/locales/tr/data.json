@@ -24,15 +24,15 @@
     },
     "roblox-marketplace-fees": {
       "facts": [
-        "Marketplace'te avatar ürünü satışı: yaratıcı %30, Roblox %70 alır.",
-        "Bir deneyim içinde satın alınan avatar ürünü: ürünün yaratıcısı %30, deneyimin sahibi %40, Roblox %30.",
+        "Marketplace'te avatar ürünü satışı: yaratıcı %{marketplaceAvatarItemCreatorShare}, Roblox %{marketplaceAvatarItemPlatformShare} alır.",
+        "Bir deneyim içinde satın alınan avatar ürünü: ürünün yaratıcısı %{avatarItemInExperienceCreatorShare}, deneyimin sahibi %{avatarItemInExperienceOwnerShare}, Roblox %{avatarItemInExperiencePlatformShare}.",
         "Taban fiyatın katına göre kademeli Marketplace gelir paylaşımı: 1x=%30, 1,3x=%37, 1,5x=%41, 2x=%50, 2,5x=%57, 3x=%62, 3,5x=%65, 4x=%67, 5x=%69, 6x ve üzeri=%70.",
         "Kademeli gelir paylaşımı yalnızca Marketplace alışverişlerinde geçerlidir; deneyim içi alışverişlerde temel komisyon uygulanır."
       ]
     },
     "roblox-monetization-overview": {
       "facts": [
-        "Yaratıcılar, geliştirici ürünleri ve pass gibi deneyim içi alışverişlerde harcanan Robux'un %70'ini alır; Roblox %30'unu tutar.",
+        "Yaratıcılar, geliştirici ürünleri ve pass gibi deneyim içi alışverişlerde harcanan Robux'un %{inExperienceCreatorShare}'ini alır; Roblox %{inExperiencePlatformShare}'unu tutar.",
         "Earned Robux'un gerçek paraya dönüşmesi için Developer Exchange programı üzerinden çevrilmesi gerekir."
       ]
     },
@@ -118,7 +118,7 @@
     }
   },
   "minimum": {
-    "note": "Roblox, DevEx talebi göndermek için en az 30.000 Earned Robux gerektiğini belirtiyor. Bu sayıya ulaşmak, onaylanmakla aynı şey değildir."
+    "note": "Roblox, DevEx talebi göndermek için en az {minimumRobux} Earned Robux gerektiğini belirtiyor. Bu sayıya ulaşmak, onaylanmakla aynı şey değildir."
   },
   "limits": {
     "note": "Bunlar, hesaplamayı ve gösterimi sınırlar içinde tutmak için DevExCalculator.org tarafından seçilmiş uygulama güvenlik sınırlarıdır. Roblox'un sınırları değildir ve asla öyleymiş gibi sunulmamalıdır."

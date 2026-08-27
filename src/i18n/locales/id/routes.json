@@ -38,7 +38,7 @@
       },
       "q03": {
         "question": "Berapa batas minimum Earned Robux untuk DevEx?",
-        "answer": "Roblox mensyaratkan minimal 30.000 Earned Robux di akun Anda sebelum Anda bisa ikut DevEx. Mencapai angka itu adalah syarat, bukan persetujuan — Roblox tetap meninjau setiap permohonan."
+        "answer": "Roblox mensyaratkan minimal {minimumRobux} Earned Robux di akun Anda sebelum Anda bisa ikut DevEx. Mencapai angka itu adalah syarat, bukan persetujuan — Roblox tetap meninjau setiap permohonan."
       },
       "q04": {
         "question": "Apakah semua saldo Robux memenuhi syarat untuk DevEx?",
@@ -190,7 +190,7 @@
     "metaDescription": "Jumlah Earned Robux yang umum dinilai pada kurs saat ini, kurs lama, dan kurs AS 18+, ditambah kolom isian untuk jumlah berapa pun yang Anda mau.",
     "h1": "Konversi Robux ke USD",
     "navLabel": "Konversi",
-    "quickAnswer": "Setiap jumlah di bawah dikonversi pada kurs DevEx saat ini {rateStandard} USD per Earned Robux yang memenuhi syarat, dengan kurs lama dan kurs bersyarat ditampilkan di sebelahnya sebagai pembanding. Jumlah di bawah 30.000 disertakan sebagai rujukan tetapi tidak bisa dicairkan, karena itulah batas minimum yang terdokumentasi.",
+    "quickAnswer": "Setiap jumlah di bawah dikonversi pada kurs DevEx saat ini {rateStandard} USD per Earned Robux yang memenuhi syarat, dengan kurs lama dan kurs bersyarat ditampilkan di sebelahnya sebagai pembanding. Jumlah di bawah {minimumRobux} disertakan sebagai rujukan tetapi tidak bisa dicairkan, karena itulah batas minimum yang terdokumentasi.",
     "ogImageAlt": "Tabel konversi jumlah Robux yang umum ke dolar AS.",
     "sections": {
       "converter": "Konversikan jumlah berapa pun",
@@ -226,7 +226,7 @@
       },
       "q02": {
         "question": "Apakah 100.000 Robux memenuhi batas minimum DevEx?",
-        "answer": "100.000 Earned Robux adalah 3,3 kali batas minimum terdokumentasi 30.000, jadi sudah melewati ambangnya. Melewati ambang tidak sama dengan disetujui — Roblox meninjau setiap permohonan."
+        "answer": "100.000 Earned Robux adalah 3,3 kali batas minimum terdokumentasi {minimumRobux}, jadi sudah melewati ambangnya. Melewati ambang tidak sama dengan disetujui — Roblox meninjau setiap permohonan."
       }
     },
     "links": {
@@ -258,7 +258,7 @@
       },
       "q02": {
         "question": "Apakah 1.000.000 Robux memenuhi batas minimum DevEx?",
-        "answer": "1.000.000 Earned Robux adalah 33,3 kali batas minimum terdokumentasi 30.000, jadi sudah melewati ambangnya. Melewati ambang tidak sama dengan disetujui — Roblox meninjau setiap permohonan."
+        "answer": "1.000.000 Earned Robux adalah 33,3 kali batas minimum terdokumentasi {minimumRobux}, jadi sudah melewati ambangnya. Melewati ambang tidak sama dengan disetujui — Roblox meninjau setiap permohonan."
       }
     },
     "links": {
@@ -290,7 +290,7 @@
       },
       "q02": {
         "question": "Apakah 10.000.000 Robux memenuhi batas minimum DevEx?",
-        "answer": "10.000.000 Earned Robux adalah 333,3 kali batas minimum terdokumentasi 30.000, jadi sudah melewati ambangnya. Melewati ambang tidak sama dengan disetujui — Roblox meninjau setiap permohonan."
+        "answer": "10.000.000 Earned Robux adalah 333,3 kali batas minimum terdokumentasi {minimumRobux}, jadi sudah melewati ambangnya. Melewati ambang tidak sama dengan disetujui — Roblox meninjau setiap permohonan."
       }
     },
     "links": {
@@ -322,7 +322,7 @@
       },
       "q02": {
         "question": "Apakah 200.000 Robux memenuhi batas minimum DevEx?",
-        "answer": "200.000 Earned Robux adalah 6,7 kali batas minimum terdokumentasi 30.000, jadi sudah melewati ambangnya. Melewati ambang tidak sama dengan disetujui — Roblox meninjau setiap permohonan."
+        "answer": "200.000 Earned Robux adalah 6,7 kali batas minimum terdokumentasi {minimumRobux}, jadi sudah melewati ambangnya. Melewati ambang tidak sama dengan disetujui — Roblox meninjau setiap permohonan."
       }
     },
     "links": {
@@ -354,7 +354,7 @@
       },
       "q02": {
         "question": "Apakah 30.000 Robux memenuhi batas minimum DevEx?",
-        "answer": "30.000 Earned Robux adalah 1,0 kali batas minimum terdokumentasi 30.000, jadi sudah melewati ambangnya. Melewati ambang tidak sama dengan disetujui — Roblox meninjau setiap permohonan."
+        "answer": "30.000 Earned Robux adalah 1,0 kali batas minimum terdokumentasi {minimumRobux}, jadi sudah melewati ambangnya. Melewati ambang tidak sama dengan disetujui — Roblox meninjau setiap permohonan."
       }
     },
     "links": {
@@ -386,7 +386,7 @@
       },
       "q02": {
         "question": "Apakah 300.000 Robux memenuhi batas minimum DevEx?",
-        "answer": "300.000 Earned Robux adalah 10,0 kali batas minimum terdokumentasi 30.000, jadi sudah melewati ambangnya. Melewati ambang tidak sama dengan disetujui — Roblox meninjau setiap permohonan."
+        "answer": "300.000 Earned Robux adalah 10,0 kali batas minimum terdokumentasi {minimumRobux}, jadi sudah melewati ambangnya. Melewati ambang tidak sama dengan disetujui — Roblox meninjau setiap permohonan."
       }
     },
     "links": {
@@ -418,7 +418,7 @@
       },
       "q02": {
         "question": "Apakah 50.000 Robux memenuhi batas minimum DevEx?",
-        "answer": "50.000 Earned Robux adalah 1,7 kali batas minimum terdokumentasi 30.000, jadi sudah melewati ambangnya. Melewati ambang tidak sama dengan disetujui — Roblox meninjau setiap permohonan."
+        "answer": "50.000 Earned Robux adalah 1,7 kali batas minimum terdokumentasi {minimumRobux}, jadi sudah melewati ambangnya. Melewati ambang tidak sama dengan disetujui — Roblox meninjau setiap permohonan."
       }
     },
     "links": {
@@ -450,7 +450,7 @@
       },
       "q02": {
         "question": "Apakah 500.000 Robux memenuhi batas minimum DevEx?",
-        "answer": "500.000 Earned Robux adalah 16,7 kali batas minimum terdokumentasi 30.000, jadi sudah melewati ambangnya. Melewati ambang tidak sama dengan disetujui — Roblox meninjau setiap permohonan."
+        "answer": "500.000 Earned Robux adalah 16,7 kali batas minimum terdokumentasi {minimumRobux}, jadi sudah melewati ambangnya. Melewati ambang tidak sama dengan disetujui — Roblox meninjau setiap permohonan."
       }
     },
     "links": {
@@ -499,7 +499,7 @@
     "faqs": {
       "q01": {
         "question": "Apakah Roblox mengambil biaya di atas kurs DevEx?",
-        "answer": "Kurs DevEx adalah apa yang dibayar Roblox per Earned Robux yang memenuhi syarat. Komisi platform 30% sudah dikenakan lebih awal, ketika Robux itu diperoleh — komisi itu tidak dikenakan kedua kali saat pencairan."
+        "answer": "Kurs DevEx adalah apa yang dibayar Roblox per Earned Robux yang memenuhi syarat. Komisi platform {inExperiencePlatformShare}% sudah dikenakan lebih awal, ketika Robux itu diperoleh — komisi itu tidak dikenakan kedua kali saat pencairan."
       },
       "q02": {
         "question": "Tarif pajak berapa yang berlaku untuk pembayaran DevEx?",
@@ -553,7 +553,7 @@
   },
   "devexRates": {
     "title": "Kurs DevEx Roblox: saat ini, lama, dan AS 18+",
-    "metaDescription": "Tiga kurs DevEx yang didokumentasikan Roblox, berapa yang dibayar masing-masing per 1.000 dan per 30.000 Robux, dan kapan tiap kurs berlaku.",
+    "metaDescription": "Tiga kurs DevEx yang didokumentasikan Roblox, berapa yang dibayar masing-masing per 1.000 dan per {minimumRobux} Robux, dan kapan tiap kurs berlaku.",
     "h1": "Kurs DevEx Roblox",
     "navLabel": "Kurs",
     "quickAnswer": "Roblox mendokumentasikan tiga kurs DevEx. Kurs standarnya {rateStandard} USD per Earned Robux yang memenuhi syarat, atau {payout30000Plain} dolar untuk {minimumRobux}. Saldo yang diperoleh sebelum 5 September 2025 pukul 10.00 PT dikonversi pada kurs lama {rateLegacy}. Earned Robux tertentu dari pemain Amerika Serikat terverifikasi berusia 18 tahun ke atas dikonversi pada {rateUs18}. Roblox, bukan kreator, yang menentukan mana yang berlaku.",
@@ -569,7 +569,7 @@
     "faqs": {
       "q01": {
         "question": "Berapa kurs DevEx per 1.000 Robux?",
-        "answer": "3,80 dolar AS per 1.000 Earned Robux yang memenuhi syarat pada kurs standar. Kurs lama membayar 3,50 dan kurs bersyarat AS 18+ membayar 5,40."
+        "answer": "{rateStandardPerThousand} dolar AS per 1.000 Earned Robux yang memenuhi syarat pada kurs standar. Kurs lama membayar {rateLegacyPerThousand} dan kurs bersyarat AS 18+ membayar {rateUs18PerThousand}."
       },
       "q02": {
         "question": "Kapan kurs DevEx berubah menjadi {rateStandard}?",
@@ -595,14 +595,14 @@
   },
   "devexRequirements": {
     "title": "Persyaratan DevEx: Robux minimum dan kelayakan",
-    "metaDescription": "Apa yang disyaratkan Roblox untuk DevEx: 30.000 Earned Robux, surel terverifikasi, akun portal, W-9 atau W-8, dan akun berstatus baik.",
+    "metaDescription": "Apa yang disyaratkan Roblox untuk DevEx: {minimumRobux} Earned Robux, surel terverifikasi, akun portal, W-9 atau W-8, dan akun berstatus baik.",
     "h1": "Persyaratan DevEx",
     "navLabel": "Persyaratan",
-    "quickAnswer": "Roblox mendokumentasikan lima syarat untuk DevEx: setidaknya 30.000 Earned Robux, usia minimum 13 tahun, alamat surel yang terverifikasi Roblox, akun portal DevEx yang sah, dan formulir IRS W-9 atau W-8 yang tercatat. Anda juga harus mematuhi Ketentuan Penggunaan dan Standar Komunitas Roblox. Memenuhi kelimanya adalah syarat untuk mengajukan, bukan jaminan persetujuan.",
+    "quickAnswer": "Roblox mendokumentasikan lima syarat untuk DevEx: setidaknya {minimumRobux} Earned Robux, usia minimum 13 tahun, alamat surel yang terverifikasi Roblox, akun portal DevEx yang sah, dan formulir IRS W-9 atau W-8 yang tercatat. Anda juga harus mematuhi Ketentuan Penggunaan dan Standar Komunitas Roblox. Memenuhi kelimanya adalah syarat untuk mengajukan, bukan jaminan persetujuan.",
     "ogImageAlt": "Persyaratan DevEx: Earned Robux minimum, surel terverifikasi, akun portal, dan formulir pajak.",
     "sections": {
       "requirements": "Apa yang disyaratkan Roblox",
-      "minimum": "Batas minimum 30.000 Earned Robux",
+      "minimum": "Batas minimum {minimumRobux} Earned Robux",
       "not-approval": "Mencapai ambangnya bukan persetujuan",
       "checklist": "Daftar persiapan",
       "misunderstandings": "Kesalahpahaman yang umum",
@@ -611,7 +611,7 @@
     "faqs": {
       "q01": {
         "question": "Berapa Robux minimum yang dibutuhkan untuk DevEx?",
-        "answer": "30.000 Earned Robux. Angka lama seperti 10.000 atau 100.000 beredar di situs pihak ketiga tetapi tidak cocok dengan dokumentasi resmi saat ini."
+        "answer": "{minimumRobux} Earned Robux. Angka lama seperti 10.000 atau 100.000 beredar di situs pihak ketiga tetapi tidak cocok dengan dokumentasi resmi saat ini."
       },
       "q02": {
         "question": "Berapa usia yang diperlukan untuk DevEx?",
@@ -622,7 +622,7 @@
         "answer": "Ya. Roblox mensyaratkan formulir IRS W-9 untuk wajib pajak Amerika Serikat atau W-8 untuk wajib pajak di luar Amerika Serikat tercatat sebelum sebuah permohonan DevEx dapat diproses."
       },
       "q04": {
-        "question": "Apakah mencapai 30.000 Earned Robux berarti saya akan dibayar?",
+        "question": "Apakah mencapai {minimumRobux} Earned Robux berarti saya akan dibayar?",
         "answer": "Tidak. Ambang itu memungkinkan Anda mengajukan permohonan. Roblox meninjau tiap permohonan menurut kriterianya sendiri dan menentukan Robux mana yang dihitung sebagai Earned Robux. Tidak ada kalkulator, termasuk yang ini, yang bisa menentukan kelayakan."
       }
     },
@@ -675,12 +675,12 @@
         "answer": "Hampir pasti tidak. Sebuah saldo bisa mencampur Robux yang Anda peroleh sebagai kreator dengan Robux yang Anda beli atau terima. Hanya bagian yang diperoleh yang memenuhi syarat untuk DevEx, dan Roblox yang membuat penentuan itu."
       },
       "q02": {
-        "question": "Apakah Robux yang saya beli dihitung untuk batas minimum 30.000?",
+        "question": "Apakah Robux yang saya beli dihitung untuk batas minimum {minimumRobux}?",
         "answer": "Robux hasil pembelian bukan Earned Robux, jadi tidak membuat sebuah saldo memenuhi syarat untuk DevEx. Batas minimum itu merujuk khusus pada Earned Robux."
       },
       "q03": {
         "question": "Bagaimana kreator memperoleh Robux sejak awal?",
-        "answer": "Roblox membayar kreator 70% dari Robux yang dibelanjakan pada pembelian di dalam experience seperti developer product dan pass, dan menahan 30%. 70% itulah yang menumpuk sebagai Earned Robux."
+        "answer": "Roblox membayar kreator {inExperienceCreatorShare}% dari Robux yang dibelanjakan pada pembelian di dalam experience seperti developer product dan pass, dan menahan {inExperiencePlatformShare}%. {inExperienceCreatorShare}% itulah yang menumpuk sebagai Earned Robux."
       },
       "q04": {
         "question": "Bisakah dana grup dicairkan?",
@@ -741,7 +741,7 @@
     "metaDescription": "Langkah-langkah resmi untuk mengubah Earned Robux yang memenuhi syarat menjadi uang sungguhan, apa yang disiapkan lebih dulu, dan layanan mana yang harus dihindari.",
     "h1": "Cara mencairkan Robux",
     "navLabel": "Pencairan",
-    "quickAnswer": "Mencairkan Robux berarti mengajukan permohonan DevEx lewat portal DevEx resmi Roblox setelah Anda memegang setidaknya 30.000 Earned Robux, punya surel terverifikasi, dan memiliki W-9 atau W-8 yang tercatat. Roblox meninjau tiap permohonan dan menentukan hasilnya. Tidak ada jalur yang sah di luar program resmi.",
+    "quickAnswer": "Mencairkan Robux berarti mengajukan permohonan DevEx lewat portal DevEx resmi Roblox setelah Anda memegang setidaknya {minimumRobux} Earned Robux, punya surel terverifikasi, dan memiliki W-9 atau W-8 yang tercatat. Roblox meninjau tiap permohonan dan menentukan hasilnya. Tidak ada jalur yang sah di luar program resmi.",
     "ogImageAlt": "Cara mencairkan Robux: proses permohonan DevEx resmi langkah demi langkah.",
     "sections": {
       "process": "Proses yang didokumentasikan Roblox",
@@ -939,7 +939,7 @@
     "metaDescription": "Berapa yang Anda terima setelah komisi platform Roblox, atau berapa yang harus dipasang untuk mencapai target. Mencakup penjualan di dalam experience dan di Marketplace.",
     "h1": "Kalkulator biaya Roblox",
     "navLabel": "Biaya Roblox",
-    "quickAnswer": "\"Biaya Roblox\" adalah komisi platform, dan besarnya bergantung pada apa yang Anda jual. Pada pembelian di dalam experience seperti developer product dan pass, Anda menerima 70% dan Roblox mengambil 30%. Pada item avatar Marketplace, bagian kreator mulai dari 30% dan naik seiring harga, mencapai 70% pada enam kali harga dasar. Ini terpisah dari DevEx.",
+    "quickAnswer": "\"Biaya Roblox\" adalah komisi platform, dan besarnya bergantung pada apa yang Anda jual. Pada pembelian di dalam experience seperti developer product dan pass, Anda menerima {inExperienceCreatorShare}% dan Roblox mengambil {inExperiencePlatformShare}%. Pada item avatar Marketplace, bagian kreator mulai dari {marketplaceAvatarItemCreatorShare}% dan naik seiring harga, mencapai {marketplaceAvatarItemPlatformShare}% pada enam kali harga dasar. Ini terpisah dari DevEx.",
     "ogImageAlt": "Kalkulator biaya Roblox: komisi marketplace pada penjualan di dalam experience dan di Marketplace.",
     "sections": {
       "calculator": "Kalkulator biaya marketplace",
@@ -952,7 +952,7 @@
     "faqs": {
       "q01": {
         "question": "Berapa besar biaya Roblox?",
-        "answer": "Pada pembelian di dalam experience, kreator menerima 70% dan Roblox menahan 30%. Pada penjualan item avatar di Marketplace, bagian dasar kreator adalah 30%, naik melalui tabel kademe terdokumentasi hingga 70% untuk item yang dihargai enam kali harga dasar atau lebih."
+        "answer": "Pada pembelian di dalam experience, kreator menerima {inExperienceCreatorShare}% dan Roblox menahan {inExperiencePlatformShare}%. Pada penjualan item avatar di Marketplace, bagian dasar kreator adalah {inExperiencePlatformShare}%, naik melalui tabel kademe terdokumentasi hingga {inExperienceCreatorShare}% untuk item yang dihargai enam kali harga dasar atau lebih."
       },
       "q02": {
         "question": "Apakah biaya Roblox dikenakan lagi saat saya memakai DevEx?",
@@ -988,11 +988,11 @@
     "faqs": {
       "q01": {
         "question": "Berapa 1.000 Robux dalam USD?",
-        "answer": "Bagi kreator yang mencairkan Earned Robux yang memenuhi syarat, 1.000 Robux adalah 3,80 dolar AS pada kurs DevEx saat ini. Angka itu adalah kurs pembayaran, bukan harga yang dibayar pemain untuk membeli 1.000 Robux."
+        "answer": "Bagi kreator yang mencairkan Earned Robux yang memenuhi syarat, 1.000 Robux adalah {rateStandardPerThousand} dolar AS pada kurs DevEx saat ini. Angka itu adalah kurs pembayaran, bukan harga yang dibayar pemain untuk membeli 1.000 Robux."
       },
       "q02": {
         "question": "Bisakah saya mengonversi Robux apa pun ke USD?",
-        "answer": "Tidak. Hanya Earned Robux yang memenuhi syarat yang bisa dikonversi lewat DevEx, dan hanya setelah saldo Anda mencapai 30.000. Robux yang Anda beli tidak bisa dikembalikan menjadi uang."
+        "answer": "Tidak. Hanya Earned Robux yang memenuhi syarat yang bisa dikonversi lewat DevEx, dan hanya setelah saldo Anda mencapai {minimumRobux}. Robux yang Anda beli tidak bisa dikembalikan menjadi uang."
       },
       "q03": {
         "question": "Mengapa situs ini tidak menerbitkan satu harga pembelian Robux?",
@@ -1057,7 +1057,7 @@
     "metaDescription": "Tetapkan sasaran pembayaran dalam dolar dan lihat berapa Earned Robux yang memenuhi syarat dibutuhkan, dibulatkan ke atas, beserta kemajuan terhadap saldo Anda saat ini.",
     "h1": "USD ke Robux: hitung mundur dari target pembayaran",
     "navLabel": "Target pembayaran",
-    "quickAnswer": "Untuk mencapai pembayaran DevEx sebesar 1.000 dolar AS pada kurs saat ini, Anda butuh 263.158 Earned Robux yang memenuhi syarat. Angkanya selalu dibulatkan ke atas, karena pecahan Robux tidak ada dan membulatkan ke bawah akan membuat Anda kurang dari target. Di bawah 30.000 Earned Robux, tidak ada pembayaran yang mungkin, berapa pun sasarannya.",
+    "quickAnswer": "Untuk mencapai pembayaran DevEx sebesar 1.000 dolar AS pada kurs saat ini, Anda butuh {targetRobuxUp} Earned Robux yang memenuhi syarat. Angkanya selalu dibulatkan ke atas, karena pecahan Robux tidak ada dan membulatkan ke bawah akan membuat Anda kurang dari target. Di bawah {minimumRobux} Earned Robux, tidak ada pembayaran yang mungkin, berapa pun sasarannya.",
     "ogImageAlt": "USD ke Robux: berapa Earned Robux yang dibutuhkan sebuah target pembayaran DevEx.",
     "sections": {
       "target-calculator": "Earned Robux yang dibutuhkan untuk target Anda",
@@ -1075,7 +1075,7 @@
       },
       "q02": {
         "question": "Berapa Earned Robux yang saya butuhkan untuk 100 USD?",
-        "answer": "26.316 Earned Robux akan mencapai 100 dolar secara aritmetika, tetapi itu di bawah batas minimum 30.000; jadi Anda butuh 30.000 sebelum sebuah permohonan bisa diajukan sama sekali — dan itu membayar sekitar 114 dolar."
+        "answer": "26.316 Earned Robux akan mencapai 100 dolar secara aritmetika, tetapi itu di bawah batas minimum {minimumRobux}; jadi Anda butuh {minimumRobux} sebelum sebuah permohonan bisa diajukan sama sekali — dan itu membayar sekitar 114 dolar."
       },
       "q03": {
         "question": "Apakah ini memberi tahu berapa Robux yang bisa saya beli dengan sejumlah uang?",
