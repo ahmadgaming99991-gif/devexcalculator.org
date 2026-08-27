@@ -1,6 +1,8 @@
 import { indexableRoutes } from "@/lib/content/route-registry";
 import { apiEndpoints } from "@/lib/api/contract";
 import { absoluteUrl, siteConfig } from "@/config/site";
+import { DEFAULT_LOCALE } from "@/i18n/config";
+import { publicLocales } from "@/i18n/visibility";
 import type { PageType } from "@/types/content";
 
 /**
@@ -73,6 +75,38 @@ export function llmsTxt(): string {
     "approved.",
     "",
   ];
+
+  /*
+   * The languages this site publishes, named once rather than by repeating
+   * every route in each of them.
+   *
+   * `visibility.ts` lists `llms.txt` among the surfaces its two questions
+   * govern, and this file did not ask either question — it emitted the English
+   * path for every route and nothing else. A reader of this file had no way to
+   * know another language existed.
+   *
+   * A section rather than 36 more URLs per language: the prefix is regular and
+   * stating it once is more useful than two hundred lines that repeat it. The
+   * sitemap carries the URLs themselves.
+   *
+   * Skipped entirely while English is the only published language, so this adds
+   * nothing until there is something true to say.
+   */
+  const translations = publicLocales().filter((meta) => meta.locale !== DEFAULT_LOCALE);
+  if (translations.length > 0) {
+    lines.push(
+      "## Languages",
+      "",
+      "Every page below is also published in the languages listed here, at the",
+      "given prefix. Each translation carries the same figures and the same",
+      "citations as the English page it mirrors.",
+      "",
+    );
+    for (const meta of translations) {
+      lines.push(`- ${meta.englishName} (${meta.nativeName}): ${absoluteUrl(meta.prefix)}/`);
+    }
+    lines.push("");
+  }
 
   for (const section of SECTIONS) {
     const routes = indexableRoutes.filter(

@@ -1,4 +1,6 @@
 import { indexableRoutes } from "@/lib/content/route-registry";
+import { localizedPath } from "@/i18n/locale-path";
+import { publicLocales } from "@/i18n/visibility";
 
 /**
  * Choosing what to tell IndexNow about.
@@ -24,10 +26,18 @@ export interface IndexNowSelection {
 export const BULK_SHARE_THRESHOLD = 0.25;
 
 export function selectRoutes(selection: IndexNowSelection = {}): readonly string[] {
-  const published = indexableRoutes.map((record) => ({
-    route: record.route,
-    day: record.dateModified.slice(0, 10),
-  }));
+  /*
+   * One entry per published language per route, for the same reason the
+   * sitemap carries them: a language nobody is told about is a language nobody
+   * crawls. `publicLocales()` is English alone while the six are in review, so
+   * this submits exactly what it submitted before until somebody publishes.
+   */
+  const published = publicLocales().flatMap((meta) =>
+    indexableRoutes.map((record) => ({
+      route: localizedPath(meta.locale, record.route),
+      day: record.dateModified.slice(0, 10),
+    })),
+  );
 
   if (selection.all) return published.map((entry) => entry.route);
 
