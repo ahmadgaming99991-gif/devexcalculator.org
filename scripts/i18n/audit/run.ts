@@ -162,7 +162,7 @@ for (const locale of targets) {
   const target = loadCatalog(LOCALES_DIR, locale);
   const separators = separatorsFor(locale);
 
-  const findings: Finding[] = [
+  const raw: Finding[] = [
     ...checkKeys(english, target),
     ...checkTokens(english, target),
     ...checkPlurals(english, target),
@@ -171,6 +171,26 @@ for (const locale of targets) {
     ...checkGlossary(english, target, GLOSSARY),
     ...checkNegation(english, target),
   ];
+
+  /*
+   * `review` means "this repository cannot settle it" — a negation carried by a
+   * Turkish verb suffix, a quarter spelled out in words. That is the right
+   * severity while a locale is in review, because those findings recur on every
+   * run and a gate that can never go green is a gate somebody turns off.
+   *
+   * It stops being the right severity the moment the locale is published. A
+   * published locale is a claim this site is making, and an unsettled question
+   * about whether its no-guarantee sentence still negates is not something to
+   * publish through. So publishing escalates every one of them to blocking,
+   * which puts Turkish's four sentences in the build rather than in a document
+   * somebody has to remember to read.
+   */
+  const published = getLocaleMeta(locale as never).status === "published";
+  const findings: Finding[] = published
+    ? raw.map((finding) =>
+        finding.severity === "review" ? { ...finding, severity: "blocking" as const } : finding,
+      )
+    : raw;
 
   const counts: Record<string, number> = {};
   for (const finding of findings) {

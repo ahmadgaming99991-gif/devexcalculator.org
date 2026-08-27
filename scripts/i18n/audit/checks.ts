@@ -394,7 +394,18 @@ export function checkNumbers(
      */
     if (best.mismatches.length === 0 && best.name === "english") {
       findings.push({
-        severity: "quality",
+        /*
+         * Blocking, not quality.
+         *
+         * Re-derived from what it costs a reader rather than from how much of
+         * the string is wrong. The values here are right and only the
+         * separators are English — which sounds cosmetic and is not: a German
+         * reader meets `0.0038` and reads the point as a thousands separator.
+         * That is the same misreading `parseRobuxAmount` made in the other
+         * direction, and it lands on the one figure this site exists to
+         * publish. A rate a reader parses wrong is a rate this site got wrong.
+         */
+        severity: "blocking",
         check: "english-number-notation",
         locale: target.locale,
         key,

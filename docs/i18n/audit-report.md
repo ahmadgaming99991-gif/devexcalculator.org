@@ -21,10 +21,10 @@ recorded by a person.
 | `id` | 2666 | 0 | 0 | 0 | 0 | 795 |
 | `fr` | 2666 | 0 | 0 | 0 | 0 | 795 |
 | `de` | 2666 | 0 | 0 | 0 | 0 | 795 |
-| `tr` | 2666 | 0 | 0 | 0 | 0 | 795 |
+| `tr` | 2666 | 0 | 0 | 7 | 0 | 795 |
 
 
-**Blocking total across all locales: 0** (critical + meaning + blocking).
+**Blocking total across all locales: 7** (critical + meaning + blocking).
 
 ## English-side findings
 
@@ -164,7 +164,7 @@ No catalog findings.
 
 ### `tr`
 
-**review** — 7
+**blocking** — 7
 
 - `data.sources.roblox-q2-2026-earnings.facts.3` (label-quarter) — English states quarter 2, 2; the translation spells it out and the wording cannot be checked from here
   - en: "Developer exchange fees equal to 25 percent of revenue in Q2 2026 and 29 percent in Q2 2025."
