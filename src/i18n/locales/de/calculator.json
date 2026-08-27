@@ -185,7 +185,8 @@
     "percentageForLabel": "Anteil für {member}",
     "memberFallback": "Mitglied {index}",
     "addMember": "Mitglied hinzufügen",
-    "sharesTotal": "Die Anteile ergeben {percent} %"
+    "sharesTotal": "Die Anteile ergeben {percent} %",
+    "defaultMemberName": "Mitglied {n}"
   },
   "preparation": {
     "earnedRobuxLink": "Was als Earned Robux zählt",

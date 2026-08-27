@@ -77,7 +77,13 @@
     "byCreator": "{creator} tarafından",
     "verifiedSuffix": "(doğrulanmış)",
     "favouritesCount": "{count} favori",
-    "maturity": "Yaş sınıfı: {rating}"
+    "maturity": "Yaş sınıfı: {rating}",
+    "outage": {
+      "timeout": "Roblox {seconds} saniye içinde yanıt vermedi.",
+      "http": "Roblox HTTP {status} döndürdü.",
+      "unreachable": "Roblox’a ulaşılamadı.",
+      "unusable": "Roblox’un yanıtı kullanılabilir bir deneyim listesi içermiyordu."
+    }
   },
   "platformFigure": {
     "label": "Roblox'un sıraladığı bütün experience'lardaki oyuncular",
@@ -150,7 +156,8 @@
       "one": "Son {window} içine {count} gözlem düşüyor; en yenisi {players} oyuncu gösteriyor. Bir grafiğin nokta değil çizgi olması için en az {minimumPointsForChart} nokta gerekir, bu yüzden onun yerine rakamlar listelenir.",
       "other": "Son {window} içine {count} gözlem düşüyor; en yenisi {players} oyuncu gösteriyor. Bir grafiğin nokta değil çizgi olması için en az {minimumPointsForChart} nokta gerekir, bu yüzden onun yerine rakamlar listelenir."
     },
-    "nothingStoredBody": "Bu aralık için hiçbir şey saklanmadı. Zamanlanmış işin çalıştığı yerde her {collectionIntervalMinutes} dakikada bir gözlem yazılır ve bunlardan {minimumPointsForChart} tanesi biriktiğinde grafik görünür. Daha geniş bir aralık daha fazlasını tutuyor olabilir; asla yapmayacağı şey ise bunu doldurmak için bir nokta uydurmaktır."
+    "nothingStoredBody": "Bu aralık için hiçbir şey saklanmadı. Zamanlanmış işin çalıştığı yerde her {collectionIntervalMinutes} dakikada bir gözlem yazılır ve bunlardan {minimumPointsForChart} tanesi biriktiğinde grafik görünür. Daha geniş bir aralık daha fazlasını tutuyor olabilir; asla yapmayacağı şey ise bunu doldurmak için bir nokta uydurmaktır.",
+    "unnamedExperience": "Bu deneyim"
   },
   "method": {
     "heading": "Bu sayfa rakamlarını nasıl elde ediyor",

@@ -182,12 +182,44 @@ function richNames(source: string): Map<string, Set<string>> {
   return out;
 }
 
+/**
+ * Comments blanked, everything else where it was.
+ *
+ * `argumentNames` reads the object literal after a call and stops at the first
+ * thing that is not a name. A doc comment inside the literal — and there are
+ * several, explaining why a value is shaped the way it is — stopped it before
+ * it reached the names, so a call site that passes `formula` was reported as
+ * passing nothing. Newlines are kept so every reported line number still
+ * points at the real line.
+ */
+function withoutComments(text: string): string {
+  const blank = (match: string): string => match.replace(/[^\n]/g, " ");
+  return text.replace(/\/\*[\s\S]*?\*\//g, blank).replace(/\/\/[^\n]*/g, blank);
+}
+
 for (const file of files) {
-  const source = readFileSync(file, "utf8");
+  const source = withoutComments(readFileSync(file, "utf8"));
   const label = file.slice(ROOT.length + 1).replace(/\\/g, "/");
   const byRich = richNames(source);
 
-  for (const match of source.matchAll(/\bt\(\s*"([^"]+)"\s*,\s*(?=\{)/g)) {
+  /*
+   * Both call shapes, because only one of them used to be scanned.
+   *
+   *   t("key", { … })          — values passed to the translator
+   *   rich(t("key"), { … })    — nodes passed to the renderer
+   *
+   * The second has no comma inside `t(...)`, so the original pattern never
+   * matched it and every `rich` call site went unchecked. `/platform/` passed
+   * `payoutStatistics` to a sentence that declares `{payoutStatisticsLink}`,
+   * and the brace rendered on that page in all seven languages — English
+   * included — until a rendered-output check went looking for it.
+   */
+  const callSites = [
+    ...source.matchAll(/\bt\(\s*"([^"]+)"\s*,\s*(?=\{)/g),
+    ...source.matchAll(/\brich\(\s*t\(\s*"([^"]+)"\s*\)/g),
+  ].sort((a, b) => (a.index ?? 0) - (b.index ?? 0));
+
+  for (const match of callSites) {
     const key = match[1];
     if (key === undefined) continue;
 
@@ -198,7 +230,15 @@ for (const file of files) {
       continue;
     }
 
-    const passed = argumentNames(source, match.index + match[0].length);
+    /*
+     * For `rich`, the values sit after the closing paren of `t(...)`, so the
+     * names `richNames` already collected are the whole answer and there is
+     * nothing to read at the match position.
+     */
+    const isRich = match[0].startsWith("rich");
+    const passed = isRich
+      ? ([] as string[])
+      : argumentNames(source, (match.index ?? 0) + match[0].length);
     if (passed === null) {
       skipped += 1;
       continue;

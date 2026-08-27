@@ -80,7 +80,13 @@
     "byCreator": "oleh {creator}",
     "verifiedSuffix": "(terverifikasi)",
     "favouritesCount": "{count} favorit",
-    "maturity": "Klasifikasi: {rating}"
+    "maturity": "Klasifikasi: {rating}",
+    "outage": {
+      "timeout": "Roblox tidak merespons dalam {seconds} detik.",
+      "http": "Roblox mengembalikan HTTP {status}.",
+      "unreachable": "Roblox tidak dapat dihubungi.",
+      "unusable": "Respons Roblox tidak memuat daftar pengalaman yang dapat dipakai."
+    }
   },
   "platformFigure": {
     "label": "Pemain di seluruh experience yang sedang diperingkat Roblox",
@@ -153,7 +159,8 @@
       "one": "{count} pengamatan jatuh dalam {window} terakhir, dan yang paling baru menunjukkan {players} pemain. Sebuah grafik butuh setidaknya {minimumPointsForChart} titik agar menjadi garis, bukan titik, jadi angkanya didaftar saja.",
       "other": "{count} pengamatan jatuh dalam {window} terakhir, dan yang paling baru menunjukkan {players} pemain. Sebuah grafik butuh setidaknya {minimumPointsForChart} titik agar menjadi garis, bukan titik, jadi angkanya didaftar saja."
     },
-    "nothingStoredBody": "Tidak ada yang tersimpan untuk rentang ini. Di tempat tugas terjadwal berjalan, satu pengamatan ditulis tiap {collectionIntervalMinutes} menit dan grafiknya muncul begitu ada {minimumPointsForChart} pengamatan. Rentang yang lebih lebar mungkin memuat lebih banyak; yang tidak akan pernah dilakukannya adalah mengarang sebuah titik untuk mengisi rentang ini."
+    "nothingStoredBody": "Tidak ada yang tersimpan untuk rentang ini. Di tempat tugas terjadwal berjalan, satu pengamatan ditulis tiap {collectionIntervalMinutes} menit dan grafiknya muncul begitu ada {minimumPointsForChart} pengamatan. Rentang yang lebih lebar mungkin memuat lebih banyak; yang tidak akan pernah dilakukannya adalah mengarang sebuah titik untuk mengisi rentang ini.",
+    "unnamedExperience": "Pengalaman ini"
   },
   "method": {
     "heading": "Bagaimana halaman ini memperoleh angkanya",

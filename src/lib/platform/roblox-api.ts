@@ -141,7 +141,24 @@ export interface RankingsPayload {
 
 export type FetchResult<T> =
   | { readonly ok: true; readonly data: T; readonly observedAt: string }
-  | { readonly ok: false; readonly reason: string };
+  | {
+      readonly ok: false;
+      /**
+       * Why it failed, as something translatable.
+       *
+       * This used to be an English sentence built here and interpolated into a
+       * translated one, so a Portuguese page said "Roblox did not respond
+       * within 5 seconds" in the middle of a Portuguese paragraph. A network
+       * layer has no language; the view has one, so it says it.
+       */
+      readonly reason: OutageReason;
+    };
+
+export type OutageReason =
+  | { readonly kind: "timeout"; readonly seconds: number }
+  | { readonly kind: "http"; readonly status: number }
+  | { readonly kind: "unreachable"; readonly detail: string }
+  | { readonly kind: "unusable" };
 
 /** A fetch that always resolves, and never hangs a render. */
 async function getJson(url: string, timeoutMs = TIMEOUT_MS): Promise<FetchResult<unknown>> {
@@ -161,7 +178,7 @@ async function getJson(url: string, timeoutMs = TIMEOUT_MS): Promise<FetchResult
     } as RequestInit);
 
     if (!response.ok) {
-      return { ok: false, reason: `Roblox returned HTTP ${response.status}.` };
+      return { ok: false, reason: { kind: "http", status: response.status } };
     }
 
     /*
@@ -184,9 +201,10 @@ async function getJson(url: string, timeoutMs = TIMEOUT_MS): Promise<FetchResult
     const message = error instanceof Error ? error.message : String(error);
     return {
       ok: false,
-      reason: message.includes("timed out" ) || message.includes("aborted")
-        ? `Roblox did not respond within ${timeoutMs / 1000} seconds.`
-        : `Could not reach Roblox: ${message}`,
+      reason:
+        message.includes("timed out") || message.includes("aborted")
+          ? { kind: "timeout", seconds: timeoutMs / 1000 }
+          : { kind: "unreachable", detail: message },
     };
   }
 }
@@ -418,12 +436,12 @@ export async function fetchRankings(
 
   const parsed = parseRankings(sorts.data);
   if (parsed.length === 0) {
-    return { ok: false, reason: "Roblox's response did not contain a usable experience list." };
+    return { ok: false, reason: { kind: "unusable" } };
   }
 
   const selected = parsed.find((ranking) => ranking.id === sortId) ?? parsed[0];
   if (!selected) {
-    return { ok: false, reason: "Roblox's response did not contain a usable experience list." };
+    return { ok: false, reason: { kind: "unusable" } };
   }
 
   const top = selected.experiences.slice(0, limit);
@@ -515,7 +533,7 @@ export async function fetchForCollection(): Promise<
   const parsed = parseRankings(sorts.data);
   const first = parsed[0];
   if (!first) {
-    return { ok: false, reason: "Roblox's response did not contain a usable experience list." };
+    return { ok: false, reason: { kind: "unusable" } };
   }
 
   return {
@@ -545,7 +563,7 @@ export async function fetchTopExperiences(
 
   const parsed = parseSorts(sorts.data);
   if (!parsed) {
-    return { ok: false, reason: "Roblox's response did not contain a usable experience list." };
+    return { ok: false, reason: { kind: "unusable" } };
   }
 
   const top = parsed.experiences.slice(0, limit);

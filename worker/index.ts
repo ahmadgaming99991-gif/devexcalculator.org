@@ -159,8 +159,20 @@ async function collect(env: Env): Promise<void> {
 async function runCollection(store: HistoryStore): Promise<RunReport> {
   const result = await fetchForCollection();
   if (!result.ok) {
-    console.warn(`Collection skipped: ${result.reason}`);
-    return { outcome: "skipped", detail: result.reason };
+    /*
+     * The heartbeat is read by whoever is on call, not by a visitor, so this
+     * stays English and describes the code rather than translating it.
+     */
+    const detail =
+      result.reason.kind === "timeout"
+        ? `upstream timed out after ${result.reason.seconds}s`
+        : result.reason.kind === "http"
+          ? `upstream returned HTTP ${result.reason.status}`
+          : result.reason.kind === "unusable"
+            ? "upstream response had no usable experience list"
+            : `upstream unreachable: ${result.reason.detail}`;
+    console.warn(`Collection skipped: ${detail}`);
+    return { outcome: "skipped", detail };
   }
 
   let report: RunReport;

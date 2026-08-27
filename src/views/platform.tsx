@@ -24,6 +24,7 @@ import {
   experienceUrl,
   fetchRankings,
   type ExperienceObservation,
+  type OutageReason,
   type PlatformTotal,
   type Ranking,
 } from "@/lib/platform/roblox-api";
@@ -68,6 +69,30 @@ const ROUTE = "/platform/";
  * The upstream response is edge-cached for the collection interval, so this is a
  * cache read for almost every visitor rather than a call to Roblox.
  */
+
+/**
+ * Roblox's outage, said in the reader's language.
+ *
+ * The network layer returns a code and its numbers; this turns them into a
+ * sentence. Before, it built the English sentence itself and a Portuguese page
+ * printed "Roblox did not respond within 5 seconds." mid-paragraph — which the
+ * leakage check caught only because "did" and "not" are English function words.
+ *
+ * `detail` on an unreachable network error is deliberately dropped: it is the
+ * runtime's own message, in English, and no reader can act on it.
+ */
+function outageReason(t: Translate, reason: OutageReason): string {
+  switch (reason.kind) {
+    case "timeout":
+      return t("platform.live.outage.timeout", { seconds: reason.seconds });
+    case "http":
+      return t("platform.live.outage.http", { status: reason.status });
+    case "unusable":
+      return t("platform.live.outage.unusable");
+    default:
+      return t("platform.live.outage.unreachable");
+  }
+}
 
 const numberFormat = new Intl.NumberFormat("en-US");
 
@@ -187,7 +212,7 @@ export async function PlatformView({ locale, searchParams }: PageProps) {
 
             <Callout tone="info" title={t("platform.method.provenanceTitle")}>
               {rich(t("platform.method.provenanceBody"), {
-                payoutStatistics: (
+                payoutStatisticsLink: (
                   <InlineLink href={localizedPath(locale, "/roblox-stats/")}>
                     {t("platform.method.payoutStatisticsLink")}
                   </InlineLink>
@@ -340,7 +365,7 @@ async function LiveExperiences({
     return (
       <Callout tone="warning" title={t("platform.live.unavailableTitle")}>
         {t("platform.live.body.related.p1", {
-          reason: result.reason,
+          reason: outageReason(t, result.reason),
         })}
       <InlineLink href={localizedPath(locale, "/")}>{t("platform.live.calculatorStillWorks")}</InlineLink>{t("platform.live.body.related.p2")}</Callout>
       );
@@ -707,7 +732,7 @@ function ExperienceDetail({
   readonly t: Translate;
 }) {
   const series = sliceSeries(gameSeries(history, universeId), days);
-  const name = history.names[String(universeId)] ?? "This experience";
+  const name = history.names[String(universeId)] ?? t("platform.history.unnamedExperience");
   const summary = summarise(series);
 
   return (

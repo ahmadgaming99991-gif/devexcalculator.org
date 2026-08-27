@@ -191,7 +191,8 @@
     "percentageForLabel": "Persentase untuk {member}",
     "memberFallback": "anggota {index}",
     "addMember": "Tambah anggota",
-    "sharesTotal": "Total bagian {percent}%"
+    "sharesTotal": "Total bagian {percent}%",
+    "defaultMemberName": "Anggota {n}"
   },
   "preparation": {
     "earnedRobuxLink": "Apa yang dihitung sebagai Earned Robux",

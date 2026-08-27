@@ -489,9 +489,9 @@ export function Planner({ words }: { readonly words: LocaleWords }) {
                           ? t("calculator.planner.alreadyReached")
                           : days(t, row.projected.days)
                       : row.requiredPace === null
-                        ? "Pick a future date"
+                        ? t("calculator.planner.pickFutureDate")
                         : row.remainingRobux === 0n
-                          ? "Already reached"
+                          ? t("calculator.planner.alreadyReached")
                           : `${formatRobux(t.locale, row.requiredPace.perDayRobux)} R$`}
                   </Td>
                 </tr>

@@ -185,7 +185,8 @@
     "percentageForLabel": "{member} için yüzde",
     "memberFallback": "{index}. üye",
     "addMember": "Üye ekle",
-    "sharesTotal": "Paylar toplamı %{percent}"
+    "sharesTotal": "Paylar toplamı %{percent}",
+    "defaultMemberName": "Üye {n}"
   },
   "preparation": {
     "earnedRobuxLink": "Neler Earned Robux sayılır",

@@ -78,7 +78,13 @@
     "byCreator": "von {creator}",
     "verifiedSuffix": "(verifiziert)",
     "favouritesCount": "{count} Favoriten",
-    "maturity": "Altersfreigabe: {rating}"
+    "maturity": "Altersfreigabe: {rating}",
+    "outage": {
+      "timeout": "Roblox hat nicht innerhalb von {seconds} Sekunden geantwortet.",
+      "http": "Roblox hat HTTP {status} zurückgegeben.",
+      "unreachable": "Roblox war nicht erreichbar.",
+      "unusable": "Die Antwort von Roblox enthielt keine brauchbare Liste von Erfahrungen."
+    }
   },
   "platformFigure": {
     "label": "Spielende über alle Experiences, die Roblox in einer Rangliste führt",
@@ -151,7 +157,8 @@
       "one": "{count} Messung fällt in die letzten {window}, die jüngste zeigt {players} Spieler. Ein Diagramm braucht mindestens {minimumPointsForChart} Punkte, um eine Linie statt eines Punktes zu sein, deshalb stehen hier die Zahlen.",
       "other": "{count} Messungen fallen in die letzten {window}, die jüngste zeigt {players} Spieler. Ein Diagramm braucht mindestens {minimumPointsForChart} Punkte, um eine Linie statt eines Punktes zu sein, deshalb stehen hier die Zahlen."
     },
-    "nothingStoredBody": "Für diesen Bereich wurde nichts gespeichert. Wo der geplante Auftrag läuft, wird alle {collectionIntervalMinutes} Minuten eine Messung geschrieben, und das Diagramm erscheint, sobald {minimumPointsForChart} davon vorliegen. Ein weiterer Bereich enthält vielleicht mehr; was er nie tun wird, ist einen Punkt zu erfinden, um diesen zu füllen."
+    "nothingStoredBody": "Für diesen Bereich wurde nichts gespeichert. Wo der geplante Auftrag läuft, wird alle {collectionIntervalMinutes} Minuten eine Messung geschrieben, und das Diagramm erscheint, sobald {minimumPointsForChart} davon vorliegen. Ein weiterer Bereich enthält vielleicht mehr; was er nie tun wird, ist einen Punkt zu erfinden, um diesen zu füllen.",
+    "unnamedExperience": "Diese Erfahrung"
   },
   "method": {
     "heading": "Wie diese Seite zu ihren Zahlen kommt",

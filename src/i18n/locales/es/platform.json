@@ -73,7 +73,13 @@
     "byCreator": "de {creator}",
     "verifiedSuffix": "(verificado)",
     "favouritesCount": "{count} favoritos",
-    "maturity": "Clasificación: {rating}"
+    "maturity": "Clasificación: {rating}",
+    "outage": {
+      "timeout": "Roblox no respondió en {seconds} segundos.",
+      "http": "Roblox devolvió HTTP {status}.",
+      "unreachable": "No se pudo contactar con Roblox.",
+      "unusable": "La respuesta de Roblox no incluyó una lista de experiencias utilizable."
+    }
   },
   "platformFigure": {
     "label": "Jugadores en todas las experiencias que Roblox está clasificando",
@@ -146,7 +152,8 @@
       "one": "{count} observación cae dentro de los últimos {window}, y la más reciente muestra {players} jugadores. Un gráfico necesita al menos {minimumPointsForChart} puntos para ser una línea y no un punto, así que en su lugar se listan las cifras.",
       "other": "{count} observaciones caen dentro de los últimos {window}, y la más reciente muestra {players} jugadores. Un gráfico necesita al menos {minimumPointsForChart} puntos para ser una línea y no un punto, así que en su lugar se listan las cifras."
     },
-    "nothingStoredBody": "No se ha almacenado nada para este intervalo. Donde la tarea programada está en marcha, se escribe una observación cada {collectionIntervalMinutes} minutos y el gráfico aparece en cuanto hay {minimumPointsForChart} de ellas. Un intervalo más amplio puede contener más; lo que nunca hará es inventar un punto para rellenar este."
+    "nothingStoredBody": "No se ha almacenado nada para este intervalo. Donde la tarea programada está en marcha, se escribe una observación cada {collectionIntervalMinutes} minutos y el gráfico aparece en cuanto hay {minimumPointsForChart} de ellas. Un intervalo más amplio puede contener más; lo que nunca hará es inventar un punto para rellenar este.",
+    "unnamedExperience": "Esta experiencia"
   },
   "method": {
     "heading": "Cómo obtiene esta página sus cifras",

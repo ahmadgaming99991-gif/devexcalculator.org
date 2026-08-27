@@ -73,7 +73,13 @@
     "byCreator": "by {creator}",
     "verifiedSuffix": "(verified)",
     "favouritesCount": "{count} favourites",
-    "maturity": "Maturity: {rating}"
+    "maturity": "Maturity: {rating}",
+    "outage": {
+      "timeout": "Roblox did not respond within {seconds} seconds.",
+      "http": "Roblox returned HTTP {status}.",
+      "unreachable": "Roblox could not be reached.",
+      "unusable": "Roblox’s response did not contain a usable experience list."
+    }
   },
   "platformFigure": {
     "label": "Players across every experience Roblox is ranking",
@@ -146,7 +152,8 @@
       "one": "{count} observation falls within the last {window}, the most recent showing {players} players. A chart needs at least {minimumPointsForChart} points to be a line rather than a dot, so the figures are listed instead.",
       "other": "{count} observations fall within the last {window}, the most recent showing {players} players. A chart needs at least {minimumPointsForChart} points to be a line rather than a dot, so the figures are listed instead."
     },
-    "nothingStoredBody": "Nothing has been stored for this range. Where the scheduled job is running, an observation is written every {collectionIntervalMinutes} minutes and the chart appears once there are {minimumPointsForChart} of them. A wider range may hold more; what it will never do is invent a point to fill this one."
+    "nothingStoredBody": "Nothing has been stored for this range. Where the scheduled job is running, an observation is written every {collectionIntervalMinutes} minutes and the chart appears once there are {minimumPointsForChart} of them. A wider range may hold more; what it will never do is invent a point to fill this one.",
+    "unnamedExperience": "This experience"
   },
   "method": {
     "heading": "How this page gets its numbers",

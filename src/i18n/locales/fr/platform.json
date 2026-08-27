@@ -80,7 +80,13 @@
     "byCreator": "par {creator}",
     "verifiedSuffix": "(vérifié)",
     "favouritesCount": "{count} favoris",
-    "maturity": "Classification : {rating}"
+    "maturity": "Classification : {rating}",
+    "outage": {
+      "timeout": "Roblox n’a pas répondu en {seconds} secondes.",
+      "http": "Roblox a renvoyé HTTP {status}.",
+      "unreachable": "Roblox n’a pas pu être contacté.",
+      "unusable": "La réponse de Roblox ne contenait pas de liste d’expériences exploitable."
+    }
   },
   "platformFigure": {
     "label": "Joueurs sur l’ensemble des expériences que Roblox classe",
@@ -153,7 +159,8 @@
       "one": "{count} observation tombe dans les {window} écoulés, la plus récente indiquant {players} joueurs. Un graphique exige au moins {minimumPointsForChart} points pour être une ligne plutôt qu’un point ; les chiffres sont donc listés à la place.",
       "other": "{count} observations tombent dans les {window} écoulés, la plus récente indiquant {players} joueurs. Un graphique exige au moins {minimumPointsForChart} points pour être une ligne plutôt qu’un point ; les chiffres sont donc listés à la place."
     },
-    "nothingStoredBody": "Rien n’a été enregistré pour cette plage. Là où la tâche planifiée s’exécute, une observation est écrite toutes les {collectionIntervalMinutes} minutes et le graphique apparaît dès qu’il y en a {minimumPointsForChart}. Une plage plus large peut en contenir davantage ; ce qu’elle ne fera jamais, c’est inventer un point pour combler celle-ci."
+    "nothingStoredBody": "Rien n’a été enregistré pour cette plage. Là où la tâche planifiée s’exécute, une observation est écrite toutes les {collectionIntervalMinutes} minutes et le graphique apparaît dès qu’il y en a {minimumPointsForChart}. Une plage plus large peut en contenir davantage ; ce qu’elle ne fera jamais, c’est inventer un point pour combler celle-ci.",
+    "unnamedExperience": "Cette expérience"
   },
   "method": {
     "heading": "Comment cette page obtient ses chiffres",

@@ -171,7 +171,7 @@ export function ContactForm({ turnstileSiteKey,
 
         <div>
           <Button type="submit" disabled={status === "submitting"}>
-            {status === "submitting" ? "Sending…" : "Send message"}
+            {status === "submitting" ? t("contact.form.submitting") : t("contact.form.submit")}
           </Button>
         </div>
 

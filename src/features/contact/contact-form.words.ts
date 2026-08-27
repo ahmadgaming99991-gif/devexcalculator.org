@@ -23,4 +23,6 @@ export const CONTACT_WORDS: readonly string[] = [
   "contact.form.networkFailed",
   "contact.form.receivedTitle",
   "contact.form.subject",
+  "contact.form.submit",
+  "contact.form.submitting",
 ];

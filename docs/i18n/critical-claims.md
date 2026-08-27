@@ -192,30 +192,39 @@ string that uses the term. All six comply. German compounds it as
 `Earned-Robux-Beträge`, which is correct German and keeps the term intact; the
 check treats a hyphen as a space for that reason.
 
-### One open item, and it is English's
+### The one open item, now closed
 
 `rates.earnedRobux.pendingDescription` — the section on pending balances.
 
-> English: *Newly **earned Robux** are not immediately available, which
-> surprises creators watching a balance climb.*
-
-English writes "earned" here in lower case, as an ordinary adjective. In a
-section about how long **Earned Robux** stay pending, it reads either way: "the
-Earned Robux you have just acquired", or "Robux you recently earned". All six
-translations took the second reading and used the ordinary adjective —
+English used to read *"Newly earned Robux are not immediately available"*, with
+"earned" in lower case as an ordinary adjective. On the one page that exists to
+teach that **Earned Robux** is a specific balance, that sentence reads either
+way, and all six translations took the ordinary-adjective reading —
 `verdiente Robux`, `Robux fraîchement gagnés`, `Robux recién ganados` — which
-collapses the distinction on the one page that exists to teach it.
+collapses the distinction.
 
-**No translation was changed and no English was changed.** English is the
-reference the other five were derived from, and this is an ambiguity in the
-reference, not an error in the translations. It needs a decision:
+**Settled against the primary source.** Roblox's own developer documentation
+says: *"There is up to a 24 hour delay between Earned Robux transfers/sales and
+the Earned Robux balance reflecting the new values."*
+(<https://create.roblox.com/docs/production/monetization/developer-exchange>.)
+Roblox draws the line between the Robux and the balance, not between "not yet
+Earned" and "Earned": the delayed amounts already **are** Earned Robux, and
+what lags is the balance reflecting them.
 
-- If the term is meant, English should read "Newly acquired Earned Robux" or
-  similar, and all six translations then keep "Earned Robux" untranslated.
-- If the ordinary adjective is meant, the six translations are already correct
-  and only the harness's glossary check needs an exemption for this key.
+English now reads:
 
-Recorded as **NEEDS-DECISION (English)**, blocking nothing else.
+> Earned Robux you have just acquired do not appear in your balance
+> immediately, which surprises creators watching it climb.
+
+This names the term where no translator can read it as an adjective, and it
+puts the delay where the source puts it — on the balance, not on the Robux.
+All six locales are realigned and the glossary check passes, so every locale is
+now `quality 0`.
+
+**One thing deliberately not published.** A Roblox Support article quotes 72
+hours where the developer documentation quotes 24. That page returns 403 to
+automated fetches and could not be read, so this site publishes no delay figure
+at all until the discrepancy is settled against a source that can be opened.
 
 ---
 

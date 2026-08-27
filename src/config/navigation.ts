@@ -1,5 +1,7 @@
 import { requireRoute } from "@/lib/content/route-registry";
-import { getNamespace } from "@/i18n/get-dictionary";
+import { getNamespace, interpolate } from "@/i18n/get-dictionary";
+import { withFigures } from "@/i18n/figures";
+import { getLocaleMeta } from "@/i18n/config";
 import { localizedPath } from "@/i18n/locale-path";
 import { flatRouteKey } from "@/i18n/route-key";
 import type { Locale } from "@/i18n/types";
@@ -194,7 +196,13 @@ export async function getNavigation(locale: Locale): Promise<Navigation> {
     if (value === undefined) {
       throw new Error(`No "navigation.${what}.${key}" in locale "${locale}".`);
     }
-    return value;
+    /*
+     * The navigation reads its strings straight from the namespace rather than
+     * through `t`, so the registry figures have to be filled in here too. The
+     * requirements entry is described as "and the {minimumRobux} minimum", and
+     * without this the menu on every page in every language showed the brace.
+     */
+    return interpolate(value, withFigures(getLocaleMeta(locale).bcp47));
   };
 
   const toItem = (route: string): NavItem => {

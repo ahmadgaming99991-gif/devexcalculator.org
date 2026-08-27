@@ -85,7 +85,12 @@ function files(dir: string): string[] {
   for (const entry of entries) {
     const path = join(full, entry);
     if (statSync(path).isDirectory()) out.push(...files(join(dir, entry)));
-    else if (entry.endsWith(".tsx")) out.push(join(dir, entry));
+    // `opengraph-image.tsx` draws the English card. Every other language gets a
+    // prebuilt PNG from `scripts/og/build-localized-cards.ts`, so English here
+    // is the point rather than an oversight.
+    else if (entry.endsWith(".tsx") && !entry.startsWith("opengraph-image")) {
+      out.push(join(dir, entry));
+    }
   }
   return out;
 }
@@ -97,6 +102,18 @@ function files(dir: string): string[] {
  * Replaces rather than removes, so byte offsets — and therefore the reported
  * line numbers — stay true to the file on disk.
  */
+/**
+ * Same length, same line breaks, no content.
+ *
+ * Blanking a block comment with plain spaces collapses it onto one line and
+ * every finding after it is reported at the wrong line number — which sends
+ * whoever is fixing it to a line that looks innocent. Newlines are kept so the
+ * offsets and the line count both stay true to the file on disk.
+ */
+function blank(match: string): string {
+  return match.replace(/[^\n]/g, " ");
+}
+
 function withoutCodeText(source: string): string {
   return source
     /*
@@ -106,12 +123,87 @@ function withoutCodeText(source: string): string {
      * rest of this check be strict: anything still English and *not* wrapped
      * is a component that forgot to call `t`.
      */
-    .replace(/<Foreign>[\s\S]*?<\/Foreign>/g, (m) => " ".repeat(m.length))
-    .replace(/\/\*[\s\S]*?\*\//g, (m) => " ".repeat(m.length))
-    .replace(/\/\/[^\n]*/g, (m) => " ".repeat(m.length))
-    .replace(/"(?:[^"\\\n]|\\.)*"/g, (m) => " ".repeat(m.length))
-    .replace(/'(?:[^'\\\n]|\\.)*'/g, (m) => " ".repeat(m.length))
-    .replace(/`(?:[^`\\]|\\.)*`/g, (m) => " ".repeat(m.length));
+    .replace(/<Foreign>[\s\S]*?<\/Foreign>/g, blank)
+    .replace(/\/\*[\s\S]*?\*\//g, blank)
+    .replace(/\/\/[^\n]*/g, blank)
+    .replace(/"(?:[^"\\\n]|\\.)*"/g, blank)
+    .replace(/'(?:[^'\\\n]|\\.)*'/g, blank)
+    .replace(/`(?:[^`\\]|\\.)*`/g, blank);
+}
+
+/**
+ * English kept in a constant and rendered through an expression.
+ *
+ * The bare-text scan below cannot see this, because what sits between the tags
+ * is `{PERIOD_LABELS[period]}` and the words are somewhere else in the file.
+ * `detect-hardcoded` cannot see it either: its inventory extracts named
+ * reader-facing fields, and a lookup table has none.
+ *
+ * That is exactly how the planner's pace selector shipped in English in six
+ * languages — `{ day: "a day", week: "a week", month: "a month (30 days)" }` —
+ * and it was found by reading the file, not by any check.
+ *
+ * So: string literals in a component file that read as prose. Two or more
+ * words, mostly letters, and not one of the shapes a component legitimately
+ * writes in English.
+ */
+const PROSE_LITERAL = /(["'])((?:[A-Za-z][A-Za-z'’-]*)(?:\s+[A-Za-z0-9(][A-Za-z0-9'’()-]*){1,})\1/g;
+
+/** Literals that are code, layout or a value, not something a reader reads. */
+const NOT_PROSE = [
+  /^(use client|use server|use strict)$/,
+  // Tailwind and CSS: class lists, custom properties, media and size keywords.
+  /^[a-z0-9-]+(\s+[a-z0-9:[\]()#%._/-]+)+$/,
+  /(^|\s)(flex|grid|text|bg|border|rounded|hover|focus|sm|md|lg|xl|mt|mb|px|py|gap|min|max|w|h)[-:]/,
+  // Identifiers, types and DOM plumbing.
+  /^[a-z]+([A-Z][a-z]*)+$/,
+  /^(application|text|image|video|font)\//,
+  /^[A-Z][a-z]+ [A-Z][a-z]+$/, // Proper-noun pairs: brand and product names.
+  /^(GET|POST|PUT|PATCH|DELETE|HEAD|OPTIONS)\b/,
+  /^x(Mid|Min|Max)Y(Mid|Min|Max)\s+(meet|slice)$/, // SVG preserveAspectRatio
+  /^DevEx Calculator$/, // the wordmark
+];
+
+/**
+ * Comments blanked, strings kept.
+ *
+ * The bare-text pass blanks both; this one needs the strings and must not see
+ * the prose in a doc comment explaining why a string says what it says.
+ */
+function withoutComments(source: string): string {
+  return source
+    .replace(/\/\*[\s\S]*?\*\//g, blank)
+    .replace(/\/\/[^\n]*/g, blank);
+}
+
+function proseLiterals(file: string, source: string): Finding[] {
+  const found: Finding[] = [];
+  const body = withoutComments(source);
+  let match: RegExpExecArray | null;
+  PROSE_LITERAL.lastIndex = 0;
+
+  while ((match = PROSE_LITERAL.exec(body)) !== null) {
+    const literal = (match[2] ?? "").trim();
+    if (literal === "") continue;
+    if (!/\s/.test(literal)) continue;
+    if (NOT_PROSE.some((p) => p.test(literal))) continue;
+
+    /*
+     * A literal handed to `t` is a key. One handed to `console`, `track` or
+     * `new Error` is a message for whoever is reading the build output, and
+     * translating those would be the wrong fix.
+     */
+    const before = body.slice(Math.max(0, match.index - 40), match.index);
+    if (/\bt\(\s*$|\bkey:\s*$|\bimport\s|from\s+$/.test(before)) continue;
+    if (/\b(console\.\w+|track|new Error|throw)\s*\([^)]*$/.test(before)) continue;
+
+    found.push({
+      file,
+      line: body.slice(0, match.index).split("\n").length,
+      text: literal,
+    });
+  }
+  return found;
 }
 
 const findings: Finding[] = [];
@@ -138,6 +230,8 @@ for (const file of ROOTS.flatMap(files)) {
       text,
     });
   }
+
+  findings.push(...proseLiterals(relative(ROOT, join(ROOT, file)).split("\\").join("/"), source));
 }
 
 console.log(`JSX text — ${ROOTS.length} root(s) scanned\n`);

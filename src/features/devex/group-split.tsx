@@ -2,6 +2,7 @@
 
 import { parseMessage } from "@/i18n/parse-message";
 import { translatorFor, type LocaleWords } from "@/i18n/client-words";
+import type { Translate } from "@/i18n/get-dictionary";
 import { useId, useState, useMemo } from "react";
 import { calculateGroupSplit, standardRateId } from "@/lib/calculations/devex";
 import { parseRobuxAmount } from "@/lib/calculations/parse-amount";
@@ -33,11 +34,21 @@ interface Row {
   readonly percent: string;
 }
 
-const STARTING_ROWS: readonly Row[] = [
-  { id: 1, name: "Member 1", percent: "50" },
-  { id: 2, name: "Member 2", percent: "30" },
-  { id: 3, name: "Member 3", percent: "20" },
-];
+/**
+ * The three rows the split opens with.
+ *
+ * Percentages only: the names are filled in from the dictionary once the
+ * translator exists, because a component's module scope has no language.
+ */
+const STARTING_PERCENTS = ["50", "30", "20"] as const;
+
+function startingRows(t: Translate): Row[] {
+  return STARTING_PERCENTS.map((percent, index) => ({
+    id: index + 1,
+    name: t("calculator.groupSplit.defaultMemberName", { n: index + 1 }),
+    percent,
+  }));
+}
 
 /** Enough for a real collaboration, and short of a table nobody can read. */
 const MAX_MEMBERS = 12;
@@ -46,7 +57,7 @@ export function GroupSplit({ words }: { readonly words: LocaleWords }) {
   const t = useMemo(() => translatorFor(words), [words]);
   const fieldId = useId();
   const [total, setTotal] = useState("300,000");
-  const [rows, setRows] = useState<readonly Row[]>(STARTING_ROWS);
+  const [rows, setRows] = useState<readonly Row[]>(() => startingRows(t));
 
   // Same parser and same ceiling as every other amount field on the site, so
   // "1.5m" and "300,000" behave here exactly as they do in the calculator.
@@ -70,7 +81,7 @@ export function GroupSplit({ words }: { readonly words: LocaleWords }) {
             ...current,
             {
               id: Math.max(0, ...current.map((row) => row.id)) + 1,
-              name: `Member ${current.length + 1}`,
+              name: t("calculator.groupSplit.defaultMemberName", { n: current.length + 1 }),
               percent: "0",
             },
           ],

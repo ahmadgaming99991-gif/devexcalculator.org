@@ -27,6 +27,7 @@ export const GROUP_SPLIT_WORDS: readonly string[] = [
   "calculator.groupSplit.columnEstimatedPayout",
   "calculator.groupSplit.columnMember",
   "calculator.groupSplit.columnShare",
+  "calculator.groupSplit.defaultMemberName",
   "calculator.groupSplit.earnedOnlyNote",
   "calculator.groupSplit.groupBalanceLabel",
   "calculator.groupSplit.memberFallback",

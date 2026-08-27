@@ -620,7 +620,18 @@ export function checkGlossary(
       if (flatten(translated.value).includes(flatten(expected))) continue;
 
       findings.push({
-        severity: "quality",
+        /*
+         * Blocking, not quality.
+         *
+         * This was `quality` until a falsification pass planted the defect it
+         * exists to catch — "Earned Robux" translated into German — and the
+         * audit still exited zero, because only critical, meaning and blocking
+         * findings fail the run. The site's whole distinction between Earned
+         * Robux and ordinary Robux rests on this term staying untranslated, so
+         * a check that reports it and passes is the same vacuous green this
+         * audit has now found three times.
+         */
+        severity: "blocking",
         check: "glossary",
         locale: target.locale,
         key,

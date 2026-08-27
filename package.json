@@ -58,7 +58,8 @@
     "i18n:rename": "tsx scripts/i18n/rename-keys.ts",
     "purge:cache": "tsx scripts/deploy/purge-cache.ts",
     "validate:jsx-text": "tsx scripts/i18n/validate-jsx-text.ts",
-    "validate:hardcoded": "tsx scripts/i18n/detect-hardcoded.ts --check"
+    "validate:hardcoded": "tsx scripts/i18n/detect-hardcoded.ts --check",
+    "validate:rendered-tokens": "tsx scripts/i18n/validate-rendered-tokens.ts"
   },
   "dependencies": {
     "next": "16.3.1",
