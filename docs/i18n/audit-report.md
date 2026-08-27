@@ -20,11 +20,11 @@ recorded by a person.
 | `es` | 2666 | 0 | 0 | 0 | 0 | 795 |
 | `id` | 2666 | 0 | 0 | 0 | 0 | 795 |
 | `fr` | 2666 | 0 | 0 | 0 | 0 | 795 |
-| `de` | 2666 | 0 | 0 | 0 | 0 | 795 |
-| `tr` | 2666 | 0 | 0 | 7 | 0 | 795 |
+| `de` | 2666 | 2 | 0 | 0 | 0 | 795 |
+| `tr` | 2666 | 0 | 0 | 0 | 0 | 795 |
 
 
-**Blocking total across all locales: 7** (critical + meaning + blocking).
+**Blocking total across all locales: 2** (critical + meaning + blocking).
 
 ## English-side findings
 
@@ -104,29 +104,19 @@ has to remember in seven languages when a rate moves.
 
 ### `pt-BR`
 
-**review** — 3
-
-- `data.sources.roblox-q2-2026-earnings.facts.3` (label-quarter) — English states quarter 2, 2; the translation spells it out and the wording cannot be checked from here
-  - en: "Developer exchange fees equal to 25 percent of revenue in Q2 2026 and 29 percent in Q2 2025."
-  - pt-BR: "Despesas de developer exchange equivalentes a 25 por cento da receita no 2º trimestre de 2026 e a 29 por cento no 2º trimestre de 2025."
-- `data.metrics.developerExchangeFees.derivation.q1-2025` (label-quarter) — English states quarter 2; the translation spells it out and the wording cannot be checked from here
-  - en: "Six months ended 30 June 2025 (598) minus Q2 2025 (316), both in millions."
-  - pt-BR: "Seis meses encerrados em 30 de junho de 2025 (598) menos o 2º trimestre de 2025 (316), ambos em milhões."
-- `data.metrics.developerExchangeFees.derivation.q1-2026` (label-quarter) — English states quarter 2; the translation spells it out and the wording cannot be checked from here
-  - en: "Six months ended 30 June 2026 (786) minus Q2 2026 (363), both in millions."
-  - pt-BR: "Seis meses encerrados em 30 de junho de 2026 (786) menos o 2º trimestre de 2026 (363), ambos em milhões."
+No catalog findings.
 
 ### `es`
 
 **review** — 3
 
-- `data.sources.roblox-q2-2026-earnings.facts.3` (label-quarter) — English states quarter 2, 2; the translation spells it out and the wording cannot be checked from here
+- `data.sources.roblox-q2-2026-earnings.facts.3` (label-quarter) — English states quarter 2, 2; the translation writes the number in words, which cannot be checked from here
   - en: "Developer exchange fees equal to 25 percent of revenue in Q2 2026 and 29 percent in Q2 2025."
   - es: "Gastos de developer exchange equivalentes al 25 por ciento de los ingresos en el segundo trimestre de 2026 y al 29 por ciento en el segundo trimestre de 2025."
-- `data.metrics.developerExchangeFees.derivation.q1-2025` (label-quarter) — English states quarter 2; the translation spells it out and the wording cannot be checked from here
+- `data.metrics.developerExchangeFees.derivation.q1-2025` (label-quarter) — English states quarter 2; the translation writes the number in words, which cannot be checked from here
   - en: "Six months ended 30 June 2025 (598) minus Q2 2025 (316), both in millions."
   - es: "Seis meses cerrados el 30 de junio de 2025 (598) menos el segundo trimestre de 2025 (316), ambos en millones."
-- `data.metrics.developerExchangeFees.derivation.q1-2026` (label-quarter) — English states quarter 2; the translation spells it out and the wording cannot be checked from here
+- `data.metrics.developerExchangeFees.derivation.q1-2026` (label-quarter) — English states quarter 2; the translation writes the number in words, which cannot be checked from here
   - en: "Six months ended 30 June 2026 (786) minus Q2 2026 (363), both in millions."
   - es: "Seis meses cerrados el 30 de junio de 2026 (786) menos el segundo trimestre de 2026 (363), ambos en millones."
 
@@ -136,45 +126,23 @@ No catalog findings.
 
 ### `fr`
 
-**review** — 3
-
-- `data.sources.roblox-q2-2026-earnings.facts.3` (label-quarter) — English states quarter 2, 2; the translation spells it out and the wording cannot be checked from here
-  - en: "Developer exchange fees equal to 25 percent of revenue in Q2 2026 and 29 percent in Q2 2025."
-  - fr: "Frais de developer exchange équivalents à 25 pour cent du chiffre d'affaires au 2e trimestre 2026 et à 29 pour cent au 2e trimestre 2025."
-- `data.metrics.developerExchangeFees.derivation.q1-2025` (label-quarter) — English states quarter 2; the translation spells it out and the wording cannot be checked from here
-  - en: "Six months ended 30 June 2025 (598) minus Q2 2025 (316), both in millions."
-  - fr: "Six mois clos le 30 juin 2025 (598) moins le 2e trimestre 2025 (316), les deux en millions."
-- `data.metrics.developerExchangeFees.derivation.q1-2026` (label-quarter) — English states quarter 2; the translation spells it out and the wording cannot be checked from here
-  - en: "Six months ended 30 June 2026 (786) minus Q2 2026 (363), both in millions."
-  - fr: "Six mois clos le 30 juin 2026 (786) moins le 2e trimestre 2026 (363), les deux en millions."
+No catalog findings.
 
 ### `de`
 
-**review** — 3
+**critical** — 2
 
-- `data.sources.roblox-q2-2026-earnings.facts.3` (label-quarter) — English states quarter 2, 2; the translation spells it out and the wording cannot be checked from here
-  - en: "Developer exchange fees equal to 25 percent of revenue in Q2 2026 and 29 percent in Q2 2025."
-  - de: "Developer-Exchange-Aufwendungen in Höhe von 25 Prozent des Umsatzes im 2. Quartal 2026 und 29 Prozent im 2. Quartal 2025."
-- `data.metrics.developerExchangeFees.derivation.q1-2025` (label-quarter) — English states quarter 2; the translation spells it out and the wording cannot be checked from here
+- `data.metrics.developerExchangeFees.derivation.q1-2025` (label-quarter) — English states quarter 2; the translation states 3
   - en: "Six months ended 30 June 2025 (598) minus Q2 2025 (316), both in millions."
-  - de: "Sechs Monate bis zum 30. Juni 2025 (598) minus 2. Quartal 2025 (316), beides in Millionen."
-- `data.metrics.developerExchangeFees.derivation.q1-2026` (label-quarter) — English states quarter 2; the translation spells it out and the wording cannot be checked from here
-  - en: "Six months ended 30 June 2026 (786) minus Q2 2026 (363), both in millions."
-  - de: "Sechs Monate bis zum 30. Juni 2026 (786) minus 2. Quartal 2026 (363), beides in Millionen."
+  - de: "Sechs Monate bis zum 30. Juni 2025 (598) minus 3. Quartal 2025 (316), beides in Millionen."
+- `data.metrics.developerExchangeFees.derivation.q1-2025` (number-mismatch) — The translation states 3, which is not in the English.
+  - en: "Six months ended 30 June 2025 (598) minus Q2 2025 (316), both in millions."
+  - de: "Sechs Monate bis zum 30. Juni 2025 (598) minus 3. Quartal 2025 (316), beides in Millionen."
 
 ### `tr`
 
-**blocking** — 7
+**review** — 4
 
-- `data.sources.roblox-q2-2026-earnings.facts.3` (label-quarter) — English states quarter 2, 2; the translation spells it out and the wording cannot be checked from here
-  - en: "Developer exchange fees equal to 25 percent of revenue in Q2 2026 and 29 percent in Q2 2025."
-  - tr: "2026'nın 2. çeyreğinde gelirin yüzde 25'ine, 2025'in 2. çeyreğinde yüzde 29'una eşit developer exchange gideri."
-- `data.metrics.developerExchangeFees.derivation.q1-2025` (label-quarter) — English states quarter 2; the translation spells it out and the wording cannot be checked from here
-  - en: "Six months ended 30 June 2025 (598) minus Q2 2025 (316), both in millions."
-  - tr: "30 Haziran 2025'te sona eren altı ay (598) eksi 2025'in 2. çeyreği (316), ikisi de milyon olarak."
-- `data.metrics.developerExchangeFees.derivation.q1-2026` (label-quarter) — English states quarter 2; the translation spells it out and the wording cannot be checked from here
-  - en: "Six months ended 30 June 2026 (786) minus Q2 2026 (363), both in millions."
-  - tr: "30 Haziran 2026'da sona eren altı ay (786) eksi 2026'nın 2. çeyreği (363), ikisi de milyon olarak."
 - `calculator.home.meetingAllNote` (negation-morphological) — The negation appears to be carried by a verb suffix rather than a separate word, which is how this language negates. It reads as correct and cannot be confirmed from here — a reader of this language should say so explicitly.
   - en: "Meeting all of these lets you submit a request. It does not guarantee one will be approved."
   - tr: "Bunların hepsini karşılamak talep göndermenizi sağlar. Talebin onaylanacağını garanti etmez."

@@ -18,6 +18,7 @@ import {
   extractLabels,
   extractNumbers,
   figuresPresent,
+  localizedQuarters,
   type LoadBearingFigure,
   type Separators,
 } from "./numbers";
@@ -310,6 +311,16 @@ export function checkNumbers(
      * occurrence of each quarter digit is removed for that reason, and only
      * when English carried the label to begin with.
      */
+    /*
+     * Read before the stripping below, not after.
+     *
+     * That step removes the ordinal so the numeric comparison does not see a
+     * `2` English never had — and it removes the very digit that proves the
+     * quarter survived. Reading it first is what turns twelve unverifiable
+     * findings into twelve verified ones.
+     */
+    const statedQuarters = localizedQuarters(translated.value);
+
     if (englishLabels.quarters.length > 0 && translatedLabels.quarters.length === 0) {
       let rest = translatedLabels.rest;
       for (const quarter of englishLabels.quarters) {
@@ -320,7 +331,7 @@ export function checkNumbers(
       translatedLabels = { ...translatedLabels, rest };
     }
 
-    for (const mismatch of compareLabels(englishLabels, translatedLabels)) {
+    for (const mismatch of compareLabels(englishLabels, translatedLabels, statedQuarters)) {
       findings.push({
         severity: mismatch.spelledOut ? "review" : "critical",
         check: `label-${mismatch.kind}`,

@@ -336,6 +336,40 @@ const TIME_DOT = /\b(\d{1,2})\.(\d{2})\b/g;
 const QUARTER = /\bQ([1-4])\b/g;
 
 /**
+ * The same quarter, written the way a language actually writes it.
+ *
+ * English writes `Q2`. Portuguese writes `2º trimestre`, French `2e trimestre`,
+ * German `2. Quartal`, Turkish `2. çeyreği` — the digit is right there, beside
+ * the word for a quarter, and it is verifiable. Only Spanish spells the number
+ * itself out: `segundo trimestre`.
+ *
+ * This was one bucket before, and anything that was not literally `Qn` was
+ * reported as unverifiable: fifteen findings, twelve of which had the digit in
+ * plain sight. That is the wrong kind of honest. It spends a reader's attention
+ * on cases a regex can settle, which is how the three that genuinely need a
+ * reader get lost among them.
+ *
+ * The number and the noun have to be adjacent, or a sentence mentioning "2026"
+ * and "trimestre" ten words apart would match.
+ */
+const QUARTER_WORD = "(?:trimestre|quartal|çeyre[ğk]|kuartal|quarter)";
+const LOCALIZED_QUARTER = new RegExp(
+  `([1-4])\\s*(?:[ºo°ª.]|e|er|ème|nd|rd|th)?\\s{0,3}${QUARTER_WORD}` +
+    `|${QUARTER_WORD}\\w*\\s{0,3}([1-4])\\b`,
+  "giu",
+);
+
+/** Quarter numbers a translation states in its own notation. */
+export function localizedQuarters(text: string): string[] {
+  const found: string[] = [];
+  for (const match of text.matchAll(LOCALIZED_QUARTER)) {
+    const digit = match[1] ?? match[2];
+    if (digit !== undefined) found.push(digit);
+  }
+  return found.sort();
+}
+
+/**
  * A version identifier: `WCAG 2.2`, `OpenAPI 3.1`, `HTTP 1.1`.
  *
  * Written the same way in every language — nobody cites *WCAG 2,2* — so the
@@ -400,7 +434,12 @@ export interface LabelMismatch {
   readonly spelledOut: boolean;
 }
 
-export function compareLabels(english: Labels, translated: Labels): LabelMismatch[] {
+export function compareLabels(
+  english: Labels,
+  translated: Labels,
+  /** Quarters found in this language's own notation, read before stripping. */
+  statedInOwnNotation: readonly string[] = [],
+): LabelMismatch[] {
   const mismatches: LabelMismatch[] = [];
 
   const englishTimes = [...english.times].sort();
@@ -417,17 +456,25 @@ export function compareLabels(english: Labels, translated: Labels): LabelMismatc
 
   const englishQuarters = [...english.quarters].sort();
   const translatedQuarters = [...translated.quarters].sort();
-  if (englishQuarters.join(" ") !== translatedQuarters.join(" ")) {
+  /*
+   * A quarter written in this language's own notation counts as stated.
+   * `2. Quartal` and `2º trimestre` carry the digit English carried, and
+   * reading it is what leaves only the cases that genuinely need a reader.
+   */
+  const statedQuarters =
+    translatedQuarters.length > 0 ? translatedQuarters : [...statedInOwnNotation].sort();
+
+  if (englishQuarters.join(" ") !== statedQuarters.join(" ")) {
     // No quarter label at all usually means the translation wrote it in words,
     // which is right and which this cannot verify without reading the language.
     mismatches.push({
       kind: "quarter",
       detail:
-        translatedQuarters.length === 0
-          ? `English states quarter ${englishQuarters.join(", ")}; the translation spells it out ` +
-            "and the wording cannot be checked from here"
-          : `English states quarter ${englishQuarters.join(", ")}; the translation states ${translatedQuarters.join(", ")}`,
-      spelledOut: translatedQuarters.length === 0,
+        statedQuarters.length === 0
+          ? `English states quarter ${englishQuarters.join(", ")}; the translation writes the ` +
+            "number in words, which cannot be checked from here"
+          : `English states quarter ${englishQuarters.join(", ")}; the translation states ${statedQuarters.join(", ")}`,
+      spelledOut: statedQuarters.length === 0,
     });
   }
 
