@@ -8,8 +8,9 @@ import type { Translate } from "@/i18n/get-dictionary";
  * verification date) and prose a reader is shown (what the rate means, what a
  * citation supports). The figures must stay in one file with their provenance;
  * the prose must be translatable. So the prose is mirrored into the `data`
- * namespace by `scripts/i18n/sync-data-dictionary.ts`, and these helpers are
- * the only place that knows how a registry row maps to its key.
+ * namespace by `scripts/i18n/sync-data-dictionary.ts`, and `dataKeys` below is
+ * the only place that knows how a registry row maps to its key. A test asserts
+ * that, by searching the rest of the source for a second `data.` template.
  *
  * They take the row rather than its id so a caller cannot pass an id from one
  * registry and get a key in another, and so the English in `src/data/` stays
@@ -21,6 +22,30 @@ import type { Translate } from "@/i18n/get-dictionary";
  */
 
 /** `data` must be among a page's namespaces before any of this is reachable. */
+
+/**
+ * The key a registry row maps to, separated from the act of reading it.
+ *
+ * The header above says these helpers are the only place that knows this
+ * mapping. They were not: `data-words.ts` built `data.rates.${id}.label` and
+ * five siblings independently, for the client-word lists, because the helpers
+ * only existed in a form that needs a translator. Two places writing the same
+ * template is exactly the drift the header claims cannot happen — and the
+ * claim is what stops the next reader from checking.
+ *
+ * So the template lives here once, in a form both callers can use: the
+ * helpers below read through it, and the word lists build from it.
+ */
+export const dataKeys = {
+  rateLabel: (rate: { readonly id: string }): string => `data.rates.${rate.id}.label`,
+  rateShortLabel: (rate: { readonly id: string }): string => `data.rates.${rate.id}.shortLabel`,
+  rateSummary: (rate: { readonly id: string }): string =>
+    `data.rates.${rate.id}.eligibilitySummary`,
+  rateCondition: (rate: { readonly id: string }): string => `data.rates.${rate.id}.conditionNote`,
+  schemeLabel: (scheme: { readonly id: string }): string => `data.schemes.${scheme.id}.label`,
+  schemeDescription: (scheme: { readonly id: string }): string =>
+    `data.schemes.${scheme.id}.description`,
+} as const;
 
 const slug = (label: string): string =>
   label
@@ -40,15 +65,15 @@ export function sourceFacts(
 }
 
 export function rateLabel(t: Translate, rate: { readonly id: string }): string {
-  return t(`data.rates.${rate.id}.label`);
+  return t(dataKeys.rateLabel(rate));
 }
 
 export function rateShortLabel(t: Translate, rate: { readonly id: string }): string {
-  return t(`data.rates.${rate.id}.shortLabel`);
+  return t(dataKeys.rateShortLabel(rate));
 }
 
 export function rateSummary(t: Translate, rate: { readonly id: string }): string {
-  return t(`data.rates.${rate.id}.eligibilitySummary`);
+  return t(dataKeys.rateSummary(rate));
 }
 
 /**
@@ -62,15 +87,15 @@ export function rateCondition(
   t: Translate,
   rate: { readonly id: string; readonly conditionNote: string | null },
 ): string | null {
-  return rate.conditionNote === null ? null : t(`data.rates.${rate.id}.conditionNote`);
+  return rate.conditionNote === null ? null : t(dataKeys.rateCondition(rate));
 }
 
 export function schemeLabel(t: Translate, scheme: { readonly id: string }): string {
-  return t(`data.schemes.${scheme.id}.label`);
+  return t(dataKeys.schemeLabel(scheme));
 }
 
 export function schemeDescription(t: Translate, scheme: { readonly id: string }): string {
-  return t(`data.schemes.${scheme.id}.description`);
+  return t(dataKeys.schemeDescription(scheme));
 }
 
 export function minimumNote(t: Translate): string {

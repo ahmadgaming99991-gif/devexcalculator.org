@@ -6,8 +6,15 @@ import type { KeywordRecord } from "./pipeline";
  *
  * The internal-link graph is derived from the content manifest rather than
  * declared separately, so a link that exists in the manifest and a link that
- * exists on the page cannot drift apart. The validator checks the rendered
- * pages against this graph.
+ * exists on the page cannot drift apart: `ContextualLinks` and the JSON-LD
+ * both render from `record.internalLinks`, which is the same array this reads.
+ *
+ * That derivation is the whole guarantee. This used to add "the validator
+ * checks the rendered pages against this graph", which no validator does —
+ * `check-links.ts` crawls the rendered pages and reports broken links,
+ * redirects and nofollow, and never compares an href to this graph. The
+ * sentence described a check that would be worth having as though it existed,
+ * which is worse than not having it.
  */
 
 export interface EntityNode {

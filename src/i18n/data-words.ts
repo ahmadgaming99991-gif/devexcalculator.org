@@ -1,4 +1,5 @@
 import { allRates, marketplaceSchemes } from "@/lib/calculations/rate-registry";
+import { dataKeys } from "@/i18n/data-text";
 
 /**
  * The `data` keys a Client Component needs when it names a rate.
@@ -12,16 +13,22 @@ import { allRates, marketplaceSchemes } from "@/lib/calculations/rate-registry";
  *
  * Derived from the registry rather than written out, so adding a fourth rate
  * cannot leave the islands throwing for the one rate nobody clicked.
+ *
+ * The key templates come from `dataKeys` rather than being written again here.
+ * They were written again here, and `data-text.ts` said in its header that it
+ * was the only place that knew them — a rename would have moved one and left
+ * the other, in the file whose whole job is to list keys that cannot be found
+ * by scanning the source.
  */
 export const RATE_WORDS: readonly string[] = allRates.flatMap((rate) => [
-  `data.rates.${rate.id}.label`,
-  `data.rates.${rate.id}.shortLabel`,
-  `data.rates.${rate.id}.eligibilitySummary`,
-  ...(rate.conditionNote === null ? [] : [`data.rates.${rate.id}.conditionNote`]),
+  dataKeys.rateLabel(rate),
+  dataKeys.rateShortLabel(rate),
+  dataKeys.rateSummary(rate),
+  ...(rate.conditionNote === null ? [] : [dataKeys.rateCondition(rate)]),
 ]);
 
 /** The `data` keys a Client Component needs when it names a marketplace scheme. */
 export const SCHEME_WORDS: readonly string[] = marketplaceSchemes.flatMap((scheme) => [
-  `data.schemes.${scheme.id}.label`,
-  `data.schemes.${scheme.id}.description`,
+  dataKeys.schemeLabel(scheme),
+  dataKeys.schemeDescription(scheme),
 ]);

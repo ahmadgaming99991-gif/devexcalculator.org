@@ -12,11 +12,18 @@ import type { Locale, LocaleMeta } from "./types";
  * tested, and production does not serve them.
  *
  * The mechanism is deliberately one boolean and one status field rather than a
- * list of exclusions per surface. Every surface asks the same two questions,
- * so there is no sixth place somebody forgets:
+ * list of exclusions per surface. Six surfaces choose which locales to emit,
+ * and each has to ask here to do it — asserted one file at a time in
+ * `tests/unit/i18n/visibility-surfaces.test.ts`, because this sentence used to
+ * say eight surfaces asked and three of them did not:
  *
  *   route generation · language selector · hreflang · sitemap · IndexNow ·
- *   navigation · internal links · `llms.txt`
+ *   `llms.txt`
+ *
+ * Navigation and internal links are not on that list, and the distinction is
+ * the correction: they are handed the locale of the page being rendered, and
+ * that page exists only because route generation asked. Listing them beside
+ * the six implied a check they cannot have.
  *
  * `ENABLE_REVIEW_LOCALES` is unset in production and read once here. Nothing
  * else in the codebase reads it, so "is this locale visible?" has exactly one

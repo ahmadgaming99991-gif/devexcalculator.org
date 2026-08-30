@@ -26,6 +26,7 @@ import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
 import { basename, join } from "node:path";
 import { gzipSync } from "node:zlib";
 import { REPO_ROOT } from "../seo/paths";
+import { LAUNCH_LOCALES } from "../../src/i18n/config";
 
 /**
  * Ceiling on the framework floor: React plus the Next.js client runtime.
@@ -52,6 +53,9 @@ const APP_BUDGET_KB = 125;
 const CHUNK_BUDGET_KB = 60;
 
 const NEXT_DIR = join(REPO_ROOT, ".next");
+
+/** The languages with a catalog to leak. English ships to the client on purpose. */
+const TRANSLATED_LOCALES = LAUNCH_LOCALES.filter((locale) => locale !== "en");
 
 interface BuildManifest {
   rootMainFiles?: string[];
@@ -175,6 +179,8 @@ function main(): void {
     }
   }
 
+  failures.push(...localeDictionaryLeaks());
+
   if (failures.length > 0) {
     console.error(`\n${failures.length} budget failure(s):`);
     for (const failure of failures) console.error(`  ERROR  ${failure}`);
@@ -182,6 +188,98 @@ function main(): void {
   }
 
   console.log("\nBundle budget passed.");
+}
+
+/**
+ * No locale dictionary may reach a client chunk.
+ *
+ * `get-dictionary.ts` explains why it has no `server-only` dependency: "the
+ * bundle validator already fails the build if locale JSON appears in a client
+ * chunk — a check that measures the real thing rather than asserting it." It
+ * did not. The budget checked sizes and looked for analytics beacons, and
+ * nothing anywhere looked for a dictionary. A sentence in a comment was doing
+ * the work of a dependency, which is the worse of the two ways to be wrong: a
+ * missing check is invisible, and a missing check somebody has read about is
+ * believed.
+ *
+ * What it would cost is the reason it is worth checking. One client import of
+ * a locale JSON file ships that namespace, in that language, to every visitor
+ * who loads the chunk — and the arrangement this project chose over
+ * `server-only` is per-namespace dynamic imports precisely so that no visitor
+ * downloads seven languages of anything.
+ *
+ * The needle is a long ASCII run taken from a **non-English** catalog at run
+ * time, not a fixed string: it moves with the content instead of going stale,
+ * and it cannot be satisfied by the English strings that legitimately ship in
+ * a client chunk — the error boundary's words are copied there on purpose,
+ * because it renders before any server work has happened.
+ *
+ * ASCII, and at least forty characters, because a bundler may escape non-ASCII
+ * as `\uXXXX` and a short run could occur by chance. A forty-character run of
+ * printable ASCII from a Portuguese sentence appears in a bundle only if that
+ * sentence is in the bundle.
+ */
+function localeDictionaryLeaks(): string[] {
+  const chunkRoot = join(NEXT_DIR, "static", "chunks");
+  if (!existsSync(chunkRoot)) return [];
+
+  const needles = localeNeedles();
+  if (needles.length === 0) {
+    // The same failure this file was rewritten to remove: measuring nothing
+    // and reporting a pass.
+    return ["No locale needles could be derived, so no dictionary check ran."];
+  }
+
+  const found: string[] = [];
+  for (const file of walkJs(chunkRoot)) {
+    const contents = readFileSync(file, "utf8");
+    for (const { locale, needle } of needles) {
+      if (!contents.includes(needle)) continue;
+      found.push(
+        `${file.replace(REPO_ROOT, ".")} contains ${locale} dictionary text — a locale ` +
+          `JSON file has reached a client chunk (matched: "${needle.slice(0, 48)}…").`,
+      );
+    }
+  }
+  return found;
+}
+
+/** One long, ASCII-only fragment per translated locale, from its catalog. */
+function localeNeedles(): { locale: string; needle: string }[] {
+  const out: { locale: string; needle: string }[] = [];
+
+  for (const locale of TRANSLATED_LOCALES) {
+    const file = join(REPO_ROOT, "src", "i18n", "locales", locale, "common.json");
+    if (!existsSync(file)) continue;
+
+    let longest = "";
+    const visit = (value: unknown): void => {
+      if (typeof value === "string") {
+        // Printable ASCII only, and no quote or backslash: those are the
+        // characters a bundler may re-escape, and a run without them survives
+        // minification unchanged.
+        for (const run of value.match(/[ !#-[\]-~]{40,}/g) ?? []) {
+          if (run.length > longest.length) longest = run;
+        }
+        return;
+      }
+      if (value === null || typeof value !== "object") return;
+      /*
+       * `$comment` and `$identical` are the catalog's own metadata, written in
+       * English and identical across locales. Taking a needle from them would
+       * report a French leak as a Turkish one and would not be evidence of
+       * translated content at all.
+       */
+      for (const [key, child] of Object.entries(value)) {
+        if (!key.startsWith("$")) visit(child);
+      }
+    };
+    visit(JSON.parse(readFileSync(file, "utf8")));
+
+    if (longest !== "") out.push({ locale, needle: longest });
+  }
+
+  return out;
 }
 
 /** Total size of the static asset directory, reported for the record. */

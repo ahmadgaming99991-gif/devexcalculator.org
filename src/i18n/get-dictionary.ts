@@ -17,8 +17,14 @@ import type { Dictionary, DictionaryNamespace, Locale } from "./types";
  *      props, from their server parent. The `server-only` package would state
  *      this to the compiler as well, and is not a dependency here: this
  *      project keeps its dependency list short on purpose, and the bundle
- *      validator already fails the build if locale JSON appears in a client
- *      chunk — a check that measures the real thing rather than asserting it.
+ *      validator fails the build if locale JSON appears in a client chunk — a
+ *      check that measures the real thing rather than asserting it.
+ *
+ *      That check did not exist when this paragraph first claimed it did. It
+ *      was the argument for not taking the dependency, and it was a sentence.
+ *      `scripts/quality/check-bundle-budget.ts` now searches every client
+ *      chunk for a long ASCII run taken from a non-English catalog at run
+ *      time, and a planted chunk carrying one fails the build.
  *
  *   2. **One locale per request, one namespace per need.** The imports are
  *      dynamic and per-namespace, so rendering the rate page loads the rates
