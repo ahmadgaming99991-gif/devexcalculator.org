@@ -1,3 +1,4 @@
+import "server-only";
 import { DEFAULT_LOCALE, getLocaleMeta } from "./config";
 import { interpolate } from "./interpolate";
 import { withFigures } from "./figures";
@@ -10,21 +11,27 @@ import type { Dictionary, DictionaryNamespace, Locale } from "./types";
  * Three properties this design exists to guarantee, each of which the obvious
  * approach gets wrong:
  *
- *   1. **No dictionary reaches the browser.** Every export here is async and
- *      every caller is a Server Component, so a dictionary cannot be reached
- *      from client code without an `await` a Client Component cannot perform.
- *      Client components are handed the handful of strings they render, as
- *      props, from their server parent. The `server-only` package would state
- *      this to the compiler as well, and is not a dependency here: this
- *      project keeps its dependency list short on purpose, and the bundle
- *      validator fails the build if locale JSON appears in a client chunk — a
- *      check that measures the real thing rather than asserting it.
+ *   1. **No dictionary reaches the browser.** Guarded twice, deliberately, and
+ *      the two guards catch different things.
  *
- *      That check did not exist when this paragraph first claimed it did. It
- *      was the argument for not taking the dependency, and it was a sentence.
- *      `scripts/quality/check-bundle-budget.ts` now searches every client
+ *      `import "server-only"` above fails the build at the moment a client
+ *      module imports this one, naming the chain. That is the door.
+ *
+ *      `scripts/quality/check-bundle-budget.ts` searches every emitted client
  *      chunk for a long ASCII run taken from a non-English catalog at run
- *      time, and a planted chunk carrying one fails the build.
+ *      time, and fails on a match. That is the room — it catches a leak that
+ *      never touched this file, such as a component importing
+ *      `locales/de/common.json` directly, which `server-only` cannot see.
+ *
+ *      The design still stands on its own: every export here is async and
+ *      every caller is a Server Component, so a dictionary cannot be reached
+ *      from client code without an `await` a Client Component cannot perform,
+ *      and client components are handed the handful of strings they render as
+ *      props from their server parent.
+ *
+ *      This paragraph used to say the bundle validator already did this, and
+ *      used that to explain declining the dependency. It did not, and there
+ *      was no check of any kind. See D-045 in `docs/decision-log.md`.
  *
  *   2. **One locale per request, one namespace per need.** The imports are
  *      dynamic and per-namespace, so rendering the rate page loads the rates

@@ -1127,3 +1127,54 @@ on purpose — `llms.txt`, a documented API, and a body of sourced figures whose
 value is partly in being citable. It also costs the SEO score through the
 unknown directive. Not changed here, because deciding who may read the site is
 not a performance fix.
+
+---
+
+## D-045 · `server-only` is taken, and the bundle check is kept as well
+
+**New implementation decision.**
+
+`get-dictionary.ts` used to explain the absence of the `server-only` package by
+pointing at a bundle check: "the bundle validator already fails the build if
+locale JSON appears in a client chunk — a check that measures the real thing
+rather than asserting it." No such check existed. The bundle validator measured
+sizes and searched for analytics beacons; nothing anywhere looked for a
+dictionary. The sentence performed rigor — it named the empirical/assertive
+distinction and put itself on the right side of it — and that is what stopped
+anyone from checking. **A comment that congratulates itself on being empirical
+deserves more scrutiny than a plain one, not less.**
+
+The check exists now and is falsified (see `docs/qa/falsification.md`). So the
+question is no longer "is anything guarding this" but "is the guard the right
+shape", and the honest answer is that the two guards catch different things:
+
+| | `server-only` | the bundle check |
+| --- | --- | --- |
+| When it fires | At the import, in `next dev` and in `next build` | After a full build, in `npm run validate:bundle` |
+| What it names | The module chain that reached client code | The chunk file and the locale whose text is in it |
+| What it guards | Any module that imports it — here, the dictionary **loader** | The emitted **data**, whatever path it took |
+| What it misses | A client component importing `locales/de/common.json` directly, never touching the loader | A leak too small or too escaped to match a 40-character ASCII needle; a leak of loader code carrying no catalog text |
+
+Neither is a superset. `server-only` protects the door; the bundle check
+searches the room. The failure the loader's header was actually worried about —
+seven languages of JSON reaching a visitor — can arrive through either.
+
+**Cost.** One runtime dependency in a project that has three (`next`, `react`,
+`react-dom`), which is a real and deliberate discipline. Against that:
+`server-only` is a first-party React/Next package, has no transitive
+dependencies, ships no bytes to the client, and contains a `package.json`
+`exports` map plus two near-empty modules. The supply-chain surface is as close
+to zero as a dependency gets, and the alternative — hand-rolling the same
+`exports`-condition trick in a local module — is the same mechanism with none
+of the maintenance and a worse error message.
+
+**Verified safe before recommending.** Every value import of
+`get-dictionary.ts` is from a Server Component, a layout, a view or a
+server-side helper; all 30-odd client-reachable files import only
+`type Translate`, which is erased at compile time and cannot pull the module
+into a chunk. Adding the import breaks nothing that exists today.
+
+*Change if:* the dependency count becomes a hard constraint for a reason this
+does not anticipate, in which case delete the import and keep the bundle check
+— which is the state this decision replaced, and the one that shipped for
+months believing it was something else.
