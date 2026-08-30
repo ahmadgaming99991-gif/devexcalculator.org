@@ -331,7 +331,8 @@ const TIME_DOT = /\b(\d{1,2})\.(\d{2})\b/g;
  * A quarter label — `Q2`, `Q4`. An identifier, not a count.
  *
  * Spanish and French spell these out ("segundo trimestre"), which removes the
- * digit entirely. Demanding it back would be demanding a worse translation.
+ * digit entirely. Demanding it back would be demanding a worse translation, so
+ * the two forms below read the quarter as each language writes it instead.
  */
 const QUARTER = /\bQ([1-4])\b/g;
 
@@ -340,8 +341,9 @@ const QUARTER = /\bQ([1-4])\b/g;
  *
  * English writes `Q2`. Portuguese writes `2º trimestre`, French `2e trimestre`,
  * German `2. Quartal`, Turkish `2. çeyreği` — the digit is right there, beside
- * the word for a quarter, and it is verifiable. Only Spanish spells the number
- * itself out: `segundo trimestre`.
+ * the word for a quarter, and it is verifiable. Spanish is the one that spells
+ * the number itself out, `segundo trimestre`, and `ORDINAL_WORDS` below reads
+ * that form; this pattern handles every notation that keeps the digit.
  *
  * This was one bucket before, and anything that was not literally `Qn` was
  * reported as unverifiable: fifteen findings, twelve of which had the digit in
@@ -359,12 +361,59 @@ const LOCALIZED_QUARTER = new RegExp(
   "giu",
 );
 
+/**
+ * The quarter written with the number as a word, which is what Spanish does.
+ *
+ * `segundo trimestre de 2026` is Q2 2026, and *segundo* means two in the way
+ * *dos* means two — primero, segundo, tercero, cuarto is a closed list a
+ * checker can hold, not a judgment about phrasing. Reading it is the difference
+ * between clearing three correct Spanish sentences and clearing the check that
+ * guards them: a later `tercer trimestre` where English says Q2 has to go red,
+ * and it cannot if the whole word form is filed as unreadable.
+ *
+ * All six languages are listed rather than only Spanish, because the next
+ * translator to write *deuxième trimestre* instead of *2e trimestre* is making
+ * a better sentence and should not be reintroducing a blind spot by doing it.
+ *
+ * Stems are inflected forms, not prefixes: German declines *zweite* five ways
+ * and Spanish apocopates *tercero* to *tercer*. Each alternative ends at a
+ * non-letter, which is what stops the German noun *Quartal* from being read as
+ * the Portuguese ordinal *quarta*.
+ */
+const ORDINAL_WORDS: readonly (readonly [string, string])[] = [
+  ["1", "primer[oa]?s?|primeir[oa]s?|first|premi[eè]res?|premier|erst[emnrs]{0,2}|pertama|birinci"],
+  ["2", "segund[oa]s?|seconde?s?|deuxi[eè]mes?|zweit[emnrs]{0,2}|kedua|ikinci"],
+  ["3", "tercer[oa]?s?|terceir[oa]s?|third|troisi[eè]mes?|dritt[emnrs]{0,2}|ketiga|[üu]ç[üu]nc[üu]"],
+  ["4", "cuart[oa]s?|quart[oa]s?|fourth|quatri[eè]mes?|viert[emnrs]{0,2}|keempat|d[öo]rd[üu]nc[üu]"],
+];
+
+/*
+ * Either order, because the languages disagree: Spanish and German put the
+ * ordinal first (*segundo trimestre*, *zweites Quartal*), Indonesian puts it
+ * last (*kuartal kedua*). One filler word is allowed between them for German's
+ * *im zweiten Quartal des Jahres* shape and Spanish's *del*.
+ */
+const WORD_QUARTERS: readonly (readonly [string, RegExp])[] = ORDINAL_WORDS.map(
+  ([digit, forms]) =>
+    [
+      digit,
+      new RegExp(
+        `(?<![\\p{L}])(?:${forms})(?![\\p{L}])\\s{0,3}(?:\\p{L}{1,4}\\s)?${QUARTER_WORD}` +
+          `|${QUARTER_WORD}\\p{L}*\\s{0,3}(?:\\p{L}{1,4}\\s)?(?:${forms})(?![\\p{L}])`,
+        "giu",
+      ),
+    ] as const,
+);
+
 /** Quarter numbers a translation states in its own notation. */
 export function localizedQuarters(text: string): string[] {
   const found: string[] = [];
   for (const match of text.matchAll(LOCALIZED_QUARTER)) {
     const digit = match[1] ?? match[2];
     if (digit !== undefined) found.push(digit);
+  }
+  for (const [digit, pattern] of WORD_QUARTERS) {
+    for (const _ of text.matchAll(pattern)) found.push(digit);
   }
   return found.sort();
 }
@@ -434,11 +483,24 @@ export interface LabelMismatch {
   readonly spelledOut: boolean;
 }
 
+/**
+ * Quarters each side states in its own notation, read before any stripping.
+ *
+ * Both sides, because English spells them out too: the stats page says "in the
+ * second quarter of 2026". Reading only the translation made every language
+ * that correctly said the same thing look as though it had invented a quarter
+ * out of nothing — six new critical findings, all of them wrong, on the first
+ * run after the word forms were taught.
+ */
+export interface QuartersInOwnNotation {
+  readonly english?: readonly string[];
+  readonly translated?: readonly string[];
+}
+
 export function compareLabels(
   english: Labels,
   translated: Labels,
-  /** Quarters found in this language's own notation, read before stripping. */
-  statedInOwnNotation: readonly string[] = [],
+  ownNotation: QuartersInOwnNotation = {},
 ): LabelMismatch[] {
   const mismatches: LabelMismatch[] = [];
 
@@ -454,28 +516,29 @@ export function compareLabels(
     });
   }
 
-  const englishQuarters = [...english.quarters].sort();
-  const translatedQuarters = [...translated.quarters].sort();
   /*
-   * A quarter written in this language's own notation counts as stated.
-   * `2. Quartal` and `2º trimestre` carry the digit English carried, and
-   * reading it is what leaves only the cases that genuinely need a reader.
+   * A quarter written in a language's own notation counts as stated.
+   * `2. Quartal`, `2º trimestre` and `segundo trimestre` all say what `Q2`
+   * says, and reading them is what leaves only the cases that genuinely need
+   * a reader. The `Qn` form wins where a side has one, since it is exact.
    */
-  const statedQuarters =
-    translatedQuarters.length > 0 ? translatedQuarters : [...statedInOwnNotation].sort();
+  const stated = (labels: Labels, own: readonly string[] | undefined): string[] =>
+    labels.quarters.length > 0 ? [...labels.quarters].sort() : [...(own ?? [])].sort();
+
+  const englishQuarters = stated(english, ownNotation.english);
+  const statedQuarters = stated(translated, ownNotation.translated);
 
   if (englishQuarters.join(" ") !== statedQuarters.join(" ")) {
-    // No quarter label at all usually means the translation wrote it in words,
-    // which is right and which this cannot verify without reading the language.
-    mismatches.push({
-      kind: "quarter",
-      detail:
-        statedQuarters.length === 0
-          ? `English states quarter ${englishQuarters.join(", ")}; the translation writes the ` +
-            "number in words, which cannot be checked from here"
-          : `English states quarter ${englishQuarters.join(", ")}; the translation states ${statedQuarters.join(", ")}`,
-      spelledOut: statedQuarters.length === 0,
-    });
+    // Nothing readable on the translated side means the quarter was written in
+    // some form neither notation covers, which needs a reader of the language.
+    const detail =
+      statedQuarters.length === 0
+        ? `English states quarter ${englishQuarters.join(", ")}; the translation writes the ` +
+          "number in a form this cannot read"
+        : englishQuarters.length === 0
+          ? `English states no quarter; the translation states ${statedQuarters.join(", ")}`
+          : `English states quarter ${englishQuarters.join(", ")}; the translation states ${statedQuarters.join(", ")}`;
+    mismatches.push({ kind: "quarter", detail, spelledOut: statedQuarters.length === 0 });
   }
 
   return mismatches;

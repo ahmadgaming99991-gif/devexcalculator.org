@@ -320,10 +320,17 @@ export function checkNumbers(
      * findings into twelve verified ones.
      */
     const statedQuarters = localizedQuarters(translated.value);
+    /*
+     * English spells them out too: the stats page says "in the second quarter
+     * of 2026". Reading only the translated side made six correct sentences
+     * look like six inventions.
+     */
+    const englishStated =
+      englishLabels.quarters.length > 0 ? englishLabels.quarters : localizedQuarters(entry.value);
 
-    if (englishLabels.quarters.length > 0 && translatedLabels.quarters.length === 0) {
+    if (englishStated.length > 0 && translatedLabels.quarters.length === 0) {
       let rest = translatedLabels.rest;
-      for (const quarter of englishLabels.quarters) {
+      for (const quarter of englishStated) {
         // Written with doubled backslashes: this is a template literal, where
         // a lone `\b` is the backspace character and not a word boundary.
         rest = rest.replace(new RegExp(`\\b${quarter}\\s*(?:[ºo°ª]|e\\b|\\.)`, "u"), " ");
@@ -331,7 +338,10 @@ export function checkNumbers(
       translatedLabels = { ...translatedLabels, rest };
     }
 
-    for (const mismatch of compareLabels(englishLabels, translatedLabels, statedQuarters)) {
+    for (const mismatch of compareLabels(englishLabels, translatedLabels, {
+      english: englishStated,
+      translated: statedQuarters,
+    })) {
       findings.push({
         severity: mismatch.spelledOut ? "review" : "critical",
         check: `label-${mismatch.kind}`,

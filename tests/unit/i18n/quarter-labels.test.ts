@@ -39,8 +39,34 @@ describe("quarters written the way a language writes them", () => {
     ).toEqual([]);
   });
 
-  it("finds nothing when the number itself is a word", () => {
-    // Spanish is the one that genuinely spells it out, and stays unverifiable.
-    expect(localizedQuarters("en el segundo trimestre de 2026")).toEqual([]);
+  it("reads the number when the language writes it as a word", () => {
+    // Spanish is the one that spells it out. *Segundo* means two the way *dos*
+    // means two: a closed list of four words, not a judgment about phrasing.
+    expect(localizedQuarters("en el segundo trimestre de 2026")).toEqual(["2"]);
+    expect(localizedQuarters("no terceiro trimestre de 2025")).toEqual(["3"]);
+    expect(localizedQuarters("au deuxième trimestre 2026")).toEqual(["2"]);
+    expect(localizedQuarters("im vierten Quartal 2025")).toEqual(["4"]);
+    expect(localizedQuarters("pada kuartal kedua 2026")).toEqual(["2"]);
+    expect(localizedQuarters("2026'nın ikinci çeyreğinde")).toEqual(["2"]);
+  });
+
+  /**
+   * The point of reading the word form at all.
+   *
+   * Clearing three correct Spanish sentences by waiving the finding would leave
+   * the sensor off: a later `tercer trimestre` where English says `Q2` would be
+   * filed as unverifiable prose and gate nothing. It has to come back as a
+   * different number, not as an absence.
+   */
+  it("reports a different quarter when the word form states one", () => {
+    expect(localizedQuarters("en el tercer trimestre de 2026")).toEqual(["3"]);
+    expect(localizedQuarters("en el primer trimestre de 2026")).toEqual(["1"]);
+  });
+
+  it("does not read the German noun for a quarter as an ordinal", () => {
+    // `Quartal` begins with the Portuguese ordinal *quarta*. Every alternative
+    // ends at a non-letter, which is what keeps the two apart.
+    expect(localizedQuarters("Erstellen Sie ein Quartal")).toEqual([]);
+    expect(localizedQuarters("im 2. Quartal 2026")).toEqual(["2"]);
   });
 });
