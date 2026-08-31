@@ -1,5 +1,13 @@
 # Turkish review request — 4 sentences
 
+> **Status: prepared, not sent.** On 2026-08-31 the site's maintainer reviewed
+> the Turkish content and accepted it, and `tr` moved to
+> `qualityReview: "self-reviewed"` without this packet going to a native
+> speaker. It is kept ready so that if a Turkish reader becomes available the
+> question can be put to them in one message. **Nothing below has been answered
+> by a native Turkish speaker.** See "Turkish: reviewed by the maintainer, not
+> by a native speaker" in `docs/i18n/critical-claims.md`.
+
 ## What this is
 
 devexcalculator.org is an independent reference site for Roblox creators. It

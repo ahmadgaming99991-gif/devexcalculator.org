@@ -18,6 +18,13 @@ sentence lands on somebody who grew up in the language. No locale is marked
 `native-reviewed` by this audit, and `reviewerName` is still `null` for all six
 in `src/i18n/config.ts`.
 
+On **2026-08-31** the site's maintainer read the Turkish content and accepted
+it, which moved `tr` to `qualityReview: "self-reviewed"` — "read by the
+maintainer, who is not a native speaker". That is a second non-native reading,
+not a native one, and it does not change any verdict below. The four sentences
+whose negation is carried by a verb suffix are marked *non-native reading* for
+that reason.
+
 ---
 
 ## The canonical figures
@@ -35,7 +42,6 @@ Read from `src/data/rates.json` on this run.
 | Marketplace shares | in-experience 70/30 · Marketplace avatar item 30/70 · avatar item in experience 30/30, 40 to the experience owner | `marketplace.schemes[]` |
 
 ---
-
 
 ## 1. The sentence that matters most
 
@@ -72,7 +78,7 @@ one will be approved.*
 | `id` | Memenuhi semua ini memungkinkan Anda mengajukan permohonan. Itu **tidak menjamin** permohonan akan disetujui. | "…That **does not guarantee** the request will be approved." | **PASS** |
 | `fr` | Remplir tout cela vous permet de déposer une demande. Cela **ne garantit pas** qu'elle sera acceptée. | "…That **does not guarantee** it will be accepted." | **PASS** |
 | `de` | Wenn du all das erfüllst, kannst du einen Antrag stellen. Es **garantiert nicht**, dass er genehmigt wird. | "…It **does not guarantee** that it will be approved." | **PASS** |
-| `tr` | Bunların hepsini karşılamak talep göndermenizi sağlar. Talebin onaylanacağını **garanti etmez**. | "…It **does not guarantee** that the request will be approved." | **PASS**, pending Turkish reader |
+| `tr` | Bunların hepsini karşılamak talep göndermenizi sağlar. Talebin onaylanacağını **garanti etmez**. | "…It **does not guarantee** that the request will be approved." | **PASS**, non-native reading |
 
 #### `data.minimum.note`
 
@@ -262,7 +268,7 @@ control.*
 | `id` | Siapa pun yang menjamin persetujuan sedang menjamin sesuatu yang **tidak dikendalikannya**. | "Anyone who guarantees approval is guaranteeing something that **is not controlled by them**." | **PASS** |
 | `fr` | Quiconque garantit une approbation garantit quelque chose qu'il **ne contrôle pas**. | "Whoever guarantees an approval guarantees something that he **does not control**." | **PASS** |
 | `de` | Wer eine Genehmigung garantiert, garantiert etwas, das er **nicht in der Hand hat**. | "Whoever guarantees an approval guarantees something that he **does not have in hand**." | **PASS** |
-| `tr` | Onay garantisi veren biri, denetiminde **olmayan** bir şeyi garanti ediyordur. | "Someone giving a guarantee of approval is guaranteeing a thing that is **not** under their supervision." | **PASS**, pending Turkish reader |
+| `tr` | Onay garantisi veren biri, denetiminde **olmayan** bir şeyi garanti ediyordur. | "Someone giving a guarantee of approval is guaranteeing a thing that is **not** under their supervision." | **PASS**, non-native reading |
 
 #### `calculator.results.copyDisclaimer`
 
@@ -293,7 +299,7 @@ approved.*
 | `id` | Situs ini **tidak** didukung, disponsori, atau dioperasikan oleh Roblox Corporation, serta **tidak dapat menentukan** apakah suatu permohonan DevEx akan disetujui. | "This site is **not** supported, sponsored, or operated by Roblox Corporation, and **cannot determine** whether a DevEx request will be approved." | **PASS** |
 | `fr` | Ce site **n'est ni** approuvé, **ni** sponsorisé, **ni** exploité par Roblox Corporation, et il **ne peut pas déterminer** si une demande DevEx sera acceptée. | "This site **is neither** approved, **nor** sponsored, **nor** operated by Roblox Corporation, and it **cannot determine** whether a DevEx request will be accepted." | **PASS** |
 | `de` | Diese Website wird von der Roblox Corporation **weder** unterstützt **noch** gesponsert **oder** betrieben, und sie **kann nicht feststellen**, ob ein DevEx-Antrag genehmigt wird. | "This website is **neither** supported **nor** sponsored **or** operated by Roblox Corporation, and it **cannot establish** whether a DevEx application will be approved." | **PASS** |
-| `tr` | Bu site Roblox Corporation tarafından **onaylanmamış**, **desteklenmemiş** veya **işletilmemektedir** ve herhangi bir DevEx talebinin onaylanıp onaylanmayacağını **belirleyemez**. | "This site is **not approved**, **not supported** or **not operated** by Roblox Corporation and **cannot determine** whether any DevEx request will be approved or not." | **PASS**, pending Turkish reader |
+| `tr` | Bu site Roblox Corporation tarafından **onaylanmamış**, **desteklenmemiş** veya **işletilmemektedir** ve herhangi bir DevEx talebinin onaylanıp onaylanmayacağını **belirleyemez**. | "This site is **not approved**, **not supported** or **not operated** by Roblox Corporation and **cannot determine** whether any DevEx request will be approved or not." | **PASS**, non-native reading |
 
 #### `routes.about.quickAnswer`
 
@@ -323,7 +329,7 @@ it does not mean the request will be approved.*
 | `id` | …memungkinkan Anda mengajukan permohonan DevEx; itu **tidak berarti** permohonannya akan disetujui. | "…lets you submit a DevEx request; that **does not mean** the request will be approved." | **PASS** |
 | `fr` | …vous permet de déposer une demande DevEx ; cela **ne signifie pas** qu'elle sera approuvée. | "…lets you file a DevEx request; that **does not mean** it will be approved." | **PASS** |
 | `de` | …erlaubt Ihnen, einen DevEx-Antrag zu stellen; es **bedeutet nicht**, dass er bewilligt wird. | "…allows you to file a DevEx application; it **does not mean** that it will be granted." | **PASS** |
-| `tr` | …bir DevEx talebi göndermenizi sağlar; talebin onaylanacağı **anlamına gelmez**. | "…lets you send a DevEx request; **it does not come to the meaning** that the request will be approved." | **PASS**, pending Turkish reader |
+| `tr` | …bir DevEx talebi göndermenizi sağlar; talebin onaylanacağı **anlamına gelmez**. | "…lets you send a DevEx request; **it does not come to the meaning** that the request will be approved." | **PASS**, non-native reading |
 
 #### `calculator.planner.alreadyEnoughDetail` and `calculator.planner.alreadyThere`
 
@@ -626,21 +632,40 @@ none.
 These are open leaks, not allow-list entries. No locale is clean on rendered
 output until they are fixed.
 
-### Turkish is blocked, not passed
+### Turkish: reviewed by the maintainer, not by a native speaker
 
 `tr` carries the no-guarantee claim morphologically: the negation is a verb
 suffix (`garanti et**mez**`, `aynı şey değildir`), not a separate word. The
 automated `negation-lost` check cannot confirm a suffix it does not know how to
-segment, and the author of these translations is not a Turkish speaker. Four
-sentences are affected — the keys reported as `negation-morphological` in
-`dist/reports/i18n/audit-tr.json`.
+segment. Four sentences are affected — the keys reported as
+`negation-morphological` in `dist/reports/i18n/audit-tr.json`:
+`calculator.home.meetingAllNote`,
+`calculator.planner.prose.estimateNotice`, `common.footer.trademarkNotice` and
+`guides.cashOut.body.safety.p3`.
 
-On the site's single most load-bearing sentence, a self-flagged uncertainty is
-not a pass. `tr` is **BLOCKED-PENDING-REVIEW** until a Turkish reader confirms
-that each of those four sentences negates the approval claim and attaches the
-negation to the right clause. This is stricter than the other five locales by
-design: the others carry the negation as a separate word that the check can
-see.
+**What happened, precisely.** The four sentences were extracted into a review
+packet (`docs/i18n/turkish-review-request.md`) for a native Turkish reader. That
+packet was **not sent**. On **2026-08-31** the site's maintainer reviewed the
+Turkish content — meaning, factual accuracy, disclaimer wording, DevEx approval
+language, placeholders and consistency with the English source — and accepted
+it. `qualityReview` moved from `machine-drafted` to `self-reviewed`, which the
+registry defines as "read by the maintainer, who is not a native speaker".
+
+**What that is and is not.** It is a real review by the person responsible for
+the site. It is not a native review, and this document does not claim one:
+`reviewerName` and `reviewedAt` remain `null`, because those fields record a
+named native speaker and `assertRegistry` refuses them without the matching
+claim. No locale in this registry is marked `native-reviewed`.
+
+**What is still unconfirmed.** Whether a Turkish reader would find any of the
+four sentences ambiguous enough to read the other way. Ambiguity is the failure
+mode a non-native reader is least able to detect, and it is the one that
+matters most here: these four sentences exist to stop somebody believing they
+are guaranteed money. The reading recorded in §1 — that all four negate
+correctly — is a non-native reading and remains so.
+
+The review packet is kept, unsent, so that if a Turkish reader is ever
+available the question can be put to them in one message.
 
 The third column is the one that gates publication, and nothing in this audit
 changes it. `docs/i18n/publishing-a-locale.md` has the procedure.

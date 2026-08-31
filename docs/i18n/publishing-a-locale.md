@@ -173,8 +173,8 @@ true, and in production it does not render at all.
       are real. `assertRegistry` fails the build otherwise, and that check is
       not the point — the point is that the claim is true.
 - [ ] `docs/i18n/critical-claims.md` §1 has no unresolved item for that locale.
-      As of this writing the only ones outstanding are four Turkish
-      morphological negations.
+      The four Turkish morphological negations were accepted by the maintainer
+      on 2026-08-31 and are recorded as a non-native reading, not as confirmed.
 - [ ] The working tree is committed. Every step below is reversible; step 5 is
       reversible in a way that depends on how fast you notice.
 

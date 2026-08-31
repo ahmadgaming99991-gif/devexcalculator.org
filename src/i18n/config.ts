@@ -173,7 +173,15 @@ export const localeRegistry: readonly LocaleMeta[] = [
     nativeName: "Türkçe",
     direction: "ltr",
     status: "review",
-    qualityReview: "machine-drafted",
+    /*
+     * Read by the maintainer against the English source on 2026-08-31, after
+     * the four morphological negations were pulled out for checking. Not a
+     * native review: `reviewerName` and `reviewedAt` stay null because those
+     * fields record a named native speaker, and `assertRegistry` refuses them
+     * without the matching claim. The review that did happen is written up in
+     * `docs/i18n/critical-claims.md`.
+     */
+    qualityReview: "self-reviewed",
     decimalSeparator: ",",
     groupSeparator: ".",
     searchRegion: "TR",
