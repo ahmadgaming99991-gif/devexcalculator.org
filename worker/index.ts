@@ -8,13 +8,7 @@ import {
 } from "../src/lib/platform/history";
 import { recordHeartbeat, type RunReport } from "../src/lib/platform/heartbeat";
 import { checkRateSource } from "../src/lib/rates/source-check";
-import { edgeCachePolicy, staticCachePolicy } from "../src/lib/cache/edge-policy";
-import {
-  isStorablePlatformResponse,
-  platformCachePolicy,
-  RENDERED_AT_HEADER,
-  resolveCachePolicy,
-} from "../src/lib/cache/platform-cache";
+import { applyCachePolicy } from "../src/lib/cache/response-policy";
 import { upgradeToHttps, type UpgradeEnv } from "../src/lib/http/https-upgrade";
 
 /**
@@ -39,58 +33,28 @@ interface Env {
 
 const handler = {
   async fetch(request: Request, env: unknown, ctx: ExecutionContext): Promise<Response> {
-    const upgrade = upgradeToHttps(request, env as UpgradeEnv);
-    if (upgrade) return upgrade;
-
-    const response = await openNextWorker.fetch(request, env, ctx);
-
     /*
-     * Every response that leaves this Worker carries a cache policy.
+     * One exit, so that every response leaving this Worker carries a cache
+     * policy.
      *
-     * `cache.enabled` in wrangler.jsonc makes Cloudflare check the cache
-     * before invoking the Worker at all, which is what removes the isolate
-     * startup a `caches.default` lookup still paid. It also changes what an
-     * absent `Cache-Control` means: it is no longer "this site does not cache
-     * it" but "something other than this file decides". So the chain below
-     * ends in a closed default rather than in a shrug.
+     * The HTTPS upgrade used to return here, before the policy was applied,
+     * and that 301 left with no `Cache-Control` at all. `cache.enabled` in
+     * wrangler.jsonc makes Cloudflare check the cache before invoking this
+     * Worker, which is what removes the isolate startup a `caches.default`
+     * lookup still paid -- and it also changes what an absent header means,
+     * from "this site does not cache it" to "something other than this
+     * repository decides". So the upgrade is now a response like any other.
      *
-     * Order is precedence, most specific first:
-     *
-     *   1. `/platform/` — 120 s for the bare page, `no-store` for any view.
-     *   2. `edgeCachePolicy` — the dynamic routes that render from the URL and
-     *      the rate registry alone, relaxed off Next's blanket `no-store`.
-     *   3. `staticCachePolicy` — prerendered pages that quote a rate, brought
-     *      down off Next's year at the edge.
-     *   4. Whatever the response already says — a route handler's own policy,
-     *      a static asset's year. Never overwritten.
-     *   5. `no-store`, because nothing above claimed it.
+     * `applyCachePolicy` holds the chain, most specific first: `/platform/`,
+     * then the relaxed dynamic routes, then the tightened prerendered ones,
+     * then whatever the response already said, then `no-store` because
+     * nothing claimed it.
      */
-    const platform = platformCachePolicy(request);
-    const storable = isStorablePlatformResponse(response);
-    const existing = response.headers.get("cache-control");
+    const response =
+      upgradeToHttps(request, env as UpgradeEnv) ??
+      (await openNextWorker.fetch(request, env, ctx));
 
-    const policy = resolveCachePolicy({
-      platform,
-      storablePlatformResponse: storable,
-      others: [edgeCachePolicy(request, response), staticCachePolicy(request, response)],
-      existing,
-    });
-
-    // Nothing to change: the response already says exactly this.
-    if (policy === existing && platform === null) return response;
-
-    const headers = new Headers(response.headers);
-    headers.set("cache-control", policy);
-    if (platform !== null && storable) {
-      headers.set(RENDERED_AT_HEADER, new Date().toISOString());
-    }
-
-    // Headers on a returned Response are immutable, so this is a copy.
-    return new Response(response.body, {
-      status: response.status,
-      statusText: response.statusText,
-      headers,
-    });
+    return applyCachePolicy(request, response);
   },
 
   async scheduled(event: ScheduledEvent, env: Env, ctx: ExecutionContext): Promise<void> {

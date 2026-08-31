@@ -27,10 +27,11 @@ mechanism is the failure this file exists to prevent.
 
 ---
 
-## The six that were false
+## The seven that were false
 
-Four found in the sweep, the one that started it, and one found by publishing a
-language — which is the only way that kind is ever found.
+Four found in the sweep, the one that started it, one found by publishing a
+language, and one found by reading the Worker before a deploy — each of the
+last three by a method the others could not have used.
 
 ### `src/i18n/visibility.ts` — "there is no sixth place somebody forgets"
 
@@ -126,6 +127,39 @@ emitter — it has to know the same answer without being one of them. Worth
 remembering when adding the tenth.
 
 ---
+
+### `worker/index.ts` — "every response that leaves this Worker carries a cache policy"
+
+**Was:** a comment at the top of the `fetch` handler saying exactly that, added
+in the same commit that enabled Workers Caching, and an audit that enumerated
+every response class against a running Worker and found none unlabelled.
+
+**Reality:** the HTTPS upgrade returned its 301 four lines above the block that
+applied the policy. That response left with no `Cache-Control` at all — the one
+thing `cache.enabled` makes dangerous, because with the cache in front of the
+Worker an absent header no longer means "this site does not cache it" but
+"something other than this repository decides".
+
+**How it survived the audit.** The audit was empirical, and this response cannot
+be produced empirically here: a local preview serves over plain HTTP, so it runs
+with `DISABLE_HTTPS_UPGRADE` set, so the upgrade path never executes. Fetching
+the running Worker a thousand times would not have produced it. It is visible
+only by reading the code — which is what the pre-deploy static check was, and
+why it was worth doing on a candidate that had already passed its gate.
+
+**Now:** GUARDED. `worker/index.ts` has one `return`; the wiring moved to
+`src/lib/cache/response-policy.ts` so it can be held by a test rather than only
+by a build artefact that resolves inside wrangler.
+`tests/unit/cache/response-policy.test.ts` asserts the upgrade 301 carries the
+closed default, and asserts over response *shapes* — no content type, 404, 500,
+redirect, empty header — rather than over a list of routes somebody has to keep
+current.
+
+**The lesson, which is the previous one from the other direction.** The quarter
+checker failed by reading one side of a comparison. This failed by using one
+method: an audit that only fetches can only find responses that a fetch can
+produce. The generalisation is that a response class you cannot reach from the
+outside is exactly the class an outside-in audit certifies by silence.
 
 ## True and unguarded
 
