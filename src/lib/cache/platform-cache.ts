@@ -126,6 +126,24 @@ export function isCacheablePlatformRequest(request: Request): boolean {
   return CACHED_PATHS.has(url.pathname);
 }
 
+/**
+ * Whether this is the platform page at all, cacheable or not.
+ *
+ * Separate from `isCacheablePlatformRequest` so a request that reaches the
+ * page and is deliberately not cached — one carrying `?days=7`, say — can be
+ * labelled `BYPASS` rather than carrying no label. Without this the header is
+ * absent both for a bypassed platform request and for every other route on the
+ * site, and a verification run cannot tell "the rule declined this" from "the
+ * rule never saw it".
+ */
+export function isPlatformPath(request: Request): boolean {
+  try {
+    return CACHED_PATHS.has(new URL(request.url).pathname);
+  } catch {
+    return false;
+  }
+}
+
 /** The policy stored with a cached copy. No `stale-while-revalidate`, deliberately. */
 export function platformCacheControl(): string {
   return `public, max-age=0, s-maxage=${PLATFORM_CACHE_SECONDS}, must-revalidate`;

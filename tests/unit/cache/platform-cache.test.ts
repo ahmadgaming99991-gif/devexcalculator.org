@@ -3,6 +3,7 @@ import {
   CACHE_STATUS_HEADER,
   edgeCache,
   isCacheablePlatformRequest,
+  isPlatformPath,
   isStorablePlatformResponse,
   PLATFORM_CACHE_SECONDS,
   platformCacheControl,
@@ -73,6 +74,22 @@ describe("which platform requests may be served from a copy", () => {
     ]) {
       expect(isCacheablePlatformRequest(get(path)), path).toBe(false);
     }
+  });
+
+  /**
+   * A declined platform request is labelled, not silent.
+   *
+   * `isPlatformPath` is what lets `/platform/?days=7` be reported as BYPASS
+   * instead of carrying no header — which would be indistinguishable from a
+   * route the rule never saw.
+   */
+  it("still recognises a bypassed platform request as the platform page", () => {
+    expect(isPlatformPath(get("/platform/?days=7"))).toBe(true);
+    expect(isPlatformPath(get("/platform/?ranking=most-engaging"))).toBe(true);
+    expect(isPlatformPath(get("/platform"))).toBe(true);
+    expect(isPlatformPath(get("/platform/stock/"))).toBe(false);
+    expect(isPlatformPath(get("/tr/platform/"))).toBe(false);
+    expect(isPlatformPath(get("/devex-rates/"))).toBe(false);
   });
 
   it("caches nothing but GET", () => {

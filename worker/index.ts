@@ -12,6 +12,7 @@ import { edgeCachePolicy, staticCachePolicy } from "../src/lib/cache/edge-policy
 import {
   CACHE_STATUS_HEADER,
   isCacheablePlatformRequest,
+  isPlatformPath,
   isStorablePlatformResponse,
   platformCacheControl,
   edgeCache,
@@ -123,11 +124,20 @@ const handler = {
      * See src/lib/cache/edge-policy.ts.
      */
     const policy = edgeCachePolicy(request, response) ?? staticCachePolicy(request, response);
-    if (!policy) return response;
+
+    /*
+     * A platform request that was not cacheable is labelled, not left blank.
+     * Without this the header is absent both for `/platform/?days=7` and for
+     * every other route, and a verification run cannot tell "the rule declined
+     * this" from "the rule never saw it".
+     */
+    const bypassed = isPlatformPath(request) && !platformCacheable;
+    if (!policy && !bypassed) return response;
 
     // Headers on a returned Response are immutable, so this is a copy.
     const headers = new Headers(response.headers);
-    headers.set("cache-control", policy);
+    if (policy) headers.set("cache-control", policy);
+    if (bypassed) headers.set(CACHE_STATUS_HEADER, "BYPASS");
     return new Response(response.body, {
       status: response.status,
       statusText: response.statusText,
