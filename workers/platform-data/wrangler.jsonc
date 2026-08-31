@@ -1,0 +1,43 @@
+{
+  "$schema": "../../node_modules/wrangler/config-schema.json",
+
+  /*
+   * The isolated CPU proof deployment, and nothing else.
+   *
+   * The name carries `-proof` so it can never be confused with a production
+   * service, and so a mistaken `wrangler deploy` from this directory cannot
+   * land on `devexcalculator-org`.
+   *
+   * Deliberately absent, and each absence is the point:
+   *
+   *   - no `routes` and no `custom_domain` — this is reachable only on its
+   *     workers.dev subdomain, never on devexcalculator.org;
+   *   - no `triggers.crons` — the proof invokes the collector explicitly so
+   *     that twenty runs are twenty measurements rather than a schedule
+   *     quietly writing to KV between them;
+   *   - no production KV — the namespace below is a throwaway created for this
+   *     measurement, so nothing here can read or overwrite the v1 collector's
+   *     state.
+   */
+  "name": "devexcalculator-platform-data-proof",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-06-01",
+
+  // The whole argument for a second Worker: no bundler config, no framework,
+  // no dependencies. Whatever this measures is this code, not an application.
+  "workers_dev": true,
+
+  "kv_namespaces": [
+    {
+      "binding": "PLATFORM_V2",
+      "id": "7eab89c7af41467f915ef4a2c6d52f7c"
+    }
+  ],
+
+  // Per-invocation CPU is the entire purpose of this deployment, and the
+  // minute-bucketed analytics dataset cannot give it for runs seconds apart.
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  }
+}
