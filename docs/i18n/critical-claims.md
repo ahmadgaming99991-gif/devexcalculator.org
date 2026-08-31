@@ -20,10 +20,11 @@ in `src/i18n/config.ts`.
 
 On **2026-08-31** the site's maintainer read the Turkish content and accepted
 it, which moved `tr` to `qualityReview: "self-reviewed"` — "read by the
-maintainer, who is not a native speaker". That is a second non-native reading,
-not a native one, and it does not change any verdict below. The four sentences
-whose negation is carried by a verb suffix are marked *non-native reading* for
-that reason.
+maintainer, who is not a native speaker" — and Turkish was published on that
+basis (D-046). That is a second non-native reading, not a native one, and it
+does not change any verdict below. The four sentences whose negation is carried
+by a verb suffix are marked *non-native reading* for that reason, and they are
+live on the site.
 
 ---
 
@@ -657,8 +658,8 @@ the site. It is not a native review, and this document does not claim one:
 named native speaker and `assertRegistry` refuses them without the matching
 claim. No locale in this registry is marked `native-reviewed`.
 
-**What is still unconfirmed.** Whether a Turkish reader would find any of the
-four sentences ambiguous enough to read the other way. Ambiguity is the failure
+**What is still unconfirmed, and is now live.** Whether a Turkish reader would
+find any of the four sentences ambiguous enough to read the other way. Ambiguity is the failure
 mode a non-native reader is least able to detect, and it is the one that
 matters most here: these four sentences exist to stop somebody believing they
 are guaranteed money. The reading recorded in §1 — that all four negate

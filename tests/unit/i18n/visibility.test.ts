@@ -14,9 +14,15 @@ import {
 import type { LocaleMeta } from "../../../src/i18n/types";
 
 /**
- * Six languages are complete, machine-drafted, and read by nobody. The whole
+ * Five languages are complete, machine-drafted, and read by nobody. The whole
  * point of these tests is that production cannot serve them by accident — so
  * almost every assertion here is that something stays invisible.
+ *
+ * Turkish is no longer one of them: it was read by the maintainer on
+ * 2026-08-31 and published on that basis (D-046). It is `self-reviewed`, not
+ * `native-reviewed`, and the gate accepts that deliberately. What the gate
+ * still refuses is a locale nobody has read at all, which is the line these
+ * tests exist to hold.
  */
 
 const original = process.env.ENABLE_REVIEW_LOCALES;
@@ -29,7 +35,7 @@ describe("the production default", () => {
   it("keeps review locales out of every public surface", () => {
     // hreflang, sitemap, IndexNow and the language selector all read this one
     // list, so a locale cannot leak through the surface somebody forgot.
-    expect(publicLocales().map((m) => m.locale)).toEqual(["en"]);
+    expect(publicLocales().map((m) => m.locale)).toEqual(["en", "tr"]);
     for (const meta of reviewLocales()) {
       expect(isPubliclyVisible(meta.locale), `${meta.locale} is publicly visible`).toBe(false);
     }
@@ -66,7 +72,7 @@ describe("review mode", () => {
       // ...never whether search engines are told about it.
       expect(isPubliclyVisible(meta.locale), `${meta.locale} became public`).toBe(false);
     }
-    expect(publicLocales().map((m) => m.locale)).toEqual(["en"]);
+    expect(publicLocales().map((m) => m.locale)).toEqual(["en", "tr"]);
   });
 
   it("still refuses a planned locale and an unknown segment", () => {
@@ -83,12 +89,28 @@ describe("the publish gate", () => {
     for (const meta of reviewLocales()) {
       const readiness = publishReadiness(meta.locale);
       expect(readiness.ready, `${meta.locale} is publishable`).toBe(false);
-      expect(readiness.blockers.join(" ")).toContain("native review");
+      expect(readiness.blockers.join(" ")).toContain("needs to have been read");
     }
   });
 
   it("lets English through, because English is the source", () => {
     expect(publishReadiness("en").ready).toBe(true);
+  });
+
+  /**
+   * The gate was loosened on 2026-08-31 and this is the half that was not.
+   *
+   * `self-reviewed` is now sufficient to publish (D-046). `machine-drafted`
+   * and `none` are not, and that is the whole remaining line: a locale read by
+   * nobody cannot go public. Asserted on the predicate rather than on today's
+   * registry, so it still holds when the other five are eventually read.
+   */
+  it("still refuses a locale nobody has read", () => {
+    expect(publishReadiness("tr").ready).toBe(true);
+    for (const meta of reviewLocales()) {
+      expect(meta.qualityReview, `${meta.locale}`).toBe("machine-drafted");
+      expect(publishReadiness(meta.locale).ready).toBe(false);
+    }
   });
 });
 

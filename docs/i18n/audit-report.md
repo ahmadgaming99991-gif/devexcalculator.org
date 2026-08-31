@@ -21,7 +21,7 @@ recorded by a person.
 | `id` | 2666 | 0 | 0 | 0 | 0 | 795 |
 | `fr` | 2666 | 0 | 0 | 0 | 0 | 795 |
 | `de` | 2666 | 0 | 0 | 0 | 0 | 795 |
-| `tr` | 2666 | 0 | 0 | 0 | 0 | 795 |
+| `tr` | 2666 | 0 | 0 | 0 | 4 | 795 |
 
 
 **Blocking total across all locales: 0** (critical + meaning + blocking).
@@ -124,18 +124,18 @@ No catalog findings.
 
 ### `tr`
 
-**review** — 4
+**quality** — 4
 
-- `calculator.home.meetingAllNote` (negation-morphological) — The negation appears to be carried by a verb suffix rather than a separate word, which is how this language negates. It reads as correct and cannot be confirmed from here — a reader of this language should say so explicitly.
+- `calculator.home.meetingAllNote` (negation-morphological) — Settled: Read by the site's maintainer on 2026-08-31 against the English source. Turkish carries the negation as the aorist suffix -mez (`garanti etmez`, 'does not guarantee'). Accepted as a non-native reading; not confirmed by a native speaker. See D-046.
   - en: "Meeting all of these lets you submit a request. It does not guarantee one will be approved."
   - tr: "Bunların hepsini karşılamak talep göndermenizi sağlar. Talebin onaylanacağını garanti etmez."
-- `calculator.planner.prose.estimateNotice` (negation-morphological) — The negation appears to be carried by a verb suffix rather than a separate word, which is how this language negates. It reads as correct and cannot be confirmed from here — a reader of this language should say so explicitly.
+- `calculator.planner.prose.estimateNotice` (negation-morphological) — Settled: Read by the site's maintainer on 2026-08-31. `anlamına gelmez` is the standard Turkish idiom for 'does not mean', negated by the same -mez suffix. Accepted as a non-native reading; not confirmed by a native speaker. See D-046.
   - en: "Every figure here is an estimate produced from what you entered. Reaching {minimumRobux} Earned Robux lets you submit a DevEx request; it does not mean the request will be approved. Roblox reviews eligibility, account st"
   - tr: "Buradaki her rakam, girdiklerinizden üretilmiş bir tahmindir. {minimumRobux} Earned Robux'a ulaşmak bir DevEx talebi göndermenizi sağlar; talebin onaylanacağı anlamına gelmez. Roblox uygunluğu, hesap durumunu ve kurallar"
-- `common.footer.trademarkNotice` (negation-morphological) — The negation appears to be carried by a verb suffix rather than a separate word, which is how this language negates. It reads as correct and cannot be confirmed from here — a reader of this language should say so explicitly.
+- `common.footer.trademarkNotice` (negation-morphological) — Settled: Read by the site's maintainer on 2026-08-31. Carries two denials: the -memiş/-mektedir chain on endorsement, sponsorship and operation, and `belirleyemez` — the impotential -emez, 'cannot determine' — on the approval outcome. Accepted as a non-native reading; not confirmed by a native speaker. See D-046.
   - en: "DevExCalculator.org is an independent tool. Roblox, Robux and Developer Exchange are trademarks of Roblox Corporation, used here only to describe the subject of these calculations. This site is not endorsed, sponsored or"
   - tr: "DevExCalculator.org bağımsız bir araçtır. Roblox, Robux ve Developer Exchange, Roblox Corporation'ın ticari markalarıdır ve burada yalnızca bu hesaplamaların konusunu tanımlamak için kullanılır. Bu site Roblox Corporatio"
-- `guides.cashOut.body.safety.p3` (negation-morphological) — The negation appears to be carried by a verb suffix rather than a separate word, which is how this language negates. It reads as correct and cannot be confirmed from here — a reader of this language should say so explicitly.
+- `guides.cashOut.body.safety.p3` (negation-morphological) — Settled: Read by the site's maintainer on 2026-08-31. `olmayan` is the negative participle, 'that is not', attached to the thing controlled rather than to the guaranteeing. Accepted as a non-native reading; not confirmed by a native speaker. See D-046.
   - en: "Anyone guaranteeing approval is guaranteeing something they do not control."
   - tr: "Onay garantisi veren biri, denetiminde olmayan bir şeyi garanti ediyordur."
 

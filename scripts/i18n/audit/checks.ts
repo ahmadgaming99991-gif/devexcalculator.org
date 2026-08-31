@@ -124,6 +124,58 @@ export const NUMERIC_EXEMPTIONS: Readonly<Record<string, string>> = {
     "amount and the correct value are all localized; only the artifact is not.",
 };
 
+/**
+ * `review` findings a person has actually settled, and how.
+ *
+ * A `review` finding means "this repository cannot decide it". Publishing a
+ * locale escalates every one of them to blocking, because an unsettled
+ * question about a no-guarantee sentence is not something to publish through.
+ * That leaves exactly one honest way past: somebody decides it, and says so
+ * here, in the file the next reviewer is already reading.
+ *
+ * The shape is deliberately awkward. One entry per locale per check per key,
+ * each naming who settled it, when, and on what basis — because a cheap
+ * exemption is one somebody adds to make a build green, and an expensive one
+ * is a claim they have to be willing to sign.
+ *
+ * **This can only ever downgrade a `review` finding.** It is applied at the
+ * publish-escalation step and nowhere else, so no entry here can silence a
+ * `critical`, `meaning` or `blocking` finding however it is written. A wrong
+ * number stays a wrong number.
+ *
+ * An entry that matches nothing is reported as stale rather than ignored: a
+ * settled finding that stopped occurring means the sentence changed, and the
+ * decision recorded here was made about text that is no longer there.
+ */
+export const SETTLED_REVIEW_FINDINGS: Readonly<Record<string, string>> = {
+  "tr:negation-morphological:calculator.home.meetingAllNote":
+    "Read by the site's maintainer on 2026-08-31 against the English source. Turkish carries " +
+    "the negation as the aorist suffix -mez (`garanti etmez`, 'does not guarantee'). Accepted " +
+    "as a non-native reading; not confirmed by a native speaker. See D-046.",
+  "tr:negation-morphological:calculator.planner.prose.estimateNotice":
+    "Read by the site's maintainer on 2026-08-31. `anlamına gelmez` is the standard Turkish " +
+    "idiom for 'does not mean', negated by the same -mez suffix. Accepted as a non-native " +
+    "reading; not confirmed by a native speaker. See D-046.",
+  "tr:negation-morphological:common.footer.trademarkNotice":
+    "Read by the site's maintainer on 2026-08-31. Carries two denials: the -memiş/-mektedir " +
+    "chain on endorsement, sponsorship and operation, and `belirleyemez` — the impotential " +
+    "-emez, 'cannot determine' — on the approval outcome. Accepted as a non-native reading; " +
+    "not confirmed by a native speaker. See D-046.",
+  "tr:negation-morphological:guides.cashOut.body.safety.p3":
+    "Read by the site's maintainer on 2026-08-31. `olmayan` is the negative participle, " +
+    "'that is not', attached to the thing controlled rather than to the guaranteeing. " +
+    "Accepted as a non-native reading; not confirmed by a native speaker. See D-046.",
+};
+
+/** The key a settled entry is filed under. */
+export function settlementKey(finding: {
+  readonly locale: string;
+  readonly check: string;
+  readonly key: string;
+}): string {
+  return `${finding.locale}:${finding.check}:${finding.key}`;
+}
+
 export function tokensIn(value: string): string[] {
   return (value.match(/\{[a-zA-Z_][a-zA-Z0-9_]*\}/g) ?? []).sort();
 }

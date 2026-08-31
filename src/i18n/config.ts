@@ -172,7 +172,7 @@ export const localeRegistry: readonly LocaleMeta[] = [
     englishName: "Turkish",
     nativeName: "Türkçe",
     direction: "ltr",
-    status: "review",
+    status: "published",
     /*
      * Read by the maintainer against the English source on 2026-08-31, after
      * the four morphological negations were pulled out for checking. Not a
@@ -180,6 +180,10 @@ export const localeRegistry: readonly LocaleMeta[] = [
      * fields record a named native speaker, and `assertRegistry` refuses them
      * without the matching claim. The review that did happen is written up in
      * `docs/i18n/critical-claims.md`.
+     *
+     * Published on that basis by the owner's decision — D-046. The four
+     * morphological negations are settled per key in
+     * `scripts/i18n/audit/checks.ts`, not waived.
      */
     qualityReview: "self-reviewed",
     decimalSeparator: ",",

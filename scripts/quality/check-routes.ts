@@ -11,6 +11,8 @@
  */
 import { indexableRoutes } from "../../src/lib/content/route-registry";
 import { siteConfig } from "../../src/config/site";
+import { publicLocales } from "../../src/i18n/visibility";
+import { localizedPath } from "../../src/i18n/locale-path";
 import {
   extractCanonical,
   extractH1s,
@@ -168,10 +170,25 @@ async function main(): Promise<void> {
       if (!response.ok) fail(`${path} returned ${response.status}.`);
     }
 
-    // The sitemap must list exactly the indexable routes, no more and no less.
+    /*
+     * The sitemap must list exactly the indexable routes in exactly the
+     * published languages — no more and no less.
+     *
+     * The locale half was missing, and it was the ninth surface found reading
+     * `indexableRoutes` without asking `publicLocales()`. It did not fail
+     * quietly like the other eight: publishing Turkish turned it red with 36
+     * "unexpected URL" errors against URLs that were entirely correct, which
+     * is the failure mode that trains somebody to widen the check rather than
+     * read it. Derived from the same two lists the sitemap itself uses, so it
+     * moves with the next publish instead of needing this comment again.
+     */
     const sitemapXml = await (await fetch(`${server.baseUrl}/sitemap.xml`)).text();
     const sitemapUrls = [...sitemapXml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1] ?? "");
-    const expectedUrls = new Set(indexableRoutes.map((r) => `${siteConfig.url}${r.route}`));
+    const expectedUrls = new Set(
+      publicLocales().flatMap((meta) =>
+        indexableRoutes.map((r) => `${siteConfig.url}${localizedPath(meta.locale, r.route)}`),
+      ),
+    );
     for (const url of sitemapUrls) {
       if (!expectedUrls.has(url)) fail(`Sitemap contains unexpected URL: ${url}`);
     }

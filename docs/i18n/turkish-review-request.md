@@ -1,12 +1,17 @@
 # Turkish review request — 4 sentences
 
-> **Status: prepared, not sent.** On 2026-08-31 the site's maintainer reviewed
-> the Turkish content and accepted it, and `tr` moved to
-> `qualityReview: "self-reviewed"` without this packet going to a native
-> speaker. It is kept ready so that if a Turkish reader becomes available the
-> question can be put to them in one message. **Nothing below has been answered
-> by a native Turkish speaker.** See "Turkish: reviewed by the maintainer, not
-> by a native speaker" in `docs/i18n/critical-claims.md`.
+> **Status: prepared, never sent — and Turkish shipped without it.**
+>
+> On 2026-08-31 the site's maintainer read the Turkish content and accepted it.
+> `tr` moved to `qualityReview: "self-reviewed"` and was published on that basis
+> (D-046). **The four sentences below are live on the site, and nothing below
+> has been answered by a native Turkish speaker.**
+>
+> The packet is kept ready so the question can go out in one message if a
+> Turkish reader becomes available. An answer now would be a correction to
+> shipped text rather than a gate before shipping — which makes it more urgent
+> to get, not less. See "Turkish: reviewed by the maintainer, not by a native
+> speaker" in `docs/i18n/critical-claims.md`.
 
 ## What this is
 
@@ -186,13 +191,17 @@ you have one, it is welcome.
 
 ## What happens with your answer
 
-If all four are OK, the Turkish version is published and you are credited by
-name as the reviewer, with the date, in the site's own configuration — unless
-you would rather not be, in which case say so and we will record the review
-without the name.
+Turkish is already live, so this is a correction path rather than an approval
+gate.
 
-If any is a PROBLEM, that sentence is corrected and the Turkish version stays
-unpublished until it is right.
+If all four are OK, `tr` moves from `qualityReview: "self-reviewed"` to
+`native-reviewed` and you are credited by name as the reviewer, with the date,
+in the site's own configuration — unless you would rather not be, in which case
+say so and we will record the review without the name.
 
-Thank you. This is the last check standing between us and publishing the
-Turkish version.
+If any is a PROBLEM, that sentence is corrected and deployed as a fix. Tell us
+plainly if you think it is bad enough that the Turkish pages should come down
+while it is corrected; that is a judgement we would rather have from you than
+make without you.
+
+Thank you.

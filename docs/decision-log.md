@@ -1178,3 +1178,58 @@ into a chunk. Adding the import breaks nothing that exists today.
 does not anticipate, in which case delete the import and keep the bundle check
 — which is the state this decision replaced, and the one that shipped for
 months believing it was something else.
+
+---
+
+## D-046 · A published locale must have been read, not necessarily by a native speaker
+
+**New implementation decision.**
+
+`publishReadiness` demanded `qualityReview: "native-reviewed"` before a locale
+could go public. On 2026-08-31 the owner relaxed it to accept `self-reviewed`
+as well, and published Turkish on that basis.
+
+**What changed, and what deliberately did not.** The bar moved from "a named
+native speaker read it" to "a person read it". `machine-drafted` and `none` are
+still refused, which is the line that matters: a locale nobody has read cannot
+be public. What did *not* change is the honesty of the label — `native-reviewed`
+still requires a named person and a date, `assertRegistry` still refuses a
+reviewer recorded without the matching claim, and `tr` is recorded as
+`self-reviewed` with `reviewerName: null`. The site does not claim a native
+review it did not get, and this decision does not make that claim cheaper.
+
+**The cost, stated plainly.** Turkish ships with four sentences whose negation
+is carried by a verb suffix, confirmed only by non-native readings. Those are
+the site's most load-bearing sentences — the ones that stop somebody believing
+they are guaranteed money. A native reader could still find one of them
+ambiguous, and ambiguity is precisely what a non-native reader is least able to
+detect. `docs/i18n/critical-claims.md` records that as unresolved rather than
+closed, and the review packet is kept ready to send.
+
+**How the four got past the publish escalation.** Not by exemption.
+`SETTLED_REVIEW_FINDINGS` in `scripts/i18n/audit/checks.ts` holds one entry per
+locale per check per key, each naming who settled it, when, and on what basis;
+a settled finding is reported at `quality` rather than vanishing, so `tr` shows
+`quality 4` in every audit run instead of showing nothing. Three properties are
+enforced rather than intended, and all three were falsified:
+
+- Removing an entry re-escalates its finding to `blocking` and fails the audit.
+- An entry that matches no finding is reported `STALE` and fails the audit, so
+  the table cannot rot into a list nobody reads.
+- An entry aimed at a `critical` finding does nothing — the table is applied
+  only at the `review` escalation step. Planting a wrong figure in `tr` **and**
+  a settlement for it gives `critical 2 … FAIL` plus a `STALE` report for the
+  settlement. A wrong number stays a wrong number.
+
+*Change if:* a native reader becomes available for any locale, in which case
+that locale moves to `native-reviewed` with their name and the date, and the
+corresponding entries in `SETTLED_REVIEW_FINDINGS` are deleted rather than
+edited — the finding stops occurring once a native speaker has answered it, and
+the stale check will say so.
+
+**A ninth surface, found by this.** `scripts/quality/check-routes.ts` built its
+expected sitemap from `indexableRoutes` without asking `publicLocales()`.
+Publishing Turkish turned it red with 36 "unexpected URL" errors against 36
+entirely correct URLs — the failure mode that trains somebody to widen a check
+rather than read it. Now derived from the same two lists the sitemap itself
+uses. See `docs/invariant-register.md`.

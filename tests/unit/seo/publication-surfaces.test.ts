@@ -26,37 +26,62 @@ import { localeRegistry } from "@/i18n/config";
 
 const PUBLISHED_TODAY = localeRegistry.filter((meta) => meta.status === "published");
 
-describe("while English is the only published language", () => {
-  it("has exactly one published locale to reason about", () => {
-    expect(PUBLISHED_TODAY.map((meta) => meta.locale)).toEqual(["en"]);
+/** The five still in review. A prefix here must not appear on a public surface. */
+const UNPUBLISHED_PREFIX = /\/(pt-br|es|id|fr|de)\//;
+
+describe("what the published set is today", () => {
+  /*
+   * English and Turkish. Turkish was read by the maintainer on 2026-08-31 and
+   * published on that basis (D-046); the other five have been read by nobody
+   * and are `machine-drafted`.
+   *
+   * This assertion is meant to fail when somebody publishes a language. That
+   * is its job: publishing changes eight surfaces, three of which shipped
+   * without asking the visibility question at all, and a red test here is the
+   * thing that makes someone read the runbook before deploying.
+   */
+  it("has exactly the locales somebody decided to publish", () => {
+    expect(PUBLISHED_TODAY.map((meta) => meta.locale)).toEqual(["en", "tr"]);
   });
 
-  it("lists every indexable route in the sitemap, and only the English URL", async () => {
+  it("lists every indexable route once per published language in the sitemap", async () => {
     const { default: sitemap } = await import("@/app/sitemap");
     const entries = sitemap();
 
-    expect(entries).toHaveLength(indexableRoutes.length);
+    expect(entries).toHaveLength(indexableRoutes.length * PUBLISHED_TODAY.length);
+    expect(entries.filter((entry) => entry.url.includes("/tr/"))).toHaveLength(
+      indexableRoutes.length,
+    );
     for (const entry of entries) {
-      expect(entry.url, "a locale prefix reached the sitemap").not.toMatch(
-        /\/(pt-br|es|id|fr|de|tr)\//,
+      expect(entry.url, "an unpublished locale reached the sitemap").not.toMatch(
+        UNPUBLISHED_PREFIX,
       );
     }
   });
 
-  it("submits only English URLs to IndexNow", async () => {
+  it("submits every published language to IndexNow, and no other", async () => {
     const { selectRoutes } = await import("@/lib/seo/indexnow");
     const routes = selectRoutes({ all: true });
 
-    expect(routes).toHaveLength(indexableRoutes.length);
+    expect(routes).toHaveLength(indexableRoutes.length * PUBLISHED_TODAY.length);
+    expect(routes.filter((route) => route.startsWith("/tr/"))).toHaveLength(
+      indexableRoutes.length,
+    );
     for (const route of routes) {
-      expect(route).not.toMatch(/^\/(pt-br|es|id|fr|de|tr)\//);
+      expect(route).not.toMatch(UNPUBLISHED_PREFIX);
     }
   });
 
-  it("says nothing about languages in llms.txt", async () => {
+  it("names every published language in llms.txt, and no other", async () => {
     const { llmsTxt } = await import("@/lib/content/llms");
-    // Nothing true to say yet, so the section is absent rather than empty.
-    expect(llmsTxt()).not.toContain("## Languages");
+    const text = llmsTxt();
+
+    expect(text).toContain("## Languages");
+    expect(text).toContain("Turkish (Türkçe)");
+    expect(text).toContain("/tr/");
+    for (const meta of localeRegistry.filter((m) => m.status === "review")) {
+      expect(text, `${meta.locale} is named in llms.txt`).not.toContain(`${meta.prefix}/`);
+    }
   });
 });
 

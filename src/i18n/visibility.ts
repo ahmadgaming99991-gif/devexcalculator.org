@@ -1,6 +1,6 @@
 import { localeRegistry, getLocaleMeta } from "./config";
 import { parseLocaleSegment } from "./locale-path";
-import type { Locale, LocaleMeta } from "./types";
+import type { Locale, LocaleMeta, QualityReview } from "./types";
 
 /**
  * What the public is allowed to see, and the one switch that changes it.
@@ -112,9 +112,23 @@ export function publishReadiness(locale: Locale): PublishReadiness {
   const meta = getLocaleMeta(locale);
   const blockers: string[] = [];
 
-  if (meta.qualityReview !== "native-reviewed" && meta.qualityReview !== "source") {
+  /*
+   * `self-reviewed` is accepted, and that is a deliberate loosening — D-046.
+   *
+   * This used to demand `native-reviewed`, which is the stronger bar and the
+   * one worth wanting. It was relaxed by the site's owner on 2026-08-31 for a
+   * locale a native speaker was not available for, in favour of a maintainer
+   * review that is recorded as exactly what it is. What is *not* relaxed is
+   * the honesty of the label: `native-reviewed` still requires a named person
+   * and a date, and nothing here lets a locale claim a review it did not get.
+   *
+   * `machine-drafted` and `none` are still refused. A locale read by nobody
+   * cannot be published, which is the line this function exists to hold.
+   */
+  const REVIEWED: readonly QualityReview[] = ["native-reviewed", "self-reviewed", "source"];
+  if (!REVIEWED.includes(meta.qualityReview)) {
     blockers.push(
-      `qualityReview is "${meta.qualityReview}"; a published locale needs a native review`,
+      `qualityReview is "${meta.qualityReview}"; a published locale needs to have been read`,
     );
   }
   if (meta.qualityReview === "native-reviewed") {

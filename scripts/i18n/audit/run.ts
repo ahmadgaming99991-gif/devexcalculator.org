@@ -34,6 +34,8 @@ import {
   checkNumbers,
   checkPlurals,
   checkTokens,
+  SETTLED_REVIEW_FINDINGS,
+  settlementKey,
   type Finding,
   type GlossaryTerm,
   type LexiconItem,
@@ -147,6 +149,16 @@ interface LocaleResult {
   readonly counts: Readonly<Record<string, number>>;
 }
 
+/*
+ * Which settlements actually matched a finding on this run.
+ *
+ * An entry that matches nothing is stale: the sentence it was written about
+ * has changed, so the decision recorded against it was made about text that is
+ * no longer there. Reported rather than ignored, for the same reason every
+ * other check here asserts it found something to check.
+ */
+const settlementsUsed = new Set<string>();
+
 const english = loadCatalog(LOCALES_DIR, DEFAULT_LOCALE);
 const figures = loadBearingFigures();
 const englishSeparators = separatorsFor(DEFAULT_LOCALE);
@@ -185,11 +197,22 @@ for (const locale of targets) {
    * which puts Turkish's four sentences in the build rather than in a document
    * somebody has to remember to read.
    */
+  /*
+   * The one way past the escalation is for a person to settle the finding and
+   * say so in `SETTLED_REVIEW_FINDINGS`, per locale per check per key, with
+   * the reason and the date. Applied only to `review` findings and only here,
+   * so no entry in that table can reach a `critical`, `meaning` or `blocking`
+   * one however it is written.
+   */
   const published = getLocaleMeta(locale as never).status === "published";
   const findings: Finding[] = published
-    ? raw.map((finding) =>
-        finding.severity === "review" ? { ...finding, severity: "blocking" as const } : finding,
-      )
+    ? raw.map((finding) => {
+        if (finding.severity !== "review") return finding;
+        const settled = SETTLED_REVIEW_FINDINGS[settlementKey(finding)];
+        if (settled === undefined) return { ...finding, severity: "blocking" as const };
+        settlementsUsed.add(settlementKey(finding));
+        return { ...finding, severity: "quality" as const, message: `Settled: ${settled}` };
+      })
     : raw;
 
   const counts: Record<string, number> = {};
@@ -381,6 +404,28 @@ if (englishFindings.length > 0) {
 
 console.log(`\n  reports: dist/reports/i18n/audit-<locale>.json`);
 console.log(`           docs/i18n/audit-report.md`);
+
+/*
+ * A settlement that matched nothing is a decision recorded against text that
+ * is no longer there. Fails rather than warns: the alternative is a table of
+ * exemptions that grows and is never read, which is how a real finding ends up
+ * silenced by an entry somebody wrote about a different sentence.
+ */
+const staleSettlements = Object.keys(SETTLED_REVIEW_FINDINGS).filter(
+  (key) => !settlementsUsed.has(key),
+);
+if (staleSettlements.length > 0) {
+  console.error(
+    `\n${staleSettlements.length} settled finding(s) in SETTLED_REVIEW_FINDINGS matched nothing ` +
+      `on this run. The sentence they were decided about has changed, so the decision no longer ` +
+      `applies to it:`,
+  );
+  for (const key of staleSettlements) console.error(`  STALE  ${key}`);
+  console.error(
+    "\nRe-read the sentence and either re-settle it with a current date or delete the entry.",
+  );
+  process.exit(1);
+}
 
 if (totalBlocking > 0) {
   console.error(`\n${totalBlocking} finding(s) block publication.`);

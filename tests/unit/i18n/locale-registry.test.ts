@@ -45,12 +45,28 @@ describe("the registry", () => {
     }
   });
 
-  it("publishes only English so far, and says so honestly", () => {
-    // The other six are being written. Until each is complete this must stay
-    // at one, and this assertion is what stops a locale going public early.
-    expect(publishedLocales().map((m) => m.locale)).toEqual(["en"]);
+  it("publishes exactly the locales somebody has decided to publish", () => {
+    /*
+     * Turkish joined English on 2026-08-31 — read by the maintainer, published
+     * on that basis by the owner's decision (D-046). The list is written out
+     * rather than derived so that a locale going public is an edit to this
+     * line, made by somebody who had to think about it, and not a side effect
+     * of editing the registry.
+     */
+    expect(publishedLocales().map((m) => m.locale)).toEqual(["en", "tr"]);
+    expect(isPublishedLocale("tr")).toBe(true);
     expect(isPublishedLocale("pt-BR")).toBe(false);
     expect(isPublishedLocale("ar")).toBe(false);
+  });
+
+  it("publishes nothing that nobody has read", () => {
+    // The line `publishReadiness` holds, restated where it is visible: a
+    // machine-drafted locale is one no person has been through, and it cannot
+    // be public whatever else is true of it.
+    for (const meta of publishedLocales()) {
+      expect(meta.qualityReview, `${meta.locale} is published`).not.toBe("machine-drafted");
+      expect(meta.qualityReview, `${meta.locale} is published`).not.toBe("none");
+    }
   });
 
   it("never claims a review that has not happened", () => {

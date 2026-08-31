@@ -3,12 +3,14 @@
 Everything a language needs before it may be served to the public, and the
 order to do it in.
 
-Six languages — Brazilian Portuguese, Spanish, Indonesian, French, German and
-Turkish — are complete and sit at `status: "review"`. They render only when
-`ENABLE_REVIEW_LOCALES=true` and are invisible in production: the URLs 404, the
-sitemap lists 36 English pages, there is no `hreflang`, and no language name
+Turkish was published on 2026-08-31 after the maintainer read it (D-046). Five
+languages — Brazilian Portuguese, Spanish, Indonesian, French and German — are
+complete and sit at `status: "review"`. They render only when
+`ENABLE_REVIEW_LOCALES=true` and are invisible in production: the URLs 404,
+they appear in no sitemap and no `hreflang` cluster, and no language name
 appears in the HTML. That is deliberate and it is where they stay until a
-person who reads the language has read it.
+person has read them — `publishReadiness` refuses a `machine-drafted` locale,
+which is what all five still are.
 
 ---
 
@@ -244,12 +246,18 @@ exact defect `publication-surfaces.test.ts` exists to catch, so check that the
 test was updated rather than deleted.
 
 ```
-curl -s http://127.0.0.1:3210/de/devex-rates/ | grep -o 'hreflang="[^"]*"' | sort
+curl -s http://127.0.0.1:3210/de/devex-rates/ | grep -io 'hreflang="[^"]*"' | sort
 ```
 
 Expected: one line per published locale plus `x-default`, and the same set on
 every language's copy of the page — a cluster that is not reciprocal is worse
 than no cluster.
+
+**`grep -i`, and that is not a nicety.** Next serialises the attribute as
+`hrefLang`, not `hreflang`. A case-sensitive grep here returns nothing on a
+page whose cluster is perfectly correct, and "no output" reads as "no
+hreflang". This runbook shipped with that bug and it was caught by running the
+command, which is the only way these things are ever caught.
 
 ```
 curl -s http://127.0.0.1:3210/llms.txt | grep -A 8 "## Languages"
@@ -364,45 +372,56 @@ gets worse with time, not better.
 
 ---
 
-### Publishing five and holding one
+### Publishing some and holding others
 
-This is the expected shape of the first publish: `pt-BR`, `es`, `id`, `fr` and
-`de` go out; `tr` waits for a Turkish reader to confirm four sentences whose
-negation is carried by a verb suffix.
+**What actually happened first:** `tr` alone went out on 2026-08-31, and
+`pt-BR`, `es`, `id`, `fr` and `de` are still held — the reverse of what this
+section originally anticipated. Turkish was the one a person read; the other
+five are still `machine-drafted`, which `publishReadiness` refuses.
+
+The mechanics below are written with `tr` as the held locale because that is
+the general shape. Substitute whichever locale is waiting.
 
 Nothing special is required. `status` is per locale, and the six asking surfaces
 each filter on it independently.
 
-| | published five + English | `tr` |
+| | a published locale | a held locale |
 | --- | --- | --- |
 | Renders in production | yes | **no** — 404, because `review` is not renderable without the flag |
 | In the language selector | yes | no |
-| In the hreflang cluster | yes, six links + `x-default` | **not present in any cluster** |
-| In the sitemap | 216 `<loc>` | absent |
+| In the hreflang cluster | yes, one link per published locale + `x-default` | **not present in any cluster** |
+| In the sitemap | 36 `<loc>` each | absent |
 | Submitted to IndexNow | yes | absent |
 | Named in `llms.txt` | yes | absent |
-| Audit severity | `review` findings escalate to `blocking` | stays `review`, so its four open findings do not gate the other five |
+| Audit severity | `review` findings escalate to `blocking` unless settled per key | stays `review`, so open findings do not gate the published ones |
+
+**Observed on 2026-08-31 with `en` + `tr` published:** sitemap 72 `<loc>`;
+cluster `en`, `tr`, `x-default`, identical on `/devex-rates/` and
+`/tr/devex-rates/`; `<meta name="robots" content="index, follow">` and
+`<html lang="tr">` on the Turkish page; `## Languages` in `llms.txt` naming
+Turkish and `/tr/`; `/pt-br/devex-rates/` 404.
 
 Two things to check specifically in this case:
 
 ```
-curl -s https://devexcalculator.org/de/devex-rates/ | grep -o 'hreflang="[^"]*"' | sort
+curl -s https://devexcalculator.org/tr/devex-rates/ | grep -io 'hreflang="[^"]*"' | sort
 ```
 
-Expected: `de`, `en`, `es`, `fr`, `id`, `pt-BR`, `x-default` — **seven lines,
-no `tr`.** A `tr` entry here would be an hreflang pointing at a 404, which is a
-worse error than omitting the language.
+Expected: exactly the published locales plus `x-default`, and **no held
+locale.** An entry for a held locale is an hreflang pointing at a 404, which is
+a worse error than omitting the language.
 
 ```
-curl -sI https://devexcalculator.org/tr/devex-rates/ | head -1
+curl -sI https://devexcalculator.org/pt-br/devex-rates/ | head -1
 ```
 
-Expected: `HTTP/2 404`. Turkish is not half-published; it is not published.
+Expected: `HTTP/2 404`. A held locale is not half-published; it is not
+published.
 
-When the Turkish reader comes back, `tr` is its own pass through this runbook
-from step 1. The sitemap goes 216 → 252 and every existing page's cluster gains
-an eighth link, so steps 2, 5 and 6 are re-run for all of them, not only for
-Turkish.
+Each later publish is its own pass through this runbook from step 1, and it
+touches every page that is already live: the sitemap grows by 36 and every
+existing cluster gains a link. Steps 2, 5 and 6 are re-run for all of them, not
+only for the new language.
 
 ---
 

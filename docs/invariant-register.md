@@ -27,9 +27,10 @@ mechanism is the failure this file exists to prevent.
 
 ---
 
-## The five that were false
+## The six that were false
 
-Four found in the sweep, and the one that started it.
+Four found in the sweep, the one that started it, and one found by publishing a
+language — which is the only way that kind is ever found.
 
 ### `src/i18n/visibility.ts` — "there is no sixth place somebody forgets"
 
@@ -103,6 +104,26 @@ than not having it.
 *Open, if anyone wants it:* the crawler already fetches every page and extracts
 every href. Comparing those against the graph would be a genuine gate. Not
 built, and not claimed.
+
+### `scripts/quality/check-routes.ts` — the sitemap it expected
+
+**Was:** `new Set(indexableRoutes.map((r) => siteConfig.url + r.route))` — the
+ninth surface found reading `indexableRoutes` without asking `publicLocales()`.
+
+It did not fail quietly like the other eight. Publishing Turkish on 2026-08-31
+turned it red with 36 `Sitemap contains unexpected URL` errors against 36
+entirely correct URLs. That is its own hazard: a check that cries wolf on
+correct output trains the next person to widen it rather than read it, which is
+the same lesson `label-quarter` taught with twelve correct translations.
+
+**Now STRUCTURAL:** derived from `publicLocales()` × `indexableRoutes`, the same
+two lists `sitemap.ts` itself uses, so it moves with the next publish. Behaviour
+verified against a running server: 72 `<loc>` with `en` + `tr` published.
+
+*Why the surface tests did not catch it:* `visibility-surfaces.test.ts` asserts
+that the six **emitting** surfaces ask the question. This is a validator, not an
+emitter — it has to know the same answer without being one of them. Worth
+remembering when adding the tenth.
 
 ---
 
