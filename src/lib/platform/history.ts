@@ -141,16 +141,41 @@ export async function readGameHistory(store: HistoryStore): Promise<GameHistory>
  * Missing observations are dropped rather than joined through: a line that
  * bridges a gap claims a measurement nobody took.
  */
+/**
+ * The shared `at` array as ISO strings, converted once per history object.
+ *
+ * Every experience is sampled by the same collection run, so all 471 of them
+ * plot against the same 136 instants — and each was converting those instants
+ * itself. `new Date(n).toISOString()` is not free, and `/platform/` was doing
+ * it around sixty thousand times per render: once per non-null value in
+ * `everyGameSeries`, and again for each of the ninety-six table rows.
+ *
+ * Keyed on the history object rather than cached globally, because the object
+ * is what the conversion is true of. A `WeakMap` also means the entry goes
+ * when the request's history does, so a long-lived isolate holding several
+ * days of collected data is not holding several days of derived strings too.
+ */
+const isoTimesFor = new WeakMap<GameHistory, readonly string[]>();
+
+function isoTimes(history: GameHistory): readonly string[] {
+  const cached = isoTimesFor.get(history);
+  if (cached !== undefined) return cached;
+  const built = history.at.map((instant) => new Date(instant).toISOString());
+  isoTimesFor.set(history, built);
+  return built;
+}
+
 export function gameSeries(history: GameHistory, universeId: number): HistorySeries {
   const values = history.players[String(universeId)];
   if (!values) return EMPTY_SERIES;
 
+  const times = isoTimes(history);
   const points: { at: string; totalPlaying: number }[] = [];
   for (let i = 0; i < values.length; i += 1) {
     const value = values[i];
-    const at = history.at[i];
+    const at = times[i];
     if (value === null || value === undefined || at === undefined) continue;
-    points.push({ at: new Date(at).toISOString(), totalPlaying: value });
+    points.push({ at, totalPlaying: value });
   }
 
   return toSeries(points);
@@ -171,13 +196,25 @@ export function largestExperienceSeries(history: GameHistory): {
   const points: { at: string; totalPlaying: number }[] = [];
   const leaders: Record<string, string> = {};
 
+  /*
+   * The entries are taken once, not once per observation.
+   *
+   * `Object.entries` inside the loop allocated a fresh array of 471 key/value
+   * pairs for each of 136 observations — sixty-four thousand pairs built and
+   * thrown away on every render of `/platform/`, for a table that does not
+   * change between them. Hoisting it is the whole difference; the comparison
+   * below is unchanged.
+   */
+  const tracked = Object.entries(history.players);
+  const times = isoTimes(history);
+
   for (let i = 0; i < history.at.length; i += 1) {
     const at = history.at[i];
     if (at === undefined) continue;
 
     let best = -1;
     let bestId: string | null = null;
-    for (const [id, values] of Object.entries(history.players)) {
+    for (const [id, values] of tracked) {
       const value = values[i];
       if (value === null || value === undefined) continue;
       if (value > best) {
@@ -187,7 +224,7 @@ export function largestExperienceSeries(history: GameHistory): {
     }
 
     if (bestId === null) continue;
-    const iso = new Date(at).toISOString();
+    const iso = times[i] ?? new Date(at).toISOString();
     points.push({ at: iso, totalPlaying: best });
     leaders[iso] = history.names[bestId] ?? "An experience";
   }
