@@ -10,6 +10,32 @@
     "opennext-worker": "./.open-next/worker.js"
   },
   "compatibility_date": "2026-06-01",
+
+  /*
+   * Cloudflare checks the cache before invoking this Worker.
+   *
+   * `/platform/` renders per request at ~125 ms of CPU, and the site's
+   * `error code: 1102` rate under a burst tracks per-request CPU almost
+   * exactly. A `caches.default` lookup at the top of the Worker skipped the
+   * React render but still paid isolate startup, which is part of what
+   * produces the error; this does not run the Worker at all on a hit.
+   *
+   * Turning this on changes what an absent `Cache-Control` means, from "this
+   * site does not cache it" to "something other than this repository decides".
+   * So every response leaving the Worker is given an explicit policy, ending
+   * in `no-store` when nothing claimed it — `resolveCachePolicy` in
+   * src/lib/cache/platform-cache.ts, asserted in its tests. Every response
+   * class was enumerated against a running Worker before this was enabled and
+   * none was found unlabelled.
+   *
+   * `cross_version_cache` is deliberately left off. A copy taken from the
+   * previous deployment could otherwise be served after a new one, which is
+   * the "cached page that has quietly stopped moving" failure with a longer
+   * reach — a deploy starts clean instead.
+   */
+  "cache": {
+    "enabled": true
+  },
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
   "assets": {
     "directory": ".open-next/assets",

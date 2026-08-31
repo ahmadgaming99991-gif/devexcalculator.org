@@ -1,141 +1,103 @@
 /**
- * A short-lived edge copy of `/platform/`, taken before the render runs.
+ * The cache policy for `/platform/`, and the closed default behind it.
  *
- * ## Why this exists
+ * ## What changed, and why this is a policy rather than a lookup
  *
- * `/platform/` renders per request and costs ~125 ms of CPU — twenty times a
- * cache-served page. Under a 40-request burst Cloudflare returned
- * `error code: 1102` for roughly a quarter of them, and the failure rate
- * across the site tracks per-request CPU almost exactly: a prerendered page
- * failed 0–2 times in 40, a plain dynamic page 5, `/platform/` 13.
+ * This started as a `caches.default` lookup at the top of the Worker. That
+ * skipped the React render on a hit but still paid isolate startup, because a
+ * Worker on a custom domain is invoked for every request — and isolate startup
+ * is part of what produces `error code: 1102` under a burst.
  *
- * Making the data cheaper was not enough to matter. Hoisting the two per-render
- * rebuilds out of the history readers took one request's data work from
- * 14.09 ms to 3.17 ms, which is about eight per cent of the page. Dropping the
- * table from 100 rows to 10 — halving the bytes — moved CPU only 125.0 ms to
- * 104.7 ms. Roughly 105 ms is the fixed cost of the dynamic render itself, so
- * the only way to stop paying it is to not render.
+ * Workers Caching removes that. With `cache.enabled` set in `wrangler.jsonc`,
+ * Cloudflare checks the cache *before* invoking the Worker, so a hit costs no
+ * isolate at all. The Worker's only job is then to say what may be cached and
+ * for how long, which is what this module decides.
  *
- * ## Where this sits, precisely
+ * ## Why `/platform/` needs it
  *
- * As early as code can sit. A Worker bound to a custom domain is invoked for
- * every request — there is no zone cache ahead of it that this repository can
- * configure — so the earliest interception point available is the top of the
- * Worker's own `fetch`, before the OpenNext handler is called at all. On a hit
- * the Next.js request pipeline, the React render and the KV reads never run.
- * The isolate still starts; that cost remains and is not addressed here.
+ * The page renders per request at ~125 ms of CPU — twenty times a cache-served
+ * page — and the site's 1102 rate tracks per-request CPU almost exactly: a
+ * prerendered page failed 0–2 times in 40, a plain dynamic page 5,
+ * `/platform/` 13. Making the data cheaper was not enough: hoisting the
+ * per-render rebuilds took the data work from 14.09 ms to 3.17 ms, and
+ * dropping the table from 100 rows to 10 moved total CPU only 125.0 → 104.7
+ * ms. About 105 ms is the render itself, so the only way to stop paying it is
+ * to not render.
  *
  * ## Why 120 seconds is not a stale figure
  *
  * The collector writes every fifteen minutes. A copy at most two minutes old
  * cannot be behind by even one collection interval, so a reader can never see
- * a chart that has stopped moving relative to what has actually been
- * collected — which is the failure the exclusion in `edge-policy.ts` was
- * written to prevent, and it is prevented by the bound rather than by
- * rendering every time.
+ * a chart that has stopped moving relative to what has been collected — the
+ * failure the exclusion note in `edge-policy.ts` was written to prevent,
+ * prevented by the bound rather than by rendering every time. The page also
+ * states the instant of each observation and reports the collector heartbeat,
+ * so its age is visible rather than something to trust.
  *
- * No `stale-while-revalidate`. The point of that directive is to keep serving
- * an expired copy while a new one is fetched, and an expired copy is exactly
- * what this must not serve: the bound is the guarantee.
+ * No `stale-while-revalidate`: that directive exists to keep serving an
+ * expired copy, and an expired copy is the one thing the bound is for.
  *
- * The page also states the instant each observation was taken and reports the
- * collector's heartbeat, so its age is visible on the page rather than
- * something a reader has to trust.
+ * ## Why a query string is `no-store` rather than merely uncached
  *
- * ## What is deliberately not cached
- *
- * Anything carrying a query string. `?ranking`, `?days` and `?experience`
- * select a different view of the same data, and a cached copy keyed on the
- * path alone would serve one reader's selection to another. Rather than
- * enumerate those three parameters — a list that would go stale the day a
- * fourth is added — any query string at all bypasses. That is also what the
- * existing dynamic-route policy does, and for the same reason.
- *
- * `/platform/stock/` and the localized `/{locale}/platform/` variants are not
- * covered. Fixing one route first and measuring it on its own is the point;
- * widening this is a separate change with its own measurement.
+ * `?ranking`, `?days` and `?experience` each select a different view of the
+ * same data. Under cache-before-Worker, a response that simply omits a policy
+ * is a response whose caching is decided by something other than this file —
+ * so the parameterised views say `no-store` explicitly rather than saying
+ * nothing and hoping. The rule is "any query string", not those three names,
+ * so a fourth parameter is safe the day it is added rather than the day
+ * somebody remembers this list.
  */
 
 /** How long a copy may be served. Well inside the fifteen-minute collection interval. */
 export const PLATFORM_CACHE_SECONDS = 120;
 
-/**
- * The two methods this uses, rather than Cloudflare's whole cache type.
- *
- * `caches.default` is a Workers extension and is not on the standard
- * `CacheStorage`. Declaring the pair actually called keeps the dependency
- * visible and lets a test supply a fake.
- */
-export interface EdgeCache {
-  match(request: Request): Promise<Response | undefined>;
-  put(request: Request, response: Response): Promise<void>;
-}
-
-/**
- * Cloudflare's shared cache, or null where there isn't one.
- *
- * Null in `next start`, in tests and in the build — every one of which should
- * render normally rather than throw. A caching layer that turns an
- * environment without a cache into an error would be a worse failure than the
- * one it was added to fix.
- */
-export function edgeCache(): EdgeCache | null {
-  const store = (globalThis as { caches?: { default?: EdgeCache } }).caches?.default;
-  return store ?? null;
-}
-
 /** The one path this applies to. Exact match, with and without the trailing slash. */
 const CACHED_PATHS: ReadonlySet<string> = new Set(["/platform", "/platform/"]);
 
 /**
- * Sent on every response for the path, so a verification run can tell the
- * three outcomes apart without guessing from timing.
- */
-export const CACHE_STATUS_HEADER = "x-platform-cache";
-
-/**
- * The instant the HTML was actually rendered, set only when it was.
+ * The instant the HTML was actually built.
  *
- * This is what makes "a hit did not re-render" checkable rather than asserted:
- * the value travels in the cached copy, so repeated hits all report the same
- * render, and a miss reports a new one.
+ * Kept after the move to Workers Caching because it is what makes "a hit did
+ * not re-render" checkable rather than asserted: the value travels in the
+ * cached copy, so repeated hits report the same render and only a miss reports
+ * a new one. `Cf-Cache-Status` says what Cloudflare did; this says what the
+ * application did, and the two agreeing is the evidence.
  */
 export const RENDERED_AT_HEADER = "x-platform-rendered-at";
 
-export type CacheOutcome = "HIT" | "MISS" | "BYPASS";
+/** Served to a query-free request. No `stale-while-revalidate`, deliberately. */
+export const PLATFORM_CACHEABLE_POLICY = `public, max-age=0, s-maxage=${PLATFORM_CACHE_SECONDS}, must-revalidate`;
+
+/** Served to anything selecting a view. Explicit, not absent. */
+export const PLATFORM_DYNAMIC_POLICY = "no-store";
 
 /**
- * Whether this request may be served from, or stored in, the short-lived copy.
+ * The policy for a platform request, or null when this is not one.
  *
  * Pure and exported so the rules are testable without a Worker: the decision
- * is the part that can be wrong in a way nobody notices.
+ * is the part that can be wrong in a way nobody notices, because a copy served
+ * to a request that selected a different view looks like a working page
+ * showing the wrong thing.
  */
-export function isCacheablePlatformRequest(request: Request): boolean {
-  if (request.method !== "GET") return false;
-
+export function platformCachePolicy(request: Request): string | null {
   let url: URL;
   try {
     url = new URL(request.url);
   } catch {
-    return false;
+    return null;
   }
 
-  // Any query string at all, not a list of known parameters.
-  if (url.search !== "") return false;
+  if (!CACHED_PATHS.has(url.pathname)) return null;
 
-  return CACHED_PATHS.has(url.pathname);
+  // Anything but a plain GET, and anything carrying a query string, is a view
+  // rather than the page. A bare `?` carries no parameter and is the page.
+  if (request.method !== "GET") return PLATFORM_DYNAMIC_POLICY;
+  if (url.search !== "") return PLATFORM_DYNAMIC_POLICY;
+
+  return PLATFORM_CACHEABLE_POLICY;
 }
 
-/**
- * Whether this is the platform page at all, cacheable or not.
- *
- * Separate from `isCacheablePlatformRequest` so a request that reaches the
- * page and is deliberately not cached — one carrying `?days=7`, say — can be
- * labelled `BYPASS` rather than carrying no label. Without this the header is
- * absent both for a bypassed platform request and for every other route on the
- * site, and a verification run cannot tell "the rule declined this" from "the
- * rule never saw it".
- */
+/** Whether a request is for the platform page at all, cacheable or not. */
 export function isPlatformPath(request: Request): boolean {
   try {
     return CACHED_PATHS.has(new URL(request.url).pathname);
@@ -144,21 +106,69 @@ export function isPlatformPath(request: Request): boolean {
   }
 }
 
-/** The policy stored with a cached copy. No `stale-while-revalidate`, deliberately. */
-export function platformCacheControl(): string {
-  return `public, max-age=0, s-maxage=${PLATFORM_CACHE_SECONDS}, must-revalidate`;
-}
-
 /**
- * Whether a rendered response may be stored.
+ * Whether a rendered response is one a copy may be taken of.
  *
  * Only a plain 200 HTML document. An error, a redirect, or anything carrying a
- * `set-cookie` is rendered fresh every time — a cached failure would outlive
- * the failure itself, which is the one way this could make an outage worse.
+ * `set-cookie` gets the dynamic policy instead: a cached failure outlives the
+ * failure itself, which is the one way this could make an outage worse than it
+ * found it.
  */
 export function isStorablePlatformResponse(response: Response): boolean {
   if (response.status !== 200) return false;
   if (response.headers.has("set-cookie")) return false;
   const type = response.headers.get("content-type") ?? "";
   return type.includes("text/html");
+}
+
+/**
+ * The policy given to any response that has not been given one.
+ *
+ * Turning on cache-before-Worker changes what an absent `Cache-Control` means.
+ * Before, an unlabelled response was simply not cached by this site's own
+ * rules; now it is a response whose caching is decided by Cloudflare's
+ * defaults rather than by anything written down here. Every response that
+ * leaves this Worker therefore carries a policy, and the one applied when
+ * nothing else claimed the response is the closed one.
+ *
+ * This is deliberately the *last* rule consulted. Anything with a deliberate
+ * policy — a route handler's own header, a static asset's year, the platform
+ * policy above — keeps it, so this can never quietly become the site's cache
+ * policy. It only ever fills a silence.
+ */
+export const CLOSED_DEFAULT_POLICY = "no-store";
+
+/**
+ * The single decision applied to every response leaving the Worker.
+ *
+ * Extracted from `worker/index.ts` so the closed default is something a test
+ * can assert rather than something a person has to read the Worker to trust.
+ * The order is precedence, most specific first, and the last two rules are the
+ * point of the whole function: a deliberate policy is never overwritten, and a
+ * silence is never left.
+ *
+ * `platform` and `others` are passed in rather than imported so this stays a
+ * pure function of its inputs — the platform rule is this module's, and the
+ * other two live in `edge-policy.ts` because they answer a different question.
+ */
+export function resolveCachePolicy(options: {
+  readonly platform: string | null;
+  readonly storablePlatformResponse: boolean;
+  readonly others: readonly (string | null)[];
+  readonly existing: string | null;
+}): string {
+  if (options.platform !== null) {
+    // A platform response only keeps the cacheable policy if it is something a
+    // copy may be taken of; an error or a redirect must not outlive itself.
+    return options.storablePlatformResponse ? options.platform : PLATFORM_DYNAMIC_POLICY;
+  }
+
+  for (const policy of options.others) {
+    if (policy) return policy;
+  }
+
+  // A deliberate policy — a route handler's own header, a static asset's year.
+  if (options.existing !== null && options.existing !== "") return options.existing;
+
+  return CLOSED_DEFAULT_POLICY;
 }
