@@ -1,12 +1,16 @@
 import { describe, expect, it } from "vitest";
 import {
   CLOSED_DEFAULT_POLICY,
+  EDGE_CACHE_CONTROL_HEADER,
   isPlatformPath,
   isStorablePlatformResponse,
+  PLATFORM_BROWSER_POLICY,
   PLATFORM_CACHE_SECONDS,
-  PLATFORM_CACHEABLE_POLICY,
   PLATFORM_DYNAMIC_POLICY,
+  PLATFORM_EDGE_POLICY,
+  PLATFORM_STALE_IF_ERROR_SECONDS,
   platformCachePolicy,
+  platformEdgePolicy,
   RENDERED_AT_HEADER,
   resolveCachePolicy,
 } from "@/lib/cache/platform-cache";
@@ -27,12 +31,14 @@ const get = (url: string, init?: RequestInit) =>
 
 describe("the policy for a query-free platform request", () => {
   it("caches the bare path, with or without the trailing slash", () => {
-    expect(platformCachePolicy(get("/platform/"))).toBe(PLATFORM_CACHEABLE_POLICY);
-    expect(platformCachePolicy(get("/platform"))).toBe(PLATFORM_CACHEABLE_POLICY);
+    expect(platformCachePolicy(get("/platform/"))).toBe(PLATFORM_BROWSER_POLICY);
+    expect(platformCachePolicy(get("/platform"))).toBe(PLATFORM_BROWSER_POLICY);
   });
 
-  it("is exactly the policy asked for", () => {
-    expect(PLATFORM_CACHEABLE_POLICY).toBe("public, max-age=0, s-maxage=120, must-revalidate");
+  it("is exactly the browser policy asked for", () => {
+    // No `s-maxage`: the shared-cache instruction lives in the edge header now,
+    // because the two caches are told different things.
+    expect(PLATFORM_BROWSER_POLICY).toBe("public, max-age=0, must-revalidate");
   });
 
   /**
@@ -43,7 +49,7 @@ describe("the policy for a query-free platform request", () => {
    * Asserted so the next reader knows it was considered rather than missed.
    */
   it("treats a query string with no parameters as the plain page", () => {
-    expect(platformCachePolicy(get("/platform/?"))).toBe(PLATFORM_CACHEABLE_POLICY);
+    expect(platformCachePolicy(get("/platform/?"))).toBe(PLATFORM_BROWSER_POLICY);
   });
 });
 
@@ -148,14 +154,113 @@ describe("the freshness argument, asserted rather than described", () => {
     expect(PLATFORM_CACHE_SECONDS).toBeLessThan(COLLECTION_INTERVAL_MINUTES * 60);
   });
 
-  it("carries no stale-while-revalidate", () => {
-    // That directive exists to keep serving an expired copy, and an expired
-    // copy is exactly what the bound above is there to prevent.
-    expect(PLATFORM_CACHEABLE_POLICY).not.toContain("stale-while-revalidate");
-    expect(PLATFORM_CACHEABLE_POLICY).toContain(`s-maxage=${PLATFORM_CACHE_SECONDS}`);
+  it("carries no stale-while-revalidate in either header", () => {
+    // That directive would answer from an expired copy on the ordinary path,
+    // and the freshness bound is the reason this route may be cached at all.
+    // `stale-if-error` is the narrower one and is asserted separately below.
+    expect(PLATFORM_BROWSER_POLICY).not.toContain("stale-while-revalidate");
+    expect(PLATFORM_EDGE_POLICY).not.toContain("stale-while-revalidate");
   });
 
-  it("names the header that proves a hit did not re-render", () => {
+  it("bounds the edge copy at the same two minutes", () => {
+    expect(PLATFORM_EDGE_POLICY).toContain(`max-age=${PLATFORM_CACHE_SECONDS}`);
+    expect(PLATFORM_EDGE_POLICY).not.toContain("s-maxage");
+  });
+});
+
+describe("the fallback that only speaks when a render fails", () => {
+  it("is exactly the edge policy asked for", () => {
+    expect(PLATFORM_EDGE_POLICY).toBe("public, max-age=120, stale-if-error=300");
+    expect(PLATFORM_STALE_IF_ERROR_SECONDS).toBe(300);
+  });
+
+  /**
+   * The assertion the whole fix depends on.
+   *
+   * `must-revalidate`, `proxy-revalidate` and `s-maxage` each tell a cache it
+   * may never serve a stale copy — which is precisely the permission
+   * `stale-if-error` grants. Any of them in this value would disable the
+   * fallback while leaving it looking present in the header, which is the
+   * failure mode worth a test rather than a comment: the outage would return
+   * and the configuration would still read as fixed.
+   */
+  it("contains nothing that would silently disable stale-if-error", () => {
+    for (const directive of ["must-revalidate", "proxy-revalidate", "s-maxage", "no-cache", "no-store"]) {
+      expect(PLATFORM_EDGE_POLICY, directive).not.toContain(directive);
+    }
+    expect(PLATFORM_EDGE_POLICY).toContain("stale-if-error=300");
+  });
+
+  it("keeps must-revalidate on the browser header, where it is correct", () => {
+    // The reader revalidates every time; that instruction must not reach the
+    // edge's decision, which is the reason for two headers at all.
+    expect(PLATFORM_BROWSER_POLICY).toContain("must-revalidate");
+    expect(PLATFORM_BROWSER_POLICY).toContain("max-age=0");
+  });
+
+  it("names the header Cloudflare reads in preference to Cache-Control", () => {
+    expect(EDGE_CACHE_CONTROL_HEADER).toBe("cloudflare-cdn-cache-control");
+  });
+
+  const html = (init: ResponseInit = {}) =>
+    new Response("<!doctype html>", {
+      ...init,
+      headers: { "content-type": "text/html; charset=utf-8", ...(init.headers ?? {}) },
+    });
+
+  it("is offered to a storable query-free platform response", () => {
+    expect(platformEdgePolicy(get("/platform/"), html())).toBe(PLATFORM_EDGE_POLICY);
+    expect(platformEdgePolicy(get("/platform"), html())).toBe(PLATFORM_EDGE_POLICY);
+    expect(platformEdgePolicy(get("/platform/?"), html())).toBe(PLATFORM_EDGE_POLICY);
+  });
+
+  it("is offered to no view, and to no other route", () => {
+    for (const path of [
+      "/platform/?days=7",
+      "/platform/?ranking=fun-with-friends",
+      "/platform/?experience=1234567",
+      "/platform/stock/",
+      "/tr/platform/",
+      "/",
+      "/devex-rates/",
+      "/api/platform/",
+    ]) {
+      expect(platformEdgePolicy(get(path), html()), path).toBeNull();
+    }
+  });
+
+  it("is offered to no method but GET", () => {
+    for (const method of ["POST", "HEAD", "PUT", "DELETE", "OPTIONS"]) {
+      expect(platformEdgePolicy(get("/platform/", { method }), html()), method).toBeNull();
+    }
+  });
+
+  /**
+   * A failure must never be the copy that gets served for five minutes.
+   *
+   * `stale-if-error` makes a stored copy outlive the moment it was stored in,
+   * so storing a 503 would turn one bad render into five minutes of them —
+   * the opposite of what this exists for.
+   */
+  it("is offered to no error, redirect, cookie-bearing or non-HTML response", () => {
+    for (const status of [500, 503, 404, 302, 301]) {
+      expect(platformEdgePolicy(get("/platform/"), html({ status })), String(status)).toBeNull();
+    }
+    expect(platformEdgePolicy(get("/platform/"), html({ headers: { "set-cookie": "a=b" } }))).toBeNull();
+    expect(
+      platformEdgePolicy(get("/platform/"), new Response("{}", { headers: { "content-type": "application/json" } })),
+    ).toBeNull();
+  });
+
+  /**
+   * Kept, and now doing a second job.
+   *
+   * It still shows that a hit did not re-render. Under `stale-if-error` it also
+   * shows *how old* a stale copy is, which is the only way a reader of the
+   * evidence can tell a fallback from a fresh render — `Cf-Cache-Status: STALE`
+   * says Cloudflare fell back, and this says what it fell back to.
+   */
+  it("names the header that proves a hit did not re-render, and dates a stale copy", () => {
     expect(RENDERED_AT_HEADER).toBe("x-platform-rendered-at");
   });
 });
@@ -182,19 +287,19 @@ describe("the policy every response ends up with", () => {
   it("gives the platform policy precedence over everything else", () => {
     expect(
       resolve({
-        platform: PLATFORM_CACHEABLE_POLICY,
+        platform: PLATFORM_BROWSER_POLICY,
         storablePlatformResponse: true,
         others: ["public, s-maxage=999"],
         existing: "private, no-store",
       }),
-    ).toBe(PLATFORM_CACHEABLE_POLICY);
+    ).toBe(PLATFORM_BROWSER_POLICY);
   });
 
   it("downgrades a platform response a copy may not be taken of", () => {
     // An error or a redirect on /platform/. A cached failure outlives the
     // failure, so it gets the dynamic policy however cacheable the request was.
     expect(
-      resolve({ platform: PLATFORM_CACHEABLE_POLICY, storablePlatformResponse: false }),
+      resolve({ platform: PLATFORM_BROWSER_POLICY, storablePlatformResponse: false }),
     ).toBe(PLATFORM_DYNAMIC_POLICY);
   });
 

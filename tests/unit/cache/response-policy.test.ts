@@ -2,7 +2,9 @@ import { describe, expect, it } from "vitest";
 import { applyCachePolicy } from "@/lib/cache/response-policy";
 import {
   CLOSED_DEFAULT_POLICY,
-  PLATFORM_CACHEABLE_POLICY,
+  EDGE_CACHE_CONTROL_HEADER,
+  PLATFORM_BROWSER_POLICY,
+  PLATFORM_EDGE_POLICY,
   RENDERED_AT_HEADER,
 } from "@/lib/cache/platform-cache";
 import { upgradeToHttps } from "@/lib/http/https-upgrade";
@@ -100,7 +102,8 @@ describe("the platform response, end to end", () => {
       get("https://devexcalculator.org/platform/"),
       html("<!doctype html><title>Platform</title>"),
     );
-    expect(sent.headers.get("cache-control")).toBe(PLATFORM_CACHEABLE_POLICY);
+    expect(sent.headers.get("cache-control")).toBe(PLATFORM_BROWSER_POLICY);
+    expect(sent.headers.get(EDGE_CACHE_CONTROL_HEADER)).toBe(PLATFORM_EDGE_POLICY);
     expect(sent.headers.get(RENDERED_AT_HEADER)).toMatch(/^\d{4}-\d{2}-\d{2}T/);
   });
 
@@ -121,6 +124,84 @@ describe("the platform response, end to end", () => {
       );
       expect(sent.headers.get("cache-control"), String(status)).toBe("no-store");
     }
+  });
+});
+
+describe("the edge header, as the response actually carries it", () => {
+  /**
+   * `Cloudflare-CDN-Cache-Control` outranks `Cache-Control` at Cloudflare, so
+   * every one of these is an assertion about which cache decides — not about a
+   * string. A response that must not be cached carrying a header whose only
+   * purpose is to permit caching would be the whole bug back again, in a form
+   * `Cache-Control` alone could not reveal.
+   */
+  it("gives the query-free page both headers, each saying its own thing", () => {
+    const sent = applyCachePolicy(get("https://devexcalculator.org/platform/"), html());
+    expect(sent.headers.get("cache-control")).toBe(PLATFORM_BROWSER_POLICY);
+    expect(sent.headers.get(EDGE_CACHE_CONTROL_HEADER)).toBe(PLATFORM_EDGE_POLICY);
+    // The browser is told to revalidate; the edge is told it may fall back.
+    expect(sent.headers.get("cache-control")).toContain("must-revalidate");
+    expect(sent.headers.get(EDGE_CACHE_CONTROL_HEADER)).not.toContain("must-revalidate");
+  });
+
+  it("gives a view no edge header at all", () => {
+    for (const search of ["?days=7", "?ranking=fun-with-friends", "?experience=1234567"]) {
+      const sent = applyCachePolicy(
+        get(`https://devexcalculator.org/platform/${search}`),
+        html(),
+      );
+      expect(sent.headers.get("cache-control"), search).toBe("no-store");
+      expect(sent.headers.has(EDGE_CACHE_CONTROL_HEADER), search).toBe(false);
+    }
+  });
+
+  it("gives no other route an edge header", () => {
+    for (const path of [
+      "/",
+      "/devex-rates/",
+      "/platform/stock/",
+      "/tr/platform/",
+      "/api/platform/",
+      "/_next/static/x.js",
+      "/feed.xml",
+    ]) {
+      const sent = applyCachePolicy(get(`https://devexcalculator.org${path}`), html());
+      expect(sent.headers.has(EDGE_CACHE_CONTROL_HEADER), path).toBe(false);
+    }
+  });
+
+  it("never lets a failure or a redirect become the copy served for five minutes", () => {
+    for (const status of [500, 503, 404]) {
+      const sent = applyCachePolicy(
+        get("https://devexcalculator.org/platform/"),
+        html("", { status }),
+      );
+      expect(sent.headers.get("cache-control"), String(status)).toBe("no-store");
+      expect(sent.headers.has(EDGE_CACHE_CONTROL_HEADER), String(status)).toBe(false);
+    }
+    const redirect = applyCachePolicy(
+      get("https://devexcalculator.org/platform/"),
+      new Response(null, { status: 308, headers: { location: "/" } }),
+    );
+    expect(redirect.headers.has(EDGE_CACHE_CONTROL_HEADER)).toBe(false);
+  });
+
+  /**
+   * Nothing upstream sets this header today. This is what keeps that from
+   * being a thing somebody has to remember: an inbound one outranks every
+   * decision the policy chain just made, so it is stripped rather than trusted.
+   */
+  it("strips an edge header it did not set, even when nothing else needs changing", () => {
+    const smuggled = new Response("{}", {
+      headers: {
+        "content-type": "application/json",
+        "cache-control": "no-store",
+        [EDGE_CACHE_CONTROL_HEADER]: "public, max-age=31536000",
+      },
+    });
+    const sent = applyCachePolicy(get("https://devexcalculator.org/api/health/"), smuggled);
+    expect(sent.headers.get("cache-control")).toBe("no-store");
+    expect(sent.headers.has(EDGE_CACHE_CONTROL_HEADER)).toBe(false);
   });
 });
 

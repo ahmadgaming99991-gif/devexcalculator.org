@@ -1,7 +1,9 @@
 import { edgeCachePolicy, staticCachePolicy } from "./edge-policy";
 import {
+  EDGE_CACHE_CONTROL_HEADER,
   isStorablePlatformResponse,
   platformCachePolicy,
+  platformEdgePolicy,
   RENDERED_AT_HEADER,
   resolveCachePolicy,
 } from "./platform-cache";
@@ -43,11 +45,39 @@ export function applyCachePolicy(request: Request, response: Response): Response
     existing,
   });
 
-  // Nothing to change: the response already says exactly this.
-  if (policy === existing && platform === null) return response;
+  const edge = platformEdgePolicy(request, response);
+
+  /*
+   * Nothing to change: the response already says exactly this, there is no edge
+   * override to add, and there is none present to strip.
+   *
+   * The last clause matters. Without it a response arriving with an edge header
+   * would keep it here purely because its `Cache-Control` happened to need no
+   * change — a short-circuit that skipped the strip below it.
+   */
+  const carriesEdgeHeader = response.headers.has(EDGE_CACHE_CONTROL_HEADER);
+  if (policy === existing && platform === null && edge === null && !carriesEdgeHeader) {
+    return response;
+  }
 
   const headers = new Headers(response.headers);
   headers.set("cache-control", policy);
+
+  /*
+   * The edge override, set only where `platformEdgePolicy` allows one.
+   *
+   * Deleted rather than left alone otherwise: this header outranks
+   * `Cache-Control` at Cloudflare, so one arriving from anywhere else would
+   * quietly outrank every decision made above it. Nothing upstream sets it
+   * today, which is the reason to make sure that stays true here rather than
+   * to assume it.
+   */
+  if (edge !== null) {
+    headers.set(EDGE_CACHE_CONTROL_HEADER, edge);
+  } else {
+    headers.delete(EDGE_CACHE_CONTROL_HEADER);
+  }
+
   if (platform !== null && storable) {
     headers.set(RENDERED_AT_HEADER, new Date().toISOString());
   }

@@ -35,7 +35,18 @@
  * so its age is visible rather than something to trust.
  *
  * No `stale-while-revalidate`: that directive exists to keep serving an
- * expired copy, and an expired copy is the one thing the bound is for.
+ * expired copy on the ordinary path, and an expired copy is the one thing the
+ * bound is for. `stale-if-error` is a different directive and is here — it is
+ * inert while renders succeed, and only speaks when one fails. See
+ * `PLATFORM_EDGE_POLICY`.
+ *
+ * ## Why there are two headers
+ *
+ * The browser and Cloudflare are told different things, which one header
+ * cannot do: the reader revalidates every time (`max-age=0, must-revalidate`),
+ * while Cloudflare holds a copy for two minutes and may fall back to it when a
+ * refill fails (`Cloudflare-CDN-Cache-Control`). Keeping `must-revalidate` in
+ * the shared instruction would have forbidden exactly that fallback.
  *
  * ## Why a query string is `no-store` rather than merely uncached
  *
@@ -65,8 +76,67 @@ const CACHED_PATHS: ReadonlySet<string> = new Set(["/platform", "/platform/"]);
  */
 export const RENDERED_AT_HEADER = "x-platform-rendered-at";
 
-/** Served to a query-free request. No `stale-while-revalidate`, deliberately. */
-export const PLATFORM_CACHEABLE_POLICY = `public, max-age=0, s-maxage=${PLATFORM_CACHE_SECONDS}, must-revalidate`;
+/**
+ * How long a copy may stand in for a refill that failed.
+ *
+ * Five minutes: long enough to cover a run of failed renders and the next
+ * collection, short enough that a page nobody can render stops being served
+ * rather than quietly becoming the site.
+ */
+export const PLATFORM_STALE_IF_ERROR_SECONDS = 300;
+
+/**
+ * What a query-free response says to the reader's browser.
+ *
+ * `max-age=0, must-revalidate` and **no `s-maxage`**. The shared-cache
+ * instruction moved to `PLATFORM_EDGE_POLICY` below, because the two caches now
+ * need to be told different things and one header cannot say both.
+ */
+export const PLATFORM_BROWSER_POLICY = "public, max-age=0, must-revalidate";
+
+/**
+ * What the same response says to Cloudflare, and why it is a separate header.
+ *
+ * `Cloudflare-CDN-Cache-Control` overrides `Cache-Control` at the edge and is
+ * invisible to the browser's own caching, so the reader keeps revalidating
+ * every time while Cloudflare holds a copy for two minutes.
+ *
+ * ## What this fixes
+ *
+ * Production answered empty 503s on this route roughly fifty minutes after the
+ * caching change verified clean. The failures were `exceededResources` and were
+ * confined to the **refill**: every HIT succeeded, and the identical fourteen-day
+ * page rendered in 1.70 s through a bypass URL while the cacheable key failed.
+ *
+ * The refill failing is survivable. The refill failing with nothing to fall
+ * back on is not, and that was the shape of the outage: with `must-revalidate`
+ * and no fallback directive, an expired copy may not be served, so every
+ * visitor got the failure until one render happened to succeed.
+ *
+ * `stale-if-error` changes only that. A refill still runs synchronously and a
+ * reader still gets a fresh render when one is available — but when the render
+ * fails, the previous successful copy is served for up to five minutes instead
+ * of an empty 503.
+ *
+ * ## Why not `stale-while-revalidate`
+ *
+ * Because it would answer from an expired copy on the *ordinary* path, not only
+ * the failing one, and the freshness bound is the reason this route may be
+ * cached at all. `stale-if-error` is the narrower directive: it is inert while
+ * renders succeed.
+ *
+ * ## Why nothing here says `must-revalidate` or `s-maxage`
+ *
+ * Both, and `proxy-revalidate`, instruct a cache never to serve a stale copy —
+ * which is exactly the permission `stale-if-error` grants. Putting them in this
+ * value would silently disable the fix while leaving it looking present. The
+ * browser policy above keeps `must-revalidate`, where it is correct and where
+ * it cannot reach the edge's decision.
+ */
+export const PLATFORM_EDGE_POLICY = `public, max-age=${PLATFORM_CACHE_SECONDS}, stale-if-error=${PLATFORM_STALE_IF_ERROR_SECONDS}`;
+
+/** The header Cloudflare reads in preference to `Cache-Control`. */
+export const EDGE_CACHE_CONTROL_HEADER = "cloudflare-cdn-cache-control";
 
 /** Served to anything selecting a view. Explicit, not absent. */
 export const PLATFORM_DYNAMIC_POLICY = "no-store";
@@ -94,7 +164,26 @@ export function platformCachePolicy(request: Request): string | null {
   if (request.method !== "GET") return PLATFORM_DYNAMIC_POLICY;
   if (url.search !== "") return PLATFORM_DYNAMIC_POLICY;
 
-  return PLATFORM_CACHEABLE_POLICY;
+  return PLATFORM_BROWSER_POLICY;
+}
+
+/**
+ * The edge policy for this response, or null when it must not carry one.
+ *
+ * Separate from `platformCachePolicy` because it answers a different question
+ * about a different cache, and because the two answers must be allowed to
+ * disagree — that disagreement is the whole point of the second header.
+ *
+ * Null for everything that is not a storable, query-free platform response, so
+ * a bypassed view, an error, a redirect and every other route on the site are
+ * left with no edge override at all and fall back to their own
+ * `Cache-Control`. A response that must not be cached must not be handed a
+ * header whose only purpose is to permit caching.
+ */
+export function platformEdgePolicy(request: Request, response: Response): string | null {
+  if (platformCachePolicy(request) !== PLATFORM_BROWSER_POLICY) return null;
+  if (!isStorablePlatformResponse(response)) return null;
+  return PLATFORM_EDGE_POLICY;
 }
 
 /** Whether a request is for the platform page at all, cacheable or not. */
