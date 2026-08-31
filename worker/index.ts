@@ -9,6 +9,14 @@ import {
 import { recordHeartbeat, type RunReport } from "../src/lib/platform/heartbeat";
 import { checkRateSource } from "../src/lib/rates/source-check";
 import { edgeCachePolicy, staticCachePolicy } from "../src/lib/cache/edge-policy";
+import {
+  CACHE_STATUS_HEADER,
+  isCacheablePlatformRequest,
+  isStorablePlatformResponse,
+  platformCacheControl,
+  edgeCache,
+  RENDERED_AT_HEADER,
+} from "../src/lib/cache/platform-cache";
 import { upgradeToHttps, type UpgradeEnv } from "../src/lib/http/https-upgrade";
 
 /**
@@ -36,7 +44,69 @@ const handler = {
     const upgrade = upgradeToHttps(request, env as UpgradeEnv);
     if (upgrade) return upgrade;
 
+    /*
+     * `/platform/` is answered from a two-minute edge copy, checked here —
+     * before `openNextWorker.fetch`, so a hit never enters the Next.js
+     * pipeline and never runs the React render or the KV reads that cost it
+     * ~125 ms of CPU. See src/lib/cache/platform-cache.ts for why the bound is
+     * two minutes and why it is not a stale figure.
+     *
+     * This is as early as code can sit. A Worker on a custom domain is invoked
+     * for every request, so the isolate start is still paid on a hit; what is
+     * skipped is everything after it.
+     */
+    const cache = edgeCache();
+    const platformCacheable = cache !== null && isCacheablePlatformRequest(request);
+    if (platformCacheable && cache) {
+      const hit = await cache.match(request);
+      if (hit) {
+        const headers = new Headers(hit.headers);
+        headers.set(CACHE_STATUS_HEADER, "HIT");
+        return new Response(hit.body, { status: hit.status, statusText: hit.statusText, headers });
+      }
+    }
+
     const response = await openNextWorker.fetch(request, env, ctx);
+
+    if (platformCacheable && cache) {
+      if (!isStorablePlatformResponse(response)) {
+        const headers = new Headers(response.headers);
+        headers.set(CACHE_STATUS_HEADER, "BYPASS");
+        return new Response(response.body, {
+          status: response.status,
+          statusText: response.statusText,
+          headers,
+        });
+      }
+
+      /*
+       * The stored copy carries the policy and the render time; the copy
+       * returned to this reader carries them too, plus MISS. `cache.put` is
+       * handed a clone and deferred, so storing never delays the response and
+       * a failed write costs a future hit rather than this request.
+       */
+      const headers = new Headers(response.headers);
+      headers.set("cache-control", platformCacheControl());
+      headers.set(RENDERED_AT_HEADER, new Date().toISOString());
+      headers.delete("expires");
+      headers.delete("pragma");
+
+      const rendered = new Response(response.body, {
+        status: response.status,
+        statusText: response.statusText,
+        headers,
+      });
+
+      ctx.waitUntil(cache.put(request, rendered.clone()));
+
+      const served = new Headers(rendered.headers);
+      served.set(CACHE_STATUS_HEADER, "MISS");
+      return new Response(rendered.body, {
+        status: rendered.status,
+        statusText: rendered.statusText,
+        headers: served,
+      });
+    }
 
     /*
      * Next marks every dynamically rendered page `no-store`, which is right by

@@ -31,10 +31,23 @@ import { routeRegistry } from "@/lib/content/route-registry";
  *      been given a policy on purpose, and it can never make something
  *      cacheable that was deliberately marked otherwise.
  *
- * `/platform/` and `/platform/stock/` are deliberately absent. They are drawn
- * from storage the collector writes to every fifteen minutes, so a cached copy
- * would be a chart that has quietly stopped moving — the exact failure the
- * collector's heartbeat exists to make visible.
+ * `/platform/` and `/platform/stock/` are absent from *this* list, and only
+ * one of them is uncached.
+ *
+ * The reasoning here was that they are drawn from storage the collector writes
+ * to every fifteen minutes, so a cached copy would be a chart that has quietly
+ * stopped moving. That risk is real and it is a property of an *unbounded*
+ * copy. `/platform/` is now answered from a two-minute one, held by
+ * `src/lib/cache/platform-cache.ts` and checked at the top of the Worker
+ * before the render — a bound shorter than one collection interval cannot miss
+ * a run, and the page states the instant of each observation regardless.
+ *
+ * It is a separate module rather than an entry here because it is a different
+ * mechanism: this file relaxes a header on a response that has already been
+ * rendered, and that one avoids the render. Adding `/platform/` below would
+ * have set a header and changed nothing about the ~125 ms that was the problem.
+ *
+ * `/platform/stock/` remains uncached and remains dynamic.
  */
 
 /** Routes whose HTML is a pure function of the URL and the rate registry. */
