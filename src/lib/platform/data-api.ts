@@ -72,6 +72,16 @@ export interface ApiExperience {
   readonly n: string;
   readonly p: number;
   readonly s: boolean;
+  /**
+   * Roblox's maturity label, already resolved by the Worker.
+   *
+   * It sits on the row rather than inside `x` because it travels on the
+   * player-count clock, not the hourly metadata one - it comes from the same
+   * response as the player count. Reading it from `x` would both hide it on a
+   * row nobody has enriched yet and imply, through `detailsRefreshed`, that it
+   * is hours older than it is.
+   */
+  readonly a: string | null;
   readonly x: ApiDetail | null;
 }
 

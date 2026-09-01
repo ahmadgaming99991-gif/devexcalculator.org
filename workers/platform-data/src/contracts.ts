@@ -52,6 +52,17 @@ export interface LiveRow {
   /** name */ readonly n: string;
   /** players at `observedAt` */ readonly p: number;
   /** isSponsored */ readonly s: boolean;
+  /**
+   * Index into `Live.maturity`, or null where Roblox published no rating.
+   *
+   * An index rather than the string: the sorts payload carries only a handful
+   * of distinct labels across several hundred rows ("Maturity: Minimal" alone
+   * covered 195 of 377 in a production response), so storing each verbatim
+   * would add ~6.8 KB to a value that is rewritten every fifteen minutes and
+   * whose serialisation is already the largest term in Stage A's CPU. Interned,
+   * the same information costs about 750 bytes.
+   */
+  readonly a: number | null;
 }
 
 /** What the last collection attempt did, so a reader can see a stall. */
@@ -85,6 +96,14 @@ export interface Live {
   /** Ordered universe ids per ranking id. Ids only; rows live in `experiences`. */
   readonly byRanking: Readonly<Record<string, readonly number[]>>;
   readonly experiences: Readonly<Record<string, LiveRow>>;
+  /**
+   * Roblox's own maturity labels, verbatim and de-duplicated.
+   *
+   * `LiveRow.a` indexes into this. The strings are exactly what Roblox
+   * published - never normalised, never defaulted - because this is a content
+   * rating issued by someone else and an invented one would be a fabrication.
+   */
+  readonly maturity: readonly string[];
   /** Today's platform totals as `[epochMillis, players]`, ascending. */
   readonly today: readonly (readonly [number, number])[];
   /** The day `today` belongs to, so a value carried over midnight is detected. */

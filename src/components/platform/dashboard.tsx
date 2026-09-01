@@ -568,7 +568,7 @@ function ExperienceRow({
             </>
           ) : null}
           {detail?.c && detail.a ? " · " : null}
-          {detail?.a ? <MaturityNote value={detail.a} t={t} /> : null}
+          {row.a ? <MaturityNote value={row.a} t={t} /> : null}
           {detail?.f != null ? (
             <>
               {detail.c || detail.a ? " · " : null}

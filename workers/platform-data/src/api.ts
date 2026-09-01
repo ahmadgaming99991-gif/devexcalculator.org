@@ -32,6 +32,7 @@ import {
   dayKeys,
   shardOf,
   type DetailRow,
+  type Live,
   type LiveRow,
 } from "./contracts";
 import { readDetails, readHighlights, readHistory, readLive, readTotals, type Env } from "./store";
@@ -99,6 +100,28 @@ function meta(observedAt: string, collector: unknown) {
 }
 
 /**
+ * Maturity, resolved across two clocks that disagree about it.
+ *
+ * Precedence: the live sorts label, then the enrichment label, then null. The
+ * order matters in one direction only - enrichment stores `a: null` for every
+ * row, because the games endpoint does not carry the field, and a null from the
+ * slower clock must never erase a real value from the faster one. The reverse
+ * fallback is kept so that if Roblox ever does return it there, the value is
+ * still surfaced rather than dropped.
+ *
+ * Resolved to a string here rather than shipping the index and the dictionary,
+ * so the browser contract stays a plain value. Interning is a storage decision,
+ * not something a reader should have to undo.
+ */
+function maturityOf(live: Live, row: LiveRow, detail: DetailRow | null): string | null {
+  if (typeof row.a === "number") {
+    const label = live.maturity[row.a];
+    if (typeof label === "string" && label !== "") return label;
+  }
+  return detail?.a ?? null;
+}
+
+/**
  * One ranking's rows, with enrichment joined here rather than in the browser.
  *
  * Measured at 1.83 ms median against 2.09 for a single unsharded enrichment
@@ -122,12 +145,18 @@ export async function handleRankings(env: Env, url: URL, origin: string | null):
   const ranking = requested !== null && live.byRanking[requested] ? requested : live.defaultRanking;
   const ids = live.byRanking[ranking] ?? [];
 
-  const experiences: (LiveRow & { x: DetailRow | null })[] = [];
+  /*
+   * `a` is replaced, not intersected: it is a dictionary index in storage and
+   * a resolved label on the wire, and `LiveRow & { a: string | null }` would
+   * narrow the two to `never`.
+   */
+  const experiences: (Omit<LiveRow, "a"> & { a: string | null; x: DetailRow | null })[] = [];
   for (const id of ids) {
     const key = String(id);
     const row = live.experiences[key];
     if (!row) continue;
-    experiences.push({ ...row, x: shards[shardOf(key)]?.rows[key] ?? null });
+    const detail = shards[shardOf(key)]?.rows[key] ?? null;
+    experiences.push({ ...row, a: maturityOf(live, row, detail), x: detail });
   }
 
   return ok(

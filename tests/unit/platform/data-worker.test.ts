@@ -5,6 +5,7 @@ import {
   dayKey,
   dayKeys,
   shardOf,
+  type Details,
   type Live,
 } from "../../../workers/platform-data/src/contracts";
 import { dispatch, unitFor } from "../../../workers/platform-data/src/dispatch";
@@ -13,6 +14,7 @@ import { appendHistory } from "../../../workers/platform-data/src/units/history"
 import { appendHighlights } from "../../../workers/platform-data/src/units/highlights";
 import { pick, refreshDetails } from "../../../workers/platform-data/src/units/enrichment";
 import { rollUpTotals } from "../../../workers/platform-data/src/units/rollup";
+import worker from "../../../workers/platform-data/src/index";
 import type { Env, PlatformStore } from "../../../workers/platform-data/src/store";
 
 /**
@@ -57,8 +59,24 @@ const SORTS = {
       topicLayoutData: { topicTitle: "Top Trending" },
       subtitle: "What is busy",
       games: [
-        { universeId: 111, name: "One", playerCount: 900, rootPlaceId: 11, isSponsored: false },
-        { universeId: 222, name: "Two", playerCount: 400, rootPlaceId: 22, isSponsored: true },
+        {
+          universeId: 111,
+          name: "One",
+          playerCount: 900,
+          rootPlaceId: 11,
+          isSponsored: false,
+          ageRecommendationDisplayName: "Maturity: Minimal",
+        },
+        {
+          universeId: 222,
+          name: "Two",
+          playerCount: 400,
+          rootPlaceId: 22,
+          isSponsored: true,
+          // The same label as 111, so interning has something to de-duplicate.
+          ageRecommendationDisplayName: "Maturity: Minimal",
+        },
+        // No maturity at all: it must stay null rather than acquire a default.
         { universeId: 333, playerCount: 10 },
         { name: "no id", playerCount: 5 },
         { universeId: 444, name: "no count" },
@@ -82,7 +100,13 @@ const DETAILS = {
       maxPlayers: 50,
       favoritedCount: 999,
       genre: "Adventure",
-      ageRecommendationDisplayName: "Maturity: Minimal",
+      /*
+       * Deliberately absent. Production proved this endpoint does not carry
+       * `ageRecommendationDisplayName`: across 150 enriched rows every one came
+       * back null while `genre`, from the same response, was populated 150/150.
+       * The fixture used to include it, which is why the tests agreed with the
+       * bug instead of catching it.
+       */
       creator: { name: "Studio", hasVerifiedBadge: true },
     },
   ],
@@ -212,7 +236,8 @@ describe("history day buckets", () => {
       defaultRanking: "r",
       platform: { players: 900, experiences: 1, rankings: 1 },
       byRanking: { r: [111] },
-      experiences: { "111": { i: 111, r: null, n: "One", p: 900, s: false } },
+      experiences: { "111": { i: 111, r: null, n: "One", p: 900, s: false, a: null } },
+      maturity: [],
       today: [],
       todayDay: day,
     };
@@ -632,5 +657,101 @@ describe("write budget", () => {
     const total = Object.values(counts).reduce((sum, n) => sum + n, 0);
     expect(total).toBe(241);
     expect(total).toBeLessThan(1_000);
+  });
+});
+
+/**
+ * Maturity, and the endpoint it actually comes from.
+ *
+ * This block exists because of a real production regression. v1 read Roblox's
+ * `ageRecommendationDisplayName` from the explore/sorts row and displayed it.
+ * v2 kept only five fields from that same payload and asked the games endpoint
+ * for maturity instead — an endpoint that does not carry it — so the field was
+ * null on every row in production while `genre`, from the same games response,
+ * was populated on all of them.
+ *
+ * The tests that should have caught it did not, because the fixture put the
+ * field on the games row. A fixture that agrees with the mistake tests nothing.
+ */
+describe("maturity comes from the payload Roblox publishes it in", () => {
+  it("parses maturity from the sorts row", () => {
+    const parsed = parseSorts(SORTS);
+    const label = parsed.maturity[parsed.experiences["111"]!.a!];
+    expect(label).toBe("Maturity: Minimal");
+  });
+
+  it("interns repeated labels instead of storing each one", () => {
+    const parsed = parseSorts(SORTS);
+    // Two experiences share a label; the dictionary holds it once.
+    expect(parsed.maturity).toEqual(["Maturity: Minimal"]);
+    expect(parsed.experiences["111"]!.a).toBe(0);
+    expect(parsed.experiences["222"]!.a).toBe(0);
+  });
+
+  it("leaves maturity null where Roblox published none, with no default", () => {
+    const parsed = parseSorts(SORTS);
+    expect(parsed.experiences["333"]!.a).toBeNull();
+    expect(parsed.maturity).not.toContain("");
+    expect(parsed.maturity.every((label) => label.startsWith("Maturity: "))).toBe(true);
+  });
+
+  it("survives the collection cycle into stored live state", async () => {
+    stubFetch({ sorts: SORTS });
+    const kv = makeStore();
+    await collectLive(kv.env);
+
+    const live = kv.read<Live>(KEYS.live)!;
+    expect(live.maturity).toEqual(["Maturity: Minimal"]);
+    expect(live.maturity[live.experiences["111"]!.a!]).toBe("Maturity: Minimal");
+    expect(live.experiences["333"]!.a).toBeNull();
+  });
+
+  it("adds no KV write and no Roblox subrequest", async () => {
+    stubFetch({ sorts: SORTS });
+    const kv = makeStore();
+    const report = await collectLive(kv.env);
+
+    // The whole point of reading it here: the payload was already in hand.
+    expect(report.subrequests).toBe(1);
+    expect(report.writes).toBe(1);
+    expect(kv.writes).toEqual([KEYS.live]);
+  });
+
+  it("never lets enrichment's null erase a real label from sorts", async () => {
+    stubFetch({ sorts: SORTS, details: DETAILS, votes: VOTES });
+    const kv = makeStore();
+    await collectLive(kv.env);
+    await refreshDetails(kv.env, shardOf(111));
+
+    const stored = kv.read<Details>(KEYS.details(shardOf(111)));
+    // Enrichment genuinely has nothing to offer here - the games endpoint does
+    // not carry the field - and that nothing must not win.
+    expect(stored?.rows["111"]?.a ?? null).toBeNull();
+
+    const live = kv.read<Live>(KEYS.live)!;
+    expect(live.maturity[live.experiences["111"]!.a!]).toBe("Maturity: Minimal");
+  });
+
+  it("serves the resolved label on the row, not inside the enrichment object", async () => {
+    stubFetch({ sorts: SORTS, details: DETAILS, votes: VOTES });
+    const kv = makeStore();
+    await collectLive(kv.env);
+    await refreshDetails(kv.env, shardOf(111));
+
+    const response = await worker.fetch(
+      new Request("https://api.devexcalculator.org/v1/platform/rankings"),
+      kv.env,
+    );
+    const body = (await response.json()) as {
+      data: { experiences: { i: number; a: string | null; x: { a: string | null } | null }[] };
+    };
+    const one = body.data.experiences.find((row) => row.i === 111)!;
+    const three = body.data.experiences.find((row) => row.i === 333);
+
+    expect(one.a).toBe("Maturity: Minimal");
+    // Present even where enrichment holds null, and absent where Roblox
+    // published nothing - never a fabricated default.
+    expect(one.x?.a ?? null).toBeNull();
+    if (three) expect(three.a).toBeNull();
   });
 });

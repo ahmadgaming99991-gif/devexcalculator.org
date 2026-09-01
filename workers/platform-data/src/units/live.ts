@@ -29,14 +29,26 @@ export function parseSorts(payload: unknown): {
   byRanking: Record<string, number[]>;
   experiences: Record<string, LiveRow>;
   players: number;
+  maturity: string[];
 } {
   const rankings: Ranking[] = [];
   const byRanking: Record<string, number[]> = {};
+  /*
+   * Maturity is interned here rather than fetched later.
+   *
+   * Roblox publishes `ageRecommendationDisplayName` on every ranking row of
+   * this same payload - the one Stage A already downloads. The first version of
+   * this Worker dropped it here and asked the games endpoint for it instead,
+   * which does not carry it, so the field was null on every row in production.
+   * Reading it from the response already in hand costs no request and no write.
+   */
+  const maturity: string[] = [];
+  const maturityIndex = new Map<string, number>();
   const experiences: Record<string, LiveRow> = {};
   let players = 0;
 
   const sorts = (payload as { sorts?: unknown })?.sorts;
-  if (!Array.isArray(sorts)) return { rankings, byRanking, experiences, players };
+  if (!Array.isArray(sorts)) return { rankings, byRanking, experiences, players, maturity };
 
   for (const sort of sorts) {
     if (typeof sort !== "object" || sort === null) continue;
@@ -57,12 +69,31 @@ export function parseSorts(payload: unknown): {
       const key = String(universeId);
       // An experience listed in several rankings is one row and one count.
       if (experiences[key] === undefined) {
+        // Absent, empty or non-string stays null. There is no default rating:
+        // a content rating nobody issued is not a rating.
+        const label =
+          typeof g.ageRecommendationDisplayName === "string" && g.ageRecommendationDisplayName !== ""
+            ? g.ageRecommendationDisplayName
+            : null;
+        let a: number | null = null;
+        if (label !== null) {
+          const known = maturityIndex.get(label);
+          if (known === undefined) {
+            a = maturity.length;
+            maturity.push(label);
+            maturityIndex.set(label, a);
+          } else {
+            a = known;
+          }
+        }
+
         experiences[key] = {
           i: universeId,
           r: typeof g.rootPlaceId === "number" ? g.rootPlaceId : null,
           n: typeof g.name === "string" && g.name !== "" ? g.name : key,
           p: playing,
           s: g.isSponsored === true,
+          a,
         };
         players += playing;
       }
@@ -84,7 +115,7 @@ export function parseSorts(payload: unknown): {
     byRanking[id] = ids;
   }
 
-  return { rankings, byRanking, experiences, players };
+  return { rankings, byRanking, experiences, players, maturity };
 }
 
 /**
@@ -104,7 +135,7 @@ export async function collectLive(env: Env, now = Date.now()): Promise<UnitRepor
     };
   }
 
-  const { rankings, byRanking, experiences, players } = parseSorts(sorts.data);
+  const { rankings, byRanking, experiences, players, maturity } = parseSorts(sorts.data);
   const count = Object.keys(experiences).length;
   if (rankings.length === 0 || count === 0) {
     return {
@@ -145,6 +176,7 @@ export async function collectLive(env: Env, now = Date.now()): Promise<UnitRepor
     platform: { players, experiences: count, rankings: rankings.length },
     byRanking,
     experiences,
+    maturity,
     today,
     todayDay: day,
   };
