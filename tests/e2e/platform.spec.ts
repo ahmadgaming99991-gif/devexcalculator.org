@@ -197,19 +197,31 @@ test.describe("the static document", () => {
     }
   });
 
-  test("serves the same document for every query variant", async ({ page }) => {
-    // One prerendered file, not a render per combination. The <main> markup of
-    // a query variant must match the plain URL's before any fetch lands.
-    await page.route(API, () => {});
-
-    const shapeOf = async (url: string) => {
-      await page.goto(url);
-      return page.locator("main").evaluate((node) => node.innerHTML.length);
+  test("serves the same document for every query variant", async ({ request }) => {
+    /*
+     * One prerendered file, not a render per combination.
+     *
+     * Asserted against the bytes the server returns rather than the DOM the
+     * browser ends up with. An earlier version measured `main.innerHTML.length`
+     * after `goto`, which samples whatever hydration had reached by then and
+     * failed under a loaded suite for a reason that had nothing to do with the
+     * claim. The response body cannot hydrate, so this is both deterministic
+     * and the stronger statement: not "close enough", but the same file.
+     */
+    const bodyOf = async (url: string) => {
+      const response = await request.get(url);
+      expect(response.status(), url).toBe(200);
+      return response.text();
     };
 
-    const plain = await shapeOf("/platform/");
-    for (const url of ["/platform/?days=1", "/platform/?ranking=anything", "/platform/?experience=999"]) {
-      expect(Math.abs((await shapeOf(url)) - plain), url).toBeLessThan(200);
+    const plain = await bodyOf("/platform/");
+    for (const url of [
+      "/platform/?days=1",
+      "/platform/?ranking=anything",
+      "/platform/?experience=999",
+      "/platform/?ranking=top-playing-now&days=7&experience=111",
+    ]) {
+      expect(await bodyOf(url), url).toBe(plain);
     }
   });
 
