@@ -2,30 +2,36 @@
   "$schema": "../../node_modules/wrangler/config-schema.json",
 
   /*
-   * The platform data plane, staging configuration.
+   * The platform data plane, production configuration.
    *
-   * This file deliberately describes a **non-production** deployment. It is
-   * reachable only on its workers.dev subdomain, writes only to a throwaway KV
-   * namespace, and cannot be reached from devexcalculator.org. Production
-   * cutover is a separate, reviewed change that adds exactly four things:
+   * This Worker serves `/platform/`'s figures to the reader's browser and
+   * collects them on a schedule. It is deliberately separate from the site
+   * Worker: the site is a Next.js application near the 3 MB bundle limit, and
+   * a per-request render of `/platform/` measured a median of 134 ms of CPU
+   * against the Workers Free plan's 10 ms, which produced `error code: 1102`.
+   * Nothing here has a framework, a bundler config, or a dependency.
    *
-   *   1. `name` becomes `devexcalculator-platform-data`
-   *   2. `routes` gains `api.devexcalculator.org` as a custom domain
-   *   3. `kv_namespaces[0].id` becomes the production namespace
-   *   4. `triggers.crons` becomes `["*​/5 * * * *"]`, the schedule the
-   *      dispatcher is written for
-   *
-   * Nothing in `src/` differs between the two. The Worker does not read its own
-   * environment name and has no staging-only branch, so what is measured here
-   * is what runs there.
+   * The staging deployment this was proven on
+   * (`devexcalculator-platform-data-proof`, workers.dev only, throwaway
+   * namespace 7eab89c7af41467f915ef4a2c6d52f7c, no cron) still exists and can
+   * be removed once production has soaked. Nothing in `src/` differs between
+   * the two: the Worker does not read its own environment name and has no
+   * staging-only branch, so what was measured there is what runs here.
    */
-  "name": "devexcalculator-platform-data-proof",
+  "name": "devexcalculator-platform-data",
   "main": "src/index.ts",
   "compatibility_date": "2026-06-01",
 
-  // The whole argument for a second Worker: no bundler config, no framework,
-  // no dependencies. Whatever this measures is this code, not an application.
-  "workers_dev": true,
+  /*
+   * One public origin, and it is the one the site's CSP names.
+   *
+   * A workers.dev subdomain would publish this same data under a second
+   * hostname that nothing links to and no policy mentions. There is nothing
+   * secret here - every endpoint is a public read - but an origin nobody uses
+   * is still an origin to keep track of.
+   */
+  "workers_dev": false,
+  "routes": [{ "pattern": "api.devexcalculator.org", "custom_domain": true }],
 
   /*
    * Every five minutes, one unit.
@@ -34,27 +40,28 @@
    * that no invocation ever carries two of them - combining the hourly history
    * append with the collection cycle measured 12.35-23.15 ms against a 10 ms
    * plan limit. See src/dispatch.ts for the minute-by-minute allocation.
-   *
-   * Left unset on staging so a measurement run can set it deliberately rather
-   * than a background schedule writing to the test namespace unattended.
    */
   "triggers": {
-    "crons": []
+    "crons": ["*/5 * * * *"]
   },
 
   /*
-   * A throwaway namespace, not the v1 collector's store.
+   * The v2 namespace, not the v1 collector's store.
    *
    * The v1 collector's keys are unprefixed (`obs:`, `index`, `series`, `games`,
    * `heartbeat`) and live in namespace 8f880ad3328f42bb86272bee6e76542b. Every
    * key this Worker writes carries the `platform:v2:` prefix, so the two could
-   * share a namespace without colliding - but during migration they do not,
-   * which means a mistake here cannot reach production data at all.
+   * share a namespace without colliding - but they do not, which means a
+   * mistake here cannot reach the data the live site is currently serving.
+   *
+   * v1 keeps collecting through the dual-run. See docs/platform-data-cutover.md
+   * for why retiring it is gated on the public exports rather than on this
+   * Worker being healthy.
    */
   "kv_namespaces": [
     {
       "binding": "PLATFORM_DATA",
-      "id": "7eab89c7af41467f915ef4a2c6d52f7c"
+      "id": "a8b623a0b4324f7bab0b61f38769c208"
     }
   ],
 
