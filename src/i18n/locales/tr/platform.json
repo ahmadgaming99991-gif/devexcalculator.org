@@ -5,11 +5,11 @@
     "stats.workedAmountColumn"
   ],
   "live": {
-    "intro": "Roblox'un kendi açık uç noktalarından gelen canlı oyuncu sayıları, Roblox'un yayımladığı bütün sıralamalarda; ve bu sitenin izlemeye başladığından beri gözlediklerinin kaydı.",
+    "intro": "Roblox'un sıraladığı experience'lar için oyuncu sayıları — Roblox'un kendi açık uç noktalarından her {interval} dakikada bir toplanır — ve bu sitenin izlemeye başladığından beri gözlediklerinin kaydı.",
     "jumpLabel": "Canlı rakamları gör",
     "rankingsLabel": "Roblox sıralamaları",
     "nowHeading": "Şu anda ne oynanıyor",
-    "nowDescription": "Bu sayfa sunulurken Roblox'un açık explore ve games uç noktalarından okundu. Hesap yok, üçüncü taraf veri sağlayıcı yok ve bu sitenin ölçtüğü ya da tahmin ettiği hiçbir şey yok.",
+    "nowDescription": "Roblox’un açık explore ve games uç noktalarından planlı olarak toplanır ve bu sitede saklanır; gözlem zamanı rakamların yanında gösterilir. Hesap yok, üçüncü taraf veri sağlayıcı yok ve bu sitenin ölçtüğü ya da tahmin ettiği hiçbir şey yok.",
     "unavailableTitle": "Roblox'un canlı rakamlarına şu anda ulaşılamıyor",
     "calculatorStillWorks": "ödeme hesaplayıcısı",
     "noExperiencesTitle": "Roblox hiçbir experience döndürmedi",
@@ -33,7 +33,7 @@
     },
     "body": {
       "how": {
-        "p1": "Sayfa sunulurken sunucu tarafında Roblox'tan alınır ve {experienceCacheSeconds} dakika boyunca önbelleğe alınır. Tarayıcınız Roblox'a hiçbir istek göndermez ve bu sayfada Roblox'a ait hiçbir betik çalışmaz.",
+        "p1": "Roblox’tan planlı olarak toplanır ve bu sitede saklanır. Tarayıcınız Roblox’a hiçbir istek göndermez ve bu sayfada Roblox’a ait hiçbir betik çalışmaz.",
         "p3": "Zamanlanmış bir görev şu aralıklarla bir gözlem kaydeder:",
         "p4": "dakika. Platform toplamları hepsini şu süre boyunca saklar:",
         "p5": "gün; çünkü bu, birkaç yüz experience'ın her biri için bir dizi demek. İki grafik de gerçekten kaydedileni, boşluklarıyla birlikte gösterir — saklanmayan turları doldurmak için hiçbir şeyin ortalaması alınmaz."
@@ -162,12 +162,14 @@
   "method": {
     "heading": "Bu sayfa rakamlarını nasıl elde ediyor",
     "liveHeading": "Canlı rakamlar",
-    "liveBody": "Sayfa sunulurken sunucu tarafında Roblox'tan alınır ve {minutes} dakika önbellekte tutulur. Tarayıcınız Roblox'a hiçbir istek göndermez ve bu sayfada Roblox'a ait hiçbir betik çalışmaz.",
+    "liveBody": "Roblox'tan planlı olarak, her {interval} dakikada bir toplanır ve bu sitede saklanır. Tarayıcınız bu saklanan gözlemleri Roblox'tan değil bu siteden okur ve bu sayfada Roblox'a ait hiçbir betik çalışmaz.",
     "historyHeading": "Geçmiş",
     "historyBody": "Zamanlanmış bir görev {interval} dakikada bir gözlem kaydeder. Platform toplamları hepsini {retention} gün saklar; experience başına sayılar {gameDays} gün boyunca saatte bir tanesini saklar, çünkü bu birkaç yüz experience'ın her biri için bir dizi demek. İki grafik de gerçekten kaydedileni, boşluklarıyla birlikte gösterir — saklanmayan turları doldurmak için hiçbir şeyin ortalaması alınmaz.",
     "provenanceTitle": "Sıralama ve sayılar Roblox'un, kayıt bizim",
     "provenanceBody": "Hangi experience'ların göründüğü, her birinin kaç oyuncusu olduğu ve her birinin nasıl oylandığı — hepsi Roblox'tan gelir. Bu site experience sıralamaz, oyuncu sayısı tahmin etmez ve ya Roblox'tan okumadığı ya da kendi gözleyip öyle etiketlemediği hiçbir rakamı yayımlamaz. Bu sayfadaki tek aritmetik beğeni oranıdır ve o da Roblox'un kendi olumlu ve olumsuz oy sayılarının bölünmesidir. Platformun para tarafı için Roblox'un resmî bildirimlerinden gelen {payoutStatisticsLink} sayfasına bakın.",
-    "payoutStatisticsLink": "ödeme istatistikleri"
+    "payoutStatisticsLink": "ödeme istatistikleri",
+    "freshnessHeading": "Bu rakamlar ne kadar güncel",
+    "freshnessBody": "Bu sayfada iki saat işler. Sıralamalar ve oyuncu sayıları her {interval} dakikada bir toplanır ve Roblox'un kendi yanıtının tarihini taşır. Ziyaretler, favoriler, oylar, tür ve yaş derecesi yaklaşık saatte bir dönüşümlü gruplar hâlinde yenilenir; bu yüzden bir satırın üst verisi, oyuncu sayısından birkaç saat daha eski olabilir. Her biri kendi zaman damgasını taşır ve hiçbiri diğerininkiyle damgalanmaz."
   },
   "download": {
     "heading": "Bu gözlemleri indirin",
@@ -321,5 +323,32 @@
     "latestQuarterLabel": "En son çeyrek ({quarter})",
     "workedAmountColumn": "{robux} Earned Robux",
     "aboutValue": "yaklaşık {value}"
+  },
+  "dashboard": {
+    "loadingTitle": "Son gözlem yükleniyor",
+    "loadingBody": "Bu sayfadaki rakamlar, sayfa yüklendikten sonra Roblox'tan değil, bu sitenin sakladığı gözlemlerden alınır.",
+    "offlineTitle": "Bu rakamlar yüklenemedi",
+    "offlineBody": "Saklanan gözlemler için yapılan istek tamamlanmadı. Yanlış ya da güncelliğini yitirmiş bir sayı yerine hiçbir şey gösterilmiyor. Bunun altındaki her şey bundan etkilenmez.",
+    "emptyTitle": "Henüz kaydedilmiş gözlem yok",
+    "emptyBody": "Bu görünüm için henüz bir şey saklanmadı. Grafikler, çizilecek gerçek bir şey olduğunda görünür; boşluğu doldurmak için hiçbir şey tahmin edilmez.",
+    "retry": "Yeniden dene",
+    "staleTitle": "Bu gözlem, toplama takviminin izin verdiğinden daha eski",
+    "staleBody": "En son saklanan gözlem {minutes} dakikalık. Aşağıdaki rakamlar o gözlemdir, güncel bir okuma değildir.",
+    "observedAt": "{when} tarihinde gözlendi.",
+    "detailsRefreshed": "Ayrıntılar {when} tarihinde yenilendi",
+    "detailsPending": "Bu experience için ayrıntılar henüz yenilenmedi",
+    "detailsClockNote": "Oyuncu sayıları ve sıralamalar her {interval} dakikada bir toplanır. Ziyaretler, favoriler, oylar, tür ve yaş derecesi daha yavaş bir döngüyle yenilenir; bu yüzden her satır kendi yenilenme zamanını taşır ve bu zaman birkaç saat daha eski olabilir.",
+    "sourcesLabel": "Kaynak:",
+    "noScriptTitle": "Tablolar ve grafikler JavaScript gerektirir",
+    "noScriptBody": "Bunlar, bu sitenin sakladığı gözlemlerden tarayıcınızda çizilir. JavaScript kapalıyken görünmezler. Bu sayfadaki diğer her şey — neyin ölçüldüğü, nereden geldiği, ne sıklıkla toplandığı ve size neyi söyleyemeyeceği — aşağıdadır ve aynı gözlemler CSV ve JSON olarak indirilebilir."
+  },
+  "limits": {
+    "heading": "Bu rakamların size söyleyemedikleri",
+    "description": "Rakamların yanında değil burada söyleniyor; böylece rakamlar olmadığında da burada duruyor.",
+    "notPlatformWide": "Bu, platform genelinde bir oyuncu sayısı değildir. Roblox canlı bir toplam yayımlamaz ve bu site böyle bir tahmin yapmaz.",
+    "rankedSubset": "Yalnızca Roblox'un o an sıraladığı experience'lar sayılır. Roblox barındırdıklarının küçük bir bölümünü sıralar; dolayısıyla gerçekte oynayan sayısı daha yüksektir — ne kadar yüksek olduğunu Roblox dışında kimse söyleyemez.",
+    "noBackfill": "Hiçbir şey sonradan doldurulmaz ya da ortalanmaz. Grafikteki boşluk, kayıt alamamış planlı bir çalışmadır ve boşluk olarak çizilir.",
+    "twoClocks": "Oyuncu sayıları ve yavaş üst veri farklı takvimlerle yenilenir ve farklı zaman damgaları taşır. Biri, diğerinin güncelliğinin kanıtı değildir.",
+    "notPayout": "Bunların hiçbiri DevEx ödemesini etkilemez; ödeme, platformun ne kadar yoğun olduğuna değil, uygun Earned Robux miktarına ve belgelenmiş orana bağlıdır."
   }
 }

@@ -2,22 +2,22 @@
   "$schema": "../../node_modules/wrangler/config-schema.json",
 
   /*
-   * The isolated CPU proof deployment, and nothing else.
+   * The platform data plane, staging configuration.
    *
-   * The name carries `-proof` so it can never be confused with a production
-   * service, and so a mistaken `wrangler deploy` from this directory cannot
-   * land on `devexcalculator-org`.
+   * This file deliberately describes a **non-production** deployment. It is
+   * reachable only on its workers.dev subdomain, writes only to a throwaway KV
+   * namespace, and cannot be reached from devexcalculator.org. Production
+   * cutover is a separate, reviewed change that adds exactly four things:
    *
-   * Deliberately absent, and each absence is the point:
+   *   1. `name` becomes `devexcalculator-platform-data`
+   *   2. `routes` gains `api.devexcalculator.org` as a custom domain
+   *   3. `kv_namespaces[0].id` becomes the production namespace
+   *   4. `triggers.crons` becomes `["*​/5 * * * *"]`, the schedule the
+   *      dispatcher is written for
    *
-   *   - no `routes` and no `custom_domain` — this is reachable only on its
-   *     workers.dev subdomain, never on devexcalculator.org;
-   *   - no `triggers.crons` — the proof invokes the collector explicitly so
-   *     that twenty runs are twenty measurements rather than a schedule
-   *     quietly writing to KV between them;
-   *   - no production KV — the namespace below is a throwaway created for this
-   *     measurement, so nothing here can read or overwrite the v1 collector's
-   *     state.
+   * Nothing in `src/` differs between the two. The Worker does not read its own
+   * environment name and has no staging-only branch, so what is measured here
+   * is what runs there.
    */
   "name": "devexcalculator-platform-data-proof",
   "main": "src/index.ts",
@@ -27,14 +27,38 @@
   // no dependencies. Whatever this measures is this code, not an application.
   "workers_dev": true,
 
+  /*
+   * Every five minutes, one unit.
+   *
+   * `dispatch` chooses the unit from the wall clock, and the schedule exists so
+   * that no invocation ever carries two of them - combining the hourly history
+   * append with the collection cycle measured 12.35-23.15 ms against a 10 ms
+   * plan limit. See src/dispatch.ts for the minute-by-minute allocation.
+   *
+   * Left unset on staging so a measurement run can set it deliberately rather
+   * than a background schedule writing to the test namespace unattended.
+   */
+  "triggers": {
+    "crons": []
+  },
+
+  /*
+   * A throwaway namespace, not the v1 collector's store.
+   *
+   * The v1 collector's keys are unprefixed (`obs:`, `index`, `series`, `games`,
+   * `heartbeat`) and live in namespace 8f880ad3328f42bb86272bee6e76542b. Every
+   * key this Worker writes carries the `platform:v2:` prefix, so the two could
+   * share a namespace without colliding - but during migration they do not,
+   * which means a mistake here cannot reach production data at all.
+   */
   "kv_namespaces": [
     {
-      "binding": "PLATFORM_V2",
+      "binding": "PLATFORM_DATA",
       "id": "7eab89c7af41467f915ef4a2c6d52f7c"
     }
   ],
 
-  // Per-invocation CPU is the entire purpose of this deployment, and the
+  // Per-invocation CPU is how this Worker's safety is verified, and the
   // minute-bucketed analytics dataset cannot give it for runs seconds apart.
   "observability": {
     "enabled": true,

@@ -98,6 +98,31 @@ const TURNSTILE_ORIGIN = isConfigured("NEXT_PUBLIC_TURNSTILE_SITE_KEY")
   ? "https://challenges.cloudflare.com"
   : null;
 
+/**
+ * The platform data plane, which `/platform/` reads from the browser.
+ *
+ * `/platform/` is a static document and its figures are fetched after load from
+ * a separate Worker on `api.devexcalculator.org` - the page is prerendered
+ * precisely so that no Worker renders it per request. `connect-src 'self'`
+ * blocks that fetch, and a blocked request is indistinguishable to the page
+ * from an outage, so the dashboard would have reported the data plane as
+ * unreachable while it was working perfectly.
+ *
+ * Derived from the same variable the client is built against rather than
+ * written out, so the policy cannot permit an origin the page never calls, and
+ * cannot omit the one it does. Only the origin is taken: a path in a CSP source
+ * is ignored for `connect-src` matching and would only mislead a reader of the
+ * header.
+ */
+const PLATFORM_DATA_ORIGIN = (() => {
+  const configured = process.env.NEXT_PUBLIC_PLATFORM_DATA_API ?? "https://api.devexcalculator.org";
+  try {
+    return new URL(configured).origin;
+  } catch {
+    return null;
+  }
+})();
+
 const directive = (...parts: readonly (string | null)[]): string =>
   parts.filter((part) => part !== null).join(" ");
 
@@ -113,7 +138,7 @@ const CSP_DIRECTIVES: readonly string[] = [
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob:",
   "font-src 'self' data:",
-  directive("connect-src 'self'", ...ANALYTICS_CONNECT_ORIGINS),
+  directive("connect-src 'self'", PLATFORM_DATA_ORIGIN, ...ANALYTICS_CONNECT_ORIGINS),
   // With no Turnstile widget there is nothing legitimate to frame, so the
   // directive becomes 'none' rather than disappearing — an absent `frame-src`
   // would fall back to `default-src 'self'` and permit same-origin frames.

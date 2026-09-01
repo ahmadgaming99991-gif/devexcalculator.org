@@ -96,7 +96,7 @@ script-src 'self' 'unsafe-inline';
 style-src 'self' 'unsafe-inline';
 img-src 'self' data: blob:;
 font-src 'self' data:;
-connect-src 'self';
+connect-src 'self' https://api.devexcalculator.org;
 frame-src 'none';
 frame-ancestors 'none';
 base-uri 'self';
@@ -104,6 +104,15 @@ form-action 'self';
 object-src 'none';
 upgrade-insecure-requests
 ```
+
+**`connect-src` names one non-`'self'` origin, and it is this site's own.**
+`/platform/` is a static document whose figures are fetched after load from the
+platform data plane on `api.devexcalculator.org` — a separate, dependency-free
+Worker that this repository builds and deploys, described in
+`docs/platform-data-plane.md`. It is not a third party, it receives no data
+about the reader, and it is read-only over HTTP. The origin is derived from
+`NEXT_PUBLIC_PLATFORM_DATA_API`, the same variable the client bundle is built
+against, so the policy cannot permit an origin the page never calls.
 
 **The third-party allowlist is derived, not fixed.** `next.config.ts` adds
 `static.cloudflareinsights.com`, `www.googletagmanager.com` and

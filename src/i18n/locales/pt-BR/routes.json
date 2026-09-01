@@ -804,7 +804,7 @@
     "metaDescription": "Contagens de jogadores ao vivo das experiências que o Roblox está rankeando, lidas dos endpoints públicos dele, mais um registro crescente do que este site observou.",
     "h1": "Atividade da plataforma Roblox",
     "navLabel": "Plataforma",
-    "quickAnswer": "As contagens de jogadores desta página são lidas dos endpoints públicos do próprio Roblox quando a página é servida, e o ranking é do Roblox, não deste site. Ao lado delas há um registro do que este site observou desde que começou a acompanhar, traçado ao longo de qualquer período que tenha sido de fato coletado.",
+    "quickAnswer": "As contagens de jogadores desta página são coletadas dos próprios endpoints públicos da Roblox a cada 15 minutos e guardadas; seu navegador então as lê neste site, em vez de buscá-las porque você abriu a página. O ranking é da Roblox e não deste site, cada número carrega o horário em que foi observado e, ao lado, há um registro do que este site observou desde que começou a acompanhar.",
     "ogImageAlt": "Contagens de jogadores do Roblox ao vivo e atividade observada ao longo do tempo.",
     "sections": {
       "live": "O que está sendo jogado agora",
@@ -816,7 +816,7 @@
     "faqs": {
       "q01": {
         "question": "Quantas pessoas estão jogando Roblox agora?",
-        "answer": "A tabela soma os jogadores das experiências que o Roblox rankeia no momento, no instante em que a página foi servida. Não é um número da plataforma inteira: o Roblox não publica um total ao vivo, e este site não vai estimar um."
+        "answer": "A tabela soma os jogadores das experiences que a Roblox classifica no momento, conforme a observação agendada mais recente — uma a cada 15 minutos, com o horário exibido ao lado do número. Não é um número de toda a plataforma: a Roblox não publica um total ao vivo e este site não estima um."
       },
       "q02": {
         "question": "Por que o gráfico cobre um período tão curto?",

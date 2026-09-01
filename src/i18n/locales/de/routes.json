@@ -804,7 +804,7 @@
     "metaDescription": "Live-Spielerzahlen für die Experiences, die Roblox in Ranglisten führt, gelesen aus seinen eigenen öffentlichen Endpunkten, plus eine wachsende Aufzeichnung dessen, was diese Website beobachtet hat.",
     "h1": "Roblox-Plattformaktivität",
     "navLabel": "Plattform",
-    "quickAnswer": "Die Spielerzahlen auf dieser Seite werden aus Roblox’ eigenen öffentlichen Endpunkten gelesen, wenn die Seite ausgeliefert wird, und die Rangliste ist die von Roblox, nicht die dieser Website. Daneben steht eine Aufzeichnung dessen, was diese Website seit Beobachtungsbeginn gesehen hat, dargestellt über den Zeitraum, der tatsächlich erhoben wurde.",
+    "quickAnswer": "Die Spielerzahlen auf dieser Seite werden alle 15 Minuten aus Roblox’ eigenen öffentlichen Endpunkten erfasst und gespeichert; Ihr Browser liest sie dann von dieser Seite, statt dass sie abgerufen werden, weil Sie die Seite geöffnet haben. Die Rangliste ist Roblox’, nicht die dieser Seite, jede Zahl trägt ihre Beobachtungszeit, und daneben steht eine Aufzeichnung dessen, was diese Seite seit Beobachtungsbeginn gesehen hat.",
     "ogImageAlt": "Live-Spielerzahlen von Roblox und beobachtete Aktivität im Zeitverlauf.",
     "sections": {
       "live": "Was gerade gespielt wird",
@@ -816,7 +816,7 @@
     "faqs": {
       "q01": {
         "question": "Wie viele Menschen spielen gerade Roblox?",
-        "answer": "Die Tabelle summiert die Spielenden in den Experiences, die Roblox in diesem Moment in Ranglisten führt, zum Zeitpunkt der Auslieferung der Seite. Das ist keine plattformweite Zahl: Roblox veröffentlicht keine Live-Summe, und diese Website schätzt keine."
+        "answer": "Die Tabelle summiert die Spielenden in den Experiences, die Roblox gerade rankt — Stand der letzten planmäßigen Beobachtung, eine alle 15 Minuten, deren Zeit neben der Zahl steht. Das ist keine plattformweite Zahl: Roblox veröffentlicht keinen Live-Gesamtwert, und diese Seite schätzt keinen."
       },
       "q02": {
         "question": "Warum deckt das Diagramm einen so kurzen Zeitraum ab?",

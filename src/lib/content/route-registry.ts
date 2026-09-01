@@ -382,7 +382,7 @@ const staticRoutes: readonly RouteRecord[] = [
     lastReviewedAt: REVIEWED,
     dateModified: REVIEWED,
     quickAnswer:
-      "Player counts on this page are read from Roblox's own public endpoints when the page is served, and the ranking is Roblox's rather than this site's. Alongside them is a record of what this site has observed since it began watching, charted over whatever period has actually been collected.",
+      "Player counts on this page are collected from Roblox's own public endpoints every 15 minutes and stored, then read by your browser from this site rather than fetched because you opened the page. The ranking is Roblox's rather than this site's, every figure carries the time it was observed, and alongside them is a record of what this site has observed since it began watching.",
     sections: [
       { id: "live", heading: "What is being played right now" },
       { id: "history", heading: "Observed over time" },
@@ -394,7 +394,7 @@ const staticRoutes: readonly RouteRecord[] = [
       {
         question: "How many people are playing Roblox right now?",
         answer:
-          "The table totals the players in the experiences Roblox currently ranks, at the moment the page was served. It is not a platform-wide figure: Roblox does not publish a live total, and this site will not estimate one.",
+          "The table totals the players in the experiences Roblox currently ranks, as of the most recent scheduled observation — one every 15 minutes, with its time shown beside the figure. It is not a platform-wide figure: Roblox does not publish a live total, and this site will not estimate one.",
         sourceIds: ["roblox-explore-api"],
       },
       {

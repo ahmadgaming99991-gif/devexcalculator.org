@@ -8,11 +8,11 @@
     "stats.workedAmountColumn"
   ],
   "live": {
-    "intro": "Jumlah pemain langsung dari endpoint publik milik Roblox sendiri, di seluruh peringkat yang diterbitkan Roblox, beserta catatan apa yang telah diamati situs ini sejak mulai memantau.",
+    "intro": "Jumlah pemain untuk experience yang sedang diperingkat Roblox, dikumpulkan dari endpoint publik Roblox sendiri setiap {interval} menit, beserta catatan apa yang telah diamati situs ini sejak mulai memantau.",
     "jumpLabel": "Lihat angka langsungnya",
     "rankingsLabel": "Peringkat Roblox",
     "nowHeading": "Apa yang sedang dimainkan sekarang",
-    "nowDescription": "Dibaca dari endpoint explore dan games publik Roblox saat halaman ini disajikan. Tanpa akun, tanpa penyedia data pihak ketiga, dan tanpa apa pun yang diukur atau diperkirakan situs ini.",
+    "nowDescription": "Dikumpulkan secara terjadwal dari endpoint publik explore dan games milik Roblox lalu disimpan situs ini, dengan waktu observasi ditampilkan di samping angkanya. Tanpa akun, tanpa penyedia data pihak ketiga, dan tidak ada yang diukur atau diperkirakan oleh situs ini.",
     "unavailableTitle": "Angka langsung Roblox sedang tidak tersedia",
     "calculatorStillWorks": "kalkulator pembayaran",
     "noExperiencesTitle": "Roblox tidak mengembalikan experience apa pun",
@@ -36,7 +36,7 @@
     },
     "body": {
       "how": {
-        "p1": "Diambil di sisi server dari Roblox saat halaman disajikan dan disimpan dalam cache selama {experienceCacheSeconds} menit. Browser Anda tidak membuat permintaan apa pun ke Roblox, dan tidak ada skrip dari Roblox yang berjalan di halaman ini.",
+        "p1": "Dikumpulkan dari Roblox secara terjadwal dan disimpan oleh situs ini. Peramban Anda tidak membuat permintaan ke Roblox, dan tidak ada skrip Roblox yang berjalan di halaman ini.",
         "p3": "Sebuah tugas terjadwal mencatat satu pengamatan setiap",
         "p4": "menit. Total platform menyimpan semuanya selama",
         "p5": "hari, karena itu satu larik per experience di antara beberapa ratus experience. Kedua grafik menampilkan apa yang benar-benar tercatat, termasuk celahnya — tidak ada yang dirata-ratakan untuk menambal periode yang tidak disimpan."
@@ -165,12 +165,14 @@
   "method": {
     "heading": "Bagaimana halaman ini memperoleh angkanya",
     "liveHeading": "Angka langsung",
-    "liveBody": "Diambil di sisi server dari Roblox saat halaman disajikan dan disimpan dalam cache selama {minutes} menit. Peramban Anda tidak melakukan permintaan apa pun ke Roblox, dan tidak ada skrip Roblox yang berjalan di halaman ini.",
+    "liveBody": "Dikumpulkan dari Roblox secara terjadwal, setiap {interval} menit, lalu disimpan oleh situs ini. Peramban Anda membaca observasi tersimpan itu dari situs ini, bukan dari Roblox, dan tidak ada skrip Roblox yang berjalan di halaman ini.",
     "historyHeading": "Riwayat",
     "historyBody": "Sebuah tugas terjadwal mencatat satu pengamatan setiap {interval} menit. Total platform menyimpan semuanya selama {retention} hari; jumlah per experience menyimpan satu per jam selama {gameDays} hari, karena itu satu larik per experience di antara beberapa ratus experience. Kedua grafik menampilkan apa yang benar-benar tercatat, termasuk celahnya — tidak ada yang dirata-ratakan untuk menambal periode yang tidak disimpan.",
     "provenanceTitle": "Peringkat dan jumlahnya milik Roblox, catatannya milik kami",
     "provenanceBody": "Experience mana yang muncul, berapa pemainnya masing-masing, dan bagaimana masing-masing dinilai semuanya berasal dari Roblox. Situs ini tidak memeringkat experience, tidak memperkirakan jumlah pemain, dan tidak menerbitkan angka yang tidak dibacanya dari Roblox atau tidak diamatinya sendiri lalu ditandai demikian. Persentase persetujuan adalah satu-satunya aritmetika di halaman ini, dan itu adalah suara naik dan turun milik Roblox sendiri yang dibagi. Untuk sisi uang dari platform ini, lihat {payoutStatisticsLink}, yang berasal dari laporan resmi Roblox.",
-    "payoutStatisticsLink": "statistik pembayaran"
+    "payoutStatisticsLink": "statistik pembayaran",
+    "freshnessHeading": "Seberapa baru angka-angka ini",
+    "freshnessBody": "Ada dua jam yang berjalan di halaman ini. Peringkat dan jumlah pemain dikumpulkan setiap {interval} menit dan membawa waktu yang tertera pada respons Roblox sendiri. Kunjungan, favorit, suara, genre, dan rating usia diperbarui dalam kelompok bergilir kira-kira setiap jam, jadi metadata suatu baris bisa beberapa jam lebih lama daripada jumlah pemainnya. Masing-masing membawa stempel waktunya sendiri, dan tidak pernah diberi stempel milik yang lain."
   },
   "download": {
     "heading": "Unduh pengamatan ini",
@@ -324,5 +326,32 @@
     "latestQuarterLabel": "Kuartal terbaru ({quarter})",
     "workedAmountColumn": "{robux} Earned Robux",
     "aboutValue": "sekitar {value}"
+  },
+  "dashboard": {
+    "loadingTitle": "Memuat observasi terakhir",
+    "loadingBody": "Angka di halaman ini diambil setelah halaman dimuat, dari observasi yang disimpan situs ini, bukan dari Roblox.",
+    "offlineTitle": "Angka ini tidak dapat dimuat",
+    "offlineBody": "Permintaan untuk observasi tersimpan tidak selesai. Tidak ada yang ditampilkan, alih-alih angka yang mungkin salah atau kedaluwarsa. Semua di bawah ini tidak terpengaruh.",
+    "emptyTitle": "Belum ada observasi yang tercatat",
+    "emptyBody": "Belum ada yang tersimpan untuk tampilan ini. Grafik muncul begitu ada data nyata untuk digambar; tidak ada yang diperkirakan untuk menutup celah.",
+    "retry": "Coba lagi",
+    "staleTitle": "Observasi ini lebih lama daripada yang dijadwalkan pengumpulan",
+    "staleBody": "Observasi tersimpan terbaru berumur {minutes} menit. Angka di bawah adalah observasi itu, bukan pembacaan saat ini.",
+    "observedAt": "Diamati pada {when}.",
+    "detailsRefreshed": "Detail diperbarui pada {when}",
+    "detailsPending": "Detail untuk experience ini belum diperbarui",
+    "detailsClockNote": "Jumlah pemain dan peringkat dikumpulkan setiap {interval} menit. Kunjungan, favorit, suara, genre, dan rating usia diperbarui dalam rotasi yang lebih lambat, jadi setiap baris membawa waktu pembaruannya sendiri yang bisa beberapa jam lebih lama.",
+    "sourcesLabel": "Sumber:",
+    "noScriptTitle": "Tabel dan grafik membutuhkan JavaScript",
+    "noScriptBody": "Keduanya digambar di peramban Anda dari observasi yang disimpan situs ini. Tanpa JavaScript keduanya tidak muncul. Semua hal lain di halaman ini — apa yang diukur, dari mana asalnya, seberapa sering dikumpulkan, dan apa yang tidak bisa dikatakannya — ada di bawah, dan observasi yang sama bisa diunduh sebagai CSV dan JSON."
+  },
+  "limits": {
+    "heading": "Apa yang tidak bisa dikatakan angka-angka ini",
+    "description": "Dinyatakan di sini, bukan di samping angkanya, supaya tetap ada ketika angkanya tidak ada.",
+    "notPlatformWide": "Ini bukan jumlah pemain seluruh platform. Roblox tidak menerbitkan total langsung dan situs ini tidak memperkirakannya.",
+    "rankedSubset": "Hanya experience yang sedang diperingkat Roblox yang dihitung. Roblox memeringkat sebagian kecil dari yang dihosting, jadi jumlah pemain sebenarnya lebih tinggi — seberapa besar, tidak ada di luar Roblox yang bisa mengatakannya.",
+    "noBackfill": "Tidak ada yang diisi belakangan atau dirata-ratakan. Celah pada grafik adalah jadwal yang tidak merekam, digambar sebagai celah.",
+    "twoClocks": "Jumlah pemain dan metadata lambat diperbarui dengan jadwal berbeda dan membawa stempel waktu berbeda. Yang satu bukan bukti kebaruan yang lain.",
+    "notPayout": "Tidak satu pun dari ini memengaruhi pembayaran DevEx, yang bergantung pada Earned Robux yang memenuhi syarat dan tarif terdokumentasi, bukan pada seramai apa platformnya."
   }
 }

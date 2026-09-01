@@ -1,439 +1,408 @@
-import { expect, test } from "@playwright/test";
-import { describeOverflow, measureOverflow } from "../support/overflow";
+import { expect, test, type Page, type Route } from "@playwright/test";
 
 /**
- * The platform pages make two promises the rest of the suite does not cover:
- * that live figures reach the reader as server-rendered HTML with no
- * third-party request from their browser, and that every state the data can be
- * in is stated rather than left blank.
- */
-
-/**
- * Any request to a host this site does not control.
+ * `/platform/` after it stopped being rendered per request.
  *
- * There is no allowance for an edge-injected beacon: Cloudflare's Web
- * Analytics auto-install was enabled on this zone and has been turned off, so
- * a third-party request appearing here again means something re-enabled it and
- * the privacy page has stopped being true.
+ * The page is now a static document with one client island in it: the tables
+ * and charts are fetched from this site's own data Worker after load. That
+ * changes what these tests must guard, and the list got longer rather than
+ * shorter.
+ *
+ * Three claims are load-bearing:
+ *
+ *   1. The document explains itself without any fetch succeeding. A crawler
+ *      that runs no JavaScript, and a reader whose request fails, must still
+ *      learn what is measured, where it comes from, how often, and what it
+ *      cannot be used for.
+ *   2. No request leaves for a host this site does not control. Roblox is
+ *      called by a scheduled job, never by a reader's browser.
+ *   3. Every state is stated. An outage is never a zero, a blank, or a number
+ *      presented as current.
+ *
+ * Data-bearing assertions run against an intercepted API so they test the
+ * dashboard rather than whatever Roblox is doing this minute. The unintercepted
+ * runs assert the static document and the failure states, which is what a real
+ * reader gets when the data plane is unreachable.
  */
+
+/**
+ * Matched by predicate, not by glob.
+ *
+ * A Playwright route pattern without a scheme is resolved against `baseURL`, so
+ * `"**​/v1/platform/**"` quietly only ever matched same-origin requests - and the
+ * data plane is a different origin. Every intercepted test then measured the
+ * unreachable state instead of the dashboard.
+ */
+const API = (url: URL) => url.pathname.startsWith("/v1/platform/");
+
+const OBSERVED_AT = new Date(Date.now() - 4 * 60_000).toISOString();
+
+function hourlyPoints(count: number, base: number): [number, number][] {
+  const now = Date.now();
+  return Array.from({ length: count }, (_, i) => [now - (count - 1 - i) * 3_600_000, base + i * 37]);
+}
+
+const RANKINGS = {
+  ok: true,
+  data: {
+    ranking: "top-trending",
+    rankings: [
+      { id: "top-trending", name: "Top Trending", subtitle: "What is busy", size: 3 },
+      { id: "up-and-coming", name: "Up and Coming", subtitle: null, size: 2 },
+    ],
+    platform: { players: 1_310, experiences: 3, rankings: 2 },
+    source: { status: "read", detail: null },
+    experiences: [
+      {
+        i: 111, r: 11, n: "Test Experience One", p: 900, s: false,
+        x: {
+          v: 12_345, m: 50, c: "Studio One", cv: true, u: 90, d: 10, f: 3_210,
+          g: "Adventure", a: "Maturity: Minimal", o: new Date(Date.now() - 5 * 3_600_000).toISOString(),
+        },
+      },
+      { i: 222, r: 22, n: "Test Experience Two", p: 400, s: true, x: null },
+      {
+        i: 333, r: null, n: "Test Experience Three", p: 10, s: false,
+        x: {
+          v: 5, m: 10, c: "Studio Three", cv: false, u: 1, d: 1, f: 2,
+          g: "Obby", a: "Maturity: Mild", o: new Date(Date.now() - 2 * 3_600_000).toISOString(),
+        },
+      },
+    ],
+  },
+  meta: {
+    observedAt: OBSERVED_AT,
+    collector: { outcome: "recorded", lastRunAt: OBSERVED_AT, consecutiveFailures: 0, detail: null },
+    collectionIntervalMinutes: 15,
+    historyIntervalMinutes: 60,
+  },
+};
+
+const UP_AND_COMING = {
+  ...RANKINGS,
+  data: { ...RANKINGS.data, ranking: "up-and-coming", experiences: RANKINGS.data.experiences.slice(0, 2) },
+};
+
+const TOTALS = {
+  ok: true,
+  data: { days: 14, points: hourlyPoints(40, 1_000_000) },
+  meta: { observedAt: OBSERVED_AT, collectionIntervalMinutes: 15, retentionDays: 14 },
+};
+
+const HIGHLIGHTS = {
+  ok: true,
+  data: {
+    at: hourlyPoints(30, 0).map(([at]) => at),
+    series: [
+      { id: "111", name: "Test Experience One", players: hourlyPoints(30, 800).map(([, v]) => v) },
+      { id: "222", name: "Test Experience Two", players: hourlyPoints(30, 300).map(([, v]) => v) },
+      { id: "333", name: "Test Experience Three", players: hourlyPoints(30, 100).map(([, v]) => v) },
+    ],
+  },
+  meta: { intervalMinutes: 60, days: 7 },
+};
+
+const EXPERIENCE = {
+  ok: true,
+  data: { universeId: 111, name: "Test Experience One", days: 7, points: hourlyPoints(20, 800) },
+  meta: { intervalMinutes: 60, days: 7 },
+};
+
+/** Serves the data plane from fixtures, so the dashboard is what is under test. */
+async function serveApi(page: Page, options: { fail?: boolean; empty?: boolean } = {}) {
+  await page.route(API, async (route: Route) => {
+    if (options.fail) return route.fulfill({ status: 500, body: "{}" });
+    if (options.empty) {
+      return route.fulfill({
+        status: 503,
+        contentType: "application/json",
+        body: JSON.stringify({ ok: false, error: "no-observations", message: "Nothing yet." }),
+      });
+    }
+
+    const url = new URL(route.request().url());
+    const body = url.pathname.endsWith("/totals")
+      ? TOTALS
+      : url.pathname.endsWith("/highlights")
+        ? HIGHLIGHTS
+        : url.pathname.includes("/experience/")
+          ? EXPERIENCE
+          : url.searchParams.get("ranking") === "up-and-coming"
+            ? UP_AND_COMING
+            : RANKINGS;
+
+    return route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      headers: { "access-control-allow-origin": "*" },
+      body: JSON.stringify(body),
+    });
+  });
+}
+
+/** Any request to a host this site does not control. */
 function isThirdParty(url: string): boolean {
   const host = new URL(url).hostname;
   if (host === "localhost" || host.endsWith("127.0.0.1")) return false;
   return !host.endsWith("devexcalculator.org");
 }
 
-test.describe("live platform activity", () => {
-  test("renders figures server-side with no request to Roblox from the browser", async ({
-    page,
-  }) => {
-    const external: string[] = [];
-    page.on("request", (request) => {
-      if (isThirdParty(request.url())) external.push(request.url());
-    });
-
-    await page.goto("/platform/", { waitUntil: "load" });
-    await page.waitForTimeout(1_000);
-
-    // The distinguishing claim: Roblox is called by the server, never by the
-    // reader, so no roblox.com or apis.roblox.com request may appear here.
-    expect(external.filter((url) => url.includes("roblox"))).toEqual([]);
-    expect(external).toEqual([]);
-  });
-
-  test("says which state it is in rather than showing an empty section", async ({ page }) => {
-    await page.goto("/platform/");
-
-    const live = page.locator("#live");
-    await expect(live).toBeVisible();
-
-    // Both sections are rendered inline now rather than streamed, so no
-    // loading text should ever appear. Asserting its absence keeps the check
-    // meaningful if a Suspense boundary is ever reintroduced — which is what
-    // made the live table invisible without JavaScript.
-    await expect(live).not.toContainText("Loading live figures");
-
-    // Either it has figures, or it says why it does not. Both are acceptable;
-    // silence is not, and an outage must not be indistinguishable from zero.
-    const liveText = (await live.innerText()).toLowerCase();
-    expect(
-      /players in this ranking|unavailable right now|returned no experiences/.test(liveText),
-      `The live section said none of the expected things:\n${liveText.slice(0, 300)}`,
-    ).toBe(true);
-
-    const history = page.locator("#history");
-    await expect(history).not.toContainText("Loading recorded observations");
-    const historyText = (await history.innerText()).toLowerCase();
-    expect(
-      /observations recorded|no observations recorded yet|not available in this environment|could not be read|observation/.test(
-        historyText,
-      ),
-      `The history section said none of the expected things:\n${historyText.slice(0, 300)}`,
-    ).toBe(true);
-  });
-
-  test("labels the chart with the period actually collected", async ({ page }) => {
-    await page.goto("/platform/");
-    const section = page.locator("#history");
-    await expect(section).not.toContainText("Loading recorded observations");
-    const history = (await section.innerText()).toLowerCase();
-
-    // Nothing to check until there is a chart to label.
-    if (!history.includes("period covered")) return;
-
-    // The invariant: whatever the chart says it covers must be the same period
-    // the page reports having collected. An earlier heuristic looked for the
-    // string "14 days" anywhere in the section and flagged the sentence about
-    // how long observations are *retained*, which is a different fact.
-    // `innerText` puts each stat on its own line, so the value is separated
-    // from its label by a newline rather than a space.
-    const covered = /period covered\s*([\s\S]+?)\s*most recent/.exec(history);
-    expect(covered, `Could not read the stated period from:
-${history.slice(0, 200)}`).not.toBeNull();
-
-    const period = (covered?.[1] ?? "").trim();
-    expect(period).not.toBe("");
-    expect(
-      history.includes(`observing for ${period}`),
-      `The chart caption does not name the collected period "${period}".`,
-    ).toBe(true);
-  });
-
-  /**
-   * The live table itself must exist without JavaScript, not merely the prose
-   * around it.
-   *
-   * This used to check the heading and the length of `main`, and passed while
-   * the entire live section was missing: the sections were streamed behind
-   * Suspense, and React delivers streamed content in a hidden holder that an
-   * inline script moves into place. With scripting off that script never ran,
-   * so `#live table` did not exist at all — and the static commentary was long
-   * enough on its own to satisfy the old assertion.
-   */
-  test("renders the live table without JavaScript, not just the prose", async ({ browser }) => {
+test.describe("the static document", () => {
+  test("explains itself with no data and no JavaScript", async ({ browser }) => {
     const context = await browser.newContext({ javaScriptEnabled: false });
     const page = await context.newPage();
     await page.goto("/platform/");
 
     await expect(page.getByRole("heading", { level: 1 })).toContainText("Roblox platform");
 
-    const rows = page.locator("#live tbody tr");
-    const count = await rows.count();
-    // Either real rows, or a stated reason there are none. Never silence.
-    if (count === 0) {
-      const live = (await page.locator("#live").innerText()).toLowerCase();
-      expect(/unavailable right now|returned no experiences/.test(live)).toBe(true);
-    } else {
-      expect(count).toBeGreaterThan(1);
-      await expect(rows.first()).toBeVisible();
-    }
+    const main = (await page.locator("main").innerText()).toLowerCase();
+    // What is measured, where it comes from, how often, how fresh, and what it
+    // cannot tell you — none of which depends on today's numbers.
+    expect(main).toContain("how this page gets its numbers");
+    expect(main).toContain("how fresh these figures are");
+    expect(main).toContain("what these figures cannot tell you");
+    expect(main).toContain("roblox");
+    expect(main).toMatch(/every 15 minutes/);
+    expect(main).toMatch(/not a platform-wide player count/);
+    expect(main).toMatch(/nothing is back-filled|nothing is averaged/);
+    // And it says the tables need JavaScript rather than leaving a hole.
+    expect(main).toMatch(/need javascript/);
 
     await context.close();
   });
 
-  test("switches ranking by ordinary navigation, with no JavaScript", async ({ browser }) => {
-    const context = await browser.newContext({ javaScriptEnabled: false });
-    const page = await context.newPage();
+  test("keeps the section headings in the HTML before any fetch resolves", async ({ page }) => {
+    // The island's first render is what is baked into the static file, so the
+    // headings must not wait on data. Asserted with the API held open.
+    await page.route(API, () => {
+      /* never fulfilled: the request hangs for the life of the test */
+    });
     await page.goto("/platform/");
 
-    const tabs = page.locator('nav[aria-label="Roblox rankings"] a');
-    if ((await tabs.count()) === 0) {
-      // Roblox returned a single ranking, or none at all; nothing to switch.
-      await context.close();
-      return;
+    for (const id of ["live", "experiences-over-time", "largest", "history", "how", "limits", "data", "faqs"]) {
+      await expect(page.locator(`#${id}`), id).toBeVisible();
     }
-
-    expect(await tabs.count()).toBeGreaterThan(1);
-    // `aria-current` sits on the link itself, so this is an attribute selector
-    // on the same element rather than a descendant lookup.
-    await expect(page.locator('nav[aria-label="Roblox rankings"] a[aria-current]')).toHaveCount(1);
-
-    const other = page.locator('nav[aria-label="Roblox rankings"] a:not([aria-current])').first();
-    const label = (await other.innerText()).trim();
-    await other.click();
-    await page.waitForLoadState("load");
-
-    /*
-     * These tests run against the live Roblox endpoints, so the second load can
-     * legitimately land on an outage — the tabs come from that response and are
-     * absent when it fails. The assertion here is about navigation, not about
-     * Roblox's uptime, so a stated outage ends the test rather than failing it.
-     * Without this the run was intermittently red for a reason the site did not
-     * cause and could not fix.
-     */
-    const tabsAfter = page.locator('nav[aria-label="Roblox rankings"] a');
-    if ((await tabsAfter.count()) === 0) {
-      await expect(page.locator("#live")).toContainText(/unavailable right now|returned no experiences/i);
-      await context.close();
-      return;
-    }
-
-    await expect(page.locator('nav[aria-label="Roblox rankings"] [aria-current]')).toHaveText(
-      label,
-    );
-    await context.close();
+    await expect(page.locator("#live")).toContainText(/loading the latest observation/i);
   });
 
-  test("offers chart ranges that work without JavaScript", async ({ browser }) => {
-    const context = await browser.newContext({ javaScriptEnabled: false });
-    const page = await context.newPage();
-    await page.goto("/platform/");
-
-    const ranges = page.locator('nav[aria-label="Chart range"] a');
-    if ((await ranges.count()) === 0) {
-      // No store bound in this environment, so there is no chart to range over.
-      await expect(page.locator("#history")).toContainText(/not available|could not be read/i);
-      await context.close();
-      return;
-    }
-
-    await expect(ranges).toHaveCount(4);
-    await expect(page.locator('nav[aria-label="Chart range"] a[aria-current]')).toHaveCount(1);
-
-    await page.locator('nav[aria-label="Chart range"] a', { hasText: "24 hours" }).click();
-    await page.waitForLoadState("load");
-    expect(page.url()).toContain("days=1");
-    await expect(
-      page.locator('nav[aria-label="Chart range"] a[aria-current]'),
-    ).toContainText("24 hours");
-
-    await context.close();
-  });
-
-  test("says why a range changes nothing, instead of looking broken", async ({ page }) => {
-    await page.goto("/platform/?days=14");
-    const history = page.locator("#history");
-    const text = await history.innerText();
-    if (!/Observations recorded/i.test(text)) return;
-
-    // Each button carries the count it would chart, so four buttons showing the
-    // same number explain themselves rather than reading as a dead control.
-    const tabs = page.locator('nav[aria-label="Chart range"] a');
-    for (let i = 0; i < (await tabs.count()); i += 1) {
-      expect((await tabs.nth(i).innerText()).trim()).toMatch(/\d/);
-    }
-
-    const recorded = Number(
-      (/observations recorded\s*([\d,]+)/i.exec(text)?.[1] ?? "0").replace(/,/g, ""),
-    );
-    const day = Number(
-      (await tabs.filter({ hasText: "24 hours" }).innerText()).replace(/[^\d]/g, ""),
-    );
-
-    // While the history is shorter than every range, the page must say so
-    // rather than leaving the reader to conclude the buttons do nothing.
-    if (day === recorded) {
-      expect(text).toMatch(/fits inside|wider than the history/i);
+  test("keeps one canonical for every query variant", async ({ page }) => {
+    for (const url of [
+      "/platform/",
+      "/platform/?ranking=top-playing-now",
+      "/platform/?days=1",
+      "/platform/?ranking=top-playing-now&days=7&experience=111",
+    ]) {
+      await page.goto(url);
+      await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", /\/platform\/$/);
     }
   });
 
-  test("a narrower range never shows more than a wider one", async ({ page }) => {
-    // The invariant a range selector must not break: narrowing filters stored
-    // observations. It cannot invent points, and it cannot stretch a short
-    // history over a longer axis.
-    const countFor = async (query: string): Promise<number | null> => {
-      await page.goto(`/platform/${query}`);
-      const text = await page.locator("#history").innerText();
-      const match = /observations recorded\s*([\d,]+)/i.exec(text);
-      return match ? Number(match[1]!.replace(/,/g, "")) : null;
+  test("serves the same document for every query variant", async ({ page }) => {
+    // One prerendered file, not a render per combination. The <main> markup of
+    // a query variant must match the plain URL's before any fetch lands.
+    await page.route(API, () => {});
+
+    const shapeOf = async (url: string) => {
+      await page.goto(url);
+      return page.locator("main").evaluate((node) => node.innerHTML.length);
     };
 
-    const day = await countFor("?days=1");
-    const fortnight = await countFor("?days=14");
-    if (day === null || fortnight === null) return; // No chart in this environment.
-
-    expect(day).toBeLessThanOrEqual(fortnight);
+    const plain = await shapeOf("/platform/");
+    for (const url of ["/platform/?days=1", "/platform/?ranking=anything", "/platform/?experience=999"]) {
+      expect(Math.abs((await shapeOf(url)) - plain), url).toBeLessThan(200);
+    }
   });
 
-  test("keeps both selections when either one is changed", async ({ page }) => {
-    // The ranking tabs used to build their own URLs and drop `days`, so
-    // choosing a 24-hour chart and then another ranking silently reset the
-    // range to fourteen days.
-    await page.goto("/platform/?days=1");
+  test("responds 200 to a ranking that does not exist", async ({ page }) => {
+    const response = await page.goto("/platform/?ranking=not-a-real-ranking");
+    expect(response?.status()).toBe(200);
+  });
+});
 
-    const ranking = page.locator('nav[aria-label="Roblox rankings"] a:not([aria-current])').first();
-    if ((await page.locator('nav[aria-label="Chart range"] a').count()) === 0) return;
-    if ((await ranking.count()) === 0) return;
+test.describe("privacy of the reader path", () => {
+  test("makes no request to Roblox and none to any third party", async ({ page }) => {
+    const external: string[] = [];
+    page.on("request", (request) => {
+      if (isThirdParty(request.url())) external.push(request.url());
+    });
 
-    const label = (await ranking.innerText()).trim();
-    await ranking.click();
-    await page.waitForLoadState("load");
+    await page.goto("/platform/", { waitUntil: "load" });
+    await page.waitForTimeout(1_500);
 
-    await expect(page.locator('nav[aria-label="Roblox rankings"] a[aria-current]')).toHaveText(
-      label,
-    );
-    await expect(page.locator('nav[aria-label="Chart range"] a[aria-current]')).toContainText(
-      "24 hours",
-    );
+    expect(external.filter((url) => url.includes("roblox"))).toEqual([]);
+    expect(external).toEqual([]);
+  });
+});
 
-    // And the other direction: changing the range keeps the ranking.
-    await page.locator('nav[aria-label="Chart range"] a', { hasText: "7 days" }).click();
-    await page.waitForLoadState("load");
-    await expect(page.locator('nav[aria-label="Roblox rankings"] a[aria-current]')).toHaveText(
-      label,
-    );
+test.describe("the dashboard with data", () => {
+  test.beforeEach(async ({ page }) => {
+    await serveApi(page);
   });
 
   test("states the platform figure with the method beside it", async ({ page }) => {
     await page.goto("/platform/");
     const live = page.locator("#live");
+    await expect(live).toContainText("1,310");
+
     const text = await live.innerText();
-
-    if (/unavailable right now/i.test(text)) return;
-
-    // The number Roblox does not publish, so it must never be presented as one
-    // Roblox published, and never as the whole platform.
     expect(text).toContain("Players across every experience Roblox is ranking");
     expect(text).toMatch(/Summed from [\d,]+ experiences across Roblox[’']s \d+ public rankings/);
     expect(text).toContain("counted once each");
     expect(text).toContain("This is a floor, not a platform total");
   });
 
-  test("shows a full ranking rather than a handful of rows", async ({ page }) => {
+  test("draws the ranking as a table, attributing every row", async ({ page }) => {
     await page.goto("/platform/");
     const rows = page.locator("#live tbody tr");
-    if ((await rows.count()) === 0) return;
+    await expect(rows).toHaveCount(3);
 
-    // Roblox returns around ninety per sort; the page used to show ten.
-    expect(await rows.count()).toBeGreaterThan(40);
+    // Names link out to Roblox: this page borrows Roblox's ranking and says so.
+    await expect(page.locator('#live tbody a[href^="https://www.roblox.com/"]')).toHaveCount(2);
+    // A paid placement is labelled, or the table reads as a ranking when part
+    // of it was bought.
+    await expect(page.locator("#live tbody tr", { hasText: "Test Experience Two" })).toContainText("Sponsored");
   });
 
-  test("charts one experience on request, and only one", async ({ browser }) => {
-    const context = await browser.newContext({ javaScriptEnabled: false });
-    const page = await context.newPage();
+  test("shows each row's own refresh time, not the ranking's", async ({ page }) => {
     await page.goto("/platform/");
+    const first = page.locator("#live tbody tr").first();
+    await expect(first).toContainText(/details refreshed/i);
+    // A row nobody has enriched yet says so rather than showing blanks.
+    await expect(page.locator("#live tbody tr", { hasText: "Test Experience Two" })).toContainText(
+      /details not yet refreshed/i,
+    );
+    // And the page explains why the two differ.
+    await expect(page.locator("#live")).toContainText(/refreshed on a slower rotation/i);
+  });
 
-    const trend = page.locator('#live tbody a[href*="experience="]').first();
-    if ((await trend.count()) === 0) {
-      // No per-experience history in this environment yet.
-      await context.close();
-      return;
-    }
+  test("switches ranking and records it in the URL", async ({ page }) => {
+    await page.goto("/platform/");
+    await expect(page.locator("#live tbody tr")).toHaveCount(3);
 
-    const href = await trend.getAttribute("href");
-    await page.goto(href!);
+    await page.getByRole("button", { name: "Up and Coming" }).click();
+    await expect(page).toHaveURL(/ranking=up-and-coming/);
+    await expect(page.locator("#live tbody tr")).toHaveCount(2);
+  });
 
+  test("keeps both selections when either one changes", async ({ page }) => {
+    await page.goto("/platform/?days=1");
+    await page.getByRole("button", { name: "Up and Coming" }).click();
+    await expect(page).toHaveURL(/days=1/);
+    await expect(page).toHaveURL(/ranking=up-and-coming/);
+
+    await page.getByRole("button", { name: "7 days", exact: true }).click();
+    await expect(page).toHaveURL(/ranking=up-and-coming/);
+    await expect(page).toHaveURL(/days=7/);
+  });
+
+  test("restores state from the URL and from Back", async ({ page }) => {
+    await page.goto("/platform/?ranking=up-and-coming");
+    await expect(page.locator("#live tbody tr")).toHaveCount(2);
+
+    await page.getByRole("button", { name: "Top Trending" }).click();
+    await expect(page.locator("#live tbody tr")).toHaveCount(3);
+
+    await page.goBack();
+    await expect(page).toHaveURL(/ranking=up-and-coming/);
+    await expect(page.locator("#live tbody tr")).toHaveCount(2);
+  });
+
+  test("leaves the default view at the canonical URL", async ({ page }) => {
+    await page.goto("/platform/?days=1");
+    await page.getByRole("button", { name: "14 days", exact: true }).click();
+    // The default is omitted rather than written out, so the plain URL stays
+    // the one a reader shares.
+    await expect(page).toHaveURL(/\/platform\/$/);
+  });
+
+  test("charts one experience on request, and only one", async ({ page }) => {
+    await page.goto("/platform/?experience=111");
     const detail = page.locator("#experience");
     await expect(detail).toBeVisible();
-    // One chart, not ninety: the expanded view is a selection, not an expansion
-    // of every row, because that is work the Worker cannot afford.
-    await expect(page.locator("#experience svg")).toHaveCount(1);
-    await context.close();
+    await expect(detail.locator("svg")).toHaveCount(1);
+    await expect(detail).toContainText("Test Experience One");
   });
 
-  test("does not scroll sideways at 320px with a full ranking", async ({ page }) => {
-    // The widest table on the site, now around ninety rows with a sparkline
-    // column. It scrolls inside its own box; the page must not.
-    await page.setViewportSize({ width: 320, height: 640 });
-
-    for (const url of ["/platform/", "/platform/?ranking=top-playing-now"]) {
-      await page.goto(url, { waitUntil: "load" });
-      const report = await measureOverflow(page);
-      expect(report.overflow, describeOverflow(url, report)).toBeLessThanOrEqual(0);
-    }
-  });
-
-  test("charts every tracked experience on one set of axes, with a legend", async ({
-    browser,
-  }) => {
-    const context = await browser.newContext({ javaScriptEnabled: false });
-    const page = await context.newPage();
+  test("charts every tracked experience on one set of axes, with a legend", async ({ page }) => {
     await page.goto("/platform/");
-
     const section = page.locator("#experiences-over-time");
-    await expect(section).toBeVisible();
+    await expect(section.locator("svg")).toHaveCount(1);
 
-    const text = await section.innerText();
-    if (!/Experiences tracked/i.test(text)) {
-      // No store bound, or not enough observations yet — both are stated.
-      expect(text).toMatch(/not available in this environment|Not enough observations yet/i);
-      await context.close();
-      return;
-    }
-
-    // Many lines on one chart, which is the whole point of this section.
-    const lines = section.locator("svg path[stroke]");
-    expect(await lines.count()).toBeGreaterThan(3);
-
-    // Identity is never carried by colour alone: each named series is listed
-    // with its name as text beside its swatch.
+    // Identity is never carried by colour alone.
     const legend = section.locator("figure ul li");
     expect(await legend.count()).toBeGreaterThan(1);
     expect((await legend.first().innerText()).trim().length).toBeGreaterThan(0);
-
-    await context.close();
   });
 
-  test("tracks the busiest single experience without claiming an all-time record", async ({
-    page,
-  }) => {
+  test("tracks the busiest single experience without claiming a record", async ({ page }) => {
     await page.goto("/platform/");
     const section = page.locator("#largest");
-    await expect(section).toBeVisible();
-
-    const text = await section.innerText();
-    if (!/Busiest right now/i.test(text)) {
-      expect(text).toMatch(/not available in this environment|Not enough observations yet/i);
-      return;
-    }
-
-    // The distinction that keeps this honest: a peak this site observed is not
-    // a platform record, and the page must not let the two be confused.
-    expect(text).toContain("Highest observed");
-    expect(text).toContain("It is not an all-time record");
+    await expect(section).toContainText("Highest observed");
+    await expect(section).toContainText("It is not an all-time record");
   });
 
-  test("states both retention rules, because they differ", async ({ page }) => {
+  test("charts the observed totals and says what it retains", async ({ page }) => {
     await page.goto("/platform/");
-    const how = page.locator("#how");
-    // Totals and per-experience counts are kept for different spans on
-    // purpose, and a page showing two windows has to say which is which.
-    await expect(how).toContainText(/Platform totals keep every one of them for 14 days/i);
-    await expect(how).toContainText(/per-experience counts keep\s+one an hour for 7 days/i);
-    // Sampling is not smoothing, and the page must not let anyone read it as
-    // an average over the runs that were skipped.
-    await expect(how).toContainText(/nothing is averaged to fill/i);
+    const history = page.locator("#history");
+    await expect(history).toContainText(/observations recorded/i);
+    await expect(history.locator("svg")).toHaveCount(1);
+    await expect(history).toContainText(/recorded by this site/i);
   });
 
-  test("keeps one canonical for every ranking", async ({ page }) => {
-    // The ranking is a query parameter on one page. Five canonicals would ask
-    // to have five near-identical pages indexed.
-    for (const url of ["/platform/", "/platform/?ranking=top-playing-now"]) {
-      await page.goto(url);
-      await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
-        "href",
-        /\/platform\/$/,
-      );
+  /**
+   * The table is the widest thing on the page, and it must scroll inside its
+   * own box rather than taking the document with it.
+   *
+   * Measured against `main` rather than the document: the shared header
+   * overflows a 320px viewport on every route of this site, which is a
+   * pre-existing failure that `accessibility.spec.ts` already owns. Asserting
+   * the whole document here would re-report that one global bug as a platform
+   * bug and hide a real regression in this table behind it.
+   */
+  test("does not scroll sideways at 320px with a full ranking", async ({ page }) => {
+    await page.setViewportSize({ width: 320, height: 640 });
+    for (const url of ["/platform/", "/platform/?ranking=up-and-coming"]) {
+      await page.goto(url, { waitUntil: "load" });
+      await page.locator("#live tbody tr").first().waitFor();
+      const overflow = await page.locator("main").evaluate((node) => node.scrollWidth - node.clientWidth);
+      expect(overflow, `${url} scrolls sideways inside <main> by ${overflow}px`).toBeLessThanOrEqual(0);
     }
   });
+});
 
-  test("falls back to a real ranking when the query names one that does not exist", async ({
-    page,
-  }) => {
-    const response = await page.goto("/platform/?ranking=not-a-real-ranking");
-    expect(response?.status()).toBe(200);
+test.describe("the dashboard without data", () => {
+  test("says the request failed, offers a retry, and shows no figures", async ({ page }) => {
+    await serveApi(page, { fail: true });
+    await page.goto("/platform/");
 
     const live = page.locator("#live");
-    await expect(live).toBeVisible();
-    const text = (await live.innerText()).toLowerCase();
-    expect(/players in this ranking|unavailable right now/.test(text)).toBe(true);
+    await expect(live).toContainText(/could not be loaded/i);
+    await expect(live.getByRole("button", { name: /try again/i })).toBeVisible();
+
+    // No zero, no blank, no stale number presented as current.
+    await expect(live.locator("tbody tr")).toHaveCount(0);
+    expect(await live.innerText()).not.toMatch(/\b0\b\s*$/);
+
+    // And the static explanation is untouched by the failure.
+    await expect(page.locator("#limits")).toBeVisible();
+    await expect(page.locator("#how")).toContainText(/how fresh these figures are/i);
   });
 
-  test("attributes every experience and labels any sponsored placement", async ({ page }) => {
+  test("distinguishes nothing-collected-yet from unreachable", async ({ page }) => {
+    await serveApi(page, { empty: true });
     await page.goto("/platform/");
-    const rows = page.locator("#live tbody tr");
-    if ((await rows.count()) === 0) return;
 
-    // Names link to Roblox rather than sitting inert, and the link leaves the
-    // site explicitly — this page borrows Roblox's ranking and says so.
-    const links = page.locator('#live tbody a[href^="https://www.roblox.com/"]');
-    expect(await links.count()).toBeGreaterThan(0);
+    const live = page.locator("#live");
+    await expect(live).toContainText(/no observations recorded yet/i);
+    // A site that is simply new must not be reported as broken.
+    await expect(live).not.toContainText(/could not be loaded/i);
+  });
 
-    // Roblox marks paid placements. Wherever one appears it must be labelled,
-    // or the table reads as a ranking when part of it was bought.
-    const sponsored = page.locator("#live tbody tr", { hasText: /sponsored/i });
-    for (let i = 0; i < (await sponsored.count()); i += 1) {
-      await expect(sponsored.nth(i).getByText("Sponsored", { exact: true })).toBeVisible();
-    }
+  test("announces the loading and error states to assistive technology", async ({ page }) => {
+    await page.route(API, () => {});
+    await page.goto("/platform/");
+    // The waiting state is announced rather than only drawn.
+    await expect(page.locator("#live [aria-live]")).toContainText(/loading the latest observation/i);
   });
 });
 
@@ -448,7 +417,6 @@ test.describe("stock page", () => {
     await page.waitForTimeout(1_000);
 
     expect(external).toEqual([]);
-    // The specific thing the competitor does, named so the intent survives.
     expect(await page.content()).not.toContain("tradingview");
     expect(await page.locator("iframe").count()).toBe(0);
   });
@@ -458,28 +426,21 @@ test.describe("stock page", () => {
     const quote = (await page.locator("#quote").innerText()).toLowerCase();
 
     if (quote.includes("no live price is configured")) {
-      // Unconfigured: names whichever variable is actually absent — which may
-      // be one of the two, not both — and shows no figure at all.
       expect(quote).toMatch(/stock_provider|stock_api_key/);
       expect(quote).not.toMatch(/\$\s?\d/);
       return;
     }
 
     if (quote.includes("did not answer")) {
-      // Refused with nothing stored to fall back to: still no figure.
       expect(quote).not.toMatch(/\$\s?\d/);
       return;
     }
 
-    // A figure is on screen, so it must carry its provider and the time it was
-    // taken — that is what stops it being a number from nowhere.
     expect(quote).toMatch(/\$\s?\d/);
     expect(quote).toContain("as of");
     expect(quote).toMatch(/via \w+/);
     expect(quote).toContain("fetched server-side");
 
-    // Where it is the last one received rather than a fresh one, it says so
-    // instead of letting the timestamp carry that news alone.
     if (quote.includes("not the latest")) {
       expect(quote).toMatch(/most recent quote this site received/);
       expect(quote).toMatch(/nothing has been adjusted to look current/);

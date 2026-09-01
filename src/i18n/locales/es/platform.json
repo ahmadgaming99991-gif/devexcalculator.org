@@ -1,11 +1,11 @@
 {
   "$comment": "Machine-drafted. Not yet read by a native speaker. Every sentence here draws a line between what Roblox published, what this site observed, and what nobody knows — none may be shortened into a claim the data does not support.",
   "live": {
-    "intro": "Recuentos de jugadores en directo desde los endpoints públicos del propio Roblox, en todas las clasificaciones que Roblox publica, y un registro de lo que este sitio ha observado desde que empezó a mirar.",
+    "intro": "Recuentos de jugadores de las experiences que Roblox está clasificando, recogidos de los propios endpoints públicos de Roblox cada {interval} minutos, y un registro de lo que este sitio ha observado desde que empezó a mirar.",
     "jumpLabel": "Ver las cifras en directo",
     "rankingsLabel": "Clasificaciones de Roblox",
     "nowHeading": "Qué se está jugando ahora mismo",
-    "nowDescription": "Leído de los endpoints públicos de explorar y de juegos de Roblox en el momento en que se sirvió esta página. Sin cuenta, sin proveedor de datos externo y sin nada medido o estimado por este sitio.",
+    "nowDescription": "Se recogen de forma programada de los endpoints públicos explore y games de Roblox y este sitio los guarda, con la hora de la observación junto a las cifras. Sin cuenta, sin proveedor de datos externo y sin nada medido ni estimado por este sitio.",
     "unavailableTitle": "Las cifras en directo de Roblox no están disponibles ahora mismo",
     "calculatorStillWorks": "calculadora de pagos",
     "noExperiencesTitle": "Roblox no devolvió ninguna experiencia",
@@ -29,7 +29,7 @@
     },
     "body": {
       "how": {
-        "p1": "Se obtiene en el servidor desde Roblox cuando se sirve la página y se almacena en caché durante {experienceCacheSeconds} minutos. Tu navegador no hace ninguna petición a Roblox y ningún script de Roblox se ejecuta en esta página.",
+        "p1": "Se recogen de Roblox de forma programada y este sitio los guarda. Tu navegador no hace ninguna petición a Roblox y en esta página no se ejecuta ningún script de Roblox.",
         "p3": "Un trabajo programado registra una observación cada",
         "p4": "minutos. Los totales de la plataforma guardan todas ellas durante",
         "p5": "días, porque eso es un array por experiencia entre varios cientos de ellas. Ambos gráficos muestran lo que se registró realmente, huecos incluidos: no se promedia nada para rellenar las tandas que no se guardan."
@@ -158,12 +158,14 @@
   "method": {
     "heading": "Cómo obtiene esta página sus cifras",
     "liveHeading": "Cifras en directo",
-    "liveBody": "Obtenido en el servidor desde Roblox cuando se sirve la página, y cacheado durante {minutes} minutos. Tu navegador no hace ninguna petición a Roblox, y ningún script de Roblox se ejecuta en esta página.",
+    "liveBody": "Se recogen de Roblox de forma programada, cada {interval} minutos, y este sitio las guarda. Tu navegador lee esas observaciones guardadas de este sitio, nunca de Roblox, y en esta página no se ejecuta ningún script de Roblox.",
     "historyHeading": "Histórico",
     "historyBody": "Un trabajo programado registra una observación cada {interval} minutos. Los totales de la plataforma guardan todas ellas durante {retention} días; los recuentos por experiencia guardan uno por hora durante {gameDays} días, porque eso es un array por experiencia entre varios cientos de ellas. Ambos gráficos muestran lo que se registró realmente, huecos incluidos: no se promedia nada para rellenar las tandas que no se guardan.",
     "provenanceTitle": "La clasificación y los recuentos son de Roblox, el registro es nuestro",
     "provenanceBody": "Qué experiencias aparecen, cuántos jugadores tiene cada una y cómo se ha votado cada una viene todo de Roblox. Este sitio no clasifica experiencias, no estima recuentos de jugadores y no publica ninguna cifra que no haya leído de Roblox u observado él mismo y etiquetado como tal. El porcentaje de aprobación es la única aritmética de esta página, y son los propios votos positivos y negativos de Roblox divididos. Para el lado económico de la plataforma, consulta {payoutStatisticsLink}, que proceden de los informes oficiales de Roblox.",
-    "payoutStatisticsLink": "las estadísticas de pagos"
+    "payoutStatisticsLink": "las estadísticas de pagos",
+    "freshnessHeading": "Cómo de recientes son estas cifras",
+    "freshnessBody": "En esta página corren dos relojes. Las clasificaciones y los recuentos de jugadores se recogen cada {interval} minutos y llevan la hora con la que Roblox fechó su propia respuesta. Las visitas, los favoritos, los votos, el género y la clasificación por edad se actualizan por lotes rotatorios aproximadamente cada hora, así que los metadatos de una fila pueden ser varias horas más antiguos que su recuento de jugadores. Cada uno lleva su propia marca de tiempo y ninguno recibe nunca la del otro."
   },
   "download": {
     "heading": "Descarga estas observaciones",
@@ -320,5 +322,32 @@
   },
   "$identical": [
     "stats.workedAmountColumn"
-  ]
+  ],
+  "dashboard": {
+    "loadingTitle": "Cargando la última observación",
+    "loadingBody": "Las cifras de esta página se piden después de cargarla, a las observaciones que este sitio ha guardado, no a Roblox.",
+    "offlineTitle": "No se han podido cargar estas cifras",
+    "offlineBody": "La petición de las observaciones guardadas no se completó. No se muestra nada en lugar de una cifra que podría estar equivocada o desfasada. Nada de lo que hay más abajo se ve afectado.",
+    "emptyTitle": "Todavía no hay observaciones registradas",
+    "emptyBody": "Aún no se ha guardado nada para esta vista. Los gráficos aparecen cuando hay algo real que dibujar; no se estima nada para rellenar el hueco.",
+    "retry": "Reintentar",
+    "staleTitle": "Esta observación es más antigua de lo que permite la cadencia de recogida",
+    "staleBody": "La observación guardada más reciente tiene {minutes} minutos. Las cifras de abajo son esa observación, no una lectura actual.",
+    "observedAt": "Observado el {when}.",
+    "detailsRefreshed": "Detalles actualizados el {when}",
+    "detailsPending": "Los detalles de esta experience aún no se han actualizado",
+    "detailsClockNote": "Los recuentos de jugadores y las clasificaciones se recogen cada {interval} minutos. Las visitas, los favoritos, los votos, el género y la clasificación por edad se actualizan en una rotación más lenta, así que cada fila lleva su propia hora de actualización y puede ser varias horas más antigua.",
+    "sourcesLabel": "Fuente:",
+    "noScriptTitle": "Las tablas y los gráficos necesitan JavaScript",
+    "noScriptBody": "Se dibujan en tu navegador a partir de las observaciones que este sitio ha guardado. Sin JavaScript no aparecen. Todo lo demás de esta página — qué se mide, de dónde viene, con qué frecuencia se recoge y qué no puede decirte — está más abajo, y esas mismas observaciones se pueden descargar en CSV y JSON."
+  },
+  "limits": {
+    "heading": "Lo que estas cifras no pueden decirte",
+    "description": "Se dice aquí y no junto a las cifras, para que siga estando cuando las cifras no estén.",
+    "notPlatformWide": "No es un recuento de jugadores de toda la plataforma. Roblox no publica un total en directo y este sitio no lo estima.",
+    "rankedSubset": "Solo se cuentan las experiences que Roblox está clasificando ahora mismo. Roblox clasifica una parte pequeña de lo que aloja, así que la cifra real de gente jugando es mayor: cuánto, nadie fuera de Roblox puede decirlo.",
+    "noBackfill": "Nada se rellena a posteriori ni se promedia. Un hueco en un gráfico es una ejecución programada que no registró nada, dibujada como hueco.",
+    "twoClocks": "Los recuentos de jugadores y los metadatos lentos se actualizan con cadencias distintas y llevan marcas de tiempo distintas. Uno no acredita lo reciente del otro.",
+    "notPayout": "Nada de esto afecta a un pago DevEx, que depende de los Earned Robux elegibles y de la tasa documentada, no de cuánta actividad tenga la plataforma."
+  }
 }

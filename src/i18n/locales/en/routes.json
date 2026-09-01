@@ -795,7 +795,7 @@
     "metaDescription": "Live player counts for the experiences Roblox is ranking, read from its own public endpoints, plus a growing record of what this site has observed.",
     "h1": "Roblox platform activity",
     "navLabel": "Platform",
-    "quickAnswer": "Player counts on this page are read from Roblox's own public endpoints when the page is served, and the ranking is Roblox's rather than this site's. Alongside them is a record of what this site has observed since it began watching, charted over whatever period has actually been collected.",
+    "quickAnswer": "Player counts on this page are collected from Roblox's own public endpoints every 15 minutes and stored, then read by your browser from this site rather than fetched because you opened the page. The ranking is Roblox's rather than this site's, every figure carries the time it was observed, and alongside them is a record of what this site has observed since it began watching.",
     "ogImageAlt": "Live Roblox player counts and observed activity over time.",
     "sections": {
       "live": "What is being played right now",
@@ -807,7 +807,7 @@
     "faqs": {
       "q01": {
         "question": "How many people are playing Roblox right now?",
-        "answer": "The table totals the players in the experiences Roblox currently ranks, at the moment the page was served. It is not a platform-wide figure: Roblox does not publish a live total, and this site will not estimate one."
+        "answer": "The table totals the players in the experiences Roblox currently ranks, as of the most recent scheduled observation — one every 15 minutes, with its time shown beside the figure. It is not a platform-wide figure: Roblox does not publish a live total, and this site will not estimate one."
       },
       "q02": {
         "question": "Why does the chart cover such a short period?",

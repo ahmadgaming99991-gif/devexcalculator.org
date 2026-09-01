@@ -6,22 +6,28 @@ import { PlatformView } from "@/views/platform";
 const ROUTE = "/platform/";
 
 /**
- * Rendered per request, never prerendered.
+ * Prerendered, and deliberately so.
  *
- * This page reports live figures. Baked at build time it would report a
- * state from whenever the build ran, which is the one thing a page about
- * live data must not do.
+ * This page used to carry `revalidate = 0` and read `searchParams`, on the
+ * reasoning that a page about live figures must not be baked at build time.
+ * The reasoning was right and the conclusion was wrong: nothing live is baked
+ * into this document at all. Every figure is fetched by the browser from the
+ * platform data Worker after load, so the document itself is the same file for
+ * every reader and every query string, and it can be a static one.
  *
- * Declared here rather than beside the component: Next reads route-segment
- * config from the route file only, so the export that used to sit in
- * `src/views/` did nothing at all once the body moved there.
+ * What that buys is the whole point. A per-request render of this page measured
+ * a median of 134 ms of CPU against the 10 ms the Workers Free plan allows,
+ * which is what produced `error code: 1102` under load. A prerendered document
+ * costs no Worker invocation at all.
+ *
+ * `searchParams` is absent from the signature rather than merely unused: a
+ * route that accepts it is a route Next must treat as dynamic.
  */
-export const revalidate = 0;
 
 export function generateMetadata(): Promise<Metadata> {
   return buildLocalizedMetadata(DEFAULT_LOCALE, ROUTE);
 }
 
-export default function Page(props: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
-  return <PlatformView locale={DEFAULT_LOCALE} searchParams={props.searchParams} />;
+export default function Page() {
+  return <PlatformView locale={DEFAULT_LOCALE} />;
 }

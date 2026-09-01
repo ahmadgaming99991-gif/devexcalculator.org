@@ -805,7 +805,7 @@
     "metaDescription": "Roblox'un sıraladığı experience'lar için canlı oyuncu sayıları, kendi açık uç noktalarından okundu; ayrıca bu sitenin gözlediklerinin büyüyen kaydı.",
     "h1": "Roblox platform etkinliği",
     "navLabel": "Platform",
-    "quickAnswer": "Bu sayfadaki oyuncu sayıları, sayfa sunulduğunda Roblox'un kendi açık uç noktalarından okunur ve sıralama bu sitenin değil, Roblox'undur. Yanında ise bu sitenin izlemeye başladığından beri gözlediklerinin kaydı yer alır; gerçekten toplanmış olan dönem boyunca çizilir.",
+    "quickAnswer": "Bu sayfadaki oyuncu sayıları, Roblox’un kendi açık uç noktalarından her 15 dakikada bir toplanıp saklanır; tarayıcınız bunları, siz sayfayı açtığınız için getirilmiş olarak değil, bu siteden okur. Sıralama bu sitenin değil Roblox’undur, her rakam gözlendiği zamanı taşır ve yanında bu sitenin izlemeye başladığından beri gözlediklerinin kaydı yer alır.",
     "ogImageAlt": "Canlı Roblox oyuncu sayıları ve zaman içinde gözlenen etkinlik.",
     "sections": {
       "live": "Şu anda ne oynanıyor",
@@ -817,7 +817,7 @@
     "faqs": {
       "q01": {
         "question": "Şu anda Roblox'u kaç kişi oynuyor?",
-        "answer": "Tablo, sayfa sunulduğu anda Roblox'un o sırada sıraladığı experience'lardaki oyuncuları toplar. Bu, platformun tamamına ait bir rakam değildir: Roblox canlı bir toplam yayımlamaz ve bu site bir tane tahmin etmez."
+        "answer": "Tablo, Roblox’un o an sıraladığı experience’lardaki oyuncuları, en son planlı gözleme göre toplar — her 15 dakikada bir, zamanı rakamın yanında gösterilir. Bu, platformun tamamına ait bir rakam değildir: Roblox canlı bir toplam yayımlamaz ve bu site bir tane tahmin etmez."
       },
       "q02": {
         "question": "Grafik neden bu kadar kısa bir dönemi kapsıyor?",

@@ -1,11 +1,11 @@
 {
   "$comment": "The live Roblox activity page and the stock page. Every sentence here draws a line between what Roblox published, what this site observed, and what nobody knows — so none of them may be shortened into a claim the data does not support.",
   "live": {
-    "intro": "Live player counts from Roblox’s own public endpoints, across every ranking Roblox publishes, and a record of what this site has observed since it started watching.",
+    "intro": "Player counts for the experiences Roblox is ranking, collected from Roblox's own public endpoints every {interval} minutes, and a record of what this site has observed since it started watching.",
     "jumpLabel": "See the live figures",
     "rankingsLabel": "Roblox rankings",
     "nowHeading": "What is being played right now",
-    "nowDescription": "Read from Roblox’s public explore and games endpoints when this page was served. No account, no third-party data provider, and nothing measured or estimated by this site.",
+    "nowDescription": "Collected from Roblox’s public explore and games endpoints on a schedule and stored by this site, with the time of the observation shown beside the figures. No account, no third-party data provider, and nothing measured or estimated by this site.",
     "unavailableTitle": "Roblox’s live figures are unavailable right now",
     "calculatorStillWorks": "payout calculator",
     "noExperiencesTitle": "Roblox returned no experiences",
@@ -29,7 +29,7 @@
     },
     "body": {
       "how": {
-        "p1": "Fetched server-side from Roblox when the page is served and cached for {experienceCacheSeconds} minutes. Your browser makes no request to Roblox, and no script from Roblox runs on this page.",
+        "p1": "Collected from Roblox on a schedule and stored by this site. Your browser makes no request to Roblox, and no script from Roblox runs on this page.",
         "p3": "A scheduled job records one observation every",
         "p4": "minutes. Platform totals keep every one of them for",
         "p5": "days, because that is one array per experience across several hundred of them. Both charts show what was actually recorded, gaps included — nothing is averaged to fill the runs not kept."
@@ -158,12 +158,14 @@
   "method": {
     "heading": "How this page gets its numbers",
     "liveHeading": "Live figures",
-    "liveBody": "Fetched server-side from Roblox when the page is served and cached for {minutes} minutes. Your browser makes no request to Roblox, and no script from Roblox runs on this page.",
+    "liveBody": "Collected from Roblox on a schedule, every {interval} minutes, and stored by this site. Your browser reads those stored observations from this site, never from Roblox, and no script from Roblox runs on this page.",
     "historyHeading": "History",
     "historyBody": "A scheduled job records one observation every {interval} minutes. Platform totals keep every one of them for {retention} days; per-experience counts keep one an hour for {gameDays} days, because that is one array per experience across several hundred of them. Both charts show what was actually recorded, gaps included — nothing is averaged to fill the runs not kept.",
     "provenanceTitle": "Ranking and counts are Roblox’s, the record is ours",
     "provenanceBody": "Which experiences appear, how many players each has, and how each has been voted on all come from Roblox. This site does not rank experiences, does not estimate player counts, and does not publish a figure it did not either read from Roblox or observe itself and label as such. The approval share is the only arithmetic on this page, and it is Roblox’s own up and down vote counts divided. For the money side of the platform, see {payoutStatisticsLink}, which come from Roblox’s filings.",
-    "payoutStatisticsLink": "the payout statistics"
+    "payoutStatisticsLink": "the payout statistics",
+    "freshnessHeading": "How fresh these figures are",
+    "freshnessBody": "Two clocks run on this page. Rankings and player counts are collected every {interval} minutes and carry the time Roblox's own response was dated. Visits, favourites, votes, genre and maturity are refreshed in rotating batches roughly every hour, so a given row's metadata can be several hours older than its player count. Each carries its own timestamp, and neither is ever restamped with the other's."
   },
   "download": {
     "heading": "Download these observations",
@@ -317,5 +319,32 @@
     "latestQuarterLabel": "Latest quarter ({quarter})",
     "workedAmountColumn": "{robux} Earned Robux",
     "aboutValue": "about {value}"
+  },
+  "dashboard": {
+    "loadingTitle": "Loading the latest observation",
+    "loadingBody": "The figures on this page are fetched after the page loads, from this site's own stored observations rather than from Roblox.",
+    "offlineTitle": "These figures could not be loaded",
+    "offlineBody": "The request for the stored observations did not complete. Nothing is shown rather than a number that might be wrong or out of date. Everything below this point is unaffected.",
+    "emptyTitle": "No observations recorded yet",
+    "emptyBody": "Nothing has been stored for this view yet. The charts appear once there is something real to draw; nothing is estimated to fill the gap.",
+    "retry": "Try again",
+    "staleTitle": "This observation is older than the collection schedule allows",
+    "staleBody": "The most recent stored observation is {minutes} minutes old. The figures below are that observation, not a current reading.",
+    "observedAt": "Observed {when}.",
+    "detailsRefreshed": "Details refreshed {when}",
+    "detailsPending": "Details not yet refreshed for this experience",
+    "detailsClockNote": "Player counts and rankings are collected every {interval} minutes. Visits, favourites, votes, genre and maturity are refreshed on a slower rotation, so each row carries its own refresh time and those may be several hours older.",
+    "sourcesLabel": "Source:",
+    "noScriptTitle": "The tables and charts need JavaScript",
+    "noScriptBody": "They are drawn in your browser from observations this site has stored. With JavaScript off they do not appear. Everything else on this page — what is measured, where it comes from, how often it is collected and what it cannot tell you — is below, and the same observations are downloadable as CSV and JSON."
+  },
+  "limits": {
+    "heading": "What these figures cannot tell you",
+    "description": "Stated here rather than beside the numbers, so it is still here when the numbers are not.",
+    "notPlatformWide": "This is not a platform-wide player count. Roblox publishes no live total and this site does not estimate one.",
+    "rankedSubset": "Only experiences Roblox is currently ranking are counted. Roblox ranks a small share of what it hosts, so the real number playing is higher — by how much, nobody outside Roblox can say.",
+    "noBackfill": "Nothing is back-filled or averaged. A gap in a chart is a scheduled run that did not record, drawn as a gap.",
+    "twoClocks": "Player counts and slow metadata are refreshed on different schedules and carry different timestamps. One is not evidence of the other's freshness.",
+    "notPayout": "None of this affects a DevEx payout, which depends on eligible Earned Robux and the documented rate, not on how busy the platform is."
   }
 }

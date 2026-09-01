@@ -6,11 +6,11 @@
     "stats.workedAmountColumn"
   ],
   "live": {
-    "intro": "Live-Spielerzahlen aus Roblox’ eigenen öffentlichen Endpunkten, über alle Ranglisten hinweg, die Roblox veröffentlicht, und eine Aufzeichnung dessen, was diese Website seit Beobachtungsbeginn gesehen hat.",
+    "intro": "Spielerzahlen für die Experiences, die Roblox rankt — alle {interval} Minuten aus Roblox' eigenen öffentlichen Endpunkten erfasst — und eine Aufzeichnung dessen, was diese Seite seit Beobachtungsbeginn gesehen hat.",
     "jumpLabel": "Die Live-Zahlen ansehen",
     "rankingsLabel": "Roblox-Ranglisten",
     "nowHeading": "Was gerade gespielt wird",
-    "nowDescription": "Gelesen aus Roblox’ öffentlichen Explore- und Games-Endpunkten in dem Moment, in dem diese Seite ausgeliefert wurde. Kein Konto, kein Datenanbieter von außen, und nichts, was diese Website selbst gemessen oder geschätzt hätte.",
+    "nowDescription": "Planmäßig aus Roblox’ öffentlichen Explore- und Games-Endpunkten erfasst und von dieser Seite gespeichert; die Beobachtungszeit steht neben den Zahlen. Kein Konto, kein externer Datenanbieter und nichts, was diese Seite selbst misst oder schätzt.",
     "unavailableTitle": "Roblox’ Live-Zahlen sind gerade nicht verfügbar",
     "calculatorStillWorks": "Auszahlungsrechner",
     "noExperiencesTitle": "Roblox hat keine Experiences zurückgegeben",
@@ -34,7 +34,7 @@
     },
     "body": {
       "how": {
-        "p1": "Serverseitig von Roblox abgerufen, wenn die Seite ausgeliefert wird, und für {experienceCacheSeconds} Minuten zwischengespeichert. Ihr Browser sendet keine Anfrage an Roblox, und auf dieser Seite läuft kein Skript von Roblox.",
+        "p1": "Planmäßig von Roblox erfasst und von dieser Seite gespeichert. Ihr Browser stellt keine Anfrage an Roblox, und auf dieser Seite läuft kein Skript von Roblox.",
         "p3": "Ein geplanter Job hält alle",
         "p4": "Minuten eine Beobachtung fest. Die Plattform-Gesamtwerte behalten jede einzelne davon",
         "p5": "Tage lang, denn das ist ein Array pro Experience über mehrere Hundert von ihnen. Beide Diagramme zeigen, was tatsächlich aufgezeichnet wurde, Lücken inklusive — nichts wird gemittelt, um nicht behaltene Läufe aufzufüllen."
@@ -163,12 +163,14 @@
   "method": {
     "heading": "Wie diese Seite zu ihren Zahlen kommt",
     "liveHeading": "Live-Zahlen",
-    "liveBody": "Serverseitig bei Roblox abgerufen, wenn die Seite ausgeliefert wird, und für {minutes} Minuten zwischengespeichert. Dein Browser stellt keine Anfrage an Roblox, und kein Skript von Roblox läuft auf dieser Seite.",
+    "liveBody": "Planmäßig alle {interval} Minuten von Roblox erfasst und von dieser Seite gespeichert. Ihr Browser liest diese gespeicherten Beobachtungen von dieser Seite, nie von Roblox, und auf dieser Seite läuft kein Skript von Roblox.",
     "historyHeading": "Verlauf",
     "historyBody": "Ein geplanter Job hält alle {interval} Minuten eine Beobachtung fest. Die Plattform-Gesamtwerte behalten jede einzelne davon {retention} Tage lang; die Zahlen pro Experience behalten eine pro Stunde für {gameDays} Tage, denn das ist ein Array pro Experience über mehrere Hundert von ihnen. Beide Diagramme zeigen, was tatsächlich aufgezeichnet wurde, Lücken inklusive — nichts wird gemittelt, um nicht behaltene Läufe aufzufüllen.",
     "provenanceTitle": "Rangliste und Zahlen sind von Roblox, die Aufzeichnung ist unsere",
     "provenanceBody": "Welche Experiences erscheinen, wie viele Spielende jede hat und wie über jede abgestimmt wurde, kommt alles von Roblox. Diese Website erstellt keine Ranglisten, schätzt keine Spielerzahlen und veröffentlicht keine Zahl, die sie nicht entweder bei Roblox gelesen oder selbst beobachtet und als solche gekennzeichnet hat. Der Zustimmungsanteil ist die einzige Rechnung auf dieser Seite, und es sind Roblox’ eigene Auf- und Abwärtsstimmen, geteilt. Zur Geldseite der Plattform siehe {payoutStatisticsLink}, die aus Roblox’ Geschäftsberichten stammen.",
-    "payoutStatisticsLink": "die Auszahlungsstatistiken"
+    "payoutStatisticsLink": "die Auszahlungsstatistiken",
+    "freshnessHeading": "Wie aktuell diese Zahlen sind",
+    "freshnessBody": "Auf dieser Seite laufen zwei Uhren. Ranglisten und Spielerzahlen werden alle {interval} Minuten erfasst und tragen die Zeit, mit der Roblox' eigene Antwort datiert war. Besuche, Favoriten, Stimmen, Genre und Altersfreigabe werden etwa stündlich in rotierenden Stapeln aktualisiert; die Metadaten einer Zeile können daher mehrere Stunden älter sein als ihre Spielerzahl. Jede trägt ihren eigenen Zeitstempel, und keine wird je mit dem der anderen versehen."
   },
   "download": {
     "heading": "Diese Beobachtungen herunterladen",
@@ -322,5 +324,32 @@
     "latestQuarterLabel": "Jüngstes Quartal ({quarter})",
     "workedAmountColumn": "{robux} Earned Robux",
     "aboutValue": "etwa {value}"
+  },
+  "dashboard": {
+    "loadingTitle": "Die letzte Beobachtung wird geladen",
+    "loadingBody": "Die Zahlen auf dieser Seite werden nach dem Laden abgerufen — aus den hier gespeicherten Beobachtungen, nicht von Roblox.",
+    "offlineTitle": "Diese Zahlen konnten nicht geladen werden",
+    "offlineBody": "Die Anfrage nach den gespeicherten Beobachtungen kam nicht durch. Es wird nichts angezeigt statt einer Zahl, die falsch oder veraltet sein könnte. Alles darunter ist davon unberührt.",
+    "emptyTitle": "Noch keine Beobachtungen aufgezeichnet",
+    "emptyBody": "Für diese Ansicht ist noch nichts gespeichert. Die Diagramme erscheinen, sobald es etwas Echtes zu zeichnen gibt; nichts wird geschätzt, um die Lücke zu füllen.",
+    "retry": "Erneut versuchen",
+    "staleTitle": "Diese Beobachtung ist älter, als der Erfassungsplan vorsieht",
+    "staleBody": "Die neueste gespeicherte Beobachtung ist {minutes} Minuten alt. Die Zahlen unten sind diese Beobachtung, nicht ein aktueller Stand.",
+    "observedAt": "Beobachtet am {when}.",
+    "detailsRefreshed": "Details aktualisiert am {when}",
+    "detailsPending": "Details für diese Experience noch nicht aktualisiert",
+    "detailsClockNote": "Spielerzahlen und Ranglisten werden alle {interval} Minuten erfasst. Besuche, Favoriten, Stimmen, Genre und Altersfreigabe werden in einer langsameren Rotation aktualisiert; deshalb trägt jede Zeile ihre eigene Aktualisierungszeit, die mehrere Stunden älter sein kann.",
+    "sourcesLabel": "Quelle:",
+    "noScriptTitle": "Die Tabellen und Diagramme benötigen JavaScript",
+    "noScriptBody": "Sie werden in Ihrem Browser aus den hier gespeicherten Beobachtungen gezeichnet. Ohne JavaScript erscheinen sie nicht. Alles Übrige auf dieser Seite — was gemessen wird, woher es stammt, wie oft es erfasst wird und was es nicht aussagen kann — steht darunter, und dieselben Beobachtungen gibt es als CSV und JSON zum Download."
+  },
+  "limits": {
+    "heading": "Was diese Zahlen nicht aussagen",
+    "description": "Hier festgehalten statt neben den Zahlen — damit es auch dann dasteht, wenn die Zahlen fehlen.",
+    "notPlatformWide": "Das ist keine plattformweite Spielerzahl. Roblox veröffentlicht keinen Live-Gesamtwert, und diese Seite schätzt keinen.",
+    "rankedSubset": "Gezählt werden nur Experiences, die Roblox gerade rankt. Roblox rankt einen kleinen Teil dessen, was es hostet; die tatsächliche Zahl der Spielenden liegt also höher — um wie viel, kann niemand außerhalb von Roblox sagen.",
+    "noBackfill": "Nichts wird nachträglich ergänzt oder gemittelt. Eine Lücke im Diagramm ist ein geplanter Lauf, der nichts aufgezeichnet hat — und wird als Lücke gezeichnet.",
+    "twoClocks": "Spielerzahlen und langsame Metadaten werden nach verschiedenen Plänen aktualisiert und tragen verschiedene Zeitstempel. Das eine belegt nicht die Aktualität des anderen.",
+    "notPayout": "Nichts davon beeinflusst eine DevEx-Auszahlung: Die hängt von anrechenbaren Earned Robux und dem dokumentierten Kurs ab, nicht davon, wie viel auf der Plattform los ist."
   }
 }

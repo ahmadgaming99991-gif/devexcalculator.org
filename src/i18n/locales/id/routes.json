@@ -805,7 +805,7 @@
     "metaDescription": "Jumlah pemain langsung untuk experience yang sedang diperingkat Roblox, dibaca dari endpoint publiknya sendiri, ditambah catatan yang terus bertambah tentang apa yang telah diamati situs ini.",
     "h1": "Aktivitas platform Roblox",
     "navLabel": "Platform",
-    "quickAnswer": "Jumlah pemain di halaman ini dibaca dari endpoint publik milik Roblox sendiri saat halaman disajikan, dan peringkatnya milik Roblox, bukan milik situs ini. Di sampingnya ada catatan tentang apa yang telah diamati situs ini sejak mulai memantau, digambarkan sepanjang periode yang benar-benar terkumpul.",
+    "quickAnswer": "Jumlah pemain di halaman ini dikumpulkan dari endpoint publik Roblox sendiri setiap 15 menit lalu disimpan, kemudian dibaca peramban Anda dari situs ini — bukan diambil karena Anda membuka halaman. Peringkatnya milik Roblox, bukan situs ini; setiap angka membawa waktu pengamatannya, dan di sampingnya ada catatan apa yang telah diamati situs ini sejak mulai memantau.",
     "ogImageAlt": "Jumlah pemain Roblox secara langsung dan aktivitas yang diamati dari waktu ke waktu.",
     "sections": {
       "live": "Apa yang sedang dimainkan sekarang",
@@ -817,7 +817,7 @@
     "faqs": {
       "q01": {
         "question": "Berapa banyak orang yang sedang bermain Roblox sekarang?",
-        "answer": "Tabelnya menjumlahkan pemain di experience yang saat itu diperingkat Roblox, pada saat halaman disajikan. Ini bukan angka seluruh platform: Roblox tidak menerbitkan total langsung, dan situs ini tidak akan memperkirakannya."
+        "answer": "Tabel menjumlahkan pemain pada experience yang sedang diperingkat Roblox, per observasi terjadwal terakhir — satu setiap 15 menit, dengan waktunya ditampilkan di samping angka. Ini bukan angka seluruh platform: Roblox tidak menerbitkan total langsung dan situs ini tidak memperkirakannya."
       },
       "q02": {
         "question": "Mengapa grafiknya mencakup periode yang begitu pendek?",

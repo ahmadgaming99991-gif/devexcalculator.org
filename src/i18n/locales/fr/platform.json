@@ -8,11 +8,11 @@
     "stock.questionsHeading"
   ],
   "live": {
-    "intro": "Des comptages de joueurs en direct issus des points d’accès publics de Roblox lui-même, sur tous les classements que Roblox publie, et un relevé de ce que ce site a observé depuis qu’il a commencé à regarder.",
+    "intro": "Nombres de joueurs pour les experiences que Roblox classe, collectés toutes les {interval} minutes auprès des points d'accès publics de Roblox, et un relevé de ce que ce site observe depuis qu'il a commencé.",
     "jumpLabel": "Voir les chiffres en direct",
     "rankingsLabel": "Classements Roblox",
     "nowHeading": "Ce à quoi on joue en ce moment",
-    "nowDescription": "Lu depuis les points d’accès publics « explore » et « games » de Roblox au moment où cette page a été servie. Aucun compte, aucun fournisseur de données tiers, et rien de mesuré ni d’estimé par ce site.",
+    "nowDescription": "Collectés selon un calendrier auprès des points d’accès publics explore et games de Roblox, puis enregistrés par ce site, avec l’heure de l’observation affichée à côté des chiffres. Aucun compte, aucun fournisseur de données tiers, et rien qui soit mesuré ou estimé par ce site.",
     "unavailableTitle": "Les chiffres en direct de Roblox sont indisponibles pour le moment",
     "calculatorStillWorks": "calculatrice de paiement",
     "noExperiencesTitle": "Roblox n’a renvoyé aucune expérience",
@@ -36,7 +36,7 @@
     },
     "body": {
       "how": {
-        "p1": "Récupéré côté serveur auprès de Roblox au moment où la page est servie, puis mis en cache pendant {experienceCacheSeconds} minutes. Votre navigateur n'envoie aucune requête à Roblox et aucun script de Roblox ne s'exécute sur cette page.",
+        "p1": "Collectés auprès de Roblox selon un calendrier et enregistrés par ce site. Votre navigateur n’adresse aucune requête à Roblox, et aucun script de Roblox ne s’exécute sur cette page.",
         "p3": "Une tâche planifiée enregistre une observation toutes les",
         "p4": "minutes. Les totaux de la plateforme les conservent toutes pendant",
         "p5": "jours, parce que cela fait un tableau par expérience sur plusieurs centaines d’entre elles. Les deux graphiques montrent ce qui a réellement été enregistré, trous compris — rien n’est moyenné pour combler les passages non conservés."
@@ -165,12 +165,14 @@
   "method": {
     "heading": "Comment cette page obtient ses chiffres",
     "liveHeading": "Chiffres en direct",
-    "liveBody": "Récupéré côté serveur auprès de Roblox au moment où la page est servie, puis mis en cache pendant {minutes} minutes. Votre navigateur n’envoie aucune requête à Roblox, et aucun script de Roblox ne s’exécute sur cette page.",
+    "liveBody": "Collectés auprès de Roblox selon un calendrier, toutes les {interval} minutes, puis enregistrés par ce site. Votre navigateur lit ces observations enregistrées sur ce site, jamais chez Roblox, et aucun script de Roblox ne s'exécute sur cette page.",
     "historyHeading": "Historique",
     "historyBody": "Une tâche planifiée enregistre une observation toutes les {interval} minutes. Les totaux de la plateforme les conservent toutes pendant {retention} jours ; les comptages par expérience en gardent un par heure pendant {gameDays} jours, parce que cela fait un tableau par expérience sur plusieurs centaines d’entre elles. Les deux graphiques montrent ce qui a réellement été enregistré, trous compris — rien n’est moyenné pour combler les passages non conservés.",
     "provenanceTitle": "Le classement et les comptages sont de Roblox, le relevé est le nôtre",
     "provenanceBody": "Quelles expériences apparaissent, combien de joueurs chacune compte et comment chacune a été notée : tout cela vient de Roblox. Ce site ne classe pas les expériences, n’estime pas les comptages de joueurs et ne publie aucun chiffre qu’il n’ait ni lu chez Roblox ni observé lui-même en le signalant comme tel. Le taux d’approbation est la seule arithmétique de cette page, et ce sont les votes positifs et négatifs de Roblox lui-même, divisés. Pour le versant financier de la plateforme, voyez {payoutStatisticsLink}, qui proviennent des dépôts officiels de Roblox.",
-    "payoutStatisticsLink": "les statistiques de paiement"
+    "payoutStatisticsLink": "les statistiques de paiement",
+    "freshnessHeading": "À quel point ces chiffres sont récents",
+    "freshnessBody": "Deux horloges tournent sur cette page. Les classements et les nombres de joueurs sont collectés toutes les {interval} minutes et portent l'heure dont Roblox a daté sa propre réponse. Les visites, favoris, votes, genre et classification d'âge sont actualisés par lots tournants environ toutes les heures : les métadonnées d'une ligne peuvent donc avoir plusieurs heures de retard sur son nombre de joueurs. Chacun porte son propre horodatage, et jamais celui de l'autre."
   },
   "download": {
     "heading": "Télécharger ces observations",
@@ -324,5 +326,32 @@
     "latestQuarterLabel": "Dernier trimestre ({quarter})",
     "workedAmountColumn": "{robux} Earned Robux",
     "aboutValue": "environ {value}"
+  },
+  "dashboard": {
+    "loadingTitle": "Chargement de la dernière observation",
+    "loadingBody": "Les chiffres de cette page sont demandés après le chargement, aux observations enregistrées par ce site et non à Roblox.",
+    "offlineTitle": "Ces chiffres n'ont pas pu être chargés",
+    "offlineBody": "La requête vers les observations enregistrées n'a pas abouti. Rien n'est affiché plutôt qu'un chiffre qui pourrait être faux ou périmé. Tout ce qui suit reste valable.",
+    "emptyTitle": "Aucune observation enregistrée pour l'instant",
+    "emptyBody": "Rien n'a encore été enregistré pour cette vue. Les graphiques apparaissent dès qu'il y a quelque chose de réel à tracer ; rien n'est estimé pour combler le vide.",
+    "retry": "Réessayer",
+    "staleTitle": "Cette observation est plus ancienne que ne le prévoit le calendrier de collecte",
+    "staleBody": "L'observation enregistrée la plus récente date de {minutes} minutes. Les chiffres ci-dessous sont cette observation, pas un relevé actuel.",
+    "observedAt": "Observé le {when}.",
+    "detailsRefreshed": "Détails actualisés le {when}",
+    "detailsPending": "Les détails de cette experience n'ont pas encore été actualisés",
+    "detailsClockNote": "Les nombres de joueurs et les classements sont collectés toutes les {interval} minutes. Les visites, favoris, votes, genre et classification d'âge sont actualisés selon une rotation plus lente : chaque ligne porte donc sa propre heure d'actualisation, qui peut avoir plusieurs heures de retard.",
+    "sourcesLabel": "Source :",
+    "noScriptTitle": "Les tableaux et les graphiques nécessitent JavaScript",
+    "noScriptBody": "Ils sont tracés dans votre navigateur à partir des observations enregistrées par ce site. Sans JavaScript, ils n'apparaissent pas. Tout le reste de cette page — ce qui est mesuré, d'où cela vient, à quelle fréquence c'est collecté et ce que cela ne peut pas vous dire — se trouve plus bas, et les mêmes observations sont téléchargeables en CSV et JSON."
+  },
+  "limits": {
+    "heading": "Ce que ces chiffres ne peuvent pas vous dire",
+    "description": "Indiqué ici plutôt qu'à côté des chiffres, pour que cela subsiste quand les chiffres, eux, manquent.",
+    "notPlatformWide": "Ce n'est pas un décompte à l'échelle de la plateforme. Roblox ne publie aucun total en direct et ce site n'en estime aucun.",
+    "rankedSubset": "Seules les experiences que Roblox classe actuellement sont comptées. Roblox n'en classe qu'une petite part de ce qu'il héberge : le nombre réel de joueurs est donc plus élevé — de combien, personne hors de Roblox ne peut le dire.",
+    "noBackfill": "Rien n'est comblé après coup ni moyenné. Un trou dans un graphique est une exécution planifiée qui n'a rien enregistré, tracée comme un trou.",
+    "twoClocks": "Les nombres de joueurs et les métadonnées lentes sont actualisés selon des rythmes différents et portent des horodatages différents. L'un n'atteste pas de la fraîcheur de l'autre.",
+    "notPayout": "Rien de tout cela n'influe sur un versement DevEx, qui dépend des Earned Robux éligibles et du taux documenté, pas de l'affluence sur la plateforme."
   }
 }

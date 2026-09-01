@@ -815,7 +815,7 @@
     "metaDescription": "Comptages de joueurs en direct pour les expériences que Roblox classe, lus depuis ses propres points d’accès publics, plus un relevé grandissant de ce que ce site a observé.",
     "h1": "Activité de la plateforme Roblox",
     "navLabel": "Plateforme",
-    "quickAnswer": "Les comptages de joueurs de cette page sont lus depuis les points d’accès publics de Roblox lui-même au moment où la page est servie, et le classement est celui de Roblox, pas celui de ce site. À côté figure un relevé de ce que ce site a observé depuis qu’il a commencé à regarder, tracé sur la période réellement collectée.",
+    "quickAnswer": "Les nombres de joueurs de cette page sont collectés toutes les 15 minutes auprès des points d’accès publics de Roblox puis enregistrés ; votre navigateur les lit ensuite sur ce site, au lieu qu’ils soient récupérés parce que vous avez ouvert la page. Le classement est celui de Roblox et non celui de ce site, chaque chiffre porte l’heure à laquelle il a été observé, et à côté figure un relevé de ce que ce site observe depuis ses débuts.",
     "ogImageAlt": "Comptages de joueurs Roblox en direct et activité observée au fil du temps.",
     "sections": {
       "live": "Ce à quoi on joue en ce moment",
@@ -827,7 +827,7 @@
     "faqs": {
       "q01": {
         "question": "Combien de personnes jouent à Roblox en ce moment ?",
-        "answer": "Le tableau additionne les joueurs des expériences que Roblox classe à cet instant, au moment où la page a été servie. Ce n’est pas un chiffre à l’échelle de la plateforme : Roblox ne publie pas de total en direct, et ce site n’en estimera pas."
+        "answer": "Le tableau totalise les joueurs des experiences que Roblox classe actuellement, à la dernière observation planifiée — une toutes les 15 minutes, dont l’heure est affichée à côté du chiffre. Ce n’est pas un chiffre à l’échelle de la plateforme : Roblox ne publie aucun total en direct et ce site n’en estime aucun."
       },
       "q02": {
         "question": "Pourquoi le graphique couvre-t-il une si courte période ?",
