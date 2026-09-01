@@ -7,11 +7,10 @@
   ],
   "live": {
     "intro": "Spielerzahlen für die Experiences, die Roblox rankt — alle {interval} Minuten aus Roblox' eigenen öffentlichen Endpunkten erfasst — und eine Aufzeichnung dessen, was diese Seite seit Beobachtungsbeginn gesehen hat.",
-    "jumpLabel": "Die Live-Zahlen ansehen",
+    "jumpLabel": "Zu den neuesten Zahlen",
     "rankingsLabel": "Roblox-Ranglisten",
-    "nowHeading": "Was gerade gespielt wird",
+    "nowHeading": "Was gespielt wird – Stand der letzten Beobachtung",
     "nowDescription": "Planmäßig aus Roblox’ öffentlichen Explore- und Games-Endpunkten erfasst und von dieser Seite gespeichert; die Beobachtungszeit steht neben den Zahlen. Kein Konto, kein externer Datenanbieter und nichts, was diese Seite selbst misst oder schätzt.",
-    "unavailableTitle": "Roblox’ Live-Zahlen sind gerade nicht verfügbar",
     "calculatorStillWorks": "Auszahlungsrechner",
     "noExperiencesTitle": "Roblox hat keine Experiences zurückgegeben",
     "stats": {
@@ -19,18 +18,18 @@
       "experiencesShown": "Gezeigte Experiences",
       "experiencesShownValue": "{shown} von {total}",
       "robloxRanking": "Roblox-Rangliste",
-      "busiestRightNow": "Gerade am meisten los"
+      "busiestRightNow": "Am meisten los (letzte Beobachtung)"
     },
     "table": {
       "experience": "Experience",
-      "playersNow": "Spielende jetzt",
+      "playersNow": "Beobachtete Spielende",
       "last24h": "Letzte 24 Std.",
       "lifetimeVisits": "Besuche insgesamt",
       "approval": "Zustimmung",
       "sponsored": "Gesponsert",
       "genre": "Genre",
       "wrapperLabel": "Experiences im Roblox-Ranking {ranking}",
-      "caption": "Die {count} führenden Experiences im Roblox-Ranking {ranking}, mit den Spielern in jeder zu dem Moment, in dem diese Seite ausgeliefert wurde."
+      "caption": "Die {count} führenden Experiences im Roblox-Ranking {ranking}, mit den Spielenden in jeder zum Stand der letzten Beobachtung."
     },
     "body": {
       "how": {
@@ -347,7 +346,7 @@
     "heading": "Was diese Zahlen nicht aussagen",
     "description": "Hier festgehalten statt neben den Zahlen — damit es auch dann dasteht, wenn die Zahlen fehlen.",
     "notPlatformWide": "Das ist keine plattformweite Spielerzahl. Roblox veröffentlicht keinen Live-Gesamtwert, und diese Seite schätzt keinen.",
-    "rankedSubset": "Gezählt werden nur Experiences, die Roblox gerade rankt. Roblox rankt einen kleinen Teil dessen, was es hostet; die tatsächliche Zahl der Spielenden liegt also höher — um wie viel, kann niemand außerhalb von Roblox sagen.",
+    "rankedSubset": "Gezählt werden nur Experiences, die Roblox zum Zeitpunkt der Beobachtung gerankt hat. Roblox rankt einen kleinen Teil dessen, was es hostet; die tatsächliche Zahl der Spielenden liegt also höher — um wie viel, kann niemand außerhalb von Roblox sagen.",
     "noBackfill": "Nichts wird nachträglich ergänzt oder gemittelt. Eine Lücke im Diagramm ist ein geplanter Lauf, der nichts aufgezeichnet hat — und wird als Lücke gezeichnet.",
     "twoClocks": "Spielerzahlen und langsame Metadaten werden nach verschiedenen Plänen aktualisiert und tragen verschiedene Zeitstempel. Das eine belegt nicht die Aktualität des anderen.",
     "notPayout": "Nichts davon beeinflusst eine DevEx-Auszahlung: Die hängt von anrechenbaren Earned Robux und dem dokumentierten Kurs ab, nicht davon, wie viel auf der Plattform los ist."

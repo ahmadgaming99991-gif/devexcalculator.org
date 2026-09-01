@@ -818,7 +818,7 @@
     "quickAnswer": "Les nombres de joueurs de cette page sont collectés toutes les 15 minutes auprès des points d’accès publics de Roblox puis enregistrés ; votre navigateur les lit ensuite sur ce site, au lieu qu’ils soient récupérés parce que vous avez ouvert la page. Le classement est celui de Roblox et non celui de ce site, chaque chiffre porte l’heure à laquelle il a été observé, et à côté figure un relevé de ce que ce site observe depuis ses débuts.",
     "ogImageAlt": "Comptages de joueurs Roblox en direct et activité observée au fil du temps.",
     "sections": {
-      "live": "Ce à quoi on joue en ce moment",
+      "live": "Ce à quoi on joue, à la dernière observation",
       "history": "Observé au fil du temps",
       "how": "Comment cette page obtient ses chiffres",
       "data": "Télécharger ces observations",

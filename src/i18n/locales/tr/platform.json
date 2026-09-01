@@ -6,11 +6,10 @@
   ],
   "live": {
     "intro": "Roblox'un sıraladığı experience'lar için oyuncu sayıları — Roblox'un kendi açık uç noktalarından her {interval} dakikada bir toplanır — ve bu sitenin izlemeye başladığından beri gözlediklerinin kaydı.",
-    "jumpLabel": "Canlı rakamları gör",
+    "jumpLabel": "En son rakamları gör",
     "rankingsLabel": "Roblox sıralamaları",
-    "nowHeading": "Şu anda ne oynanıyor",
+    "nowHeading": "Ne oynanıyor — en son gözleme göre",
     "nowDescription": "Roblox’un açık explore ve games uç noktalarından planlı olarak toplanır ve bu sitede saklanır; gözlem zamanı rakamların yanında gösterilir. Hesap yok, üçüncü taraf veri sağlayıcı yok ve bu sitenin ölçtüğü ya da tahmin ettiği hiçbir şey yok.",
-    "unavailableTitle": "Roblox'un canlı rakamlarına şu anda ulaşılamıyor",
     "calculatorStillWorks": "ödeme hesaplayıcısı",
     "noExperiencesTitle": "Roblox hiçbir experience döndürmedi",
     "stats": {
@@ -18,18 +17,18 @@
       "experiencesShown": "Gösterilen experience'lar",
       "experiencesShownValue": "{total} içinden {shown}",
       "robloxRanking": "Roblox sıralaması",
-      "busiestRightNow": "Şu anda en yoğun"
+      "busiestRightNow": "En yoğun (son gözlem)"
     },
     "table": {
       "experience": "Experience",
-      "playersNow": "Şu anki oyuncular",
+      "playersNow": "Gözlenen oyuncu",
       "last24h": "Son 24 saat",
       "lifetimeVisits": "Toplam ziyaret",
       "approval": "Beğeni oranı",
       "sponsored": "Sponsorlu",
       "genre": "Tür",
       "wrapperLabel": "Roblox'un {ranking} sıralamasındaki deneyimler",
-      "caption": "Roblox'un {ranking} sıralamasındaki ilk {count} deneyim ve bu sayfanın sunulduğu andaki oyuncu sayıları."
+      "caption": "Roblox'un {ranking} sıralamasındaki ilk {count} deneyim ve en son gözleme göre her birindeki oyuncu sayıları."
     },
     "body": {
       "how": {
@@ -346,7 +345,7 @@
     "heading": "Bu rakamların size söyleyemedikleri",
     "description": "Rakamların yanında değil burada söyleniyor; böylece rakamlar olmadığında da burada duruyor.",
     "notPlatformWide": "Bu, platform genelinde bir oyuncu sayısı değildir. Roblox canlı bir toplam yayımlamaz ve bu site böyle bir tahmin yapmaz.",
-    "rankedSubset": "Yalnızca Roblox'un o an sıraladığı experience'lar sayılır. Roblox barındırdıklarının küçük bir bölümünü sıralar; dolayısıyla gerçekte oynayan sayısı daha yüksektir — ne kadar yüksek olduğunu Roblox dışında kimse söyleyemez.",
+    "rankedSubset": "Yalnızca Roblox'un gözlem anında sıraladığı experience'lar sayılır. Roblox barındırdıklarının küçük bir bölümünü sıralar; dolayısıyla gerçekte oynayan sayısı daha yüksektir — ne kadar yüksek olduğunu Roblox dışında kimse söyleyemez.",
     "noBackfill": "Hiçbir şey sonradan doldurulmaz ya da ortalanmaz. Grafikteki boşluk, kayıt alamamış planlı bir çalışmadır ve boşluk olarak çizilir.",
     "twoClocks": "Oyuncu sayıları ve yavaş üst veri farklı takvimlerle yenilenir ve farklı zaman damgaları taşır. Biri, diğerinin güncelliğinin kanıtı değildir.",
     "notPayout": "Bunların hiçbiri DevEx ödemesini etkilemez; ödeme, platformun ne kadar yoğun olduğuna değil, uygun Earned Robux miktarına ve belgelenmiş orana bağlıdır."

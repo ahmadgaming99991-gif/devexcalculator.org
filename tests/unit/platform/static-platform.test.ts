@@ -4,6 +4,7 @@ import { DEFAULT_RANGE, toQuery } from "@/components/platform/url-state";
 import { PLATFORM_DASHBOARD_WORDS } from "@/components/platform/dashboard.words";
 import { PLATFORM_API_BASE } from "@/lib/platform/data-api";
 import { routeRegistry } from "@/lib/content/route-registry";
+import { claimsIn, scanFreshnessClaims } from "../../../scripts/content/freshness-claims";
 
 /**
  * What makes `/platform/` a static document, asserted from the source.
@@ -188,18 +189,44 @@ describe("provenance", () => {
   });
 
   /**
-   * The claim that became false.
+   * The claim that became false, in every language that carried it.
    *
    * Nothing is fetched because a reader opened the page: the data is collected
    * on a schedule and stored, and the browser reads the stored copy. Any
-   * sentence still saying otherwise is now a false statement about how the site
+   * sentence still saying otherwise is a false statement about how the site
    * works, which is the one kind of error this project treats as serious.
+   *
+   * An earlier version of this test matched two literal phrases against the
+   * English registry alone. It passed while all seven locales still said the
+   * players were counted "at the moment this page was served", because the
+   * catalogues were never read and that was a third spelling. It now runs the
+   * same rules the `validate:freshness` gate runs, over the same files.
    */
-  it("no longer claims the figures are read when the page is served", () => {
-    const prose = JSON.stringify(record);
-    expect(prose).not.toMatch(/when the page is served/i);
-    expect(prose).not.toMatch(/at the moment the page was served/i);
-    expect(prose).not.toMatch(/\breal[- ]time\b/i);
+  it("makes no request-time freshness claim in any of the seven languages", () => {
+    expect(scanFreshnessClaims().map((finding) => `${finding.where} — ${finding.text}`)).toEqual([]);
+  });
+
+  /*
+   * A validator is only worth its cost if it fails on the mistake that got
+   * through. These are the exact strings that shipped, checked against the
+   * rules that now exist to catch them.
+   */
+  it.each([
+    ["en", "with the players in each at the moment this page was served."],
+    ["en", "What is being played right now"],
+    ["de", "mit den Spielern in jeder zu dem Moment, in dem diese Seite ausgeliefert wurde."],
+    ["es", "con los jugadores en cada una en el momento en que se sirvió esta página."],
+    ["fr", "avec le nombre de joueurs dans chacune au moment où cette page a été servie."],
+    ["id", "beserta jumlah pemain di masing-masing pada saat halaman ini disajikan."],
+    ["pt-BR", "com os jogadores em cada uma no momento em que esta página foi servida."],
+    ["tr", "bu sayfanın sunulduğu andaki oyuncu sayıları."],
+  ] as const)("would have caught the %s claim that shipped", (locale, text) => {
+    expect(claimsIn(text, locale, "fixture")).not.toEqual([]);
+  });
+
+  it("leaves a reader's own question alone", () => {
+    // The searcher's phrasing is not the site's claim; the answer corrects it.
+    expect(record?.faqs?.[0]?.question).toMatch(/right now/i);
   });
 
   it("says instead that collection is scheduled and dated", () => {

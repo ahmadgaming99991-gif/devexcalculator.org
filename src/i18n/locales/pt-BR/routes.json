@@ -807,7 +807,7 @@
     "quickAnswer": "As contagens de jogadores desta página são coletadas dos próprios endpoints públicos da Roblox a cada 15 minutos e guardadas; seu navegador então as lê neste site, em vez de buscá-las porque você abriu a página. O ranking é da Roblox e não deste site, cada número carrega o horário em que foi observado e, ao lado, há um registro do que este site observou desde que começou a acompanhar.",
     "ogImageAlt": "Contagens de jogadores do Roblox ao vivo e atividade observada ao longo do tempo.",
     "sections": {
-      "live": "O que está sendo jogado agora",
+      "live": "O que está sendo jogado, conforme a última observação",
       "history": "Observado ao longo do tempo",
       "how": "Como esta página obtém seus números",
       "data": "Baixe estas observações",

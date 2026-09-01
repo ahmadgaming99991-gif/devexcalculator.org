@@ -808,7 +808,7 @@
     "quickAnswer": "Bu sayfadaki oyuncu sayıları, Roblox’un kendi açık uç noktalarından her 15 dakikada bir toplanıp saklanır; tarayıcınız bunları, siz sayfayı açtığınız için getirilmiş olarak değil, bu siteden okur. Sıralama bu sitenin değil Roblox’undur, her rakam gözlendiği zamanı taşır ve yanında bu sitenin izlemeye başladığından beri gözlediklerinin kaydı yer alır.",
     "ogImageAlt": "Canlı Roblox oyuncu sayıları ve zaman içinde gözlenen etkinlik.",
     "sections": {
-      "live": "Şu anda ne oynanıyor",
+      "live": "Ne oynanıyor — en son gözleme göre",
       "history": "Zaman içinde gözlenen",
       "how": "Bu sayfa rakamlarını nasıl elde ediyor",
       "data": "Bu gözlemleri indirin",

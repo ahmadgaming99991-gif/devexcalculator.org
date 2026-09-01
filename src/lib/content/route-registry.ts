@@ -384,7 +384,7 @@ const staticRoutes: readonly RouteRecord[] = [
     quickAnswer:
       "Player counts on this page are collected from Roblox's own public endpoints every 15 minutes and stored, then read by your browser from this site rather than fetched because you opened the page. The ranking is Roblox's rather than this site's, every figure carries the time it was observed, and alongside them is a record of what this site has observed since it began watching.",
     sections: [
-      { id: "live", heading: "What is being played right now" },
+      { id: "live", heading: "What is being played, as of the latest observation" },
       { id: "history", heading: "Observed over time" },
       { id: "how", heading: "How this page gets its numbers" },
       { id: "data", heading: "Download these observations" },

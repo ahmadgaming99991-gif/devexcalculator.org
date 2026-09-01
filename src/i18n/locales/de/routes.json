@@ -807,7 +807,7 @@
     "quickAnswer": "Die Spielerzahlen auf dieser Seite werden alle 15 Minuten aus Roblox’ eigenen öffentlichen Endpunkten erfasst und gespeichert; Ihr Browser liest sie dann von dieser Seite, statt dass sie abgerufen werden, weil Sie die Seite geöffnet haben. Die Rangliste ist Roblox’, nicht die dieser Seite, jede Zahl trägt ihre Beobachtungszeit, und daneben steht eine Aufzeichnung dessen, was diese Seite seit Beobachtungsbeginn gesehen hat.",
     "ogImageAlt": "Live-Spielerzahlen von Roblox und beobachtete Aktivität im Zeitverlauf.",
     "sections": {
-      "live": "Was gerade gespielt wird",
+      "live": "Was gespielt wird – Stand der letzten Beobachtung",
       "history": "Im Zeitverlauf beobachtet",
       "how": "Wie diese Seite zu ihren Zahlen kommt",
       "data": "Diese Beobachtungen herunterladen",

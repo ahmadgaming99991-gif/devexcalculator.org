@@ -2,11 +2,10 @@
   "$comment": "Machine-drafted. Not yet read by a native speaker. Every sentence here draws a line between what Roblox published, what this site observed, and what nobody knows — none may be shortened into a claim the data does not support.",
   "live": {
     "intro": "Contagens de jogadores das experiences que a Roblox está classificando, coletadas dos próprios endpoints públicos da Roblox a cada {interval} minutos, e um registro do que este site observou desde que começou a acompanhar.",
-    "jumpLabel": "Ver os números ao vivo",
+    "jumpLabel": "Ver os números mais recentes",
     "rankingsLabel": "Rankings do Roblox",
-    "nowHeading": "O que está sendo jogado agora",
+    "nowHeading": "O que está sendo jogado, conforme a última observação",
     "nowDescription": "Coletados de forma agendada dos endpoints públicos explore e games da Roblox e guardados por este site, com o horário da observação exibido ao lado dos números. Sem conta, sem provedor de dados de terceiros e nada medido ou estimado por este site.",
-    "unavailableTitle": "Os números ao vivo do Roblox estão indisponíveis agora",
     "calculatorStillWorks": "calculadora de pagamento",
     "noExperiencesTitle": "O Roblox não retornou experiências",
     "stats": {
@@ -14,18 +13,18 @@
       "experiencesShown": "Experiências exibidas",
       "experiencesShownValue": "{shown} de {total}",
       "robloxRanking": "Ranking do Roblox",
-      "busiestRightNow": "Mais movimentada agora"
+      "busiestRightNow": "Mais movimentada (última observação)"
     },
     "table": {
       "experience": "Experiência",
-      "playersNow": "Jogadores agora",
+      "playersNow": "Jogadores observados",
       "last24h": "Últimas 24 h",
       "lifetimeVisits": "Visitas totais",
       "approval": "Aprovação",
       "sponsored": "Patrocinado",
       "genre": "Gênero",
       "wrapperLabel": "Experiências no ranking {ranking} do Roblox",
-      "caption": "As {count} principais experiências no ranking {ranking} do Roblox, com os jogadores em cada uma no momento em que esta página foi servida."
+      "caption": "As {count} principais experiências no ranking {ranking} do Roblox, com os jogadores em cada uma conforme a última observação."
     },
     "body": {
       "how": {
@@ -345,7 +344,7 @@
     "heading": "O que estes números não podem dizer",
     "description": "Dito aqui e não ao lado dos números, para continuar aqui quando os números não estiverem.",
     "notPlatformWide": "Isto não é uma contagem de jogadores de toda a plataforma. A Roblox não publica um total ao vivo e este site não estima um.",
-    "rankedSubset": "Só entram as experiences que a Roblox está classificando no momento. A Roblox classifica uma fração pequena do que hospeda, então o número real de pessoas jogando é maior — quanto maior, ninguém fora da Roblox sabe dizer.",
+    "rankedSubset": "Só entram as experiences que a Roblox classificava no momento da observação. A Roblox classifica uma fração pequena do que hospeda, então o número real de pessoas jogando é maior — quanto maior, ninguém fora da Roblox sabe dizer.",
     "noBackfill": "Nada é preenchido depois nem tirado por média. Uma lacuna no gráfico é uma execução agendada que não registrou, desenhada como lacuna.",
     "twoClocks": "As contagens de jogadores e os metadados lentos são atualizados em cadências diferentes e carregam carimbos de tempo diferentes. Um não comprova o frescor do outro.",
     "notPayout": "Nada disso afeta um pagamento DevEx, que depende dos Earned Robux elegíveis e da taxa documentada, não do movimento da plataforma."

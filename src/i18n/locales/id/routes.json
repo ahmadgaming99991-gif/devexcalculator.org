@@ -808,7 +808,7 @@
     "quickAnswer": "Jumlah pemain di halaman ini dikumpulkan dari endpoint publik Roblox sendiri setiap 15 menit lalu disimpan, kemudian dibaca peramban Anda dari situs ini — bukan diambil karena Anda membuka halaman. Peringkatnya milik Roblox, bukan situs ini; setiap angka membawa waktu pengamatannya, dan di sampingnya ada catatan apa yang telah diamati situs ini sejak mulai memantau.",
     "ogImageAlt": "Jumlah pemain Roblox secara langsung dan aktivitas yang diamati dari waktu ke waktu.",
     "sections": {
-      "live": "Apa yang sedang dimainkan sekarang",
+      "live": "Apa yang sedang dimainkan, per observasi terakhir",
       "history": "Diamati dari waktu ke waktu",
       "how": "Bagaimana halaman ini memperoleh angkanya",
       "data": "Unduh pengamatan ini",

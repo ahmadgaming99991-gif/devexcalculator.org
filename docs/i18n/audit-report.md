@@ -16,12 +16,12 @@ recorded by a person.
 
 | Locale | Strings | Critical | Meaning | Blocking | Quality | Lexicon queue |
 | --- | --- | --- | --- | --- | --- | --- |
-| `pt-BR` | 2691 | 0 | 0 | 0 | 0 | 810 |
-| `es` | 2691 | 0 | 0 | 0 | 0 | 810 |
-| `id` | 2691 | 0 | 0 | 0 | 0 | 810 |
-| `fr` | 2691 | 0 | 0 | 0 | 0 | 810 |
-| `de` | 2691 | 0 | 0 | 0 | 0 | 810 |
-| `tr` | 2691 | 0 | 0 | 0 | 4 | 810 |
+| `pt-BR` | 2690 | 0 | 0 | 0 | 0 | 810 |
+| `es` | 2690 | 0 | 0 | 0 | 0 | 810 |
+| `id` | 2690 | 0 | 0 | 0 | 0 | 810 |
+| `fr` | 2690 | 0 | 0 | 0 | 0 | 810 |
+| `de` | 2690 | 0 | 0 | 0 | 0 | 810 |
+| `tr` | 2690 | 0 | 0 | 0 | 4 | 810 |
 
 
 **Blocking total across all locales: 0** (critical + meaning + blocking).

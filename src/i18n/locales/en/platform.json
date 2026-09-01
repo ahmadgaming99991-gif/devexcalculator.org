@@ -2,11 +2,10 @@
   "$comment": "The live Roblox activity page and the stock page. Every sentence here draws a line between what Roblox published, what this site observed, and what nobody knows — so none of them may be shortened into a claim the data does not support.",
   "live": {
     "intro": "Player counts for the experiences Roblox is ranking, collected from Roblox's own public endpoints every {interval} minutes, and a record of what this site has observed since it started watching.",
-    "jumpLabel": "See the live figures",
+    "jumpLabel": "See the latest figures",
     "rankingsLabel": "Roblox rankings",
-    "nowHeading": "What is being played right now",
+    "nowHeading": "What is being played, as of the latest observation",
     "nowDescription": "Collected from Roblox’s public explore and games endpoints on a schedule and stored by this site, with the time of the observation shown beside the figures. No account, no third-party data provider, and nothing measured or estimated by this site.",
-    "unavailableTitle": "Roblox’s live figures are unavailable right now",
     "calculatorStillWorks": "payout calculator",
     "noExperiencesTitle": "Roblox returned no experiences",
     "stats": {
@@ -14,18 +13,18 @@
       "experiencesShown": "Experiences shown",
       "experiencesShownValue": "{shown} of {total}",
       "robloxRanking": "Roblox ranking",
-      "busiestRightNow": "Busiest right now"
+      "busiestRightNow": "Busiest (latest observation)"
     },
     "table": {
       "experience": "Experience",
-      "playersNow": "Players now",
+      "playersNow": "Players observed",
       "last24h": "Last 24h",
       "lifetimeVisits": "Lifetime visits",
       "approval": "Approval",
       "sponsored": "Sponsored",
       "genre": "Genre",
       "wrapperLabel": "Experiences in Roblox's {ranking} ranking",
-      "caption": "The top {count} experiences in Roblox's {ranking} ranking, with the players in each at the moment this page was served."
+      "caption": "The top {count} experiences in Roblox's {ranking} ranking, with the players in each as of the latest observation."
     },
     "body": {
       "how": {
@@ -342,7 +341,7 @@
     "heading": "What these figures cannot tell you",
     "description": "Stated here rather than beside the numbers, so it is still here when the numbers are not.",
     "notPlatformWide": "This is not a platform-wide player count. Roblox publishes no live total and this site does not estimate one.",
-    "rankedSubset": "Only experiences Roblox is currently ranking are counted. Roblox ranks a small share of what it hosts, so the real number playing is higher — by how much, nobody outside Roblox can say.",
+    "rankedSubset": "Only experiences Roblox was ranking at the time of the observation are counted. Roblox ranks a small share of what it hosts, so the real number playing is higher — by how much, nobody outside Roblox can say.",
     "noBackfill": "Nothing is back-filled or averaged. A gap in a chart is a scheduled run that did not record, drawn as a gap.",
     "twoClocks": "Player counts and slow metadata are refreshed on different schedules and carry different timestamps. One is not evidence of the other's freshness.",
     "notPayout": "None of this affects a DevEx payout, which depends on eligible Earned Robux and the documented rate, not on how busy the platform is."

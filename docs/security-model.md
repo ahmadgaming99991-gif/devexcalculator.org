@@ -114,6 +114,16 @@ about the reader, and it is read-only over HTTP. The origin is derived from
 `NEXT_PUBLIC_PLATFORM_DATA_API`, the same variable the client bundle is built
 against, so the policy cannot permit an origin the page never calls.
 
+The change to the policy is exactly one line: `connect-src 'self'` became
+`connect-src 'self' https://api.devexcalculator.org`. Nothing else about it
+moved — no other directive was relaxed, no wildcard or scheme-source was
+introduced, and no third-party origin was added. Those four properties are the
+terms the change was approved on, and a future edit that breaks any of them is
+a different change needing its own approval rather than a continuation of this
+one. A path in a `connect-src` source is ignored when the browser matches it,
+so only the origin is taken; writing a path would document a restriction the
+header does not enforce.
+
 **The third-party allowlist is derived, not fixed.** `next.config.ts` adds
 `static.cloudflareinsights.com`, `www.googletagmanager.com` and
 `challenges.cloudflare.com` only when the environment variable that switches the

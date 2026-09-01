@@ -9,11 +9,10 @@
   ],
   "live": {
     "intro": "Jumlah pemain untuk experience yang sedang diperingkat Roblox, dikumpulkan dari endpoint publik Roblox sendiri setiap {interval} menit, beserta catatan apa yang telah diamati situs ini sejak mulai memantau.",
-    "jumpLabel": "Lihat angka langsungnya",
+    "jumpLabel": "Lihat angka terbaru",
     "rankingsLabel": "Peringkat Roblox",
-    "nowHeading": "Apa yang sedang dimainkan sekarang",
+    "nowHeading": "Apa yang sedang dimainkan, per observasi terakhir",
     "nowDescription": "Dikumpulkan secara terjadwal dari endpoint publik explore dan games milik Roblox lalu disimpan situs ini, dengan waktu observasi ditampilkan di samping angkanya. Tanpa akun, tanpa penyedia data pihak ketiga, dan tidak ada yang diukur atau diperkirakan oleh situs ini.",
-    "unavailableTitle": "Angka langsung Roblox sedang tidak tersedia",
     "calculatorStillWorks": "kalkulator pembayaran",
     "noExperiencesTitle": "Roblox tidak mengembalikan experience apa pun",
     "stats": {
@@ -21,18 +20,18 @@
       "experiencesShown": "Experience yang ditampilkan",
       "experiencesShownValue": "{shown} dari {total}",
       "robloxRanking": "Peringkat Roblox",
-      "busiestRightNow": "Paling ramai sekarang"
+      "busiestRightNow": "Paling ramai (observasi terakhir)"
     },
     "table": {
       "experience": "Experience",
-      "playersNow": "Pemain sekarang",
+      "playersNow": "Pemain teramati",
       "last24h": "24 jam terakhir",
       "lifetimeVisits": "Total kunjungan",
       "approval": "Tingkat suka",
       "sponsored": "Bersponsor",
       "genre": "Genre",
       "wrapperLabel": "Experience dalam peringkat {ranking} Roblox",
-      "caption": "{count} experience teratas dalam peringkat {ranking} Roblox, beserta jumlah pemain di masing-masing pada saat halaman ini disajikan."
+      "caption": "{count} experience teratas dalam peringkat {ranking} Roblox, beserta jumlah pemain di masing-masing per observasi terakhir."
     },
     "body": {
       "how": {
@@ -349,7 +348,7 @@
     "heading": "Apa yang tidak bisa dikatakan angka-angka ini",
     "description": "Dinyatakan di sini, bukan di samping angkanya, supaya tetap ada ketika angkanya tidak ada.",
     "notPlatformWide": "Ini bukan jumlah pemain seluruh platform. Roblox tidak menerbitkan total langsung dan situs ini tidak memperkirakannya.",
-    "rankedSubset": "Hanya experience yang sedang diperingkat Roblox yang dihitung. Roblox memeringkat sebagian kecil dari yang dihosting, jadi jumlah pemain sebenarnya lebih tinggi — seberapa besar, tidak ada di luar Roblox yang bisa mengatakannya.",
+    "rankedSubset": "Hanya experience yang sedang diperingkat Roblox pada saat observasi yang dihitung. Roblox memeringkat sebagian kecil dari yang dihosting, jadi jumlah pemain sebenarnya lebih tinggi — seberapa besar, tidak ada di luar Roblox yang bisa mengatakannya.",
     "noBackfill": "Tidak ada yang diisi belakangan atau dirata-ratakan. Celah pada grafik adalah jadwal yang tidak merekam, digambar sebagai celah.",
     "twoClocks": "Jumlah pemain dan metadata lambat diperbarui dengan jadwal berbeda dan membawa stempel waktu berbeda. Yang satu bukan bukti kebaruan yang lain.",
     "notPayout": "Tidak satu pun dari ini memengaruhi pembayaran DevEx, yang bergantung pada Earned Robux yang memenuhi syarat dan tarif terdokumentasi, bukan pada seramai apa platformnya."
