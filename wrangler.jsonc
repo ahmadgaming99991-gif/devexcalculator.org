@@ -60,6 +60,18 @@
     {
       "binding": "PLATFORM_HISTORY",
       "id": "8f880ad3328f42bb86272bee6e76542b"
+    },
+    /*
+     * The v2 data plane, read-only from here.
+     *
+     * `/api/platform/` publishes the observations as CSV and JSON, and those
+     * URLs are linked from the page. They read this namespace so that retiring
+     * the v1 collector cannot leave a public download silently frozen. Nothing
+     * in the site writes to it - the data Worker owns every key.
+     */
+    {
+      "binding": "PLATFORM_DATA",
+      "id": "a8b623a0b4324f7bab0b61f38769c208"
     }
   ],
 

@@ -16,6 +16,7 @@ import {
   readGameHistory,
   readSeries,
 } from "@/lib/platform/history";
+import { getV2Store, v2GameHistory, v2TotalsSeries } from "@/lib/platform/v2-exports";
 
 /**
  * The platform observations, as data.
@@ -46,15 +47,30 @@ export async function GET(request: Request): Promise<Response> {
   const format = params.get("format");
   const series = params.get("series") === "experiences" ? "experiences" : "totals";
 
-  const store = await getHistoryStore();
-  if (!store) {
+  /*
+   * v2 first, v1 only if the v2 binding is absent.
+   *
+   * The two collectors run side by side during the migration, and this route
+   * has to pick one. It picks the one that will still be collecting tomorrow:
+   * reading v1 here is what would turn the v1 retirement into a download that
+   * answers 200 forever with a newest row that never moves.
+   *
+   * The v1 path stays as a fallback for an environment where the v2 namespace
+   * is not bound - a preview build, say - rather than as a second source of
+   * truth. When both are absent the answer is 503, never an empty file.
+   */
+  const v2 = await getV2Store();
+  const store = v2 === null ? await getHistoryStore() : null;
+  if (v2 === null && !store) {
     // No binding means no observations exist to export — not an empty file
     // that could be mistaken for "nothing was happening".
     return unavailable();
   }
 
   if (series === "experiences") {
-    const history = await readGameHistory(store).catch(() => null);
+    const history = v2
+      ? await v2GameHistory(v2).catch(() => null)
+      : await readGameHistory(store!).catch(() => null);
     if (!history) return unavailable();
 
     const rows = platformExperienceRows(history);
@@ -73,7 +89,9 @@ export async function GET(request: Request): Promise<Response> {
     });
   }
 
-  const observed = await readSeries(store, RETENTION_DAYS).catch(() => null);
+  const observed = v2
+    ? await v2TotalsSeries(v2).catch(() => null)
+    : await readSeries(store!, RETENTION_DAYS).catch(() => null);
   if (!observed) return unavailable();
 
   const rows = platformTotalsRows(observed);
