@@ -9,6 +9,7 @@ import { routeKey } from "@/i18n/route-key";
 import { isPubliclyVisible, publicLocales } from "@/i18n/visibility";
 import type { Locale } from "@/i18n/types";
 import { MAX_TITLE_LENGTH } from "@/lib/seo/metadata";
+import { englishCardSlug, englishCards } from "@/lib/og/english-cards";
 
 /**
  * One page's metadata, in one language.
@@ -38,24 +39,33 @@ const TITLE_SUFFIX = ` | ${siteConfig.name}`;
 /**
  * The Open Graph card this page should name.
  *
- * English has the site card at the root and eight routes with one of their
- * own; those pass `inheritImage` and let Next's file convention answer.
+ * Every language names a committed PNG under `public/og/`, built by
+ * `scripts/og/build-localized-cards.ts`. Next's file convention was tried
+ * three times and does not work here:
  *
- * Every other language names a PNG under `public/og/`, built by
- * `scripts/og/build-localized-cards.ts`. Next's convention was tried twice and
- * neither arrangement works here: an `opengraph-image.tsx` at the `[locale]`
- * segment is not inherited by the routes nested under it, and one per segment
- * put 0.76 MB of `@vercel/og` into the Worker — over Cloudflare's 3 MB limit,
- * for images that are prerendered and never generated at request time.
+ *   An `opengraph-image.tsx` at the `[locale]` segment is not inherited by the
+ *   routes nested under it, so `/pt-br/` got a card and `/pt-br/devex-rates/`
+ *   got none.
+ *
+ *   One per localized segment put 0.76 MB of `@vercel/og` into the Worker —
+ *   over Cloudflare's 3 MB limit — for images that are prerendered and never
+ *   generated at request time.
+ *
+ *   And on the English routes, where it did work, every card's URL was a 308:
+ *   a metadata route has no file extension, and `trailingSlash: true` exempts
+ *   only URLs that have one.
+ *
+ *   A PNG on disk has none of those problems.
  *
  * All localized pages share one card per language rather than one per route.
  * The English per-route cards each state that page's figure; reproducing that
  * across six languages is forty-eight images to keep in step with a rate that
  * moves, and the thing that was actually wrong was the language.
  */
-function ogImageUrl(locale: Locale, inherit: boolean | undefined): string | null {
+function ogImageUrl(locale: Locale, route: string): string {
   if (locale !== DEFAULT_LOCALE) return absoluteUrl(`/og/${locale}.png`);
-  return inherit ? null : absoluteUrl("/opengraph-image");
+  const own = englishCards().has(route);
+  return absoluteUrl(`/og/${englishCardSlug(own ? route : "/")}.png`);
 }
 
 interface RouteStrings {
@@ -65,14 +75,17 @@ interface RouteStrings {
 }
 
 export interface LocalizedMetadataOptions {
-  /** The route has its own `opengraph-image`; let the convention supply it. */
+  /**
+   * Retained so the call sites that pass it keep compiling; it no longer
+   * changes anything. `ogImageUrl` derives the card from the route.
+   */
   readonly inheritImage?: boolean;
 }
 
 export async function buildLocalizedMetadata(
   locale: Locale,
   route: string,
-  options?: LocalizedMetadataOptions,
+  _options?: LocalizedMetadataOptions,
 ): Promise<Metadata> {
   const record = requireRoute(route);
   const routes = await getNamespace<Record<string, RouteStrings>>(locale, "routes");
@@ -113,7 +126,7 @@ export async function buildLocalizedMetadata(
     record.status === "published" &&
     isPubliclyVisible(locale);
 
-  const ogImage = ogImageUrl(locale, options?.inheritImage);
+  const ogImage = ogImageUrl(locale, route);
 
   const languages: Record<string, string> = {};
   for (const other of publicLocales()) {
@@ -167,24 +180,13 @@ export async function buildLocalizedMetadata(
       url: canonical,
       title: strings.title,
       description: strings.metaDescription,
-      ...(ogImage === null
-        ? {}
-        : {
-            images: [
-              {
-                url: ogImage,
-                width: 1200,
-                height: 630,
-                alt: strings.ogImageAlt,
-              },
-            ],
-          }),
+      images: [{ url: ogImage, width: 1200, height: 630, alt: strings.ogImageAlt }],
     },
     twitter: {
       card: "summary_large_image",
       title: strings.title,
       description: strings.metaDescription,
-      ...(ogImage === null ? {} : { images: [ogImage] }),
+      images: [ogImage],
     },
     other: record.rateSensitive ? { "article:modified_time": record.dateModified } : {},
   };

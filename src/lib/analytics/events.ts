@@ -65,6 +65,15 @@ export interface EventProperties {
   readonly format?: "csv" | "json";
   readonly dataset?: "stats" | "platform" | "platform-experiences";
   readonly nav_group?: string;
+  /**
+   * Whether a menu was opened on purpose or in passing.
+   *
+   * Desktop menus open on hover, and a reader crossing the header passes
+   * several triggers on the way to one of them. Without this the deliberate
+   * opens and the incidental ones arrive as the same event, and `nav_group`
+   * stops answering the question it exists for.
+   */
+  readonly opened_by?: "hover" | "direct";
   readonly outcome?: "success" | "failure" | "unsupported";
   readonly destination?: string;
 }
@@ -81,6 +90,7 @@ const ALLOWED_PROPERTIES = [
   "format",
   "dataset",
   "nav_group",
+  "opened_by",
   "outcome",
   "destination",
 ] as const satisfies readonly (keyof EventProperties)[];

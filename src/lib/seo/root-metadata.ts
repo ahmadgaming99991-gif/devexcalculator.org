@@ -43,6 +43,24 @@ export function rootMetadata(title: string, description: string): Metadata {
     },
     description,
     applicationName: siteConfig.name,
+    /*
+     * The icons, named rather than left to the file convention.
+     *
+     * `apple-icon.tsx` used to generate the touch icon, and the URL the
+     * convention produced — `/apple-icon`, no extension — was answered with a
+     * 308 to `/apple-icon/`, because `trailingSlash: true` exempts only URLs
+     * that have an extension. Every iOS device adding the site to a home
+     * screen paid for a redirect. The same reasoning as the Open Graph cards
+     * in `src/lib/og/english-cards.ts`, and the same fix: a real file at a
+     * real path.
+     *
+     * `icon.svg` keeps the convention. It already has an extension, so it was
+     * never redirected.
+     */
+    icons: {
+      icon: [{ url: "/icon.svg", type: "image/svg+xml", sizes: "any" }],
+      apple: [{ url: "/icons/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+    },
     referrer: "strict-origin-when-cross-origin",
     formatDetection: { telephone: false, address: false, email: false },
     // Emitted only for a token that could plausibly be real; a placeholder or a

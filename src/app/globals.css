@@ -326,6 +326,157 @@
   }
 
   /*
+   * Wide tables become a list of labelled rows on a narrow screen.
+   *
+   * Marked by `data-stack`, which `Table` sets only on tables with enough
+   * columns to be worth taking apart — see the note there for why the labels
+   * are derived rather than written at each call site, and why every element
+   * involved carries an explicit role.
+   *
+   * The whole point is that nothing here has to be scrolled sideways to be
+   * read, so every rule below either removes a width constraint or puts a
+   * cell's column name next to its value.
+   */
+  @media (max-width: 39.99rem) {
+    table[data-stack] {
+      display: block;
+      min-width: 0;
+    }
+
+    /*
+     * Hidden from the eye, kept for assistive technology. `display: none`
+     * would take the column headers out of the accessibility tree, and they
+     * are what makes the cells below navigable as a table.
+     */
+    table[data-stack] > thead {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+    }
+
+    table[data-stack] > tbody,
+    table[data-stack] > tbody > tr > th,
+    table[data-stack] > tbody > tr > td {
+      display: block;
+    }
+
+    /*
+     * Two cells to a line where they fit.
+     *
+     * One per line is the obvious stacking, and on a long table it is
+     * punishing: the homepage amounts table came to 14,000px, twenty-seven
+     * screens of scrolling for a reference table. Pairs halve that, and a cell
+     * carrying a sentence opts out below.
+     */
+    table[data-stack] > tbody > tr {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    /* The row header is the heading for everything under it. */
+    table[data-stack] > tbody > tr > th[scope="row"] {
+      grid-column: 1 / -1;
+      background: var(--color-surface-subtle);
+      border-bottom: 1px solid var(--color-border);
+      font-size: 0.875rem;
+      letter-spacing: normal;
+      text-transform: none;
+      color: var(--color-text);
+    }
+
+    /* A sentence cannot share a line with anything. */
+    table[data-stack] > tbody > tr > td[data-wide] {
+      grid-column: 1 / -1;
+    }
+
+    /*
+     * Label and value on one line where the value is short, and the value
+     * wrapping onto its own full-width line where it is a sentence. Which of
+     * those happens is left to `flex-wrap` rather than decided per column:
+     * the same table holds `$0.0038` and a paragraph explaining it.
+     *
+     * Each cell keeps whatever text alignment it already had, so figures stay
+     * right-aligned under `numeric` and prose stays ranged left.
+     */
+    /*
+     * Cells keep the bottom border they already have, which is what separates
+     * one line of a stacked row from the next. Paired cells are told apart by
+     * their labels, so there is no seam between the columns to draw.
+     */
+    table[data-stack] > tbody > tr > td {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.25rem 0.75rem;
+    }
+
+    /* The column's name, standing in for the header that is now off-screen. */
+    table[data-stack] > tbody > tr > td[data-label]::before {
+      content: attr(data-label);
+      flex: 0 0 auto;
+      max-width: 50%;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.025em;
+      color: var(--color-text-muted);
+    }
+  }
+
+  /*
+   * The header menus open smoothly rather than appearing all at once.
+   *
+   * An animation rather than a transition. The panel is a child of a closed
+   * `<details>`, which the user-agent stylesheet hides outright, and a
+   * transition cannot run against a property this stylesheet does not own.
+   * An animation on the open state runs the moment the element is displayed,
+   * which is exactly the frame we want it to start from.
+   *
+   * Only the opening is animated. Closing is immediate on purpose: a menu that
+   * fades out slowly while the reader is already reading what is behind it is
+   * an obstruction, not a flourish.
+   *
+   * The global `prefers-reduced-motion: reduce` rule above collapses the
+   * duration to nothing, so this needs no media query of its own.
+   */
+  [data-nav-menu][open] > [data-nav-panel] {
+    animation: nav-panel-in 160ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  @keyframes nav-panel-in {
+    from {
+      opacity: 0;
+      transform: translateY(-0.375rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /*
+   * The hover bridge.
+   *
+   * The panel hangs 0.25rem below its trigger, and a pointer travelling into
+   * it crosses that gap over nothing. Without this the menu would close and
+   * reopen mid-journey — the classic hover-menu flicker. This extends the
+   * panel's hit area upwards across the gap without moving the panel itself.
+   *
+   * Ends at the panel's own top edge, so it never covers anything clickable.
+   */
+  [data-nav-panel]::before {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    bottom: 100%;
+    height: 0.5rem;
+  }
+
+  /*
    * Windows High Contrast Mode strips author colours. Borders keep the card
    * and control structure visible when that happens.
    */

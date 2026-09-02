@@ -2,6 +2,7 @@ import { expect, test } from "@playwright/test";
 import { describeOverflow, measureOverflow } from "../support/overflow";
 import { indexableRoutes } from "../../src/lib/content/route-registry";
 import { parseCsv } from "../../src/lib/seo/csv";
+import { englishCardSlug } from "../../src/lib/og/english-cards";
 
 /**
  * Content, crawlability and honesty checks.
@@ -1071,6 +1072,14 @@ test.describe("diagrams", () => {
  * Every route used to preview as the same site card, so a link to the
  * eligibility rules and a link to the fees page arrived in a chat looking
  * identical — with the figure each page exists to state missing from both.
+ *
+ * The cards are committed PNGs under `/og/` rather than Next metadata routes.
+ * That is not a detail of where a file lives: a metadata route's URL has no
+ * file extension, `trailingSlash: true` exempts only URLs that have one, and
+ * every card on the site was therefore answered with a 308 — on all 252 pages,
+ * for every scraper, including the ones that do not follow redirects for
+ * images. Hence the redirect assertion below, which is the property that
+ * change existed to buy.
  */
 test.describe("open graph cards", () => {
   const OWN_CARD = [
@@ -1092,9 +1101,13 @@ test.describe("open graph cards", () => {
         .getAttribute("content");
 
       expect(url, `${route} has no og:image`).toBeTruthy();
-      // The card has to belong to this route. Pointing at the site card is the
-      // state this replaced, and it fails silently — the tag is still valid.
-      expect(url).toContain(`${route}opengraph-image`);
+      /*
+       * The card has to belong to this route. Pointing at the site card is the
+       * state this replaced, and it fails silently — the tag is still valid.
+       * The expected name comes from the source rather than being spelled out,
+       * so the test cannot keep asserting a naming scheme the site has left.
+       */
+      expect(url).toContain(`/og/${englishCardSlug(route)}.png`);
 
       /*
        * Requested by path, not by the tag's own value.
@@ -1103,23 +1116,42 @@ test.describe("open graph cards", () => {
        * fetching it verbatim tests the deployed site rather than this build —
        * which is how this assertion first "failed": it was reporting a 404
        * from production for a card that had not been deployed yet.
+       *
+       * `maxRedirects: 0` because a 200 reached through a redirect is the bug
+       * this replaced, and following redirects would hide it.
        */
-      const image = await request.get(new URL(url as string).pathname);
-      expect(image.status()).toBe(200);
+      const image = await request.get(new URL(url as string).pathname, { maxRedirects: 0 });
+      expect(image.status(), `${route} card must be served directly, not redirected`).toBe(200);
       expect(image.headers()["content-type"]).toContain("image/png");
     });
   }
 
-  test("routes without a card of their own keep the site card", async ({ page }) => {
+  test("routes without a card of their own keep the site card", async ({ page, request }) => {
     await page.goto("/conversions/30000-robux-to-usd/");
     const url = await page
       .locator('meta[property="og:image"]')
       .first()
       .getAttribute("content");
-    // Amount pages are served from a dynamic segment, where a per-route card
-    // cannot be addressed under this site's trailing-slash policy.
-    expect(url).toContain("/opengraph-image");
+    // Amount pages are served from a dynamic segment, and share the site card.
+    expect(url).toContain(`/og/${englishCardSlug("/")}.png`);
     expect(url).not.toContain("/conversions/");
+
+    const image = await request.get(new URL(url as string).pathname, { maxRedirects: 0 });
+    expect(image.status()).toBe(200);
+  });
+
+  test("the touch icon is a file, not a redirect", async ({ page, request }) => {
+    // Same failure as the cards, on the icon every iOS home screen fetches.
+    await page.goto("/");
+    const href = await page
+      .locator('link[rel="apple-touch-icon"]')
+      .first()
+      .getAttribute("href");
+
+    expect(href, "no apple-touch-icon").toBeTruthy();
+    const icon = await request.get(href as string, { maxRedirects: 0 });
+    expect(icon.status(), "the touch icon must be served directly").toBe(200);
+    expect(icon.headers()["content-type"]).toContain("image/png");
   });
 });
 

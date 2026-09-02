@@ -85,8 +85,15 @@ export function DesktopNavigation({
                   {/*
                     Absolutely positioned, so opening a menu never moves the
                     page under the reader's pointer.
+
+                    `data-nav-panel` is the hook for two things that cannot be
+                    expressed in utility classes: the open animation in
+                    `globals.css`, and the hover bridge below. The padding-top
+                    on the panel is what makes hover-to-open usable — see the
+                    note on the pointer gap in `NavDisclosures`.
                   */}
                   <div
+                    data-nav-panel
                     className={cx(
                       "absolute top-full z-50 mt-1 w-72 rounded-(--radius-card) border border-(--color-border)",
                       "bg-(--color-surface) p-2 shadow-(--shadow-raised)",

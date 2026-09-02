@@ -1,6 +1,7 @@
 import type { Translate } from "@/i18n/get-dictionary";
 import Link from "next/link";
-import type { ComponentPropsWithoutRef, ReactNode } from "react";
+import { Children, cloneElement, Fragment, isValidElement } from "react";
+import type { ComponentPropsWithoutRef, ReactElement, ReactNode } from "react";
 
 /**
  * Shared UI primitives.
@@ -434,18 +435,162 @@ export function TableWrapper({
   );
 }
 
+/**
+ * The readable text inside a cell.
+ *
+ * Header cells are usually a translated string, but some wrap it in a
+ * `<span>` or put a unit beside it, so this walks whatever it is given. It
+ * returns text only — an icon or a badge contributes nothing and is skipped
+ * rather than stringified into `[object Object]`.
+ */
+function cellText(node: ReactNode): string {
+  if (node === null || node === undefined || typeof node === "boolean") return "";
+  if (typeof node === "string") return node;
+  if (typeof node === "number") return String(node);
+  if (Array.isArray(node)) return node.map(cellText).join(" ");
+  if (isValidElement(node)) {
+    const { children } = node.props as { children?: ReactNode };
+    return cellText(children);
+  }
+  return "";
+}
+
+/**
+ * The element children of a node, with `false`/`null` holes dropped and
+ * fragments seen through.
+ *
+ * Flattening fragments is the part that matters. `Children.toArray` treats
+ * `<>…</>` as one child, and a table whose rows come from a conditional —
+ * `{mode === "after" ? (<>…rows…</>) : (…)}` — hands this a single fragment
+ * where it expects rows. Without this the fragment was mistaken for a row and
+ * its rows for cells, which put `label="Goes to"` on a `<tr>` in the delivered
+ * HTML and left those rows without their role. A fragment contributes nothing
+ * to the DOM, so dropping it and keeping its children is exactly right.
+ */
+function elementsOf(children: ReactNode): ReactElement[] {
+  return Children.toArray(children)
+    .filter(isValidElement)
+    .flatMap((child) =>
+      child.type === Fragment
+        ? elementsOf((child.props as { children?: ReactNode }).children)
+        : [child],
+    );
+}
+
+/** How many columns a table needs before stacking beats scrolling. */
+const STACK_FROM_COLUMNS = 3;
+
+/**
+ * Where a stacked cell stops being a figure and becomes a sentence.
+ *
+ * Half a narrow screen fits roughly this much beside a label. Anything longer
+ * takes the whole width rather than being squeezed into a column an inch wide.
+ */
+const WIDE_CELL_CHARS = 32;
+
+/**
+ * A data table that becomes a list of labelled rows on a narrow screen.
+ *
+ * **Why this is not just `overflow-x: auto`.** It was, and reading the rate
+ * table on a phone meant scrolling a 512px table sideways inside a 360px
+ * screen to reach the column you wanted — then scrolling back to see which
+ * row you were on, because the row header had left the screen. A table that
+ * has to be scrolled to be read is a table most readers do not read.
+ *
+ * Below `sm` each body row becomes its own card: the `<th scope="row">`
+ * becomes its heading, and every other cell shows its column's name beside
+ * its value. That is what the labels are for, and why they are derived here
+ * rather than written out at each of the call sites — a label typed a second
+ * time is a label that drifts from its column.
+ *
+ * **The semantics survive it.** Stacking needs `display: block`, which drops
+ * a table out of the accessibility tree entirely: rows and columns stop being
+ * rows and columns, and a screen-reader user loses the structure that makes
+ * the data navigable. So every part is given back its implicit role
+ * explicitly. Redundant while the table is a table, load-bearing the moment
+ * the CSS stacks it.
+ *
+ * Only tables wide enough to warrant it stack. A two-column table already
+ * reads as label-and-value and gains nothing from being taken apart.
+ */
 export function Table({ children, caption }: { children: ReactNode; caption: string }) {
+  const sections = elementsOf(children);
+
+  const head = sections.find((section) => section.type === "thead");
+  const headRow = head
+    ? elementsOf((head.props as { children?: ReactNode }).children)[0]
+    : undefined;
+  const labels = headRow
+    ? elementsOf((headRow.props as { children?: ReactNode }).children).map((cell) =>
+        cellText((cell.props as { children?: ReactNode }).children),
+      )
+    : [];
+
+  const stacks = labels.length >= STACK_FROM_COLUMNS;
+
+  /*
+   * Roles on every row and cell, and — on a table that stacks — the column's
+   * name on every body cell that is a value.
+   *
+   * Three cells deliberately get no label. A header cell is where the labels
+   * come from. A `scope="row"` cell is the row's own heading, and stacked it
+   * becomes the heading of the card, so labelling it would print the first
+   * column's name above the row's name. And a table that never stacks has
+   * nowhere to show a label, so carrying one is markup on every page for
+   * nothing.
+   *
+   * A cell that already has a label keeps it, so a caller can override a
+   * derived one without this having to know why.
+   */
+  const decorated = sections.map((section) => {
+    const isBody = section.type !== "thead";
+    const rows = elementsOf((section.props as { children?: ReactNode }).children).map((row) => {
+      const cells = elementsOf((row.props as { children?: ReactNode }).children).map(
+        (cell, column) => {
+          const props = cell.props as { label?: string; scope?: string };
+          const needsLabel =
+            stacks &&
+            isBody &&
+            props.scope !== "row" &&
+            props.label === undefined &&
+            labels[column] !== undefined;
+          return needsLabel
+            ? cloneElement(cell as ReactElement<Record<string, unknown>>, {
+                label: labels[column],
+              })
+            : cell;
+        },
+      );
+      return cloneElement(row as ReactElement<Record<string, unknown>>, { role: "row" }, cells);
+    });
+    return cloneElement(
+      section as ReactElement<Record<string, unknown>>,
+      { role: "rowgroup" },
+      rows,
+    );
+  });
+
   /*
    * The minimum width is in pixels, not rem, deliberately. A rem minimum
    * scales with the root font size, so a reader at 200% text zoom made this
    * table demand 1024px and pushed the page sideways — the exact failure
    * WCAG 1.4.4 is about. In pixels the columns still get the room they need to
    * stay readable, and zooming the text does not widen the table.
+   *
+   * A stacking table drops the minimum below `sm`, where it no longer has
+   * columns to keep apart. `data-stack` is what the stylesheet keys on.
    */
   return (
-    <table className="w-full min-w-[512px] border-collapse text-left text-sm">
+    <table
+      role="table"
+      data-stack={stacks ? "" : undefined}
+      className={cx(
+        "w-full border-collapse text-left text-sm",
+        stacks ? "sm:min-w-[512px]" : "min-w-[512px]",
+      )}
+    >
       <caption className="sr-only">{caption}</caption>
-      {children}
+      {decorated}
     </table>
   );
 }
@@ -454,14 +599,21 @@ export function Th({
   children,
   scope = "col",
   numeric = false,
+  label,
 }: {
   children: ReactNode;
   scope?: "col" | "row";
   numeric?: boolean;
+  /** Supplied by `Table`; see the note there on why it is not written here. */
+  label?: string;
 }) {
   return (
     <th
       scope={scope}
+      // Explicit because stacking sets `display: block`, which otherwise
+      // strips the cell of its implicit role. See `Table`.
+      role={scope === "row" ? "rowheader" : "columnheader"}
+      data-label={label}
       className={cx(
         "border-b border-(--color-border) bg-(--color-surface-subtle) px-3 py-2.5 text-xs font-semibold uppercase tracking-wide text-(--color-text-muted)",
         numeric && "text-right",
@@ -476,13 +628,30 @@ export function Td({
   children,
   numeric = false,
   className,
+  label,
 }: {
   children: ReactNode;
   numeric?: boolean;
   className?: string;
+  /** Supplied by `Table`; see the note there on why it is not written here. */
+  label?: string;
 }) {
+  /*
+   * Stacked, cells sit two to a line so a long table does not become an
+   * endless column — the amounts table on the homepage was 14,000px tall with
+   * one cell per line. A cell holding a sentence rather than a figure cannot
+   * share a line, so it says so and the stylesheet gives it the full width.
+   *
+   * Measured on the text, not guessed from the column: the same table holds
+   * `$0.0038` and the paragraph explaining when that rate applies.
+   */
+  const wide = label !== undefined && cellText(children).length > WIDE_CELL_CHARS;
+
   return (
     <td
+      role="cell"
+      data-label={label}
+      data-wide={wide ? "" : undefined}
       className={cx(
         "border-b border-(--color-border) px-3 py-2.5 text-(--color-text)",
         numeric && "text-right tabular",

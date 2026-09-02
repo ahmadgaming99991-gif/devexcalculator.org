@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { absoluteUrl, siteConfig } from "@/config/site";
 import { requireRoute } from "@/lib/content/route-registry";
+import { englishCardSlug, englishCards } from "@/lib/og/english-cards";
 import type { RouteRecord } from "@/types/content";
 
 /**
@@ -25,23 +26,42 @@ export function buildMetadata(route: string, options?: MetadataOptions): Metadat
 
 export interface MetadataOptions {
   /**
-   * Leaves the Open Graph image to Next.js's file convention.
+   * Retained so the call sites that pass it keep compiling; it no longer
+   * changes anything.
    *
-   * Every route pointed at `/opengraph-image` because that URL was written in
-   * here, which also meant a segment supplying its own `opengraph-image` file
-   * was silently ignored — an explicit `images` in metadata wins over the
-   * convention. A route with a card of its own sets this so the convention can
-   * take over; everything else keeps the site card, and keeps the per-route
-   * alt text out of the registry with it.
+   * It used to mean "let Next's `opengraph-image.tsx` convention answer for
+   * this route". Those files are gone: their URLs had no file extension, so
+   * `trailingSlash: true` answered every one of them with a 308, and the
+   * `ImageResponse` runtime behind them took 0.76 MB of a Worker that is 3 MB
+   * in total. The cards are committed PNGs now and `ogImageFor` picks the
+   * right one from the route itself, which is a thing this function already
+   * knows. See `src/lib/og/english-cards.ts`.
    */
   readonly inheritImage?: boolean;
 }
 
+/**
+ * The card a route advertises, and the words describing it.
+ *
+ * A route with a card of its own gets it; everything else gets the site card.
+ * The per-route alt text lives with the card rather than in the route
+ * registry, which is why the registry's `ogImageAlt` is only consulted for the
+ * fallback.
+ */
+function ogImageFor(record: RouteRecord): { readonly url: string; readonly alt: string } {
+  const own = englishCards().get(record.route);
+  return {
+    url: absoluteUrl(`/og/${englishCardSlug(own ? record.route : "/")}.png`),
+    alt: own?.alt ?? record.ogImageAlt,
+  };
+}
+
 export function metadataFromRecord(
   record: RouteRecord,
-  options?: MetadataOptions,
+  _options?: MetadataOptions,
 ): Metadata {
   const canonical = absoluteUrl(record.route);
+  const image = ogImageFor(record);
   // Append the brand only when there is room, rather than truncating the task.
   const title =
     record.title.length + TITLE_SUFFIX.length <= MAX_TITLE_LENGTH
@@ -89,24 +109,13 @@ export function metadataFromRecord(
       url: canonical,
       title: record.title,
       description: record.metaDescription,
-      ...(options?.inheritImage
-        ? {}
-        : {
-            images: [
-              {
-                url: absoluteUrl("/opengraph-image"),
-                width: 1200,
-                height: 630,
-                alt: record.ogImageAlt,
-              },
-            ],
-          }),
+      images: [{ url: image.url, width: 1200, height: 630, alt: image.alt }],
     },
     twitter: {
       card: "summary_large_image",
       title: record.title,
       description: record.metaDescription,
-      ...(options?.inheritImage ? {} : { images: [absoluteUrl("/opengraph-image")] }),
+      images: [image.url],
     },
     other: record.rateSensitive
       ? { "article:modified_time": record.dateModified }

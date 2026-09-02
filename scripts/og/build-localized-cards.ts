@@ -54,6 +54,7 @@ import { Rational } from "../../src/lib/calculations/rational";
 import { getTranslator } from "../../src/i18n/get-dictionary";
 import { getLocaleMeta, DEFAULT_LOCALE, LAUNCH_LOCALES } from "../../src/i18n/config";
 import { renderOgImage, type OgCard } from "../../src/lib/og/template";
+import { englishCardSlug, englishCards } from "../../src/lib/og/english-cards";
 import type { Locale } from "../../src/i18n/types";
 
 const ROOT = process.cwd();
@@ -88,12 +89,30 @@ async function cardFor(locale: Locale): Promise<{ card: OgCard; fingerprint: str
 }
 
 /*
- * English is not here. It has the site card at the root and eight routes with
- * cards of their own, all of which the file convention already produces —
- * duplicating it would give the English pages two addresses for one image.
+ * English is here too now.
+ *
+ * It used to be excluded because Next's file convention produced its cards.
+ * That convention gave every one of them a URL with no file extension, and
+ * `trailingSlash: true` answers those with a 308 — so every English social
+ * preview on the site was a redirect, and the `ImageResponse` runtime behind
+ * them was 0.76 MB of a 3 MB Worker. The words moved to
+ * `src/lib/og/english-cards.ts`; the drawing happens here, with the same
+ * fingerprint check as every other language.
  */
 const targets = LAUNCH_LOCALES.filter((locale) => locale !== DEFAULT_LOCALE);
 const check = process.argv.includes("--check");
+
+/** The English cards, keyed by the file they are written to. */
+function englishTargets(): { name: string; card: OgCard; fingerprint: string }[] {
+  return [...englishCards().entries()].map(([route, entry]) => ({
+    name: englishCardSlug(route),
+    card: entry.card,
+    fingerprint: createHash("sha256")
+      .update(JSON.stringify({ route, card: entry.card, alt: entry.alt }))
+      .digest("hex")
+      .slice(0, 16),
+  }));
+}
 
 async function main(): Promise<void> {
   const expected: Record<string, string> = {};
@@ -105,31 +124,39 @@ async function main(): Promise<void> {
     ? (JSON.parse(readFileSync(MANIFEST, "utf8")) as { cards: Record<string, string> }).cards
     : {};
 
+  const drawings: { name: string; card: OgCard; fingerprint: string }[] = [];
   for (const locale of targets) {
     const { card, fingerprint } = await cardFor(locale);
-    expected[locale] = fingerprint;
+    drawings.push({ name: locale, card, fingerprint });
+  }
+  drawings.push(...englishTargets());
 
-    const file = join(OUT_DIR, `${locale}.png`);
+  for (const { name, card, fingerprint } of drawings) {
+    expected[name] = fingerprint;
+
+    const file = join(OUT_DIR, `${name}.png`);
     if (check) {
-      if (!existsSync(file) || current[locale] !== fingerprint) stale.push(locale);
+      if (!existsSync(file) || current[name] !== fingerprint) stale.push(name);
       continue;
     }
-    if (existsSync(file) && current[locale] === fingerprint) continue;
+    if (existsSync(file) && current[name] === fingerprint) continue;
 
     const png = Buffer.from(await renderOgImage(card).arrayBuffer());
     writeFileSync(file, png);
-    console.log(`  ${locale}.png  ${(png.byteLength / 1024).toFixed(0)} kB`);
+    console.log(`  ${name}.png  ${(png.byteLength / 1024).toFixed(0)} kB`);
   }
+
+  const expectedCount = drawings.length;
 
   if (check) {
     if (stale.length > 0) {
-      for (const locale of stale) {
-        console.error(`  public/og/${locale}.png is missing or out of date`);
+      for (const name of stale) {
+        console.error(`  public/og/${name}.png is missing or out of date`);
       }
       console.error("\nRun: npm run og:localized");
       process.exit(1);
     }
-    console.log(`localized Open Graph cards current — ${targets.length} language(s)`);
+    console.log(`Open Graph cards current — ${expectedCount} card(s)`);
   } else {
     writeFileSync(
       MANIFEST,
@@ -144,7 +171,7 @@ async function main(): Promise<void> {
       )}\n`,
       "utf8",
     );
-    console.log(`localized Open Graph cards written — ${targets.length} language(s)`);
+    console.log(`Open Graph cards written — ${expectedCount} card(s)`);
   }
 
 }

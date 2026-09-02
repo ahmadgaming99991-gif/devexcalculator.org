@@ -55,13 +55,20 @@ const SKIP_SEGMENTS = ["__tests__", "node_modules"];
  *   CSV exports. Operator diagnostics and column values, not sentences on a
  *   page.
  *
- *   `opengraph-image.tsx` — the social card is a rendered image, and the
- *   generator runs once per route, not once per route per language. The
- *   cards are English. This is a real limitation and it is written down in
- *   `docs/i18n/` as a blocker on publishing any locale, rather than hidden
- *   behind a detector that stopped looking. The `og:image:alt` a reader's
- *   screen reader announces *is* translated — it comes from the route
- *   registry, through `localizedRoute`.
+ *   `og/english-cards.ts` — the words on the English social cards, and only
+ *   the English ones. Each of the six other languages has a card of its own,
+ *   drawn from `seo.og.*` in that language's dictionary, and
+ *   `localized-metadata.ts` hands every non-English page its own; nothing in
+ *   this file can reach a translated page. The `og:image:alt` a reader's
+ *   screen reader announces is translated the same way, from the route
+ *   dictionary. Same category as `route-registry.ts`: English that is the
+ *   original rather than English that is missing a translation.
+ *
+ *   (This entry used to name `opengraph-image.tsx`, and used to say the cards
+ *   were English in every language — a real limitation at the time. The
+ *   localized cards fixed it; the English words then moved into this module
+ *   when the metadata routes were replaced with committed PNGs, because their
+ *   extension-less URLs were being answered with a 308.)
  */
 const NOT_PAGE_COPY = [
   "src/app/api/",
@@ -86,7 +93,7 @@ const NOT_PAGE_COPY = [
   "src/lib/rates/source-check.ts",
   "src/lib/platform/heartbeat.ts",
   "src/lib/api/exports.ts",
-  "opengraph-image.tsx",
+  "src/lib/og/english-cards.ts",
 ];
 
 /** Attributes whose value is shown or read aloud to a person. */
