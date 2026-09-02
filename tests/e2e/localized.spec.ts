@@ -144,7 +144,22 @@ test.describe("localized calculator", () => {
       test("stays in this language when a link is followed", async ({ page }) => {
         await page.goto(`${meta.prefix}/devex-rates/`);
 
-        const hrefs = await page.locator("a[href^='/']").evaluateAll((links) =>
+        /*
+         * `hreflang` is the exemption, and it is the honest one.
+         *
+         * The language selector's whole job is to leave the language, and its
+         * links say so in markup: each carries `hrefLang` naming the language
+         * it goes to. A content link never does. Excluding by that attribute
+         * asks "is this link declared as cross-language?" rather than "is it
+         * in the component I happen to know about", so a second switcher
+         * added tomorrow is exempt for the same reason this one is, and a
+         * content link that strays is still caught.
+         *
+         * Without this the test failed for every locale the moment a second
+         * language was published — it was written when English was the only
+         * public one and every cross-language link was therefore a bug.
+         */
+        const hrefs = await page.locator("a[href^='/']:not([hreflang])").evaluateAll((links) =>
           links.map((link) => link.getAttribute("href") ?? ""),
         );
 
@@ -157,17 +172,33 @@ test.describe("localized calculator", () => {
         expect(strayed, `links leaving ${locale}`).toEqual([]);
       });
 
-      test("carries noindex while it awaits a native review", async ({ page }) => {
+      test("is indexable exactly when it is published", async ({ page }) => {
         await page.goto(`${meta.prefix}/`);
         const robots = await page
           .locator('meta[name="robots"]')
           .first()
           .getAttribute("content");
 
-        // `ENABLE_REVIEW_LOCALES` decides whether these pages render. It must
-        // never decide whether they may be indexed.
-        expect(getLocaleMeta(locale).status).toBe("review");
-        expect(robots ?? "").toContain("noindex");
+        /*
+         * `ENABLE_REVIEW_LOCALES` decides whether these pages render. It must
+         * never decide whether they may be indexed — that is `status` alone.
+         *
+         * This asserted `status === "review"` for every locale, which stopped
+         * being true the day Turkish was published and would stop being true
+         * again for each locale that follows. The invariant was never "these
+         * are all under review"; it is that a locale is indexable if and only
+         * if it is published, which is the form below and holds either way.
+         */
+        const published = getLocaleMeta(locale).status === "published";
+        if (published) {
+          expect(robots ?? "", `${locale} is published and must be indexable`).not.toContain(
+            "noindex",
+          );
+        } else {
+          expect(robots ?? "", `${locale} is not published and must be noindex`).toContain(
+            "noindex",
+          );
+        }
       });
     });
   }

@@ -83,7 +83,30 @@ export function LanguageSelector({
           <circle cx="8" cy="8" r="6.25" />
           <path d="M1.75 8h12.5M8 1.75c1.6 1.7 2.5 3.9 2.5 6.25S9.6 12.55 8 14.25c-1.6-1.7-2.5-3.9-2.5-6.25S6.4 3.45 8 1.75Z" />
         </svg>
-        <span>{currentMeta?.nativeName ?? t("navigation.language.label")}</span>
+        {/*
+          Hidden below `sm`, where the header has no room for it.
+
+          At 360px the logo lockup is `shrink-0` and takes 187px, leaving about
+          156px for the language control, the theme toggle and the menu button
+          together. The name pushed the row to 380-389px in a 360px viewport —
+          a sideways scroll on every page, in every language, English included,
+          which the layout test never caught because it only checks the
+          non-English locales.
+
+          It was about to get worse rather than better. A locale under review
+          is not in `publicLocales()`, so `currentMeta` is undefined and this
+          falls back to the short word for "Language" — `Sprache`, seven
+          characters. Publishing resolves it, and `Português (Brasil)` is
+          eighteen. The overflow this fixes is the one that exists today; the
+          one it prevents is the larger one that arrives with the publish.
+
+          The globe is not left unlabelled: `aria-label` on the summary names
+          the control, and the current language is the first item in the open
+          menu, marked `aria-current`.
+        */}
+        <span className="hidden sm:inline">
+          {currentMeta?.nativeName ?? t("navigation.language.label")}
+        </span>
       </summary>
 
       <div className="absolute end-0 z-40 mt-1 min-w-[12rem] rounded-(--radius-card) border border-(--color-border) bg-(--color-surface) p-1.5 shadow-lg">

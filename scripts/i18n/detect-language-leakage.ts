@@ -110,10 +110,40 @@ function englishWordPattern(locale: string): RegExp {
  * Roblox's own value in that field is marked `lang="en"` and skipped before
  * this pattern ever sees it.
  */
-const LABEL_WORDS = new RegExp(
-  String.raw`(?<![\p{L}\p{N}_])(?:Maturity|Sponsored|Genre|Visits|Favourites|Favorites|Rating|Fees|Taxes|Publicly)(?![\p{L}\p{N}_])`,
-  "gu",
-);
+const LABEL_WORDS_LIST = [
+  "Maturity", "Sponsored", "Genre", "Visits", "Favourites", "Favorites",
+  "Rating", "Fees", "Taxes", "Publicly",
+] as const;
+
+/**
+ * Label words that are ordinary vocabulary in one of these languages.
+ *
+ * `LABEL_WORDS` is matched case-sensitively, so it only ever fires on a
+ * capitalised occurrence — which is what an untranslated English label looks
+ * like. German capitalises every noun, so a correctly translated German
+ * sentence produces exactly the same shape: `Genre` in
+ * `platform.method.freshnessBody` is `das Genre`, the normal German word,
+ * inside prose that is otherwise entirely German.
+ *
+ * French and Indonesian use `genre` too and are not listed, because they write
+ * it lower-case and the pattern never sees them. They would belong here the
+ * day one of them starts a sentence with it.
+ *
+ * Per locale, like `COLLISIONS` above, so `Genre` standing alone on a Spanish
+ * page is still a leak.
+ */
+const NATIVE_LABEL_WORDS: Readonly<Record<string, readonly string[]>> = {
+  de: ["Genre"],
+};
+
+function labelWordPattern(locale: string): RegExp {
+  const native = new Set(NATIVE_LABEL_WORDS[locale] ?? []);
+  const words = LABEL_WORDS_LIST.filter((word) => !native.has(word));
+  return new RegExp(
+    String.raw`(?<![\p{L}\p{N}_])(?:` + words.join("|") + String.raw`)(?![\p{L}\p{N}_])`,
+    "gu",
+  );
+}
 
 /**
  * Fragments that are English on every page and are meant to be.
@@ -200,6 +230,7 @@ async function scanPage(
   origin: string,
   url: string,
   words: RegExp,
+  labels: RegExp,
 ): Promise<{ leaks: Leak[]; total: number }> {
   const response = await fetch(`${origin}${url}`);
   if (!response.ok) throw new Error(`${response.status} ${url}`);
@@ -209,7 +240,7 @@ async function scanPage(
   let total = 0;
   for (const fragment of visibleText(html)) {
     if (isAllowed(fragment)) continue;
-    const matched = [...(fragment.match(words) ?? []), ...(fragment.match(LABEL_WORDS) ?? [])];
+    const matched = [...(fragment.match(words) ?? []), ...(fragment.match(labels) ?? [])];
     if (matched.length === 0) continue;
     total += matched.length;
     leaks.push({ route: url, fragment, hits: matched.length, words: matched });
@@ -252,12 +283,13 @@ async function main(): Promise<void> {
   for (const locale of targets) {
     const prefix = getLocaleMeta(locale).prefix;
     const words = englishWordPattern(locale);
+    const labels = labelWordPattern(locale);
     const found: Leak[] = [];
     let total = 0;
 
     for (const route of routes) {
       try {
-        const page = await scanPage(origin, `${prefix}${route}`, words);
+        const page = await scanPage(origin, `${prefix}${route}`, words, labels);
         total += page.total;
         found.push(...page.leaks);
       } catch (error) {
