@@ -1616,3 +1616,52 @@ view reads no quote while rendering.
 *Change if:* a route genuinely needs per-request state that cannot be read in
 the browser. Add it to `DYNAMIC_ROUTES` with the measurement beside it, not
 silently.
+
+---
+
+## D-052 · A cacheable redirect from a Worker that answers two hostnames
+
+*2026-09-02, thirty minutes after D-051 deployed. A production outage, and a
+short entry because the lesson is one sentence long.*
+
+`redirectToCanonicalHost` — the `www` → apex 301 added in the same audit as
+D-050 — shipped with `cache-control: public, max-age=3600`. That is the obvious
+header for a permanent redirect. Within minutes of the deploy
+`https://devexcalculator.org/` was answering **301 to itself**, with
+`CF-Cache-Status: HIT`. The homepage was a loop.
+
+The apex and `www` are custom domains on **one** Worker behind **one** zone
+cache. The `www` redirect was stored and replayed against the apex.
+
+**The evidence, because the first three guesses were wrong.** `wrangler tail`
+showed the Worker returning `200` for the apex *with a query string* — a
+different cache key, so a miss, so the Worker actually ran — while the bare
+apex never reached the Worker at all. The cached response carried exactly the
+three headers this function sets and no others.
+
+**Recovery.** Cloudflare development mode, which bypasses the edge cache. The
+API token can change zone settings but cannot purge — a limitation worth
+knowing before the next incident, not during one. The apex was back within two
+minutes.
+
+**The fix, both halves.**
+
+- `no-store`. A redirect is two hundred bytes and the reader leaves
+  immediately. There is nothing to win by storing it and a site to lose.
+- The function returns null rather than a redirect whose `Location` host equals
+  the host the request arrived on. Redundant if the host comparison above it is
+  correct — and exactly the thing that was not redundant here.
+
+Verified the way it failed: development mode off, `www` requested repeatedly,
+then the apex polled six times. `200 OK` every time, cache warm.
+
+*Change if:* nothing. If `www` ever moves to a Cloudflare Redirect Rule — the
+better layer for it, and out of reach of the current token — this function can
+go, and the tests with it.
+
+**Non-blocking debt recorded at closeout**, none of it worth delaying a deploy
+for: CSP still carries `script-src 'unsafe-inline'` (a nonce needs a dynamic
+render, which is the opposite of where this site just went); the RSC payload is
+62% of the delivered HTML; `robots.txt` is not edge-cached; the Worker bundle
+sits at 92% of the 3 MB limit, so the next dependency needs a measurement
+first.
