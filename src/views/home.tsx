@@ -7,7 +7,7 @@ import Link from "next/link";
 import { JsonLd } from "@/components/seo/json-ld";
 import { Calculator } from "@/features/devex/calculator";
 import { CALCULATOR_WORDS } from "@/features/devex/calculator.words";
-import { parseCalculatorState } from "@/features/devex/url-state";
+import { defaultState } from "@/features/devex/url-state";
 import { Container, InlineLink, Section } from "@/components/ui";
 import {
   EarnedRobuxNote,
@@ -30,18 +30,9 @@ import {
 const ROUTE = "/";
 
 
-export async function HomeView({
-  locale,
-  searchParams,
-}: {
-  readonly locale: Locale;
-  searchParams: Promise<Record<string, string | string[] | undefined>>;
-}) {
+export async function HomeView({ locale }: { readonly locale: Locale }) {
   const t = await getTranslator(locale, ["calculator", "rates", "routes"]);
   const record = await localizedRoute(locale, ROUTE);
-  // Parsed and validated on the server so a shared link renders its state into
-  // the initial HTML instead of flashing defaults and then correcting itself.
-  const initialState = parseCalculatorState(await searchParams);
 
   return (
     <>
@@ -53,7 +44,7 @@ export async function HomeView({
         />
 
         <div className="flex flex-col gap-10">
-          <Calculator locale={locale} words={await loadWords(locale, CALCULATOR_WORDS)} initialState={initialState} pathname={ROUTE} />
+          <Calculator locale={locale} words={await loadWords(locale, CALCULATOR_WORDS)} initialState={defaultState} pathname={ROUTE} />
 
           <QuickAnswer locale={locale} jumpTo="how-it-works" jumpLabel={t("calculator.home.jumpLabel")}>
             {record.quickAnswer}

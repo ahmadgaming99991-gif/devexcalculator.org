@@ -150,13 +150,76 @@ test.describe("target mode", () => {
 });
 
 test.describe("shareable state", () => {
-  test("renders a shared link's state into the server HTML", async ({ page }) => {
-    const response = await page.goto("/?robux=100000&rate=standard-current");
-    expect(response?.status()).toBe(200);
+  /*
+   * This used to assert the opposite: that "380.00" was already in the server
+   * response. It was, because the page read the query string on the server —
+   * and that one dependency made the whole document a request-time render in
+   * every published locale. On the Workers Free plan that render is capped at
+   * 10 ms of CPU, and on 2026-09-02 it stopped fitting: production served
+   * `error 1102` on this URL whenever the edge cache did not cover the
+   * request. A document nobody can open is worse than one that computes a
+   * moment after it paints.
+   *
+   * So the contract moved rather than weakened. The document is prerendered
+   * and identical for every reader; the shared state is applied by the island
+   * that already owns the address bar, during the hydration commit.
+   */
+  test("serves a shared link from the prerendered document", async ({ page, request }) => {
+    /*
+     * The property, stated exactly: the delivered document does not depend on
+     * the query string. Asserting that some computed figure is absent would
+     * not say that — "380.00" is also the hundred-thousand row of the popular
+     * amounts table, which is on the page either way, and an assertion that
+     * passes for the wrong reason is worse than none.
+     */
+    const shared = await request.get("/?robux=100000&rate=standard-current");
+    const plain = await request.get("/");
 
-    // Present in the server response, not only after hydration.
-    const html = (await response?.text()) ?? "";
-    expect(html).toContain("380.00");
+    expect(shared.status()).toBe(200);
+    expect(plain.status()).toBe(200);
+    expect(await shared.text()).toBe(await plain.text());
+
+    await page.goto("/?robux=100000&rate=standard-current");
+    await expect(page.getByLabel("Eligible Earned Robux")).toHaveValue("100000");
+  });
+
+  test("applies a shared link's state once hydrated", async ({ page }) => {
+    await page.goto("/?robux=100000&rate=standard-current");
+    await expect(page.getByLabel("Eligible Earned Robux")).toHaveValue("100000");
+    await expect(page.getByText("$380.00").first()).toBeVisible();
+  });
+
+  test("opens a shared link on the mode it names", async ({ page }) => {
+    await page.goto("/?target=1000");
+    await expect(page.getByRole("tab", { name: "Target" })).toHaveAttribute(
+      "aria-selected",
+      "true",
+    );
+    await expect(page.getByLabel("Payout target")).toHaveValue("1000");
+  });
+
+  test("a shared link does not swallow the first Back press", async ({ page }) => {
+    /*
+     * Adopting the URL at hydration changes the mode without the reader having
+     * touched anything. If that counted as a deliberate mode change it would
+     * push a history entry on load, and the first Back would land the reader
+     * on the same page they were already looking at.
+     */
+    await page.goto("/devex-rates/");
+    await page.goto("/?target=1000");
+    await expect(page.getByRole("tab", { name: "Target" })).toHaveAttribute(
+      "aria-selected",
+      "true",
+    );
+
+    await page.goBack();
+    await expect(page).toHaveURL(/\/devex-rates\/$/);
+
+    await page.goForward();
+    await expect(page.getByRole("tab", { name: "Target" })).toHaveAttribute(
+      "aria-selected",
+      "true",
+    );
   });
 
   test("reflects the current calculation in the address bar", async ({ page }) => {

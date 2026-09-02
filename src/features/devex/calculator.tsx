@@ -88,6 +88,25 @@ import {
  * src/lib/calculations, which is where the formulas are tested.
  */
 
+/**
+ * The query string as it was when the page loaded.
+ *
+ * Read once, when this module first evaluates in the browser, rather than on
+ * every render: the calculator rewrites the address bar on each keystroke, so
+ * a snapshot that re-read `location.search` would return a new value
+ * constantly and `useSyncExternalStore` would never settle.
+ *
+ * This is what replaced the server's `searchParams`. The two pages that host
+ * this component with no other dynamic input — `/` and
+ * `/devex-fees-and-taxes/` — were rendering per request for that one reason,
+ * and with seven published locales that render crossed the Worker's 10 ms CPU
+ * limit and returned `error 1102` to readers. They are prerendered now, so the
+ * shared link is no longer read on the server. It is read here and adopted in
+ * the hydration commit, which is the same mechanism the stored currency
+ * preference below already uses.
+ */
+const initialSearch = typeof window === "undefined" ? "" : window.location.search;
+
 const modeOptions = (t: Translate): readonly ModeOption[] => [
   { id: "quick", label: t("calculator.modes.quick.label"), description: t("calculator.modes.quick.description") },
   { id: "advanced", label: t("calculator.modes.advanced.label"), description: t("calculator.modes.advanced.description") },
@@ -115,7 +134,29 @@ export function Calculator({
   locale,
 }: CalculatorProps) {
   const t = useMemo(() => translatorFor(words), [words]);
-  const [state, setState] = useState<CalculatorState>(initialState);
+  /*
+   * Where the calculator's state comes from, in order of precedence.
+   *
+   * `useClientValue` renders the server snapshot — an empty query — during
+   * hydration and swaps the real one in on the same commit, so the prerendered
+   * HTML and the first client render agree, and a shared link still opens on
+   * its own state rather than flashing defaults and correcting itself.
+   *
+   * `stateOverride` is the reader's own edits, in the shape the stored
+   * preferences below already use: null until somebody touches something,
+   * the whole state afterwards. It is written from event handlers and from
+   * `popstate`, never from an effect.
+   */
+  const hydratedSearch = useClientValue(() => initialSearch, "");
+  const urlState = useMemo(
+    () =>
+      hydratedSearch === ""
+        ? initialState
+        : parseCalculatorState(new URLSearchParams(hydratedSearch)),
+    [hydratedSearch, initialState],
+  );
+  const [stateOverride, setStateOverride] = useState<CalculatorState | null>(null);
+  const state = stateOverride ?? urlState;
   const [announcement, setAnnouncement] = useState("");
 
   const mode = lockedMode ?? state.mode;
@@ -137,15 +178,18 @@ export function Calculator({
     "[]",
   );
 
-  const [currencyChoice, setCurrencyChoice] = useState<string | null>(
-    // A currency in the URL was explicit, so it outranks the stored default.
-    initialState.currency !== "USD" ? initialState.currency : null,
-  );
+  const [currencyChoice, setCurrencyChoice] = useState<string | null>(null);
   const [advancedOverride, setAdvancedOverride] = useState<boolean | null>(null);
   const [historyOverride, setHistoryOverride] = useState<HistoryEntry[] | null>(null);
 
+  /*
+   * A currency in the URL was explicit, so it outranks the stored default —
+   * but it is read from the hydrated state rather than from a prop, because
+   * the server no longer sees the query string.
+   */
+  const urlCurrency = urlState.currency !== "USD" ? urlState.currency : null;
   const currency =
-    currencyChoice ?? (isSupportedCurrency(storedCurrency) ? storedCurrency : "USD");
+    currencyChoice ?? urlCurrency ?? (isSupportedCurrency(storedCurrency) ? storedCurrency : "USD");
   const advancedOpen = advancedOverride ?? storedAdvancedOpen;
 
   const storedHistory = useMemo<HistoryEntry[]>(() => {
@@ -157,9 +201,12 @@ export function Calculator({
   }, [storedHistoryJson]);
   const history = historyOverride ?? storedHistory;
 
-  const update = useCallback((patch: Partial<CalculatorState>) => {
-    setState((current) => ({ ...current, ...patch }));
-  }, []);
+  const update = useCallback(
+    (patch: Partial<CalculatorState>) => {
+      setStateOverride((current) => ({ ...(current ?? urlState), ...patch }));
+    },
+    [urlState],
+  );
 
   const selectCurrency = useCallback((value: string) => {
     setCurrencyChoice(value);
@@ -333,7 +380,17 @@ export function Calculator({
     const next = `${pathname}${query}`;
     if (`${window.location.pathname}${window.location.search}` === next) return;
 
-    const modeChanged = previousMode.current !== mode;
+    /*
+     * Only a change the reader made pushes an entry.
+     *
+     * The state now arrives from the URL on the hydration commit rather than
+     * from the server, so on a shared `?mode=target` link this effect sees the
+     * mode go from the prerendered default to the link's mode without anybody
+     * having touched anything. Pushing there would add a history entry on load
+     * and make the first Back press a no-op. `stateOverride` is null until an
+     * event handler writes to it, which is exactly "the reader did something".
+     */
+    const modeChanged = stateOverride !== null && previousMode.current !== mode;
     previousMode.current = mode;
 
     if (modeChanged) {
@@ -341,13 +398,13 @@ export function Calculator({
     } else {
       window.history.replaceState(null, "", next);
     }
-  }, [pathname, query, mode]);
+  }, [pathname, query, mode, stateOverride]);
 
   // Keep the calculator in step when the reader navigates with back or forward.
   useEffect(() => {
     if (typeof window === "undefined") return;
     function onPopState() {
-      setState(parseCalculatorState(new URLSearchParams(window.location.search)));
+      setStateOverride(parseCalculatorState(new URLSearchParams(window.location.search)));
     }
     window.addEventListener("popstate", onPopState);
     return () => window.removeEventListener("popstate", onPopState);
@@ -695,7 +752,7 @@ export function Calculator({
             <ResetButton
               t={t}
               hasData={hasData}
-              onReset={() => setState({ ...defaultState, mode, currency })}
+              onReset={() => setStateOverride({ ...defaultState, mode, currency })}
               onAnnounce={setAnnouncement}
             />
           </div>

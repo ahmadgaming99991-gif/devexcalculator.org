@@ -7,7 +7,7 @@ import { JsonLd } from "@/components/seo/json-ld";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { Calculator } from "@/features/devex/calculator";
 import { CALCULATOR_WORDS } from "@/features/devex/calculator.words";
-import { parseCalculatorState } from "@/features/devex/url-state";
+import { defaultState } from "@/features/devex/url-state";
 import { ButtonLink, Callout, Container, InlineLink, Section } from "@/components/ui";
 import {
   DefinitionBlock,
@@ -25,16 +25,9 @@ import { getMarketplaceScheme } from "@/lib/calculations/rate-registry";
 const ROUTE = "/devex-fees-and-taxes/";
 
 
-export async function FeesAndTaxesView({
-  locale,
-  searchParams,
-}: {
-  readonly locale: Locale;
-  searchParams: Promise<Record<string, string | string[] | undefined>>;
-}) {
+export async function FeesAndTaxesView({ locale }: { readonly locale: Locale }) {
   const t = await getTranslator(locale, ["rates"]);
   const record = await localizedRoute(locale, ROUTE);
-  const initialState = parseCalculatorState(await searchParams);
   // Read rather than written into the diagram: the split is a published figure
   // and belongs in the registry with the rest of them.
   const inExperience = getMarketplaceScheme("in-experience");
@@ -141,7 +134,7 @@ export async function FeesAndTaxesView({
                     heading={t("rates.feesAndTaxes.modelHeading")}
                     description={t("rates.feesAndTaxes.modelDescription")}
                   >
-                    <Calculator locale={locale} words={await loadWords(locale, CALCULATOR_WORDS)} initialState={initialState} pathname={ROUTE} lockedMode="quick" showHistory={false} />
+                    <Calculator locale={locale} words={await loadWords(locale, CALCULATOR_WORDS)} initialState={defaultState} pathname={ROUTE} lockedMode="quick" showHistory={false} />
                   </Section>
         
                   <Section

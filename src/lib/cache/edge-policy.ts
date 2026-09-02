@@ -51,7 +51,25 @@ import { routeRegistry } from "@/lib/content/route-registry";
  * `/platform/stock/` remains uncached and remains dynamic.
  */
 
-/** Routes whose HTML is a pure function of the URL and the rate registry. */
+/**
+ * Routes whose HTML is a pure function of the URL and the rate registry.
+ *
+ * Two of these four are no longer dynamic. `/` and `/devex-fees-and-taxes/`
+ * were made request-time renders by one thing — reading the shared calculator
+ * link from the server's `searchParams` — and with seven published locales
+ * that render stopped fitting the Workers Free plan's 10 ms CPU budget:
+ * production answered `error 1102` on the homepage whenever the edge cache did
+ * not cover the request. The island reads the query string in the browser now,
+ * and both routes are prerendered in every locale, asserted by
+ * `npm run validate:static-routes`.
+ *
+ * They stay listed here deliberately, as a backstop rather than as a claim.
+ * `edgeCachePolicy` only ever relaxes a response Next already marked
+ * `no-store`, so for a prerendered page these entries do nothing at all — but
+ * if one of them ever regresses to a dynamic render, the edge still absorbs
+ * the traffic instead of sending every reader to the Worker. Removing them
+ * would make that regression as bad as it can be.
+ */
 export const CACHEABLE_DYNAMIC_ROUTES: readonly string[] = [
   "/",
   "/conversions/",

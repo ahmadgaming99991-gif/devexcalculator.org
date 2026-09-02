@@ -1297,3 +1297,85 @@ provenance to match the status, the suite says so.
 moves to `native-reviewed` with their name and the date, and its
 `publicationApproval` is deleted rather than kept — the approval exists to
 carry a locale that has not been read, and a read locale does not need it.
+
+---
+
+## D-048 · The two calculator documents are prerendered, because the render stopped fitting
+
+*2026-09-02. Follows the publication of five locales in D-047.*
+
+`/` and `/devex-fees-and-taxes/` were request-time renders. One thing made them
+so: both read the shared calculator link from the server's `searchParams`, and
+a route that accepts `searchParams` is dynamic whether or not it reads the
+value. That was a deliberate choice, and the reason was good — a shared link
+rendered its own state into the initial HTML instead of flashing defaults and
+then correcting itself.
+
+**What changed underneath it.** Publishing five locales took the site from two
+public languages to seven. Every render of these pages builds an hreflang
+cluster, a language selector and a set of alternates across all of them. On the
+Workers Free plan a request-time render gets 10 ms of CPU, and it stopped
+fitting.
+
+**How that was established, and how it was nearly missed.** A 252-URL sweep of
+the production sitemap passed 252/252, because `s-maxage=600` with
+`stale-while-revalidate=86400` meant almost every request was answered
+`CF-Cache-Status: HIT` without the Worker running at all. The sweep was
+sampling the cache. A low-volume probe — four minutes idle, then a request
+every fifteen seconds — returned `503` on six of eight requests for `/`.
+`wrangler tail` on the live deployment named it exactly:
+
+```
+"outcome": "exceededCpu"
+"exceptions": [{ "message": "Worker exceeded CPU time limit." }]
+"cpuTime": 10, "wallTime": 13
+"url": "https://devexcalculator.org/"
+```
+
+Analytics agreed and dated it: `exceededResources` was **0** for every hour
+from 2026-09-01T14:00Z to 2026-09-02T11:00Z, at 10–35 requests an hour — a rate
+at which nearly every request was a cold render. Successful-invocation
+`cpuTimeP50` afterwards was 10,068 µs, sitting on the limit.
+
+**What was rejected.** A larger `s-maxage` is not a fix: cached, the page is
+fast until the entry expires, and then one reader pays the render and receives
+the error instead. The Workers Paid plan would have raised the limit to 30 s
+and was declined — the render did not need to exist. Reducing the published
+locales was never on the table; the languages are the point.
+
+**What was done.** The server no longer reads the query string on these two
+routes. The calculator island — which already owns the address bar, already
+serialises state into it, already handles `popstate` — reads its own shared
+link in the browser. It captures `location.search` once at module evaluation,
+because the calculator rewrites the address bar on every keystroke and a
+per-render read would never settle, and adopts it through the same
+`useClientValue` hydration-commit mechanism the stored currency preference
+already used. All fourteen documents — two routes across seven locales — are
+prerendered.
+
+**What it costs.** A shared link now shows the canonical document for one
+commit before the island applies its state. That is the trade the previous
+design was avoiding. It is worth it: the flash lasts a hydration commit, and
+the alternative was `error 1102`.
+
+**One thing that had to be handled.** Adopting the URL at hydration changes the
+mode with nobody having touched anything, and the address-bar effect would have
+read that as a deliberate mode change and pushed a history entry on load — so
+the first Back press would have landed the reader on the page they were already
+looking at. A push now requires that the reader's own override exists.
+
+**Guards.** `npm run validate:static-routes` reads `.next/prerender-manifest.json`
+after the build and fails if any of the fourteen is absent; it is in
+`npm run check`, and it was negative-tested against a route that really is
+dynamic. A source-level test forbids `searchParams`, request-scoped APIs and
+route-segment `dynamic`/`revalidate` exports on all four route files. An E2E
+test asserts the delivered HTML for `/?robux=100000&rate=standard-current` is
+byte-identical to the HTML for `/` — the property itself, rather than the
+absence of some figure, because "380.00" is also a row of the popular-amounts
+table and an assertion that passes for the wrong reason is worse than none.
+
+*Change if:* the site moves to a plan without a 10 ms CPU limit **and** a
+server-rendered shared link becomes worth the request-time cost again. Note
+that `/conversions/`, `/robux-to-usd/` and `/usd-to-robux/` are still dynamic
+for the same `searchParams` reason and have not needed this; they are lower
+traffic, and the fix is known if they ever do.

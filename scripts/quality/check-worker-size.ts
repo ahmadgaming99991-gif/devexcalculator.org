@@ -34,20 +34,34 @@ const ASSET_FILE_LIMIT_MB = 25;
  * Routes that render per request, and why.
  *
  * Each reads `searchParams` on the server so a shared link such as
- * `/?robux=100000` renders its result in the HTML, without JavaScript. That is
- * a requirement, and the cost is a full render in the Worker on every request.
+ * `/conversions/?robux=100000` renders its result in the HTML, without
+ * JavaScript. That is a requirement, and the cost is a full render in the
+ * Worker on every request.
  *
  * The list is here so the cost stays visible and deliberate. A route arriving
  * in it by accident is a regression: the first deployment of this site ran
  * every page through a full render and Cloudflare answered `error code: 1102`,
  * CPU limit exceeded, on all of them.
+ *
+ * `/` and `/devex-fees-and-taxes/` were in this list and came out of it on
+ * 2026-09-02, because the cost stopped being affordable. Publishing five more
+ * locales took the site to seven, every render builds the hreflang cluster and
+ * language selector across all of them, and the homepage crossed the 10 ms CPU
+ * limit: `wrangler tail` recorded `outcome: exceededCpu` on
+ * `https://devexcalculator.org/` and readers whose request missed the edge
+ * cache were served `error 1102` again. The calculator island reads its own
+ * shared link in the browser now and both routes are prerendered in all seven
+ * locales. See docs/decision-log.md D-048; the fourteen documents are asserted
+ * by `npm run validate:static-routes`.
+ *
+ * The three below still render per request for the original reason. They are
+ * far lower traffic, and if one of them ever reaches the limit the fix is the
+ * one already applied to these two.
  */
 const DYNAMIC_ROUTES = new Set([
-  "/",
   "/conversions/",
   "/robux-to-usd/",
   "/usd-to-robux/",
-  "/devex-fees-and-taxes/",
   /*
    * `/platform/stock/` renders a market quote from a provider behind a
    * server-side API key, which cannot move to a public data plane.
