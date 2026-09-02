@@ -201,7 +201,7 @@
     "quotedFrom": "Cité depuis {source}, non recalculé ici. Un détail plus complet, y compris ce que Roblox verse aux créateurs chaque trimestre, se trouve sur {payoutStatisticsLink}.",
     "payoutStatisticsLink": "la page des statistiques de paiement",
     "noChartHeading": "Pourquoi il n’y a pas de graphique intégré",
-    "noChartBody": "Les sites qui affichent un graphique Roblox en direct en intègrent presque toujours un provenant d’un fournisseur de données de marché, ce qui signifie que le script de ce fournisseur s’exécute dans votre navigateur et peut voir votre visite. Ce site ne charge aucun script tiers sur aucune page, et en ajouter un ici défairait cela en silence pour tout le monde.",
+    "noChartBody": "Les sites qui affichent un graphique Roblox en direct en intègrent presque toujours un provenant d’un fournisseur de données de marché, ce qui signifie que le script de ce fournisseur s’exécute dans votre navigateur et peut voir votre visite. Ce site n’en intègre aucun, et en ajouter un ici l’imposerait à chaque lecteur.",
     "whenConnected": "Lorsqu’un fournisseur sera connecté, il sera lu côté serveur et rendu en HTML simple : le cours arrivera donc de la même façon que tous les autres chiffres de ce site — récupéré par le serveur, attribué et daté.",
     "notAdviceTitle": "Ceci n’est pas un conseil en investissement",
     "notAdviceBody": "Rien sur cette page n’est une recommandation d’achat ou de vente. Les résultats d’une entreprise ne disent rien de ce que touchera un créateur donné, et le taux DevEx est fixé par Roblox indépendamment de son cours de bourse.",
@@ -306,7 +306,7 @@
       },
       "business": {
         "p1": "plutôt que recalculés ici.",
-        "p2": "Une cotation RBLX en direct exigerait un flux payant de données de marché et un script tiers s’exécutant dans votre navigateur. Ce site ne charge aucun script tiers, et un chiffre qu’il ne peut pas rattacher à un document est un chiffre qu’il ne publiera pas. Les données ci-dessus proviennent du dépôt lui-même, qui est la source à laquelle un cours de bourse finit par réagir. Rien de tout cela n’est un conseil en investissement, et un résultat trimestriel ne dit rien de ce que touchera une personne donnée."
+        "p2": "Une cotation RBLX en direct exigerait un flux payant de données de marché et un script tiers s’exécutant dans votre navigateur. Ce site n’intègre aucun script de fournisseur de données de marché, et un chiffre qu’il ne peut pas rattacher à un document est un chiffre qu’il ne publiera pas. Les données ci-dessus proviennent du dépôt lui-même, qui est la source à laquelle un cours de bourse finit par réagir. Rien de tout cela n’est un conseil en investissement, et un résultat trimestriel ne dit rien de ce que touchera une personne donnée."
       },
       "whatItMeans": {
         "p1": "Très peu de chose, directement — et cela mérite d’être dit clairement. Les totaux de cette page décrivent la plateforme entière. Ils ne changent rien à ce que vaut votre propre solde, ce ne sont pas des prévisions, et un total qui monte ne signifie pas un taux qui monte. Ce qui détermine votre paiement, c’est le taux appliqué à vos Earned Robux éligibles, que vous pouvez calculer sur",

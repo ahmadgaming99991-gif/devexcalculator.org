@@ -198,7 +198,7 @@
     "quotedFrom": "{source} kaynağından alıntılandı, burada yeniden hesaplanmadı. Roblox'un her çeyrek içerik üreticilerine ne ödediği de dâhil daha ayrıntılı bir döküm {payoutStatisticsLink} sayfasında.",
     "payoutStatisticsLink": "ödeme istatistikleri",
     "noChartHeading": "Neden gömülü grafik yok",
-    "noChartBody": "Canlı bir Roblox grafiği gösteren siteler bunu neredeyse her zaman bir piyasa verisi sağlayıcısından gömer; bu da o sağlayıcının betiğinin tarayıcınızda çalışması ve ziyaretinizi görebilmesi demektir. Bu site hiçbir sayfada üçüncü taraf betiği yüklemez ve buraya bir tane eklemek bunu herkes için sessizce bozardı.",
+    "noChartBody": "Canlı bir Roblox grafiği gösteren siteler bunu neredeyse her zaman bir piyasa verisi sağlayıcısından gömer; bu da o sağlayıcının betiğinin tarayıcınızda çalışması ve ziyaretinizi görebilmesi demektir. Bu site böyle bir betik gömmez ve buraya bir tane eklemek onu her okura dayatırdı.",
     "whenConnected": "Bir sağlayıcı bağlandığında sunucu tarafında okunacak ve düz HTML olarak işlenecek; böylece fiyat da bu sitedeki her rakam gibi gelecek: sunucu tarafından alınmış, kaynağı belirtilmiş ve tarihlenmiş.",
     "notAdviceTitle": "Yatırım tavsiyesi değildir",
     "notAdviceBody": "Bu sayfadaki hiçbir şey herhangi bir şeyi alma ya da satma tavsiyesi değildir. Bir şirketin sonuçları, herhangi bir içerik üreticisinin ne alacağı hakkında hiçbir şey söylemez ve DevEx kurunu Roblox, hisse fiyatından bağımsız olarak belirler.",
@@ -303,7 +303,7 @@
       },
       "business": {
         "p1": "burada yeniden hesaplanmak yerine.",
-        "p2": "Canlı bir RBLX fiyatı, ücretli bir piyasa verisi akışı ve tarayıcınızda çalışan üçüncü taraf bir betik gerektirirdi. Bu site üçüncü taraf betiği yüklemez ve bir belgeye kadar izini süremediği bir rakamı yayımlamaz. Yukarıdaki veriler bildirimin kendisinden gelir; bu da bir hisse fiyatının nihayetinde tepki verdiği kaynağın aynısıdır. Bunların hiçbiri yatırım tavsiyesi değildir ve çeyreklik bir sonuç, herhangi bir kişinin ne alacağı hakkında hiçbir şey söylemez."
+        "p2": "Canlı bir RBLX fiyatı, ücretli bir piyasa verisi akışı ve tarayıcınızda çalışan üçüncü taraf bir betik gerektirirdi. Bu site hiçbir piyasa verisi sağlayıcısının betiğini gömmez ve bir belgeye kadar izini süremediği bir rakamı yayımlamaz. Yukarıdaki veriler bildirimin kendisinden gelir; bu da bir hisse fiyatının nihayetinde tepki verdiği kaynağın aynısıdır. Bunların hiçbiri yatırım tavsiyesi değildir ve çeyreklik bir sonuç, herhangi bir kişinin ne alacağı hakkında hiçbir şey söylemez."
       },
       "whatItMeans": {
         "p1": "Doğrudan çok az — ve bunu açıkça söylemeye değer. Bu sayfadaki toplamlar bütün platformu anlatır. Kendi bakiyenizin neye dönüştüğünü değiştirmezler, bir öngörü değildirler ve artan bir toplam, artan bir kur anlamına gelmez. Ödemenizi belirleyen şey, uygun Earned Robux'unuza uygulanan kurdur; bunu şurada hesaplayabilirsiniz:",

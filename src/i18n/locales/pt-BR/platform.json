@@ -194,7 +194,7 @@
     "quotedFrom": "Citado de {source}, não recalculado aqui. Um detalhamento mais completo, incluindo o que o Roblox paga aos criadores a cada trimestre, está em {payoutStatisticsLink}.",
     "payoutStatisticsLink": "a página de estatísticas de pagamento",
     "noChartHeading": "Por que não há gráfico incorporado",
-    "noChartBody": "Sites que mostram um gráfico ao vivo do Roblox quase sempre incorporam um de um fornecedor de dados de mercado, o que significa que o script desse fornecedor roda no seu navegador e pode ver sua visita. Este site não carrega scripts de terceiros em página alguma, e acrescentar um aqui desfaria isso silenciosamente para todo mundo.",
+    "noChartBody": "Sites que mostram um gráfico ao vivo do Roblox quase sempre incorporam um de um fornecedor de dados de mercado, o que significa que o script desse fornecedor roda no seu navegador e pode ver sua visita. Este site não incorpora nenhum, e acrescentar um aqui o imporia a cada leitor.",
     "whenConnected": "Quando um provedor estiver conectado, ele será lido no servidor e renderizado como HTML puro, então o preço chegará do mesmo jeito que todo outro número deste site: buscado pelo servidor, atribuído e datado.",
     "notAdviceTitle": "Não é recomendação de investimento",
     "notAdviceBody": "Nada nesta página é uma recomendação de compra ou venda. Os resultados de uma empresa não dizem nada sobre quanto qualquer criador individual receberá, e a taxa do DevEx é definida pelo Roblox independentemente do preço da ação.",
@@ -299,7 +299,7 @@
       },
       "business": {
         "p1": "em vez de recalculado aqui.",
-        "p2": "Uma cotação ao vivo de RBLX exigiria um feed pago de dados de mercado e um script de terceiros rodando no seu navegador. Este site não carrega scripts de terceiros, e um número que ele não consegue rastrear até um documento é um número que ele não publica. Os valores acima vêm do próprio registro oficial, que é a mesma fonte a que um preço de ação em última instância reage. Nada disso é recomendação de investimento, e um resultado trimestral não diz nada sobre quanto qualquer pessoa receberá."
+        "p2": "Uma cotação ao vivo de RBLX exigiria um feed pago de dados de mercado e um script de terceiros rodando no seu navegador. Este site não incorpora nenhum script de fornecedor de dados de mercado, e um número que ele não consegue rastrear até um documento é um número que ele não publica. Os valores acima vêm do próprio registro oficial, que é a mesma fonte a que um preço de ação em última instância reage. Nada disso é recomendação de investimento, e um resultado trimestral não diz nada sobre quanto qualquer pessoa receberá."
       },
       "whatItMeans": {
         "p1": "Muito pouco, diretamente — e vale dizer isso com clareza. Os totais desta página descrevem a plataforma inteira. Eles não mudam quanto o seu próprio saldo converte, não são uma previsão, e um total crescente não significa uma taxa crescente. O que decide o seu pagamento é a taxa aplicada aos seus Earned Robux elegíveis, o que você pode calcular em",

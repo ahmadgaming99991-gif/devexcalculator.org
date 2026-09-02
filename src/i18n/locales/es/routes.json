@@ -849,7 +849,7 @@
     "faqs": {
       "q01": {
         "question": "¿Por qué no hay un precio de RBLX en directo?",
-        "answer": "Porque mostrar uno suele implicar incrustar el script de un proveedor de mercado, que se ejecutaría en tu navegador en un sitio que no carga scripts de terceros. La página está preparada para obtener un precio en el servidor en cuanto haya un proveedor configurado."
+        "answer": "Porque mostrar uno suele implicar incrustar el script de un proveedor de mercado, que se ejecutaría en tu navegador en una página que no incrusta ninguno. La página está preparada para obtener un precio en el servidor en cuanto haya un proveedor configurado."
       },
       "q02": {
         "question": "¿Roblox da beneficios?",

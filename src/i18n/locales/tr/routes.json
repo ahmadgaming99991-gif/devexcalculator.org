@@ -850,7 +850,7 @@
     "faqs": {
       "q01": {
         "question": "Neden canlı bir RBLX fiyatı yok?",
-        "answer": "Çünkü bir tane göstermek genellikle bir piyasa satıcısının betiğini gömmek demektir; o betik de üçüncü taraf betiği yüklemeyen bir sitede tarayıcınızda çalışırdı. Sayfa, bir sağlayıcı yapılandırıldığında fiyatı sunucu tarafında almaya hazır durumda."
+        "answer": "Çünkü bir tane göstermek genellikle bir piyasa satıcısının betiğini gömmek demektir; o betik de böyle bir betiği gömmeyen bir sayfada tarayıcınızda çalışırdı. Sayfa, bir sağlayıcı yapılandırıldığında fiyatı sunucu tarafında almaya hazır durumda."
       },
       "q02": {
         "question": "Roblox kâr ediyor mu?",

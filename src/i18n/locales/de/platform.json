@@ -199,7 +199,7 @@
     "quotedFrom": "Zitiert aus {source}, hier nicht neu berechnet. Eine ausführlichere Aufschlüsselung, einschließlich dessen, was Roblox Creators je Quartal zahlt, steht auf {payoutStatisticsLink}.",
     "payoutStatisticsLink": "der Seite mit den Auszahlungsstatistiken",
     "noChartHeading": "Warum es hier kein eingebettetes Diagramm gibt",
-    "noChartBody": "Websites, die ein Live-Roblox-Diagramm zeigen, betten fast immer eines von einem Marktdatenanbieter ein — was bedeutet, dass dessen Skript in deinem Browser läuft und deinen Besuch sehen kann. Diese Website lädt auf keiner Seite Skripte von Dritten, und eines hier hinzuzufügen würde das für alle stillschweigend aushebeln.",
+    "noChartBody": "Websites, die ein Live-Roblox-Diagramm zeigen, betten fast immer eines von einem Marktdatenanbieter ein — was bedeutet, dass dessen Skript in deinem Browser läuft und deinen Besuch sehen kann. Diese Website bindet keines ein, und eines hier hinzuzufügen würde es jedem Lesenden vorsetzen.",
     "whenConnected": "Sobald ein Anbieter angebunden ist, wird er serverseitig gelesen und als reines HTML ausgegeben — der Kurs kommt also auf demselben Weg wie jede andere Zahl dieser Website: vom Server abgerufen, mit Quelle versehen und datiert.",
     "notAdviceTitle": "Keine Anlageberatung",
     "notAdviceBody": "Nichts auf dieser Seite ist eine Empfehlung, irgendetwas zu kaufen oder zu verkaufen. Die Zahlen eines Unternehmens sagen nichts darüber, was ein einzelner Creator ausgezahlt bekommt, und Roblox setzt den DevEx-Kurs unabhängig von seinem Aktienkurs fest.",
@@ -304,7 +304,7 @@
       },
       "business": {
         "p1": "statt hier neu berechnet.",
-        "p2": "Ein Live-RBLX-Kurs bräuchte einen kostenpflichtigen Marktdaten-Feed und ein Skript von Dritten, das in deinem Browser läuft. Diese Website lädt keine Skripte von Dritten, und eine Zahl, die sie nicht bis zu einem Dokument zurückverfolgen kann, ist eine Zahl, die sie nicht veröffentlicht. Die Angaben oben stammen aus dem Bericht selbst, also aus derselben Quelle, auf die ein Aktienkurs letztlich reagiert. Nichts davon ist Anlageberatung, und ein Quartalsergebnis sagt nichts darüber, was eine einzelne Person ausgezahlt bekommt."
+        "p2": "Ein Live-RBLX-Kurs bräuchte einen kostenpflichtigen Marktdaten-Feed und ein Skript von Dritten, das in deinem Browser läuft. Diese Website bindet kein Skript eines Marktdatenanbieters ein, und eine Zahl, die sie nicht bis zu einem Dokument zurückverfolgen kann, ist eine Zahl, die sie nicht veröffentlicht. Die Angaben oben stammen aus dem Bericht selbst, also aus derselben Quelle, auf die ein Aktienkurs letztlich reagiert. Nichts davon ist Anlageberatung, und ein Quartalsergebnis sagt nichts darüber, was eine einzelne Person ausgezahlt bekommt."
       },
       "whatItMeans": {
         "p1": "Direkt sehr wenig — und das gehört deutlich gesagt. Die Summen auf dieser Seite beschreiben die gesamte Plattform. Sie ändern nichts daran, was dein eigenes Guthaben ergibt, sie sind keine Prognose, und eine steigende Summe bedeutet keinen steigenden Kurs. Was deine Auszahlung bestimmt, ist der Kurs, der auf deine anrechenbaren Earned Robux angewandt wird — und den kannst du ausrechnen mit",

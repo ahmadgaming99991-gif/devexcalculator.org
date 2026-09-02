@@ -849,7 +849,7 @@
     "faqs": {
       "q01": {
         "question": "Por que não há um preço ao vivo da RBLX?",
-        "answer": "Porque mostrar um normalmente significa incorporar o script de um fornecedor de mercado, que rodaria no seu navegador em um site que não carrega scripts de terceiros. A página está preparada para buscar um preço no servidor assim que um provedor for configurado."
+        "answer": "Porque mostrar um normalmente significa incorporar o script de um fornecedor de mercado, que rodaria no seu navegador em uma página que não incorpora nenhum. A página está preparada para buscar um preço no servidor assim que um provedor for configurado."
       },
       "q02": {
         "question": "O Roblox dá lucro?",

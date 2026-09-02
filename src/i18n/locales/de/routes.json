@@ -849,7 +849,7 @@
     "faqs": {
       "q01": {
         "question": "Warum gibt es keinen Live-RBLX-Kurs?",
-        "answer": "Weil einen zu zeigen meist heißt, das Skript eines Marktdatenanbieters einzubetten, das dann in deinem Browser liefe — auf einer Website, die keine Skripte von Dritten lädt. Die Seite ist darauf vorbereitet, einen Kurs serverseitig abzurufen, sobald ein Anbieter eingerichtet ist."
+        "answer": "Weil einen zu zeigen meist heißt, das Skript eines Marktdatenanbieters einzubetten, das dann in deinem Browser liefe — auf einer Seite, die kein solches Skript einbindet. Die Seite ist darauf vorbereitet, einen Kurs serverseitig abzurufen, sobald ein Anbieter eingerichtet ist."
       },
       "q02": {
         "question": "Ist Roblox profitabel?",

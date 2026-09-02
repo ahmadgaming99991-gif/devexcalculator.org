@@ -201,7 +201,7 @@
     "quotedFrom": "Dikutip dari {source}, tidak dihitung ulang di sini. Rincian yang lebih lengkap, termasuk berapa yang dibayarkan Roblox kepada kreator tiap kuartal, ada di {payoutStatisticsLink}.",
     "payoutStatisticsLink": "halaman statistik pembayaran",
     "noChartHeading": "Mengapa tidak ada grafik sematan",
-    "noChartBody": "Situs yang menampilkan grafik Roblox langsung hampir selalu menyematkannya dari vendor data pasar, yang berarti skrip vendor itu berjalan di peramban Anda dan bisa melihat kunjungan Anda. Situs ini tidak memuat skrip pihak ketiga di halaman mana pun, dan menambahkan satu di sini akan diam-diam membatalkan itu bagi semua orang.",
+    "noChartBody": "Situs yang menampilkan grafik Roblox langsung hampir selalu menyematkannya dari vendor data pasar, yang berarti skrip vendor itu berjalan di peramban Anda dan bisa melihat kunjungan Anda. Situs ini tidak menyematkan satu pun, dan menambahkan satu di sini akan memaksakannya kepada setiap pembaca.",
     "whenConnected": "Ketika sebuah penyedia terhubung, ia akan dibaca di sisi server dan dirender sebagai HTML biasa, sehingga harganya tiba dengan cara yang sama seperti setiap angka lain di situs ini: diambil oleh server, disebutkan sumbernya, dan diberi tanggal.",
     "notAdviceTitle": "Bukan nasihat investasi",
     "notAdviceBody": "Tidak ada di halaman ini yang merupakan rekomendasi untuk membeli atau menjual apa pun. Hasil sebuah perusahaan tidak mengatakan apa-apa tentang berapa yang akan diterima kreator mana pun, dan kurs DevEx ditetapkan Roblox terlepas dari harga sahamnya.",
@@ -306,7 +306,7 @@
       },
       "business": {
         "p1": "alih-alih dihitung ulang di sini.",
-        "p2": "Kutipan harga RBLX secara langsung akan memerlukan umpan data pasar berbayar dan skrip pihak ketiga yang berjalan di peramban Anda. Situs ini tidak memuat skrip pihak ketiga, dan angka yang tidak bisa dilacaknya sampai ke sebuah dokumen adalah angka yang tidak akan diterbitkannya. Angka-angka di atas berasal dari laporannya sendiri, yang merupakan sumber yang sama yang pada akhirnya direspons harga saham. Tidak satu pun dari ini adalah nasihat investasi, dan hasil satu kuartal tidak mengatakan apa-apa tentang berapa yang akan diterima siapa pun."
+        "p2": "Kutipan harga RBLX secara langsung akan memerlukan umpan data pasar berbayar dan skrip pihak ketiga yang berjalan di peramban Anda. Situs ini tidak menyematkan skrip vendor data pasar, dan angka yang tidak bisa dilacaknya sampai ke sebuah dokumen adalah angka yang tidak akan diterbitkannya. Angka-angka di atas berasal dari laporannya sendiri, yang merupakan sumber yang sama yang pada akhirnya direspons harga saham. Tidak satu pun dari ini adalah nasihat investasi, dan hasil satu kuartal tidak mengatakan apa-apa tentang berapa yang akan diterima siapa pun."
       },
       "whatItMeans": {
         "p1": "Sangat sedikit, secara langsung — dan itu perlu dikatakan terus terang. Total di halaman ini menggambarkan seluruh platform. Angka itu tidak mengubah berapa nilai konversi saldo Anda sendiri, bukan ramalan, dan total yang naik tidak berarti kurs yang naik. Yang menentukan pembayaran Anda adalah kurs yang diterapkan pada Earned Robux Anda yang memenuhi syarat, yang bisa Anda hitung di",

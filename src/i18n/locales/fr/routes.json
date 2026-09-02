@@ -860,7 +860,7 @@
     "faqs": {
       "q01": {
         "question": "Pourquoi n’y a-t-il pas de cours RBLX en direct ?",
-        "answer": "Parce qu’en afficher un revient généralement à intégrer le script d’un fournisseur de marché, qui s’exécuterait dans votre navigateur sur un site qui ne charge aucun script tiers. La page est prête à récupérer un cours côté serveur dès qu’un fournisseur sera configuré."
+        "answer": "Parce qu’en afficher un revient généralement à intégrer le script d’un fournisseur de marché, qui s’exécuterait dans votre navigateur sur une page qui n’en intègre aucun. La page est prête à récupérer un cours côté serveur dès qu’un fournisseur sera configuré."
       },
       "q02": {
         "question": "Roblox est-il rentable ?",

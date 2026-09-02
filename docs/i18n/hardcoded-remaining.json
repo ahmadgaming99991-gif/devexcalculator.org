@@ -2,17 +2,17 @@
   "$comment": "Reader-facing English still written into src, after subtracting anything that already exists verbatim in an English dictionary. Deterministic: no timestamp, so a diff means the code changed.",
   "totals": {
     "scanned": 513,
-    "covered": 511,
-    "hardcoded": 2,
-    "coveredWords": 6071,
-    "hardcodedWords": 113,
-    "coveragePercent": 99.6
+    "covered": 510,
+    "hardcoded": 3,
+    "coveredWords": 6033,
+    "hardcodedWords": 151,
+    "coveragePercent": 99.4
   },
   "byFile": [
     {
       "file": "src/lib/content/route-registry.ts",
-      "strings": 2,
-      "words": 113
+      "strings": 3,
+      "words": 151
     }
   ],
   "hardcoded": [
@@ -23,6 +23,14 @@
       "words": 56,
       "hasTokens": false,
       "text": "\"Robux to USD\" has two honest answers depending on who is asking. A creator cashing out eligible Earned Robux receives 0.0038 USD per Robux through DevEx, so 100,000 Robux is about 380 dollars. A player buying Robux pays a retail price set by Roblox, which is a different transaction entirely. This page keeps the two apart."
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
+      "line": 458,
+      "category": "registry-prose",
+      "words": 38,
+      "hasTokens": false,
+      "text": "Because showing one usually means embedding a market vendor's script, which would run in your browser on a site that loads no third-party scripts. The page is wired to fetch a price server-side once a provider is configured."
     },
     {
       "file": "src/lib/content/route-registry.ts",

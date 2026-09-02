@@ -194,7 +194,7 @@
     "quotedFrom": "Quoted from {source}, not recomputed here. A fuller breakdown, including what Roblox pays creators each quarter, is on {payoutStatisticsLink}.",
     "payoutStatisticsLink": "the payout statistics page",
     "noChartHeading": "Why there is no embedded chart",
-    "noChartBody": "Sites that show a live Roblox chart are almost always embedding one from a market data vendor, which means that vendor’s script runs in your browser and can see your visit. This site loads no third-party scripts on any page, and adding one here would quietly undo that for everyone.",
+    "noChartBody": "Sites that show a live Roblox chart are almost always embedding one from a market data vendor, which means that vendor’s script runs in your browser and can see your visit. This site embeds none, and adding one here would put one in front of every reader.",
     "whenConnected": "When a provider is connected it will be read server-side and rendered as plain HTML, so the price arrives the same way every other figure on this site does: fetched by the server, attributed, and dated.",
     "notAdviceTitle": "Not investment advice",
     "notAdviceBody": "Nothing on this page is a recommendation to buy or sell anything. A company’s results say nothing about what any individual creator will be paid, and the DevEx rate is set by Roblox independently of its share price.",
@@ -299,7 +299,7 @@
       },
       "business": {
         "p1": "rather than recomputed here.",
-        "p2": "A live RBLX quote would need a paid market-data feed and a third-party script running in your browser. This site loads no third-party scripts, and a number it cannot trace to a document is a number it will not publish. The figures above come from the filing itself, which is the same source a share price ultimately reacts to. None of this is investment advice, and a quarterly result says nothing about what any individual will be paid."
+        "p2": "A live RBLX quote would need a paid market-data feed and a third-party script running in your browser. This site embeds no market-data vendor’s script, and a number it cannot trace to a document is a number it will not publish. The figures above come from the filing itself, which is the same source a share price ultimately reacts to. None of this is investment advice, and a quarterly result says nothing about what any individual will be paid."
       },
       "whatItMeans": {
         "p1": "Very little, directly — and that is worth saying plainly. The totals on this page describe the whole platform. They do not change what your own balance converts to, they are not a forecast, and a rising total does not mean a rising rate. What decides your payout is the rate applied to your eligible Earned Robux, which you can work out on",

@@ -850,7 +850,7 @@
     "faqs": {
       "q01": {
         "question": "Mengapa tidak ada harga RBLX langsung?",
-        "answer": "Karena menampilkannya biasanya berarti menyematkan skrip vendor pasar, yang akan berjalan di peramban Anda di situs yang tidak memuat skrip pihak ketiga. Halaman ini sudah disiapkan untuk mengambil harga di sisi server begitu ada penyedia yang dikonfigurasi."
+        "answer": "Karena menampilkannya biasanya berarti menyematkan skrip vendor pasar, yang akan berjalan di peramban Anda di halaman yang tidak menyematkan skrip semacam itu. Halaman ini sudah disiapkan untuk mengambil harga di sisi server begitu ada penyedia yang dikonfigurasi."
       },
       "q02": {
         "question": "Apakah Roblox untung?",

@@ -840,7 +840,7 @@
     "faqs": {
       "q01": {
         "question": "Why is there no live RBLX price?",
-        "answer": "Because showing one usually means embedding a market vendor's script, which would run in your browser on a site that loads no third-party scripts. The page is wired to fetch a price server-side once a provider is configured."
+        "answer": "Because showing one usually means embedding a market vendor's script, which would run in your browser on a page that embeds no such script. The page is wired to fetch a price server-side once a provider is configured."
       },
       "q02": {
         "question": "Is Roblox profitable?",

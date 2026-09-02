@@ -191,20 +191,34 @@ test.describe("disabled integrations", () => {
     expect(await response.text()).not.toContain("INDEXNOW");
   });
 
-  test("no ownership verification tag is emitted for an unconfigured property", async ({
-    page,
-  }) => {
+  test("an ownership verification tag is either real or absent", async ({ page }) => {
     await page.goto("/");
     const html = await page.content();
 
     /*
-     * Neither token is configured here, so neither tag may appear. The failure
-     * this guards against is not a missing tag but a present, meaningless one:
-     * a verification meta carrying a placeholder looks configured, verifies
-     * nothing, and can sit in a `<head>` unread for a year.
+     * The failure worth guarding against was never "a tag is present" — it is
+     * a present, meaningless one. A verification meta carrying a placeholder
+     * looks configured, verifies nothing, and can sit in a `<head>` unread for
+     * a year. `isUsableToken` is what refuses those, so this asserts the shape
+     * it enforces rather than the count of tags, which is a fact about which
+     * properties happen to be claimed today.
+     *
+     * Google issues 43 characters, Bing 32, Yandex 16.
      */
-    expect(html).not.toContain("google-site-verification");
-    expect(html).not.toContain("msvalidate.01");
+    const tags = [...html.matchAll(
+      /<meta name="(google-site-verification|msvalidate\.01|yandex-verification)" content="([^"]*)"/g,
+    )];
+
+    for (const match of tags) {
+      const name = match[1] ?? "";
+      const token = match[2] ?? "";
+      expect(token, `${name} carries an empty token`).not.toBe("");
+      expect(token.length, `${name} token is too short to be real`).toBeGreaterThanOrEqual(16);
+      expect(token, `${name} carries a placeholder`).not.toMatch(
+        /(^|[^a-z])(your|example|sample|placeholder|todo|changeme|test|xxx+)([^a-z]|$)/i,
+      );
+      expect(token, `${name} token contains whitespace`).not.toMatch(/\s/);
+    }
 
     // And no meta tag may carry a placeholder value. Scoped to meta content
     // rather than to the whole document: uppercasing the page turns every
@@ -220,7 +234,16 @@ test.describe("disabled integrations", () => {
     }
   });
 
-  test("this site loads no analytics of its own", async ({ page }) => {
+  test("whatever analytics this site loads, the privacy page says so", async ({ page }) => {
+    /*
+     * This used to assert that no analytics loaded at all, which was a fact
+     * about one deployment's configuration rather than a promise the site
+     * makes. GA4 is configured now, and the test that mattered was never
+     * "nothing loads" — it was that the deployment and `/privacy/` cannot
+     * disagree. So this asserts the invariant, the way the injected-beacon
+     * test below already did: it passes with analytics off, passes with them
+     * on and disclosed, and fails only on the dishonest combination.
+     */
     const requested: string[] = [];
     page.on("request", (request) => requested.push(request.url()));
 
@@ -234,24 +257,33 @@ test.describe("disabled integrations", () => {
 
     const html = await page.content();
 
-    // Providers this site can configure and currently does not. Unlike the
-    // host's own beacon below, nothing outside this repository can introduce
-    // them, so their absence is absolute.
-    // cloudflareinsights.com is included again: the zone's Web Analytics
-    // auto-install was on and has been turned off, so a beacon reappearing
-    // means the privacy page has stopped being true.
-    for (const host of [
-      "googletagmanager.com",
-      "google-analytics.com",
-      "cloudflareinsights.com",
-    ]) {
-      expect(requested.filter((url) => url.includes(host))).toEqual([]);
-      expect(html).not.toContain(host);
+    const loadsGa4 =
+      html.includes("googletagmanager.com") ||
+      requested.some((url) => url.includes("googletagmanager.com"));
+
+    await page.goto("/privacy/");
+    const privacy = (await page.textContent("main")) ?? "";
+
+    if (loadsGa4) {
+      // The page has a branch for exactly this and it has to be the one
+      // showing. "No analytics are running on this deployment" alongside a
+      // gtag tag is the failure worth having a test for.
+      expect(privacy, "GA4 loads but /privacy/ does not name it").toContain(
+        "Google Analytics 4",
+      );
+      expect(privacy, "GA4 loads but /privacy/ still claims none is configured").not.toContain(
+        "No analytics provider is configured",
+      );
+      // Cookies are the reason it is gated, so the page has to say the gate
+      // exists rather than only naming the provider.
+      expect(privacy.toLowerCase()).toContain("cookie");
+    } else {
+      expect(requested.filter((url) => url.includes("googletagmanager.com"))).toEqual([]);
+      expect(privacy).toContain("No analytics provider is configured");
     }
 
-    // The site's own Cloudflare Web Analytics integration stays off unless a
-    // token is configured, so no beacon may appear in the HTML this site
-    // produces. An injected one arrives afterwards and is covered separately.
+    // The site's own Cloudflare Web Analytics integration is separate and
+    // still off; an injected one arrives afterwards and is covered below.
     expect(html).not.toContain("NEXT_PUBLIC_CF_ANALYTICS_TOKEN");
   });
 
@@ -500,23 +532,39 @@ test.describe("security headers", () => {
   test("allowlists a third-party origin only when that integration is configured", async ({
     request,
   }) => {
-    const csp = (await request.get("/")).headers()["content-security-policy"] ?? "";
+    const response = await request.get("/");
+    const csp = response.headers()["content-security-policy"] ?? "";
+    const html = await response.text();
     const scriptSrc = /script-src ([^;]*)/.exec(csp)?.[1] ?? "";
     const connectSrc = /connect-src ([^;]*)/.exec(csp)?.[1] ?? "";
+    const allowed = `${scriptSrc} ${connectSrc}`;
 
-    // This deployment configures no analytics provider and no Turnstile key,
-    // so the policy must name none of their origins. 'unsafe-inline' is already
-    // unavoidable here, which makes the origin allowlist the directive actually
-    // limiting what an injected tag can load — a spare entry is a live bypass,
-    // not housekeeping.
-    for (const origin of [
-      "cloudflareinsights.com",
-      "googletagmanager.com",
-      "google-analytics.com",
-      "challenges.cloudflare.com",
-    ]) {
+    /*
+     * Allowed if and only if used. `script-src` already carries
+     * 'unsafe-inline', which makes the origin allowlist the directive actually
+     * limiting what an injected tag could reach — so a spare entry is a live
+     * bypass rather than housekeeping, and a missing one silently breaks the
+     * integration it was meant to permit.
+     *
+     * The page itself is the evidence for which of those applies, so this does
+     * not need to know how the deployment is configured.
+     */
+    const usesGa4 = html.includes("googletagmanager.com");
+    for (const origin of ["googletagmanager.com", "google-analytics.com"]) {
+      if (usesGa4) {
+        expect(allowed, `GA4 loads but the CSP does not allow ${origin}.`).toContain(origin);
+      } else {
+        expect(
+          allowed,
+          `The CSP allows ${origin} on a deployment that loads nothing from it.`,
+        ).not.toContain(origin);
+      }
+    }
+
+    // Neither of these is configured, and nothing in the page references them.
+    for (const origin of ["cloudflareinsights.com", "challenges.cloudflare.com"]) {
       expect(
-        `${scriptSrc} ${connectSrc}`,
+        allowed,
         `The CSP allows ${origin} on a deployment that loads nothing from it.`,
       ).not.toContain(origin);
     }

@@ -194,7 +194,7 @@
     "quotedFrom": "Citado de {source}, no recalculado aquí. Un desglose más completo, incluido lo que Roblox paga a los creadores cada trimestre, está en {payoutStatisticsLink}.",
     "payoutStatisticsLink": "la página de estadísticas de pagos",
     "noChartHeading": "Por qué no hay un gráfico incrustado",
-    "noChartBody": "Los sitios que muestran un gráfico de Roblox en directo casi siempre incrustan uno de un proveedor de datos de mercado, lo que significa que el script de ese proveedor se ejecuta en tu navegador y puede ver tu visita. Este sitio no carga scripts de terceros en ninguna página, y añadir uno aquí desharía eso en silencio para todo el mundo.",
+    "noChartBody": "Los sitios que muestran un gráfico de Roblox en directo casi siempre incrustan uno de un proveedor de datos de mercado, lo que significa que el script de ese proveedor se ejecuta en tu navegador y puede ver tu visita. Este sitio no incrusta ninguno, y añadir uno aquí se lo impondría a cada lector.",
     "whenConnected": "Cuando haya un proveedor conectado, se leerá en el servidor y se renderizará como HTML simple, así que el precio llegará igual que cualquier otra cifra de este sitio: obtenida por el servidor, atribuida y fechada.",
     "notAdviceTitle": "No es asesoramiento de inversión",
     "notAdviceBody": "Nada de esta página es una recomendación de compra o venta. Los resultados de una empresa no dicen nada sobre lo que se le pagará a un creador concreto, y Roblox fija la tasa de DevEx con independencia del precio de su acción.",
@@ -299,7 +299,7 @@
       },
       "business": {
         "p1": "en lugar de recalcularse aquí.",
-        "p2": "Una cotización en directo de RBLX requeriría un flujo de datos de mercado de pago y un script de terceros ejecutándose en tu navegador. Este sitio no carga scripts de terceros, y una cifra que no puede rastrear hasta un documento es una cifra que no publicará. Los datos de arriba proceden del propio informe, que es la misma fuente a la que en última instancia reacciona un precio de acción. Nada de esto es asesoramiento de inversión, y un resultado trimestral no dice nada sobre lo que cobrará una persona concreta."
+        "p2": "Una cotización en directo de RBLX requeriría un flujo de datos de mercado de pago y un script de terceros ejecutándose en tu navegador. Este sitio no incrusta ningún script de proveedor de datos de mercado, y una cifra que no puede rastrear hasta un documento es una cifra que no publicará. Los datos de arriba proceden del propio informe, que es la misma fuente a la que en última instancia reacciona un precio de acción. Nada de esto es asesoramiento de inversión, y un resultado trimestral no dice nada sobre lo que cobrará una persona concreta."
       },
       "whatItMeans": {
         "p1": "Muy poco, directamente, y conviene decirlo con claridad. Los totales de esta página describen toda la plataforma. No cambian a cuánto equivale tu propio saldo, no son una previsión, y un total creciente no significa una tasa creciente. Lo que decide tu pago es la tasa aplicada a tus Earned Robux elegibles, que puedes calcular en",
