@@ -168,6 +168,47 @@ describe("what it refuses to touch", () => {
     }
   });
 
+  it("caches a locale home page the same as the English one", () => {
+    /*
+     * Live production defect, 2026-09-02. This list held bare English paths
+     * and was matched against the raw pathname, so `/tr/`, `/de/`, `/es/` and
+     * `/pt-br/` matched nothing, fell through to the closed default and were
+     * served `no-store`. That bypasses the edge, so the Worker rendered every
+     * single request for those pages — and returned 503 on roughly four
+     * requests in five.
+     *
+     * A route is one page in seven languages, and its caching is a property of
+     * the page rather than of the language.
+     */
+    for (const prefix of ["/tr", "/de", "/es", "/pt-br", "/fr", "/id"]) {
+      expect(
+        edgeCachePolicy({ method: "GET", url: `https://devexcalculator.org${prefix}/` }, htmlPage()),
+        `${prefix}/ was left uncached`,
+      ).toBe(EDGE_POLICY);
+      expect(
+        edgeCachePolicy(
+          { method: "GET", url: `https://devexcalculator.org${prefix}/robux-to-usd/` },
+          htmlPage(),
+        ),
+        `${prefix}/robux-to-usd/ was left uncached`,
+      ).toBe(EDGE_POLICY);
+    }
+  });
+
+  it("keeps a route off the list off it in every language", () => {
+    // `/usd-to-robux/` renders today's date and is excluded. Stripping the
+    // locale must not turn the exclusion into a per-language accident.
+    for (const prefix of ["", "/tr", "/de"]) {
+      expect(
+        edgeCachePolicy(
+          { method: "GET", url: `https://devexcalculator.org${prefix}/usd-to-robux/` },
+          htmlPage(),
+        ),
+        `${prefix}/usd-to-robux/ became cacheable`,
+      ).toBeNull();
+    }
+  });
+
   it("survives a request URL it cannot parse", () => {
     expect(edgeCachePolicy({ method: "GET", url: "::::" }, htmlPage())).toBeNull();
   });

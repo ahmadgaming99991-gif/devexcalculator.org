@@ -1,3 +1,4 @@
+import { stripLocalePrefix } from "@/i18n/locale-path";
 import { routeRegistry } from "@/lib/content/route-registry";
 
 /**
@@ -131,6 +132,31 @@ const NEXT_STATIC_FOREVER = "s-maxage=31536000";
 /** Methods whose response may be relaxed. Never a mutation. */
 const SAFE_METHODS: readonly string[] = ["GET", "HEAD"];
 
+/**
+ * The route a path names, with any published locale prefix removed.
+ *
+ * Both lists below are keyed by canonical route — `/devex-rates/`, not
+ * `/de/devex-rates/` — because a route is one page in seven languages and its
+ * caching is a property of the page, not of the language.
+ *
+ * Matching the raw pathname meant neither list saw a translated URL, and both
+ * failure modes were live in production on 2026-09-02:
+ *
+ *   - A locale home page matched nothing, fell through to the closed default,
+ *     and was served `no-store`. That bypasses the edge entirely, so the Worker
+ *     rendered every request for `/tr/`, `/de/`, `/es/` and `/pt-br/` — which
+ *     returned `503` on roughly four requests in five.
+ *   - A translated rate page kept Next's untouched `s-maxage=31536000`. The
+ *     English page expires hourly because its figures do; the same page in six
+ *     languages would have served a superseded DevEx rate for up to a year.
+ *
+ * This is the fourth surface to be caught reading the bare English path, after
+ * the sitemap, IndexNow and `llms.txt`. See docs/invariant-register.md.
+ */
+function canonicalRouteOf(pathname: string): string {
+  return stripLocalePrefix(pathname);
+}
+
 /** What Next sends for a dynamically rendered page. */
 function isUncachedByDefault(value: string | null): boolean {
   return value !== null && value.includes("no-store");
@@ -173,7 +199,7 @@ export function edgeCachePolicy(
 
   // A shared calculation lives in the query string. Nothing with one is cached.
   if (url.search !== "") return null;
-  if (!CACHEABLE_DYNAMIC_ROUTES.includes(url.pathname)) return null;
+  if (!CACHEABLE_DYNAMIC_ROUTES.includes(canonicalRouteOf(url.pathname))) return null;
 
   return EDGE_POLICY;
 }
@@ -207,7 +233,7 @@ export function staticCachePolicy(
     return null;
   }
 
-  if (!RATE_SENSITIVE_ROUTES.has(url.pathname)) return null;
+  if (!RATE_SENSITIVE_ROUTES.has(canonicalRouteOf(url.pathname))) return null;
 
   return RATE_SENSITIVE_EDGE_POLICY;
 }

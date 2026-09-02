@@ -120,6 +120,25 @@ describe("staticCachePolicy", () => {
     );
   });
 
+  it("expires a translated rate page on the same clock as the English one", () => {
+    /*
+     * Live production defect, 2026-09-02. `RATE_SENSITIVE_ROUTES` is built
+     * from the registry's canonical routes and was matched against the raw
+     * pathname, so a translated rate page never matched and kept Next's
+     * untouched `s-maxage=31536000`.
+     *
+     * The English page expires hourly because the figures on it expire. The
+     * same page in six languages would have served a superseded DevEx rate for
+     * up to a year — on a site whose whole subject is what those figures are.
+     */
+    for (const prefix of ["/tr", "/de", "/es", "/pt-br", "/fr", "/id"]) {
+      expect(
+        staticCachePolicy(at(`${prefix}/devex-rates/`), staticPage()),
+        `${prefix}/devex-rates/ kept the static year`,
+      ).toBe(RATE_SENSITIVE_EDGE_POLICY);
+    }
+  });
+
   it("returns null for a URL it cannot parse", () => {
     expect(staticCachePolicy({ method: "GET", url: "not a url" }, staticPage())).toBeNull();
   });
