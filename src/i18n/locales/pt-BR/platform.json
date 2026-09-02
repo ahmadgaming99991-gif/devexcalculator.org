@@ -222,7 +222,11 @@
       "onlyConfiguration": "A página já está preparada para um provedor. O que falta é apenas configuração: {missing}. Os resultados divulgados abaixo são aquilo a que um preço de ação responde, e eles são publicados de qualquer forma."
     },
     "andSeparator": " e ",
-    "quoteHeading": "Cotação da ação {symbol}"
+    "quoteHeading": "Cotação da ação {symbol}",
+    "loadingTitle": "Carregando o preço",
+    "loadingBody": "A cotação é buscada depois que a página carrega, a partir de um endpoint do próprio site e não diretamente do provedor.",
+    "noScriptTitle": "O preço precisa de JavaScript",
+    "noScriptBody": "Ele é buscado depois que a página carrega. Sem JavaScript ele não aparece. Todo o resto desta página — de onde vem o número, quando foi apurado e o que ele não significa — está abaixo."
   },
   "stats": {
     "intro": "O que o Roblox de fato paga aos criadores, tirado de seus próprios registros junto à SEC. Todo número abaixo leva ao documento de onde veio.",

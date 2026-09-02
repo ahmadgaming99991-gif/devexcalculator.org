@@ -222,7 +222,11 @@
       "onlyConfiguration": "The page is already wired for a provider. What is missing is only configuration: {missing}. The reported results below are what a share price responds to, and they are published either way."
     },
     "andSeparator": " and ",
-    "quoteHeading": "{symbol} share price"
+    "quoteHeading": "{symbol} share price",
+    "loadingTitle": "Loading the price",
+    "loadingBody": "The quote is fetched after the page loads, from this site's own endpoint rather than from the provider directly.",
+    "noScriptTitle": "The price needs JavaScript",
+    "noScriptBody": "It is fetched after the page loads. With JavaScript off it does not appear. Everything else on this page — where the figure comes from, when it was taken and what it does not mean — is below."
   },
   "stats": {
     "intro": "What Roblox actually pays creators, taken from its own filings with the SEC. Every figure below links to the document it came from.",

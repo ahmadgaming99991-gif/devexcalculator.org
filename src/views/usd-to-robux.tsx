@@ -11,7 +11,7 @@ import { Calculator } from "@/features/devex/calculator";
 import { CALCULATOR_WORDS } from "@/features/devex/calculator.words";
 import { Planner } from "@/features/devex/planner";
 import { PLANNER_WORDS } from "@/features/devex/planner.words";
-import { parseCalculatorState } from "@/features/devex/url-state";
+import { defaultState } from "@/features/devex/url-state";
 import { Callout, Container, InlineLink, Section, Table, TableWrapper, Td, Th } from "@/components/ui";
 import {
   EstimateDisclaimer,
@@ -34,16 +34,9 @@ const ROUTE = "/usd-to-robux/";
 /** Worked targets, computed through the engine so the table cannot drift. */
 const TARGETS = [50, 100, 114, 250, 500, 1_000, 5_000, 10_000] as const;
 
-export async function UsdToRobuxView({
-  locale,
-  searchParams,
-}: {
-  readonly locale: Locale;
-  searchParams: Promise<Record<string, string | string[] | undefined>>;
-}) {
+export async function UsdToRobuxView({ locale }: { readonly locale: Locale }) {
   const t = await getTranslator(locale, ["rates"]);
   const record = await localizedRoute(locale, ROUTE);
-  const initialState = parseCalculatorState(await searchParams);
   const rate = getRateValue(standardRateId);
 
   const rows = TARGETS.map((target) => {
@@ -76,7 +69,7 @@ export async function UsdToRobuxView({
             {record.quickAnswer}
           </QuickAnswer>
 
-          <Calculator locale={locale} words={await loadWords(locale, CALCULATOR_WORDS)} initialState={initialState} pathname={localizedPath(locale, ROUTE)} lockedMode="target" />
+          <Calculator locale={locale} words={await loadWords(locale, CALCULATOR_WORDS)} initialState={defaultState} pathname={localizedPath(locale, ROUTE)} lockedMode="target" />
 
           <TableOfContents locale={locale} sections={record.sections} />
 

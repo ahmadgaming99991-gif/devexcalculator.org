@@ -40,11 +40,22 @@ const ROUTES: readonly (readonly [string, string])[] = [
   ["localised home", "src/app/(intl)/[locale]/page.tsx"],
   ["English fees and taxes", "src/app/(en)/devex-fees-and-taxes/page.tsx"],
   ["localised fees and taxes", "src/app/(intl)/[locale]/devex-fees-and-taxes/page.tsx"],
+  ["English conversions", "src/app/(en)/conversions/page.tsx"],
+  ["localised conversions", "src/app/(intl)/[locale]/conversions/page.tsx"],
+  ["English Robux to USD", "src/app/(en)/robux-to-usd/page.tsx"],
+  ["localised Robux to USD", "src/app/(intl)/[locale]/robux-to-usd/page.tsx"],
+  ["English USD to Robux", "src/app/(en)/usd-to-robux/page.tsx"],
+  ["localised USD to Robux", "src/app/(intl)/[locale]/usd-to-robux/page.tsx"],
+  ["English stock", "src/app/(en)/platform/stock/page.tsx"],
+  ["localised stock", "src/app/(intl)/[locale]/platform/stock/page.tsx"],
 ];
 
 const VIEWS: readonly (readonly [string, string])[] = [
   ["home", "src/views/home.tsx"],
   ["fees and taxes", "src/views/devex-fees-and-taxes.tsx"],
+  ["conversions", "src/views/conversions.tsx"],
+  ["Robux to USD", "src/views/robux-to-usd.tsx"],
+  ["USD to Robux", "src/views/usd-to-robux.tsx"],
 ];
 
 describe("the calculator document routes are prerenderable", () => {
@@ -154,4 +165,57 @@ describe("the calculator is told its own localized path", () => {
       expect(source).not.toContain("pathname={ROUTE}");
     });
   }
+});
+
+describe("the stock page reads its price after load, not while rendering", () => {
+  const view = code("src/views/platform-stock.tsx");
+
+  it("does not read the quote during the render", () => {
+    // `getQuote` on this side of the boundary is a provider call inside a page
+    // render, which is what cost 884 ms of CPU per cold request.
+    expect(view).not.toContain("getQuote");
+    expect(view).not.toContain("readQuote");
+    expect(view).not.toContain("getCloudflareContext");
+  });
+
+  it("hands the moving figure to an island and says so without JavaScript", () => {
+    expect(view).toContain("<StockQuote");
+    expect(view).toContain("<noscript>");
+    expect(view).toContain("platform.stock.noScriptBody");
+  });
+
+  it("keeps the document itself server rendered", () => {
+    for (const marker of ["JsonLd", "Breadcrumbs", "RelatedLinks", "FAQAccordion", "EstimateDisclaimer"]) {
+      expect(view, marker).toContain(marker);
+    }
+  });
+
+  it("still renders every state the provider can be in", () => {
+    const island = code("src/components/platform/stock-quote.tsx");
+    for (const marker of [
+      "platform.stock.loadingTitle",
+      "platform.stock.notLatestBadge",
+      "platform.stock.providerSilentTitle",
+      "platform.stock.noPriceConfiguredTitle",
+    ]) {
+      expect(island, marker).toContain(marker);
+    }
+  });
+
+  it("marks the provider's English reason as English", () => {
+    // It is a machine diagnostic in one language, quoted inside translated
+    // prose on six others.
+    expect(code("src/components/platform/stock-quote.tsx")).toContain('lang="en"');
+  });
+});
+
+describe("the planner does not state a date it cannot know", () => {
+  const planner = code("src/features/devex/planner.tsx");
+
+  it("uses the dateless headline until the reader's day is known", () => {
+    // Prerendered, `startDate` is the build's day. The number of days does not
+    // depend on the start; the projected date does.
+    expect(planner).toContain("calculator.planner.paceHeadlineNoDate");
+    expect(planner).toContain("knowsReaderDay");
+  });
 });

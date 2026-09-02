@@ -16,12 +16,12 @@ recorded by a person.
 
 | Locale | Strings | Critical | Meaning | Blocking | Quality | Lexicon queue |
 | --- | --- | --- | --- | --- | --- | --- |
-| `pt-BR` | 2690 | 0 | 0 | 0 | 0 | 810 |
-| `es` | 2690 | 0 | 0 | 0 | 0 | 810 |
-| `id` | 2690 | 0 | 0 | 0 | 0 | 810 |
-| `fr` | 2690 | 0 | 0 | 0 | 0 | 810 |
-| `de` | 2690 | 0 | 0 | 0 | 0 | 810 |
-| `tr` | 2690 | 0 | 0 | 0 | 4 | 810 |
+| `pt-BR` | 2695 | 0 | 0 | 0 | 0 | 812 |
+| `es` | 2695 | 0 | 0 | 0 | 0 | 812 |
+| `id` | 2695 | 0 | 0 | 0 | 0 | 812 |
+| `fr` | 2695 | 0 | 0 | 0 | 0 | 812 |
+| `de` | 2695 | 0 | 0 | 0 | 0 | 812 |
+| `tr` | 2695 | 0 | 0 | 0 | 4 | 812 |
 
 
 **Blocking total across all locales: 0** (critical + meaning + blocking).
@@ -147,9 +147,9 @@ These are the sentences machine translation reverses or softens, so each one
 gets a semantic verdict rather than an automated pass. Verdicts are recorded
 in `docs/i18n/critical-claims.md`.
 
-- `pt-BR`: 810 string(s) queued
-- `es`: 810 string(s) queued
-- `id`: 810 string(s) queued
-- `fr`: 810 string(s) queued
-- `de`: 810 string(s) queued
-- `tr`: 810 string(s) queued
+- `pt-BR`: 812 string(s) queued
+- `es`: 812 string(s) queued
+- `id`: 812 string(s) queued
+- `fr`: 812 string(s) queued
+- `de`: 812 string(s) queued
+- `tr`: 812 string(s) queued

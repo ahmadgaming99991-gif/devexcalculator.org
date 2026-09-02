@@ -33,49 +33,27 @@ const ASSET_FILE_LIMIT_MB = 25;
 /**
  * Routes that render per request, and why.
  *
- * Each reads `searchParams` on the server so a shared link such as
- * `/conversions/?robux=100000` renders its result in the HTML, without
- * JavaScript. That is a requirement, and the cost is a full render in the
- * Worker on every request.
+ * There are none left, and that is the point of keeping the list.
  *
- * The list is here so the cost stays visible and deliberate. A route arriving
- * in it by accident is a regression: the first deployment of this site ran
- * every page through a full render and Cloudflare answered `error code: 1102`,
- * CPU limit exceeded, on all of them.
+ * Six routes were here. Five read `searchParams` on the server so a shared
+ * link such as `/conversions/?robux=100000` rendered its result into the HTML;
+ * `/platform/stock/` read a share price. Every one of them was a full page
+ * render in the Worker on every request, and the cost was measured rather than
+ * estimated: 564–1007 ms of CPU on a cold request, against 12–31 ms for the
+ * prerendered pages beside them. The homepage went first, when it crossed the
+ * plan's allowance and production answered `error 1102`; the rest followed
+ * before they could.
  *
- * `/` and `/devex-fees-and-taxes/` were in this list and came out of it on
- * 2026-09-02, because the cost stopped being affordable. Publishing five more
- * locales took the site to seven, every render builds the hreflang cluster and
- * language selector across all of them, and the homepage crossed the plan's
- * CPU allowance: `wrangler tail` recorded `outcome: exceededCpu` on
- * `https://devexcalculator.org/` and readers whose request missed the edge
- * cache were served `error 1102` again. The calculator island reads its own
- * shared link in the browser now and both routes are prerendered in all seven
- * locales. See docs/decision-log.md D-048; the fourteen documents are asserted
- * by `npm run validate:static-routes`.
+ * The shared link is read in the browser now, by the island that already owns
+ * the address bar, and the share price arrives from `/api/stock/` — a route
+ * handler, which is not a page render. See docs/decision-log.md D-048 and
+ * D-051.
  *
- * The three below still render per request for the original reason. They are
- * far lower traffic, and if one of them ever reaches the limit the fix is the
- * one already applied to these two.
+ * An entry arriving here is a regression, and it needs a reason beside it. The
+ * first deployment of this site ran every page through a full render and
+ * Cloudflare answered `error code: 1102` on all of them.
  */
-const DYNAMIC_ROUTES = new Set([
-  "/conversions/",
-  "/robux-to-usd/",
-  "/usd-to-robux/",
-  /*
-   * `/platform/stock/` renders a market quote from a provider behind a
-   * server-side API key, which cannot move to a public data plane.
-   *
-   * `/platform/` used to sit here for the same-sounding reason - it reports
-   * figures that change, and prerendering it would have meant serving a player
-   * count from build time as though it were current. It is prerendered now
-   * because none of those figures are in the document: they are fetched by the
-   * browser from the platform data plane after load, so the file is identical
-   * for every reader and carries no reading at all. See
-   * docs/platform-data-plane.md.
-   */
-  "/platform/stock/",
-]);
+const DYNAMIC_ROUTES = new Set<string>([]);
 
 /** `/devex-rates/` → `devex-rates.cache`, `/` → `index.cache`. */
 function cacheEntryFor(route: string): string {

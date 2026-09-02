@@ -229,7 +229,11 @@
       "onlyConfiguration": "La page est déjà prête pour un fournisseur. Il ne manque que la configuration : {missing}. Les résultats publiés ci-dessous sont ce à quoi réagit un cours de bourse, et ils sont publiés dans tous les cas."
     },
     "andSeparator": " et ",
-    "quoteHeading": "Cours de l'action {symbol}"
+    "quoteHeading": "Cours de l'action {symbol}",
+    "loadingTitle": "Chargement du cours",
+    "loadingBody": "Le cours est récupéré après le chargement de la page, depuis un point d’accès de ce site plutôt que directement chez le fournisseur.",
+    "noScriptTitle": "Le cours nécessite JavaScript",
+    "noScriptBody": "Il est récupéré après le chargement de la page. Sans JavaScript il n’apparaît pas. Tout le reste de cette page — d’où vient le chiffre, quand il a été relevé et ce qu’il ne signifie pas — se trouve plus bas."
   },
   "stats": {
     "intro": "Ce que Roblox verse réellement aux créateurs, tiré de ses propres dépôts auprès de la SEC. Chaque chiffre ci-dessous renvoie au document dont il provient.",

@@ -54,13 +54,14 @@ import { routeRegistry } from "@/lib/content/route-registry";
 /**
  * Routes whose HTML is a pure function of the URL and the rate registry.
  *
- * Two of these four are no longer dynamic. `/` and `/devex-fees-and-taxes/`
- * were made request-time renders by one thing — reading the shared calculator
- * link from the server's `searchParams` — and with seven published locales
- * the homepage render stopped fitting the Workers Free plan's CPU allowance:
- * production answered `error 1102` on the homepage whenever the edge cache did
- * not cover the request. The island reads the query string in the browser now,
- * and both routes are prerendered in every locale, asserted by
+ * **None of these render per request any more.** All four were made dynamic by
+ * one thing — reading the shared calculator link from the server's
+ * `searchParams` — and on 2026-09-02 that stopped being affordable: the
+ * homepage crossed the Workers Free plan's CPU allowance and production
+ * answered `error 1102`, and the other three measured 564–1007 ms of CPU on a
+ * cold request against 12–31 ms for the prerendered pages beside them. The
+ * island reads the query string in the browser now and every one of them is
+ * prerendered in all seven locales, asserted by
  * `npm run validate:static-routes`.
  *
  * They stay listed here deliberately, as a backstop rather than as a claim.
@@ -78,20 +79,28 @@ export const CACHEABLE_DYNAMIC_ROUTES: readonly string[] = [
 ];
 
 /**
- * `/usd-to-robux/` was on this list and came off it.
+ * `/usd-to-robux/` was on this list, and the reason it was here is now fixed
+ * rather than worked around.
  *
- * It renders today's calendar date into the HTML five times — the planner's
- * pre-hydration fallback, so a reader with scripts blocked still sees a real
- * date rather than an empty field. Cached, that becomes yesterday's date served
- * as today's, on the one page that counts days to a deadline. A reader with
- * JavaScript never sees it, because the client replaces the value on mount;
- * a reader without JavaScript would be told the wrong number of days.
+ * It rendered a projected calendar date into the HTML — the planner's
+ * pre-hydration fallback, so a reader with scripts blocked still saw a date.
+ * Cached, that became yesterday's date served as today's, on the one page that
+ * counts days to a deadline; prerendered it would have been the build's date,
+ * which is worse. A reader with JavaScript never saw it, because the client
+ * replaces the value on mount.
  *
- * Found by fetching the page twice and diffing the delivered HTML, which is
- * also the check to run before adding anything here: two requests, and the
- * bodies must be identical for reasons that hold tomorrow as well as today.
+ * The planner no longer states a date it cannot know. The projection is
+ * `startDate + days`, and before hydration `startDate` is the build's day; the
+ * *number of days* does not depend on the start, so that is still said, and
+ * the date appears in the same commit the reader's own day does. See
+ * `paceHeadlineNoDate` in src/features/devex/planner.tsx.
+ *
+ * The list stays, empty, as the place to record the next page that renders
+ * something it cannot cache. The check to run before adding a route to the one
+ * above: fetch it twice and diff the delivered HTML, and the bodies must be
+ * identical for reasons that hold tomorrow as well as today.
  */
-export const EXCLUDED_FOR_RENDERING_A_DATE: readonly string[] = ["/usd-to-robux/"];
+export const EXCLUDED_FOR_RENDERING_A_DATE: readonly string[] = [];
 
 /**
  * Ten minutes at the edge, a day of serving stale while it refreshes.

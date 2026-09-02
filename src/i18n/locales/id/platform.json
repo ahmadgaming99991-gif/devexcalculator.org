@@ -229,7 +229,11 @@
       "onlyConfiguration": "Halaman ini sudah disiapkan untuk sebuah penyedia. Yang kurang hanyalah konfigurasi: {missing}. Hasil yang dilaporkan di bawah adalah hal yang direspons oleh harga saham, dan itu diterbitkan bagaimanapun juga."
     },
     "andSeparator": " dan ",
-    "quoteHeading": "Harga saham {symbol}"
+    "quoteHeading": "Harga saham {symbol}",
+    "loadingTitle": "Memuat harga",
+    "loadingBody": "Kutipan harga diambil setelah halaman dimuat, dari endpoint milik situs ini sendiri, bukan langsung dari penyedianya.",
+    "noScriptTitle": "Harga membutuhkan JavaScript",
+    "noScriptBody": "Harga diambil setelah halaman dimuat. Tanpa JavaScript harga tidak muncul. Semua hal lain di halaman ini — dari mana angkanya, kapan diambil, dan apa yang tidak dimaksudkannya — ada di bawah."
   },
   "stats": {
     "intro": "Berapa sebenarnya yang dibayarkan Roblox kepada kreator, diambil dari laporannya sendiri ke SEC. Setiap angka di bawah menautkan ke dokumen asalnya.",

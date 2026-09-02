@@ -227,7 +227,11 @@
       "onlyConfiguration": "Die Seite ist für einen Anbieter bereits vorbereitet. Es fehlt nur die Konfiguration: {missing}. Die unten berichteten Ergebnisse sind das, worauf ein Aktienkurs reagiert, und sie werden ohnehin veröffentlicht."
     },
     "andSeparator": " und ",
-    "quoteHeading": "Aktienkurs {symbol}"
+    "quoteHeading": "Aktienkurs {symbol}",
+    "loadingTitle": "Kurs wird geladen",
+    "loadingBody": "Der Kurs wird nach dem Laden der Seite abgerufen, über einen eigenen Endpunkt dieser Website statt direkt beim Anbieter.",
+    "noScriptTitle": "Der Kurs braucht JavaScript",
+    "noScriptBody": "Er wird nach dem Laden der Seite abgerufen. Ohne JavaScript erscheint er nicht. Alles andere auf dieser Seite — woher die Zahl stammt, wann sie erhoben wurde und was sie nicht bedeutet — steht unten."
   },
   "stats": {
     "intro": "Was Roblox Creators tatsächlich auszahlt, entnommen seinen eigenen Berichten an die SEC. Jede Zahl unten verlinkt auf das Dokument, aus dem sie stammt.",

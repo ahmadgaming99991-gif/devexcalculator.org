@@ -80,6 +80,21 @@ export const apiEndpoints: readonly ApiEndpoint[] = [
     provenanceFields: ["data.checkedAt", "data.sourceUpdatedAt", "data.source.document"],
   },
   {
+    path: "/api/stock/",
+    handler: "stock",
+    methods: ["GET", "OPTIONS"],
+    summary: "The RBLX share price this site displays",
+    description:
+      "The quote shown on `/platform/stock/`, read from a market-data provider on this side so the provider key never reaches a browser. `status` is `ok`, `last-known`, `unavailable` or `unconfigured`, and every quote carries the timestamp the provider gave it — a price is never presented as current without the moment it was taken. `last-known` means a newer quote was asked for and refused, and `reason` says why. It exists so the page itself can be a prerendered document: the figure moves, the page does not.",
+    parameters: [],
+    responses: [
+      { status: 200, description: "The quote, or a stated reason there is none.", contentType: "application/json" },
+    ],
+    cacheControl: "public, max-age=30, s-maxage=60, stale-while-revalidate=300",
+    cors: true,
+    provenanceFields: ["data.quote.asOf", "data.quote.providerName", "data.reason"],
+  },
+  {
     path: "/api/fx/latest/",
     handler: "fx/latest",
     methods: ["GET", "OPTIONS"],

@@ -9,6 +9,7 @@ export function generateMetadata(): Promise<Metadata> {
   return buildLocalizedMetadata(DEFAULT_LOCALE, ROUTE);
 }
 
-export default function Page(props: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
-  return <ConversionsView locale={DEFAULT_LOCALE} searchParams={props.searchParams} />;
+/* No `searchParams`, so this route prerenders. See src/app/(en)/page.tsx. */
+export default function Page() {
+  return <ConversionsView locale={DEFAULT_LOCALE} />;
 }

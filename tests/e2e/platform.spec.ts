@@ -435,7 +435,21 @@ test.describe("stock page", () => {
 
   test("never shows a price without a provider and a time behind it", async ({ page }) => {
     await page.goto("/platform/stock/");
-    const quote = (await page.locator("#quote").innerText()).toLowerCase();
+
+    /*
+     * The price arrives after load now, from `/api/stock/`.
+     *
+     * The page reading it during its own server render is what made this
+     * document a request-time render, at 884 ms of CPU on a cold request for a
+     * page that is otherwise a fixed explanation of where the figure comes
+     * from. Waiting for the island to settle is the only change here: every
+     * assertion below is the one that was already being made, and the loading
+     * state is not allowed to stand in for any of them.
+     */
+    const block = page.locator("#quote");
+    await expect(block).not.toContainText("Loading the price", { timeout: 15_000 });
+
+    const quote = (await block.innerText()).toLowerCase();
 
     if (quote.includes("no live price is configured")) {
       expect(quote).toMatch(/stock_provider|stock_api_key/);

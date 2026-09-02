@@ -329,6 +329,7 @@
     "alreadyReached": "Zaten ulaşıldı",
     "alreadyEnoughDetail": "{current} Earned Robux'luk bakiyeniz, bu planın ihtiyaç duyduğu {needed} tutarını karşılıyor. Alt sınıra ulaşmak onay demek değildir — buna Roblox karar verir.",
     "paceHeadline": "Yaklaşık {days} sonra — {date} civarında.",
+    "paceHeadlineNoDate": "Yaklaşık {days} sonra.",
     "paceDetail": "Günde {perDay} Earned Robux ile, düzenli sürdürüldüğünde: kabaca {weeks} ya da {months}. Bu, girdiğiniz hıza göre bir öngörüdür; Roblox'un ödeme yapacağı bir tarih değildir.",
     "requiredHeadline": "Günde {perDay} Earned Robux.",
     "requiredDetail": "Bu, haftada {perWeek} ya da 30 günde {perMonth} eder. Her rakam yukarı yuvarlanır: aşağı yuvarlanmış tutarı kazanmak tarihi kaçırırdı.",

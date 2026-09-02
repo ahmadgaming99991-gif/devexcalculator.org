@@ -1529,3 +1529,90 @@ built HTML rather than by reading it:
 
 *Change if:* nothing here. A layout that renders `<head>` in the App Router is
 a defect, and the test says so.
+
+---
+
+## D-051 · Nothing renders per request any more
+
+*2026-09-02. The closeout of the work D-048 started.*
+
+D-048 took `/` and `/devex-fees-and-taxes/` off the request path because the
+homepage had crossed the plan's CPU allowance and production was answering
+`error 1102`. It left four routes rendering per request, with the cost measured
+and written down: **564–1007 ms of CPU on a cold request**, against 12–31 ms
+for the prerendered pages beside them. They were surviving on low traffic,
+which is not a property anybody controls — the homepage had been surviving on
+it too, until five more locales made each render more expensive.
+
+All four are now prerendered, in all seven locales. The build reports **36 of
+36 indexable routes prerendered, 0 rendering per request**.
+
+### The three calculator routes
+
+`/conversions/`, `/robux-to-usd/` and `/usd-to-robux/` were dynamic for the
+same single reason as the homepage: they read the shared calculator link from
+the server's `searchParams`. Same fix — the island reads it in the browser,
+where it already owns the address bar.
+
+`/usd-to-robux/` carried one thing the others did not, and it is why it had
+been excluded from edge caching as well: the planner renders a *projected*
+date, "around 6 March 2027", computed as `startDate + days`. Before hydration
+`startDate` is the server's day, and prerendered that is the **build's** day —
+a date that drifts further from the truth every day the build sits there. A
+cached copy was already rejected for this reason; prerendering would have been
+worse.
+
+The fix is not to hide the projection but to say only the part that is true.
+The number of days does not depend on the start date, so it is stated;
+`paceHeadlineNoDate` is the same sentence with its second clause removed, and
+the date joins it in the same commit the reader's own day does. Seven short
+strings, each the first clause of the one already beside it — no new
+translation judgement.
+
+`EXCLUDED_FOR_RENDERING_A_DATE` is now empty, and kept as the place to record
+the next page that renders something it cannot cache.
+
+### `/platform/stock/`
+
+This one exported `revalidate = 0` with a reason that was right about the
+figure and wrong about the page: *"this page reports live figures; baked at
+build time it would report a state from whenever the build ran"*. True of the
+share price. Not true of the other 99% — a fixed explanation of where the price
+comes from, what the quarterly results say, and why no third-party price widget
+is embedded.
+
+So the figure moves and the page does not. `/api/stock/` reads the quote — a
+route handler, which is not a page render — and a small island asks this site
+for it. Exactly the shape `/platform/` already uses for its charts, and for
+exactly the same reason.
+
+What is preserved, deliberately:
+
+- **The provider key never reaches a browser.** The provider call still happens
+  on this side, which is why the browser asks this site rather than the
+  provider. `via {providerName}, fetched server-side` is still a true sentence.
+- **Every state.** `ok`, `last-known`, `unavailable`, `unconfigured` — the same
+  `QuoteState` union, rendered by the same markup. Nothing is invented when the
+  provider is silent, and a `last-known` quote still carries the timestamp it
+  was taken at and the reason a newer one was refused.
+- **No third-party embed.** Still one origin, still no iframe.
+
+What is new: a loading state, which says what has not arrived rather than
+leaving a gap, and a `<noscript>` that tells a reader without JavaScript that
+the price needs it and that everything else on the page does not. A failed
+request maps onto `unavailable` with the status code as its reason, so a reader
+is told what happened instead of watching a spinner.
+
+### Guards
+
+`npm run validate:static-routes` now asserts **42 documents** — six routes
+across seven locales — against the prerender manifest, and
+`check-worker-size.ts` holds an empty `DYNAMIC_ROUTES` set, so a route arriving
+back on the request path has to be added deliberately with a reason beside it.
+Source-level tests forbid `searchParams`, request-scoped APIs and
+`dynamic`/`revalidate` exports on all twelve route files, and assert the stock
+view reads no quote while rendering.
+
+*Change if:* a route genuinely needs per-request state that cannot be read in
+the browser. Add it to `DYNAMIC_ROUTES` with the measurement beside it, not
+silently.

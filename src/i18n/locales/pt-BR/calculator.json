@@ -330,6 +330,7 @@
     "alreadyReached": "Já alcançado",
     "alreadyEnoughDetail": "Seu saldo de {current} Earned Robux cobre os {needed} que este plano precisa. Atingir o mínimo não é aprovação — quem decide isso é o Roblox.",
     "paceHeadline": "Cerca de {days} de distância — por volta de {date}.",
+    "paceHeadlineNoDate": "Cerca de {days} de distância.",
     "paceDetail": "A {perDay} Earned Robux por dia, mantidos de forma constante: aproximadamente {weeks}, ou {months}. Isto é uma projeção no ritmo que você informou, não uma data em que o Roblox vá pagar.",
     "requiredHeadline": "{perDay} Earned Robux por dia.",
     "requiredDetail": "Isso dá {perWeek} por semana, ou {perMonth} ao longo de 30 dias. Cada número é arredondado para cima: ganhar o valor arredondado para baixo perderia a data.",

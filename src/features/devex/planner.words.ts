@@ -50,6 +50,7 @@ export const PLANNER_WORDS: readonly string[] = [
   "calculator.planner.notAtThisPace",
   "calculator.planner.paceDetail",
   "calculator.planner.paceHeadline",
+  "calculator.planner.paceHeadlineNoDate",
   "calculator.planner.paceHint",
   "calculator.planner.pacePeriod.day",
   "calculator.planner.pacePeriod.month",

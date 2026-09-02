@@ -9,6 +9,7 @@ export function generateMetadata(): Promise<Metadata> {
   return buildLocalizedMetadata(DEFAULT_LOCALE, ROUTE, { inheritImage: true });
 }
 
-export default function Page(props: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
-  return <UsdToRobuxView locale={DEFAULT_LOCALE} searchParams={props.searchParams} />;
+/* No `searchParams`, so this route prerenders. See src/app/(en)/page.tsx. */
+export default function Page() {
+  return <UsdToRobuxView locale={DEFAULT_LOCALE} />;
 }

@@ -226,7 +226,11 @@
       "onlyConfiguration": "Sayfa bir sağlayıcı için zaten hazır. Eksik olan yalnızca yapılandırma: {missing}. Aşağıda bildirilen sonuçlar, bir hisse fiyatının tepki verdiği şeydir ve her hâlükârda yayımlanır."
     },
     "andSeparator": " ve ",
-    "quoteHeading": "{symbol} hisse fiyatı"
+    "quoteHeading": "{symbol} hisse fiyatı",
+    "loadingTitle": "Fiyat yükleniyor",
+    "loadingBody": "Fiyat, sayfa yüklendikten sonra sağlayıcıdan doğrudan değil, bu sitenin kendi uç noktasından alınır.",
+    "noScriptTitle": "Fiyat için JavaScript gerekir",
+    "noScriptBody": "Fiyat, sayfa yüklendikten sonra alınır. JavaScript kapalıyken görünmez. Bu sayfadaki diğer her şey — rakamın nereden geldiği, ne zaman alındığı ve ne anlama gelmediği — aşağıdadır."
   },
   "stats": {
     "intro": "Roblox'un içerik üreticilerine gerçekte ne ödediği; SEC'e verdiği kendi bildirimlerinden alındı. Aşağıdaki her rakam, geldiği belgeye bağlantı verir.",

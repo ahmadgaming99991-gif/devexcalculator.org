@@ -393,7 +393,11 @@ export function Planner({ words }: { readonly words: LocaleWords }) {
 
         {/* The answer the planner exists to give. */}
         <div className="mt-6 rounded-(--radius-card) bg-(--color-surface-subtle) p-5">
-          {mode === "pace" ? <PaceOutcome plan={plan} t={t} /> : <DeadlineOutcome plan={plan} t={t} />}
+          {mode === "pace" ? (
+            <PaceOutcome plan={plan} t={t} knowsReaderDay={knowsReaderDay} />
+          ) : (
+            <DeadlineOutcome plan={plan} t={t} />
+          )}
         </div>
 
         {(payout.feesApplied || payout.taxApplied) && (
@@ -535,9 +539,20 @@ function months(t: Translate, count: number): string {
 function PaceOutcome({
   plan,
   t,
+  knowsReaderDay,
 }: {
   plan: ReturnType<typeof planEarnings>;
   readonly t: Translate;
+  /**
+   * Whether the reader's own calendar is known yet.
+   *
+   * The projected date is `startDate + days`, and before hydration
+   * `startDate` is the *build's* day — this page is prerendered. The number of
+   * days does not depend on the start, so it is true either way; the date is
+   * not, and a date that is weeks out is worse than no date. It appears in the
+   * same commit the reader's day does.
+   */
+  readonly knowsReaderDay: boolean;
 }) {
   const { projected, requirement, suppliedPerDayRobux } = plan;
 
@@ -565,10 +580,14 @@ function PaceOutcome({
 
   return (
     <Outcome
-      headline={t("calculator.planner.paceHeadline", {
-        days: days(t, projected.days),
-        date: formatPlanDate(projected.date),
-      })}
+      headline={
+        knowsReaderDay
+          ? t("calculator.planner.paceHeadline", {
+              days: days(t, projected.days),
+              date: formatPlanDate(projected.date),
+            })
+          : t("calculator.planner.paceHeadlineNoDate", { days: days(t, projected.days) })
+      }
       detail={t("calculator.planner.paceDetail", {
         perDay: formatRobux(t.locale, suppliedPerDayRobux ?? 0n),
         weeks: weeks(t, projected.weeks),

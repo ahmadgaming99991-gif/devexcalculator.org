@@ -322,6 +322,7 @@
     "alreadyReached": "Already reached",
     "alreadyEnoughDetail": "Your balance of {current} Earned Robux covers the {needed} this plan needs. Meeting the minimum is not approval — Roblox decides that.",
     "paceHeadline": "About {days} away — around {date}.",
+    "paceHeadlineNoDate": "About {days} away.",
     "paceDetail": "At {perDay} Earned Robux a day, kept up steadily: roughly {weeks}, or {months}. This is a projection at the pace you entered, not a date Roblox will pay on.",
     "requiredHeadline": "{perDay} Earned Robux a day.",
     "requiredDetail": "That is {perWeek} a week, or {perMonth} over 30 days. Each figure is rounded up: earning the rounded-down amount would miss the date.",

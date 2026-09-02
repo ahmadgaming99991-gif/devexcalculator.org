@@ -25,8 +25,24 @@ import { readFileSync } from "node:fs";
 import { publicLocales } from "../../src/i18n/visibility";
 import { localizedPath } from "../../src/i18n/locale-path";
 
-/** Routes whose every published localisation must be a prerendered document. */
-const MUST_BE_STATIC: readonly string[] = ["/", "/devex-fees-and-taxes/"];
+/**
+ * Routes whose every published localisation must be a prerendered document.
+ *
+ * The first two came off the request path on 2026-09-02, when the homepage
+ * render crossed the plan's CPU allowance. The other four followed the same
+ * afternoon, measured rather than assumed: `/robux-to-usd/` cost 564–1007 ms
+ * of CPU per cold request and `/platform/stock/` 884 ms, on a Worker where the
+ * prerendered pages beside them cost 12–31 ms. They were surviving on low
+ * traffic, which is not a property anyone controls.
+ */
+const MUST_BE_STATIC: readonly string[] = [
+  "/",
+  "/devex-fees-and-taxes/",
+  "/conversions/",
+  "/robux-to-usd/",
+  "/usd-to-robux/",
+  "/platform/stock/",
+];
 
 const MANIFEST = ".next/prerender-manifest.json";
 

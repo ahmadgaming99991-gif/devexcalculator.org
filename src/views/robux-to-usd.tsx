@@ -8,7 +8,7 @@ import { JsonLd } from "@/components/seo/json-ld";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { Calculator } from "@/features/devex/calculator";
 import { CALCULATOR_WORDS } from "@/features/devex/calculator.words";
-import { parseCalculatorState } from "@/features/devex/url-state";
+import { defaultState } from "@/features/devex/url-state";
 import { Callout, Container, InlineLink, Section, SourceLink, Table, TableWrapper, Td, Th } from "@/components/ui";
 import {
   EstimateDisclaimer,
@@ -26,16 +26,9 @@ import { minimumEarnedRobux } from "@/lib/calculations/rate-registry";
 const ROUTE = "/robux-to-usd/";
 
 
-export async function RobuxToUsdView({
-  locale,
-  searchParams,
-}: {
-  readonly locale: Locale;
-  searchParams: Promise<Record<string, string | string[] | undefined>>;
-}) {
+export async function RobuxToUsdView({ locale }: { readonly locale: Locale }) {
   const t = await getTranslator(locale, ["rates"]);
   const record = await localizedRoute(locale, ROUTE);
-  const initialState = parseCalculatorState(await searchParams);
 
   return (
     <>
@@ -52,7 +45,7 @@ export async function RobuxToUsdView({
             {record.quickAnswer}
           </QuickAnswer>
 
-          <Calculator locale={locale} words={await loadWords(locale, CALCULATOR_WORDS)} initialState={initialState} pathname={localizedPath(locale, ROUTE)} lockedMode="quick" />
+          <Calculator locale={locale} words={await loadWords(locale, CALCULATOR_WORDS)} initialState={defaultState} pathname={localizedPath(locale, ROUTE)} lockedMode="quick" />
 
           <TableOfContents locale={locale} sections={record.sections} />
 

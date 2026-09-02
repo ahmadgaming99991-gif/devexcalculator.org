@@ -335,6 +335,7 @@
     "alreadyReached": "Sudah tercapai",
     "alreadyEnoughDetail": "Saldo Anda sebesar {current} Earned Robux menutupi {needed} yang dibutuhkan rencana ini. Mencapai batas minimum bukan berarti disetujui — Roblox yang memutuskan itu.",
     "paceHeadline": "Sekitar {days} lagi — kira-kira {date}.",
+    "paceHeadlineNoDate": "Sekitar {days} lagi.",
     "paceDetail": "Dengan {perDay} Earned Robux per hari secara konsisten: kira-kira {weeks}, atau {months}. Ini proyeksi pada laju yang Anda masukkan, bukan tanggal Roblox akan membayar.",
     "requiredHeadline": "{perDay} Earned Robux per hari.",
     "requiredDetail": "Itu berarti {perWeek} per minggu, atau {perMonth} selama 30 hari. Setiap angka dibulatkan ke atas: menghasilkan angka yang dibulatkan ke bawah akan melewatkan tanggalnya.",

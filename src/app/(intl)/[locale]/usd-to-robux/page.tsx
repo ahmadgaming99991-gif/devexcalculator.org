@@ -14,8 +14,9 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   return buildLocalizedMetadata(locale, ROUTE, { inheritImage: true });
 }
 
-export default async function Page({ params, searchParams }: Params & { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
+/* No `searchParams`, so this route prerenders. See src/app/(en)/page.tsx. */
+export default async function Page({ params }: Params) {
   const locale = resolveRenderableLocale((await params).locale);
   if (!locale) notFound();
-  return <UsdToRobuxView locale={locale} searchParams={searchParams} />;
+  return <UsdToRobuxView locale={locale} />;
 }
