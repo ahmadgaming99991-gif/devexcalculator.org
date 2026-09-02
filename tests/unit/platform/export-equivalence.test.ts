@@ -177,7 +177,34 @@ describe("per-experience export equivalence", () => {
     expect(rows.filter((row) => row.universe_id === "111")).toHaveLength(2);
   });
 
-  it("falls back to the same name v1 uses when the roster no longer lists it", async () => {
+  it("names an experience the roster no longer lists from the archive", async () => {
+    // The roster holds what Roblox ranks now; the history behind it covers
+    // everything ranked in the last seven days. Reading names from the roster
+    // alone left a third of the export's rows labelled `Experience <id>`.
+    const history = await v2GameHistory(
+      storeOf({
+        "platform:v2:live": { ...LIVE, experiences: {} },
+        "platform:v2:names": { schema: 2, names: { "111": "One" } },
+        [shardKey(0)]: { schema: 2, shard: 0, day: DAY, at: [T(1)], p: { "111": [10] } },
+      }),
+      T(1),
+    );
+    expect(platformExperienceRows(history)[0]?.experience).toBe("One");
+  });
+
+  it("prefers the roster's current name over the archived one", async () => {
+    const history = await v2GameHistory(
+      storeOf({
+        "platform:v2:live": LIVE,
+        "platform:v2:names": { schema: 2, names: { "111": "Its Older Name" } },
+        [shardKey(0)]: { schema: 2, shard: 0, day: DAY, at: [T(1)], p: { "111": [10] } },
+      }),
+      T(1),
+    );
+    expect(platformExperienceRows(history)[0]?.experience).toBe("One");
+  });
+
+  it("falls back to the same name v1 uses when neither source knows it", async () => {
     const history = await v2GameHistory(
       storeOf({
         "platform:v2:live": { ...LIVE, experiences: {} },
@@ -185,8 +212,7 @@ describe("per-experience export equivalence", () => {
       }),
       T(1),
     );
-    const rows = platformExperienceRows(history);
-    expect(rows[0]?.experience).toBe("Experience 111");
+    expect(platformExperienceRows(history)[0]?.experience).toBe("Experience 111");
   });
 
   it("keeps the published column list and order", () => {

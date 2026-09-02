@@ -226,7 +226,69 @@ nothing ran is an hour that stays empty, because nothing here back-fills.
 - **`/platform/stock/` stays dynamic.** It renders a market quote from a
   provider behind a server-side API key, which cannot move to a public data
   plane. Its CPU profile was never the problem.
-- **The v1 history is not migrated.** The two collectors record different
-  shapes at different cadences, and copying one into the other would produce a
-  series that is partly one measurement and partly another, drawn as one line.
-  v2's charts start from v2's own first observation and say so.
+
+## Stage 5 — the migration that was performed
+
+This section replaces an earlier note saying the v1 history would not be
+migrated. It was migrated, on 2026-09-02, through the Cloudflare control plane
+— no Worker CPU, no Roblox request, no site request. What changed the answer
+was finding out which v1 value is actually comparable to v2.
+
+### `series` is not the platform total
+
+v1's `series` is the **sum of one sort's ten rows**. Every sampled observation
+across the full fourteen days reads `sortName: "Top Trending"`, `experiences:
+10`. v2's total is the deduplicated sum across every ranking — around 260
+experiences. At the ten instants where both systems stamped the same second the
+ratio runs **2.33 to 3.42 and drifts**, so it is not a convertible unit.
+Splicing `series` in front of v2 would have drawn a threefold cliff at the seam
+and presented it as platform growth. It was not used.
+
+### `games` is comparable, and was
+
+v1's `games` value holds hourly **per-experience** observations — the same
+quantity v2 stores. Checked directly: of 124 aligned `(experience, instant)`
+pairs, **83 are identical** and the rest differ by fractions of a percent, the
+two systems reading the same counter seconds apart.
+
+Totals were therefore reconstructed the way v2 builds its own — by summing the
+per-experience observations at each instant. Against the independent
+pre-boundary capture that reproduces the real total to **within 0.1% at 13 of
+14 instants** (the outlier, 1.024, is an hour when the roster moved 218 → 261
+mid-sample).
+
+### The seam is a time, not a comparison
+
+v1 sampled at `:00:50` and v2 at `:00:12`. Matching timestamps exactly would
+have kept both and put two points where one thing was observed once. The seam
+is **2026-09-01T10:00:12Z**, v2's first observation: everything from v1
+strictly before it, nothing from v1 after. 25 of 162 v1 instants were dropped
+on that rule, and zero collisions remained.
+
+### What was written
+
+35 keys — 7 totals days and 28 history shards — 320,136 bytes, each read back
+and checked for schema, day, count, chronological order, unique instants, and
+that every point falls inside the day whose key holds it. 2026-09-01 was
+recovered as **66 points** (10 reconstructed before the seam, 56 real v2
+observations after it).
+
+No interpolation, no carry-forward, no synthesised points. A gap in v1's
+sampling is still a gap.
+
+### The span this leaves
+
+**6.28 days**, not 14. `games` retains 7 days, and the only fourteen-day value
+in v1 is the top-ten metric that is not the same measurement. A truthful
+fourteen-day totals history at v2 semantics did not exist to migrate. The
+window fills on its own by **2026-09-09**.
+
+### v1's state
+
+Collection is **paused, not deleted**: the site Worker's Cron Trigger is
+removed and every v1 key is intact and readable. A final manifest was captured
+first — 1,172 keys, 1,166 observations spanning 2026-08-19T10:15Z to
+2026-09-02T10:00Z.
+
+The keys carry a 14-day TTL from their last write, so they expire on their own
+by **2026-09-16**. Review then and delete nothing before it.

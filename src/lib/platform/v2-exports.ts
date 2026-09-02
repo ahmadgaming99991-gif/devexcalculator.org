@@ -138,10 +138,12 @@ export async function v2TotalsSeries(store: V2Store, now = Date.now()): Promise<
  * there — never a carried-forward value, which would invent an observation.
  *
  * Names need one note. v1 stored a name beside every series; v2's history
- * buckets store ids only, so names come from the live roster. An experience
- * Roblox has since stopped ranking therefore has no name here — and falls back
- * to `Experience <id>`, which is exactly what `everyGameSeries` already does
- * for a v1 series whose name was missing. The public column is unchanged.
+ * buckets store ids only. Names therefore come from the live roster, and from
+ * `platform:v2:names` for experiences Roblox has since stopped ranking — the
+ * roster holds ~270 ids against history covering 530-odd. An id neither knows
+ * still falls back to `Experience <id>`, which is exactly what
+ * `everyGameSeries` already does for a v1 series whose name was missing. The
+ * public column is unchanged.
  */
 export async function v2GameHistory(store: V2Store, now = Date.now()): Promise<GameHistory> {
   const days = dayKeys(now, GAME_HISTORY_DAYS);
@@ -177,7 +179,28 @@ export async function v2GameHistory(store: V2Store, now = Date.now()): Promise<G
   }
 
   const ordered = [...instants].sort((a, b) => a - b);
+
+  /*
+   * Names come from the live roster first, then from the archive.
+   *
+   * The roster only lists what Roblox is ranking right now - about 270
+   * experiences - while the history behind it covers every experience ranked
+   * in the last seven days, upward of 530. Reading names from the roster alone
+   * left 30% of the export's rows labelled `Experience 6682487255`: the
+   * observations were right, but a third of them stopped saying what they were
+   * observations of.
+   *
+   * `platform:v2:names` is the archive, written once by the migration from the
+   * names v1 had recorded. The roster still wins where both have an id, so a
+   * renamed experience shows its current name rather than a remembered one.
+   */
+  const archived = await read(store, "platform:v2:names");
   const names: Record<string, string> = {};
+  if (archived && isObject(archived.names)) {
+    for (const [id, name] of Object.entries(archived.names)) {
+      if (typeof name === "string" && name !== "") names[id] = name;
+    }
+  }
   const roster = live && isObject(live.experiences) ? live.experiences : {};
   for (const [id, row] of Object.entries(roster)) {
     if (isObject(row) && typeof row.n === "string") names[id] = row.n;
