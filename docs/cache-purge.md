@@ -104,19 +104,52 @@ The API accepts the purge — `success: true`, where it previously answered
 `/devex-rates/`: a successful purge, then eleven requests over sixty seconds,
 every one a `HIT` with `Age` climbing 520 -> 557 on the same cached object.
 
-`"cache": { "enabled": true }` in `wrangler.jsonc` puts a Cloudflare cache in
-front of the Worker, and its key is not the plain URL, so a purge addressed to
-the URL matches nothing. The same property explains why `www` serves 200 on a
-hit rather than redirecting — the key does not carry the host either — and why
-a cached 301 took the homepage down on 2026-09-02.
+The first explanation written here was wrong, and is corrected rather than
+quietly replaced: it said the cache key omits the URL and the host. Measured
+since, that is not true. `/sources/` on the apex and on `www` are two separate
+objects — `Age: 1` against `Age: 1146` at the same moment — so the key does
+carry the host.
+
+What is actually in front is **Workers Assets**. A request matching an uploaded
+static file is answered by the assets binding without the Worker running at
+all. Every page here is prerendered, so every page is such a file. Measured on
+`www`:
+
+| Path on `www` | Result |
+| --- | --- |
+| `/sources/` (a prerendered file) | `200`, `HIT` — Worker never runs |
+| `/api/health/` (no such file) | `301` to the apex, `BYPASS` |
+| `/no-such-page-xyz/` (no such file) | `301` to the apex, `BYPASS` |
+
+That one mechanism accounts for both symptoms. `redirectToCanonicalHost` lives
+in the Worker, so it cannot fire for any real page on `www` — the assets
+binding has already answered. And a zone purge addresses the zone cache, which
+is not the cache the assets binding is serving from, so the purge succeeds and
+evicts nothing.
+
+Measured twice, on two URLs, after a `success: true` purge:
+
+- `/devex-rates/` — eleven requests over sixty seconds, all `HIT`, `Age` 520 -> 557
+- `/robux-to-usd/` — eight requests, all `HIT`, `Age` 952 -> 955
+
+The 2026-09-02 outage is a separate matter and is not evidence for any of this;
+that was a `301` with `max-age=3600` on a response that should never have been
+cacheable, and it was fixed by making the redirect `no-store`.
 
 So `s-maxage=3600` is still what bounds staleness in practice, and the hour in
 the table above is the real number rather than a ceiling a purge cuts short.
 `npm run purge:cache` is kept and kept running: the call is correct, it costs
 nothing, and it begins working the moment the cache key is addressable.
 
-Making it work needs a cache rule that fixes the key. That is a permission the
-deploy token does not hold and a caching change to be proposed, not made.
+A cache rule does not fix this — there is nothing wrong with the cache key.
+The `www` half is fixed by a **Redirect Rule** in the `http_request_dynamic_redirect`
+phase, which Cloudflare evaluates before Workers and before Assets. The deploy
+token cannot read that phase today (`request is not authorized`), so it needs
+`Zone -> Config Rules` before anything can be written there. Either way it is a
+routing change to be proposed, not made.
+
+The purge half has no rule-shaped fix. What bounds staleness is `s-maxage=3600`
+on the rate-sensitive pages, and a deploy, which uploads new assets.
 
 ## The zone id
 

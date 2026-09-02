@@ -26,19 +26,25 @@
  * successful purge, then eleven requests over sixty seconds, all `HIT` with
  * `Age` climbing from 520 to 557 on the same object.
  *
- * The cause is `"cache": { "enabled": true }` in `wrangler.jsonc`, which puts
- * a Cloudflare cache in front of the Worker. Its key is not the plain URL, so
- * a purge addressed to the URL matches nothing. It is the same property behind
- * the other open oddity — `www` serving 200 on a hit, because the key does not
- * carry the host either — and the same one that turned a cached 301 into the
- * outage on 2026-09-02.
+ * The cause is **Workers Assets**, not the cache key. A request matching an
+ * uploaded static file is answered by the assets binding without the Worker
+ * running, and every page here is prerendered, so every page is such a file.
+ * A zone purge addresses the zone cache, which is not the cache answering.
  *
- * So this script is best-effort today and the hour-long `s-maxage` is still
- * what actually bounds staleness. It is kept, and kept running, because the
- * call is correct, it costs nothing, and it starts working the moment the
- * cache key is addressable. Fixing that needs a cache rule, which needs a
- * permission this token does not have and a caching change that has to be
- * proposed rather than made.
+ * The first version of this note blamed the cache key and said the same
+ * property explained `www` serving 200. That was wrong and is corrected in
+ * `docs/cache-purge.md` rather than quietly dropped: the apex and `www` hold
+ * separate objects for the same path — `Age: 1` against `Age: 1146` at one
+ * moment — so the key does carry the host. `www` serves 200 for the same
+ * reason a purge evicts nothing: the assets binding answered first, and
+ * `redirectToCanonicalHost` never ran. On `www`, a path with no matching file
+ * (`/api/health/`, `/no-such-page-xyz/`) does redirect, which is what pins it.
+ *
+ * So this script is best-effort today and the hour-long `s-maxage` is what
+ * actually bounds staleness. It is kept, and kept running, because the call is
+ * correct and costs nothing. There is no rule-shaped fix for the purge half;
+ * the `www` half wants a Redirect Rule, which runs ahead of both Workers and
+ * Assets, and is a routing change to be proposed rather than made.
  *
  * Credentials come from the environment and are never written to a file:
  *
