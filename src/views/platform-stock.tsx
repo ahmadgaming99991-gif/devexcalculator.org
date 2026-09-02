@@ -36,6 +36,27 @@ import {
   type QuoteStore,
 } from "@/lib/platform/market-data";
 
+/**
+ * The provider's own words, marked as the language they are in.
+ *
+ * `reason` is a machine diagnostic from the market-data adapter — "The
+ * provider returned HTTP 429.", a network error's message — and it is English
+ * whatever language the page is in. It used to be interpolated as a bare
+ * string, which put an untranslated English sentence inside a translated
+ * paragraph on `/pt-br/`, `/es/`, `/id/` and `/tr/`, intermittently, whenever
+ * Finnhub rate-limited the Worker's shared address.
+ *
+ * Marking it rather than hiding it: the sentence around it explains that a
+ * newer price was refused, and the reason is the evidence for that claim. A
+ * reader is entitled to it, a screen reader now pronounces it as English
+ * instead of mispronouncing it as Portuguese, and the leakage detector counts
+ * it as the deliberate English it is rather than as a translation gap.
+ */
+function ProviderReason({ reason }: { readonly reason: string }) {
+  return <span lang="en">{reason}</span>;
+}
+
+
 const ROUTE = "/platform/stock/";
 
 export async function StockView({ locale }: { readonly locale: Locale }) {
@@ -157,8 +178,8 @@ function QuoteBlock({ state,
            */
           <p className="mt-3 text-sm text-(--color-text-muted)">
             <Badge tone="warning">{t("platform.stock.notLatestBadge")}</Badge>
-              {t("platform.stock.notLatestBody", {
-                reason: state.reason,
+              {rich(t("platform.stock.notLatestBody"), {
+                reason: <ProviderReason reason={state.reason} />,
               })}
             </p>
         ) : null}
@@ -169,8 +190,8 @@ function QuoteBlock({ state,
   if (state.status === "unavailable") {
     return (
       <Callout tone="warning" title={t("platform.stock.providerSilentTitle")}>
-        {t("platform.stock.providerSilentBody", {
-          reason: state.reason,
+        {rich(t("platform.stock.providerSilentBody"), {
+          reason: <ProviderReason reason={state.reason} />,
         })}
       </Callout>
     );
