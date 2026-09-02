@@ -141,6 +141,29 @@ test.describe("localized calculator", () => {
         expect(errors, `console errors on ${meta.prefix}/`).toEqual([]);
       });
 
+      test("stays in this language when the calculator writes the URL", async ({ page }) => {
+        /*
+         * The island reflects its state in the address bar, and it was told
+         * the English route to write. On `/de/` that meant the address bar
+         * became `/` on mount and `/?robux=…` on the first keystroke: nothing
+         * navigated, because `replaceState` does not, so the page stayed in
+         * German while its own URL no longer was. The reader found out on a
+         * reload, or when the link they shared opened in English.
+         */
+        await page.goto(`${meta.prefix}/`);
+        await page.waitForLoadState("networkidle");
+        expect(new URL(page.url()).pathname, "on load").toBe(`${meta.prefix}/`);
+
+        await page.getByLabel(amountLabel(locale)).fill(asTyped(locale));
+        // The path is what is under test. The value's encoding is not: French
+        // groups with U+202F, which arrives percent-encoded.
+        await expect.poll(() => new URL(page.url()).search.startsWith("?robux=")).toBe(true);
+        expect(new URL(page.url()).pathname, "while typing").toBe(`${meta.prefix}/`);
+
+        await page.reload();
+        expect(new URL(page.url()).pathname, "after a reload").toBe(`${meta.prefix}/`);
+      });
+
       test("stays in this language when a link is followed", async ({ page }) => {
         await page.goto(`${meta.prefix}/devex-rates/`);
 

@@ -99,8 +99,8 @@ import {
  * This is what replaced the server's `searchParams`. The two pages that host
  * this component with no other dynamic input — `/` and
  * `/devex-fees-and-taxes/` — were rendering per request for that one reason,
- * and with seven published locales that render crossed the Worker's 10 ms CPU
- * limit and returned `error 1102` to readers. They are prerendered now, so the
+ * and with seven published locales the homepage render crossed the Worker's
+ * CPU allowance and returned `error 1102` to readers. They are prerendered now, so the
  * shared link is no longer read on the server. It is read here and adopted in
  * the hydration commit, which is the same mechanism the stored currency
  * preference below already uses.
@@ -115,7 +115,17 @@ const modeOptions = (t: Translate): readonly ModeOption[] => [
 
 export interface CalculatorProps {
   readonly initialState: CalculatorState;
-  /** Where the share link points; the page's own clean route. */
+  /**
+   * Where the share link points, and what the address bar is rewritten to:
+   * the page's own clean route, **in the reader's language**.
+   *
+   * It must be `localizedPath(locale, ROUTE)`, not the bare English route.
+   * Every calculator view passed `ROUTE`, so on `/de/` the effect below saw a
+   * pathname that never matched, rewrote the address bar to `/` on mount, and
+   * every share link and every keystroke afterwards pointed at the English
+   * page. A reader could not tell, because `replaceState` does not navigate —
+   * until they reloaded, or sent the link, and arrived in English.
+   */
   readonly pathname: string;
   /** Hides the mode tabs when a page only needs one mode. */
   readonly lockedMode?: CalculatorMode;

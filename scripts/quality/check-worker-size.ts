@@ -46,8 +46,8 @@ const ASSET_FILE_LIMIT_MB = 25;
  * `/` and `/devex-fees-and-taxes/` were in this list and came out of it on
  * 2026-09-02, because the cost stopped being affordable. Publishing five more
  * locales took the site to seven, every render builds the hreflang cluster and
- * language selector across all of them, and the homepage crossed the 10 ms CPU
- * limit: `wrangler tail` recorded `outcome: exceededCpu` on
+ * language selector across all of them, and the homepage crossed the plan's
+ * CPU allowance: `wrangler tail` recorded `outcome: exceededCpu` on
  * `https://devexcalculator.org/` and readers whose request missed the edge
  * cache were served `error 1102` again. The calculator island reads its own
  * shared link in the browser now and both routes are prerendered in all seven

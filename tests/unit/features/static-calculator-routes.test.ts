@@ -6,8 +6,8 @@ import { describe, expect, it } from "vitest";
  *
  * `/` and `/devex-fees-and-taxes/` read the shared calculator link from the
  * server's `searchParams`, and that alone made both documents a request-time
- * render in all seven published locales. On the Workers Free plan such a
- * render gets 10 ms of CPU. On 2026-09-02 it stopped fitting: `wrangler tail`
+ * render in all seven published locales. On 2026-09-02 the homepage render
+ * stopped fitting the Workers Free plan's CPU allowance: `wrangler tail`
  * recorded `outcome: exceededCpu` on `https://devexcalculator.org/`, and every
  * reader whose request missed the edge cache was served `error 1102`.
  *
@@ -124,4 +124,34 @@ describe("the island reads the shared link itself", () => {
       "const modeChanged = stateOverride !== null && previousMode.current !== mode;",
     );
   });
+});
+
+describe("the calculator is told its own localized path", () => {
+  /**
+   * `pathname` is what the island rewrites the address bar to and what a share
+   * link is built from. Every view passed the bare English `ROUTE`, so on any
+   * prefixed locale the URL-sync effect compared `/de/` against `/`, never
+   * matched, and rewrote the address bar to the English path on mount. Nothing
+   * navigated, because `replaceState` does not — the reader only found out on
+   * a reload, or when the person they sent the link to opened it in English.
+   *
+   * Found on production while verifying the prerender change, on `/de/`, where
+   * `?target=1000` became `/?target=1000` before the page had finished
+   * settling. It predates that change and affects all five calculator views.
+   */
+  const VIEWS_WITH_A_CALCULATOR = [
+    "src/views/home.tsx",
+    "src/views/devex-fees-and-taxes.tsx",
+    "src/views/conversions.tsx",
+    "src/views/robux-to-usd.tsx",
+    "src/views/usd-to-robux.tsx",
+  ];
+
+  for (const path of VIEWS_WITH_A_CALCULATOR) {
+    it(`${path} passes the localized route, not the English one`, () => {
+      const source = code(path);
+      expect(source).toContain("pathname={localizedPath(locale, ROUTE)}");
+      expect(source).not.toContain("pathname={ROUTE}");
+    });
+  }
 });

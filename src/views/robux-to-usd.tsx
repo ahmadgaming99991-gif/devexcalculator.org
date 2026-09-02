@@ -52,7 +52,7 @@ export async function RobuxToUsdView({
             {record.quickAnswer}
           </QuickAnswer>
 
-          <Calculator locale={locale} words={await loadWords(locale, CALCULATOR_WORDS)} initialState={initialState} pathname={ROUTE} lockedMode="quick" />
+          <Calculator locale={locale} words={await loadWords(locale, CALCULATOR_WORDS)} initialState={initialState} pathname={localizedPath(locale, ROUTE)} lockedMode="quick" />
 
           <TableOfContents locale={locale} sections={record.sections} />
 

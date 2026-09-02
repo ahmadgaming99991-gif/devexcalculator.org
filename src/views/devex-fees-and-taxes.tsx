@@ -134,7 +134,7 @@ export async function FeesAndTaxesView({ locale }: { readonly locale: Locale }) 
                     heading={t("rates.feesAndTaxes.modelHeading")}
                     description={t("rates.feesAndTaxes.modelDescription")}
                   >
-                    <Calculator locale={locale} words={await loadWords(locale, CALCULATOR_WORDS)} initialState={defaultState} pathname={ROUTE} lockedMode="quick" showHistory={false} />
+                    <Calculator locale={locale} words={await loadWords(locale, CALCULATOR_WORDS)} initialState={defaultState} pathname={localizedPath(locale, ROUTE)} lockedMode="quick" showHistory={false} />
                   </Section>
         
                   <Section

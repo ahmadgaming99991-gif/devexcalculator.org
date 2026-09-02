@@ -76,7 +76,7 @@ export async function UsdToRobuxView({
             {record.quickAnswer}
           </QuickAnswer>
 
-          <Calculator locale={locale} words={await loadWords(locale, CALCULATOR_WORDS)} initialState={initialState} pathname={ROUTE} lockedMode="target" />
+          <Calculator locale={locale} words={await loadWords(locale, CALCULATOR_WORDS)} initialState={initialState} pathname={localizedPath(locale, ROUTE)} lockedMode="target" />
 
           <TableOfContents locale={locale} sections={record.sections} />
 

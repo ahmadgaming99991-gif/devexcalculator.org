@@ -154,10 +154,9 @@ test.describe("shareable state", () => {
    * This used to assert the opposite: that "380.00" was already in the server
    * response. It was, because the page read the query string on the server —
    * and that one dependency made the whole document a request-time render in
-   * every published locale. On the Workers Free plan that render is capped at
-   * 10 ms of CPU, and on 2026-09-02 it stopped fitting: production served
-   * `error 1102` on this URL whenever the edge cache did not cover the
-   * request. A document nobody can open is worse than one that computes a
+   * every published locale. On 2026-09-02 that render stopped fitting the
+   * Workers Free plan's CPU allowance: production served `error 1102` on this
+   * URL whenever the edge cache did not cover the request. A document nobody can open is worse than one that computes a
    * moment after it paints.
    *
    * So the contract moved rather than weakened. The document is prerendered

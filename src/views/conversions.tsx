@@ -56,7 +56,7 @@ export async function ConversionsView({
           >
             <Calculator locale={locale} words={await loadWords(locale, CALCULATOR_WORDS)}
               initialState={initialState}
-              pathname={ROUTE}
+              pathname={localizedPath(locale, ROUTE)}
               lockedMode="quick"
               showHistory={false}
             />

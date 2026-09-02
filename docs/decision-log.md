@@ -1313,9 +1313,8 @@ then correcting itself.
 
 **What changed underneath it.** Publishing five locales took the site from two
 public languages to seven. Every render of these pages builds an hreflang
-cluster, a language selector and a set of alternates across all of them. On the
-Workers Free plan a request-time render gets 10 ms of CPU, and it stopped
-fitting.
+cluster, a language selector and a set of alternates across all of them, and
+the homepage render stopped fitting the Workers Free plan's CPU allowance.
 
 **How that was established, and how it was nearly missed.** A 252-URL sweep of
 the production sitemap passed 252/252, because `s-maxage=600` with
@@ -1335,13 +1334,24 @@ every fifteen seconds — returned `503` on six of eight requests for `/`.
 Analytics agreed and dated it: `exceededResources` was **0** for every hour
 from 2026-09-01T14:00Z to 2026-09-02T11:00Z, at 10–35 requests an hour — a rate
 at which nearly every request was a cold render. Successful-invocation
-`cpuTimeP50` afterwards was 10,068 µs, sitting on the limit.
+`cpuTimeP50` afterwards was 10,068 µs.
+
+**What the 10 ms figure is and is not.** It is the Free plan's per-invocation
+allowance, and it is not a cliff every request falls off. Measured after the
+fix, on the same Worker: `/robux-to-usd/` is still a request-time render, cost
+**767 ms** of CPU on a cold request, and returned `ok`. So a single expensive
+render is not killed on sight. What was being killed was the *homepage*, which
+is the most-requested page on the site and therefore the one holding the script
+over budget continuously. This decision does not claim to have established
+Cloudflare's enforcement rule; it records that the route which crossed into
+sustained overage was the highest-traffic render, and that moving it off the
+request path stopped the errors.
 
 **What was rejected.** A larger `s-maxage` is not a fix: cached, the page is
 fast until the entry expires, and then one reader pays the render and receives
-the error instead. The Workers Paid plan would have raised the limit to 30 s
-and was declined — the render did not need to exist. Reducing the published
-locales was never on the table; the languages are the point.
+the error instead. The Workers Paid plan was declined — the render did not need
+to exist. Reducing the published locales was never on the table; the languages
+are the point.
 
 **What was done.** The server no longer reads the query string on these two
 routes. The calculator island — which already owns the address bar, already
@@ -1374,8 +1384,69 @@ byte-identical to the HTML for `/` — the property itself, rather than the
 absence of some figure, because "380.00" is also a row of the popular-amounts
 table and an assertion that passes for the wrong reason is worse than none.
 
-*Change if:* the site moves to a plan without a 10 ms CPU limit **and** a
-server-rendered shared link becomes worth the request-time cost again. Note
-that `/conversions/`, `/robux-to-usd/` and `/usd-to-robux/` are still dynamic
-for the same `searchParams` reason and have not needed this; they are lower
-traffic, and the fix is known if they ever do.
+**Measured afterwards, on the deployed Worker.** Cold requests, cache bypassed
+with a query string, `wrangler tail` reading CPU per invocation:
+
+| route | | CPU |
+| --- | --- | --- |
+| `/about/` | long prerendered | 14 ms |
+| `/sources/` | long prerendered | 21 ms |
+| `/devex-fees-and-taxes/` | **converted** | 12 ms |
+| `/` | **converted** | 25 ms |
+| `/id/` | **converted** | 27 ms |
+| `/robux-to-usd/` | still a request-time render | **767 ms** |
+
+The two converted routes now sit in the same band as documents that have been
+prerendered since the site was built, and thirty times below the one route
+still rendering. That is the check worth repeating: not "did the error stop",
+which a cache can fake, but "does this request still reach the renderer".
+
+*Change if:* the site moves to a plan with a materially larger CPU allowance
+**and** a server-rendered shared link becomes worth the request-time cost
+again. Note that `/conversions/`, `/robux-to-usd/` and `/usd-to-robux/` are
+still dynamic for the same `searchParams` reason and have not needed this; they
+are far lower traffic, and the fix is known if they ever do.
+
+---
+
+## D-049 · The calculator was writing the English path into every language
+
+*2026-09-02. Found while verifying D-048 against production, not caused by it.*
+
+Every view that hosts the calculator passed `pathname={ROUTE}` — the bare
+English route — to the island. `pathname` is two things at once: what the
+address bar is rewritten to as the reader types, and what a share link is built
+from. On a prefixed locale it was wrong for both.
+
+On `/de/` the URL-sync effect compared `/de/` against `/`, never matched, and
+called `replaceState("/")` on mount. Typing produced
+`https://devexcalculator.org/?robux=100000`. Nothing navigated, because
+`replaceState` does not, so the page stayed in German while its own URL no
+longer was — and the reader found out on a reload, or when the person they sent
+the link to opened it in English. Verified on production before the fix:
+
+```
+goto  https://devexcalculator.org/de/       →  address bar reads  /
+type  100000                                →  address bar reads  /?robux=100000
+```
+
+It affected all five calculator views — `/`, `/devex-fees-and-taxes/`,
+`/conversions/`, `/robux-to-usd/`, `/usd-to-robux/` — in all six prefixed
+locales, and it predates the prerender change: `pathname={ROUTE}` is there at
+`71405b8` and in every earlier revision of these views.
+
+**Why it survived.** The localisation tests that exist ask whether *links* stay
+in the language — `a[href^='/']` scanned for a stray prefix. This URL is not a
+link. It is written by an effect after the page has loaded, so nothing in the
+markup was ever wrong and every existing check passed.
+
+**Fixed** by passing `localizedPath(locale, ROUTE)`, which is what the rest of
+each view already uses for every href on the page.
+
+**Guards.** A per-locale E2E test loads `<prefix>/`, types, and asserts the
+pathname is still `<prefix>/` on load, while typing and after a reload —
+negative-tested by restoring `pathname={ROUTE}` in one view, which fails it in
+all six locales. A source test asserts all five views pass the localized form.
+
+*Change if:* nothing foreseeable. A view that hosts the calculator and passes
+anything other than `localizedPath(locale, ROUTE)` is a defect.

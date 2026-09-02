@@ -44,7 +44,7 @@ export async function HomeView({ locale }: { readonly locale: Locale }) {
         />
 
         <div className="flex flex-col gap-10">
-          <Calculator locale={locale} words={await loadWords(locale, CALCULATOR_WORDS)} initialState={defaultState} pathname={ROUTE} />
+          <Calculator locale={locale} words={await loadWords(locale, CALCULATOR_WORDS)} initialState={defaultState} pathname={localizedPath(locale, ROUTE)} />
 
           <QuickAnswer locale={locale} jumpTo="how-it-works" jumpLabel={t("calculator.home.jumpLabel")}>
             {record.quickAnswer}

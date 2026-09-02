@@ -9,11 +9,11 @@
  *
  * Why these routes specifically. `/` and `/devex-fees-and-taxes/` host the
  * calculator, and they read the shared link from `searchParams` on the server,
- * which made both documents dynamic in all seven published locales. On the
- * Workers Free plan a request-time render is bounded by 10 ms of CPU. On
- * 2026-09-02 that render stopped fitting: `wrangler tail` recorded
- * `outcome: exceededCpu` on `https://devexcalculator.org/`, and readers whose
- * request was not covered by the edge cache were served `error 1102`.
+ * which made both documents dynamic in all seven published locales. On
+ * 2026-09-02 the homepage render stopped fitting the Workers Free plan's CPU
+ * allowance: `wrangler tail` recorded `outcome: exceededCpu` on
+ * `https://devexcalculator.org/`, and readers whose request was not covered by
+ * the edge cache were served `error 1102`.
  *
  * A cache header is not a substitute and was not accepted as one. Cached, the
  * page is fast until the entry expires and then one reader pays the render and
@@ -66,7 +66,7 @@ function main(): void {
   if (missing.length > 0) {
     console.error(
       `\n${missing.length} of ${expected} document(s) still render at request time.\n` +
-        "Each one is a Worker page render on the Free plan's 10 ms CPU budget.\n" +
+        "Each one is a Worker page render charged to the Free plan's CPU budget.\n" +
         "Find what made the route dynamic — most often `searchParams`, `cookies()`,\n" +
         "`headers()`, or a route-segment `dynamic`/`revalidate` export — and remove it.\n" +
         "Do not paper over it with a cache header.",

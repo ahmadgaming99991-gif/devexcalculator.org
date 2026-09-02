@@ -57,7 +57,7 @@ import { routeRegistry } from "@/lib/content/route-registry";
  * Two of these four are no longer dynamic. `/` and `/devex-fees-and-taxes/`
  * were made request-time renders by one thing — reading the shared calculator
  * link from the server's `searchParams` — and with seven published locales
- * that render stopped fitting the Workers Free plan's 10 ms CPU budget:
+ * the homepage render stopped fitting the Workers Free plan's CPU allowance:
  * production answered `error 1102` on the homepage whenever the edge cache did
  * not cover the request. The island reads the query string in the browser now,
  * and both routes are prerendered in every locale, asserted by
