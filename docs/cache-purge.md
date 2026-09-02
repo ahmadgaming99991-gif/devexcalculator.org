@@ -95,6 +95,36 @@ more importantly — which responses it refuses to touch: anything that is not
 Next's untouched static default was set deliberately by a route handler or by
 the dynamic policy, and is not this function's to overrule.
 
+## What a purge actually evicts today
+
+Measured 2026-09-03, after the deploy token was given `Zone -> Cache Purge`.
+
+The API accepts the purge — `success: true`, where it previously answered
+`10000 Authentication error`. It does **not** evict the HTML documents. On
+`/devex-rates/`: a successful purge, then eleven requests over sixty seconds,
+every one a `HIT` with `Age` climbing 520 -> 557 on the same cached object.
+
+`"cache": { "enabled": true }` in `wrangler.jsonc` puts a Cloudflare cache in
+front of the Worker, and its key is not the plain URL, so a purge addressed to
+the URL matches nothing. The same property explains why `www` serves 200 on a
+hit rather than redirecting — the key does not carry the host either — and why
+a cached 301 took the homepage down on 2026-09-02.
+
+So `s-maxage=3600` is still what bounds staleness in practice, and the hour in
+the table above is the real number rather than a ceiling a purge cuts short.
+`npm run purge:cache` is kept and kept running: the call is correct, it costs
+nothing, and it begins working the moment the cache key is addressable.
+
+Making it work needs a cache rule that fixes the key. That is a permission the
+deploy token does not hold and a caching change to be proposed, not made.
+
+## The zone id
+
+`CLOUDFLARE_ZONE_ID` is optional. When it is unset, `purge-cache.ts` looks the
+zone up by the site's own hostname using the same token, and matches on the
+zone name so a broader token cannot purge somebody else's cache. Set the
+variable only to pin a specific zone.
+
 ## A 403 from the purge API
 
 The token is missing the **Zone → Cache Purge** permission. A token that can

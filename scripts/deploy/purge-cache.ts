@@ -19,23 +19,82 @@
  * exit code of zero, not a red build. Exit 1 is kept for a purge that was
  * genuinely attempted and genuinely failed, which is a real signal.
  *
+ * **Known limitation, measured 2026-09-03.** The API now accepts these purges
+ * — the token was given `Zone → Cache Purge` and the call returns `success:
+ * true` where it used to return `10000 Authentication error` — but a purge by
+ * URL does not evict the HTML documents. Measured on `/devex-rates/`: a
+ * successful purge, then eleven requests over sixty seconds, all `HIT` with
+ * `Age` climbing from 520 to 557 on the same object.
+ *
+ * The cause is `"cache": { "enabled": true }` in `wrangler.jsonc`, which puts
+ * a Cloudflare cache in front of the Worker. Its key is not the plain URL, so
+ * a purge addressed to the URL matches nothing. It is the same property behind
+ * the other open oddity — `www` serving 200 on a hit, because the key does not
+ * carry the host either — and the same one that turned a cached 301 into the
+ * outage on 2026-09-02.
+ *
+ * So this script is best-effort today and the hour-long `s-maxage` is still
+ * what actually bounds staleness. It is kept, and kept running, because the
+ * call is correct, it costs nothing, and it starts working the moment the
+ * cache key is addressable. Fixing that needs a cache rule, which needs a
+ * permission this token does not have and a caching change that has to be
+ * proposed rather than made.
+ *
  * Credentials come from the environment and are never written to a file:
  *
  *   CLOUDFLARE_API_TOKEN   a token carrying the Zone → Cache Purge permission
- *   CLOUDFLARE_ZONE_ID     the zone id for devexcalculator.org
+ *   CLOUDFLARE_ZONE_ID     optional; looked up from the site's own host when
+ *                          it is absent, so nobody has to paste an id
  *
  * Neither value is ever printed, including in an error.
  */
 
 import { routeRegistry } from "../../src/lib/content/route-registry";
-import { absoluteUrl } from "../../src/config/site";
+import { absoluteUrl, siteConfig } from "../../src/config/site";
 
 /** Cloudflare accepts at most this many URLs per purge call. */
 const BATCH_SIZE = 30;
 
+/**
+ * The zone id for the site's own host, asked for rather than configured.
+ *
+ * The id is not a secret and it never changes, but it is one more value to
+ * copy from a dashboard into an environment, and a deploy that silently
+ * skipped its purge because that one value was missing is exactly what
+ * happened here: the token had been given the purge permission, the script
+ * ran, and it skipped anyway. The token already proves which account it
+ * belongs to, and the site already knows its own hostname, so the lookup has
+ * everything it needs.
+ *
+ * Returns null rather than throwing. A zone that cannot be resolved is the
+ * same situation as a missing token — worth reporting, not worth failing a
+ * deploy over.
+ */
+async function resolveZoneId(token: string): Promise<string | null> {
+  const host = new URL(siteConfig.url).hostname.replace(/^www\./, "");
+
+  try {
+    const response = await fetch(
+      `https://api.cloudflare.com/client/v4/zones?name=${encodeURIComponent(host)}`,
+      { headers: { authorization: `Bearer ${token}` } },
+    );
+    const body = (await response.json().catch(() => null)) as {
+      success?: boolean;
+      result?: { id?: string; name?: string }[];
+    } | null;
+
+    if (!response.ok || !body?.success) return null;
+    // Matched on the name as well, so a broadened token that can see several
+    // zones cannot have the site's cache purged against somebody else's.
+    const zone = body.result?.find((entry) => entry.name === host);
+    return typeof zone?.id === "string" ? zone.id : null;
+  } catch {
+    return null;
+  }
+}
+
 async function main(): Promise<void> {
   const token = process.env.CLOUDFLARE_API_TOKEN?.trim();
-  const zone = process.env.CLOUDFLARE_ZONE_ID?.trim();
 
   const urls = routeRegistry
     .filter((record) => record.rateSensitive)
@@ -44,17 +103,31 @@ async function main(): Promise<void> {
 
   console.log(`Rate-sensitive routes to purge: ${urls.length}`);
 
-  if (!token || !zone) {
-    const missing = [
-      ...(token ? [] : ["CLOUDFLARE_API_TOKEN"]),
-      ...(zone ? [] : ["CLOUDFLARE_ZONE_ID"]),
-    ];
-    console.log(`\nSkipped: ${missing.join(" and ")} not set.`);
+  const skip = (reason: string): void => {
+    console.log(`\nSkipped: ${reason}`);
     console.log("The deploy is unaffected. These pages carry s-maxage=3600, so the edge");
     console.log("picks the change up within the hour on its own; a purge only makes it");
     console.log("immediate. To run it by hand, see docs/cache-purge.md.");
+  };
+
+  if (!token) {
+    skip("CLOUDFLARE_API_TOKEN not set.");
     return;
   }
+
+  const configured = process.env.CLOUDFLARE_ZONE_ID?.trim();
+  const zone = configured || (await resolveZoneId(token));
+
+  if (!zone) {
+    skip(
+      "could not determine the zone. CLOUDFLARE_ZONE_ID is not set and the\n" +
+        "token could not look it up — it needs Zone → Zone → Read for that, or\n" +
+        "set CLOUDFLARE_ZONE_ID directly.",
+    );
+    return;
+  }
+
+  if (!configured) console.log("Zone resolved from the site's hostname.");
 
   const batches: string[][] = [];
   for (let index = 0; index < urls.length; index += BATCH_SIZE) {

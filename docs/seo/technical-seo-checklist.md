@@ -119,3 +119,4 @@ still cannot run.
 v1 KV store that was deliberately retired on 2026-09-02. The live data plane is
 healthy. A health endpoint permanently stuck at `ok: false` is one nobody reads
 when it matters, so it should be pointed at the data Worker or dropped.
+- 2026-09-03 - Cache Purge permission added by the owner. The API now accepts purges (success:true, previously 10000 Authentication error) and the script no longer needs a pasted Zone ID - it resolves the zone from the site's own hostname. But a purge by URL does not evict the HTML: measured on /devex-rates/, eleven requests over sixty seconds after a successful purge, all HIT with Age climbing 520 to 557. Cause is the front-of-Worker cache from wrangler's cache.enabled, whose key is not the URL - the same property behind www serving 200 and behind the 2026-09-02 outage. Recorded in docs/cache-purge.md; s-maxage=3600 still bounds staleness.
