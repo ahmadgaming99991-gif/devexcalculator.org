@@ -113,23 +113,47 @@ export function publishReadiness(locale: Locale): PublishReadiness {
   const blockers: string[] = [];
 
   /*
-   * `self-reviewed` is accepted, and that is a deliberate loosening — D-046.
+   * Two ways through, and they answer different questions.
    *
-   * This used to demand `native-reviewed`, which is the stronger bar and the
-   * one worth wanting. It was relaxed by the site's owner on 2026-08-31 for a
-   * locale a native speaker was not available for, in favour of a maintainer
-   * review that is recorded as exactly what it is. What is *not* relaxed is
-   * the honesty of the label: `native-reviewed` still requires a named person
-   * and a date, and nothing here lets a locale claim a review it did not get.
+   * The first is provenance: somebody read the translation. `native-reviewed`
+   * is the bar worth wanting, `self-reviewed` was accepted on 2026-08-31 for a
+   * locale no native speaker was available for (D-046), and `source` is the
+   * language the content was written in.
    *
-   * `machine-drafted` and `none` are still refused. A locale read by nobody
-   * cannot be published, which is the line this function exists to hold.
+   * The second is an explicit decision to publish anyway — D-047. Five locales
+   * passed the full QA gate with zero blocking findings and were published by
+   * the owner on 2026-09-02 with `qualityReview` left at `machine-drafted`,
+   * because it is true. The alternative on offer was to move them to
+   * `self-reviewed` so this function would open, which would have recorded a
+   * human reading that did not happen — the exact fabrication the field
+   * exists to prevent. Recording the decision is honest; renaming the machine's
+   * work is not.
+   *
+   * What is *not* relaxed: a locale with neither a review nor an approval
+   * still cannot be published, `native-reviewed` still demands a named person
+   * and a date, and an approval has to name who decided, when, and on what
+   * basis. Nothing here lets a locale claim a review it did not get.
    */
   const REVIEWED: readonly QualityReview[] = ["native-reviewed", "self-reviewed", "source"];
-  if (!REVIEWED.includes(meta.qualityReview)) {
+  const reviewed = REVIEWED.includes(meta.qualityReview);
+  const approval = meta.publicationApproval;
+
+  if (!reviewed && !approval) {
     blockers.push(
-      `qualityReview is "${meta.qualityReview}"; a published locale needs to have been read`,
+      `qualityReview is "${meta.qualityReview}" and no publicationApproval is recorded`,
     );
+  }
+
+  if (approval) {
+    if (approval.approvedBy !== "owner") {
+      blockers.push(`publicationApproval.approvedBy is "${approval.approvedBy}", which is not a decision this registry recognises`);
+    }
+    if (!approval.approvedAt || Number.isNaN(Date.parse(approval.approvedAt))) {
+      blockers.push("publicationApproval has no valid approvedAt date");
+    }
+    if (!approval.basis || approval.basis.trim().length < 20) {
+      blockers.push("publicationApproval records no basis for the decision");
+    }
   }
   if (meta.qualityReview === "native-reviewed") {
     if (!meta.reviewerName) blockers.push("reviewerName is missing");
@@ -147,7 +171,9 @@ export function publishReadiness(locale: Locale): PublishReadiness {
  *
  *   - `native-reviewed` with no reviewer name or no review date
  *   - a reviewer or review date recorded without the review status
- *   - `published` while still machine-drafted
+ *   - `published` with neither a review nor a recorded decision to publish
+ *   - a publication approval that names a reviewer, which would be an
+ *     approval impersonating a review
  */
 export function assertRegistry(): void {
   for (const meta of localeRegistry) {
@@ -163,6 +189,18 @@ export function assertRegistry(): void {
     } else if (meta.reviewerName || meta.reviewedAt) {
       throw new Error(
         `${where} records a reviewer or a review date without claiming a review.`,
+      );
+    }
+
+    /*
+     * An approval is a decision, not a reading, and it may not borrow the
+     * vocabulary of one. `reviewerName` belongs to `native-reviewed` alone;
+     * an approval that filled it in would read, in every report that prints
+     * these fields, exactly like a locale somebody had checked.
+     */
+    if (meta.publicationApproval && meta.reviewerName) {
+      throw new Error(
+        `${where} records a publication approval and a reviewer name; an approval is not a review.`,
       );
     }
 

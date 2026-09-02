@@ -1233,3 +1233,67 @@ Publishing Turkish turned it red with 36 "unexpected URL" errors against 36
 entirely correct URLs — the failure mode that trains somebody to widen a check
 rather than read it. Now derived from the same two lists the sitemap itself
 uses. See `docs/invariant-register.md`.
+
+---
+
+## D-047 · Publication approval and translation provenance are separate facts
+
+**2026-09-02.** The five remaining launch locales — `pt-BR`, `es`, `id`, `fr`
+and `de` — are published. Their `qualityReview` stays `machine-drafted`,
+because that is what they are.
+
+**What the gate used to say.** `publishReadiness` accepted `source`,
+`self-reviewed` and `native-reviewed`, and refused everything else on the
+principle that "a locale read by nobody cannot be published". Turkish had been
+published under D-046 by moving it to `self-reviewed` — "read by the
+maintainer, who is not a native speaker" — which was true, because the
+maintainer had read it.
+
+**The offer that was declined.** The same move would have opened the gate for
+these five: set `qualityReview: "self-reviewed"` and publish. Nobody had read
+them. That edit would have recorded a human reading that did not happen, in the
+one field the registry exists to keep honest, on a site that publishes figures
+about people's income. The owner declined it explicitly and instructed that the
+provenance stay `machine-drafted`.
+
+**What was built instead.** `publicationApproval` on `LocaleMeta`: who decided,
+when, and on what basis, in prose. `publishReadiness` now has two ways through
+— the translation was read, **or** somebody accountable decided to publish it
+unread and signed that decision. A locale with neither is still refused, which
+is the part worth keeping.
+
+The two facts are now recorded separately and can both be true:
+
+| | |
+| --- | --- |
+| Translation provenance | `machine-drafted` — read by no native speaker and no maintainer |
+| Publication approval | owner, 2026-09-02, on the QA basis below |
+
+**What the approval rests on.** The full gate, with zero blocking findings:
+100% key coverage across 16,140 keys, zero orphan keys, zero token mismatches,
+zero rendered English leakage against a budget of zero, zero unfilled tokens
+across 252 pages, per-route metadata and JSON-LD verified, layout clean at
+every tested width, calculator parsing and formatting verified per locale, and
+all 123 critical-claim sentences quoted in `docs/i18n/critical-claims.md` still
+shipped verbatim. `i18n:audit` reports `critical 0 · meaning 0 · blocking 0 ·
+quality 0` for all five.
+
+**What it explicitly does not rest on.** No native speaker has read these
+translations. No maintainer has read them end to end. The QA above is
+automated checks plus a semantic audit by the same author that drafted the
+translations, which is precisely the provenance `machine-drafted` describes.
+`reviewerName` and `reviewedAt` remain `null` for all seven locales; no locale
+in this registry has ever claimed `native-reviewed`.
+
+**Guards, so the distinction cannot quietly collapse.** `assertRegistry`
+refuses a publication approval recorded alongside a `reviewerName` — an
+approval may not borrow the vocabulary of a review. `publishReadiness` refuses
+an approval that does not name an approver, carry a valid date and state a
+basis. A unit test asserts that every locale carrying an approval is still
+`machine-drafted` with a null reviewer, so the day somebody "tidies" the
+provenance to match the status, the suite says so.
+
+*Change if:* a native reader becomes available for any of the five. That locale
+moves to `native-reviewed` with their name and the date, and its
+`publicationApproval` is deleted rather than kept — the approval exists to
+carry a locale that has not been read, and a read locale does not need it.

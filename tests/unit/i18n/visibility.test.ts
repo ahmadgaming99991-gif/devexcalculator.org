@@ -35,7 +35,19 @@ describe("the production default", () => {
   it("keeps review locales out of every public surface", () => {
     // hreflang, sitemap, IndexNow and the language selector all read this one
     // list, so a locale cannot leak through the surface somebody forgot.
-    expect(publicLocales().map((m) => m.locale)).toEqual(["en", "tr"]);
+    //
+    // The seven launch locales went public on 2026-09-02 (D-047). Asserted as
+    // the exact set rather than a count, so publishing an eighth by accident
+    // is a failure here rather than a discovery in the sitemap.
+    expect(publicLocales().map((m) => m.locale)).toEqual([
+      "en",
+      "pt-BR",
+      "es",
+      "id",
+      "fr",
+      "de",
+      "tr",
+    ]);
     for (const meta of reviewLocales()) {
       expect(isPubliclyVisible(meta.locale), `${meta.locale} is publicly visible`).toBe(false);
     }
@@ -72,7 +84,12 @@ describe("review mode", () => {
       // ...never whether search engines are told about it.
       expect(isPubliclyVisible(meta.locale), `${meta.locale} became public`).toBe(false);
     }
-    expect(publicLocales().map((m) => m.locale)).toEqual(["en", "tr"]);
+    // The switch must not add anyone to the public set. Compared against the
+    // published locales rather than a hardcoded pair, so this keeps asserting
+    // "the flag changed nothing" as locales are published.
+    expect(publicLocales().map((m) => m.locale)).toEqual(
+      localeRegistry.filter((m) => m.status === "published").map((m) => m.locale),
+    );
   });
 
   it("still refuses a planned locale and an unknown segment", () => {
@@ -85,31 +102,73 @@ describe("review mode", () => {
 });
 
 describe("the publish gate", () => {
-  it("blocks every machine-drafted locale, and says why", () => {
-    for (const meta of reviewLocales()) {
-      const readiness = publishReadiness(meta.locale);
-      expect(readiness.ready, `${meta.locale} is publishable`).toBe(false);
-      expect(readiness.blockers.join(" ")).toContain("needs to have been read");
-    }
-  });
-
   it("lets English through, because English is the source", () => {
     expect(publishReadiness("en").ready).toBe(true);
   });
 
   /**
-   * The gate was loosened on 2026-08-31 and this is the half that was not.
+   * The line, in the form it now takes.
    *
-   * `self-reviewed` is now sufficient to publish (D-046). `machine-drafted`
-   * and `none` are not, and that is the whole remaining line: a locale read by
-   * nobody cannot go public. Asserted on the predicate rather than on today's
-   * registry, so it still holds when the other five are eventually read.
+   * There are two ways past this gate and they answer different questions.
+   * Either somebody read the translation — `source`, `self-reviewed` (D-046)
+   * or `native-reviewed` — or somebody accountable decided to publish it
+   * unread and that decision is on the record (D-047).
+   *
+   * What is refused is a locale with neither: read by nobody and approved by
+   * nobody. Asserted against synthetic records rather than today's registry,
+   * so it keeps holding as locales move.
    */
-  it("still refuses a locale nobody has read", () => {
-    expect(publishReadiness("tr").ready).toBe(true);
-    for (const meta of reviewLocales()) {
-      expect(meta.qualityReview, `${meta.locale}`).toBe("machine-drafted");
-      expect(publishReadiness(meta.locale).ready).toBe(false);
+  it("refuses a locale that is neither read nor approved, and says so", () => {
+    // The planned locales are the real example: nothing translated, nobody
+    // asked to publish them. If this ever passes, the gate has stopped
+    // guarding the thing it exists for.
+    const unread = localeRegistry.filter(
+      (meta) => meta.status !== "published" && meta.publicationApproval === null,
+    );
+    expect(unread.length, "no unread, unapproved locale left to check").toBeGreaterThan(0);
+
+    for (const meta of unread) {
+      const readiness = publishReadiness(meta.locale);
+      expect(readiness.ready, `${meta.locale} is publishable`).toBe(false);
+      expect(readiness.blockers.join(" ")).toContain("no publicationApproval is recorded");
+    }
+  });
+
+  it("accepts a machine-drafted locale carrying an explicit decision to publish it", () => {
+    for (const meta of localeRegistry) {
+      if (meta.status !== "published") continue;
+      const readiness = publishReadiness(meta.locale);
+      expect(readiness.ready, `${meta.locale}: ${readiness.blockers.join("; ")}`).toBe(true);
+      // Every published locale is either read or explicitly approved, never
+      // neither, and never both claims at once.
+      const read = ["source", "self-reviewed", "native-reviewed"].includes(meta.qualityReview);
+      expect(read || meta.publicationApproval !== null, `${meta.locale}`).toBe(true);
+    }
+  });
+
+  it("never lets an approval stand in for a review", () => {
+    // The five published on 2026-09-02 are still machine-drafted, and that is
+    // the point: the decision is recorded beside the provenance, not on top
+    // of it.
+    for (const meta of localeRegistry) {
+      if (!meta.publicationApproval) continue;
+      expect(meta.qualityReview, `${meta.locale} relabelled its provenance`).not.toBe(
+        "self-reviewed",
+      );
+      expect(meta.qualityReview, `${meta.locale} relabelled its provenance`).not.toBe(
+        "native-reviewed",
+      );
+      expect(meta.reviewerName, `${meta.locale} names a reviewer it does not have`).toBeNull();
+    }
+  });
+
+  it("demands an approval say who decided, when, and on what basis", () => {
+    for (const meta of localeRegistry) {
+      const approval = meta.publicationApproval;
+      if (!approval) continue;
+      expect(approval.approvedBy).toBe("owner");
+      expect(Number.isNaN(Date.parse(approval.approvedAt))).toBe(false);
+      expect(approval.basis.trim().length).toBeGreaterThan(20);
     }
   });
 });

@@ -26,22 +26,39 @@ import { localeRegistry } from "@/i18n/config";
 
 const PUBLISHED_TODAY = localeRegistry.filter((meta) => meta.status === "published");
 
-/** The five still in review. A prefix here must not appear on a public surface. */
-const UNPUBLISHED_PREFIX = /\/(pt-br|es|id|fr|de)\//;
+/**
+ * Tier 2, still planned. A prefix here must not appear on a public surface.
+ *
+ * This used to list the five launch locales, which went public on 2026-09-02
+ * (D-047). The assertion it powers is unchanged in meaning — nothing
+ * unpublished may reach the sitemap, IndexNow or `llms.txt` — so the list
+ * moves on to whatever is not published yet rather than being deleted.
+ */
+const UNPUBLISHED_PREFIX = /\/(pl|it|vi|th|ja|ko|ar|zh-hans|zh-hant)\//;
 
 describe("what the published set is today", () => {
   /*
-   * English and Turkish. Turkish was read by the maintainer on 2026-08-31 and
-   * published on that basis (D-046); the other five have been read by nobody
-   * and are `machine-drafted`.
+   * The seven launch locales. English is the source; Turkish was read by the
+   * maintainer on 2026-08-31 and published on that basis (D-046); the
+   * remaining five were published on 2026-09-02 still `machine-drafted`, each
+   * carrying the owner's recorded decision to publish it unread (D-047).
    *
    * This assertion is meant to fail when somebody publishes a language. That
    * is its job: publishing changes eight surfaces, three of which shipped
    * without asking the visibility question at all, and a red test here is the
-   * thing that makes someone read the runbook before deploying.
+   * thing that makes someone read the runbook before deploying. It did exactly
+   * that on 2026-09-02, which is why this comment could be written.
    */
   it("has exactly the locales somebody decided to publish", () => {
-    expect(PUBLISHED_TODAY.map((meta) => meta.locale)).toEqual(["en", "tr"]);
+    expect(PUBLISHED_TODAY.map((meta) => meta.locale)).toEqual([
+      "en",
+      "pt-BR",
+      "es",
+      "id",
+      "fr",
+      "de",
+      "tr",
+    ]);
   });
 
   it("lists every indexable route once per published language in the sitemap", async () => {

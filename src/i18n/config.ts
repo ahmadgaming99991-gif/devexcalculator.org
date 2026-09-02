@@ -61,6 +61,7 @@ export const localeRegistry: readonly LocaleMeta[] = [
     searchRegion: "US",
     reviewerName: null,
     reviewedAt: null,
+    publicationApproval: null,
     sourceContentVersion: SOURCE_CONTENT_VERSION,
   },
   {
@@ -73,13 +74,33 @@ export const localeRegistry: readonly LocaleMeta[] = [
     englishName: "Brazilian Portuguese",
     nativeName: "Português (Brasil)",
     direction: "ltr",
-    status: "review",
+    status: "published",
     qualityReview: "machine-drafted",
     decimalSeparator: ",",
     groupSeparator: ".",
     searchRegion: "BR",
     reviewerName: null,
     reviewedAt: null,
+    /*
+     * Published unread, by the owner's explicit decision — D-047.
+     *
+     * `qualityReview` stays `machine-drafted` because that is what it is. The
+     * gate used to demand a review, and the way to open it would have been to
+     * move this locale to `self-reviewed` — "read by the maintainer" — which
+     * nobody had done. Recording the decision instead keeps both facts true at
+     * once: the translation has been read by nobody, and somebody accountable
+     * decided to publish it anyway.
+     */
+    publicationApproval: {
+      approvedBy: "owner",
+      approvedAt: "2026-09-02",
+      /*
+       * The full basis is D-047 in docs/decision-log.md, including what the
+       * approval explicitly does not rest on: no native speaker and no
+       * maintainer has read these translations end to end.
+       */
+      basis: "QA gate passed, read by nobody; see docs/decision-log.md D-047",
+    },
     sourceContentVersion: SOURCE_CONTENT_VERSION,
   },
   {
@@ -92,7 +113,7 @@ export const localeRegistry: readonly LocaleMeta[] = [
     englishName: "Spanish",
     nativeName: "Español",
     direction: "ltr",
-    status: "review",
+    status: "published",
     qualityReview: "machine-drafted",
     decimalSeparator: ",",
     groupSeparator: ".",
@@ -101,6 +122,26 @@ export const localeRegistry: readonly LocaleMeta[] = [
     searchRegion: null,
     reviewerName: null,
     reviewedAt: null,
+    /*
+     * Published unread, by the owner's explicit decision — D-047.
+     *
+     * `qualityReview` stays `machine-drafted` because that is what it is. The
+     * gate used to demand a review, and the way to open it would have been to
+     * move this locale to `self-reviewed` — "read by the maintainer" — which
+     * nobody had done. Recording the decision instead keeps both facts true at
+     * once: the translation has been read by nobody, and somebody accountable
+     * decided to publish it anyway.
+     */
+    publicationApproval: {
+      approvedBy: "owner",
+      approvedAt: "2026-09-02",
+      /*
+       * The full basis is D-047 in docs/decision-log.md, including what the
+       * approval explicitly does not rest on: no native speaker and no
+       * maintainer has read these translations end to end.
+       */
+      basis: "QA gate passed, read by nobody; see docs/decision-log.md D-047",
+    },
     sourceContentVersion: SOURCE_CONTENT_VERSION,
   },
   {
@@ -113,13 +154,33 @@ export const localeRegistry: readonly LocaleMeta[] = [
     englishName: "Indonesian",
     nativeName: "Bahasa Indonesia",
     direction: "ltr",
-    status: "review",
+    status: "published",
     qualityReview: "machine-drafted",
     decimalSeparator: ",",
     groupSeparator: ".",
     searchRegion: "ID",
     reviewerName: null,
     reviewedAt: null,
+    /*
+     * Published unread, by the owner's explicit decision — D-047.
+     *
+     * `qualityReview` stays `machine-drafted` because that is what it is. The
+     * gate used to demand a review, and the way to open it would have been to
+     * move this locale to `self-reviewed` — "read by the maintainer" — which
+     * nobody had done. Recording the decision instead keeps both facts true at
+     * once: the translation has been read by nobody, and somebody accountable
+     * decided to publish it anyway.
+     */
+    publicationApproval: {
+      approvedBy: "owner",
+      approvedAt: "2026-09-02",
+      /*
+       * The full basis is D-047 in docs/decision-log.md, including what the
+       * approval explicitly does not rest on: no native speaker and no
+       * maintainer has read these translations end to end.
+       */
+      basis: "QA gate passed, read by nobody; see docs/decision-log.md D-047",
+    },
     sourceContentVersion: SOURCE_CONTENT_VERSION,
   },
   {
@@ -132,7 +193,7 @@ export const localeRegistry: readonly LocaleMeta[] = [
     englishName: "French",
     nativeName: "Français",
     direction: "ltr",
-    status: "review",
+    status: "published",
     qualityReview: "machine-drafted",
     decimalSeparator: ",",
     // A narrow no-break space, which is what `Intl` actually emits for French.
@@ -141,6 +202,26 @@ export const localeRegistry: readonly LocaleMeta[] = [
     searchRegion: "FR",
     reviewerName: null,
     reviewedAt: null,
+    /*
+     * Published unread, by the owner's explicit decision — D-047.
+     *
+     * `qualityReview` stays `machine-drafted` because that is what it is. The
+     * gate used to demand a review, and the way to open it would have been to
+     * move this locale to `self-reviewed` — "read by the maintainer" — which
+     * nobody had done. Recording the decision instead keeps both facts true at
+     * once: the translation has been read by nobody, and somebody accountable
+     * decided to publish it anyway.
+     */
+    publicationApproval: {
+      approvedBy: "owner",
+      approvedAt: "2026-09-02",
+      /*
+       * The full basis is D-047 in docs/decision-log.md, including what the
+       * approval explicitly does not rest on: no native speaker and no
+       * maintainer has read these translations end to end.
+       */
+      basis: "QA gate passed, read by nobody; see docs/decision-log.md D-047",
+    },
     sourceContentVersion: SOURCE_CONTENT_VERSION,
   },
   {
@@ -153,13 +234,33 @@ export const localeRegistry: readonly LocaleMeta[] = [
     englishName: "German",
     nativeName: "Deutsch",
     direction: "ltr",
-    status: "review",
+    status: "published",
     qualityReview: "machine-drafted",
     decimalSeparator: ",",
     groupSeparator: ".",
     searchRegion: "DE",
     reviewerName: null,
     reviewedAt: null,
+    /*
+     * Published unread, by the owner's explicit decision — D-047.
+     *
+     * `qualityReview` stays `machine-drafted` because that is what it is. The
+     * gate used to demand a review, and the way to open it would have been to
+     * move this locale to `self-reviewed` — "read by the maintainer" — which
+     * nobody had done. Recording the decision instead keeps both facts true at
+     * once: the translation has been read by nobody, and somebody accountable
+     * decided to publish it anyway.
+     */
+    publicationApproval: {
+      approvedBy: "owner",
+      approvedAt: "2026-09-02",
+      /*
+       * The full basis is D-047 in docs/decision-log.md, including what the
+       * approval explicitly does not rest on: no native speaker and no
+       * maintainer has read these translations end to end.
+       */
+      basis: "QA gate passed, read by nobody; see docs/decision-log.md D-047",
+    },
     sourceContentVersion: SOURCE_CONTENT_VERSION,
   },
   {
@@ -191,6 +292,7 @@ export const localeRegistry: readonly LocaleMeta[] = [
     searchRegion: "TR",
     reviewerName: null,
     reviewedAt: null,
+    publicationApproval: null,
     sourceContentVersion: SOURCE_CONTENT_VERSION,
   },
 
@@ -201,15 +303,15 @@ export const localeRegistry: readonly LocaleMeta[] = [
    * listed here so that logical CSS properties and `dir` handling are designed
    * against a real record rather than a hypothetical one.
    */
-  { locale: "pl", prefix: "/pl", bcp47: "pl", hreflang: "pl", htmlLang: "pl", ogLocale: "pl_PL", englishName: "Polish", nativeName: "Polski", direction: "ltr", status: "planned", qualityReview: "none", decimalSeparator: ",", groupSeparator: " ", searchRegion: "PL", reviewerName: null, reviewedAt: null, sourceContentVersion: SOURCE_CONTENT_VERSION },
-  { locale: "it", prefix: "/it", bcp47: "it", hreflang: "it", htmlLang: "it", ogLocale: "it_IT", englishName: "Italian", nativeName: "Italiano", direction: "ltr", status: "planned", qualityReview: "none", decimalSeparator: ",", groupSeparator: ".", searchRegion: "IT", reviewerName: null, reviewedAt: null, sourceContentVersion: SOURCE_CONTENT_VERSION },
-  { locale: "vi", prefix: "/vi", bcp47: "vi", hreflang: "vi", htmlLang: "vi", ogLocale: "vi_VN", englishName: "Vietnamese", nativeName: "Tiếng Việt", direction: "ltr", status: "planned", qualityReview: "none", decimalSeparator: ",", groupSeparator: ".", searchRegion: "VN", reviewerName: null, reviewedAt: null, sourceContentVersion: SOURCE_CONTENT_VERSION },
-  { locale: "th", prefix: "/th", bcp47: "th", hreflang: "th", htmlLang: "th", ogLocale: "th_TH", englishName: "Thai", nativeName: "ไทย", direction: "ltr", status: "planned", qualityReview: "none", decimalSeparator: ".", groupSeparator: ",", searchRegion: "TH", reviewerName: null, reviewedAt: null, sourceContentVersion: SOURCE_CONTENT_VERSION },
-  { locale: "ja", prefix: "/ja", bcp47: "ja", hreflang: "ja", htmlLang: "ja", ogLocale: "ja_JP", englishName: "Japanese", nativeName: "日本語", direction: "ltr", status: "planned", qualityReview: "none", decimalSeparator: ".", groupSeparator: ",", searchRegion: "JP", reviewerName: null, reviewedAt: null, sourceContentVersion: SOURCE_CONTENT_VERSION },
-  { locale: "ko", prefix: "/ko", bcp47: "ko", hreflang: "ko", htmlLang: "ko", ogLocale: "ko_KR", englishName: "Korean", nativeName: "한국어", direction: "ltr", status: "planned", qualityReview: "none", decimalSeparator: ".", groupSeparator: ",", searchRegion: "KR", reviewerName: null, reviewedAt: null, sourceContentVersion: SOURCE_CONTENT_VERSION },
-  { locale: "ar", prefix: "/ar", bcp47: "ar", hreflang: "ar", htmlLang: "ar", ogLocale: "ar_AR", englishName: "Arabic", nativeName: "العربية", direction: "rtl", status: "planned", qualityReview: "none", decimalSeparator: ".", groupSeparator: ",", searchRegion: null, reviewerName: null, reviewedAt: null, sourceContentVersion: SOURCE_CONTENT_VERSION },
-  { locale: "zh-Hans", prefix: "/zh-hans", bcp47: "zh-Hans", hreflang: "zh-Hans", htmlLang: "zh-Hans", ogLocale: "zh_CN", englishName: "Simplified Chinese", nativeName: "简体中文", direction: "ltr", status: "planned", qualityReview: "none", decimalSeparator: ".", groupSeparator: ",", searchRegion: null, reviewerName: null, reviewedAt: null, sourceContentVersion: SOURCE_CONTENT_VERSION },
-  { locale: "zh-Hant", prefix: "/zh-hant", bcp47: "zh-Hant", hreflang: "zh-Hant", htmlLang: "zh-Hant", ogLocale: "zh_TW", englishName: "Traditional Chinese", nativeName: "繁體中文", direction: "ltr", status: "planned", qualityReview: "none", decimalSeparator: ".", groupSeparator: ",", searchRegion: null, reviewerName: null, reviewedAt: null, sourceContentVersion: SOURCE_CONTENT_VERSION },
+  { locale: "pl", prefix: "/pl", bcp47: "pl", hreflang: "pl", htmlLang: "pl", ogLocale: "pl_PL", englishName: "Polish", nativeName: "Polski", direction: "ltr", status: "planned", qualityReview: "none", decimalSeparator: ",", groupSeparator: " ", searchRegion: "PL", reviewerName: null, reviewedAt: null, publicationApproval: null, sourceContentVersion: SOURCE_CONTENT_VERSION },
+  { locale: "it", prefix: "/it", bcp47: "it", hreflang: "it", htmlLang: "it", ogLocale: "it_IT", englishName: "Italian", nativeName: "Italiano", direction: "ltr", status: "planned", qualityReview: "none", decimalSeparator: ",", groupSeparator: ".", searchRegion: "IT", reviewerName: null, reviewedAt: null, publicationApproval: null, sourceContentVersion: SOURCE_CONTENT_VERSION },
+  { locale: "vi", prefix: "/vi", bcp47: "vi", hreflang: "vi", htmlLang: "vi", ogLocale: "vi_VN", englishName: "Vietnamese", nativeName: "Tiếng Việt", direction: "ltr", status: "planned", qualityReview: "none", decimalSeparator: ",", groupSeparator: ".", searchRegion: "VN", reviewerName: null, reviewedAt: null, publicationApproval: null, sourceContentVersion: SOURCE_CONTENT_VERSION },
+  { locale: "th", prefix: "/th", bcp47: "th", hreflang: "th", htmlLang: "th", ogLocale: "th_TH", englishName: "Thai", nativeName: "ไทย", direction: "ltr", status: "planned", qualityReview: "none", decimalSeparator: ".", groupSeparator: ",", searchRegion: "TH", reviewerName: null, reviewedAt: null, publicationApproval: null, sourceContentVersion: SOURCE_CONTENT_VERSION },
+  { locale: "ja", prefix: "/ja", bcp47: "ja", hreflang: "ja", htmlLang: "ja", ogLocale: "ja_JP", englishName: "Japanese", nativeName: "日本語", direction: "ltr", status: "planned", qualityReview: "none", decimalSeparator: ".", groupSeparator: ",", searchRegion: "JP", reviewerName: null, reviewedAt: null, publicationApproval: null, sourceContentVersion: SOURCE_CONTENT_VERSION },
+  { locale: "ko", prefix: "/ko", bcp47: "ko", hreflang: "ko", htmlLang: "ko", ogLocale: "ko_KR", englishName: "Korean", nativeName: "한국어", direction: "ltr", status: "planned", qualityReview: "none", decimalSeparator: ".", groupSeparator: ",", searchRegion: "KR", reviewerName: null, reviewedAt: null, publicationApproval: null, sourceContentVersion: SOURCE_CONTENT_VERSION },
+  { locale: "ar", prefix: "/ar", bcp47: "ar", hreflang: "ar", htmlLang: "ar", ogLocale: "ar_AR", englishName: "Arabic", nativeName: "العربية", direction: "rtl", status: "planned", qualityReview: "none", decimalSeparator: ".", groupSeparator: ",", searchRegion: null, reviewerName: null, reviewedAt: null, publicationApproval: null, sourceContentVersion: SOURCE_CONTENT_VERSION },
+  { locale: "zh-Hans", prefix: "/zh-hans", bcp47: "zh-Hans", hreflang: "zh-Hans", htmlLang: "zh-Hans", ogLocale: "zh_CN", englishName: "Simplified Chinese", nativeName: "简体中文", direction: "ltr", status: "planned", qualityReview: "none", decimalSeparator: ".", groupSeparator: ",", searchRegion: null, reviewerName: null, reviewedAt: null, publicationApproval: null, sourceContentVersion: SOURCE_CONTENT_VERSION },
+  { locale: "zh-Hant", prefix: "/zh-hant", bcp47: "zh-Hant", hreflang: "zh-Hant", htmlLang: "zh-Hant", ogLocale: "zh_TW", englishName: "Traditional Chinese", nativeName: "繁體中文", direction: "ltr", status: "planned", qualityReview: "none", decimalSeparator: ".", groupSeparator: ",", searchRegion: null, reviewerName: null, reviewedAt: null, publicationApproval: null, sourceContentVersion: SOURCE_CONTENT_VERSION },
 ];
 
 /**

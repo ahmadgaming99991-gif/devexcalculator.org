@@ -48,24 +48,65 @@ describe("the registry", () => {
   it("publishes exactly the locales somebody has decided to publish", () => {
     /*
      * Turkish joined English on 2026-08-31 — read by the maintainer, published
-     * on that basis by the owner's decision (D-046). The list is written out
-     * rather than derived so that a locale going public is an edit to this
-     * line, made by somebody who had to think about it, and not a side effect
-     * of editing the registry.
+     * on that basis by the owner's decision (D-046). The remaining five launch
+     * locales followed on 2026-09-02, still machine-drafted, each carrying the
+     * owner's recorded decision to publish it unread (D-047).
+     *
+     * The list is written out rather than derived so that a locale going
+     * public is an edit to this line, made by somebody who had to think about
+     * it, and not a side effect of editing the registry. Tier 2 stays out.
      */
-    expect(publishedLocales().map((m) => m.locale)).toEqual(["en", "tr"]);
+    expect(publishedLocales().map((m) => m.locale)).toEqual([
+      "en",
+      "pt-BR",
+      "es",
+      "id",
+      "fr",
+      "de",
+      "tr",
+    ]);
     expect(isPublishedLocale("tr")).toBe(true);
-    expect(isPublishedLocale("pt-BR")).toBe(false);
+    expect(isPublishedLocale("pt-BR")).toBe(true);
     expect(isPublishedLocale("ar")).toBe(false);
+    expect(isPublishedLocale("pl")).toBe(false);
   });
 
-  it("publishes nothing that nobody has read", () => {
-    // The line `publishReadiness` holds, restated where it is visible: a
-    // machine-drafted locale is one no person has been through, and it cannot
-    // be public whatever else is true of it.
+  it("publishes nothing that is neither read nor explicitly approved", () => {
+    /*
+     * The line `publishReadiness` holds, restated where it is visible.
+     *
+     * This used to say a machine-drafted locale could not be public at all.
+     * On 2026-09-02 the owner published five that are still machine-drafted,
+     * with the decision recorded per locale (D-047) — so the line moved from
+     * "somebody read it" to "somebody read it, or somebody accountable said
+     * to publish it anyway and signed the decision".
+     *
+     * A locale that is neither is still refused, which is the part worth
+     * keeping: nothing goes public because someone forgot to look at it.
+     */
     for (const meta of publishedLocales()) {
-      expect(meta.qualityReview, `${meta.locale} is published`).not.toBe("machine-drafted");
+      const read = meta.qualityReview === "source"
+        || meta.qualityReview === "self-reviewed"
+        || meta.qualityReview === "native-reviewed";
+      expect(
+        read || meta.publicationApproval !== null,
+        `${meta.locale} is published, unread and unapproved`,
+      ).toBe(true);
       expect(meta.qualityReview, `${meta.locale} is published`).not.toBe("none");
+    }
+  });
+
+  it("records the decision to publish an unread locale, rather than relabelling it", () => {
+    // The five published on 2026-09-02 are machine-drafted and say so. An
+    // approval that had moved `qualityReview` instead would have claimed a
+    // reading nobody did, which is the failure this pair of fields prevents.
+    for (const meta of publishedLocales()) {
+      if (!meta.publicationApproval) continue;
+      expect(meta.qualityReview, `${meta.locale}`).toBe("machine-drafted");
+      expect(meta.reviewerName, `${meta.locale}`).toBeNull();
+      expect(meta.reviewedAt, `${meta.locale}`).toBeNull();
+      expect(meta.publicationApproval.approvedBy).toBe("owner");
+      expect(meta.publicationApproval.basis.length).toBeGreaterThan(20);
     }
   });
 

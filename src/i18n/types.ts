@@ -55,6 +55,29 @@ export type QualityReview =
 
 export type Direction = "ltr" | "rtl";
 
+/**
+ * A decision to publish, and what it was based on.
+ *
+ * Deliberately not a boolean. "Approved" with no date and no stated basis is
+ * the shape a claim takes when nobody wants to be specific about it, and this
+ * field exists precisely because the alternative — moving `qualityReview` to
+ * `self-reviewed` so the gate opens — would have recorded a human reading that
+ * did not happen.
+ *
+ * `basis` is prose on purpose. It is read by people, not by code, and it is
+ * where the difference between "the automated gate passed" and "somebody read
+ * every sentence" has to be written down in words rather than implied by an
+ * enum value.
+ */
+export interface PublicationApproval {
+  /** Who decided. `owner` is the person accountable for the site. */
+  readonly approvedBy: "owner";
+  /** ISO date of the decision. */
+  readonly approvedAt: string;
+  /** What the decision rested on, in plain words. */
+  readonly basis: string;
+}
+
 export interface LocaleMeta {
   readonly locale: Locale;
   /** URL prefix with a leading slash and no trailing slash. Empty for English. */
@@ -97,6 +120,21 @@ export interface LocaleMeta {
    */
   readonly reviewerName: string | null;
   readonly reviewedAt: string | null;
+
+  /**
+   * The owner's decision to publish this locale, recorded as its own fact.
+   *
+   * Publication and provenance are separate questions and this field exists so
+   * they stop being answered by one. `qualityReview` says who read the
+   * translation; this says who decided it could go out and on what basis. A
+   * locale can be published having been read by nobody — that is a decision
+   * somebody is entitled to make — and the way to allow it is to record the
+   * decision, not to relabel the machine's work as a human's.
+   *
+   * `null` for a locale nobody has approved. `assertRegistry` refuses a
+   * published locale that has neither a real review nor one of these.
+   */
+  readonly publicationApproval: PublicationApproval | null;
 
   /**
    * The English content this translation was made from.
