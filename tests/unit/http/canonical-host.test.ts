@@ -28,6 +28,20 @@ describe("redirectToCanonicalHost", () => {
     expect(r?.headers.get("location")).toBe(`https://${APEX}/sources/`);
   });
 
+  it("is never stored, because both hosts share one cache", () => {
+    /*
+     * This shipped as `public, max-age=3600` and took the homepage down.
+     * The apex and `www` are custom domains on one Worker behind one zone
+     * cache; the redirect was stored and replayed against the apex, which
+     * answered `301` to itself until the cache was bypassed. A redirect is two
+     * hundred bytes and the reader leaves immediately — there is nothing to
+     * win here and a site to lose.
+     */
+    const r = redirectToCanonicalHost({ url: `https://www.${APEX}/` });
+    expect(r?.headers.get("cache-control")).toBe("no-store");
+    expect(r?.headers.get("cache-control")).not.toMatch(/max-age=[1-9]/);
+  });
+
   it("carries HSTS, because this hop is where a first visit is decided", () => {
     const r = redirectToCanonicalHost({ url: `http://www.${APEX}/` });
     expect(r?.headers.get("strict-transport-security")).toContain("max-age=31536000");
@@ -54,6 +68,16 @@ describe("redirectToCanonicalHost", () => {
   it("does not redirect to itself", () => {
     const r = redirectToCanonicalHost({ url: `https://www.${APEX}/` });
     expect(new URL(r!.headers.get("location")!).host).not.toBe(`www.${APEX}`);
+  });
+
+  it("answers nothing rather than a redirect to the host it came from", () => {
+    // The guard that would have turned an outage into a no-op. If the apex
+    // were ever configured as `www.…`, the rewrite would land on the request's
+    // own host, and a 301 there is an infinite loop in a reader's browser.
+    for (const url of [`https://${APEX}/`, `https://${APEX}/devex-rates/`]) {
+      const r = redirectToCanonicalHost({ url });
+      expect(r, url).toBeNull();
+    }
   });
 
   it("survives a URL it cannot parse", () => {
