@@ -695,7 +695,7 @@
   },
   "editorialPolicy": {
     "title": "Política editorial",
-    "metaDescription": "As regras sob as quais este site escreve: o que conta como fonte, como as afirmações são rotuladas, o que nunca é publicado e como o conteúdo sensível ao tempo é revisado.",
+    "metaDescription": "As regras sob as quais este site escreve: o que conta como fonte, como as afirmações são rotuladas e o que nunca é publicado.",
     "h1": "Política editorial",
     "navLabel": "Política editorial",
     "quickAnswer": "Toda afirmação sensível ao tempo está ligada a uma fonte oficial e datada. Nada é publicado como fato sem ter sido verificado, inferências são rotuladas como inferências, e nenhum número fica no ar porque tem bom desempenho na busca depois de deixar de ser exato.",
@@ -834,8 +834,8 @@
     }
   },
   "platform.stock": {
-    "title": "Ação do Roblox (RBLX): resultados divulgados, sem widget incorporado",
-    "metaDescription": "Os resultados trimestrais divulgados pelo Roblox — receita, crescimento de bookings, pagamentos a criadores — com uma explicação direta de por que nenhum widget de preço de terceiros é incorporado aqui.",
+    "title": "Ação do Roblox (RBLX): resultados divulgados, sem widget",
+    "metaDescription": "Os resultados trimestrais divulgados pelo Roblox — receita, bookings, pagamentos a criadores — e por que nenhum widget de preço é incorporado.",
     "h1": "Ação do Roblox e resultados divulgados",
     "navLabel": "Ação",
     "quickAnswer": "O Roblox divulgou receita de 1.469 milhões de dólares americanos no trimestre encerrado em 30 de junho de 2026, contra um prejuízo líquido consolidado de 185 milhões, e pagou 363 milhões a criadores pelo Developer Exchange. Não há preço de ação ao vivo aqui: este site não incorpora widget de mercado de terceiros e não vai imprimir um número que não consegue buscar e atribuir.",
@@ -868,7 +868,7 @@
   },
   "privacy": {
     "title": "Política de privacidade",
-    "metaDescription": "O que este site armazena, o que não armazena, para onde vão os dados que você digita na calculadora e quais terceiros estão envolvidos — descrevendo só o que está de fato configurado.",
+    "metaDescription": "O que este site armazena, o que não armazena, para onde vão os dados que você digita na calculadora e quais terceiros participam. Só o que está ativo.",
     "h1": "Política de privacidade",
     "navLabel": "Privacidade",
     "quickAnswer": "Os cálculos rodam no seu navegador e nunca são enviados a um servidor. Tudo o que você salva — cálculos recentes, moeda preferida, tema — fica no armazenamento local do seu próprio navegador e pode ser apagado pela calculadora a qualquer momento. Esta página descreve apenas o que está de fato ligado.",
@@ -891,8 +891,8 @@
     }
   },
   "robloxStats": {
-    "title": "Estatísticas de pagamento a criadores do Roblox: taxas do DevEx por trimestre",
-    "metaDescription": "Quanto o Roblox de fato paga aos criadores pelo DevEx, traçado a partir de seus registros na SEC: 1,50 bilhão de USD em 2025, trimestre a trimestre, com cada número referenciado.",
+    "title": "Pagamentos do Roblox a criadores: DevEx por trimestre",
+    "metaDescription": "Quanto o Roblox de fato paga aos criadores pelo DevEx, a partir de seus registros na SEC: 1,50 bilhão de USD em 2025, trimestre a trimestre.",
     "h1": "Estatísticas de pagamento a criadores do Roblox",
     "navLabel": "Estatísticas",
     "quickAnswer": "O Roblox pagou 1,503 bilhão de USD a criadores pelo Developer Exchange em 2025, ante 922,8 milhões em 2024, e 363 milhões só no segundo trimestre de 2026. Todo número desta página é lido de um registro do Roblox na SEC e leva a ele. São números trimestrais divulgados, não medições ao vivo.",
@@ -934,7 +934,7 @@
     }
   },
   "robuxTaxCalculator": {
-    "title": "Calculadora de taxa do Roblox: comissão do marketplace em uma venda",
+    "title": "Calculadora de comissão do Roblox no Marketplace",
     "metaDescription": "Quanto fica com você depois da comissão da plataforma Roblox, ou quanto cobrar para alcançar uma meta. Cobre vendas dentro da experiência e no Marketplace.",
     "h1": "Calculadora de taxa do Roblox",
     "navLabel": "Taxa do Roblox",
@@ -971,7 +971,7 @@
   },
   "robuxToUsd": {
     "title": "Robux para USD: pagamento ao criador vs. preço de compra",
-    "metaDescription": "Duas respostas dão conta disso. Compare quanto o DevEx paga a um criador com quanto custa comprar Robux, e converta qualquer quantia com a taxa declarada abertamente.",
+    "metaDescription": "Duas respostas dão conta disso: quanto o DevEx paga a um criador e quanto custa comprar Robux. Converta qualquer quantia com a taxa declarada.",
     "h1": "Robux para USD",
     "navLabel": "Robux para USD",
     "quickAnswer": "\"Robux para USD\" tem duas respostas honestas dependendo de quem pergunta. Um criador sacando Earned Robux elegíveis recebe {rateStandard} USD por Robux pelo DevEx, então {robux100000} Robux são cerca de {payout100000Plain} dólares. Um jogador comprando Robux paga um preço de varejo definido pelo Roblox, o que é uma transação completamente diferente. Esta página mantém as duas separadas.",
@@ -1032,7 +1032,7 @@
   },
   "terms": {
     "title": "Termos de uso",
-    "metaDescription": "Os termos que cobrem o uso do DevExCalculator.org, incluindo a natureza de mera estimativa de todo número e a ausência de qualquer afiliação com a Roblox Corporation.",
+    "metaDescription": "Os termos de uso do DevExCalculator.org: todo número é uma estimativa e não há qualquer afiliação com a Roblox Corporation.",
     "h1": "Termos de uso",
     "navLabel": "Termos",
     "quickAnswer": "Você pode usar este site livremente para estimar pagamentos do DevEx. Todo número é uma estimativa e nada disso é aconselhamento financeiro, jurídico ou fiscal. Este site é independente da Roblox Corporation e não pode influenciar, prever nem garantir o resultado de um pedido de DevEx.",
@@ -1052,7 +1052,7 @@
     }
   },
   "usdToRobux": {
-    "title": "USD para Robux: Earned Robux necessários para uma meta de pagamento",
+    "title": "USD para Robux: Earned Robux para uma meta de pagamento",
     "metaDescription": "Defina uma meta de pagamento em dólares e veja quantos Earned Robux elegíveis são necessários, arredondados para cima, com o progresso em relação ao seu saldo atual.",
     "h1": "USD para Robux: trabalhe de trás para frente a partir de uma meta de pagamento",
     "navLabel": "Meta de pagamento",

@@ -1450,3 +1450,82 @@ all six locales. A source test asserts all five views pass the localized form.
 
 *Change if:* nothing foreseeable. A view that hosts the calculator and passes
 anything other than `localizedPath(locale, ROUTE)` is a defect.
+
+---
+
+## D-050 · The `<head>` the shell was not supposed to render
+
+*2026-09-02. From a full-site audit, not from a reported symptom.*
+
+`Minified React error #418` — a hydration mismatch — fired on **every route**,
+intermittently, in both Firefox and Chrome. On production it appeared on
+roughly one cold load in three. It had been there long enough to be part of the
+accepted end-to-end failure baseline, as
+`localized-layout.spec.ts › renders in both themes without a console error`.
+
+**What it cost.** It is a *recoverable* error, which is why nothing looked
+broken: React answers it by discarding the server-rendered document and
+rebuilding the whole page in the browser. Nothing is wrong on the screen and
+nothing is wrong for a crawler. What is lost is the point of server rendering,
+on a document that is 400 KB of HTML, for a share of every visit.
+
+**The cause.** The shell rendered an explicit `<head>` element. In the App
+Router that element belongs to Next, which streams the stylesheet links, the
+metadata, the preloads and the chunk scripts into it — twenty-four `<meta>`,
+seventeen `<link>`, ten `<script>` on a typical page. A layout that also
+renders `<head>` hands React a head with one child and a DOM with forty. The
+`suppressHydrationWarning` on `<html>` did not cover it: that suppresses a
+mismatch in an element's own attributes and text, not a structural one inside
+it.
+
+**How it was found.** Four hypotheses were tested and three were wrong, each
+eliminated by a build rather than by argument:
+
+| hypothesis | result |
+| --- | --- |
+| `useClientValue(() => Date.now(), 0)` in the footer | a real contract violation, **not** this bug |
+| the `/api/rate-check/` fetch landing mid-hydration | disabled entirely: error persists |
+| every `useClientValue` snapshot | neutralised: error persists |
+| the manual `<head>` | removed: **thirteen hits across four runs → zero** |
+
+The first elimination was itself wrong the first time round, against a stale
+server: Playwright reuses a server already listening on the port, so the
+"disabled" build was never the one under test. That is worth remembering — it
+produced a confident, false negative.
+
+The reproduction is what made any of this possible. The error needs warm chunks
+and therefore fast hydration, so a fresh browser context per load never showed
+it; loading six pages in **one** context showed it three to five times a run.
+
+**The fix.** The theme bootstrap moves to the first child of `<body>`. It still
+runs before anything is painted — measured at 14 ms against a first contentful
+paint of 19 ms, with the stored dark theme already applied — and `<head>` is
+left to Next.
+
+**Guard.** `tests/unit/components/site-document.test.ts` fails the build on a
+`<head>` in the shell, and asserts the script still precedes the page content.
+It has to be a source check: the served HTML is correct, so nothing that reads
+the output could catch this.
+
+**Also fixed in the same audit.** Two of these were found by measuring the
+built HTML rather than by reading it:
+
+- **`www.devexcalculator.org` served the whole site with `200 OK`**, canonical
+  to the apex. A canonical is a hint read after the fetch; a 301 is the answer
+  before it. `redirectToCanonicalHost` now sends `www` to the apex and upgrades
+  the scheme in the same hop.
+- **The header overflowed at 320px and at 200% text zoom.** The lockup was
+  `shrink-0` and the row was `h-16` with no wrapping, so the page scrolled
+  sideways at 333px in a 320px viewport and 722px in a 640px one. The wordmark
+  is `sr-only` under 360px and the row wraps into a `min-h-16`. Seven
+  long-standing end-to-end failures went with it.
+- **9 titles and 57 meta descriptions ran past the search-result truncation
+  point**, all of them translations — English fits, and German, French,
+  Spanish, Portuguese and Indonesian run fifteen to twenty-five per cent longer
+  for the same sentence. Shortened, and `tests/unit/seo/meta-length.test.ts`
+  now measures every locale. The i18n audit caught one of the rewrites dropping
+  the "18+" comparison the English states, which is exactly what that gate is
+  for.
+
+*Change if:* nothing here. A layout that renders `<head>` in the App Router is
+a defect, and the test says so.

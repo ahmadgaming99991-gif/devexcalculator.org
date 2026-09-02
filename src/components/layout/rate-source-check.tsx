@@ -26,14 +26,34 @@ import { useClientValue } from "@/lib/utilities/use-client-value";
  */
 
 /**
+ * Now, read **once**, when this module first evaluates in the browser.
+ *
  * `Date.now()` reaches render through `useClientValue` rather than being called
- * during it. These components render nothing until the fetch lands, so a
- * mismatch is not the risk it usually is — but reading the clock during render
- * is impure whether or not it happens to be observable, and the project has one
- * way of doing this already.
+ * during it, because reading the clock during render is impure whether or not
+ * it happens to be observable. But it was passed to `useClientValue`
+ * *directly*, and that was wrong in a way that cost the whole page.
+ *
+ * `useSyncExternalStore` requires a snapshot that is the same on every call.
+ * `Date.now()` is the opposite: React reads it during the render and reads it
+ * again to check the store did not move underneath, and when those two calls
+ * straddle a millisecond it concludes the store changed mid-render. During
+ * hydration that is a mismatch — React discards the entire server-rendered
+ * document and re-renders it in the browser, which is `Minified React error
+ * #418` in production with the diff stripped out.
+ *
+ * It fired on roughly one cold load in three, on **every route**, because this
+ * component sits in the shared footer. It never appeared locally: on a fast
+ * machine both reads land in the same millisecond. It was found by loading
+ * production repeatedly from a cold browser context and diffing the served
+ * HTML against the live DOM, which showed the served tree gone and rebuilt.
+ *
+ * A fixed instant loses no accuracy. What is derived from it is an age in
+ * whole days, and that does not change while somebody has the page open.
  */
+const loadedAt = typeof window === "undefined" ? 0 : Date.now();
+
 function useNow(): number {
-  return useClientValue(() => Date.now(), 0);
+  return useClientValue(() => loadedAt, 0);
 }
 
 /**

@@ -696,7 +696,7 @@
   },
   "editorialPolicy": {
     "title": "Yayın ilkeleri",
-    "metaDescription": "Bu sitenin yazarken uyduğu kurallar: neyin kaynak sayıldığı, iddiaların nasıl etiketlendiği, neyin asla yayımlanmadığı ve zamana duyarlı içeriğin nasıl gözden geçirildiği.",
+    "metaDescription": "Bu sitenin yazarken uyduğu kurallar: neyin kaynak sayıldığı, iddiaların nasıl etiketlendiği ve neyin asla yayımlanmadığı.",
     "h1": "Yayın ilkeleri",
     "navLabel": "Yayın ilkeleri",
     "quickAnswer": "Zamana duyarlı her iddia resmî bir kaynağa bağlanır ve tarihlenir. Doğrulanmamış hiçbir şey olgu olarak yayımlanmaz, çıkarımlar çıkarım olarak etiketlenir ve hiçbir rakam, doğru olmaktan çıktıktan sonra aramalarda iyi gidiyor diye çevrimiçi tutulmaz.",
@@ -836,7 +836,7 @@
   },
   "platform.stock": {
     "title": "Roblox hissesi (RBLX): açıklanan sonuçlar, gömülü bileşen yok",
-    "metaDescription": "Roblox'un açıkladığı çeyreklik sonuçlar — gelir, bookings büyümesi, içerik üreticisi ödemeleri — ve burada neden üçüncü taraf bir fiyat bileşeni gömülmediğinin yalın açıklaması.",
+    "metaDescription": "Roblox'un açıkladığı çeyreklik sonuçlar — gelir, bookings büyümesi, üretici ödemeleri — ve neden burada üçüncü taraf fiyat bileşeni yok.",
     "h1": "Roblox hissesi ve açıklanan sonuçlar",
     "navLabel": "Hisse",
     "quickAnswer": "Roblox, 30 Haziran 2026'da sona eren çeyrek için 1.469 milyon ABD doları gelir açıkladı; buna karşılık 185 milyon konsolide net zarar bildirdi ve Developer Exchange yoluyla içerik üreticilerine 363 milyon ödedi. Burada canlı bir hisse fiyatı yok: bu site üçüncü taraf piyasa bileşeni gömmez ve alıp kaynağını gösteremediği bir rakamı yazmaz.",
@@ -869,7 +869,7 @@
   },
   "privacy": {
     "title": "Gizlilik politikası",
-    "metaDescription": "Bu sitenin neyi sakladığı, neyi saklamadığı, hesaplayıcıya girdiklerinizin nereye gittiği ve hangi üçüncü tarafların işin içinde olduğu — yalnızca gerçekten yapılandırılmış olanı anlatır.",
+    "metaDescription": "Bu sitenin neyi sakladığı, neyi saklamadığı, hesaplayıcıya girdiklerinizin nereye gittiği ve hangi üçüncü tarafların işin içinde olduğu.",
     "h1": "Gizlilik politikası",
     "navLabel": "Gizlilik",
     "quickAnswer": "Hesaplamalar tarayıcınızda çalışır ve hiçbir zaman bir sunucuya gönderilmez. Kaydettiğiniz her şey — son hesaplamalar, tercih ettiğiniz para birimi, tema — kendi tarayıcınızın yerel depolamasında kalır ve istediğiniz an hesaplayıcıdan temizlenebilir. Bu sayfa yalnızca gerçekten açık olanı anlatır.",
@@ -892,7 +892,7 @@
     }
   },
   "robloxStats": {
-    "title": "Roblox içerik üreticisi ödeme istatistikleri: çeyreğe göre DevEx ücretleri",
+    "title": "Roblox'un üreticilere ödemeleri: çeyreğe göre DevEx",
     "metaDescription": "Roblox'un DevEx yoluyla içerik üreticilerine gerçekte ne ödediği, SEC bildirimlerinden çizildi: 2025'te 1,50 milyar USD, çeyrek çeyrek, her rakam kaynaklı.",
     "h1": "Roblox içerik üreticisi ödeme istatistikleri",
     "navLabel": "İstatistikler",
@@ -972,7 +972,7 @@
   },
   "robuxToUsd": {
     "title": "Robux'tan USD'ye: içerik üreticisi ödemesi ile satın alma fiyatı",
-    "metaDescription": "Bunun iki yanıtı var. DevEx'in bir içerik üreticisine ne ödediğiyle Robux satın almanın ne tuttuğunu karşılaştırın ve herhangi bir tutarı açıkça belirtilen kurla çevirin.",
+    "metaDescription": "Bunun iki yanıtı var: DevEx'in bir üreticiye ne ödediği ve Robux almanın ne tuttuğu. Tutarları açıkça belirtilen kurla çevirin.",
     "h1": "Robux'tan USD'ye",
     "navLabel": "Robux'tan USD'ye",
     "quickAnswer": "\"Robux'tan USD'ye\" sorusunun, kimin sorduğuna göre iki dürüst yanıtı vardır. Uygun Earned Robux'u nakde çeviren bir içerik üreticisi DevEx yoluyla Robux başına {rateStandard} USD alır; yani {robux100000} Robux yaklaşık {payout100000Plain} dolardır. Robux satın alan bir oyuncu ise Roblox'un belirlediği perakende fiyatı öder ve bu tamamen başka bir işlemdir. Bu sayfa ikisini ayrı tutar.",

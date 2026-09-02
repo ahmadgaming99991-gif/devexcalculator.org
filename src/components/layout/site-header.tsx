@@ -43,7 +43,19 @@ export async function SiteHeader({ locale }: { readonly locale: Locale }) {
   return (
     <header className="site-header sticky top-0 z-30 border-b border-(--color-border) bg-(--color-surface)/95 backdrop-blur supports-[backdrop-filter]:bg-(--color-surface)/80">
       <Container width="wide">
-        <div className="flex h-16 items-center justify-between gap-3">
+        {/*
+          `flex-wrap` with a *minimum* height rather than a fixed one.
+
+          At 200% text zoom — WCAG 1.4.4, and the width a browser reports when
+          somebody has set a larger default font — the wordmark and the three
+          controls no longer fit one line, and with `h-16` and no wrapping the
+          whole page scrolled sideways at 722px in a 640px viewport.
+
+          Nothing changes at ordinary sizes: a flex row only wraps once its
+          contents exceed the line, and `min-h-16` is `h-16` until something
+          needs the space.
+        */}
+        <div className="flex min-h-16 flex-wrap items-center justify-between gap-3">
           {/* `group` so the mark can respond to a hover anywhere on the lockup,
               rather than only when the pointer is over the mark itself. */}
           <Link
@@ -51,7 +63,21 @@ export async function SiteHeader({ locale }: { readonly locale: Locale }) {
             className="group flex shrink-0 items-center gap-2.5 rounded-(--radius-control) py-1"
           >
             <Logo interactive className="h-10" />
-            <Wordmark className="text-base sm:text-lg" />
+            {/*
+              The wordmark goes to screen readers only under 360px.
+
+              The header row is the mark, the wordmark, the language control,
+              the theme toggle and the menu button, and the lockup is
+              `shrink-0`, so below 360px they add up to 333px of content in a
+              320px viewport and the whole page scrolls sideways — in every
+              language, English included. `sr-only` rather than `hidden`: the
+              link keeps its accessible name, which is the site's name followed
+              by "Home", and the mark alone is still the brand.
+
+              360px and up is untouched. This is the one width where the row
+              cannot fit, and the fix is scoped to it.
+            */}
+            <Wordmark className="text-base sm:text-lg max-[359px]:sr-only" />
             <span className="sr-only">— {t("navigation.home")}</span>
           </Link>
 

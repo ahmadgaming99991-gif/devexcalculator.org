@@ -10,6 +10,7 @@ import { recordHeartbeat, type RunReport } from "../src/lib/platform/heartbeat";
 import { checkRateSource } from "../src/lib/rates/source-check";
 import { applyCachePolicy } from "../src/lib/cache/response-policy";
 import { upgradeToHttps, type UpgradeEnv } from "../src/lib/http/https-upgrade";
+import { redirectToCanonicalHost } from "../src/lib/http/canonical-host";
 
 /**
  * The deployed Worker.
@@ -51,6 +52,7 @@ const handler = {
      * nothing claimed it.
      */
     const response =
+      redirectToCanonicalHost(request) ??
       upgradeToHttps(request, env as UpgradeEnv) ??
       (await openNextWorker.fetch(request, env, ctx));
 

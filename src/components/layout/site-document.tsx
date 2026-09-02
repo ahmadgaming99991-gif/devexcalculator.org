@@ -94,22 +94,35 @@ export async function SiteDocument({ locale, skipToContent, children }: SiteDocu
 
   return (
     <html lang={htmlLang} dir={direction} suppressHydrationWarning>
-      {/*
-        eslint-disable-next-line @next/next/no-head-element --
-        `next/head` is the Pages Router API and does nothing here. A root
-        layout in the App Router writes `<head>` itself; the rule only skips it
-        when the file sits at `app/layout.tsx`, and this shell is shared by two
-        of those rather than being either one.
-      */}
-      <head>
+      <body className="flex min-h-dvh flex-col">
         {/*
-          Applies the stored theme before first paint. Anything later — an
-          effect, a deferred script — paints the wrong theme and then corrects
-          it, which readers see as a flash.
+          Applies the stored theme before first paint, from the top of the
+          body rather than from a `<head>` this file writes itself.
+
+          It used to sit in an explicit `<head>` element here, and that element
+          was the cause of `Minified React error #418` — a hydration mismatch —
+          on **every route**, intermittently, in both Firefox and Chrome. In
+          the App Router `<head>` belongs to Next: it streams the stylesheet
+          links, the metadata, the preloads and the chunk scripts into it. A
+          layout that also renders `<head>` hands React a head with one child
+          and a DOM with forty, and React resolves that by discarding the
+          server-rendered document and rebuilding it in the browser. The
+          `suppressHydrationWarning` on `<html>` covers that element's own
+          attributes, not a structural mismatch inside it.
+
+          Found by bisecting a reproduction that loads six pages in one browser
+          context — the error needs warm chunks and therefore fast hydration,
+          which is why a cold first load rarely shows it and why it survived
+          this long. Removing the element took a four-run probe from thirteen
+          hits to zero.
+
+          First child of `<body>`, so it still runs before any content is
+          parsed: measured at 14 ms against a first contentful paint of 19 ms,
+          with the dark theme already applied. Anything later — an effect, a
+          deferred script — paints the wrong theme and then corrects it, which
+          readers see as a flash.
         */}
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
-      </head>
-      <body className="flex min-h-dvh flex-col">
         <SiteChrome locale={locale} skipToContent={skipToContent}>
           {children}
         </SiteChrome>

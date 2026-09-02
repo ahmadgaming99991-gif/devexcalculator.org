@@ -22,7 +22,7 @@
   ],
   "home": {
     "title": "Calculatrice DevEx : convertir des Earned Robux en USD",
-    "metaDescription": "Ce que valent vos Earned Robux éligibles en USD au taux DevEx actuel de {rateStandard}, avec les comparaisons ancien taux et États-Unis 18+ et une source pour chaque chiffre.",
+    "metaDescription": "Ce que valent vos Earned Robux éligibles en USD au taux DevEx de {rateStandard}, avec les comparaisons ancien taux et États-Unis 18+ et une source par chiffre.",
     "h1": "Calculatrice DevEx : convertir des Earned Robux en USD",
     "navLabel": "Calculatrice",
     "quickAnswer": "Au taux DevEx actuel de {rateStandard} USD par Earned Robux éligible, {minimumRobux} Earned Robux donnent environ {payout30000Plain} dollars américains et {robux100000} environ {payout100000Plain}. Seuls les Earned Robux sont éligibles, {minimumRobux} est le minimum accepté par Roblox, et chaque chiffre ici est une estimation — Roblox seul décide quels Robux sont éligibles et si une demande est acceptée.",
@@ -119,7 +119,7 @@
   },
   "api": {
     "title": "API des taux : le registre DevEx en JSON",
-    "metaDescription": "Un point d’accès JSON gratuit et versionné pour les taux DevEx actuels, le minimum et la commission du marketplace, chacun avec la source auprès de laquelle il a été vérifié.",
+    "metaDescription": "Un point d’accès JSON gratuit et versionné pour les taux DevEx, le minimum et la commission du marketplace, avec la source de chaque valeur.",
     "h1": "API des taux",
     "navLabel": "API",
     "quickAnswer": "Le registre des taux à partir duquel ce site calcule est publié en JSON sur /api/rates, avec la source et la date de vérification attachées à chaque chiffre. Il ne demande aucune clé, ne dépose aucun cookie et peut être appelé depuis un navigateur sur n’importe quelle origine. Si vous construisez votre propre calculatrice, lisez-le plutôt que de recopier un chiffre qui se périmera.",
@@ -142,7 +142,7 @@
   },
   "calculators": {
     "title": "Calculatrices financières pour créateurs Roblox",
-    "metaDescription": "Quatre calculatrices opérationnelles couvrant les paiements DevEx, les conversions de Robux, les objectifs de paiement et les commissions du marketplace, et laquelle choisir.",
+    "metaDescription": "Quatre calculatrices : paiements DevEx, conversions de Robux, objectifs de paiement et commissions du marketplace — et laquelle choisir.",
     "h1": "Calculatrices financières pour créateurs",
     "navLabel": "Calculatrices",
     "quickAnswer": "Quatre calculatrices, chacune répondant à une question. La calculatrice DevEx convertit des Earned Robux en dollars. Robux vers USD sépare le paiement au créateur du prix d’achat. La calculatrice d’objectif de paiement remonte depuis un objectif en dollars. La calculatrice de commission Roblox traite la commission de plateforme sur une vente.",
@@ -493,7 +493,7 @@
   },
   "devexFeesAndTaxes": {
     "title": "Frais et impôts DevEx : ce qui est retiré d’un paiement",
-    "metaDescription": "Les frais du prestataire, l’écart de change et l’impôt sur le revenu se placent tous entre le taux DevEx et votre compte bancaire. Modélisez chacun avec vos propres chiffres.",
+    "metaDescription": "Les frais du prestataire, l’écart de change et l’impôt se placent entre le taux DevEx et votre compte. Modélisez chacun avec vos chiffres.",
     "h1": "Frais et impôts DevEx",
     "navLabel": "Frais et impôts",
     "quickAnswer": "Trois choses distinctes réduisent un paiement DevEx, et aucune n’est le taux DevEx : les frais de votre prestataire de paiement, l’écart de conversion de devise si vous êtes payé hors des États-Unis, et l’impôt sur le revenu dans votre propre pays. Cette page vous laisse modéliser chacune avec vos propres chiffres. Ce n’est pas un conseil fiscal.",
@@ -706,7 +706,7 @@
   },
   "editorialPolicy": {
     "title": "Politique éditoriale",
-    "metaDescription": "Les règles selon lesquelles ce site écrit : ce qui compte comme source, comment les affirmations sont étiquetées, ce qui n’est jamais publié, et comment le contenu sensible au temps est relu.",
+    "metaDescription": "Les règles selon lesquelles ce site écrit : ce qui compte comme source, comment les affirmations sont étiquetées et ce qui n’est jamais publié.",
     "h1": "Politique éditoriale",
     "navLabel": "Politique éditoriale",
     "quickAnswer": "Chaque affirmation sensible au temps est rattachée à une source officielle et datée. Rien n’est publié comme un fait sans avoir été vérifié, les déductions sont étiquetées comme telles, et aucun chiffre n’est maintenu en ligne parce qu’il fonctionne bien dans la recherche une fois qu’il a cessé d’être exact.",
@@ -812,7 +812,7 @@
   },
   "platform": {
     "title": "Activité de la plateforme Roblox : comptages de joueurs en direct",
-    "metaDescription": "Comptages de joueurs en direct pour les expériences que Roblox classe, lus depuis ses propres points d’accès publics, plus un relevé grandissant de ce que ce site a observé.",
+    "metaDescription": "Comptages de joueurs en direct pour les expériences que Roblox classe, lus depuis ses propres points d’accès publics, et un relevé grandissant.",
     "h1": "Activité de la plateforme Roblox",
     "navLabel": "Plateforme",
     "quickAnswer": "Les nombres de joueurs de cette page sont collectés toutes les 15 minutes auprès des points d’accès publics de Roblox puis enregistrés ; votre navigateur les lit ensuite sur ce site, au lieu qu’ils soient récupérés parce que vous avez ouvert la page. Le classement est celui de Roblox et non celui de ce site, chaque chiffre porte l’heure à laquelle il a été observé, et à côté figure un relevé de ce que ce site observe depuis ses débuts.",
@@ -846,7 +846,7 @@
   },
   "platform.stock": {
     "title": "Action Roblox (RBLX) : résultats publiés, aucun widget intégré",
-    "metaDescription": "Les résultats trimestriels publiés par Roblox — chiffre d’affaires, croissance des bookings, paiements aux créateurs — avec une explication simple de l’absence de widget de cours tiers ici.",
+    "metaDescription": "Les résultats trimestriels publiés par Roblox — chiffre d’affaires, bookings, paiements aux créateurs — et pourquoi aucun widget de cours ici.",
     "h1": "Action Roblox et résultats publiés",
     "navLabel": "Action",
     "quickAnswer": "Roblox a annoncé un chiffre d’affaires de 1 469 millions de dollars américains pour le trimestre clos le 30 juin 2026, face à une perte nette consolidée de 185 millions, et a versé 363 millions aux créateurs via le Developer Exchange. Il n’y a pas de cours en direct ici : ce site n’intègre aucun widget de marché tiers et n’affichera pas un chiffre qu’il ne peut ni récupérer ni attribuer.",
@@ -879,7 +879,7 @@
   },
   "privacy": {
     "title": "Politique de confidentialité",
-    "metaDescription": "Ce que ce site stocke, ce qu’il ne stocke pas, où vont vos saisies dans la calculatrice, et quels tiers interviennent — en ne décrivant que ce qui est réellement configuré.",
+    "metaDescription": "Ce que ce site stocke, ce qu’il ne stocke pas, où vont vos saisies dans la calculatrice et quels tiers interviennent — uniquement le réel.",
     "h1": "Politique de confidentialité",
     "navLabel": "Confidentialité",
     "quickAnswer": "Les calculs s’exécutent dans votre navigateur et ne sont jamais envoyés à un serveur. Tout ce que vous enregistrez — calculs récents, devise préférée, thème — reste dans le stockage local de votre propre navigateur et peut être effacé depuis la calculatrice à tout moment. Cette page ne décrit que ce qui est réellement activé.",
@@ -902,8 +902,8 @@
     }
   },
   "robloxStats": {
-    "title": "Statistiques des paiements aux créateurs Roblox : frais DevEx par trimestre",
-    "metaDescription": "Ce que Roblox verse réellement aux créateurs via DevEx, tracé depuis ses dépôts auprès de la SEC : 1,50 milliard USD en 2025, trimestre par trimestre, chaque chiffre sourcé.",
+    "title": "Paiements Roblox aux créateurs : DevEx par trimestre",
+    "metaDescription": "Ce que Roblox verse réellement aux créateurs via DevEx, d’après ses dépôts auprès de la SEC : 1,50 milliard USD en 2025, trimestre par trimestre.",
     "h1": "Statistiques des paiements aux créateurs Roblox",
     "navLabel": "Statistiques",
     "quickAnswer": "Roblox a versé 1,503 milliard USD aux créateurs via le Developer Exchange en 2025, contre 922,8 millions en 2024, et 363 millions au seul deuxième trimestre 2026. Chaque chiffre de cette page est lu dans un dépôt de Roblox auprès de la SEC et y renvoie. Ce sont des chiffres trimestriels publiés, pas des mesures en direct.",
@@ -945,8 +945,8 @@
     }
   },
   "robuxTaxCalculator": {
-    "title": "Calculatrice de commission Roblox : la commission du marketplace sur une vente",
-    "metaDescription": "Ce qu’il vous reste après la commission de la plateforme Roblox, ou le prix à demander pour atteindre un objectif. Couvre les ventes dans l’expérience et sur le Marketplace.",
+    "title": "Calculatrice de commission Roblox sur le Marketplace",
+    "metaDescription": "Ce qu’il vous reste après la commission Roblox, ou le prix à demander pour atteindre un objectif. Ventes dans l’expérience et sur le Marketplace.",
     "h1": "Calculatrice de commission Roblox",
     "navLabel": "Commission Roblox",
     "quickAnswer": "La « commission Roblox » est la commission de plateforme, et elle dépend de ce que vous avez vendu. Sur les achats dans l’expérience, comme les produits développeur et les pass, vous gardez {inExperienceCreatorShare} % et Roblox prend {inExperiencePlatformShare} %. Sur les articles d’avatar du Marketplace, la part du créateur démarre à {marketplaceAvatarItemCreatorShare} % et augmente avec le prix, atteignant {marketplaceAvatarItemPlatformShare} % à six fois le prix plancher. C’est distinct de DevEx.",
@@ -982,7 +982,7 @@
   },
   "robuxToUsd": {
     "title": "Robux vers USD : paiement au créateur contre prix d’achat",
-    "metaDescription": "Deux chiffres répondent à cela. Comparez ce que DevEx verse à un créateur et ce que coûte l’achat de Robux, et convertissez n’importe quel montant avec le taux énoncé ouvertement.",
+    "metaDescription": "Deux chiffres répondent à cela : ce que DevEx verse à un créateur et ce que coûte l’achat de Robux. Convertissez avec le taux énoncé.",
     "h1": "Robux vers USD",
     "navLabel": "Robux vers USD",
     "quickAnswer": "« Robux vers USD » a deux réponses honnêtes selon qui pose la question. Un créateur qui encaisse des Earned Robux éligibles reçoit {rateStandard} USD par Robux via DevEx : {robux100000} Robux font donc environ {payout100000Plain} dollars. Un joueur qui achète des Robux paie un prix de détail fixé par Roblox, ce qui est une tout autre transaction. Cette page garde les deux séparées.",
@@ -1023,7 +1023,7 @@
   },
   "sources": {
     "title": "Sources et dates de vérification",
-    "metaDescription": "Toutes les sources officielles derrière les taux, les minimums et les pourcentages de frais de ce site, ce que chacune établit, et la date de sa dernière vérification.",
+    "metaDescription": "Toutes les sources officielles derrière les taux, minimums et frais de ce site, ce que chacune établit et la date de sa dernière vérification.",
     "h1": "Sources",
     "navLabel": "Sources",
     "quickAnswer": "Chaque affirmation sensible au temps sur ce site est rattachée à l’une des sources listées ci-dessous, chacune avec les faits qu’elle établit et la date de sa dernière vérification. Là où une source ne dit rien sur une question, ce site ne dit rien non plus plutôt que de combler le vide.",
@@ -1043,7 +1043,7 @@
   },
   "terms": {
     "title": "Conditions d’utilisation",
-    "metaDescription": "Les conditions couvrant l’usage de DevExCalculator.org, y compris le caractère purement estimatif de chaque chiffre et l’absence de toute affiliation avec Roblox Corporation.",
+    "metaDescription": "Les conditions d’usage de DevExCalculator.org : chaque chiffre est une estimation, et il n’existe aucune affiliation avec Roblox Corporation.",
     "h1": "Conditions d’utilisation",
     "navLabel": "Conditions",
     "quickAnswer": "Vous pouvez utiliser ce site librement pour estimer des paiements DevEx. Chaque chiffre est une estimation et rien de tout cela n’est un conseil financier, juridique ou fiscal. Ce site est indépendant de Roblox Corporation et ne peut ni influencer, ni prédire, ni garantir l’issue d’une demande DevEx.",
@@ -1063,8 +1063,8 @@
     }
   },
   "usdToRobux": {
-    "title": "USD vers Robux : les Earned Robux nécessaires pour un objectif de paiement",
-    "metaDescription": "Fixez un objectif de paiement en dollars et voyez combien d’Earned Robux éligibles il faut, arrondis au supérieur, avec la progression par rapport à votre solde actuel.",
+    "title": "USD vers Robux : les Earned Robux pour un objectif",
+    "metaDescription": "Fixez un objectif de paiement en dollars et voyez combien d’Earned Robux éligibles il faut, arrondis au supérieur, avec votre progression.",
     "h1": "USD vers Robux : partir d’un objectif de paiement et remonter",
     "navLabel": "Objectif de paiement",
     "quickAnswer": "Pour atteindre un paiement DevEx de 1 000 dollars américains au taux actuel, il vous faut {targetRobuxUp} Earned Robux éligibles. Le chiffre arrondit toujours au supérieur, parce qu’une fraction de Robux n’existe pas et qu’arrondir au inférieur vous laisserait sous votre objectif. En dessous de {minimumRobux} Earned Robux, aucun paiement n’est possible, quel que soit l’objectif.",

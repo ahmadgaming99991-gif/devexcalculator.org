@@ -12,7 +12,7 @@
   ],
   "home": {
     "title": "Kalkulator DevEx: konversikan Earned Robux ke USD",
-    "metaDescription": "Berapa nilai Earned Robux Anda yang memenuhi syarat dalam USD pada kurs DevEx saat ini {rateStandard}, dengan perbandingan kurs lama dan AS 18+ serta sumber untuk tiap angka.",
+    "metaDescription": "Berapa nilai Earned Robux Anda yang memenuhi syarat dalam USD pada kurs DevEx {rateStandard}, dengan perbandingan kurs lama dan AS 18+ serta sumber tiap angka.",
     "h1": "Kalkulator DevEx: konversikan Earned Robux ke USD",
     "navLabel": "Kalkulator",
     "quickAnswer": "Pada kurs DevEx saat ini {rateStandard} USD per Earned Robux yang memenuhi syarat, {minimumRobux} Earned Robux menjadi sekitar {payout30000Plain} dolar AS dan {robux100000} menjadi sekitar {payout100000Plain}. Hanya Earned Robux yang memenuhi syarat, {minimumRobux} adalah batas minimum yang diterima Roblox, dan setiap angka di sini adalah perkiraan — hanya Roblox yang menentukan Robux mana yang memenuhi syarat dan apakah sebuah permohonan disetujui.",
@@ -696,7 +696,7 @@
   },
   "editorialPolicy": {
     "title": "Kebijakan redaksi",
-    "metaDescription": "Aturan yang menjadi dasar penulisan situs ini: apa yang dihitung sebagai sumber, bagaimana klaim diberi label, apa yang tidak pernah diterbitkan, dan bagaimana konten yang peka waktu ditinjau.",
+    "metaDescription": "Aturan yang menjadi dasar penulisan situs ini: apa yang dihitung sebagai sumber, bagaimana klaim diberi label, dan apa yang tidak pernah diterbitkan.",
     "h1": "Kebijakan redaksi",
     "navLabel": "Kebijakan redaksi",
     "quickAnswer": "Setiap klaim yang peka waktu diikatkan pada sumber resmi dan diberi tanggal. Tidak ada yang diterbitkan sebagai fakta tanpa diverifikasi, dugaan diberi label sebagai dugaan, dan tidak ada angka yang dibiarkan daring karena berkinerja baik di pencarian setelah ia berhenti akurat.",
@@ -802,7 +802,7 @@
   },
   "platform": {
     "title": "Aktivitas platform Roblox: jumlah pemain langsung",
-    "metaDescription": "Jumlah pemain langsung untuk experience yang sedang diperingkat Roblox, dibaca dari endpoint publiknya sendiri, ditambah catatan yang terus bertambah tentang apa yang telah diamati situs ini.",
+    "metaDescription": "Jumlah pemain langsung untuk experience yang diperingkat Roblox, dibaca dari endpoint publiknya sendiri, plus catatan yang terus bertambah.",
     "h1": "Aktivitas platform Roblox",
     "navLabel": "Platform",
     "quickAnswer": "Jumlah pemain di halaman ini dikumpulkan dari endpoint publik Roblox sendiri setiap 15 menit lalu disimpan, kemudian dibaca peramban Anda dari situs ini — bukan diambil karena Anda membuka halaman. Peringkatnya milik Roblox, bukan situs ini; setiap angka membawa waktu pengamatannya, dan di sampingnya ada catatan apa yang telah diamati situs ini sejak mulai memantau.",
@@ -836,7 +836,7 @@
   },
   "platform.stock": {
     "title": "Saham Roblox (RBLX): hasil yang dilaporkan, tanpa widget sematan",
-    "metaDescription": "Hasil kuartalan yang dilaporkan Roblox — pendapatan, pertumbuhan bookings, pembayaran kreator — dengan penjelasan lugas mengapa tidak ada widget harga pihak ketiga yang disematkan di sini.",
+    "metaDescription": "Hasil kuartalan yang dilaporkan Roblox — pendapatan, bookings, pembayaran kreator — dan mengapa tidak ada widget harga pihak ketiga di sini.",
     "h1": "Saham Roblox dan hasil yang dilaporkan",
     "navLabel": "Saham",
     "quickAnswer": "Roblox melaporkan pendapatan 1.469 juta dolar AS untuk kuartal yang berakhir 30 Juni 2026, dengan rugi bersih konsolidasi 185 juta, dan membayar 363 juta kepada kreator lewat Developer Exchange. Tidak ada harga saham langsung di sini: situs ini tidak menyematkan widget pasar pihak ketiga dan tidak akan mencetak angka yang tidak bisa diambil dan disebutkan sumbernya.",
@@ -869,7 +869,7 @@
   },
   "privacy": {
     "title": "Kebijakan privasi",
-    "metaDescription": "Apa yang disimpan situs ini, apa yang tidak, ke mana masukan kalkulator Anda pergi, dan pihak ketiga mana yang terlibat — hanya menjelaskan apa yang benar-benar aktif.",
+    "metaDescription": "Apa yang disimpan situs ini, apa yang tidak, ke mana masukan kalkulator Anda pergi, dan pihak ketiga mana yang terlibat — hanya yang benar-benar aktif.",
     "h1": "Kebijakan privasi",
     "navLabel": "Privasi",
     "quickAnswer": "Perhitungan berjalan di peramban Anda dan tidak pernah dikirim ke server. Apa pun yang Anda simpan — perhitungan terakhir, mata uang pilihan, tema — tetap di penyimpanan lokal peramban Anda sendiri dan bisa dibersihkan dari kalkulatornya kapan saja. Halaman ini hanya menjelaskan apa yang benar-benar dinyalakan.",
@@ -893,7 +893,7 @@
   },
   "robloxStats": {
     "title": "Statistik pembayaran kreator Roblox: biaya DevEx per kuartal",
-    "metaDescription": "Berapa yang sebenarnya dibayarkan Roblox kepada kreator lewat DevEx, digambarkan dari laporannya ke SEC: 1,50 miliar USD pada 2025, kuartal demi kuartal, dengan tiap angka bersumber.",
+    "metaDescription": "Berapa yang sebenarnya dibayarkan Roblox kepada kreator lewat DevEx, dari laporannya ke SEC: 1,50 miliar USD pada 2025, kuartal demi kuartal.",
     "h1": "Statistik pembayaran kreator Roblox",
     "navLabel": "Statistik",
     "quickAnswer": "Roblox membayar kreator 1,503 miliar USD lewat Developer Exchange pada 2025, naik dari 922,8 juta pada 2024, dan 363 juta pada kuartal kedua 2026 saja. Setiap angka di halaman ini dibaca dari laporan Roblox ke SEC dan ditautkan ke sana. Ini angka kuartalan yang dilaporkan, bukan pengukuran langsung.",
@@ -936,7 +936,7 @@
   },
   "robuxTaxCalculator": {
     "title": "Kalkulator biaya Roblox: biaya marketplace pada sebuah penjualan",
-    "metaDescription": "Berapa yang Anda terima setelah komisi platform Roblox, atau berapa yang harus dipasang untuk mencapai target. Mencakup penjualan di dalam experience dan di Marketplace.",
+    "metaDescription": "Berapa yang Anda terima setelah komisi platform Roblox, atau berapa yang harus dipasang untuk mencapai target. Termasuk experience dan Marketplace.",
     "h1": "Kalkulator biaya Roblox",
     "navLabel": "Biaya Roblox",
     "quickAnswer": "\"Biaya Roblox\" adalah komisi platform, dan besarnya bergantung pada apa yang Anda jual. Pada pembelian di dalam experience seperti developer product dan pass, Anda menerima {inExperienceCreatorShare}% dan Roblox mengambil {inExperiencePlatformShare}%. Pada item avatar Marketplace, bagian kreator mulai dari {marketplaceAvatarItemCreatorShare}% dan naik seiring harga, mencapai {marketplaceAvatarItemPlatformShare}% pada enam kali harga dasar. Ini terpisah dari DevEx.",
@@ -972,7 +972,7 @@
   },
   "robuxToUsd": {
     "title": "Robux ke USD: pembayaran kreator vs harga pembelian",
-    "metaDescription": "Ada dua angka yang menjawab ini. Bandingkan berapa yang dibayar DevEx kepada kreator dengan berapa biaya membeli Robux, dan konversikan jumlah berapa pun dengan kurs yang dinyatakan terbuka.",
+    "metaDescription": "Ada dua angka yang menjawab ini: berapa yang dibayar DevEx kepada kreator dan berapa biaya membeli Robux. Konversikan dengan kurs terbuka.",
     "h1": "Robux ke USD",
     "navLabel": "Robux ke USD",
     "quickAnswer": "\"Robux ke USD\" punya dua jawaban yang jujur, tergantung siapa yang bertanya. Kreator yang mencairkan Earned Robux yang memenuhi syarat menerima {rateStandard} USD per Robux lewat DevEx, jadi {robux100000} Robux sekitar {payout100000Plain} dolar. Pemain yang membeli Robux membayar harga eceran yang ditetapkan Roblox, dan itu transaksi yang sama sekali berbeda. Halaman ini memisahkan keduanya.",
@@ -1053,8 +1053,8 @@
     }
   },
   "usdToRobux": {
-    "title": "USD ke Robux: Earned Robux yang dibutuhkan untuk target pembayaran",
-    "metaDescription": "Tetapkan sasaran pembayaran dalam dolar dan lihat berapa Earned Robux yang memenuhi syarat dibutuhkan, dibulatkan ke atas, beserta kemajuan terhadap saldo Anda saat ini.",
+    "title": "USD ke Robux: Earned Robux untuk target pembayaran",
+    "metaDescription": "Tetapkan sasaran pembayaran dalam dolar dan lihat berapa Earned Robux yang dibutuhkan, dibulatkan ke atas, beserta kemajuan Anda.",
     "h1": "USD ke Robux: hitung mundur dari target pembayaran",
     "navLabel": "Target pembayaran",
     "quickAnswer": "Untuk mencapai pembayaran DevEx sebesar 1.000 dolar AS pada kurs saat ini, Anda butuh {targetRobuxUp} Earned Robux yang memenuhi syarat. Angkanya selalu dibulatkan ke atas, karena pecahan Robux tidak ada dan membulatkan ke bawah akan membuat Anda kurang dari target. Di bawah {minimumRobux} Earned Robux, tidak ada pembayaran yang mungkin, berapa pun sasarannya.",
