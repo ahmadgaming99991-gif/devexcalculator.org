@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { siteConfig } from "@/config/site";
 
 /**
- * Search Console and Bing Webmaster Tools ownership tags.
+ * Search Console, Bing Webmaster Tools and Yandex Webmaster ownership tags.
  *
- * Both services will also accept a DNS record or an uploaded file, and either
+ * All three will also accept a DNS record or an uploaded file, and either
  * is a better choice than a meta tag because it does not put a token in every
  * page of HTML the site serves. The tag is here for the case where the owner
  * has no access to DNS, which is the situation these tools are usually
@@ -24,9 +24,9 @@ import { siteConfig } from "@/config/site";
  */
 
 /**
- * The shortest thing either service issues is comfortably longer than this.
- * Google's token is 43 characters and Bing's is 32; anything under sixteen is
- * a typo, a truncation or someone's note to themselves.
+ * The shortest token any of the three issues.
+ * Google's token is 43 characters, Bing's is 32 and Yandex's is 16; under that
+ * is a typo, a truncation or someone's note to themselves.
  */
 const MIN_TOKEN_LENGTH = 16;
 
@@ -53,13 +53,19 @@ export function isUsableToken(value: string | null | undefined): value is string
 export function buildVerification(): Metadata["verification"] | undefined {
   const google = siteConfig.verification.google;
   const bing = siteConfig.verification.bing;
+  const yandex = siteConfig.verification.yandex;
 
   const usableGoogle = isUsableToken(google) ? google : null;
   const usableBing = isUsableToken(bing) ? bing : null;
-  if (!usableGoogle && !usableBing) return undefined;
+  const usableYandex = isUsableToken(yandex) ? yandex : null;
+  if (!usableGoogle && !usableBing && !usableYandex) return undefined;
 
   return {
     ...(usableGoogle ? { google: usableGoogle } : {}),
+    // Yandex has a dedicated field, and its token is exactly sixteen
+    // characters — the shortest thing `isUsableToken` accepts, and the reason
+    // that bound is `< 16` rather than `<= 16`.
+    ...(usableYandex ? { yandex: usableYandex } : {}),
     // Bing has no dedicated field in Next's metadata type; its tag name is
     // `msvalidate.01`, which is what `other` exists for.
     ...(usableBing ? { other: { "msvalidate.01": usableBing } } : {}),

@@ -88,6 +88,7 @@ export const siteConfig = {
   verification: {
     google: readEnv("NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION"),
     bing: readEnv("NEXT_PUBLIC_BING_SITE_VERIFICATION"),
+    yandex: readEnv("NEXT_PUBLIC_YANDEX_SITE_VERIFICATION"),
   },
 
   /** Rate registry version surfaced in the footer and methodology page. */
