@@ -1,5 +1,6 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 import {
+  DETAIL_BATCH,
   KEYS,
   SCHEMA,
   dayKey,
@@ -13,7 +14,6 @@ import { collectLive, parseSorts } from "../../../workers/platform-data/src/unit
 import { appendHistory } from "../../../workers/platform-data/src/units/history";
 import { appendHighlights } from "../../../workers/platform-data/src/units/highlights";
 import { pick, refreshDetails } from "../../../workers/platform-data/src/units/enrichment";
-import { rollUpTotals } from "../../../workers/platform-data/src/units/rollup";
 import worker from "../../../workers/platform-data/src/index";
 import type { Env, PlatformStore } from "../../../workers/platform-data/src/store";
 
@@ -119,14 +119,21 @@ function jsonResponse(body: unknown, at = "Mon, 31 Aug 2026 12:00:00 GMT"): Resp
 }
 
 /** Answers each upstream host from a table, so a test states what it expects. */
-function stubFetch(table: { sorts?: unknown; details?: unknown; votes?: unknown; fail?: string[] }) {
+function stubFetch(table: {
+  sorts?: unknown;
+  details?: unknown;
+  votes?: unknown;
+  fail?: string[];
+  /** Roblox's `Date` header, which is what dates the observation. */
+  at?: string;
+}) {
   return vi.spyOn(globalThis, "fetch").mockImplementation(async (input: RequestInfo | URL) => {
     const url = String(input);
     const which = url.includes("get-sorts") ? "sorts" : url.includes("/votes") ? "votes" : "details";
     if (table.fail?.includes(which)) return new Response("nope", { status: 500 });
     const body = table[which as "sorts" | "details" | "votes"];
     if (body === undefined) return new Response("nope", { status: 404 });
-    return jsonResponse(body);
+    return table.at === undefined ? jsonResponse(body) : jsonResponse(body, table.at);
   });
 }
 
@@ -373,6 +380,21 @@ describe("enrichment rotation", () => {
     expect(first).not.toEqual(second);
   });
 
+  it("never refreshes more rows in one run than the batch allows", () => {
+    // The batch is the CPU lever. Production produced one enrichment at
+    // 11.94 ms against a 10 ms plan limit with the batch at 50, so the size is
+    // pinned here: a change to it is a change to the ceiling and should have
+    // to be made deliberately, in sight of this assertion.
+    expect(DETAIL_BATCH).toBe(30);
+
+    const roster = Array.from({ length: 200 }, (_, i) => String(i));
+    expect(pick(roster, {}, 0, DETAIL_BATCH)).toHaveLength(DETAIL_BATCH);
+
+    const row = { v: 1, f: 1, c: "x", o: new Date(now).toISOString() } as never;
+    const full = Object.fromEntries(roster.map((id) => [id, row]));
+    expect(pick(roster, full, 0, DETAIL_BATCH)).toHaveLength(DETAIL_BATCH);
+  });
+
   it("refreshes only the shard it was given", async () => {
     stubFetch({ details: DETAILS, votes: VOTES });
     const shard = shardOf(111);
@@ -507,33 +529,135 @@ describe("highlights", () => {
   });
 });
 
-describe("the totals rollup", () => {
-  /** A live value shaped enough to pass the store's guard. */
-  const liveCarrying = (day: string) => ({
+/**
+ * The UTC boundary, which is where a finished day is either saved or lost.
+ *
+ * This suite exists because the day was lost in production. The archive used to
+ * be a separate unit at :40, and collection at :00 had already replaced the
+ * series it came to read - so it skipped every day with "day is still in
+ * progress" and never wrote a single archive key. 2026-09-01's 56 collected
+ * points went with it. The archive now happens inside the collection unit, in
+ * the same invocation that performs the reset, because that invocation is the
+ * last thing holding the finished day.
+ */
+describe("the day boundary", () => {
+  const YESTERDAY = "20260901";
+  const YESTERDAY_START = Date.UTC(2026, 8, 1, 0, 0, 0);
+  const YESTERDAY_NOON = Date.UTC(2026, 8, 1, 12, 0, 0);
+  // The observation is dated by Roblox's clock, so the day change is driven by
+  // the `Date` header rather than by our own wall clock.
+  const CROSSES_MIDNIGHT = "Wed, 02 Sep 2026 12:00:00 GMT";
+  const TODAY = "20260902";
+
+  /** A live value carrying a finished day, shaped to pass the store's guard. */
+  const carrying = (day: string, points: [number, number][]) => ({
     schema: SCHEMA,
+    observedAt: "2026-09-01T23:45:00.000Z",
+    collector: { outcome: "recorded", lastRunAt: null, consecutiveFailures: 0, detail: null },
+    source: { status: "read", detail: null },
     rankings: [],
+    defaultRanking: null,
+    platform: { players: 0, experiences: 0, rankings: 0 },
+    byRanking: {},
     experiences: {},
+    maturity: [],
+    today: points,
     todayDay: day,
-    today: [[1, 2]],
   });
 
-  it("archives a finished day and leaves an unfinished one alone", async () => {
-    const today = dayKey(Date.now());
-    const inProgress = makeStore({ [KEYS.live]: liveCarrying(today) });
-    expect((await rollUpTotals(inProgress.env)).outcome).toBe("skipped");
-    expect(inProgress.writes).toEqual([]);
+  const dayOf = (n: number): [number, number][] =>
+    // Anchored to midnight: ninety-six quarter-hours is exactly one UTC day,
+    // and a day that started at noon would spill half its points into the next.
+    Array.from({ length: n }, (_, i) => [YESTERDAY_START + i * 900_000, 1_000_000 + i] as [number, number]);
 
-    const finished = makeStore({ [KEYS.live]: liveCarrying("20260101") });
-    expect((await rollUpTotals(finished.env)).outcome).toBe("recorded");
-    expect(finished.writes).toEqual([KEYS.totals("20260101")]);
+  it("archives the finished day before replacing the value that carries it", async () => {
+    stubFetch({ sorts: SORTS, at: CROSSES_MIDNIGHT });
+    const kv = makeStore({ [KEYS.live]: carrying(YESTERDAY, dayOf(96)) });
+    const report = await collectLive(kv.env);
+
+    expect(report.outcome).toBe("recorded");
+    // Order matters: the finished day must be durable before the only value
+    // holding it is overwritten.
+    expect(kv.writes).toEqual([KEYS.totals(YESTERDAY), KEYS.live]);
+    expect(report.writes).toBe(2);
+    expect(report.subrequests).toBe(1);
+
+    const archived = kv.read<{ day: string; points: [number, number][] }>(KEYS.totals(YESTERDAY));
+    expect(archived?.day).toBe(YESTERDAY);
+    expect(archived?.points).toEqual(dayOf(96));
+
+    const live = kv.read<Live>(KEYS.live);
+    expect(live?.todayDay).toBe(TODAY);
+    expect(live?.today).toHaveLength(1);
   });
 
-  it("is safe to run twice", async () => {
-    const kv = makeStore({ [KEYS.live]: liveCarrying("20260101") });
-    await rollUpTotals(kv.env);
-    const second = await rollUpTotals(kv.env);
-    expect(second.outcome).toBe("skipped");
-    expect(kv.writes).toHaveLength(1);
+  it("writes once on every collection that does not cross midnight", async () => {
+    stubFetch({ sorts: SORTS, at: CROSSES_MIDNIGHT });
+    const kv = makeStore({ [KEYS.live]: carrying(TODAY, [[Date.UTC(2026, 8, 2, 11, 45), 5]]) });
+    const report = await collectLive(kv.env);
+
+    expect(kv.writes).toEqual([KEYS.live]);
+    expect(report.writes).toBe(1);
+  });
+
+  it("cannot shrink an archive that is already at least as complete", async () => {
+    // A replayed or retried boundary invocation arrives carrying the same day.
+    // The existing archive is read first and left exactly as it is.
+    stubFetch({ sorts: SORTS, at: CROSSES_MIDNIGHT });
+    const kv = makeStore({
+      [KEYS.live]: carrying(YESTERDAY, dayOf(10)),
+      [KEYS.totals(YESTERDAY)]: { schema: SCHEMA, day: YESTERDAY, points: dayOf(96) },
+    });
+    const report = await collectLive(kv.env);
+
+    expect(kv.writes).toEqual([KEYS.live]);
+    expect(report.writes).toBe(1);
+    expect(kv.read<{ points: unknown[] }>(KEYS.totals(YESTERDAY))?.points).toHaveLength(96);
+  });
+
+  it("replaces an archive that is shorter than the day actually collected", async () => {
+    stubFetch({ sorts: SORTS, at: CROSSES_MIDNIGHT });
+    const kv = makeStore({
+      [KEYS.live]: carrying(YESTERDAY, dayOf(96)),
+      [KEYS.totals(YESTERDAY)]: { schema: SCHEMA, day: YESTERDAY, points: dayOf(4) },
+    });
+    await collectLive(kv.env);
+    expect(kv.read<{ points: unknown[] }>(KEYS.totals(YESTERDAY))?.points).toHaveLength(96);
+  });
+
+  it("archives nothing when there is no previous value and nothing to finish", async () => {
+    stubFetch({ sorts: SORTS, at: CROSSES_MIDNIGHT });
+    const empty = makeStore({});
+    await collectLive(empty.env);
+    expect(empty.writes).toEqual([KEYS.live]);
+
+    const none = makeStore({ [KEYS.live]: carrying(YESTERDAY, []) });
+    await collectLive(none.env);
+    expect(none.writes).toEqual([KEYS.live]);
+  });
+
+  it("keeps the archive truthful: no interpolation, no duplicates, no foreign days", async () => {
+    stubFetch({ sorts: SORTS, at: CROSSES_MIDNIGHT });
+    const malformed = [
+      [YESTERDAY_NOON, 100],
+      [YESTERDAY_NOON, 999],                     // duplicate instant, last wins
+      [YESTERDAY_NOON + 900_000, 200],
+      [Date.UTC(2026, 8, 2, 1, 0), 300],         // belongs to another day
+      [Number.NaN, 400],                         // not a time
+      [YESTERDAY_NOON + 1_800_000, Number.NaN],  // not a total
+      [YESTERDAY_NOON - 900_000, 50],            // earlier, out of order
+    ] as [number, number][];
+
+    const kv = makeStore({ [KEYS.live]: carrying(YESTERDAY, malformed) });
+    await collectLive(kv.env);
+
+    // Ascending, one point per instant, and nothing invented to fill the gaps
+    // the rejected pairs left behind.
+    expect(kv.read<{ points: [number, number][] }>(KEYS.totals(YESTERDAY))?.points).toEqual([
+      [YESTERDAY_NOON - 900_000, 50],
+      [YESTERDAY_NOON, 999],
+      [YESTERDAY_NOON + 900_000, 200],
+    ]);
   });
 });
 
@@ -568,7 +692,9 @@ describe("the dispatcher", () => {
     expect(unitFor(at(0, 50))?.kind).toBe("history");
     expect(unitFor(at(0, 10))?.kind).toBe("highlights");
     expect(unitFor(at(0, 25))?.kind).toBe("enrichment");
-    expect(unitFor(at(0, 40))?.kind).toBe("rollup");
+    // :40 held the rollup unit that could never see a finished day. It is
+    // reserved now, like :55, rather than running a unit that always skipped.
+    expect(unitFor(at(0, 40))).toBeNull();
     expect(unitFor(at(0, 55))).toBeNull();
   });
 
@@ -650,10 +776,14 @@ describe("write budget", () => {
         await refreshDetails(kv.env, shardOf(111));
         return kv.writes.length;
       })()) * 24,
-      rollup: 1,
+      // The one invocation per UTC day that crosses midnight writes twice: the
+      // finished day's archive, then the new live value. Every other
+      // collection writes once, which is why this is a daily constant and not
+      // a factor on `live`.
+      boundaryArchive: 1,
     };
 
-    expect(counts).toEqual({ live: 96, history: 96, highlights: 24, enrichment: 24, rollup: 1 });
+    expect(counts).toEqual({ live: 96, history: 96, highlights: 24, enrichment: 24, boundaryArchive: 1 });
     const total = Object.values(counts).reduce((sum, n) => sum + n, 0);
     expect(total).toBe(241);
     expect(total).toBeLessThan(1_000);

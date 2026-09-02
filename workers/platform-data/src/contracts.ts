@@ -59,8 +59,11 @@ export interface LiveRow {
    * of distinct labels across several hundred rows ("Maturity: Minimal" alone
    * covered 195 of 377 in a production response), so storing each verbatim
    * would add ~6.8 KB to a value that is rewritten every fifteen minutes and
-   * whose serialisation is already the largest term in Stage A's CPU. Interned,
-   * the same information costs about 750 bytes.
+   * whose serialisation is already the largest term in Stage A's CPU.
+   *
+   * Measured on the real value, not estimated: pre-patch 34,226 B, interned
+   * 35,869 B, verbatim 40,279 B. Interning costs **+1,643 B** and saves 4,410 B
+   * against storing the labels on every row.
    */
   readonly a: number | null;
 }
@@ -205,8 +208,21 @@ export const HIGHLIGHT_TOP = 12;
 /** Series kept, above the charted twelve, so membership churn is not a gap. */
 export const HIGHLIGHT_KEEP = 20;
 export const HIGHLIGHT_POINT_CAP = (HISTORY_DAYS * 24 * 60) / HISTORY_INTERVAL_MINUTES;
-/** Enrichment rows refreshed per run. Measured at 4.94 ms median for this size. */
-export const DETAIL_BATCH = 50;
+/**
+ * Enrichment rows refreshed per run.
+ *
+ * Was 50, which measured a 4.94 ms median and held for weeks. Production then
+ * produced a single enrichment at **11.94 ms** - past the 10 ms plan limit,
+ * though it returned success with no `exceededResources`. The eight runs
+ * around it sat between 4.63 and 6.81 ms, so this is headroom against an
+ * outlier rather than a fix for a trend: the batch is the one lever that
+ * lowers the ceiling without changing what enrichment does.
+ *
+ * A smaller batch costs freshness, not correctness. A full sweep of four
+ * shards takes proportionally longer, and `pick` already refreshes the rows
+ * that have never been seen before it rotates through the rest.
+ */
+export const DETAIL_BATCH = 30;
 /** A detail row nobody has refreshed within the window, for an experience no
  *  longer ranked, is dropped. Rows still in the live roster are always kept. */
 export const DETAIL_MAX_AGE_MS = RETENTION_DAYS * 24 * 60 * 60 * 1000;

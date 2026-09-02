@@ -48,10 +48,27 @@
     { "pattern": "devexcalculator.org", "custom_domain": true },
     { "pattern": "www.devexcalculator.org", "custom_domain": true }
   ],
-  // Every 15 minutes: 96 observations a day, comfortably inside the KV free
-  // tier's 1,000 daily writes while still drawing a readable day.
+  /*
+   * No schedule. The site no longer collects anything.
+   *
+   * This used to run every fifteen minutes to write the v1 snapshots. That job
+   * now belongs to the platform data Worker, which collects into its own
+   * namespace on its own trigger and serves the result from
+   * api.devexcalculator.org. Leaving the cron here would keep a second,
+   * unread collector writing against the same 1,000-writes-a-day account
+   * budget that the data plane needs.
+   *
+   * The v1 namespace below stays bound and stays populated: it is the rollback
+   * path until the v2 plane has proven itself, and nothing deletes it. See
+   * docs/platform-data-cutover.md for the retirement steps and the cleanup
+   * date.
+   *
+   * Declared empty rather than omitted: Wrangler leaves existing Cron Triggers
+   * untouched when the key is absent, so an omitted block would have left the
+   * old schedule running on the deployed Worker.
+   */
   "triggers": {
-    "crons": ["*/15 * * * *"]
+    "crons": []
   },
 
   // The only stored state on the site. Snapshots expire after 14 days, so

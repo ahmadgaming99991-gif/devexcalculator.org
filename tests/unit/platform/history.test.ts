@@ -425,7 +425,13 @@ describe("the series rollup", () => {
   it("stores a time that round-trips to the instant it was recorded", async () => {
     // Truncating to whole seconds moved every observation by up to 999ms, so
     // the page printed a time that was close to, but not, the time recorded.
-    const at = "2026-08-18T21:45:48.279Z";
+    //
+    // Anchored to now, not to a fixed date. This assertion is about
+    // millisecond precision, but a hardcoded instant also silently becomes a
+    // retention test the day it ages past the window - which is exactly how it
+    // started failing, two weeks after it was written, for a reason it was
+    // never about.
+    const at = new Date(Date.now() - 3_600_000).toISOString().replace(/\.\d{3}Z$/, ".279Z");
     await recordSnapshot(store, snapshotAt(at, 900));
 
     const series = await readSeries(store);

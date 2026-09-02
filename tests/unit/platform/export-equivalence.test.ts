@@ -85,8 +85,9 @@ describe("totals export equivalence", () => {
   });
 
   it("counts an instant once when the archive and live both carry it", async () => {
-    // The rollup copies `today` into the archive; until the day rolls over,
-    // the same observation exists in both places. It is still one observation.
+    // The boundary collection copies `today` into the archive; a day archived
+    // while its points were still live exists in both places. It is still one
+    // observation.
     const series = await v2TotalsSeries(
       storeOf({
         "platform:v2:live": LIVE,

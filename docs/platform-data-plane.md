@@ -50,7 +50,7 @@ read or overwrite them.
 | `platform:v2:details:<0-3>` | enrichment unit | one shard hourly | `/v1/platform/rankings` | 14 d TTL | ~17–21 KB per shard |
 | `platform:v2:history:<0-3>:<YYYYMMDD>` | history unit | one shard hourly | `/v1/platform/experience/:id` | 14 d TTL | grows to ~21–25 KB by the day's final hour |
 | `platform:v2:highlights` | highlights unit | hourly | `/v1/platform/highlights` | 14 d TTL | ~23 KB at 20 series × 168 points |
-| `platform:v2:totals:<YYYYMMDD>` | rollup unit | once per day | `/v1/platform/totals` | 14 d TTL | ~2.3 KB at 96 points |
+| `platform:v2:totals:<YYYYMMDD>` | collection unit, at the UTC boundary | once per day | `/v1/platform/totals` | 14 d TTL | ~2.3 KB at 96 points |
 
 ### `platform:v2:live`
 
@@ -61,8 +61,17 @@ be 96 more writes a day for a value that only ever changes at the same instant
 this one does.
 
 `todayDay` records which UTC day `today` belongs to, so a value carried across
-midnight starts a new series rather than mixing two days. The rollup unit
-archives the finished day into its own key.
+midnight starts a new series rather than mixing two days. The collection that
+detects the change archives the finished day into its own key **before** it
+writes the new value — that invocation is the last thing holding the finished
+series, so it has to be the one that saves it.
+
+This was a separate rollup unit at `:40`, and it never worked. Collection runs
+at `:00` and had already replaced the series the rollup came to read, so the
+rollup found the day in progress and skipped, every day, without ever writing an
+archive. It was caught at the first production boundary, by which point
+2026-09-01's 56 collected points existed only in an out-of-band capture. The
+archive now happens where the reset happens.
 
 ### `platform:v2:details:<shard>`
 
@@ -101,12 +110,12 @@ the invariant is that **no invocation ever runs two units**.
 :05 :20 :35 :50   history 0-3     one shard's hourly point
 :10               highlights      one point onto each charted series
 :25               enrichment      one detail shard, rotating with the hour
-:40               rollup          archives yesterday's totals when due
-:55               reserved        nothing, deliberately
+:40 :55           reserved        nothing, deliberately
 ```
 
-`:55` is headroom for a unit that does not exist yet. Adding one there is
-cheaper than re-timing the whole schedule later.
+`:40` and `:55` are headroom for a unit that does not exist yet. Adding one
+there is cheaper than re-timing the whole schedule later. `:40` held the rollup
+unit until it was removed for never having been able to do its job.
 
 ## Measured CPU
 
@@ -119,7 +128,6 @@ from `workersInvocationsAdaptive`. Zero errors, and **nothing at or above 8 ms**
 | history | 60 | 0.41 | **1.34** | 1.78 | 1.94 | 4.78 |
 | highlights | 14 | 1.09 | **1.28** | 2.82 | 2.83 | 2.83 |
 | enrichment | 15 | 3.71 | **4.89** | 6.34 | 7.25 | 7.25 |
-| rollup | 17 | 0.52 | 1.05 | 1.37 | 1.47 | 1.47 |
 | idle | 18 | 0.15 | 0.22 | 0.29 | 0.32 | 0.32 |
 
 ## Write budget
@@ -133,8 +141,13 @@ The Workers KV Free tier allows **1,000 writes a day**. Counted from actual
 | history | 1 | 96 | 96 |
 | highlights | 1 | 24 | 24 |
 | enrichment | 1 | 24 | 24 |
-| rollup | 1 | 1 | 1 |
+| boundary archive | +1 | 1 | 1 |
 | **Total** | | | **241** |
+
+The boundary archive is the one deliberate exception to one-put-per-invocation:
+the single collection per UTC day that crosses midnight issues two puts, the
+finished day's archive and then the new live value. Every other collection still
+writes once.
 
 During migration the v1 collector keeps running at **408/day** (`obs:` 96,
 `index` 96, `series` 96, `heartbeat` 96, `games` 24), plus **0–96** traffic-driven

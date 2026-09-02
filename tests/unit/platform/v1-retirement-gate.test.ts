@@ -5,9 +5,9 @@ import { describe, expect, it } from "vitest";
  * The v1 collector may not be retired while the public exports still read it.
  *
  * `/platform/` no longer reads the v1 store — the dashboard fetches from the
- * data plane on `api.devexcalculator.org`. `/api/platform/` still does. It is
- * linked from the page as a CSV and JSON download and has been public long
- * enough to be in someone's script.
+ * data plane on `api.devexcalculator.org`. `/api/platform/` was the last
+ * reader: it is linked from the page as a CSV and JSON download and has been
+ * public long enough to be in someone's script.
  *
  * That makes retiring the v1 collector a silent failure rather than a loud
  * one: the exports keep answering `200`, keep returning well-formed rows, and
@@ -17,8 +17,10 @@ import { describe, expect, it } from "vitest";
  * as current.
  *
  * So the two are tied together here. While the export reads v1, the three
- * things that keep v1 collecting must exist. Migrate the export to v2 and this
- * gate lifts on its own, because its premise is the import itself.
+ * things that keep v1 collecting must exist; once it reads v2, the binding
+ * that makes the v2 path reachable must exist instead. The gate follows the
+ * export rather than being switched off by hand, because its premise is what
+ * the route imports.
  */
 
 const read = (path: string) => readFileSync(path, "utf8");
@@ -27,10 +29,23 @@ const EXPORT_ROUTE = "src/app/api/platform/route.ts";
 const WORKER_ENTRY = "worker/index.ts";
 const WRANGLER = "wrangler.jsonc";
 
-/** True while `/api/platform/` still reads the v1 observation store. */
+/**
+ * True while `/api/platform/` depends on the v1 store to answer in production.
+ *
+ * The route now reads the v2 data plane first and falls back to v1 only when
+ * the `PLATFORM_DATA` binding is absent, which is the local-development case -
+ * in production the binding is declared, so the fallback never runs. A bare
+ * "does it mention v1" check would therefore report a dependency that no
+ * deployed request can reach, and would have pinned a Cron Trigger the site no
+ * longer needs. The dependency is the *primary* source, so that is what this
+ * asks about.
+ */
 const exportReadsV1 = (): boolean => {
   const source = read(EXPORT_ROUTE);
-  return source.includes("@/lib/platform/history") || source.includes("@/lib/platform/store");
+  const mentionsV1 =
+    source.includes("@/lib/platform/history") || source.includes("@/lib/platform/store");
+  const prefersV2 = source.includes("@/lib/platform/v2-exports") && source.includes("getV2Store");
+  return mentionsV1 && !prefersV2;
 };
 
 describe("the v1 collector cannot be retired out from under the exports", () => {
@@ -59,6 +74,27 @@ describe("the v1 collector cannot be retired out from under the exports", () => 
 
   it.runIf(exportReadsV1())("keeps the KV binding both the collector and the export use", () => {
     expect(read(WRANGLER), "PLATFORM_HISTORY is no longer bound").toContain("PLATFORM_HISTORY");
+  });
+
+  /**
+   * The same guard, pointed at the store the export actually reads now.
+   *
+   * Retiring v1 did not remove the failure this file exists to prevent - it
+   * moved it. An export reading v2 through a binding that is not declared
+   * would fall back to a v1 store nothing is filling any more, and answer 200
+   * with rows whose newest timestamp never moves again. So the binding that
+   * makes the v2 path reachable is now the thing that must exist.
+   */
+  it.runIf(!exportReadsV1())("keeps the binding that makes the v2 export path reachable", () => {
+    const config = read(WRANGLER);
+    expect(config, "PLATFORM_DATA is no longer bound, so the export would fall back to a store nothing fills").toContain(
+      "PLATFORM_DATA",
+    );
+    // v1 stays bound and stays populated: it is the rollback path, and the
+    // fallback in the route is only reachable while it is.
+    expect(config, "PLATFORM_HISTORY was unbound while it is still the rollback path").toContain(
+      "PLATFORM_HISTORY",
+    );
   });
 
   /**

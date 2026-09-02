@@ -7,7 +7,9 @@
  * with its own CPU budget, because combining them is exactly what put the
  * earlier single-stage collector at 12-23 ms.
  *
- * Per run: 1 subrequest, 1 KV read, 1 KV write.
+ * Per run: 1 subrequest, 1 KV read, 1 KV write. The one invocation per UTC day
+ * that crosses midnight is the deliberate exception: it reads the finished
+ * day's archive and writes it before writing live, so 2 reads and 2 writes.
  * Measured: p50 3.24 ms, p95 5.04 ms, max 5.04 ms, nothing at or above 8 ms.
  */
 
@@ -19,7 +21,7 @@ import {
   type LiveRow,
   type Ranking,
 } from "../contracts";
-import { readLive, writeLive, type Env } from "../store";
+import { readLive, readTotals, writeLive, writeTotals, type Env } from "../store";
 import { getSorts } from "../upstream";
 import type { UnitReport } from "./report";
 
@@ -154,10 +156,54 @@ export async function collectLive(env: Env, now = Date.now()): Promise<UnitRepor
    * Today's totals ride inside this value, which is what keeps the cycle to one
    * write. The day is compared before appending: a value carried across
    * midnight starts a new series rather than putting yesterday's points into
-   * today's bucket. Yesterday's are not lost - the rollup unit archives them.
+   * today's bucket.
    */
+  const rolledOver = previous !== null && previous.todayDay !== day;
   const carried = previous?.todayDay === day ? previous.today : [];
   const today = [...carried, [at, players] as const];
+
+  /*
+   * The finished day is archived here, by this invocation, before the value
+   * that carries it is replaced.
+   *
+   * It used to be the rollup unit's job. That could not work: the rollup runs
+   * at :40 and collection runs at :00, so by the time the rollup looked, this
+   * unit had already replaced `today` with the new day and the finished series
+   * was gone. The archive key was never written once, and 2026-09-01's points
+   * were lost at the boundary - recovered only from an out-of-band capture.
+   *
+   * Nothing else can do it. Whichever unit resets the series is the last one
+   * holding it, so that unit has to be the one that saves it. This is the sole
+   * invocation per UTC day that issues two puts; every other collection is
+   * still one. See docs/platform-data-cutover.md.
+   */
+  let archive: { day: string; points: readonly (readonly [number, number])[] } | null = null;
+  if (rolledOver && previous.today.length > 0) {
+    const finished = finishedDay(previous.today, previous.todayDay);
+    if (finished.length > 0) archive = { day: previous.todayDay, points: finished };
+  }
+
+  let archiveReads = 0;
+  let archiveWrites = 0;
+  let archivedPoints = 0;
+  if (archive) {
+    /*
+     * Read first, so a re-run cannot shrink an archive that is already right.
+     * A retried or manually replayed boundary invocation arrives with the same
+     * points, and an equal-or-larger existing archive is left exactly as it is.
+     */
+    const existing = await readTotals(env, archive.day);
+    archiveReads = 1;
+    if (!existing || existing.points.length < archive.points.length) {
+      await writeTotals(env, archive.day, {
+        schema: SCHEMA,
+        day: archive.day,
+        points: archive.points,
+      });
+      archiveWrites = 1;
+      archivedPoints = archive.points.length;
+    }
+  }
 
   const collector: CollectorState = {
     outcome: "recorded",
@@ -184,7 +230,38 @@ export async function collectLive(env: Env, now = Date.now()): Promise<UnitRepor
   await writeLive(env, live);
 
   return {
-    unit: "live", outcome: "recorded", detail: null,
-    subrequests: 1, reads: 1, writes: 1, items: count,
+    unit: "live",
+    outcome: "recorded",
+    detail: archiveWrites > 0 ? `archived ${archive!.day} (${archivedPoints} points)` : null,
+    subrequests: 1,
+    reads: 1 + archiveReads,
+    writes: 1 + archiveWrites,
+    items: count,
   };
+}
+
+/**
+ * The finished day's series, validated rather than trusted.
+ *
+ * These points were written by this Worker, so they should already be well
+ * formed - but this is the one moment they are copied into permanent storage,
+ * and a malformed pair salted into an archive would outlive the value it came
+ * from. Anything that is not a finite numeric pair stamped inside the day it
+ * claims is dropped, duplicate instants collapse to one, and the result is
+ * ascending. Nothing is added: no interpolation, no carry-forward, no
+ * synthesised endpoint. A day with a gap keeps its gap.
+ */
+function finishedDay(
+  points: readonly (readonly [number, number])[],
+  day: string,
+): readonly (readonly [number, number])[] {
+  const byInstant = new Map<number, number>();
+  for (const point of points) {
+    if (!Array.isArray(point) || point.length !== 2) continue;
+    const [at, players] = point;
+    if (!Number.isFinite(at) || !Number.isFinite(players)) continue;
+    if (dayKey(at) !== day) continue;
+    byInstant.set(at, players);
+  }
+  return [...byInstant.entries()].sort((a, b) => a[0] - b[0]);
 }

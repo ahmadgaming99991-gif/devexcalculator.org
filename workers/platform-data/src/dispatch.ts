@@ -11,14 +11,20 @@
  *   :05 :20 :35 :50   history 0-3     one shard's hourly point
  *   :10               highlights      one point onto each charted series
  *   :25               enrichment      one detail shard, rotating
- *   :40               rollup          archives yesterday's totals when due
- *   :55               reserved        nothing, deliberately
+ *   :40 :55           reserved        nothing, deliberately
  *
  * The enrichment shard and the history shard both advance with the hour, so a
  * full sweep of four shards takes four hours for enrichment and one hour for
- * history. `:55` is left empty on purpose: it is the headroom for a unit that
- * has not been written yet, and adding one there is cheaper than re-timing the
- * whole schedule later.
+ * history. `:40` and `:55` are left empty on purpose: they are the headroom for
+ * a unit that has not been written yet, and adding one there is cheaper than
+ * re-timing the whole schedule later.
+ *
+ * `:40` used to hold a rollup unit that archived the finished day's totals. It
+ * could never do that. Collection runs at :00 and replaces the series the
+ * rollup came to read, so the rollup arrived every day to find the day already
+ * in progress and skipped - it archived nothing, ever. The archive now happens
+ * inside the collection unit at the moment of the reset, which is the only
+ * place that still holds the finished day. See units/live.ts.
  */
 
 import { SHARD_COUNT } from "./contracts";
@@ -28,7 +34,6 @@ import { appendHighlights } from "./units/highlights";
 import { appendHistory } from "./units/history";
 import { collectLive } from "./units/live";
 import type { UnitReport } from "./units/report";
-import { rollUpTotals } from "./units/rollup";
 import type { Env } from "./store";
 
 /** Which unit a given wall-clock instant belongs to. Exported so it is testable. */
@@ -58,8 +63,6 @@ export function unitFor(at: Date): { kind: string; shard: number } | null {
       return { kind: "highlights", shard: 0 };
     case 25:
       return { kind: "enrichment", shard: hour % SHARD_COUNT };
-    case 40:
-      return { kind: "rollup", shard: 0 };
     default:
       return null;
   }
@@ -95,7 +98,13 @@ export async function dispatch(env: Env, at = new Date()): Promise<UnitReport> {
         report = await refreshDetails(env, chosen.shard);
         break;
       default:
-        report = await rollUpTotals(env);
+        // `unitFor` is the only source of `kind`, so this is unreachable unless
+        // a slot is added there without a branch here. Recording it beats
+        // silently running the wrong unit.
+        report = {
+          unit: chosen.kind, outcome: "failed", detail: "no handler for unit",
+          subrequests: 0, reads: 0, writes: 0, items: 0,
+        };
         break;
     }
 
