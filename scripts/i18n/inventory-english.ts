@@ -51,9 +51,12 @@ const SKIP_SEGMENTS = ["__tests__", "node_modules"];
  *   reader sees about these endpoints lives in `src/lib/api/contract.ts`,
  *   which is not on this list.
  *
- *   `heartbeat.ts` and `exports.ts` — read only by `/api/health/` and by the
- *   CSV exports. Operator diagnostics and column values, not sentences on a
- *   page.
+ *   `heartbeat.ts`, `data-plane-health.ts` and `exports.ts` — read only by
+ *   `/api/health/` and by the CSV exports. Operator diagnostics and column
+ *   values, not sentences on a page. `data-plane-health.ts` is the same role
+ *   as `heartbeat.ts` and joined this list when it took it over: its `detail`
+ *   is the sentence in a JSON body that tells whoever is watching the endpoint
+ *   why it went red, and nobody reading it is reading it in Turkish.
  *
  *   `og/english-cards.ts` — the words on the English social cards, and only
  *   the English ones. Each of the six other languages has a card of its own,
@@ -92,6 +95,7 @@ const NOT_PAGE_COPY = [
   // `common.sourceCheck.*` keys, per status.
   "src/lib/rates/source-check.ts",
   "src/lib/platform/heartbeat.ts",
+  "src/lib/platform/data-plane-health.ts",
   "src/lib/api/exports.ts",
   "src/lib/og/english-cards.ts",
 ];

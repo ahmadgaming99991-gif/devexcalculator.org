@@ -2,8 +2,7 @@ import { NextResponse } from "next/server";
 import { rateRegistry, registryFreshness } from "@/lib/calculations/rate-registry";
 import { siteConfig } from "@/config/site";
 import { buildInfo } from "@/lib/build-info";
-import { assessCollector, readHeartbeat } from "@/lib/platform/heartbeat";
-import { getHistoryStore } from "@/lib/platform/store";
+import { readDataPlaneHealth } from "@/lib/platform/data-plane-health";
 import {
   healthStatusCode,
   isHealthy,
@@ -18,6 +17,10 @@ import {
  * the rate registry loaded and validated, how stale the rate data is, and
  * whether the collector behind `/platform/` is still recording. It deliberately
  * exposes no environment values, no binding names and no secrets.
+ *
+ * The collector half is read from the platform data Worker rather than from
+ * this Worker's storage — see `lib/platform/data-plane-health.ts` for why, and
+ * for the thresholds. The rate-registry half is unchanged and local.
  *
  * The status code is the point. This used to answer `{"ok": true}` with a 200
  * unconditionally — including with a rate registry three months past review,
@@ -49,24 +52,16 @@ export async function GET(): Promise<NextResponse> {
     freshness.state === "review-due" ? "stale" : freshness.state;
 
   /*
-   * Without a KV binding there is no collector to assess — a local run, or the
-   * build. `assessCollector` is given the store's absence as an absent
-   * heartbeat only when the store itself is present, so "nothing is stored"
-   * and "nothing can be stored" stay different answers.
+   * Asked of the data plane that actually collects.
+   *
+   * This read the v1 collector's heartbeat out of the site Worker's own KV
+   * until 2026-09-03. That collector was retired on 2026-09-02 and its store
+   * kept only for rollback, so the heartbeat froze and this endpoint served
+   * 503 continuously while the v2 data plane recorded every fifteen minutes
+   * and every figure on the site was correct. A permanently red health check
+   * is not a stricter check; it is an ignored one.
    */
-  const store = await getHistoryStore();
-  const collector = store
-    ? assessCollector(await readHeartbeat(store), {
-        deployedAt: buildInfo.builtAt,
-      })
-    : ({
-        state: "unknown",
-        lastRecordedAt: null,
-        lastRunAt: null,
-        ageMinutes: null,
-        consecutiveFailures: 0,
-        detail: "No history binding in this environment, so nothing is collected here.",
-      } as const);
+  const collector = await readDataPlaneHealth();
 
   const status = worstState([registryState, collector.state]);
   const ok = isHealthy(status);
