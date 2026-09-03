@@ -41,7 +41,7 @@
       "analytics": {
         "p1": "Auf diesem Deployment ist Analyse aktiviert:",
         "p2": "— ohne Cookies, und erfasst Seitenaufrufe statt Personen. Es wird keine Einwilligung abgefragt, weil kein Cookie gesetzt wird.",
-        "p3": "— setzt Cookies und lädt deshalb erst, nachdem du zugestimmt hast. Es startet im abgelehnten Zustand und bleibt dort, sofern du dich nicht anders entscheidest."
+        "p3": "— läuft mit abgelehntem Speicher, setzt also kein Cookie und fragt dich nichts. Es zählt, welche Seiten gelesen werden, ohne eine Kennung auf deinem Gerät zu speichern."
       },
       "contact": {
         "p1": "Das Formular ist durch Cloudflare Turnstile geschützt, das prüft, ob eine Einsendung von einem Menschen und nicht von einem Skript stammt. Turnstile wird von Cloudflare bereitgestellt und verarbeitet für diese Prüfung ein Token zusammen mit deiner IP-Adresse.",

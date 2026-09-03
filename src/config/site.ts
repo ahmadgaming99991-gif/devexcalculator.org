@@ -107,10 +107,18 @@ export const isAnalyticsEnabled =
   analyticsConfig.ga4Id !== null || analyticsConfig.cloudflareToken !== null;
 
 /**
- * Google Analytics sets cookies, so it requires consent before loading.
- * Cloudflare Web Analytics is cookieless and does not.
+ * Nothing here asks for consent, because nothing here stores anything.
+ *
+ * GA4 does set cookies when it is allowed to. It is not: `Analytics` starts
+ * every Consent Mode storage type denied and never grants one, so the tag
+ * sends cookieless pings and writes no identifier to the device. A prompt is
+ * owed for storage, and a site that asks permission to do nothing teaches its
+ * readers to dismiss the next thing it asks.
+ *
+ * Kept as a named constant rather than deleted so the reason survives next to
+ * the configuration it belongs to.
  */
-export const requiresAnalyticsConsent = analyticsConfig.ga4Id !== null;
+export const requiresAnalyticsConsent = false;
 
 /** Advertising. No slot renders and no script loads without a real publisher ID. */
 export const adsConfig = {

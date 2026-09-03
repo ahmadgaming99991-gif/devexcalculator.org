@@ -42,7 +42,7 @@
       "analytics": {
         "p1": "Bu dağıtımda analitik etkin:",
         "p2": "— çerezsizdir ve kişileri değil, sayfa görüntülemelerini kaydeder. Hiçbir çerez konmadığı için onay istemi gösterilmez.",
-        "p3": "— çerez koyar, bu yüzden yalnızca siz istemi kabul ettikten sonra yüklenir. Reddedilmiş durumda başlar ve siz aksini seçmedikçe öyle kalır."
+        "p3": "— depolama reddedilmiş halde çalışır; bu yüzden çerez koymaz ve size hiçbir şey sormaz. Hangi sayfaların okunduğunu, cihazınıza bir tanımlayıcı yazmadan sayar."
       },
       "contact": {
         "p1": "Form, bir gönderinin bir betikten değil bir kişiden geldiğini denetleyen Cloudflare Turnstile ile korunur. Turnstile, Cloudflare tarafından sağlanır ve bu denetim için IP adresinizle birlikte bir belirteç işler.",

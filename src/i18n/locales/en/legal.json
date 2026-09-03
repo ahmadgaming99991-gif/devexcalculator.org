@@ -37,7 +37,7 @@
       "analytics": {
         "p1": "This deployment has analytics enabled:",
         "p2": "— cookieless, and records page views rather than individuals. No consent prompt is shown because no cookie is set.",
-        "p3": "— sets cookies, so it loads only after you accept the prompt. It starts in a denied state and stays there unless you choose otherwise."
+        "p3": "— runs with storage denied, so it sets no cookie and asks you nothing. It counts which pages are read without writing an identifier to your device."
       },
       "contact": {
         "p1": "The form is protected by Cloudflare Turnstile, which checks that a submission comes from a person rather than a script. Turnstile is provided by Cloudflare and processes a token along with your IP address for that check.",

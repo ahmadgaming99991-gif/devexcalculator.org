@@ -1,13 +1,10 @@
 import type { ReactNode } from "react";
-import { requiresAnalyticsConsent } from "@/config/site";
 import { LocaleProvider } from "@/components/layout/locale-context";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { themeInitScript } from "@/components/layout/theme-toggle";
 import { Analytics } from "@/components/seo/analytics";
-import { AnalyticsConsent } from "@/components/seo/analytics-consent";
 import { getLocaleMeta } from "@/i18n/config";
-import { getTranslator } from "@/i18n/get-dictionary";
 import type { Locale } from "@/i18n/types";
 
 /**
@@ -43,7 +40,6 @@ export interface SiteDocumentProps {
  * discarding the inner document and everything in it.
  */
 export async function SiteChrome({ locale, skipToContent, children }: SiteDocumentProps) {
-  const t = await getTranslator(locale, ["common"]);
 
   /*
    * The locale reaches the handful of Client Components that are not handed
@@ -69,16 +65,6 @@ export async function SiteChrome({ locale, skipToContent, children }: SiteDocume
         <SiteFooter locale={locale} />
 
         <Analytics />
-        {requiresAnalyticsConsent ? (
-          <AnalyticsConsent
-            words={{
-              heading: t("common.consent.heading"),
-              explanation: t("common.consent.explanation"),
-              accept: t("common.consent.accept"),
-              decline: t("common.consent.decline"),
-            }}
-          />
-        ) : null}
     </LocaleProvider>
   );
 }

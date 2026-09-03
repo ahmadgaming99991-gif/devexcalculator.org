@@ -537,7 +537,16 @@ test.describe("security headers", () => {
     const html = await response.text();
     const scriptSrc = /script-src ([^;]*)/.exec(csp)?.[1] ?? "";
     const connectSrc = /connect-src ([^;]*)/.exec(csp)?.[1] ?? "";
-    const allowed = `${scriptSrc} ${connectSrc}`;
+    /*
+     * `img-src` is in here because that is where GA4 was silently broken: the
+     * tag delivers its hits as images, `img-src 'self' data: blob:` blocked
+     * every one, and the install looked healthy from the page — script loaded,
+     * consent set, nothing reported. A policy that permits the script but not
+     * the hit is the worst of both: the third-party origin is trusted and no
+     * measurement arrives.
+     */
+    const imgSrc = /img-src ([^;]*)/.exec(csp)?.[1] ?? "";
+    const allowed = `${scriptSrc} ${connectSrc} ${imgSrc}`;
 
     /*
      * Allowed if and only if used. `script-src` already carries
@@ -550,6 +559,13 @@ test.describe("security headers", () => {
      * not need to know how the deployment is configured.
      */
     const usesGa4 = html.includes("googletagmanager.com");
+    if (usesGa4) {
+      // The specific one that was wrong, named so a regression says why.
+      expect(
+        imgSrc,
+        "GA4 delivers its hits as images; img-src must allow them or nothing is measured.",
+      ).toContain("googletagmanager.com");
+    }
     for (const origin of ["googletagmanager.com", "google-analytics.com"]) {
       if (usesGa4) {
         expect(allowed, `GA4 loads but the CSP does not allow ${origin}.`).toContain(origin);

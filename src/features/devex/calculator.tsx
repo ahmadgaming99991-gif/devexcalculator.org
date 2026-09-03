@@ -158,6 +158,24 @@ export function Calculator({
    * `popstate`, never from an effect.
    */
   const hydratedSearch = useClientValue(() => initialSearch, "");
+
+  /**
+   * Whether the client has read the address bar yet.
+   *
+   * `hydratedSearch` cannot answer this: its server snapshot is `""`, and `""`
+   * is also what a page with no query legitimately has. The two are
+   * indistinguishable, and the URL effect below treated both as "no state",
+   * so on the hydration commit it rewrote a shared `/?robux=100000` to `/`
+   * before the real search had arrived.
+   *
+   * It self-corrected a tick later, which is why it looked harmless. It was
+   * not: anything that read the address bar inside that window got the
+   * stripped URL — including a reload, which is how the reader loses the
+   * calculation a shared link was supposed to carry. It reproduced roughly one
+   * run in six once GA4 was added and there was more work on the main thread
+   * to widen the gap; the race predates it.
+   */
+  const searchIsKnown = useClientValue(() => true, false);
   const urlState = useMemo(
     () =>
       hydratedSearch === ""
@@ -387,6 +405,12 @@ export function Calculator({
   const previousMode = useRef(mode);
   useEffect(() => {
     if (typeof window === "undefined") return;
+    /*
+     * Nothing is written until the client has actually read the address bar.
+     * Before that the state here is the prerendered default, and writing it
+     * would erase whatever the reader arrived with.
+     */
+    if (!searchIsKnown) return;
     const next = `${pathname}${query}`;
     if (`${window.location.pathname}${window.location.search}` === next) return;
 
@@ -408,7 +432,7 @@ export function Calculator({
     } else {
       window.history.replaceState(null, "", next);
     }
-  }, [pathname, query, mode, stateOverride]);
+  }, [pathname, query, mode, stateOverride, searchIsKnown]);
 
   // Keep the calculator in step when the reader navigates with back or forward.
   useEffect(() => {

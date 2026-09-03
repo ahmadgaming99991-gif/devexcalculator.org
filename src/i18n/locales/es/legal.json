@@ -41,7 +41,7 @@
       "analytics": {
         "p1": "Este despliegue tiene la analítica activada:",
         "p2": "— sin cookies, y registra visitas a páginas en lugar de personas. No se muestra ningún aviso de consentimiento porque no se establece ninguna cookie.",
-        "p3": "— establece cookies, así que solo se carga después de que aceptes el aviso. Empieza en estado denegado y ahí se queda salvo que elijas otra cosa."
+        "p3": "— funciona con el almacenamiento denegado: no establece ninguna cookie y no te pregunta nada. Cuenta qué páginas se leen sin escribir un identificador en tu dispositivo."
       },
       "contact": {
         "p1": "El formulario está protegido por Cloudflare Turnstile, que comprueba que un envío procede de una persona y no de un script. Turnstile lo proporciona Cloudflare y procesa un token junto con tu dirección IP para esa comprobación.",

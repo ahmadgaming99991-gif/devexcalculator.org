@@ -234,6 +234,36 @@ test.describe("shareable state", () => {
     await expect(page.getByLabel("Eligible Earned Robux")).toHaveValue("100000");
   });
 
+  test("never blanks a shared link's query while it loads", async ({ page }) => {
+    /*
+     * The address bar was rewritten to `/` on the hydration commit and put
+     * back a tick later. It self-corrected, so it looked harmless — but
+     * anything reading the URL inside that window got the stripped one, and a
+     * reload there loses the calculation the link existed to carry. The test
+     * above only caught it about one run in six, and only once GA4 gave the
+     * main thread enough work to widen the gap.
+     *
+     * So this watches the URL across the whole load instead of sampling it
+     * at the end.
+     */
+    const seen: string[] = [];
+    page.on("framenavigated", (frame) => {
+      if (frame === page.mainFrame()) seen.push(frame.url());
+    });
+
+    await page.goto("/?robux=100000");
+    await expect(page.getByText("$380.00").first()).toBeVisible();
+
+    // Poll through the window the race lived in.
+    for (let i = 0; i < 20; i += 1) {
+      seen.push(page.url());
+      await page.waitForTimeout(50);
+    }
+
+    const stripped = seen.filter((url) => !url.includes("robux=100000"));
+    expect(stripped, "the query was dropped from the address bar mid-load").toEqual([]);
+  });
+
   test("ignores a hostile query parameter", async ({ page }) => {
     await page.goto("/?robux=%3Cscript%3Ealert(1)%3C%2Fscript%3E&rate=made-up");
     await expect(page.getByLabel("Eligible Earned Robux")).toHaveValue("");

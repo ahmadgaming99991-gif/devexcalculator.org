@@ -89,6 +89,23 @@ const ANALYTICS_SCRIPT_ORIGINS = [
   isConfigured("NEXT_PUBLIC_GA4_ID") ? "https://www.googletagmanager.com" : null,
 ].filter((origin): origin is string => origin !== null);
 
+/**
+ * Where GA4 actually delivers a hit.
+ *
+ * Not `connect-src`. The tag sends its measurement pings as **images** —
+ * `GET https://www.googletagmanager.com/a?id=…` — and falls back to
+ * `google-analytics.com` for some of them. With `img-src 'self' data: blob:`
+ * the browser blocked every one, so the tag loaded, initialised, and reported
+ * nothing: a working script sending hits into a wall, which looks exactly like
+ * a healthy install from the page's side.
+ *
+ * Caught by the localized-layout suite, which fails on any console error, and
+ * only after GA4 had already been deployed once in that state.
+ */
+const ANALYTICS_IMG_ORIGINS = isConfigured("NEXT_PUBLIC_GA4_ID")
+  ? ["https://www.googletagmanager.com", "https://www.google-analytics.com"]
+  : [];
+
 const ANALYTICS_CONNECT_ORIGINS = [
   isConfigured("NEXT_PUBLIC_CF_ANALYTICS_TOKEN") ? "https://cloudflareinsights.com" : null,
   isConfigured("NEXT_PUBLIC_GA4_ID") ? "https://www.google-analytics.com" : null,
@@ -136,7 +153,7 @@ const CSP_DIRECTIVES: readonly string[] = [
   directive("script-src 'self' 'unsafe-inline'", ...ANALYTICS_SCRIPT_ORIGINS, TURNSTILE_ORIGIN),
   // Tailwind emits a stylesheet; inline styles are used for progress-meter widths.
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: blob:",
+  directive("img-src 'self' data: blob:", ...ANALYTICS_IMG_ORIGINS),
   "font-src 'self' data:",
   directive("connect-src 'self'", PLATFORM_DATA_ORIGIN, ...ANALYTICS_CONNECT_ORIGINS),
   // With no Turnstile widget there is nothing legitimate to frame, so the

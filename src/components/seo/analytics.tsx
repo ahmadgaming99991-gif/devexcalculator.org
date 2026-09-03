@@ -9,9 +9,19 @@ import { analyticsConfig, isAnalyticsEnabled } from "@/config/site";
  * and neither is given a calculator value: page paths are enough to see which
  * tools get used, and a creator's balance is nobody else's business.
  *
- * Cloudflare Web Analytics is cookieless, so it loads without a consent gate.
- * GA4 sets cookies, so it is loaded only after consent is recorded — see
- * `AnalyticsConsent`.
+ * Neither sets a cookie, so neither is behind a consent prompt.
+ *
+ * Cloudflare Web Analytics is cookieless by design. GA4 is not, and is run
+ * that way deliberately: Consent Mode starts every storage type denied, and
+ * nothing here ever grants one. Google's tag then sends cookieless pings — it
+ * reports which pages are read without writing an identifier to the device,
+ * which is the whole of what this site wanted from it.
+ *
+ * That is what removed the banner. A prompt is owed for storage, and there is
+ * no storage; a site that asks permission to do nothing is training its
+ * readers to dismiss the next question it asks. The trade is real and was
+ * accepted: no returning-visitor identity, no cross-session stitching, and
+ * session counts Google models rather than measures.
  */
 export function Analytics() {
   if (!isAnalyticsEnabled) return null;
@@ -45,9 +55,9 @@ function Ga4({ measurementId }: { measurementId: string }) {
 window.dataLayer=window.dataLayer||[];
 function gtag(){dataLayer.push(arguments)}
 gtag('js',new Date());
-// Consent starts denied and is granted only by an explicit choice.
+// Denied, and never updated. Nothing in this site grants a storage type, so
+// the tag measures page views without writing an identifier to the device.
 gtag('consent','default',{ad_storage:'denied',analytics_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});
-try{if(localStorage.getItem('devex:consent')==='granted'){gtag('consent','update',{analytics_storage:'granted'})}}catch(e){}
 gtag('config',${JSON.stringify(measurementId)},{anonymize_ip:true});
         `.trim()}
       </Script>

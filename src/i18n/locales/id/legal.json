@@ -42,7 +42,7 @@
       "analytics": {
         "p1": "Penerapan ini mengaktifkan analitik:",
         "p2": "— tanpa kuki, dan mencatat kunjungan halaman, bukan individu. Tidak ada permintaan persetujuan yang ditampilkan karena tidak ada kuki yang dipasang.",
-        "p3": "— memasang kuki, jadi baru dimuat setelah Anda menerima permintaannya. Ia mulai dalam keadaan ditolak dan tetap begitu kecuali Anda memilih sebaliknya."
+        "p3": "— berjalan dengan penyimpanan ditolak, jadi ia tidak memasang kuki dan tidak menanyakan apa pun kepada Anda. Ia menghitung halaman mana yang dibaca tanpa menulis pengenal di perangkat Anda."
       },
       "contact": {
         "p1": "Formulirnya dilindungi Cloudflare Turnstile, yang memastikan sebuah kiriman berasal dari orang, bukan skrip. Turnstile disediakan Cloudflare dan memproses sebuah token beserta alamat IP Anda untuk pemeriksaan itu.",

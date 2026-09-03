@@ -41,7 +41,7 @@
       "analytics": {
         "p1": "Ce déploiement a la mesure d’audience activée :",
         "p2": "— sans cookie, et enregistre des pages vues plutôt que des personnes. Aucune demande de consentement n’est affichée puisque aucun cookie n’est déposé.",
-        "p3": "— dépose des cookies, il ne se charge donc qu’après votre acceptation. Il démarre à l’état refusé et y reste tant que vous n’en décidez pas autrement."
+        "p3": "— fonctionne avec le stockage refusé : il ne dépose aucun cookie et ne vous demande rien. Il compte quelles pages sont lues sans écrire d’identifiant sur votre appareil."
       },
       "contact": {
         "p1": "Le formulaire est protégé par Cloudflare Turnstile, qui vérifie qu’un envoi provient d’une personne et non d’un script. Turnstile est fourni par Cloudflare et traite un jeton ainsi que votre adresse IP pour cette vérification.",
