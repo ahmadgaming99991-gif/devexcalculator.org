@@ -68,6 +68,14 @@ keys*.txt
 *.key
 secrets.txt
 
+# Machine-local credential LOCATIONS (never values).
+#
+# .claude/local.json records where this computer keeps the Cloudflare token
+# and which GitHub account owns the remote, so a future session finds the
+# existing credentials instead of starting a browser login. The committed
+# template beside it shows the shape.
+.claude/local.json
+
 # private analytics exports
 #
 # Search Console performance data is the owner's data about their own

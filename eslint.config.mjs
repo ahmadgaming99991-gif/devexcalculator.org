@@ -47,7 +47,15 @@ const eslintConfig = [
   },
   {
     // Build-time scripts and tests run in Node and legitimately write to stdout.
-    files: ["scripts/**/*.ts", "tests/**/*.ts", "tests/**/*.tsx", "*.config.mts"],
+    // `.mjs` as well as `.ts`: the local-credential tooling under scripts/local
+    // is plain ESM so it keeps working when the TypeScript toolchain does not.
+    files: [
+      "scripts/**/*.ts",
+      "scripts/**/*.mjs",
+      "tests/**/*.ts",
+      "tests/**/*.tsx",
+      "*.config.mts",
+    ],
     rules: {
       "no-console": "off",
       "no-warning-comments": "off",

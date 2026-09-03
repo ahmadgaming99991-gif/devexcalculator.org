@@ -1,0 +1,21 @@
+{
+  "$comment": [
+    "Copy to .claude/local.json, which is git-ignored. PATHS AND NAMES ONLY —",
+    "never a token value. If you find yourself pasting a secret in here, stop:",
+    "the file it lives in is what belongs here, not what is inside it.",
+    "",
+    "Every field is optional. Defaults live in scripts/local/local-config.mjs,",
+    "and on a machine where the token sits at ~/devex-cf-token.txt the whole",
+    "file can be left out. It exists so the setup is written down rather than",
+    "rediscovered."
+  ],
+  "machine": "a name for this computer, for your own reference",
+  "cloudflare": {
+    "tokenFile": "C:/Users/you/devex-cf-token.txt"
+  },
+  "env": {
+    "requiredKeys": [
+      "NEXT_PUBLIC_GA4_ID"
+    ]
+  }
+}
