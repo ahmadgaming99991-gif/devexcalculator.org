@@ -17,8 +17,8 @@ import { ImageResponse } from "next/og";
  * social crawler never reaches the Worker, and nothing here depends on runtime
  * `ImageResponse` support under the Cloudflare adapter.
  *
- * Original artwork only: the calculation motif from the site's own logo, no
- * Roblox mark and nothing resembling its trade dress.
+ * Original artwork only: the site's own mark, no Roblox mark and nothing
+ * resembling its trade dress.
  */
 
 export const OG_SIZE = { width: 1200, height: 630 } as const;
@@ -40,36 +40,47 @@ export interface OgCard {
   readonly footnote: string;
 }
 
+/**
+ * The revision of the drawing below.
+ *
+ * The card fingerprints in `public/og/cards.json` are computed from the words
+ * a card carries, which is what catches a rate change. They said nothing about
+ * the frame — so when the mark changed, fifteen committed cards would have
+ * kept the old one and `validate:localized-og` would have reported them
+ * current. Bumping this invalidates every card, which is exactly what a change
+ * to the artwork should do.
+ */
+export const MARK_VERSION = 2;
+
 /** The site mark, drawn rather than loaded so the card has no asset to fetch. */
 function Mark() {
+  /*
+   * Divs rather than an inline <svg>. Satori lays out a flex box exactly, and
+   * the mark is three rectangles, so there is nothing here that needs a vector
+   * — and nothing that depends on how much of the SVG spec Satori implements.
+   *
+   * The geometry is `src/app/icon.svg` on its 32 grid, scaled by 2.375 to the
+   * 76px this card renders it at.
+   */
+  const BAR = 12; // 5 on the 32 grid
   return (
     <div style={{ display: "flex", alignItems: "center", gap: "20px" }}>
-      {/*
-        The hexagon and the dollar sign from the brand mark, at the size a
-        social card actually renders them. The full artwork holds a calculator
-        with six keys, which at 72px merges into a green shape — the same
-        reason `icon.svg` is drawn rather than downscaled.
-      */}
-      <svg width="76" height="76" viewBox="0 0 32 32">
-        <defs>
-          <linearGradient id="og-hex" x1="4" y1="2" x2="28" y2="30" gradientUnits="userSpaceOnUse">
-            <stop offset="0" stopColor="#8bf60c" />
-            <stop offset="0.55" stopColor="#3fd40d" />
-            <stop offset="1" stopColor="#15980a" />
-          </linearGradient>
-        </defs>
-        <path
-          d="M30 16 L23 28.1 L9 28.1 L2 16 L9 3.9 L23 3.9 Z"
-          fill="url(#og-hex)"
-          stroke="url(#og-hex)"
-          strokeWidth="3.2"
-          strokeLinejoin="round"
-        />
-        <g stroke="#0d1717" strokeWidth="3.1" strokeLinecap="round" fill="none">
-          <path d="M16 7.6 V24.4" />
-          <path d="M20.2 12.1 C20.2 10 18.3 9.1 16 9.1 C13.7 9.1 11.8 10.1 11.8 12.1 C11.8 16 20.2 14.9 20.2 18.9 C20.2 21.1 18.3 22.9 16 22.9 C13.7 22.9 11.8 21.7 11.8 19.8" />
-        </g>
-      </svg>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          gap: "8px",
+          width: 76,
+          height: 76,
+          paddingLeft: 14,
+          borderRadius: 18,
+          background: "#2563eb",
+        }}
+      >
+        <div style={{ width: 48, height: BAR, borderRadius: BAR / 2, background: "#fff" }} />
+        <div style={{ width: 27, height: BAR, borderRadius: BAR / 2, background: "#fff" }} />
+      </div>
       <div style={{ display: "flex", fontSize: 34, fontWeight: 700, color: "#0b1220" }}>
         DevEx
         <span style={{ fontWeight: 500, color: "#526174" }}>Calculator</span>

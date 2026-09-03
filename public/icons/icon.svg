@@ -1,16 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="DevEx Calculator">
   <title>DevEx Calculator</title>
-  <defs>
-    <linearGradient id="hex" x1="64" y1="32" x2="448" y2="480" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#8bf60c"/>
-      <stop offset="0.55" stop-color="#3fd40d"/>
-      <stop offset="1" stop-color="#15980a"/>
-    </linearGradient>
-  </defs>
-  <path d="M480 256 L368 449.6 L144 449.6 L32 256 L144 62.4 L368 62.4 Z"
-        fill="url(#hex)" stroke="url(#hex)" stroke-width="51" stroke-linejoin="round"/>
-  <g stroke="#0d1717" stroke-width="49.6" stroke-linecap="round" fill="none">
-    <path d="M256 121.6 V390.4"/>
-    <path d="M323.2 193.6 C323.2 160 292.8 145.6 256 145.6 C219.2 145.6 188.8 161.6 188.8 193.6 C188.8 256 323.2 238.4 323.2 302.4 C323.2 337.6 292.8 366.4 256 366.4 C219.2 366.4 188.8 347.2 188.8 316.8"/>
-  </g>
+  <!-- The same geometry as src/app/icon.svg, scaled by 16. -->
+  <rect width="512" height="512" rx="120" fill="#2563eb"/>
+  <rect x="96" y="148" width="320" height="80" rx="40" fill="#fff"/>
+  <rect x="96" y="284" width="184" height="80" rx="40" fill="#fff"/>
 </svg>

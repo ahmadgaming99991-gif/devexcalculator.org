@@ -27,10 +27,12 @@
  * metadata.
  *
  * The cards are committed, and `--check` compares each one against a
- * fingerprint of what it was drawn from — the locale, the rate, the minimum
- * and the four strings. A rate change therefore fails the build until the
- * cards are regenerated, rather than leaving six previews quoting a figure the
- * site no longer publishes.
+ * fingerprint of what it was drawn from — the locale, the rate, the minimum,
+ * the four strings, and `MARK_VERSION` for the frame they are drawn in. A rate
+ * change therefore fails the build until the cards are regenerated, rather
+ * than leaving six previews quoting a figure the site no longer publishes; and
+ * so does a change to the artwork, which the fingerprint used to miss
+ * entirely.
  */
 
 /*
@@ -53,7 +55,7 @@ import { formatCurrency, formatRate, formatRobux } from "../../src/lib/calculati
 import { Rational } from "../../src/lib/calculations/rational";
 import { getTranslator } from "../../src/i18n/get-dictionary";
 import { getLocaleMeta, DEFAULT_LOCALE, LAUNCH_LOCALES } from "../../src/i18n/config";
-import { renderOgImage, type OgCard } from "../../src/lib/og/template";
+import { MARK_VERSION, renderOgImage, type OgCard } from "../../src/lib/og/template";
 import { englishCardSlug, englishCards } from "../../src/lib/og/english-cards";
 import type { Locale } from "../../src/i18n/types";
 
@@ -81,7 +83,7 @@ async function cardFor(locale: Locale): Promise<{ card: OgCard; fingerprint: str
   };
 
   const fingerprint = createHash("sha256")
-    .update(JSON.stringify({ locale, card, alt: t("seo.og.alt") }))
+    .update(JSON.stringify({ locale, card, alt: t("seo.og.alt"), mark: MARK_VERSION }))
     .digest("hex")
     .slice(0, 16);
 
@@ -108,7 +110,7 @@ function englishTargets(): { name: string; card: OgCard; fingerprint: string }[]
     name: englishCardSlug(route),
     card: entry.card,
     fingerprint: createHash("sha256")
-      .update(JSON.stringify({ route, card: entry.card, alt: entry.alt }))
+      .update(JSON.stringify({ route, card: entry.card, alt: entry.alt, mark: MARK_VERSION }))
       .digest("hex")
       .slice(0, 16),
   }));

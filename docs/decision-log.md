@@ -1665,3 +1665,66 @@ render, which is the opposite of where this site just went); the RSC payload is
 62% of the delivered HTML; `robots.txt` is not edge-cached; the Worker bundle
 sits at 92% of the 3 MB limit, so the next dependency needs a measurement
 first.
+
+## D-053 · The mark is redrawn for sixteen pixels, and moved onto the site's own blue
+
+**Reverses part of D-043.** The supplied hexagon is gone from every surface it
+was shipped on. The reasoning in D-043 was sound about *what* survives a
+downscale; it was wrong about whether the thing being downscaled was worth
+keeping.
+
+**What was actually wrong with it**, none of it a matter of taste:
+
+- A three-stop gradient across a 32-unit frame has about four pixels to resolve
+  in at favicon size. It does not read as a gradient; it averages into a
+  muddier version of its middle stop.
+- The dollar sign was stroked at 3.1/32 — under two pixels at 16px. A stroke
+  that thin does not render as a line, it renders as grey fringing.
+- `#8bf60c` is near-maximum-chroma lime. D-044 had already measured it at
+  1.37:1 and ruled it decorative-only.
+- The site's `--color-primary`, its manifest `theme_color`, and every
+  interactive element on every page are `#2563eb`. The tab icon was the one
+  place the site was a different brand from itself.
+
+**The replacement.** Two bars, deliberately unequal, white on `#2563eb`, full
+bleed with a 7.5/32 corner radius. The inequality is the site's own argument —
+a Robux balance is not the dollar figure beside it — and two thick bars are
+about the most legible thing that exists at sixteen pixels. Rendered at 16px
+the bars are two solid pixel rows separated by two rows of blue, which was
+checked by rasterising the file and reading the pixels rather than by looking
+at it large.
+
+**One geometry, six surfaces.** `src/app/icon.svg` holds it on a 32 grid;
+`public/icons/icon.svg` is the same numbers times sixteen; the maskable icon
+drops the corner radius, because the platform mask supplies one and a rounded
+source is rounded twice, and scales the bars to 0.84 so the furthest drawn
+corner sits 153 units from centre against the 204.8 the safe zone guarantees.
+The Apple touch icon is square and opaque for the same masking reason. The
+header PNGs are the rounded tile at 40/80/120. The social card draws it in
+flex-box divs rather than an inline `<svg>`, because Satori lays out a flex box
+exactly and the mark is three rectangles — there is nothing here that needs a
+vector, and nothing that should depend on how much of the SVG spec Satori
+implements.
+
+**The header mark is square now**, where the cropped artwork was 35×40, so the
+slot is five pixels wider at the same height. `INTRINSIC` moves with it, so the
+space is still reserved and the header still cannot shift as it loads. The
+files also stopped being expensive: 623 bytes at 1x against 7.1 kB, because
+three rectangles compress better than a rendered illustration.
+
+**`/brand/v2/`, and `v1` stays on disk.** The files are served immutable for a
+year, which is only safe because the path carries a version — that was the
+whole point of D-043's versioning, and this is the first time it has been used.
+The old files are left in place so a page already cached with the old markup
+finds the file it asks for rather than a 404.
+
+**A fingerprint that had never watched the frame.** `public/og/cards.json`
+fingerprints each social card from the words it carries, which is what makes a
+rate change fail the build. It said nothing about the artwork — so this change
+would have left fifteen committed cards drawn in the old mark while
+`validate:localized-og` reported them current. The fingerprint now includes
+`MARK_VERSION`, and bumping it invalidated all fourteen cards, which is exactly
+what a change to the drawing should do.
+
+*Change if:* the mark changes again. Bump `MARK_VERSION`, bump `/brand/vN/`,
+and regenerate — the two gates will tell you what you missed.

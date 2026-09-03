@@ -1,19 +1,19 @@
 {
   "$comment": "Fingerprints of what each card was drawn from. Regenerate with npm run og:localized; validate:localized-og fails when a card no longer matches the figures on the site.",
   "cards": {
-    "pt-BR": "653089b815cebc1f",
-    "es": "99e0cd0b8ca35c4f",
-    "id": "d22c783bc4aeb709",
-    "fr": "933cdf095ed7896e",
-    "de": "3657e739e542a0ff",
-    "tr": "55aea6ca181cef9f",
-    "en": "d55bbf14224a48b9",
-    "en-devex-rates": "417cd5c99750ceff",
-    "en-devex-requirements": "eafa567b228b3f55",
-    "en-devex-fees-and-taxes": "417c542b16045c08",
-    "en-earned-robux": "a147997024fbedcc",
-    "en-how-to-cash-out-robux": "c9ea923ef0309d04",
-    "en-robux-to-usd": "605dc4f0281374cf",
-    "en-usd-to-robux": "d05090805e48e2de"
+    "pt-BR": "979a74933bf863bd",
+    "es": "f4d85f9273459148",
+    "id": "e63413840fc9b15e",
+    "fr": "b0ef354ccfc8fd21",
+    "de": "c29650ca81f23a83",
+    "tr": "dbd5471d2f2eb5e6",
+    "en": "29c0c8788d13a327",
+    "en-devex-rates": "138edd2dcbceeeef",
+    "en-devex-requirements": "0460654955e10dc9",
+    "en-devex-fees-and-taxes": "f38e7b0fad777e64",
+    "en-earned-robux": "3de38adc0b0664b0",
+    "en-how-to-cash-out-robux": "2e9d086c4f35418f",
+    "en-robux-to-usd": "7a777a73a2461816",
+    "en-usd-to-robux": "a278af88e78b9e3a"
   }
 }
