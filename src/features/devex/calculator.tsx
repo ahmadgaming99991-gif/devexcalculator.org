@@ -51,6 +51,7 @@ import {
   ResultBreakdown,
   ResultSummary,
   ScenarioComparison,
+  StickyResult,
   TargetBreakdown,
   ThresholdMeter,
 } from "./components/results";
@@ -561,6 +562,11 @@ export function Calculator({
 
   const hasData = !isEmptyState(state);
   const currentRate = getRate(state.rateId);
+  /* One string for the result card and the sticky bar that repeats it. */
+  const primaryLabel =
+    mode === "target"
+      ? t("calculator.results.robuxNeeded")
+      : t("calculator.results.estimatedPayout");
 
   return (
     <Card className="scroll-mt-24" as="section">
@@ -575,15 +581,17 @@ export function Calculator({
         />
       ) : null}
 
+      <StickyResult label={primaryLabel} value={primaryValueText} show={hasData} />
+
       <div
         id={`mode-panel-${mode}`}
         role={lockedMode ? undefined : "tabpanel"}
         aria-labelledby={lockedMode ? undefined : `mode-tab-${mode}`}
         tabIndex={lockedMode ? undefined : 0}
-        className={cx("grid min-w-0 gap-6 lg:grid-cols-2", lockedMode ? "" : "mt-5")}
+        className={cx("grid min-w-0 gap-5 sm:gap-6 lg:grid-cols-2", lockedMode ? "" : "mt-4 sm:mt-5")}
       >
         {/* ---- Inputs ---- */}
-        <div className="flex min-w-0 flex-col gap-5">
+        <div className="flex min-w-0 flex-col gap-4 sm:gap-5">
           {mode === "quick" ? (
             <>
               <AmountInput
@@ -721,13 +729,9 @@ export function Calculator({
         </div>
 
         {/* ---- Results ---- */}
-        <div className="flex min-w-0 flex-col gap-5">
+        <div className="flex min-w-0 flex-col gap-4 sm:gap-5">
           <ResultSummary
-            primaryLabel={
-              mode === "target"
-                ? t("calculator.results.robuxNeeded")
-                : t("calculator.results.estimatedPayout")
-            }
+            primaryLabel={primaryLabel}
             primaryValue={primaryValueText}
             secondary={
               mode === "target" ? (

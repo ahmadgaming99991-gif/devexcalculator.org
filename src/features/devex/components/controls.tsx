@@ -243,10 +243,20 @@ export function QuickPresets({
   return (
     <div>
       <p id="presets-label" className="text-sm font-semibold text-(--color-text)">{t("calculator.controls.body.presetsLabel.p1")}</p>
+      {/*
+        Four to a row on a phone rather than wrapping.
+
+        There are eight presets, and left to wrap at a 360px width they broke
+        five-then-three — a ragged second row and one more line of scrolling
+        between the reader's number and their answer. A four-column grid makes
+        it two even rows of equal-width targets, which is both shorter and
+        easier to hit. Above `sm` there is room to wrap naturally, and pill
+        widths that follow the label read better than a forced grid.
+      */}
       <div
         role="group"
         aria-labelledby="presets-label"
-        className="mt-2 flex flex-wrap gap-2"
+        className="mt-2 grid grid-cols-4 gap-2 sm:flex sm:flex-wrap"
       >
         {QUICK_PRESETS.map((preset) => {
           const isActive = activeValue === preset.toString();
@@ -257,7 +267,9 @@ export function QuickPresets({
               onClick={() => onSelect(preset)}
               aria-pressed={isActive}
               className={cx(
-                "min-h-[44px] rounded-full border px-4 text-sm font-semibold",
+                // `px-2` in the grid so the widest label still fits a quarter
+                // column at 320px; the wider padding returns once they wrap.
+                "min-h-[44px] rounded-full border px-2 text-sm font-semibold sm:px-4",
                 "transition-[background-color,border-color,color,box-shadow,transform] duration-150",
                 "hover:-translate-y-px active:translate-y-0",
                 isActive

@@ -68,6 +68,67 @@ export function ResultSummary({
 }
 
 /**
+ * The answer, kept on screen while the reader is still working.
+ *
+ * On a phone this calculator is one column, so the order is: amount, quick
+ * amounts, rate, currency, the fees and tax panel, and only then the figure the
+ * reader came for. Typing a number and having to scroll past five controls to
+ * see what it is worth is the wrong way round — and worse when adjusting the
+ * currency or a fee, because the value being changed and the value being
+ * watched are never on screen together.
+ *
+ * So on small screens the figure is repeated in a slim bar that sticks below
+ * the header for as long as the calculator is in the viewport.
+ *
+ * `top-16` tracks the header's own `min-h-16`, and the first attempt at `top-0`
+ * put the bar underneath it — the header is `sticky z-30` at every width, so a
+ * bar at the top of the viewport is simply covered. Measured at 65px (the 16
+ * plus its bottom border) across 320-1023px in every published locale, so the
+ * one pixel of overlap is the header's border and nothing shows through. If
+ * the header ever grows a second row, this is the number that has to follow it.
+ *
+ * `aria-hidden`, because it is a duplicate. The real result is the card below,
+ * and `ResultAnnouncer` is what speaks on change; announcing both would read
+ * every keystroke twice.
+ *
+ * Hidden until there is something to report, so an untouched calculator does
+ * not open with a bar reading zero.
+ */
+export function StickyResult({
+  label,
+  value,
+  show,
+}: {
+  label: string;
+  value: string;
+  show: boolean;
+}) {
+  if (!show) return null;
+
+  return (
+    <div
+      aria-hidden="true"
+      data-testid="sticky-result"
+      className={[
+        // The negative margin has to cancel `Card`'s own padding exactly, or
+        // the bar sits inset and the content it covers shows down each side.
+        "sticky top-16 z-20 -mx-4 mb-4 flex items-baseline justify-between gap-3 sm:-mx-6",
+        "border-b border-(--color-border) bg-(--color-surface)/95 px-4 py-2.5",
+        "backdrop-blur supports-[backdrop-filter]:bg-(--color-surface)/85",
+        // The full card carries the same figure at a readable size once the
+        // reader scrolls to it, so this exists only above that breakpoint.
+        "lg:hidden",
+      ].join(" ")}
+    >
+      <span className="min-w-0 truncate text-xs font-medium text-(--color-text-muted)">{label}</span>
+      <span className="numeric-display shrink-0 text-xl font-bold leading-none text-(--color-text)">
+        {value}
+      </span>
+    </div>
+  );
+}
+
+/**
  * Live region for result and status announcements.
  *
  * `aria-live="polite"` with `aria-atomic` so the whole sentence is read as one
