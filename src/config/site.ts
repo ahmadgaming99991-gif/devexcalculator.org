@@ -97,6 +97,21 @@ export const siteConfig = {
   sourceReviewCadenceDays: 30,
 } as const;
 
+/**
+ * The SEOSignalX patch tag.
+ *
+ * The full script URL, because it carries a deployment id and an account key
+ * in its query string. Neither is a secret — the tag is meant to be readable
+ * in the page source — but they identify the owner's account and this
+ * repository is public, so the URL lives in `.env.local` rather than here.
+ * Unset means no tag renders and the CSP does not name the origin.
+ *
+ * See `src/components/seo/seo-tooling.tsx` for what the tag is allowed to do.
+ */
+export const seoToolingConfig = {
+  patchesTagSrc: readEnv("NEXT_PUBLIC_SEOSIGNALX_TAG_SRC"),
+} as const;
+
 /** Analytics providers. Both disabled unless a real ID is configured. */
 export const analyticsConfig = {
   ga4Id: readEnv("NEXT_PUBLIC_GA4_ID"),

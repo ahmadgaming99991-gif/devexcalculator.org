@@ -140,6 +140,22 @@ async function serveApi(page: Page, options: { fail?: boolean; empty?: boolean }
   });
 }
 
+/**
+ * Hosts the owner deliberately runs on their own pages.
+ *
+ * These tests are about what the *reader* is exposed to by visiting, and the
+ * interesting promise is narrow: no Roblox request, and no market-data
+ * vendor's widget. Everything the owner installed knowingly — analytics, the
+ * SEOSignalX patch tag — is a separate question, disclosed on `/privacy/` and
+ * asserted there, so listing it here keeps this test measuring the promise
+ * rather than the current contents of `.env.local`.
+ *
+ * Adding a host to this list is a decision. It says the owner chose it, not
+ * that the test was in the way.
+ */
+const OWNERS_OWN_TOOLING =
+  /googletagmanager\.com|google-analytics\.com|cloudflareinsights\.com|seosignalx\.com/;
+
 /** Any request to a host this site does not control. */
 function isThirdParty(url: string): boolean {
   const host = new URL(url).hostname;
@@ -253,10 +269,9 @@ test.describe("privacy of the reader path", () => {
      */
     expect(external.filter((url) => url.includes("roblox"))).toEqual([]);
 
-    const analytics = /googletagmanager\.com|google-analytics\.com|cloudflareinsights\.com/;
     expect(
-      external.filter((url) => !analytics.test(url)),
-      "the dashboard reached a host that is neither this site nor its analytics",
+      external.filter((url) => !OWNERS_OWN_TOOLING.test(url)),
+      "the dashboard reached a host that is neither this site nor the owner's own tooling",
     ).toEqual([]);
   });
 });
@@ -453,10 +468,12 @@ test.describe("stock page", () => {
      * widget runs in the reader's browser. The site's own analytics is
      * consent-gated and disclosed on `/privacy/`, and is covered there.
      */
-    const analytics = /googletagmanager\.com|google-analytics\.com|cloudflareinsights\.com/;
-    const vendors = external.filter((url) => !analytics.test(url));
+    const vendors = external.filter((url) => !OWNERS_OWN_TOOLING.test(url));
 
-    expect(vendors, "the stock page reached a host that is not this site's analytics").toEqual([]);
+    expect(
+      vendors,
+      "the stock page reached a host that is not the owner's own tooling",
+    ).toEqual([]);
     expect(await page.content()).not.toContain("tradingview");
     expect(await page.locator("iframe").count()).toBe(0);
   });

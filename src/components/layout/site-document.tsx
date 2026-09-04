@@ -4,6 +4,7 @@ import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { themeInitScript } from "@/components/layout/theme-toggle";
 import { Analytics } from "@/components/seo/analytics";
+import { SeoTooling } from "@/components/seo/seo-tooling";
 import { getLocaleMeta } from "@/i18n/config";
 import type { Locale } from "@/i18n/types";
 
@@ -65,6 +66,7 @@ export async function SiteChrome({ locale, skipToContent, children }: SiteDocume
         <SiteFooter locale={locale} />
 
         <Analytics />
+        <SeoTooling />
     </LocaleProvider>
   );
 }

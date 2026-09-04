@@ -116,6 +116,32 @@ const TURNSTILE_ORIGIN = isConfigured("NEXT_PUBLIC_TURNSTILE_SITE_KEY")
   : null;
 
 /**
+ * The SEOSignalX patch tag's origin, present only while the tag is configured.
+ *
+ * Derived from the configured URL rather than written out, for the reason
+ * `PLATFORM_DATA_ORIGIN` below gives: the policy cannot then permit an origin
+ * the page never loads, and cannot omit the one it does. Only the origin is
+ * taken — the tag's own deployment id and key are in its query string, which a
+ * CSP source ignores and which has no business in a response header.
+ *
+ * `script-src` and `connect-src` both, deliberately. GA4 was deployed here
+ * once with the script allowed and the delivery blocked: the tag loaded,
+ * initialised, and reported nothing, which from the page looks exactly like a
+ * healthy install. A patch tag that can fetch its script but not its patches
+ * would fail the same silent way — the vendor's dashboard would show the tag
+ * connected while no patch ever applied.
+ */
+const SEO_TOOLING_ORIGIN = (() => {
+  const configured = process.env.NEXT_PUBLIC_SEOSIGNALX_TAG_SRC?.trim();
+  if (!configured) return null;
+  try {
+    return new URL(configured).origin;
+  } catch {
+    return null;
+  }
+})();
+
+/**
  * The platform data plane, which `/platform/` reads from the browser.
  *
  * `/platform/` is a static document and its figures are fetched after load from
@@ -150,12 +176,22 @@ const CSP_DIRECTIVES: readonly string[] = [
   // A nonce would need threading through every streamed chunk, which the
   // adapter does not currently support; recorded in docs/security-model.md
   // rather than left as an unexplained relaxation.
-  directive("script-src 'self' 'unsafe-inline'", ...ANALYTICS_SCRIPT_ORIGINS, TURNSTILE_ORIGIN),
+  directive(
+    "script-src 'self' 'unsafe-inline'",
+    ...ANALYTICS_SCRIPT_ORIGINS,
+    TURNSTILE_ORIGIN,
+    SEO_TOOLING_ORIGIN,
+  ),
   // Tailwind emits a stylesheet; inline styles are used for progress-meter widths.
   "style-src 'self' 'unsafe-inline'",
   directive("img-src 'self' data: blob:", ...ANALYTICS_IMG_ORIGINS),
   "font-src 'self' data:",
-  directive("connect-src 'self'", PLATFORM_DATA_ORIGIN, ...ANALYTICS_CONNECT_ORIGINS),
+  directive(
+    "connect-src 'self'",
+    PLATFORM_DATA_ORIGIN,
+    ...ANALYTICS_CONNECT_ORIGINS,
+    SEO_TOOLING_ORIGIN,
+  ),
   // With no Turnstile widget there is nothing legitimate to frame, so the
   // directive becomes 'none' rather than disappearing — an absent `frame-src`
   // would fall back to `default-src 'self'` and permit same-origin frames.
