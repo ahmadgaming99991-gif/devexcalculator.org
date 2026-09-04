@@ -22,7 +22,13 @@
 
 import { spawnSync } from "node:child_process";
 import { join } from "node:path";
-import { localConfig, readEnvFile, resolveCloudflareToken, REPO_ROOT } from "./local-config.mjs";
+import {
+  localConfig,
+  readEnvFile,
+  resolveCloudflareToken,
+  verifyCloudflareAccount,
+  REPO_ROOT,
+} from "./local-config.mjs";
 
 const argv = process.argv.slice(2);
 const requireEnv = argv[0] === "--require-env";
@@ -50,16 +56,43 @@ if (!token) {
   process.exit(1);
 }
 
+/*
+ * The credential is checked against the account before anything runs.
+ *
+ * Skipping this is how an empty `devexcalculator-org` Worker ended up in
+ * `Cmppunjab@gmail.com's Account`: the shell had another project's
+ * `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` exported, the wrapper
+ * trusted them, and the deploy uploaded 322 assets into a stranger's account
+ * before failing on a KV namespace that only exists in the right one. One
+ * request, three seconds, and none of that happens.
+ */
+const account = await verifyCloudflareAccount(token, config);
+if (!account.ok) {
+  console.error("\nRefusing to run: this token does not belong to the account that owns this site.\n");
+  console.error(`  expected  ${config.cloudflare.accountName} (${config.cloudflare.accountId})`);
+  console.error(`  got       ${account.reason}`);
+  console.error(`  token     ${source === "file" ? `read from ${file}` : "inherited from the environment"}`);
+  console.error(
+    "\n  Deploying anyway creates a duplicate Worker in the wrong account rather than\n" +
+      "  failing, which is why this stops here. Do NOT run `wrangler login`.\n" +
+      "  Run `npm run doctor`, and see docs/local-credentials.md.\n",
+  );
+  process.exit(1);
+}
+
 const childEnv = { ...process.env };
 childEnv.CLOUDFLARE_API_TOKEN = token;
 /*
- * Pinned so a wrangler call can never resolve to a different account. Wrangler
- * otherwise infers the account from whatever it has cached under
- * `node_modules/.cache`, which is wiped by a clean install — and an inferred
- * wrong account is how a duplicate Worker gets deployed. The id is not a
- * secret; it is in docs/qa/workers-caching-verification.md already.
+ * Overwritten, not defaulted.
+ *
+ * `??=` left an inherited CLOUDFLARE_ACCOUNT_ID in place, and on a machine
+ * running several Cloudflare projects the inherited one belonged to a
+ * different site. Wrangler would otherwise infer the account from whatever it
+ * cached under `node_modules/.cache`, which a clean install wipes. This value
+ * is the project's own and is not a secret — it is in
+ * docs/qa/workers-caching-verification.md already.
  */
-childEnv.CLOUDFLARE_ACCOUNT_ID ??= config.cloudflare.accountId;
+childEnv.CLOUDFLARE_ACCOUNT_ID = config.cloudflare.accountId;
 
 /*
  * `.env.local` is loaded for the whole chain, not just for `next build` which
@@ -94,8 +127,9 @@ if (missing.length > 0) {
   }
 }
 
-const where = source === "environment" ? "environment" : `file (${file})`;
-console.log(`Cloudflare auth: token loaded from ${where}; account ${childEnv.CLOUDFLARE_ACCOUNT_ID}`);
+const where = source === "environment" ? "the environment" : `${file}`;
+console.log(`Cloudflare auth: token from ${where}`);
+console.log(`Cloudflare auth: verified account ${account.reason}`);
 
 /*
  * `shell: true` because the wrapped commands are npm scripts and `.cmd`

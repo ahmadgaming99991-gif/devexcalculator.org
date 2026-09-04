@@ -122,20 +122,69 @@ export function findTokenFile(config = localConfig()) {
  * The token itself.
  *
  * Returned, never logged. Every caller in this repository puts it into a child
- * process environment and nowhere else. `CLOUDFLARE_API_TOKEN` already in the
- * environment wins, so CI or a shell that has been bootstrapped already is not
- * second-guessed.
+ * process environment and nowhere else.
+ *
+ * **This project's own token file wins over an inherited
+ * `CLOUDFLARE_API_TOKEN`,** and that ordering was learned the hard way. The
+ * first version preferred the environment, on the reasoning that CI or an
+ * already-bootstrapped shell should not be second-guessed. But this machine
+ * runs several Cloudflare projects, and the owner's shell profile exports a
+ * token for a *different* one. A deploy run from that shell therefore
+ * authenticated as `Cmppunjab@gmail.com's Account`, uploaded 322 assets there,
+ * and created an empty `devexcalculator-org` Worker in an account that has
+ * nothing to do with this site — the exact duplicate-deployment failure the
+ * wrapper exists to prevent, caused by the wrapper.
+ *
+ * A file sitting next to `.claude/local.json` is a deliberate statement about
+ * *this* project. An environment variable is ambient and belongs to whoever
+ * set it last. So the file is authoritative, and the environment is the
+ * fallback for the case the file cannot cover — a machine that has no file,
+ * such as CI.
  */
 export function resolveCloudflareToken(config = localConfig()) {
+  const file = findTokenFile(config);
+  if (file) {
+    const token = readFileSync(file, "utf8").trim();
+    if (token) return { token, source: "file", file };
+    return { token: null, source: "empty-file", file };
+  }
+
   const fromEnv = process.env.CLOUDFLARE_API_TOKEN?.trim();
   if (fromEnv) return { token: fromEnv, source: "environment", file: null };
 
-  const file = findTokenFile(config);
-  if (!file) return { token: null, source: "none", file: null };
+  return { token: null, source: "none", file: null };
+}
 
-  const token = readFileSync(file, "utf8").trim();
-  if (!token) return { token: null, source: "empty-file", file };
-  return { token, source: "file", file };
+/**
+ * Confirms a token belongs to the account that owns this project's Worker.
+ *
+ * The check the wrapper was missing. Everything else it did — reading the
+ * right file, pinning the account id — is a precaution that assumes the
+ * credential is the right one; this is the part that finds out. One request,
+ * before anything is built or uploaded, matched on the account's **name** as
+ * well as its id so a token that can see several accounts cannot satisfy it by
+ * accident.
+ */
+export async function verifyCloudflareAccount(token, config = localConfig()) {
+  const { accountId, accountName } = config.cloudflare;
+  try {
+    const response = await fetch(`https://api.cloudflare.com/client/v4/accounts/${accountId}`, {
+      headers: { authorization: `Bearer ${token}` },
+    });
+    const body = await response.json();
+    if (response.status !== 200 || body?.result?.name !== accountName) {
+      return {
+        ok: false,
+        reason:
+          response.status === 200
+            ? `the token reached ${accountId} but it is named "${body?.result?.name}", not "${accountName}"`
+            : `HTTP ${response.status} for account ${accountId} (${body?.errors?.[0]?.code ?? "no code"})`,
+      };
+    }
+    return { ok: true, reason: `${accountName} (${accountId})` };
+  } catch (error) {
+    return { ok: false, reason: error instanceof Error ? error.message : "request failed" };
+  }
 }
 
 /** Parses a dotenv file into a plain object. Values are never logged. */
