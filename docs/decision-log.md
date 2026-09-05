@@ -1799,3 +1799,32 @@ listener exists or not.
 *Change if:* another control becomes reachable before hydration. Give it
 `data-early-key`, give it a `data-early-value` if it is not an input, and add
 the case to that describe block.
+
+## D-056 · The deploy now runs the suite it was ignoring
+
+*2026-09-05. The gap D-054 exposed, closed.*
+
+`npm run check` runs lint, types, unit tests, eleven content and i18n
+validators, the build, the sitemap, the links, the bundle and the Worker — and
+no end-to-end test. `npm run deploy` ran none either. D-054's regression sat on
+`main` through both gates and would have shipped.
+
+`deploy:run` now starts with `npm run test:e2e`. It costs a Next build and about
+three and a half minutes, and it buys the property that a deploy cannot ship a
+calculator whose tests are red.
+
+**One retry, and the reason it is not zero.** Two full runs that day each
+produced exactly one desktop-firefox failure — a different test each time, and
+neither reproducible: 54 of 54 and 5 of 5 in isolation. Both were timeouts under
+three minutes of parallel load, which is a property of this machine rather than
+of the site. Gating a deploy on a suite that fails about half the time for
+reasons unrelated to the change would train whoever hits it to bypass the gate,
+which is worse than not having one.
+
+Playwright reports a test that passes on retry as `flaky`, not `passed`, so
+this labels the flakiness rather than hiding it, and a test that fails twice
+still stops the deploy.
+
+*Change if:* the flaky count stops being noise. `retries: 1` is a concession to
+a measured, specific flake, not a policy — if a test starts needing its retry
+every run, it is broken and the retry is covering for it.

@@ -15,7 +15,16 @@ export default defineConfig({
   testDir: "./tests/e2e",
   fullyParallel: true,
   forbidOnly: Boolean(process.env.CI),
-  retries: process.env.CI ? 2 : 0,
+  /*
+   * One retry locally, because `npm run deploy` now gates on this suite and a
+   * deploy must not be blocked by a flake. Two full runs on 2026-09-05 each
+   * produced exactly one desktop-firefox failure, a different test each time,
+   * and neither reproduced in isolation — 54 of 54 and 5 of 5. Playwright
+   * reports a test that passes on retry as `flaky` rather than `passed`, so
+   * this labels the problem instead of hiding it. A test that fails twice is a
+   * real failure and still stops the deploy.
+   */
+  retries: process.env.CI ? 2 : 1,
   workers: process.env.CI ? 2 : undefined,
   reporter: process.env.CI
     ? [["github"], ["html", { open: "never" }]]
