@@ -48,23 +48,50 @@ import { localizedPath, getLocaleFromPath } from "../../src/i18n/locale-path";
 import { indexableRoutes } from "../../src/lib/content/route-registry";
 import { siteConfig } from "../../src/config/site";
 import type { Locale } from "../../src/i18n/types";
+import { startServer, type RunningServer } from "../quality/server";
 
-const origin = process.argv[2] ?? "";
-if (!/^https?:\/\//.test(origin)) {
+/*
+ * An origin, or nothing.
+ *
+ * With an argument this reads a server that is already running — a Workers
+ * preview, or production. With none it starts its own `next start`, the same
+ * way the link and route checks do, which is what lets it run inside
+ * `npm run check` rather than only by hand. It had never run in a gate, and a
+ * check nobody runs is a check that quietly stops working: read against
+ * production for the first time on 2026-09-05 it reported 468 problems per
+ * language, every one of them false.
+ */
+const argOrigin = process.argv[2] ?? "";
+if (argOrigin !== "" && !/^https?:\/\//.test(argOrigin)) {
   console.error(
-    "Usage: tsx scripts/i18n/validate-localized-html.ts <origin>\n" +
-      "The origin must be a running server built with ENABLE_REVIEW_LOCALES=true.",
+    "Usage: tsx scripts/i18n/validate-localized-html.ts [origin]\n" +
+      "With no origin a local production server is started. Add\n" +
+      "ENABLE_REVIEW_LOCALES=true to the build to cover every locale.",
   );
   process.exit(1);
 }
+let origin = argOrigin;
 
 const problems: string[] = [];
 const note = (where: string, what: string): void => {
   problems.push(`  ${where}\n      ${what}`);
 };
 
+/**
+ * One attribute out of a tag.
+ *
+ * Case-insensitive, because HTML attribute names are and React serialises
+ * `hrefLang`. Read against production this mattered a great deal: every
+ * `<link rel="alternate" hrefLang="...">` was invisible to a case-sensitive
+ * match, so this reported a complete and correct cluster as eight missing
+ * languages, on every localized page, in every language.
+ *
+ * The leading boundary matters as much as the flag. Without it a search for
+ * `lang` matches the `hrefLang` sitting earlier in the same tag, and the answer
+ * is confidently wrong rather than absent.
+ */
 function attr(tag: string, name: string): string | null {
-  const match = new RegExp(`${name}="([^"]*)"`).exec(tag);
+  const match = new RegExp(String.raw`(?:^|\s)` + `${name}="([^"]*)"`, "i").exec(tag);
   return match?.[1] ?? null;
 }
 
@@ -86,8 +113,17 @@ function internalLinks(html: string): string[] {
     .replace(/<script[\s\S]*?<\/script>/gi, " ")
     .replace(/<head[\s\S]*?<\/head>/i, " ");
   const hrefs: string[] = [];
-  for (const match of body.matchAll(/<a[^>]*href="([^"]+)"/g)) {
-    const href = match[1] ?? "";
+  for (const match of body.matchAll(/<a[^>]*>/g)) {
+    const tag = match[0];
+    /*
+     * An anchor that declares its own `hreflang` is a language switcher.
+     * Pointing at another language is the whole of its job, so counting it as
+     * a link that lost its language flags the one control that exists to
+     * change it — five per page, on every page, forever.
+     */
+    if (attr(tag, "hreflang") !== null) continue;
+
+    const href = attr(tag, "href") ?? "";
     if (href.startsWith("/")) hrefs.push(href);
     else if (href.startsWith(siteConfig.url)) hrefs.push(href.slice(siteConfig.url.length) || "/");
   }
@@ -241,6 +277,19 @@ async function checkPage(locale: Locale, route: string): Promise<void> {
 }
 
 async function main(): Promise<void> {
+  let server: RunningServer | null = null;
+  if (origin === "") {
+    server = await startServer();
+    origin = server.baseUrl;
+  }
+  try {
+    await run();
+  } finally {
+    await server?.stop();
+  }
+}
+
+async function run(): Promise<void> {
   for (const meta of targets) {
     const before = problems.length;
     for (const route of routes) {

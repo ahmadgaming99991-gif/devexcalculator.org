@@ -1853,3 +1853,56 @@ robots meta.
 
 *Change if:* the root `not-found.tsx` ever gains params. It will not — that is
 the constraint the whole file is built around.
+
+## D-058 · A check nobody ran had quietly stopped working
+
+*2026-09-05. Three validators exist in this repository that `npm run check`
+never calls. This is what running them found.*
+
+`validate:localized-html` reads the served HTML of every indexable route in
+every language and asks what a search engine asks: route parity, `<html lang>`
+and `dir`, canonical, the hreflang cluster, whether internal links stay in the
+language, and whether the JSON-LD names the localized address. It is the only
+thing in this repository that checks hreflang at all — nothing else, in any
+test or script, looks at a single `rel="alternate"` language link.
+
+Pointed at production it reported **468 problems in each of six languages**.
+Every one was false, from two bugs in the checker:
+
+**It could not see an hreflang tag.** `attr()` built a case-sensitive regex, and
+React serialises the attribute as `hrefLang`. So `hreflangs()` returned an empty
+list on every page, and each page was reported as missing all seven languages
+and `x-default` — eight fabricated problems per page, 288 per language. The
+served clusters were verified by hand and are complete and correct: eight links,
+self-referencing, `x-default` included, on the English homepage and on deep
+localized routes alike.
+
+The same function had a second fault that no boundary protected: a search for
+`lang` matched the `hrefLang` earlier in the same tag, so `<html lang>` could be
+read off the wrong attribute entirely. Both are fixed together — the regex is
+case-insensitive *and* anchored to a preceding space.
+
+**It counted the language switcher as a defect.** Every localized page links to
+its siblings, because that is the control for changing language. The check
+flagged five of those per page as links that had "lost their language" — the one
+element on the page whose entire job is to leave it. Anchors that declare their
+own `hreflang` are now skipped, which is exactly the markup the switcher already
+carries.
+
+Eight plus five is thirteen, times thirty-six routes, is 468. Both bugs, and
+nothing else.
+
+**With them fixed the site passes in all six languages, 216 pages, zero
+problems** — and `validate:rendered-tokens`, run the same way, found no unfilled
+interpolation token on any of 252 pages.
+
+**So the check joins the gate.** It now starts its own `next start` when given
+no origin, the way the link and route checks do, and `npm run check` runs it.
+A validator that only ever runs by hand is a validator that rots without
+telling anyone, and this one had rotted into something worse than useless: 468
+confident, specific, entirely wrong findings, of a kind that invite someone to
+"fix" a correct site.
+
+*Change if:* another of the unwired validators is brought in.
+`validate:leakage` and `validate:rendered-tokens` are still hand-run, and the
+first thing to do with either is not to trust its output.
