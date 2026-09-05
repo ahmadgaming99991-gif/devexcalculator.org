@@ -56,20 +56,43 @@ jobs:
           # Full history so a secret committed earlier is still caught.
           fetch-depth: 0
 
+      # Two scans, because two different things are being prevented.
+      #
+      # This job failed on every push to main from ccb5d60 onward, and the
+      # finding was a GA4 measurement ID recorded in an SEO document. That ID
+      # is not a secret: it is in the `<script src>` of every page this site
+      # serves, and anyone can read it. Failing the security workflow over a
+      # public string is worse than not scanning at all — it is how a team
+      # learns to scroll past a red Security run, which is the run that has to
+      # be believed the one time it is right.
       - name: Scan for committed secrets
         run: |
           set -euo pipefail
           echo "Scanning tracked files for credential-shaped strings…"
 
-          # Patterns for the credentials this project could plausibly leak.
-          # `.example` files hold empty values by design and are excluded.
-          PATTERNS='(re_[A-Za-z0-9]{20,})|(0x4AAAAAAA[A-Za-z0-9_-]{10,})|(G-[A-Z0-9]{10})|(CLOUDFLARE_API_TOKEN\s*=\s*[A-Za-z0-9_-]{20,})|(-----BEGIN [A-Z ]*PRIVATE KEY-----)'
+          # Things that are secret wherever they appear. `.example` files hold
+          # empty values by design and are excluded.
+          SECRETS='(re_[A-Za-z0-9]{20,})|(0x4AAAAAAA[A-Za-z0-9_-]{10,})|(CLOUDFLARE_API_TOKEN\s*=\s*[A-Za-z0-9_-]{20,})|(-----BEGIN [A-Z ]*PRIVATE KEY-----)'
 
-          if git grep -nEI "$PATTERNS" -- . ':!*.example' ':!.github/workflows/security.yml'; then
+          if git grep -nEI "$SECRETS" -- . ':!*.example' ':!.github/workflows/security.yml'; then
             echo "::error::A credential-shaped string is committed. Rotate it and remove it from history."
             exit 1
           fi
           echo "No committed secrets found."
+
+      # A GA4 measurement ID is public, so the risk is not disclosure — it is
+      # one deployment's configuration baked into the code, which sends a fork's
+      # or a preview's traffic to this property. That is a real bug, and it can
+      # only happen in code, so this looks only at code. Prose that records
+      # which property was enabled, and when, is an audit trail worth keeping.
+      - name: Confirm no analytics property is hardcoded
+        run: |
+          set -euo pipefail
+          if git grep -nEI '(G-[A-Z0-9]{10})' -- 'src' 'scripts' '*.ts' '*.tsx' '*.mjs' '*.json' ':!*.example'; then
+            echo "::error::A GA4 measurement ID is hardcoded. It belongs in the environment, not in source."
+            exit 1
+          fi
+          echo "No analytics property hardcoded in source."
 
       - name: Confirm secret files are not tracked
         run: |
