@@ -1944,3 +1944,41 @@ with the checker.
 *Change if:* `validate:rendered-tokens` is wired in too. It is the last of the
 three still hand-run — it passes cleanly on all 252 pages, and it has not been
 made to fail, so it has not earned a place in the gate yet.
+
+## D-060 · The new deploy gate stopped its own first deploy, correctly
+
+*2026-09-05, minutes after D-056 put `npm run test:e2e` in front of the deploy.*
+
+The first gated deploy failed. Three browsers, one test: *the IndexNow key file
+does not exist without a key*, which asserts `/indexnow.txt` returns 404.
+
+Nothing was wrong with the site. The test was written when `INDEXNOW_KEY` lived
+nowhere the suite could see it, so "no key" and "no file" were the same
+sentence. `npm run deploy` runs through the credential wrapper, which loads
+`.claude/deploy.env`, which is where the key was moved to keep it out of the
+Worker bundle — so the build under test had the key, served the file, and a
+correct site failed its own gate.
+
+The fix is the correction the test directly below it already carries in its own
+comment: assert the invariant, not this deployment's configuration. The file is
+**real or absent, never blank**. With no key, 404 and nothing that looks like a
+key. With a key, 200 and a body that matches it exactly, because IndexNow
+verifies ownership by fetching this file and comparing it with the key in the
+submission — a mismatch fails silently at the search engine, which is the
+failure actually worth a test.
+
+Neither branch prints the key. A failed `toBe` puts both sides in the report,
+so the comparison is reduced to a boolean first.
+
+Verified both ways, which is the only way this test means anything: run plain,
+the environment has no key and all three browsers take the 404 branch; run
+through the deploy wrapper, the environment has the key and all three take the
+200 branch. Three passed each time.
+
+**Two tests were also reported flaky and passed on retry**, both
+desktop-firefox, which is the behaviour D-056 chose `retries: 1` for. The gate
+blocked on the real failure and not on those.
+
+*Change if:* the key ever moves back into a file the plain suite can see. Then
+both branches still hold and nothing here needs touching — which is the point
+of asserting the invariant.

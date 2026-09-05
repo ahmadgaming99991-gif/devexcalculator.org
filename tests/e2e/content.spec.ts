@@ -181,14 +181,39 @@ test.describe("honesty", () => {
 });
 
 test.describe("disabled integrations", () => {
-  test("the IndexNow key file does not exist without a key", async ({ request }) => {
+  /*
+   * The invariant, not this deployment's configuration - the same correction
+   * the verification-tag test below already carries.
+   *
+   * This asserted a bare 404, which was true while the key lived nowhere the
+   * suite could see it. `npm run deploy` now runs this suite with the deploy
+   * environment loaded, so the key is set, the file is served, and a correct
+   * site failed its own gate on the first run. What matters either way is that
+   * the file is real or absent, never blank.
+   *
+   * Neither branch prints the key. A failed `toBe` would put both sides in the
+   * report, so the comparison is reduced to a boolean before it is asserted.
+   */
+  test("the IndexNow key file is real or absent, never blank", async ({ request }) => {
+    const key = process.env.INDEXNOW_KEY?.trim() ?? "";
     const response = await request.get("/indexnow.txt");
 
-    // 404, not an empty 200. A key file that exists and is blank would let a
-    // submission look verifiable when it is not, and the route is the only
-    // thing standing between an unset secret and that.
-    expect(response.status()).toBe(404);
-    expect(await response.text()).not.toContain("INDEXNOW");
+    if (key === "") {
+      // 404, not an empty 200. A key file that exists and is blank would let a
+      // submission look verifiable when it is not, and the route is the only
+      // thing standing between an unset secret and that.
+      expect(response.status()).toBe(404);
+      expect(await response.text()).not.toContain("INDEXNOW");
+      return;
+    }
+
+    // IndexNow verifies ownership by fetching this file and comparing it with
+    // the key in the submission, so a file that does not match it exactly is a
+    // submission that fails silently at the search engine.
+    expect(response.status()).toBe(200);
+    const body = (await response.text()).trim();
+    expect(body.length, "the key file is served but empty").toBeGreaterThan(0);
+    expect(body === key, "the key file does not match INDEXNOW_KEY").toBe(true);
   });
 
   test("an ownership verification tag is either real or absent", async ({ page }) => {
