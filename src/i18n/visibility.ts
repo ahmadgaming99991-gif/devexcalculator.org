@@ -5,11 +5,23 @@ import type { Locale, LocaleMeta, QualityReview } from "./types";
 /**
  * What the public is allowed to see, and the one switch that changes it.
  *
- * Six languages are complete and machine-drafted. None has been read by a
- * native speaker, and this site publishes figures about people's income — a
- * mistranslated "eligible balance" or "minimum requirement" can tell somebody
- * they may cash out when they may not. So they exist, they render, they are
- * tested, and production does not serve them.
+ * Six languages are complete. Five are machine-drafted and one is
+ * self-reviewed; none has been read by a native speaker, and this site
+ * publishes figures about people's income - a mistranslated "eligible balance"
+ * or "minimum requirement" can tell somebody they may cash out when they may
+ * not.
+ *
+ * **They are published.** This paragraph used to end "and production does not
+ * serve them", which was true until D-047 and false from the moment the owner
+ * approved publication on 2026-09-02. The approval is recorded per locale in
+ * `publicationApproval` with who decided, when, and on what basis, and
+ * `qualityReview` was deliberately left at `machine-drafted` because that is
+ * what it is - renaming the machine's work would have been the fabrication
+ * this field exists to prevent.
+ *
+ * A stale sentence here is worse than a stale sentence anywhere else in the
+ * repository: it is the first thing anyone reads before changing what reaches
+ * a reader, and it said the opposite of what the code does.
  *
  * The mechanism is deliberately one boolean and one status field rather than a
  * list of exclusions per surface. Six surfaces choose which locales to emit,
