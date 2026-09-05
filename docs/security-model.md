@@ -190,9 +190,63 @@ calculations the reader explicitly saved, all clearable from the calculator. The
 privacy policy reads from the same configuration the site uses, so it cannot
 claim something is off while it is running.
 
+## The domain itself
+
+Everything above is what the application controls. Three things this site's
+reputation depends on are not in the application at all, and were measured
+absent on 2026-09-05:
+
+| Record | State | What its absence allows |
+|---|---|---|
+| SPF (`TXT` on the apex) | absent | anyone can send mail claiming to be `@devexcalculator.org` |
+| DMARC (`TXT` on `_dmarc`) | absent | no instruction to receivers to reject that mail |
+| CAA | absent | any certificate authority may issue for this domain |
+
+There is no `MX` record either, which makes this easier rather than harder: the
+domain receives no mail, so it can publish the strictest possible policy without
+risking a legitimate message. A calculator that asks readers to trust its
+numbers is exactly the kind of domain worth spoofing, and a "your DevEx payout
+is ready" phishing mail from the site's own domain is the concrete risk.
+
+The records, for Cloudflare's DNS tab. **These are owner actions — nothing in
+this repository can add them:**
+
+```
+TXT   @        v=spf1 -all
+TXT   _dmarc   v=DMARC1; p=reject; rua=mailto:<an address you read>; aspf=s; adkim=s
+CAA   @        0 issue "letsencrypt.org"
+CAA   @        0 issue "pki.goog"
+CAA   @        0 issue "ssl.com"
+CAA   @        0 issuewild ";"
+```
+
+`v=spf1 -all` says this domain sends no mail, ever. `p=reject` says to drop
+anything that fails. Both are safe here only because there is no `MX`; if the
+domain ever starts sending mail, these must be widened first.
+
+The CAA set names the authorities Cloudflare actually uses for Universal SSL.
+Publishing a narrower list than Cloudflare needs breaks certificate renewal, so
+this list must be checked against Cloudflare's current documentation before it
+goes in, not copied blind.
+
+### HSTS preload
+
+The site sends `Strict-Transport-Security: max-age=31536000; includeSubDomains;
+preload`. Checked against `hstspreload.org` on 2026-09-05, the domain is
+**eligible with zero errors and zero warnings** — and is **not on the list**.
+The `preload` token is a request to be added, not the addition; the submission
+is a form at hstspreload.org and is an owner action.
+
+Until it is submitted, a reader's very first visit over `http://` is still
+interceptable. After it, browsers refuse plaintext to this domain before the
+first request. Removal from the list takes months, so it is a commitment, not a
+toggle — which is the reason it is worth doing deliberately and the reason it is
+not done automatically here.
+
 ## Known limitations
 
 1. `'unsafe-inline'` in `script-src`, as described above.
 2. Rate limiting is per-isolate, not global.
 3. No external penetration test has been carried out.
 4. Turnstile's own internal behaviour is outside this site's control.
+5. No SPF, DMARC or CAA record, and not on the HSTS preload list — see above.
