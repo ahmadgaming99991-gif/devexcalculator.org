@@ -1,10 +1,10 @@
 {
   "$comment": "Reader-facing English still written into src, after subtracting anything that already exists verbatim in an English dictionary. Deterministic: no timestamp, so a diff means the code changed.",
   "totals": {
-    "scanned": 513,
-    "covered": 510,
+    "scanned": 523,
+    "covered": 520,
     "hardcoded": 3,
-    "coveredWords": 6033,
+    "coveredWords": 6345,
     "hardcodedWords": 151,
     "coveragePercent": 99.4
   },
@@ -18,7 +18,7 @@
   "hardcoded": [
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 150,
+      "line": 157,
       "category": "registry-prose",
       "words": 56,
       "hasTokens": false,
@@ -26,7 +26,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 458,
+      "line": 465,
       "category": "registry-prose",
       "words": 38,
       "hasTokens": false,
@@ -34,7 +34,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 952,
+      "line": 959,
       "category": "registry-prose",
       "words": 57,
       "hasTokens": false,

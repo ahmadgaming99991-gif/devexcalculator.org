@@ -461,6 +461,222 @@
       "conversions.1000000RobuxToUsd": "1.000.000 Robux'tan USD'ye"
     }
   },
+  "conversions.100UsdToRobux": {
+    "title": "100 $ Robux'a: DevEx ödemesi için gereken Earned Robux",
+    "metaDescription": "100 $, mümkün olan en küçük DevEx ödemesinin altında. Roblox, bir talep gönderilebilmesi için {minimumRobux} Earned Robux şartı koyuyor.",
+    "h1": "100 $ Robux'a",
+    "navLabel": "100 $ ödeme",
+    "quickAnswer": "100 $ tek başına ödenemez. Roblox, bir DevEx talebi gönderilebilmesi için {minimumRobux} uygun Earned Robux şartı koyuyor; 100 $ ise güncel {rateStandard} kurunda 26.316 karşılığıdır ve bu eşiğin altındadır. 100 dolar, Developer Exchange'in üretebileceği en küçük ödemenin altındadır. Karşılık geldiği bakiye, Roblox'un bir talebin gönderilebilmesi için şart koştuğu {minimumRobux} Earned Robux'un altında kalır; bu yüzden buradaki dürüst yanıt bir dönüşüm değil bir eşiktir: mevcut en küçük ilk ödeme, asgari bakiyenin kendi değeridir.",
+    "ogImageAlt": "100 $ tutarının, bir DevEx ödemesinin gerektireceği Earned Robux bakiyesine dönüştürülmüş hâli.",
+    "sections": {
+      "requirement": "100 $ için gereken Earned Robux",
+      "rate-comparison": "Üç kurun tamamında",
+      "context": "Bu hedef neden önemli",
+      "minimum": "Bunun asgari tutarla karşılaştırması",
+      "nearby": "Yakın hedefler"
+    },
+    "faqs": {
+      "q01": {
+        "question": "100 $ kaç Robux eder?",
+        "answer": "26.316 uygun Earned Robux güncel DevEx kurunda 100 $ değerinde olurdu, ancak bu {minimumRobux} asgari tutarının altındadır; bu nedenle ödeme olarak talep edilemez."
+      },
+      "q02": {
+        "question": "100 $ tutarında bir DevEx ödemesi talep edilebilir mi?",
+        "answer": "Hayır. Roblox, bir DevEx talebi gönderilebilmesi için {minimumRobux} uygun Earned Robux şartı koyuyor; bu da 100 $ tutarında bir ödemenin karşılığından fazladır."
+      },
+      "q03": {
+        "question": "Kur, 100 $ için gereken Robux miktarını değiştirir mi?",
+        "answer": "Evet. Eski {rateLegacy} kurunda aynı 100 $ 2.256 Earned Robux daha fazlasını gerektirir; ABD 18+ kuruna uygun bir bakiye ise 7.797 daha azını gerektirir. Bir bakiyenin hangi kısmına hangi kurun uygulanacağına içerik üreticisi değil, Roblox karar verir."
+      }
+    },
+    "links": {
+      "conversions": "100 $ tutarının iki yanındaki hedefler",
+      "usdToRobux": "100 $ dışında bir ödemeden geriye doğru hesaplayın",
+      "devexRequirements": "100 $ tutarının {minimumRobux} asgari tutarını aşıp aşmadığı",
+      "conversions.250UsdToRobux": "250 $ Robux'a",
+      "conversions.500UsdToRobux": "500 $ Robux'a"
+    }
+  },
+  "conversions.250UsdToRobux": {
+    "title": "250 $ Robux'a: DevEx ödemesi için gereken Earned Robux",
+    "metaDescription": "250 $ tutarında bir DevEx ödemesi, güncel kurda yaklaşık 65.790 uygun Earned Robux gerektirir. Eski kur ve ABD 18+ kuruyla karşılaştırıldı.",
+    "h1": "250 $ Robux'a",
+    "navLabel": "250 $ ödeme",
+    "quickAnswer": "250 $ tutarında bir DevEx ödemesi, Robux başına {rateStandard} USD olan güncel kurda 65.790 uygun Earned Robux gerektirir. Eski {rateLegacy} kurunda aynı ödeme 5.639 daha fazlasını gerektirir. 250 dolar, bu listede tek bir nakit çıkışının gerçekten ulaşabileceği ilk hedeftir. Asgari bakiyenin iki katının biraz üzerindedir; bir deneyim ara sıra değil düzenli kazanmaya başladığında genellikle telaffuz edilen rakam da budur.",
+    "ogImageAlt": "250 $ tutarının, bir DevEx ödemesinin gerektireceği Earned Robux bakiyesine dönüştürülmüş hâli.",
+    "sections": {
+      "requirement": "250 $ için gereken Earned Robux",
+      "rate-comparison": "Üç kurun tamamında",
+      "context": "Bu hedef neden önemli",
+      "minimum": "Bunun asgari tutarla karşılaştırması",
+      "nearby": "Yakın hedefler"
+    },
+    "faqs": {
+      "q01": {
+        "question": "250 $ kaç Robux eder?",
+        "answer": "Güncel DevEx kurunda 65.790 uygun Earned Robux; ödeme sağlayıcı ücretleri ve gelir vergisi öncesidir. Bu Earned Robux'tır, satın alınmış bakiye değildir: satın alınmış bakiye takas edilemez."
+      },
+      "q02": {
+        "question": "250 $ tutarında bir DevEx ödemesi talep edilebilir mi?",
+        "answer": "Evet, bakiye oluştuğunda. 65.790, belgelenen {minimumRobux} asgari tutarını aşıyor. Bunu aşmak onaylanmakla aynı şey değildir: Roblox her talebi inceler."
+      },
+      "q03": {
+        "question": "Kur, 250 $ için gereken Robux miktarını değiştirir mi?",
+        "answer": "Evet. Eski {rateLegacy} kurunda aynı 250 $ 5.639 Earned Robux daha fazlasını gerektirir; ABD 18+ kuruna uygun bir bakiye ise 19.493 daha azını gerektirir. Bir bakiyenin hangi kısmına hangi kurun uygulanacağına içerik üreticisi değil, Roblox karar verir."
+      }
+    },
+    "links": {
+      "conversions": "250 $ tutarının iki yanındaki hedefler",
+      "usdToRobux": "250 $ dışında bir ödemeden geriye doğru hesaplayın",
+      "devexRequirements": "250 $ tutarının {minimumRobux} asgari tutarını aşıp aşmadığı",
+      "conversions.100UsdToRobux": "100 $ Robux'a",
+      "conversions.500UsdToRobux": "500 $ Robux'a"
+    }
+  },
+  "conversions.500UsdToRobux": {
+    "title": "500 $ Robux'a: DevEx ödemesi için gereken Earned Robux",
+    "metaDescription": "500 $ tutarında bir DevEx ödemesi, güncel kurda yaklaşık 131.579 uygun Earned Robux gerektirir. Eski kur ve ABD 18+ kuruyla karşılaştırıldı.",
+    "h1": "500 $ Robux'a",
+    "navLabel": "500 $ ödeme",
+    "quickAnswer": "500 $ tutarında bir DevEx ödemesi, Robux başına {rateStandard} USD olan güncel kurda 131.579 uygun Earned Robux gerektirir. Eski {rateLegacy} kurunda aynı ödeme 11.279 daha fazlasını gerektirir. 500 dolardan itibaren kesintiler artık yuvarlama farkı olmaktan çıkar. Bu ölçekte ödeme sağlayıcı yüzdesini ve kendi gelir vergisi tahmininizi görmezden gelmek yerine girmeye değer; bu sayfa da brüt rakamı tek başına bırakmak yerine doğrudan ücretler ve vergiler rehberine bağlanır.",
+    "ogImageAlt": "500 $ tutarının, bir DevEx ödemesinin gerektireceği Earned Robux bakiyesine dönüştürülmüş hâli.",
+    "sections": {
+      "requirement": "500 $ için gereken Earned Robux",
+      "rate-comparison": "Üç kurun tamamında",
+      "context": "Bu hedef neden önemli",
+      "minimum": "Bunun asgari tutarla karşılaştırması",
+      "nearby": "Yakın hedefler"
+    },
+    "faqs": {
+      "q01": {
+        "question": "500 $ kaç Robux eder?",
+        "answer": "Güncel DevEx kurunda 131.579 uygun Earned Robux; ödeme sağlayıcı ücretleri ve gelir vergisi öncesidir. Bu Earned Robux'tır, satın alınmış bakiye değildir: satın alınmış bakiye takas edilemez."
+      },
+      "q02": {
+        "question": "500 $ tutarında bir DevEx ödemesi talep edilebilir mi?",
+        "answer": "Evet, bakiye oluştuğunda. 131.579, belgelenen {minimumRobux} asgari tutarını aşıyor. Bunu aşmak onaylanmakla aynı şey değildir: Roblox her talebi inceler."
+      },
+      "q03": {
+        "question": "Kur, 500 $ için gereken Robux miktarını değiştirir mi?",
+        "answer": "Evet. Eski {rateLegacy} kurunda aynı 500 $ 11.279 Earned Robux daha fazlasını gerektirir; ABD 18+ kuruna uygun bir bakiye ise 38.986 daha azını gerektirir. Bir bakiyenin hangi kısmına hangi kurun uygulanacağına içerik üreticisi değil, Roblox karar verir."
+      }
+    },
+    "links": {
+      "conversions": "500 $ tutarının iki yanındaki hedefler",
+      "usdToRobux": "500 $ dışında bir ödemeden geriye doğru hesaplayın",
+      "devexRequirements": "500 $ tutarının {minimumRobux} asgari tutarını aşıp aşmadığı",
+      "conversions.250UsdToRobux": "250 $ Robux'a",
+      "conversions.1000UsdToRobux": "1.000 $ Robux'a"
+    }
+  },
+  "conversions.1000UsdToRobux": {
+    "title": "1.000 $ Robux'a: DevEx ödemesi için gereken Earned Robux",
+    "metaDescription": "1.000 $ tutarında bir DevEx ödemesi, güncel kurda yaklaşık 263.158 uygun Earned Robux gerektirir. Eski kur ve ABD 18+ kuruyla karşılaştırıldı.",
+    "h1": "1.000 $ Robux'a",
+    "navLabel": "1.000 $ ödeme",
+    "quickAnswer": "1.000 $ tutarında bir DevEx ödemesi, Robux başına {rateStandard} USD olan güncel kurda 263.158 uygun Earned Robux gerektirir. Eski {rateLegacy} kurunda aynı ödeme 22.557 daha fazlasını gerektirir. Bin dolar, içerik üreticilerinin plan yaparken kullandığı yuvarlak rakamdır. Programın üretebileceği en küçük ödemenin dokuz katından biraz azdır ve okumanın en yararlı yolu da budur: çoğu kişi bu toplama tek bir bakiyeyle değil, birkaç nakit çıkışıyla ulaşır.",
+    "ogImageAlt": "1.000 $ tutarının, bir DevEx ödemesinin gerektireceği Earned Robux bakiyesine dönüştürülmüş hâli.",
+    "sections": {
+      "requirement": "1.000 $ için gereken Earned Robux",
+      "rate-comparison": "Üç kurun tamamında",
+      "context": "Bu hedef neden önemli",
+      "minimum": "Bunun asgari tutarla karşılaştırması",
+      "nearby": "Yakın hedefler"
+    },
+    "faqs": {
+      "q01": {
+        "question": "1.000 $ kaç Robux eder?",
+        "answer": "Güncel DevEx kurunda 263.158 uygun Earned Robux; ödeme sağlayıcı ücretleri ve gelir vergisi öncesidir. Bu Earned Robux'tır, satın alınmış bakiye değildir: satın alınmış bakiye takas edilemez."
+      },
+      "q02": {
+        "question": "1.000 $ tutarında bir DevEx ödemesi talep edilebilir mi?",
+        "answer": "Evet, bakiye oluştuğunda. 263.158, belgelenen {minimumRobux} asgari tutarını aşıyor. Bunu aşmak onaylanmakla aynı şey değildir: Roblox her talebi inceler."
+      },
+      "q03": {
+        "question": "Kur, 1.000 $ için gereken Robux miktarını değiştirir mi?",
+        "answer": "Evet. Eski {rateLegacy} kurunda aynı 1.000 $ 22.557 Earned Robux daha fazlasını gerektirir; ABD 18+ kuruna uygun bir bakiye ise 77.972 daha azını gerektirir. Bir bakiyenin hangi kısmına hangi kurun uygulanacağına içerik üreticisi değil, Roblox karar verir."
+      }
+    },
+    "links": {
+      "conversions": "1.000 $ tutarının iki yanındaki hedefler",
+      "usdToRobux": "1.000 $ dışında bir ödemeden geriye doğru hesaplayın",
+      "devexRequirements": "1.000 $ tutarının {minimumRobux} asgari tutarını aşıp aşmadığı",
+      "conversions.500UsdToRobux": "500 $ Robux'a",
+      "conversions.2500UsdToRobux": "2.500 $ Robux'a"
+    }
+  },
+  "conversions.2500UsdToRobux": {
+    "title": "2.500 $ Robux'a: DevEx ödemesi için gereken Earned Robux",
+    "metaDescription": "2.500 $ tutarında bir DevEx ödemesi, güncel kurda yaklaşık 657.895 uygun Earned Robux gerektirir. Eski kur ve ABD 18+ kuruyla karşılaştırıldı.",
+    "h1": "2.500 $ Robux'a",
+    "navLabel": "2.500 $ ödeme",
+    "quickAnswer": "2.500 $ tutarında bir DevEx ödemesi, Robux başına {rateStandard} USD olan güncel kurda 657.895 uygun Earned Robux gerektirir. Eski {rateLegacy} kurunda aynı ödeme 56.391 daha fazlasını gerektirir. 2.500 dolar, çoğu içerik üreticisi için tek bir bakiyenin rahatça karşıladığı noktanın ötesindedir; bu yüzden yararlı okuma tek bir rakam değil, kaç nakit çıkışı döngüsüne karşılık geldiğidir: asgari bakiyenin yirmi bir katından fazlası.",
+    "ogImageAlt": "2.500 $ tutarının, bir DevEx ödemesinin gerektireceği Earned Robux bakiyesine dönüştürülmüş hâli.",
+    "sections": {
+      "requirement": "2.500 $ için gereken Earned Robux",
+      "rate-comparison": "Üç kurun tamamında",
+      "context": "Bu hedef neden önemli",
+      "minimum": "Bunun asgari tutarla karşılaştırması",
+      "nearby": "Yakın hedefler"
+    },
+    "faqs": {
+      "q01": {
+        "question": "2.500 $ kaç Robux eder?",
+        "answer": "Güncel DevEx kurunda 657.895 uygun Earned Robux; ödeme sağlayıcı ücretleri ve gelir vergisi öncesidir. Bu Earned Robux'tır, satın alınmış bakiye değildir: satın alınmış bakiye takas edilemez."
+      },
+      "q02": {
+        "question": "2.500 $ tutarında bir DevEx ödemesi talep edilebilir mi?",
+        "answer": "Evet, bakiye oluştuğunda. 657.895, belgelenen {minimumRobux} asgari tutarını aşıyor. Bunu aşmak onaylanmakla aynı şey değildir: Roblox her talebi inceler."
+      },
+      "q03": {
+        "question": "Kur, 2.500 $ için gereken Robux miktarını değiştirir mi?",
+        "answer": "Evet. Eski {rateLegacy} kurunda aynı 2.500 $ 56.391 Earned Robux daha fazlasını gerektirir; ABD 18+ kuruna uygun bir bakiye ise 194.932 daha azını gerektirir. Bir bakiyenin hangi kısmına hangi kurun uygulanacağına içerik üreticisi değil, Roblox karar verir."
+      }
+    },
+    "links": {
+      "conversions": "2.500 $ tutarının iki yanındaki hedefler",
+      "usdToRobux": "2.500 $ dışında bir ödemeden geriye doğru hesaplayın",
+      "devexRequirements": "2.500 $ tutarının {minimumRobux} asgari tutarını aşıp aşmadığı",
+      "conversions.1000UsdToRobux": "1.000 $ Robux'a",
+      "conversions.5000UsdToRobux": "5.000 $ Robux'a"
+    }
+  },
+  "conversions.5000UsdToRobux": {
+    "title": "5.000 $ Robux'a: DevEx ödemesi için gereken Earned Robux",
+    "metaDescription": "5.000 $ tutarında bir DevEx ödemesi, güncel kurda yaklaşık 1.315.790 uygun Earned Robux gerektirir. Eski kur ve ABD 18+ kuruyla karşılaştırıldı.",
+    "h1": "5.000 $ Robux'a",
+    "navLabel": "5.000 $ ödeme",
+    "quickAnswer": "5.000 $ tutarında bir DevEx ödemesi, Robux başına {rateStandard} USD olan güncel kurda 1.315.790 uygun Earned Robux gerektirir. Eski {rateLegacy} kurunda aynı ödeme 112.782 daha fazlasını gerektirir. 5.000 dolar, bu listede ABD 18+ kurunun en büyük farkı yarattığı tutardır. Aynı beş bin dolar, bakiye bu kura uygunsa standart kurda ödendiğine göre 389.864 Earned Robux daha az gerektirir ve hangisinin uygulanacağına içerik üreticisi değil, Roblox karar verir.",
+    "ogImageAlt": "5.000 $ tutarının, bir DevEx ödemesinin gerektireceği Earned Robux bakiyesine dönüştürülmüş hâli.",
+    "sections": {
+      "requirement": "5.000 $ için gereken Earned Robux",
+      "rate-comparison": "Üç kurun tamamında",
+      "context": "Bu hedef neden önemli",
+      "minimum": "Bunun asgari tutarla karşılaştırması",
+      "nearby": "Yakın hedefler"
+    },
+    "faqs": {
+      "q01": {
+        "question": "5.000 $ kaç Robux eder?",
+        "answer": "Güncel DevEx kurunda 1.315.790 uygun Earned Robux; ödeme sağlayıcı ücretleri ve gelir vergisi öncesidir. Bu Earned Robux'tır, satın alınmış bakiye değildir: satın alınmış bakiye takas edilemez."
+      },
+      "q02": {
+        "question": "5.000 $ tutarında bir DevEx ödemesi talep edilebilir mi?",
+        "answer": "Evet, bakiye oluştuğunda. 1.315.790, belgelenen {minimumRobux} asgari tutarını aşıyor. Bunu aşmak onaylanmakla aynı şey değildir: Roblox her talebi inceler."
+      },
+      "q03": {
+        "question": "Kur, 5.000 $ için gereken Robux miktarını değiştirir mi?",
+        "answer": "Evet. Eski {rateLegacy} kurunda aynı 5.000 $ 112.782 Earned Robux daha fazlasını gerektirir; ABD 18+ kuruna uygun bir bakiye ise 389.864 daha azını gerektirir. Bir bakiyenin hangi kısmına hangi kurun uygulanacağına içerik üreticisi değil, Roblox karar verir."
+      }
+    },
+    "links": {
+      "conversions": "5.000 $ tutarının iki yanındaki hedefler",
+      "usdToRobux": "5.000 $ dışında bir ödemeden geriye doğru hesaplayın",
+      "devexRequirements": "5.000 $ tutarının {minimumRobux} asgari tutarını aşıp aşmadığı",
+      "conversions.2500UsdToRobux": "2.500 $ Robux'a",
+      "conversions.1000UsdToRobux": "1.000 $ Robux'a"
+    }
+  },
   "corrections": {
     "title": "Düzeltme politikası",
     "metaDescription": "Bu sitedeki bir hatayı nasıl bildireceğiniz, bir kur ya da koşulun yanlış çıkması hâlinde ne olacağı ve düzeltmelerin nerede kaydedildiği.",

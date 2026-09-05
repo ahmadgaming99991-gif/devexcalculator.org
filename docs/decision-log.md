@@ -1982,3 +1982,61 @@ blocked on the real failure and not on those.
 *Change if:* the key ever moves back into a file the plain suite can see. Then
 both branches still hold and nothing here needs touching — which is the point
 of asserting the invariant.
+
+## D-061 · The other direction, which had no page at all
+
+*2026-09-05. Six new routes, and four guards that only knew one direction.*
+
+Eight amount pages existed and every one of them ran Robux to dollars. The
+question a creator planning a cash-out actually asks — *what balance does this
+payout need* — had a calculator and no landing page, in any language. Search
+Console had already recorded the gap: `700 usd to robux`, with nothing to land
+on.
+
+`/conversions/<n>-usd-to-robux/` now answers it for $100, $250, $500, $1,000,
+$2,500 and $5,000, in all seven languages.
+
+**The minimum is what makes these pages worth having.** Roblox requires 30,000
+Earned Robux before a request can be submitted, which at the standard rate is
+$114 — so every dollar target below that is unreachable as a first payout.
+`$100` is on the list for exactly that reason: its page does not print a
+conversion the reader cannot act on, it says the balance is 3,684 short and that
+the smallest payout the programme can produce is $114. Every string on these
+pages branches on `clearsMinimum` rather than templating one sentence six times.
+
+**A separate view, deliberately.** `conversion-usd.tsx` mirrors
+`conversion-amount.tsx` rather than sharing it behind a flag. The two ask
+different questions and end differently — the value page ends on "what is this
+worth", this one on "can this be requested at all" — and a parameterised
+template would have produced twelve pages saying one thing twice. What *is*
+shared is the slug space: `ConversionSlugView` decides which direction a slug
+names, so neither route file knows the other exists and neither can drift into
+serving a different set.
+
+**Four guards matched `-robux-to-usd` out of a `pageType` that now covers two.**
+`validate-content.ts`, `publish.ts` twice, and the publish queue. Each read the
+six correct pages as unapproved amounts — while an unapproved target in the new
+direction would still have passed every one of them. All four now match both
+directions, and the two approval sources stay distinct on purpose: Robux amounts
+come from the keyword pipeline and its overrides, because the demand data is per
+Robux amount; dollar targets have no such entity and are approved from the
+curated list in code.
+
+**What the gates caught, which is the point of having them.** Titles over 65
+characters in four languages; six unregistered approval claims;
+`entity-map.json` out of date; one anchor repeated identically on all six pages
+— the exact sitewide exact-match link block the sibling builder's comment warns
+about; a Spanish number written `389 864` with a space when Spanish groups with
+a full stop, which the audit read as two numbers; and "Developer Exchange"
+translated away to "DevEx" in six intros when the glossary requires the
+programme's own name. None of these were visible by reading the diff.
+
+**The translations are machine-drafted, like the six locales already published.**
+`qualityReview` stays `machine-drafted`; nothing here claims a native reading.
+The six new approval claims are recorded in `docs/i18n/critical-claims.md` with
+a back-translation each, under the same non-native framing that register already
+carries.
+
+*Change if:* a seventh target is added. Add it to `APPROVED_USD_AMOUNTS` with
+its own context sentence, run `i18n:extract-routes`, translate the six locales,
+and expect the register and the meta-length test to fail until both are done.

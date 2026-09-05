@@ -486,7 +486,10 @@
       "notRoundNumbers": "Bu liste yuvarlak sayılardan yapılmış bir seçki değil: gerçekten aranan tutarlar. Burada olmayan her şey — tablonun son satırından büyük rakamlar dahil — yukarıdaki dönüştürücüye girilir; o da aynı oranları ve aynı aritmetiği kullanır."
     },
     "multipleOfMinimum": "DevEx asgari tutarının {multiple}× katı",
-    "belowMinimum": "DevEx asgari tutarının altında"
+    "belowMinimum": "DevEx asgari tutarının altında",
+    "targetsHeading": "Bir ödeme hedefinden başlayın",
+    "targetsDescription": "Her ödemenin güncel kurda gerektireceği uygun Earned Robux bakiyesi.",
+    "robuxNeeded": "Gereken Earned Robux"
   },
   "amountPage": {
     "jumpLabel": "Üç kurun tümünü karşılaştır",
@@ -543,5 +546,49 @@
   "$identical": [
     "robuxTax.columnRoblox",
     "robuxToUsd.comparison.minimumPayout"
-  ]
+  ],
+  "usdPage": {
+    "intro": "{display} tutarında bir Developer Exchange ödemesinin, Roblox'un belgelediği üç kurun her birinde kaç uygun Earned Robux gerektirdiği.",
+    "headlineHeading": "{display} için gereken Earned Robux",
+    "headlineDescription": "Güncel standart kurda, tam Robux'a yukarı yuvarlanmış.",
+    "neededLabel": "{display} için gereken uygun Earned Robux",
+    "clearsMinimum": "Bu, Roblox'un bir talep gönderilebilmesi için şart koştuğu {minimum} asgari tutarının {multiple} katıdır.",
+    "belowMinimum": "Bu, Roblox'un şart koştuğu {minimum} asgari tutarının {shortfall} altındadır. Bu büyüklükte bir ödeme tek başına talep edilemez.",
+    "allThreeDescription": "Bir bakiyenin hangi kısmına hangi kurun uygulanacağına Roblox karar verir. Burada her kurun aynı ödeme için ne gerektireceği görülüyor.",
+    "columnRobuxNeeded": "Gereken Earned Robux",
+    "contextHeading": "Bu hedef neden önemli",
+    "minimumHeading": "Bunun asgari tutarla karşılaştırması",
+    "minimumDescription": "Roblox, bir DevEx talebinin gönderilebilmesi için {minimum} uygun Earned Robux şartı koyuyor.",
+    "aboveMinimumBody": "{display} tutarında bir ödeme {needed} uygun Earned Robux gerektirir; bu, {minimum} asgari tutarının {multiple} katıdır. Asgari tutarı aşmak onaylanmakla aynı şey değildir: Roblox her talebi inceler ve bir bakiyenin hangi kısmına hangi kurun uygulanacağına karar verir.",
+    "belowMinimumBody": "{display} tutarında bir ödeme {needed} uygun Earned Robux'a karşılık gelir ve Roblox'un şart koştuğu {minimum} tutarının {shortfall} altındadır. Programın üretebileceği en küçük ödeme, tam da bu asgari bakiyenin değeridir: {smallest}.",
+    "rateTableLabel": "Her kurda {display} için gereken Earned Robux",
+    "rateTableCaption": "{display} tutarında bir ödeme için kur bazında gereken uygun Earned Robux.",
+    "nearbyHeading": "Yakın hedefler",
+    "nearbyDescription": "Bu hedefin iki yanındaki ödeme hedefleri ve her birinin gerektirdiği bakiye.",
+    "faqHeading": "{display} tutarında bir ödemeyle ilgili sorular",
+    "body": {
+      "requirement": {
+        "p1": "Bu hedefi hesaplayıcıda aç"
+      },
+      "rateComparison": {
+        "p1": "Eski kur aynı ödeme için {legacyExtra} Earned Robux daha fazlasını gerektirir; ABD 18+ kuruna uygun bir bakiye ise {us18Saved} daha azını gerektirir.",
+        "p2": "her kurun nasıl belgelendiği"
+      },
+      "minimum": {
+        "p1": "Bir talep gönderilebilmesi için Roblox'un şart koştukları"
+      },
+      "nearby": {
+        "p1": "tüm tutarlar ve hedefler tek sayfada",
+        "p2": "herhangi bir ödemeden geriye doğru hesaplayın"
+      }
+    },
+    "context": {
+      "usd100": "100 dolar, Developer Exchange'in üretebileceği en küçük ödemenin altındadır. Karşılık geldiği bakiye, Roblox'un bir talebin gönderilebilmesi için şart koştuğu {minimumRobux} Earned Robux'un altında kalır; bu yüzden buradaki dürüst yanıt bir dönüşüm değil bir eşiktir: mevcut en küçük ilk ödeme, asgari bakiyenin kendi değeridir.",
+      "usd250": "250 dolar, bu listede tek bir nakit çıkışının gerçekten ulaşabileceği ilk hedeftir. Asgari bakiyenin iki katının biraz üzerindedir; bir deneyim ara sıra değil düzenli kazanmaya başladığında genellikle telaffuz edilen rakam da budur.",
+      "usd500": "500 dolardan itibaren kesintiler artık yuvarlama farkı olmaktan çıkar. Bu ölçekte ödeme sağlayıcı yüzdesini ve kendi gelir vergisi tahmininizi görmezden gelmek yerine girmeye değer; bu sayfa da brüt rakamı tek başına bırakmak yerine doğrudan ücretler ve vergiler rehberine bağlanır.",
+      "usd1000": "Bin dolar, içerik üreticilerinin plan yaparken kullandığı yuvarlak rakamdır. Programın üretebileceği en küçük ödemenin dokuz katından biraz azdır ve okumanın en yararlı yolu da budur: çoğu kişi bu toplama tek bir bakiyeyle değil, birkaç nakit çıkışıyla ulaşır.",
+      "usd2500": "2.500 dolar, çoğu içerik üreticisi için tek bir bakiyenin rahatça karşıladığı noktanın ötesindedir; bu yüzden yararlı okuma tek bir rakam değil, kaç nakit çıkışı döngüsüne karşılık geldiğidir: asgari bakiyenin yirmi bir katından fazlası.",
+      "usd5000": "5.000 dolar, bu listede ABD 18+ kurunun en büyük farkı yarattığı tutardır. Aynı beş bin dolar, bakiye bu kura uygunsa standart kurda ödendiğine göre 389.864 Earned Robux daha az gerektirir ve hangisinin uygulanacağına içerik üreticisi değil, Roblox karar verir."
+    }
+  }
 }

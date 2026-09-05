@@ -1,5 +1,5 @@
 import { indexableRoutes, routeRegistry } from "@/lib/content/route-registry";
-import { approvedAmountValues } from "@/lib/content/amount-pages";
+import { approvedAmountValues, approvedUsdValues } from "@/lib/content/amount-pages";
 import type { AmountEntity, KeywordRecord } from "./pipeline";
 
 /**
@@ -77,12 +77,23 @@ export function buildCannibalizationMap(
     }
   }
 
-  // Every published amount route must be an approved amount.
+  /*
+   * Every published amount route must be an approved amount, in whichever
+   * direction it runs.
+   *
+   * This used to match only `-robux-to-usd`. When the payout-target pages were
+   * added they carried the same `pageType`, so every one of them read as "an
+   * amount page for an amount that is not approved" - the check would have
+   * failed six correct pages while still passing an unapproved one in the new
+   * direction, which is the worst of both.
+   */
   for (const route of indexableRoutes) {
     if (route.pageType !== "conversion-amount") continue;
-    const match = route.route.match(/\/conversions\/(\d+)-robux-to-usd\/$/);
+    const match = route.route.match(/\/conversions\/(\d+)-(robux-to-usd|usd-to-robux)\/$/);
     const amount = match?.[1] ? Number(match[1]) : null;
-    if (amount === null || !approvedAmountValues.includes(amount)) {
+    const approved =
+      match?.[2] === "usd-to-robux" ? approvedUsdValues : approvedAmountValues;
+    if (amount === null || !approved.includes(amount)) {
       findings.push({
         code: "amount-page-not-approved",
         severity: "error",
@@ -237,9 +248,22 @@ export function buildPublishQueue(
     const sourcesReady = !route.rateSensitive || route.sourceIds.length > 0;
     if (!sourcesReady) blockers.push("Rate-sensitive page with no source ids.");
 
+    /*
+     * The third guard that matched one direction out of a `pageType` covering
+     * two - see the note above and the twin in `validate-content.ts`.
+     *
+     * The two directions are approved from different places, and that is not
+     * an oversight. Robux amounts come from the keyword pipeline and its
+     * manual overrides in `publication-overrides.json`, because the demand
+     * data is per Robux amount. There is no such entity for a dollar target,
+     * so the approved list for those is the curated one in code.
+     */
     if (route.pageType === "conversion-amount") {
-      const amount = Number(route.route.match(/(\d+)-robux-to-usd/)?.[1] ?? "0");
-      if (!approvedAmounts.has(amount)) {
+      const match = route.route.match(/(\d+)-(robux-to-usd|usd-to-robux)/);
+      const amount = Number(match?.[1] ?? "0");
+      const approved =
+        match?.[2] === "usd-to-robux" ? approvedUsdValues.includes(amount) : approvedAmounts.has(amount);
+      if (!approved) {
         blockers.push("Amount is not in the approved publication list.");
       }
     }

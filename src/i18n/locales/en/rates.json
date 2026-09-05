@@ -486,7 +486,10 @@
       "notRoundNumbers": "The list is not a selection of round numbers: it is the amounts that are actually searched for. Anything not here — including figures larger than the table’s last row — goes into the converter above, which uses the same rates and the same arithmetic."
     },
     "multipleOfMinimum": "{multiple}× the DevEx minimum",
-    "belowMinimum": "Below the DevEx minimum"
+    "belowMinimum": "Below the DevEx minimum",
+    "targetsHeading": "Start from a payout target",
+    "targetsDescription": "The eligible Earned Robux balance each payout would need, at the current rate.",
+    "robuxNeeded": "Earned Robux needed"
   },
   "amountPage": {
     "jumpLabel": "Compare all three rates",
@@ -539,5 +542,49 @@
     "rateTableCaption": "Payout for {display} Earned Robux under each documented DevEx rate",
     "faqHeading": "Questions about {display} Robux",
     "notYetMore": "Not yet — {shortfall} more"
+  },
+  "usdPage": {
+    "intro": "What a {display} Developer Exchange payout needs in eligible Earned Robux, at each of the three rates Roblox documents.",
+    "headlineHeading": "Earned Robux needed for {display}",
+    "headlineDescription": "At the current standard rate, rounded up to a whole Robux.",
+    "neededLabel": "Eligible Earned Robux needed for {display}",
+    "clearsMinimum": "That is {multiple} times the {minimum} minimum Roblox requires before a request can be submitted.",
+    "belowMinimum": "This is below the {minimum} minimum Roblox requires, by {shortfall}. A payout this size cannot be requested on its own.",
+    "allThreeDescription": "Roblox decides which rate applies to which part of a balance. This shows what each would require for the same payout.",
+    "columnRobuxNeeded": "Earned Robux needed",
+    "contextHeading": "Why this target matters",
+    "minimumHeading": "How this compares with the minimum",
+    "minimumDescription": "Roblox requires {minimum} eligible Earned Robux before a DevEx request can be submitted at all.",
+    "aboveMinimumBody": "A {display} payout needs {needed} eligible Earned Robux, which is {multiple} times the {minimum} minimum. Clearing the minimum is not the same as being approved: Roblox reviews every request and decides which rate applies to which part of a balance.",
+    "belowMinimumBody": "A {display} payout corresponds to {needed} eligible Earned Robux, which is {shortfall} short of the {minimum} Roblox requires. The smallest payout the programme can produce is the value of that minimum balance itself, {smallest}.",
+    "rateTableLabel": "Earned Robux needed for {display} at each rate",
+    "rateTableCaption": "Eligible Earned Robux required for a {display} payout, by rate.",
+    "nearbyHeading": "Nearby targets",
+    "nearbyDescription": "The payout targets either side of this one, with the balance each needs.",
+    "faqHeading": "Questions about a {display} payout",
+    "body": {
+      "requirement": {
+        "p1": "Open this target in the calculator"
+      },
+      "rateComparison": {
+        "p1": "The older rate needs {legacyExtra} more Earned Robux for the same payout, and a balance qualifying for the U.S. 18+ rate needs {us18Saved} fewer.",
+        "p2": "how each rate is documented"
+      },
+      "minimum": {
+        "p1": "What Roblox requires before a request can be submitted"
+      },
+      "nearby": {
+        "p1": "every amount and target on one page",
+        "p2": "work back from any payout"
+      }
+    },
+    "context": {
+      "usd100": "100 dollars is below the smallest payout the Developer Exchange can produce. The balance it corresponds to is under the {minimumRobux} Earned Robux Roblox requires before a request can be submitted at all, so the honest answer to this one is not a conversion but a threshold: the smallest first payout available is the value of the minimum balance itself.",
+      "usd250": "250 dollars is the first target on this list that a single cash-out can actually reach. It sits a little over twice the minimum balance, which is why it tends to be the figure a creator names once their experience has started earning steadily rather than occasionally.",
+      "usd500": "At 500 dollars the deductions stop being rounding errors. A payment-provider percentage and an income-tax estimate are worth entering rather than ignoring at this scale, which is why this page links directly to the fees and taxes guide instead of leaving the gross figure to stand alone.",
+      "usd1000": "A thousand dollars is the round figure creators plan around. It is a little under nine times the smallest payout the programme can produce, which is the more useful way to read it: most creators arrive at this total over several cash-outs rather than holding one balance that covers it.",
+      "usd2500": "2,500 dollars is past the point where one balance covers it comfortably for most creators, so the useful reading is not the single number but how many cash-out cycles it represents - it is more than twenty-one times the minimum balance.",
+      "usd5000": "5,000 dollars is where the qualifying U.S. 18+ rate makes its largest difference on this list. The same five thousand dollars needs 389,864 fewer Earned Robux if the balance qualifies for that rate than if it is paid at the standard one - and Roblox, not the creator, decides which applies."
+    }
   }
 }

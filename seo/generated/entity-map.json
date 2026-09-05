@@ -69,7 +69,13 @@
         "/conversions/300000-robux-to-usd/",
         "/conversions/500000-robux-to-usd/",
         "/conversions/1000000-robux-to-usd/",
-        "/conversions/10000000-robux-to-usd/"
+        "/conversions/10000000-robux-to-usd/",
+        "/conversions/100-usd-to-robux/",
+        "/conversions/250-usd-to-robux/",
+        "/conversions/500-usd-to-robux/",
+        "/conversions/1000-usd-to-robux/",
+        "/conversions/2500-usd-to-robux/",
+        "/conversions/5000-usd-to-robux/"
       ],
       "relationship": "The official Roblox programme that converts eligible Earned Robux into currency."
     },
@@ -104,7 +110,13 @@
         "/conversions/300000-robux-to-usd/",
         "/conversions/500000-robux-to-usd/",
         "/conversions/1000000-robux-to-usd/",
-        "/conversions/10000000-robux-to-usd/"
+        "/conversions/10000000-robux-to-usd/",
+        "/conversions/100-usd-to-robux/",
+        "/conversions/250-usd-to-robux/",
+        "/conversions/500-usd-to-robux/",
+        "/conversions/1000-usd-to-robux/",
+        "/conversions/2500-usd-to-robux/",
+        "/conversions/5000-usd-to-robux/"
       ],
       "relationship": "The Roblox virtual currency. Only the earned portion of a balance is eligible for DevEx."
     },
@@ -135,7 +147,13 @@
         "/conversions/300000-robux-to-usd/",
         "/conversions/500000-robux-to-usd/",
         "/conversions/1000000-robux-to-usd/",
-        "/conversions/10000000-robux-to-usd/"
+        "/conversions/10000000-robux-to-usd/",
+        "/conversions/100-usd-to-robux/",
+        "/conversions/250-usd-to-robux/",
+        "/conversions/500-usd-to-robux/",
+        "/conversions/1000-usd-to-robux/",
+        "/conversions/2500-usd-to-robux/",
+        "/conversions/5000-usd-to-robux/"
       ],
       "relationship": "Robux accumulated through creator activity, and the only category DevEx converts."
     },
@@ -238,7 +256,13 @@
         "/conversions/300000-robux-to-usd/",
         "/conversions/500000-robux-to-usd/",
         "/conversions/1000000-robux-to-usd/",
-        "/conversions/10000000-robux-to-usd/"
+        "/conversions/10000000-robux-to-usd/",
+        "/conversions/100-usd-to-robux/",
+        "/conversions/250-usd-to-robux/",
+        "/conversions/500-usd-to-robux/",
+        "/conversions/1000-usd-to-robux/",
+        "/conversions/2500-usd-to-robux/",
+        "/conversions/5000-usd-to-robux/"
       ],
       "relationship": "The currency the DevEx rate is denominated in and the base of every calculation here."
     },

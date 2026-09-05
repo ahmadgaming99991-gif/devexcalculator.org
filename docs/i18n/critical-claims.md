@@ -48,11 +48,11 @@ Read from `src/data/rates.json` on this run.
 
 > **Meeting the minimum requirements does NOT guarantee DevEx approval.**
 
-Thirty-one English strings carry this claim. `approvalClaimKeys()` in the audit
+Thirty-seven English strings carry this claim. `approvalClaimKeys()` in the audit
 harness derives the list from the English catalog, so a new page that makes the
 claim joins the check the day it is written rather than when somebody remembers.
 
-All thirty-one are below, in all six languages — 186 translated sentences, each
+All thirty-seven are below, in all six languages — 222 translated sentences, each
 quoted and back-translated literally. Three were recorded here before; the other
 twenty-eight were covered only by the automated `negation-lost` check, which
 confirms a negation marker is present and cannot read what the sentence says
@@ -426,9 +426,51 @@ approval.*
 The count *five* and the age *13* are compared against the English by the
 numeric check in every locale; both hold.
 
-### 1.7 What this covered, and what it did not
+### 1.7 The payout-target pages
 
-**Covered.** 31 keys × 6 locales = 186 translated sentences, each read against
+Added on 2026-09-05 with the `usd-to-robux` direction. Six keys, and the reason
+they arrive together: five of them are the same sentence on five pages, with
+only the balance changing, so the claim clause is quoted once and the five keys
+that carry it are named below.
+
+#### `routes.conversions.250UsdToRobux.faqs.q02.answer` · `routes.conversions.500UsdToRobux.faqs.q02.answer` · `routes.conversions.1000UsdToRobux.faqs.q02.answer` · `routes.conversions.2500UsdToRobux.faqs.q02.answer` · `routes.conversions.5000UsdToRobux.faqs.q02.answer`
+
+English: *Yes, once the balance is there. <balance> clears the documented
+{minimumRobux} minimum. Clearing it is not the same as being approved - Roblox
+reviews every request.*
+
+| Locale | Claim clause | Literal back-translation | Verdict |
+| --- | --- | --- | --- |
+| `pt-BR` | Ultrapassá-lo **não é o mesmo que** ser aprovado: a Roblox analisa cada solicitação. | "Exceeding it **is not the same as** being approved: Roblox reviews every request." | **PASS** |
+| `es` | Superarlo **no es lo mismo que** ser aprobado: Roblox revisa cada solicitud. | "Exceeding it **is not the same as** being approved: Roblox reviews every request." | **PASS** |
+| `id` | Melewatinya **tidak sama dengan** disetujui: Roblox meninjau setiap permintaan. | "Passing it **is not the same as** being approved: Roblox reviews every request." | **PASS** |
+| `fr` | Le dépasser **n'équivaut pas à** être approuvé : Roblox examine chaque demande. | "Exceeding it **is not equivalent to** being approved: Roblox examines every request." | **PASS** |
+| `de` | Den Mindestbetrag zu erreichen ist **nicht dasselbe wie** eine Genehmigung – Roblox prüft jeden Antrag. | "Reaching the minimum is **not the same as** an approval - Roblox reviews every application." | **PASS** |
+| `tr` | Bunu aşmak onaylanmakla **aynı şey değildir**: Roblox her talebi inceler. | "Exceeding this **is not the same thing as** being approved: Roblox reviews every request." | **PASS**, non-native reading |
+
+The sixth page in the set, `100UsdToRobux`, makes no approval claim: its answer
+is a flat *No*, because the target is below the minimum and no request can be
+submitted at all. `approvalClaimKeys()` correctly does not list it.
+
+#### `rates.usdPage.aboveMinimumBody`
+
+English: *A {display} payout needs {needed} eligible Earned Robux, which is
+{multiple} times the {minimum} minimum. Clearing the minimum is not the same as
+being approved: Roblox reviews every request and decides which rate applies to
+which part of a balance.*
+
+| Locale | Claim clause | Literal back-translation | Verdict |
+| --- | --- | --- | --- |
+| `pt-BR` | Ultrapassar o mínimo **não é o mesmo que** ser aprovado: a Roblox analisa cada solicitação e decide qual taxa se aplica a qual parte de um saldo. | "Exceeding the minimum **is not the same as** being approved: Roblox reviews every request and decides which rate applies to which part of a balance." | **PASS** |
+| `es` | Superar el mínimo **no es lo mismo que** ser aprobado: Roblox revisa cada solicitud y decide qué tasa se aplica a cada parte de un saldo. | "Exceeding the minimum **is not the same as** being approved: Roblox reviews every request and decides which rate applies to each part of a balance." | **PASS** |
+| `id` | Melewati jumlah minimum **tidak sama dengan** disetujui: Roblox meninjau setiap permintaan dan memutuskan kurs mana yang berlaku untuk bagian mana dari sebuah saldo. | "Passing the minimum **is not the same as** being approved: Roblox reviews every request and decides which rate applies to which part of a balance." | **PASS** |
+| `fr` | Dépasser le minimum **n'équivaut pas à** être approuvé : Roblox examine chaque demande et décide quel taux s'applique à quelle partie d'un solde. | "Exceeding the minimum **is not equivalent to** being approved: Roblox examines every request and decides which rate applies to which part of a balance." | **PASS** |
+| `de` | Den Mindestbetrag zu erreichen ist **nicht dasselbe wie** eine Genehmigung: Roblox prüft jeden Antrag und entscheidet, welcher Kurs für welchen Teil eines Guthabens gilt. | "Reaching the minimum is **not the same as** an approval: Roblox reviews every application and decides which rate applies to which part of a balance." | **PASS** |
+| `tr` | Asgari tutarı aşmak onaylanmakla **aynı şey değildir**: Roblox her talebi inceler ve bir bakiyenin hangi kısmına hangi kurun uygulanacağına karar verir. | "Exceeding the minimum amount **is not the same thing as** being approved: Roblox reviews every request and decides which rate applies to which part of a balance." | **PASS**, non-native reading |
+
+### 1.8 What this covered, and what it did not
+
+**Covered.** 37 keys × 6 locales = 222 translated sentences, each read against
 its English source and back-translated above. None drops the negation, attaches
 it to the wrong clause, turns the requirement into a sufficiency, or weakens it
 to a probability. The one systematic variation is vocabulary: `de` renders

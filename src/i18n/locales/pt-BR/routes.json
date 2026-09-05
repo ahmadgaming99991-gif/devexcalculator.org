@@ -460,6 +460,222 @@
       "conversions.1000000RobuxToUsd": "1.000.000 Robux para USD"
     }
   },
+  "conversions.100UsdToRobux": {
+    "title": "US$ 100 para Robux: Earned Robux para um pagamento do DevEx",
+    "metaDescription": "US$ 100 está abaixo do menor pagamento do DevEx disponível. A Roblox exige {minimumRobux} Earned Robux antes que uma solicitação possa ser enviada.",
+    "h1": "US$ 100 para Robux",
+    "navLabel": "pagamento de US$ 100",
+    "quickAnswer": "US$ 100 não pode ser sacado sozinho. A Roblox exige {minimumRobux} Earned Robux elegíveis antes que uma solicitação do DevEx possa ser enviada, e US$ 100 na taxa atual de {rateStandard} corresponde a 26.316, abaixo desse limite. 100 dólares está abaixo do menor pagamento que o Developer Exchange pode produzir. O saldo correspondente fica abaixo dos {minimumRobux} Earned Robux que a Roblox exige antes que uma solicitação possa sequer ser enviada, então a resposta honesta aqui não é uma conversão e sim um limite: o menor primeiro pagamento disponível é o valor do próprio saldo mínimo.",
+    "ogImageAlt": "US$ 100 convertidos no saldo de Earned Robux que um pagamento do DevEx exigiria.",
+    "sections": {
+      "requirement": "Earned Robux necessários para US$ 100",
+      "rate-comparison": "Nas três taxas",
+      "context": "Por que esta meta importa",
+      "minimum": "Como isso se compara ao mínimo",
+      "nearby": "Metas próximas"
+    },
+    "faqs": {
+      "q01": {
+        "question": "Quanto é US$ 100 em Robux?",
+        "answer": "26.316 Earned Robux elegíveis valeriam US$ 100 na taxa atual do DevEx, mas isso está abaixo do mínimo de {minimumRobux}, então não pode ser solicitado como pagamento."
+      },
+      "q02": {
+        "question": "É possível solicitar um pagamento do DevEx de US$ 100?",
+        "answer": "Não. A Roblox exige {minimumRobux} Earned Robux elegíveis antes que uma solicitação do DevEx possa ser enviada, o que é mais do que corresponde a um pagamento de US$ 100."
+      },
+      "q03": {
+        "question": "A taxa muda quantos Robux US$ 100 precisa?",
+        "answer": "Sim. Na taxa antiga de {rateLegacy}, os mesmos US$ 100 precisam de 2.256 Earned Robux a mais, e um saldo que se qualifique para a taxa dos EUA 18+ precisa de 7.797 a menos. A Roblox, e não a pessoa criadora, decide qual taxa se aplica a qual parte de um saldo."
+      }
+    },
+    "links": {
+      "conversions": "as metas de um lado e de outro de US$ 100",
+      "usdToRobux": "partir de um pagamento diferente de US$ 100",
+      "devexRequirements": "se US$ 100 ultrapassa o mínimo de {minimumRobux}",
+      "conversions.250UsdToRobux": "US$ 250 para Robux",
+      "conversions.500UsdToRobux": "US$ 500 para Robux"
+    }
+  },
+  "conversions.250UsdToRobux": {
+    "title": "US$ 250 para Robux: Earned Robux para um pagamento do DevEx",
+    "metaDescription": "Um pagamento do DevEx de US$ 250 precisa de cerca de 65.790 Earned Robux elegíveis na taxa atual. Comparado com as taxas antiga e dos EUA 18+.",
+    "h1": "US$ 250 para Robux",
+    "navLabel": "pagamento de US$ 250",
+    "quickAnswer": "Um pagamento do DevEx de US$ 250 precisa de 65.790 Earned Robux elegíveis na taxa atual de {rateStandard} USD por Robux. Na taxa antiga de {rateLegacy}, o mesmo pagamento precisa de 5.639 a mais. 250 dólares é a primeira meta desta lista que um único saque consegue realmente alcançar. Fica um pouco acima do dobro do saldo mínimo, e por isso costuma ser o valor citado quando uma experiência começa a render de forma constante em vez de ocasional.",
+    "ogImageAlt": "US$ 250 convertidos no saldo de Earned Robux que um pagamento do DevEx exigiria.",
+    "sections": {
+      "requirement": "Earned Robux necessários para US$ 250",
+      "rate-comparison": "Nas três taxas",
+      "context": "Por que esta meta importa",
+      "minimum": "Como isso se compara ao mínimo",
+      "nearby": "Metas próximas"
+    },
+    "faqs": {
+      "q01": {
+        "question": "Quanto é US$ 250 em Robux?",
+        "answer": "65.790 Earned Robux elegíveis, na taxa atual do DevEx, antes de qualquer taxa do provedor de pagamento ou imposto de renda. São Earned Robux, não um saldo comprado: um saldo comprado não pode ser trocado."
+      },
+      "q02": {
+        "question": "É possível solicitar um pagamento do DevEx de US$ 250?",
+        "answer": "Sim, assim que o saldo existir. 65.790 ultrapassa o mínimo documentado de {minimumRobux}. Ultrapassá-lo não é o mesmo que ser aprovado: a Roblox analisa cada solicitação."
+      },
+      "q03": {
+        "question": "A taxa muda quantos Robux US$ 250 precisa?",
+        "answer": "Sim. Na taxa antiga de {rateLegacy}, os mesmos US$ 250 precisam de 5.639 Earned Robux a mais, e um saldo que se qualifique para a taxa dos EUA 18+ precisa de 19.493 a menos. A Roblox, e não a pessoa criadora, decide qual taxa se aplica a qual parte de um saldo."
+      }
+    },
+    "links": {
+      "conversions": "as metas de um lado e de outro de US$ 250",
+      "usdToRobux": "partir de um pagamento diferente de US$ 250",
+      "devexRequirements": "se US$ 250 ultrapassa o mínimo de {minimumRobux}",
+      "conversions.100UsdToRobux": "US$ 100 para Robux",
+      "conversions.500UsdToRobux": "US$ 500 para Robux"
+    }
+  },
+  "conversions.500UsdToRobux": {
+    "title": "US$ 500 para Robux: Earned Robux para um pagamento do DevEx",
+    "metaDescription": "Um pagamento do DevEx de US$ 500 precisa de cerca de 131.579 Earned Robux elegíveis na taxa atual. Comparado com as taxas antiga e dos EUA 18+.",
+    "h1": "US$ 500 para Robux",
+    "navLabel": "pagamento de US$ 500",
+    "quickAnswer": "Um pagamento do DevEx de US$ 500 precisa de 131.579 Earned Robux elegíveis na taxa atual de {rateStandard} USD por Robux. Na taxa antiga de {rateLegacy}, o mesmo pagamento precisa de 11.279 a mais. A partir de 500 dólares as deduções deixam de ser diferenças de arredondamento. Nessa escala vale a pena informar um percentual do provedor de pagamento e uma estimativa de imposto de renda em vez de ignorá-los, e por isso esta página leva direto ao guia de taxas e impostos em vez de deixar o valor bruto sozinho.",
+    "ogImageAlt": "US$ 500 convertidos no saldo de Earned Robux que um pagamento do DevEx exigiria.",
+    "sections": {
+      "requirement": "Earned Robux necessários para US$ 500",
+      "rate-comparison": "Nas três taxas",
+      "context": "Por que esta meta importa",
+      "minimum": "Como isso se compara ao mínimo",
+      "nearby": "Metas próximas"
+    },
+    "faqs": {
+      "q01": {
+        "question": "Quanto é US$ 500 em Robux?",
+        "answer": "131.579 Earned Robux elegíveis, na taxa atual do DevEx, antes de qualquer taxa do provedor de pagamento ou imposto de renda. São Earned Robux, não um saldo comprado: um saldo comprado não pode ser trocado."
+      },
+      "q02": {
+        "question": "É possível solicitar um pagamento do DevEx de US$ 500?",
+        "answer": "Sim, assim que o saldo existir. 131.579 ultrapassa o mínimo documentado de {minimumRobux}. Ultrapassá-lo não é o mesmo que ser aprovado: a Roblox analisa cada solicitação."
+      },
+      "q03": {
+        "question": "A taxa muda quantos Robux US$ 500 precisa?",
+        "answer": "Sim. Na taxa antiga de {rateLegacy}, os mesmos US$ 500 precisam de 11.279 Earned Robux a mais, e um saldo que se qualifique para a taxa dos EUA 18+ precisa de 38.986 a menos. A Roblox, e não a pessoa criadora, decide qual taxa se aplica a qual parte de um saldo."
+      }
+    },
+    "links": {
+      "conversions": "as metas de um lado e de outro de US$ 500",
+      "usdToRobux": "partir de um pagamento diferente de US$ 500",
+      "devexRequirements": "se US$ 500 ultrapassa o mínimo de {minimumRobux}",
+      "conversions.250UsdToRobux": "US$ 250 para Robux",
+      "conversions.1000UsdToRobux": "US$ 1.000 para Robux"
+    }
+  },
+  "conversions.1000UsdToRobux": {
+    "title": "US$ 1.000 para Robux: Earned Robux para um pagamento do DevEx",
+    "metaDescription": "Um pagamento do DevEx de US$ 1.000 precisa de cerca de 263.158 Earned Robux elegíveis na taxa atual. Comparado com as taxas antiga e dos EUA 18+.",
+    "h1": "US$ 1.000 para Robux",
+    "navLabel": "pagamento de US$ 1.000",
+    "quickAnswer": "Um pagamento do DevEx de US$ 1.000 precisa de 263.158 Earned Robux elegíveis na taxa atual de {rateStandard} USD por Robux. Na taxa antiga de {rateLegacy}, o mesmo pagamento precisa de 22.557 a mais. Mil dólares é o número redondo em torno do qual as pessoas criadoras planejam. É pouco menos de nove vezes o menor pagamento que o programa pode produzir, e essa é a leitura mais útil: a maioria chega a esse total ao longo de vários saques, e não com um único saldo que o cubra.",
+    "ogImageAlt": "US$ 1.000 convertidos no saldo de Earned Robux que um pagamento do DevEx exigiria.",
+    "sections": {
+      "requirement": "Earned Robux necessários para US$ 1.000",
+      "rate-comparison": "Nas três taxas",
+      "context": "Por que esta meta importa",
+      "minimum": "Como isso se compara ao mínimo",
+      "nearby": "Metas próximas"
+    },
+    "faqs": {
+      "q01": {
+        "question": "Quanto é US$ 1.000 em Robux?",
+        "answer": "263.158 Earned Robux elegíveis, na taxa atual do DevEx, antes de qualquer taxa do provedor de pagamento ou imposto de renda. São Earned Robux, não um saldo comprado: um saldo comprado não pode ser trocado."
+      },
+      "q02": {
+        "question": "É possível solicitar um pagamento do DevEx de US$ 1.000?",
+        "answer": "Sim, assim que o saldo existir. 263.158 ultrapassa o mínimo documentado de {minimumRobux}. Ultrapassá-lo não é o mesmo que ser aprovado: a Roblox analisa cada solicitação."
+      },
+      "q03": {
+        "question": "A taxa muda quantos Robux US$ 1.000 precisa?",
+        "answer": "Sim. Na taxa antiga de {rateLegacy}, os mesmos US$ 1.000 precisam de 22.557 Earned Robux a mais, e um saldo que se qualifique para a taxa dos EUA 18+ precisa de 77.972 a menos. A Roblox, e não a pessoa criadora, decide qual taxa se aplica a qual parte de um saldo."
+      }
+    },
+    "links": {
+      "conversions": "as metas de um lado e de outro de US$ 1.000",
+      "usdToRobux": "partir de um pagamento diferente de US$ 1.000",
+      "devexRequirements": "se US$ 1.000 ultrapassa o mínimo de {minimumRobux}",
+      "conversions.500UsdToRobux": "US$ 500 para Robux",
+      "conversions.2500UsdToRobux": "US$ 2.500 para Robux"
+    }
+  },
+  "conversions.2500UsdToRobux": {
+    "title": "US$ 2.500 para Robux: Earned Robux para um pagamento do DevEx",
+    "metaDescription": "Um pagamento do DevEx de US$ 2.500 precisa de cerca de 657.895 Earned Robux elegíveis na taxa atual. Comparado com as taxas antiga e dos EUA 18+.",
+    "h1": "US$ 2.500 para Robux",
+    "navLabel": "pagamento de US$ 2.500",
+    "quickAnswer": "Um pagamento do DevEx de US$ 2.500 precisa de 657.895 Earned Robux elegíveis na taxa atual de {rateStandard} USD por Robux. Na taxa antiga de {rateLegacy}, o mesmo pagamento precisa de 56.391 a mais. 2.500 dólares passa do ponto em que um único saldo cobre isso com folga para a maioria das pessoas criadoras, então a leitura útil não é o número isolado e sim quantos ciclos de saque ele representa: mais de vinte e uma vezes o saldo mínimo.",
+    "ogImageAlt": "US$ 2.500 convertidos no saldo de Earned Robux que um pagamento do DevEx exigiria.",
+    "sections": {
+      "requirement": "Earned Robux necessários para US$ 2.500",
+      "rate-comparison": "Nas três taxas",
+      "context": "Por que esta meta importa",
+      "minimum": "Como isso se compara ao mínimo",
+      "nearby": "Metas próximas"
+    },
+    "faqs": {
+      "q01": {
+        "question": "Quanto é US$ 2.500 em Robux?",
+        "answer": "657.895 Earned Robux elegíveis, na taxa atual do DevEx, antes de qualquer taxa do provedor de pagamento ou imposto de renda. São Earned Robux, não um saldo comprado: um saldo comprado não pode ser trocado."
+      },
+      "q02": {
+        "question": "É possível solicitar um pagamento do DevEx de US$ 2.500?",
+        "answer": "Sim, assim que o saldo existir. 657.895 ultrapassa o mínimo documentado de {minimumRobux}. Ultrapassá-lo não é o mesmo que ser aprovado: a Roblox analisa cada solicitação."
+      },
+      "q03": {
+        "question": "A taxa muda quantos Robux US$ 2.500 precisa?",
+        "answer": "Sim. Na taxa antiga de {rateLegacy}, os mesmos US$ 2.500 precisam de 56.391 Earned Robux a mais, e um saldo que se qualifique para a taxa dos EUA 18+ precisa de 194.932 a menos. A Roblox, e não a pessoa criadora, decide qual taxa se aplica a qual parte de um saldo."
+      }
+    },
+    "links": {
+      "conversions": "as metas de um lado e de outro de US$ 2.500",
+      "usdToRobux": "partir de um pagamento diferente de US$ 2.500",
+      "devexRequirements": "se US$ 2.500 ultrapassa o mínimo de {minimumRobux}",
+      "conversions.1000UsdToRobux": "US$ 1.000 para Robux",
+      "conversions.5000UsdToRobux": "US$ 5.000 para Robux"
+    }
+  },
+  "conversions.5000UsdToRobux": {
+    "title": "US$ 5.000 para Robux: Earned Robux para um pagamento do DevEx",
+    "metaDescription": "Um pagamento do DevEx de US$ 5.000 precisa de cerca de 1.315.790 Earned Robux elegíveis na taxa atual. Comparado com as taxas antiga e dos EUA 18+.",
+    "h1": "US$ 5.000 para Robux",
+    "navLabel": "pagamento de US$ 5.000",
+    "quickAnswer": "Um pagamento do DevEx de US$ 5.000 precisa de 1.315.790 Earned Robux elegíveis na taxa atual de {rateStandard} USD por Robux. Na taxa antiga de {rateLegacy}, o mesmo pagamento precisa de 112.782 a mais. 5.000 dólares é onde a taxa dos EUA 18+ faz a maior diferença desta lista. Esses mesmos cinco mil dólares precisam de 389.864 Earned Robux a menos se o saldo se qualificar para essa taxa do que se for pago na padrão — e é a Roblox, não a pessoa criadora, quem decide qual se aplica.",
+    "ogImageAlt": "US$ 5.000 convertidos no saldo de Earned Robux que um pagamento do DevEx exigiria.",
+    "sections": {
+      "requirement": "Earned Robux necessários para US$ 5.000",
+      "rate-comparison": "Nas três taxas",
+      "context": "Por que esta meta importa",
+      "minimum": "Como isso se compara ao mínimo",
+      "nearby": "Metas próximas"
+    },
+    "faqs": {
+      "q01": {
+        "question": "Quanto é US$ 5.000 em Robux?",
+        "answer": "1.315.790 Earned Robux elegíveis, na taxa atual do DevEx, antes de qualquer taxa do provedor de pagamento ou imposto de renda. São Earned Robux, não um saldo comprado: um saldo comprado não pode ser trocado."
+      },
+      "q02": {
+        "question": "É possível solicitar um pagamento do DevEx de US$ 5.000?",
+        "answer": "Sim, assim que o saldo existir. 1.315.790 ultrapassa o mínimo documentado de {minimumRobux}. Ultrapassá-lo não é o mesmo que ser aprovado: a Roblox analisa cada solicitação."
+      },
+      "q03": {
+        "question": "A taxa muda quantos Robux US$ 5.000 precisa?",
+        "answer": "Sim. Na taxa antiga de {rateLegacy}, os mesmos US$ 5.000 precisam de 112.782 Earned Robux a mais, e um saldo que se qualifique para a taxa dos EUA 18+ precisa de 389.864 a menos. A Roblox, e não a pessoa criadora, decide qual taxa se aplica a qual parte de um saldo."
+      }
+    },
+    "links": {
+      "conversions": "as metas de um lado e de outro de US$ 5.000",
+      "usdToRobux": "partir de um pagamento diferente de US$ 5.000",
+      "devexRequirements": "se US$ 5.000 ultrapassa o mínimo de {minimumRobux}",
+      "conversions.2500UsdToRobux": "US$ 2.500 para Robux",
+      "conversions.1000UsdToRobux": "US$ 1.000 para Robux"
+    }
+  },
   "corrections": {
     "title": "Política de correções",
     "metaDescription": "Como relatar um erro neste site, o que acontece quando uma taxa ou requisito se revela errado e onde as correções são registradas.",

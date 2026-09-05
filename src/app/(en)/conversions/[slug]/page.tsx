@@ -1,26 +1,28 @@
 import type { Metadata } from "next";
 import { DEFAULT_LOCALE } from "@/i18n/config";
-import { APPROVED_AMOUNTS, amountPageRoute, amountPageSlug, parseAmountSlug } from "@/lib/content/amount-pages";
+import { allConversionSlugs, resolveConversionSlug } from "@/lib/content/amount-pages";
 import { buildLocalizedMetadata } from "@/lib/seo/localized-metadata";
-import { AmountView } from "@/views/conversion-amount";
+import { ConversionSlugView } from "@/views/conversion-slug";
 
 /**
- * Standalone amount pages, in English.
+ * Standalone conversion pages, in English.
  *
- * Only the amounts in `APPROVED_AMOUNTS` are prerendered, and every other slug
- * calls `notFound()` inside the view — so the route cannot become an unbounded
- * crawl space of one page per number.
+ * Two directions share this segment — `30000-robux-to-usd` and
+ * `1000-usd-to-robux` — and `ConversionSlugView` decides which is which. Only
+ * approved slugs are prerendered, and every other slug calls `notFound()`
+ * inside that view, so the route cannot become an unbounded crawl space of one
+ * page per number.
  *
  * `dynamicParams = false` would express the same intent declaratively, but the
  * Cloudflare adapter cannot resolve a fallback for it and every prerendered
  * path 404s with `NoFallbackError` under the Workers runtime. The explicit
  * `notFound()` is what actually enforces the guarantee, and it behaves
- * identically from outside: approved amounts return a prerendered 200,
+ * identically from outside: approved slugs return a prerendered 200,
  * everything else returns a genuine 404.
  */
 
 export function generateStaticParams(): { slug: string }[] {
-  return APPROVED_AMOUNTS.map((definition) => ({ slug: amountPageSlug(definition.amount) }));
+  return allConversionSlugs().map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({
@@ -28,8 +30,8 @@ export async function generateMetadata({
 }: {
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
-  const amount = parseAmountSlug((await params).slug);
-  if (amount === null) return {};
+  const resolved = resolveConversionSlug((await params).slug);
+  if (!resolved) return {};
   /*
    * Deliberately the site card, not one per amount.
    *
@@ -41,9 +43,9 @@ export async function generateMetadata({
    * `.../card/?hash=`, which no longer matched the route. Verified in
    * production: 404, serving HTML to a crawler expecting a PNG.
    */
-  return buildLocalizedMetadata(DEFAULT_LOCALE, amountPageRoute(amount));
+  return buildLocalizedMetadata(DEFAULT_LOCALE, resolved.route);
 }
 
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
-  return <AmountView locale={DEFAULT_LOCALE} slug={(await params).slug} />;
+  return <ConversionSlugView locale={DEFAULT_LOCALE} slug={(await params).slug} />;
 }

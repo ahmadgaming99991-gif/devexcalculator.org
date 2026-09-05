@@ -486,7 +486,10 @@
       "notRoundNumbers": "Daftar ini bukan pilihan angka bulat: ini adalah jumlah-jumlah yang benar-benar dicari orang. Apa pun yang tidak ada di sini — termasuk angka yang lebih besar daripada baris terakhir tabel — dimasukkan ke pengonversi di atas, yang memakai tarif dan aritmetika yang sama."
     },
     "multipleOfMinimum": "{multiple}× minimum DevEx",
-    "belowMinimum": "Di bawah minimum DevEx"
+    "belowMinimum": "Di bawah minimum DevEx",
+    "targetsHeading": "Mulai dari target pembayaran",
+    "targetsDescription": "Saldo Earned Robux yang memenuhi syarat yang dibutuhkan setiap pembayaran, pada kurs saat ini.",
+    "robuxNeeded": "Earned Robux yang dibutuhkan"
   },
   "amountPage": {
     "jumpLabel": "Bandingkan ketiga kurs",
@@ -544,5 +547,49 @@
     "robuxTax.columnRoblox",
     "robuxToUsd.comparison.minimumPayout",
     "robuxToUsd.comparison.rowMinimum"
-  ]
+  ],
+  "usdPage": {
+    "intro": "Berapa Earned Robux yang memenuhi syarat dibutuhkan sebuah pembayaran Developer Exchange sebesar {display}, pada masing-masing dari tiga kurs yang didokumentasikan Roblox.",
+    "headlineHeading": "Earned Robux yang dibutuhkan untuk {display}",
+    "headlineDescription": "Pada kurs standar saat ini, dibulatkan ke atas ke Robux utuh.",
+    "neededLabel": "Earned Robux yang memenuhi syarat untuk {display}",
+    "clearsMinimum": "Itu {multiple} kali jumlah minimum {minimum} yang disyaratkan Roblox sebelum permintaan dapat diajukan.",
+    "belowMinimum": "Ini {shortfall} di bawah jumlah minimum {minimum} yang disyaratkan Roblox. Pembayaran sebesar ini tidak dapat diajukan sendiri.",
+    "allThreeDescription": "Roblox yang memutuskan kurs mana berlaku untuk bagian mana dari sebuah saldo. Ini menunjukkan apa yang dibutuhkan masing-masing untuk pembayaran yang sama.",
+    "columnRobuxNeeded": "Earned Robux yang dibutuhkan",
+    "contextHeading": "Mengapa target ini penting",
+    "minimumHeading": "Perbandingannya dengan jumlah minimum",
+    "minimumDescription": "Roblox mensyaratkan {minimum} Earned Robux yang memenuhi syarat sebelum permintaan DevEx dapat diajukan sama sekali.",
+    "aboveMinimumBody": "Pembayaran {display} membutuhkan {needed} Earned Robux yang memenuhi syarat, yaitu {multiple} kali jumlah minimum {minimum}. Melewati jumlah minimum tidak sama dengan disetujui: Roblox meninjau setiap permintaan dan memutuskan kurs mana yang berlaku untuk bagian mana dari sebuah saldo.",
+    "belowMinimumBody": "Pembayaran {display} setara dengan {needed} Earned Robux yang memenuhi syarat, yaitu {shortfall} kurang dari {minimum} yang disyaratkan Roblox. Pembayaran terkecil yang dapat dihasilkan program ini adalah nilai dari saldo minimum itu sendiri, {smallest}.",
+    "rateTableLabel": "Earned Robux yang dibutuhkan untuk {display} pada setiap kurs",
+    "rateTableCaption": "Earned Robux yang memenuhi syarat untuk pembayaran {display}, menurut kurs.",
+    "nearbyHeading": "Target di sekitarnya",
+    "nearbyDescription": "Target pembayaran di kedua sisi target ini, beserta saldo yang dibutuhkan masing-masing.",
+    "faqHeading": "Pertanyaan tentang pembayaran {display}",
+    "body": {
+      "requirement": {
+        "p1": "Buka target ini di kalkulator"
+      },
+      "rateComparison": {
+        "p1": "Kurs lama membutuhkan {legacyExtra} Earned Robux lebih banyak untuk pembayaran yang sama, dan saldo yang memenuhi syarat kurs AS 18+ membutuhkan {us18Saved} lebih sedikit.",
+        "p2": "bagaimana setiap kurs didokumentasikan"
+      },
+      "minimum": {
+        "p1": "Apa yang disyaratkan Roblox sebelum permintaan dapat diajukan"
+      },
+      "nearby": {
+        "p1": "semua jumlah dan target dalam satu halaman",
+        "p2": "menghitung mundur dari pembayaran mana pun"
+      }
+    },
+    "context": {
+      "usd100": "100 dolar berada di bawah pembayaran terkecil yang dapat dihasilkan Developer Exchange. Saldo yang setara dengannya masih di bawah {minimumRobux} Earned Robux yang disyaratkan Roblox sebelum sebuah permintaan dapat diajukan sama sekali, sehingga jawaban jujur untuk yang satu ini bukan konversi melainkan ambang batas: pembayaran pertama terkecil yang tersedia adalah nilai dari saldo minimum itu sendiri.",
+      "usd250": "250 dolar adalah target pertama dalam daftar ini yang benar-benar dapat dicapai satu kali pencairan. Jumlahnya sedikit di atas dua kali saldo minimum, dan karena itu biasanya menjadi angka yang disebut seorang kreator setelah pengalamannya mulai menghasilkan secara konsisten, bukan sesekali.",
+      "usd500": "Pada 500 dolar, potongan berhenti menjadi selisih pembulatan. Pada skala ini persentase penyedia pembayaran dan perkiraan pajak penghasilan layak dimasukkan alih-alih diabaikan, dan karena itu halaman ini menautkan langsung ke panduan biaya dan pajak alih-alih membiarkan angka kotor berdiri sendiri.",
+      "usd1000": "Seribu dolar adalah angka bulat yang menjadi patokan rencana para kreator. Jumlahnya sedikit di bawah sembilan kali pembayaran terkecil yang dapat dihasilkan program ini, dan itulah cara membacanya yang lebih berguna: sebagian besar kreator mencapai total ini melalui beberapa kali pencairan, bukan dengan satu saldo yang menutupinya.",
+      "usd2500": "2.500 dolar sudah melewati titik di mana satu saldo menutupinya dengan nyaman bagi kebanyakan kreator, sehingga pembacaan yang berguna bukanlah angka tunggalnya melainkan berapa siklus pencairan yang diwakilinya: lebih dari dua puluh satu kali saldo minimum.",
+      "usd5000": "5.000 dolar adalah titik di mana kurs AS 18+ membuat perbedaan terbesar dalam daftar ini. Lima ribu dolar yang sama membutuhkan 389.864 Earned Robux lebih sedikit jika saldonya memenuhi syarat kurs tersebut dibandingkan jika dibayar pada kurs standar, dan Roblox, bukan kreator, yang memutuskan mana yang berlaku."
+    }
+  }
 }

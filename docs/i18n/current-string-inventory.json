@@ -1,18 +1,18 @@
 {
   "$comment": "Deterministic inventory of translatable English. No timestamp: a diff here should mean the content changed, not that the script ran again.",
   "totals": {
-    "strings": 513,
-    "words": 6184,
+    "strings": 523,
+    "words": 6496,
     "files": 5,
-    "filesScanned": 256
+    "filesScanned": 258
   },
   "byCategory": {
     "attribute": 1,
-    "registry-prose": 512
+    "registry-prose": 522
   },
   "byFile": {
-    "src/lib/content/route-registry.ts": 491,
-    "src/lib/content/amount-pages.ts": 8,
+    "src/lib/content/route-registry.ts": 495,
+    "src/lib/content/amount-pages.ts": 14,
     "src/lib/content/changelog.ts": 8,
     "src/lib/content/authors.ts": 5,
     "src/config/site.ts": 1
@@ -89,6 +89,54 @@
       "words": 34,
       "hasTokens": false,
       "text": "Ten million Earned Robux represents sustained earnings from a large experience. At this scale the split between standard and legacy balances, and any qualifying U.S. 18+ portion, changes the total by thousands of dollars."
+    },
+    {
+      "file": "src/lib/content/amount-pages.ts",
+      "line": 164,
+      "category": "registry-prose",
+      "words": 60,
+      "hasTokens": true,
+      "text": "100 dollars is below the smallest payout the Developer Exchange can produce. The balance it corresponds to is under the {minimumRobux} Earned Robux Roblox requires before a request can be submitted at all, so the honest answer to this one is not a conversion but a threshold: the smallest first payout available is the value of the minimum balance itself."
+    },
+    {
+      "file": "src/lib/content/amount-pages.ts",
+      "line": 170,
+      "category": "registry-prose",
+      "words": 47,
+      "hasTokens": false,
+      "text": "250 dollars is the first target on this list that a single cash-out can actually reach. It sits a little over twice the minimum balance, which is why it tends to be the figure a creator names once their experience has started earning steadily rather than occasionally."
+    },
+    {
+      "file": "src/lib/content/amount-pages.ts",
+      "line": 176,
+      "category": "registry-prose",
+      "words": 47,
+      "hasTokens": false,
+      "text": "At 500 dollars the deductions stop being rounding errors. A payment-provider percentage and an income-tax estimate are worth entering rather than ignoring at this scale, which is why this page links directly to the fees and taxes guide instead of leaving the gross figure to stand alone."
+    },
+    {
+      "file": "src/lib/content/amount-pages.ts",
+      "line": 182,
+      "category": "registry-prose",
+      "words": 50,
+      "hasTokens": false,
+      "text": "A thousand dollars is the round figure creators plan around. It is a little under nine times the smallest payout the programme can produce, which is the more useful way to read it: most creators arrive at this total over several cash-outs rather than holding one balance that covers it."
+    },
+    {
+      "file": "src/lib/content/amount-pages.ts",
+      "line": 188,
+      "category": "registry-prose",
+      "words": 41,
+      "hasTokens": false,
+      "text": "2,500 dollars is past the point where one balance covers it comfortably for most creators, so the useful reading is not the single number but how many cash-out cycles it represents - it is more than twenty-one times the minimum balance."
+    },
+    {
+      "file": "src/lib/content/amount-pages.ts",
+      "line": 194,
+      "category": "registry-prose",
+      "words": 51,
+      "hasTokens": false,
+      "text": "5,000 dollars is where the qualifying U.S. 18+ rate makes its largest difference on this list. The same five thousand dollars needs 389,864 fewer Earned Robux if the balance qualifies for that rate than if it is paid at the standard one - and Roblox, not the creator, decides which applies."
     },
     {
       "file": "src/lib/content/authors.ts",
@@ -196,7 +244,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 30,
+      "line": 37,
       "category": "registry-prose",
       "words": 7,
       "hasTokens": false,
@@ -204,7 +252,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 31,
+      "line": 38,
       "category": "registry-prose",
       "words": 27,
       "hasTokens": true,
@@ -212,7 +260,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 34,
+      "line": 41,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
@@ -220,7 +268,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 52,
+      "line": 59,
       "category": "registry-prose",
       "words": 57,
       "hasTokens": true,
@@ -228,7 +276,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 55,
+      "line": 62,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -236,7 +284,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 56,
+      "line": 63,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -244,7 +292,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 57,
+      "line": 64,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -252,7 +300,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 58,
+      "line": 65,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -260,7 +308,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 59,
+      "line": 66,
       "category": "registry-prose",
       "words": 7,
       "hasTokens": false,
@@ -268,7 +316,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 60,
+      "line": 67,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -276,7 +324,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 61,
+      "line": 68,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -284,7 +332,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 62,
+      "line": 69,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -292,7 +340,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 66,
+      "line": 73,
       "category": "registry-prose",
       "words": 7,
       "hasTokens": false,
@@ -300,7 +348,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 67,
+      "line": 74,
       "category": "registry-prose",
       "words": 33,
       "hasTokens": true,
@@ -308,7 +356,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 72,
+      "line": 79,
       "category": "registry-prose",
       "words": 8,
       "hasTokens": false,
@@ -316,7 +364,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 73,
+      "line": 80,
       "category": "registry-prose",
       "words": 33,
       "hasTokens": true,
@@ -324,7 +372,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 78,
+      "line": 85,
       "category": "registry-prose",
       "words": 8,
       "hasTokens": false,
@@ -332,7 +380,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 79,
+      "line": 86,
       "category": "registry-prose",
       "words": 32,
       "hasTokens": true,
@@ -340,7 +388,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 84,
+      "line": 91,
       "category": "registry-prose",
       "words": 7,
       "hasTokens": false,
@@ -348,7 +396,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 85,
+      "line": 92,
       "category": "registry-prose",
       "words": 35,
       "hasTokens": false,
@@ -356,7 +404,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 90,
+      "line": 97,
       "category": "registry-prose",
       "words": 12,
       "hasTokens": false,
@@ -364,7 +412,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 91,
+      "line": 98,
       "category": "registry-prose",
       "words": 40,
       "hasTokens": false,
@@ -372,7 +420,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 95,
+      "line": 102,
       "category": "registry-prose",
       "words": 9,
       "hasTokens": false,
@@ -380,7 +428,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 96,
+      "line": 103,
       "category": "registry-prose",
       "words": 55,
       "hasTokens": false,
@@ -388,7 +436,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 102,
+      "line": 109,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -396,7 +444,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 103,
+      "line": 110,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -404,7 +452,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 104,
+      "line": 111,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -412,7 +460,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 105,
+      "line": 112,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -420,7 +468,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 107,
+      "line": 114,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -428,7 +476,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 108,
+      "line": 115,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -436,7 +484,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 109,
+      "line": 116,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -444,7 +492,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 110,
+      "line": 117,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -452,7 +500,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 116,
+      "line": 123,
       "category": "registry-prose",
       "words": 12,
       "hasTokens": false,
@@ -460,7 +508,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 128,
+      "line": 135,
       "category": "registry-prose",
       "words": 8,
       "hasTokens": false,
@@ -468,7 +516,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 129,
+      "line": 136,
       "category": "registry-prose",
       "words": 24,
       "hasTokens": false,
@@ -476,7 +524,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 132,
+      "line": 139,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -484,7 +532,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 150,
+      "line": 157,
       "category": "registry-prose",
       "words": 56,
       "hasTokens": false,
@@ -492,7 +540,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 153,
+      "line": 160,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -500,7 +548,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 154,
+      "line": 161,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -508,7 +556,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 155,
+      "line": 162,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -516,7 +564,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 156,
+      "line": 163,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -524,7 +572,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 157,
+      "line": 164,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -532,7 +580,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 158,
+      "line": 165,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -540,7 +588,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 162,
+      "line": 169,
       "category": "registry-prose",
       "words": 7,
       "hasTokens": false,
@@ -548,7 +596,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 163,
+      "line": 170,
       "category": "registry-prose",
       "words": 35,
       "hasTokens": true,
@@ -556,7 +604,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 168,
+      "line": 175,
       "category": "registry-prose",
       "words": 7,
       "hasTokens": false,
@@ -564,7 +612,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 169,
+      "line": 176,
       "category": "registry-prose",
       "words": 26,
       "hasTokens": true,
@@ -572,7 +620,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 174,
+      "line": 181,
       "category": "registry-prose",
       "words": 11,
       "hasTokens": false,
@@ -580,7 +628,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 175,
+      "line": 182,
       "category": "registry-prose",
       "words": 35,
       "hasTokens": false,
@@ -588,7 +636,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 179,
+      "line": 186,
       "category": "registry-prose",
       "words": 8,
       "hasTokens": false,
@@ -596,7 +644,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 180,
+      "line": 187,
       "category": "registry-prose",
       "words": 35,
       "hasTokens": false,
@@ -604,7 +652,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 186,
+      "line": 193,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -612,7 +660,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 187,
+      "line": 194,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -620,7 +668,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 188,
+      "line": 195,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -628,7 +676,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 189,
+      "line": 196,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -636,7 +684,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 190,
+      "line": 197,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -644,7 +692,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 196,
+      "line": 203,
       "category": "registry-prose",
       "words": 11,
       "hasTokens": false,
@@ -652,7 +700,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 207,
+      "line": 214,
       "category": "registry-prose",
       "words": 10,
       "hasTokens": false,
@@ -660,7 +708,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 208,
+      "line": 215,
       "category": "registry-prose",
       "words": 23,
       "hasTokens": false,
@@ -668,7 +716,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 211,
+      "line": 218,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -676,7 +724,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 226,
+      "line": 233,
       "category": "registry-prose",
       "words": 54,
       "hasTokens": true,
@@ -684,7 +732,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 229,
+      "line": 236,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -692,7 +740,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 230,
+      "line": 237,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -700,7 +748,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 231,
+      "line": 238,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -708,7 +756,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 232,
+      "line": 239,
       "category": "registry-prose",
       "words": 7,
       "hasTokens": false,
@@ -716,7 +764,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 233,
+      "line": 240,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -724,7 +772,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 234,
+      "line": 241,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -732,7 +780,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 235,
+      "line": 242,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -740,7 +788,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 239,
+      "line": 246,
       "category": "registry-prose",
       "words": 10,
       "hasTokens": false,
@@ -748,7 +796,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 240,
+      "line": 247,
       "category": "registry-prose",
       "words": 27,
       "hasTokens": true,
@@ -756,7 +804,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 245,
+      "line": 252,
       "category": "registry-prose",
       "words": 10,
       "hasTokens": false,
@@ -764,7 +812,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 246,
+      "line": 253,
       "category": "registry-prose",
       "words": 34,
       "hasTokens": true,
@@ -772,7 +820,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 251,
+      "line": 258,
       "category": "registry-prose",
       "words": 14,
       "hasTokens": false,
@@ -780,7 +828,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 252,
+      "line": 259,
       "category": "registry-prose",
       "words": 35,
       "hasTokens": false,
@@ -788,7 +836,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 256,
+      "line": 263,
       "category": "registry-prose",
       "words": 11,
       "hasTokens": false,
@@ -796,7 +844,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 257,
+      "line": 264,
       "category": "registry-prose",
       "words": 27,
       "hasTokens": true,
@@ -804,7 +852,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 263,
+      "line": 270,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -812,7 +860,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 264,
+      "line": 271,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -820,7 +868,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 265,
+      "line": 272,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -828,7 +876,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 266,
+      "line": 273,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -836,7 +884,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 267,
+      "line": 274,
       "category": "registry-prose",
       "words": 7,
       "hasTokens": false,
@@ -844,7 +892,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 273,
+      "line": 280,
       "category": "registry-prose",
       "words": 12,
       "hasTokens": false,
@@ -852,7 +900,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 284,
+      "line": 291,
       "category": "registry-prose",
       "words": 8,
       "hasTokens": false,
@@ -860,7 +908,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 285,
+      "line": 292,
       "category": "registry-prose",
       "words": 18,
       "hasTokens": true,
@@ -868,7 +916,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 288,
+      "line": 295,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
@@ -876,7 +924,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 305,
+      "line": 312,
       "category": "registry-prose",
       "words": 57,
       "hasTokens": true,
@@ -884,7 +932,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 308,
+      "line": 315,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -892,7 +940,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 309,
+      "line": 316,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -900,7 +948,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 310,
+      "line": 317,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -908,7 +956,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 311,
+      "line": 318,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -916,7 +964,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 312,
+      "line": 319,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -924,7 +972,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 313,
+      "line": 320,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -932,7 +980,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 317,
+      "line": 324,
       "category": "registry-prose",
       "words": 8,
       "hasTokens": false,
@@ -940,7 +988,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 318,
+      "line": 325,
       "category": "registry-prose",
       "words": 25,
       "hasTokens": true,
@@ -948,7 +996,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 323,
+      "line": 330,
       "category": "registry-prose",
       "words": 8,
       "hasTokens": true,
@@ -956,7 +1004,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 324,
+      "line": 331,
       "category": "registry-prose",
       "words": 25,
       "hasTokens": true,
@@ -964,7 +1012,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 329,
+      "line": 336,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": true,
@@ -972,7 +1020,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 330,
+      "line": 337,
       "category": "registry-prose",
       "words": 42,
       "hasTokens": false,
@@ -980,7 +1028,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 335,
+      "line": 342,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -988,7 +1036,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 336,
+      "line": 343,
       "category": "registry-prose",
       "words": 35,
       "hasTokens": false,
@@ -996,7 +1044,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 342,
+      "line": 349,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -1004,7 +1052,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 343,
+      "line": 350,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -1012,7 +1060,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 344,
+      "line": 351,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -1020,7 +1068,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 345,
+      "line": 352,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -1028,7 +1076,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 346,
+      "line": 353,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -1036,7 +1084,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 347,
+      "line": 354,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -1044,7 +1092,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 353,
+      "line": 360,
       "category": "registry-prose",
       "words": 10,
       "hasTokens": false,
@@ -1052,7 +1100,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 366,
+      "line": 373,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -1060,7 +1108,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 367,
+      "line": 374,
       "category": "registry-prose",
       "words": 25,
       "hasTokens": false,
@@ -1068,7 +1116,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 370,
+      "line": 377,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
@@ -1076,7 +1124,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 384,
+      "line": 391,
       "category": "registry-prose",
       "words": 65,
       "hasTokens": false,
@@ -1084,7 +1132,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 387,
+      "line": 394,
       "category": "registry-prose",
       "words": 9,
       "hasTokens": false,
@@ -1092,7 +1140,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 388,
+      "line": 395,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -1100,7 +1148,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 389,
+      "line": 396,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -1108,7 +1156,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 390,
+      "line": 397,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -1116,7 +1164,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 391,
+      "line": 398,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -1124,7 +1172,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 395,
+      "line": 402,
       "category": "registry-prose",
       "words": 8,
       "hasTokens": false,
@@ -1132,7 +1180,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 396,
+      "line": 403,
       "category": "registry-prose",
       "words": 50,
       "hasTokens": false,
@@ -1140,7 +1188,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 401,
+      "line": 408,
       "category": "registry-prose",
       "words": 9,
       "hasTokens": false,
@@ -1148,7 +1196,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 402,
+      "line": 409,
       "category": "registry-prose",
       "words": 41,
       "hasTokens": false,
@@ -1156,7 +1204,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 406,
+      "line": 413,
       "category": "registry-prose",
       "words": 8,
       "hasTokens": false,
@@ -1164,7 +1212,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 407,
+      "line": 414,
       "category": "registry-prose",
       "words": 20,
       "hasTokens": false,
@@ -1172,7 +1220,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 413,
+      "line": 420,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -1180,7 +1228,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 414,
+      "line": 421,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -1188,7 +1236,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 415,
+      "line": 422,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -1196,7 +1244,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 421,
+      "line": 428,
       "category": "registry-prose",
       "words": 9,
       "hasTokens": false,
@@ -1204,7 +1252,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 429,
+      "line": 436,
       "category": "registry-prose",
       "words": 8,
       "hasTokens": false,
@@ -1212,7 +1260,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 430,
+      "line": 437,
       "category": "registry-prose",
       "words": 24,
       "hasTokens": false,
@@ -1220,7 +1268,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 433,
+      "line": 440,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
@@ -1228,7 +1276,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 447,
+      "line": 454,
       "category": "registry-prose",
       "words": 58,
       "hasTokens": false,
@@ -1236,7 +1284,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 450,
+      "line": 457,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -1244,7 +1292,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 451,
+      "line": 458,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -1252,7 +1300,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 452,
+      "line": 459,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -1260,7 +1308,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 453,
+      "line": 460,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
@@ -1268,7 +1316,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 457,
+      "line": 464,
       "category": "registry-prose",
       "words": 7,
       "hasTokens": false,
@@ -1276,7 +1324,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 458,
+      "line": 465,
       "category": "registry-prose",
       "words": 38,
       "hasTokens": false,
@@ -1284,7 +1332,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 462,
+      "line": 469,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -1292,7 +1340,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 463,
+      "line": 470,
       "category": "registry-prose",
       "words": 39,
       "hasTokens": false,
@@ -1300,7 +1348,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 468,
+      "line": 475,
       "category": "registry-prose",
       "words": 8,
       "hasTokens": false,
@@ -1308,7 +1356,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 469,
+      "line": 476,
       "category": "registry-prose",
       "words": 29,
       "hasTokens": false,
@@ -1316,7 +1364,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 475,
+      "line": 482,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -1324,7 +1372,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 476,
+      "line": 483,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -1332,7 +1380,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 477,
+      "line": 484,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -1340,7 +1388,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 483,
+      "line": 490,
       "category": "registry-prose",
       "words": 8,
       "hasTokens": false,
@@ -1348,7 +1396,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 494,
+      "line": 501,
       "category": "registry-prose",
       "words": 8,
       "hasTokens": false,
@@ -1356,7 +1404,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 495,
+      "line": 502,
       "category": "registry-prose",
       "words": 24,
       "hasTokens": false,
@@ -1364,7 +1412,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 498,
+      "line": 505,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
@@ -1372,7 +1420,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 517,
+      "line": 524,
       "category": "registry-prose",
       "words": 54,
       "hasTokens": false,
@@ -1380,7 +1428,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 520,
+      "line": 527,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -1388,7 +1436,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 521,
+      "line": 528,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -1396,7 +1444,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 522,
+      "line": 529,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -1404,7 +1452,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 523,
+      "line": 530,
       "category": "registry-prose",
       "words": 9,
       "hasTokens": false,
@@ -1412,7 +1460,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 524,
+      "line": 531,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -1420,7 +1468,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 525,
+      "line": 532,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -1428,7 +1476,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 526,
+      "line": 533,
       "category": "registry-prose",
       "words": 7,
       "hasTokens": false,
@@ -1436,7 +1484,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 527,
+      "line": 534,
       "category": "registry-prose",
       "words": 7,
       "hasTokens": false,
@@ -1444,7 +1492,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 528,
+      "line": 535,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -1452,7 +1500,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 532,
+      "line": 539,
       "category": "registry-prose",
       "words": 8,
       "hasTokens": false,
@@ -1460,7 +1508,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 533,
+      "line": 540,
       "category": "registry-prose",
       "words": 29,
       "hasTokens": false,
@@ -1468,7 +1516,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 538,
+      "line": 545,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -1476,7 +1524,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 539,
+      "line": 546,
       "category": "registry-prose",
       "words": 33,
       "hasTokens": false,
@@ -1484,7 +1532,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 544,
+      "line": 551,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -1492,7 +1540,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 545,
+      "line": 552,
       "category": "registry-prose",
       "words": 42,
       "hasTokens": false,
@@ -1500,7 +1548,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 550,
+      "line": 557,
       "category": "registry-prose",
       "words": 10,
       "hasTokens": false,
@@ -1508,7 +1556,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 551,
+      "line": 558,
       "category": "registry-prose",
       "words": 30,
       "hasTokens": false,
@@ -1516,7 +1564,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 557,
+      "line": 564,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -1524,7 +1572,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 558,
+      "line": 565,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -1532,7 +1580,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 559,
+      "line": 566,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -1540,7 +1588,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 560,
+      "line": 567,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -1548,7 +1596,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 566,
+      "line": 573,
       "category": "registry-prose",
       "words": 10,
       "hasTokens": false,
@@ -1556,7 +1604,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 578,
+      "line": 585,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -1564,7 +1612,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 579,
+      "line": 586,
       "category": "registry-prose",
       "words": 24,
       "hasTokens": true,
@@ -1572,7 +1620,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 582,
+      "line": 589,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
@@ -1580,7 +1628,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 596,
+      "line": 603,
       "category": "registry-prose",
       "words": 60,
       "hasTokens": true,
@@ -1588,7 +1636,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 599,
+      "line": 606,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -1596,7 +1644,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 600,
+      "line": 607,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": true,
@@ -1604,7 +1652,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 601,
+      "line": 608,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -1612,7 +1660,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 602,
+      "line": 609,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -1620,7 +1668,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 603,
+      "line": 610,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -1628,7 +1676,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 604,
+      "line": 611,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -1636,7 +1684,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 608,
+      "line": 615,
       "category": "registry-prose",
       "words": 8,
       "hasTokens": false,
@@ -1644,7 +1692,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 609,
+      "line": 616,
       "category": "registry-prose",
       "words": 21,
       "hasTokens": true,
@@ -1652,7 +1700,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 614,
+      "line": 621,
       "category": "registry-prose",
       "words": 9,
       "hasTokens": false,
@@ -1660,7 +1708,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 615,
+      "line": 622,
       "category": "registry-prose",
       "words": 31,
       "hasTokens": true,
@@ -1668,7 +1716,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 620,
+      "line": 627,
       "category": "registry-prose",
       "words": 7,
       "hasTokens": false,
@@ -1676,7 +1724,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 621,
+      "line": 628,
       "category": "registry-prose",
       "words": 28,
       "hasTokens": false,
@@ -1684,7 +1732,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 626,
+      "line": 633,
       "category": "registry-prose",
       "words": 10,
       "hasTokens": true,
@@ -1692,7 +1740,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 627,
+      "line": 634,
       "category": "registry-prose",
       "words": 32,
       "hasTokens": false,
@@ -1700,7 +1748,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 633,
+      "line": 640,
       "category": "registry-prose",
       "words": 7,
       "hasTokens": false,
@@ -1708,7 +1756,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 634,
+      "line": 641,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -1716,7 +1764,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 636,
+      "line": 643,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -1724,7 +1772,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 642,
+      "line": 649,
       "category": "registry-prose",
       "words": 12,
       "hasTokens": false,
@@ -1732,7 +1780,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 653,
+      "line": 660,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -1740,7 +1788,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 654,
+      "line": 661,
       "category": "registry-prose",
       "words": 22,
       "hasTokens": false,
@@ -1748,7 +1796,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 657,
+      "line": 664,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -1756,7 +1804,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 670,
+      "line": 677,
       "category": "registry-prose",
       "words": 55,
       "hasTokens": false,
@@ -1764,7 +1812,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 673,
+      "line": 680,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -1772,7 +1820,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 674,
+      "line": 681,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -1780,7 +1828,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 675,
+      "line": 682,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -1788,7 +1836,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 676,
+      "line": 683,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -1796,7 +1844,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 677,
+      "line": 684,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -1804,7 +1852,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 678,
+      "line": 685,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -1812,7 +1860,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 682,
+      "line": 689,
       "category": "registry-prose",
       "words": 7,
       "hasTokens": false,
@@ -1820,7 +1868,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 683,
+      "line": 690,
       "category": "registry-prose",
       "words": 32,
       "hasTokens": false,
@@ -1828,7 +1876,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 688,
+      "line": 695,
       "category": "registry-prose",
       "words": 9,
       "hasTokens": true,
@@ -1836,7 +1884,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 689,
+      "line": 696,
       "category": "registry-prose",
       "words": 23,
       "hasTokens": false,
@@ -1844,7 +1892,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 694,
+      "line": 701,
       "category": "registry-prose",
       "words": 9,
       "hasTokens": false,
@@ -1852,7 +1900,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 695,
+      "line": 702,
       "category": "registry-prose",
       "words": 27,
       "hasTokens": true,
@@ -1860,7 +1908,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 700,
+      "line": 707,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -1868,7 +1916,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 701,
+      "line": 708,
       "category": "registry-prose",
       "words": 36,
       "hasTokens": false,
@@ -1876,7 +1924,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 707,
+      "line": 714,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -1884,7 +1932,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 708,
+      "line": 715,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -1892,7 +1940,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 709,
+      "line": 716,
       "category": "registry-prose",
       "words": 7,
       "hasTokens": false,
@@ -1900,7 +1948,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 710,
+      "line": 717,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -1908,7 +1956,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 716,
+      "line": 723,
       "category": "registry-prose",
       "words": 12,
       "hasTokens": false,
@@ -1916,7 +1964,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 727,
+      "line": 734,
       "category": "registry-prose",
       "words": 7,
       "hasTokens": false,
@@ -1924,7 +1972,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 728,
+      "line": 735,
       "category": "registry-prose",
       "words": 20,
       "hasTokens": false,
@@ -1932,7 +1980,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 731,
+      "line": 738,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -1940,7 +1988,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 745,
+      "line": 752,
       "category": "registry-prose",
       "words": 51,
       "hasTokens": true,
@@ -1948,7 +1996,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 748,
+      "line": 755,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -1956,7 +2004,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 749,
+      "line": 756,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -1964,7 +2012,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 750,
+      "line": 757,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -1972,7 +2020,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 751,
+      "line": 758,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -1980,7 +2028,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 752,
+      "line": 759,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -1988,7 +2036,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 753,
+      "line": 760,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -1996,7 +2044,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 754,
+      "line": 761,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -2004,7 +2052,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 758,
+      "line": 765,
       "category": "registry-prose",
       "words": 7,
       "hasTokens": false,
@@ -2012,7 +2060,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 759,
+      "line": 766,
       "category": "registry-prose",
       "words": 22,
       "hasTokens": false,
@@ -2020,7 +2068,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 764,
+      "line": 771,
       "category": "registry-prose",
       "words": 7,
       "hasTokens": false,
@@ -2028,7 +2076,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 765,
+      "line": 772,
       "category": "registry-prose",
       "words": 30,
       "hasTokens": false,
@@ -2036,7 +2084,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 770,
+      "line": 777,
       "category": "registry-prose",
       "words": 8,
       "hasTokens": false,
@@ -2044,7 +2092,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 771,
+      "line": 778,
       "category": "registry-prose",
       "words": 39,
       "hasTokens": false,
@@ -2052,7 +2100,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 775,
+      "line": 782,
       "category": "registry-prose",
       "words": 8,
       "hasTokens": false,
@@ -2060,7 +2108,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 776,
+      "line": 783,
       "category": "registry-prose",
       "words": 35,
       "hasTokens": false,
@@ -2068,7 +2116,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 781,
+      "line": 788,
       "category": "registry-prose",
       "words": 7,
       "hasTokens": false,
@@ -2076,7 +2124,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 782,
+      "line": 789,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -2084,7 +2132,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 783,
+      "line": 790,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -2092,7 +2140,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 784,
+      "line": 791,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -2100,7 +2148,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 790,
+      "line": 797,
       "category": "registry-prose",
       "words": 13,
       "hasTokens": false,
@@ -2108,7 +2156,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 801,
+      "line": 808,
       "category": "registry-prose",
       "words": 8,
       "hasTokens": true,
@@ -2116,7 +2164,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 802,
+      "line": 809,
       "category": "registry-prose",
       "words": 22,
       "hasTokens": true,
@@ -2124,7 +2172,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 805,
+      "line": 812,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -2132,7 +2180,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 819,
+      "line": 826,
       "category": "registry-prose",
       "words": 52,
       "hasTokens": true,
@@ -2140,7 +2188,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 822,
+      "line": 829,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -2148,7 +2196,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 823,
+      "line": 830,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -2156,7 +2204,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 824,
+      "line": 831,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -2164,7 +2212,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 825,
+      "line": 832,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -2172,7 +2220,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 826,
+      "line": 833,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -2180,7 +2228,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 830,
+      "line": 837,
       "category": "registry-prose",
       "words": 8,
       "hasTokens": false,
@@ -2188,7 +2236,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 831,
+      "line": 838,
       "category": "registry-prose",
       "words": 15,
       "hasTokens": true,
@@ -2196,7 +2244,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 836,
+      "line": 843,
       "category": "registry-prose",
       "words": 9,
       "hasTokens": false,
@@ -2204,7 +2252,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 837,
+      "line": 844,
       "category": "registry-prose",
       "words": 30,
       "hasTokens": true,
@@ -2212,7 +2260,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 842,
+      "line": 849,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -2220,7 +2268,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 843,
+      "line": 850,
       "category": "registry-prose",
       "words": 23,
       "hasTokens": false,
@@ -2228,7 +2276,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 848,
+      "line": 855,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -2236,7 +2284,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 849,
+      "line": 856,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -2244,7 +2292,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 850,
+      "line": 857,
       "category": "registry-prose",
       "words": 7,
       "hasTokens": false,
@@ -2252,7 +2300,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 856,
+      "line": 863,
       "category": "registry-prose",
       "words": 11,
       "hasTokens": true,
@@ -2260,7 +2308,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 867,
+      "line": 874,
       "category": "registry-prose",
       "words": 9,
       "hasTokens": false,
@@ -2268,7 +2316,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 868,
+      "line": 875,
       "category": "registry-prose",
       "words": 23,
       "hasTokens": false,
@@ -2276,7 +2324,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 871,
+      "line": 878,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -2284,7 +2332,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 884,
+      "line": 891,
       "category": "registry-prose",
       "words": 54,
       "hasTokens": false,
@@ -2292,7 +2340,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 887,
+      "line": 894,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -2300,7 +2348,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 888,
+      "line": 895,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -2308,7 +2356,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 889,
+      "line": 896,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -2316,7 +2364,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 890,
+      "line": 897,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -2324,7 +2372,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 891,
+      "line": 898,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -2332,7 +2380,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 892,
+      "line": 899,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -2340,7 +2388,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 896,
+      "line": 903,
       "category": "registry-prose",
       "words": 11,
       "hasTokens": false,
@@ -2348,7 +2396,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 897,
+      "line": 904,
       "category": "registry-prose",
       "words": 34,
       "hasTokens": true,
@@ -2356,7 +2404,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 902,
+      "line": 909,
       "category": "registry-prose",
       "words": 8,
       "hasTokens": false,
@@ -2364,7 +2412,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 903,
+      "line": 910,
       "category": "registry-prose",
       "words": 33,
       "hasTokens": false,
@@ -2372,7 +2420,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 907,
+      "line": 914,
       "category": "registry-prose",
       "words": 9,
       "hasTokens": false,
@@ -2380,7 +2428,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 908,
+      "line": 915,
       "category": "registry-prose",
       "words": 32,
       "hasTokens": false,
@@ -2388,7 +2436,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 914,
+      "line": 921,
       "category": "registry-prose",
       "words": 8,
       "hasTokens": false,
@@ -2396,7 +2444,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 916,
+      "line": 923,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -2404,7 +2452,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 917,
+      "line": 924,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -2412,7 +2460,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 923,
+      "line": 930,
       "category": "registry-prose",
       "words": 12,
       "hasTokens": false,
@@ -2420,7 +2468,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 934,
+      "line": 941,
       "category": "registry-prose",
       "words": 8,
       "hasTokens": false,
@@ -2428,7 +2476,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 935,
+      "line": 942,
       "category": "registry-prose",
       "words": 21,
       "hasTokens": false,
@@ -2436,7 +2484,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 938,
+      "line": 945,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -2444,7 +2492,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 952,
+      "line": 959,
       "category": "registry-prose",
       "words": 57,
       "hasTokens": false,
@@ -2452,7 +2500,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 955,
+      "line": 962,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -2460,7 +2508,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 956,
+      "line": 963,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -2468,7 +2516,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 957,
+      "line": 964,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -2476,7 +2524,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 958,
+      "line": 965,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -2484,7 +2532,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 959,
+      "line": 966,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -2492,7 +2540,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 960,
+      "line": 967,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -2500,7 +2548,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 964,
+      "line": 971,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -2508,7 +2556,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 965,
+      "line": 972,
       "category": "registry-prose",
       "words": 41,
       "hasTokens": true,
@@ -2516,7 +2564,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 970,
+      "line": 977,
       "category": "registry-prose",
       "words": 10,
       "hasTokens": false,
@@ -2524,7 +2572,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 971,
+      "line": 978,
       "category": "registry-prose",
       "words": 28,
       "hasTokens": false,
@@ -2532,7 +2580,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 976,
+      "line": 983,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -2540,7 +2588,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 977,
+      "line": 984,
       "category": "registry-prose",
       "words": 31,
       "hasTokens": false,
@@ -2548,7 +2596,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 983,
+      "line": 990,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -2556,7 +2604,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 984,
+      "line": 991,
       "category": "registry-prose",
       "words": 7,
       "hasTokens": false,
@@ -2564,7 +2612,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 985,
+      "line": 992,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -2572,7 +2620,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 986,
+      "line": 993,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -2580,7 +2628,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 992,
+      "line": 999,
       "category": "registry-prose",
       "words": 10,
       "hasTokens": false,
@@ -2588,7 +2636,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1003,
+      "line": 1010,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -2596,7 +2644,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1004,
+      "line": 1011,
       "category": "registry-prose",
       "words": 18,
       "hasTokens": false,
@@ -2604,7 +2652,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1007,
+      "line": 1014,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
@@ -2612,7 +2660,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1015,
+      "line": 1022,
       "category": "registry-prose",
       "words": 44,
       "hasTokens": false,
@@ -2620,7 +2668,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1017,
+      "line": 1024,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -2628,7 +2676,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1020,
+      "line": 1027,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -2636,7 +2684,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1021,
+      "line": 1028,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -2644,7 +2692,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1022,
+      "line": 1029,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -2652,7 +2700,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1023,
+      "line": 1030,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -2660,7 +2708,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1024,
+      "line": 1031,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -2668,7 +2716,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1030,
+      "line": 1037,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -2676,7 +2724,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1037,
+      "line": 1044,
       "category": "registry-prose",
       "words": 7,
       "hasTokens": false,
@@ -2684,7 +2732,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1038,
+      "line": 1045,
       "category": "registry-prose",
       "words": 18,
       "hasTokens": false,
@@ -2692,7 +2740,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1041,
+      "line": 1048,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
@@ -2700,7 +2748,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1049,
+      "line": 1056,
       "category": "registry-prose",
       "words": 45,
       "hasTokens": false,
@@ -2708,7 +2756,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1051,
+      "line": 1058,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -2716,7 +2764,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1054,
+      "line": 1061,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -2724,7 +2772,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1055,
+      "line": 1062,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -2732,7 +2780,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1056,
+      "line": 1063,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -2740,7 +2788,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1057,
+      "line": 1064,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -2748,7 +2796,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1058,
+      "line": 1065,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -2756,7 +2804,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1059,
+      "line": 1066,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -2764,7 +2812,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1060,
+      "line": 1067,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -2772,7 +2820,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1061,
+      "line": 1068,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -2780,7 +2828,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1067,
+      "line": 1074,
       "category": "registry-prose",
       "words": 8,
       "hasTokens": false,
@@ -2788,7 +2836,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1074,
+      "line": 1081,
       "category": "registry-prose",
       "words": 7,
       "hasTokens": false,
@@ -2796,7 +2844,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1075,
+      "line": 1082,
       "category": "registry-prose",
       "words": 21,
       "hasTokens": false,
@@ -2804,7 +2852,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1078,
+      "line": 1085,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
@@ -2812,7 +2860,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1090,
+      "line": 1097,
       "category": "registry-prose",
       "words": 45,
       "hasTokens": true,
@@ -2820,7 +2868,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1093,
+      "line": 1100,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -2828,7 +2876,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1094,
+      "line": 1101,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -2836,7 +2884,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1095,
+      "line": 1102,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -2844,7 +2892,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1096,
+      "line": 1103,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -2852,7 +2900,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1100,
+      "line": 1107,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -2860,7 +2908,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1101,
+      "line": 1108,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -2868,7 +2916,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1102,
+      "line": 1109,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -2876,7 +2924,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1108,
+      "line": 1115,
       "category": "registry-prose",
       "words": 9,
       "hasTokens": false,
@@ -2884,7 +2932,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1119,
+      "line": 1126,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -2892,7 +2940,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1120,
+      "line": 1127,
       "category": "registry-prose",
       "words": 23,
       "hasTokens": false,
@@ -2900,7 +2948,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1123,
+      "line": 1130,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
@@ -2908,7 +2956,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1131,
+      "line": 1138,
       "category": "registry-prose",
       "words": 40,
       "hasTokens": false,
@@ -2916,7 +2964,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1134,
+      "line": 1141,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -2924,7 +2972,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1135,
+      "line": 1142,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -2932,7 +2980,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1136,
+      "line": 1143,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -2940,7 +2988,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1137,
+      "line": 1144,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
@@ -2948,7 +2996,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1141,
+      "line": 1148,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -2956,7 +3004,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1142,
+      "line": 1149,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -2964,7 +3012,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1143,
+      "line": 1150,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -2972,7 +3020,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1144,
+      "line": 1151,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -2980,7 +3028,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1145,
+      "line": 1152,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -2988,7 +3036,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1151,
+      "line": 1158,
       "category": "registry-prose",
       "words": 9,
       "hasTokens": false,
@@ -2996,7 +3044,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1158,
+      "line": 1165,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -3004,7 +3052,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1159,
+      "line": 1166,
       "category": "registry-prose",
       "words": 21,
       "hasTokens": false,
@@ -3012,7 +3060,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1162,
+      "line": 1169,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
@@ -3020,7 +3068,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1170,
+      "line": 1177,
       "category": "registry-prose",
       "words": 46,
       "hasTokens": false,
@@ -3028,7 +3076,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1173,
+      "line": 1180,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -3036,7 +3084,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1174,
+      "line": 1181,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -3044,7 +3092,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1175,
+      "line": 1182,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -3052,7 +3100,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1176,
+      "line": 1183,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -3060,7 +3108,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1177,
+      "line": 1184,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -3068,7 +3116,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1181,
+      "line": 1188,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -3076,7 +3124,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1182,
+      "line": 1189,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -3084,7 +3132,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1183,
+      "line": 1190,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -3092,7 +3140,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1184,
+      "line": 1191,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -3100,7 +3148,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1185,
+      "line": 1192,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -3108,7 +3156,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1191,
+      "line": 1198,
       "category": "registry-prose",
       "words": 8,
       "hasTokens": false,
@@ -3116,7 +3164,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1198,
+      "line": 1205,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -3124,7 +3172,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1199,
+      "line": 1206,
       "category": "registry-prose",
       "words": 24,
       "hasTokens": false,
@@ -3132,7 +3180,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1202,
+      "line": 1209,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
@@ -3140,7 +3188,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1212,
+      "line": 1219,
       "category": "registry-prose",
       "words": 46,
       "hasTokens": false,
@@ -3148,7 +3196,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1215,
+      "line": 1222,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -3156,7 +3204,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1216,
+      "line": 1223,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -3164,7 +3212,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1220,
+      "line": 1227,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -3172,7 +3220,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1221,
+      "line": 1228,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -3180,7 +3228,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1222,
+      "line": 1229,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -3188,7 +3236,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1224,
+      "line": 1231,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -3196,7 +3244,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1230,
+      "line": 1237,
       "category": "registry-prose",
       "words": 9,
       "hasTokens": false,
@@ -3204,7 +3252,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1237,
+      "line": 1244,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -3212,7 +3260,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1238,
+      "line": 1245,
       "category": "registry-prose",
       "words": 25,
       "hasTokens": false,
@@ -3220,7 +3268,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1241,
+      "line": 1248,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -3228,7 +3276,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1249,
+      "line": 1256,
       "category": "registry-prose",
       "words": 43,
       "hasTokens": false,
@@ -3236,7 +3284,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1252,
+      "line": 1259,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -3244,7 +3292,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1253,
+      "line": 1260,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -3252,7 +3300,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1254,
+      "line": 1261,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -3260,7 +3308,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1255,
+      "line": 1262,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -3268,7 +3316,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1259,
+      "line": 1266,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -3276,7 +3324,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1260,
+      "line": 1267,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -3284,7 +3332,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1261,
+      "line": 1268,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -3292,7 +3340,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1267,
+      "line": 1274,
       "category": "registry-prose",
       "words": 9,
       "hasTokens": false,
@@ -3300,7 +3348,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1274,
+      "line": 1281,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -3308,7 +3356,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1275,
+      "line": 1282,
       "category": "registry-prose",
       "words": 25,
       "hasTokens": false,
@@ -3316,7 +3364,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1278,
+      "line": 1285,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
@@ -3324,7 +3372,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1286,
+      "line": 1293,
       "category": "registry-prose",
       "words": 47,
       "hasTokens": false,
@@ -3332,7 +3380,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1289,
+      "line": 1296,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -3340,7 +3388,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1290,
+      "line": 1297,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -3348,7 +3396,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1291,
+      "line": 1298,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -3356,7 +3404,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1295,
+      "line": 1302,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -3364,7 +3412,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1296,
+      "line": 1303,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -3372,7 +3420,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1297,
+      "line": 1304,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -3380,7 +3428,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1298,
+      "line": 1305,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -3388,7 +3436,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1304,
+      "line": 1311,
       "category": "registry-prose",
       "words": 8,
       "hasTokens": false,
@@ -3396,7 +3444,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1314,
+      "line": 1321,
       "category": "registry-prose",
       "words": 7,
       "hasTokens": false,
@@ -3404,7 +3452,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1315,
+      "line": 1322,
       "category": "registry-prose",
       "words": 24,
       "hasTokens": false,
@@ -3412,7 +3460,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1326,
+      "line": 1333,
       "category": "registry-prose",
       "words": 61,
       "hasTokens": false,
@@ -3420,7 +3468,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1329,
+      "line": 1336,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -3428,7 +3476,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1330,
+      "line": 1337,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -3436,7 +3484,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1331,
+      "line": 1338,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -3444,7 +3492,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1332,
+      "line": 1339,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -3452,7 +3500,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1333,
+      "line": 1340,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -3460,7 +3508,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1334,
+      "line": 1341,
       "category": "registry-prose",
       "words": 7,
       "hasTokens": false,
@@ -3468,7 +3516,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1338,
+      "line": 1345,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -3476,7 +3524,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1339,
+      "line": 1346,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -3484,7 +3532,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1340,
+      "line": 1347,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -3492,7 +3540,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1341,
+      "line": 1348,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -3500,7 +3548,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1347,
+      "line": 1354,
       "category": "registry-prose",
       "words": 12,
       "hasTokens": false,
@@ -3508,7 +3556,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1354,
+      "line": 1361,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
@@ -3516,7 +3564,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1355,
+      "line": 1362,
       "category": "registry-prose",
       "words": 24,
       "hasTokens": false,
@@ -3524,7 +3572,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1358,
+      "line": 1365,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
@@ -3532,7 +3580,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1366,
+      "line": 1373,
       "category": "registry-prose",
       "words": 39,
       "hasTokens": false,
@@ -3540,7 +3588,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1368,
+      "line": 1375,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -3548,7 +3596,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1371,
+      "line": 1378,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -3556,7 +3604,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1372,
+      "line": 1379,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -3564,7 +3612,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1373,
+      "line": 1380,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -3572,7 +3620,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1374,
+      "line": 1381,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -3580,7 +3628,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1380,
+      "line": 1387,
       "category": "registry-prose",
       "words": 10,
       "hasTokens": false,
@@ -3588,7 +3636,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1387,
+      "line": 1394,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
@@ -3596,7 +3644,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1388,
+      "line": 1395,
       "category": "registry-prose",
       "words": 17,
       "hasTokens": false,
@@ -3604,7 +3652,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1391,
+      "line": 1398,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
@@ -3612,7 +3660,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1399,
+      "line": 1406,
       "category": "registry-prose",
       "words": 50,
       "hasTokens": false,
@@ -3620,7 +3668,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1402,
+      "line": 1409,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -3628,7 +3676,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1403,
+      "line": 1410,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -3636,7 +3684,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1407,
+      "line": 1414,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -3644,7 +3692,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1408,
+      "line": 1415,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -3652,7 +3700,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1409,
+      "line": 1416,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -3660,7 +3708,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1415,
+      "line": 1422,
       "category": "registry-prose",
       "words": 7,
       "hasTokens": false,
@@ -3668,7 +3716,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1426,
+      "line": 1433,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -3676,7 +3724,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1427,
+      "line": 1434,
       "category": "registry-prose",
       "words": 26,
       "hasTokens": false,
@@ -3684,7 +3732,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1430,
+      "line": 1437,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
@@ -3692,7 +3740,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1438,
+      "line": 1445,
       "category": "registry-prose",
       "words": 48,
       "hasTokens": false,
@@ -3700,7 +3748,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1441,
+      "line": 1448,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -3708,7 +3756,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1442,
+      "line": 1449,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -3716,7 +3764,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1443,
+      "line": 1450,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
@@ -3724,7 +3772,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1444,
+      "line": 1451,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -3732,7 +3780,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1445,
+      "line": 1452,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -3740,7 +3788,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1446,
+      "line": 1453,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -3748,7 +3796,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1447,
+      "line": 1454,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -3756,7 +3804,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1451,
+      "line": 1458,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -3764,7 +3812,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1452,
+      "line": 1459,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -3772,7 +3820,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1454,
+      "line": 1461,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -3780,7 +3828,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1460,
+      "line": 1467,
       "category": "registry-prose",
       "words": 8,
       "hasTokens": false,
@@ -3788,7 +3836,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1467,
+      "line": 1474,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -3796,7 +3844,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1468,
+      "line": 1475,
       "category": "registry-prose",
       "words": 22,
       "hasTokens": false,
@@ -3804,7 +3852,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1471,
+      "line": 1478,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
@@ -3812,7 +3860,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1479,
+      "line": 1486,
       "category": "registry-prose",
       "words": 44,
       "hasTokens": false,
@@ -3820,7 +3868,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1482,
+      "line": 1489,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -3828,7 +3876,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1483,
+      "line": 1490,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -3836,7 +3884,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1484,
+      "line": 1491,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -3844,7 +3892,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1485,
+      "line": 1492,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -3852,7 +3900,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1486,
+      "line": 1493,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -3860,7 +3908,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1490,
+      "line": 1497,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -3868,7 +3916,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1491,
+      "line": 1498,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -3876,7 +3924,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1492,
+      "line": 1499,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -3884,7 +3932,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1498,
+      "line": 1505,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -3892,7 +3940,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1505,
+      "line": 1512,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
@@ -3900,7 +3948,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1506,
+      "line": 1513,
       "category": "registry-prose",
       "words": 22,
       "hasTokens": false,
@@ -3908,7 +3956,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1509,
+      "line": 1516,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
@@ -3916,7 +3964,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1517,
+      "line": 1524,
       "category": "registry-prose",
       "words": 45,
       "hasTokens": false,
@@ -3924,7 +3972,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1520,
+      "line": 1527,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -3932,7 +3980,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1521,
+      "line": 1528,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -3940,7 +3988,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1522,
+      "line": 1529,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
@@ -3948,7 +3996,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1523,
+      "line": 1530,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -3956,7 +4004,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1527,
+      "line": 1534,
       "category": "registry-prose",
       "words": 5,
       "hasTokens": false,
@@ -3964,7 +4012,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1528,
+      "line": 1535,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -3972,7 +4020,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1529,
+      "line": 1536,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -3980,7 +4028,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1530,
+      "line": 1537,
       "category": "registry-prose",
       "words": 6,
       "hasTokens": false,
@@ -3988,7 +4036,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1536,
+      "line": 1543,
       "category": "registry-prose",
       "words": 8,
       "hasTokens": false,
@@ -3996,7 +4044,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1543,
+      "line": 1550,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -4004,7 +4052,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1544,
+      "line": 1551,
       "category": "registry-prose",
       "words": 21,
       "hasTokens": false,
@@ -4012,7 +4060,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1547,
+      "line": 1554,
       "category": "registry-prose",
       "words": 1,
       "hasTokens": false,
@@ -4020,7 +4068,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1555,
+      "line": 1562,
       "category": "registry-prose",
       "words": 42,
       "hasTokens": false,
@@ -4028,7 +4076,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1558,
+      "line": 1565,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -4036,7 +4084,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1559,
+      "line": 1566,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -4044,7 +4092,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1560,
+      "line": 1567,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -4052,7 +4100,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1561,
+      "line": 1568,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
@@ -4060,7 +4108,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1562,
+      "line": 1569,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -4068,7 +4116,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1566,
+      "line": 1573,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -4076,7 +4124,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1567,
+      "line": 1574,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -4084,7 +4132,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1573,
+      "line": 1580,
       "category": "registry-prose",
       "words": 7,
       "hasTokens": false,
@@ -4092,7 +4140,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1605,
+      "line": 1612,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -4100,7 +4148,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1606,
+      "line": 1613,
       "category": "registry-prose",
       "words": 4,
       "hasTokens": false,
@@ -4108,7 +4156,7 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1607,
+      "line": 1614,
       "category": "registry-prose",
       "words": 3,
       "hasTokens": false,
@@ -4116,11 +4164,43 @@
     },
     {
       "file": "src/lib/content/route-registry.ts",
-      "line": 1608,
+      "line": 1615,
       "category": "registry-prose",
       "words": 2,
       "hasTokens": false,
       "text": "Nearby amounts"
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
+      "line": 1758,
+      "category": "registry-prose",
+      "words": 4,
+      "hasTokens": false,
+      "text": "Across all three rates"
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
+      "line": 1759,
+      "category": "registry-prose",
+      "words": 4,
+      "hasTokens": false,
+      "text": "Why this target matters"
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
+      "line": 1760,
+      "category": "registry-prose",
+      "words": 6,
+      "hasTokens": false,
+      "text": "How this compares with the minimum"
+    },
+    {
+      "file": "src/lib/content/route-registry.ts",
+      "line": 1761,
+      "category": "registry-prose",
+      "words": 2,
+      "hasTokens": false,
+      "text": "Nearby targets"
     }
   ]
 }

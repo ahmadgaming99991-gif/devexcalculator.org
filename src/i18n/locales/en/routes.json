@@ -451,6 +451,222 @@
       "conversions.1000000RobuxToUsd": "1,000,000 Robux to USD"
     }
   },
+  "conversions.100UsdToRobux": {
+    "title": "$100 to Robux: Earned Robux Needed for a DevEx Payout",
+    "metaDescription": "$100 is below the smallest DevEx payout available. Roblox requires {minimumRobux} Earned Robux before a request can be submitted.",
+    "h1": "$100 to Robux",
+    "navLabel": "$100 payout",
+    "quickAnswer": "$100 cannot be paid out on its own. Roblox requires {minimumRobux} eligible Earned Robux before a DevEx request can be submitted, and $100 at the current {rateStandard} rate corresponds to 26,316 - below that threshold. 100 dollars is below the smallest payout the Developer Exchange can produce. The balance it corresponds to is under the {minimumRobux} Earned Robux Roblox requires before a request can be submitted at all, so the honest answer to this one is not a conversion but a threshold: the smallest first payout available is the value of the minimum balance itself.",
+    "ogImageAlt": "$100 converted to the Earned Robux balance a DevEx payout would need.",
+    "sections": {
+      "requirement": "Earned Robux needed for $100",
+      "rate-comparison": "Across all three rates",
+      "context": "Why this target matters",
+      "minimum": "How this compares with the minimum",
+      "nearby": "Nearby targets"
+    },
+    "faqs": {
+      "q01": {
+        "question": "How much Robux is $100?",
+        "answer": "26,316 eligible Earned Robux would be worth $100 at the current DevEx rate, but that is below the {minimumRobux} minimum, so it cannot be requested as a payout."
+      },
+      "q02": {
+        "question": "Can a $100 DevEx payout be requested?",
+        "answer": "No. Roblox requires {minimumRobux} eligible Earned Robux before a DevEx request can be submitted, which is more than a $100 payout corresponds to."
+      },
+      "q03": {
+        "question": "Does the rate change how much Robux $100 needs?",
+        "answer": "Yes. At the older {rateLegacy} rate the same $100 needs 2,256 more Earned Robux, and a balance qualifying for the U.S. 18+ rate needs 7,797 fewer. Roblox, not the creator, decides which rate applies to which part of a balance."
+      }
+    },
+    "links": {
+      "conversions": "the targets either side of $100",
+      "usdToRobux": "work back from a payout other than $100",
+      "devexRequirements": "whether $100 clears the {minimumRobux} minimum",
+      "conversions.250UsdToRobux": "$250 to Robux",
+      "conversions.500UsdToRobux": "$500 to Robux"
+    }
+  },
+  "conversions.250UsdToRobux": {
+    "title": "$250 to Robux: Earned Robux Needed for a DevEx Payout",
+    "metaDescription": "A $250 DevEx payout needs about 65,790 eligible Earned Robux at the current rate. Compared against the legacy and U.S. 18+ rates.",
+    "h1": "$250 to Robux",
+    "navLabel": "$250 payout",
+    "quickAnswer": "A $250 DevEx payout needs 65,790 eligible Earned Robux at the current rate of {rateStandard} USD per Robux. At the older {rateLegacy} rate the same payout needs 5,639 more. 250 dollars is the first target on this list that a single cash-out can actually reach. It sits a little over twice the minimum balance, which is why it tends to be the figure a creator names once their experience has started earning steadily rather than occasionally.",
+    "ogImageAlt": "$250 converted to the Earned Robux balance a DevEx payout would need.",
+    "sections": {
+      "requirement": "Earned Robux needed for $250",
+      "rate-comparison": "Across all three rates",
+      "context": "Why this target matters",
+      "minimum": "How this compares with the minimum",
+      "nearby": "Nearby targets"
+    },
+    "faqs": {
+      "q01": {
+        "question": "How much Robux is $250?",
+        "answer": "65,790 eligible Earned Robux, at the current DevEx rate, before any payment-provider fee or income tax. This is Earned Robux, not a purchased balance - a purchased balance cannot be exchanged."
+      },
+      "q02": {
+        "question": "Can a $250 DevEx payout be requested?",
+        "answer": "Yes, once the balance is there. 65,790 clears the documented {minimumRobux} minimum. Clearing it is not the same as being approved - Roblox reviews every request."
+      },
+      "q03": {
+        "question": "Does the rate change how much Robux $250 needs?",
+        "answer": "Yes. At the older {rateLegacy} rate the same $250 needs 5,639 more Earned Robux, and a balance qualifying for the U.S. 18+ rate needs 19,493 fewer. Roblox, not the creator, decides which rate applies to which part of a balance."
+      }
+    },
+    "links": {
+      "conversions": "the targets either side of $250",
+      "usdToRobux": "work back from a payout other than $250",
+      "devexRequirements": "whether $250 clears the {minimumRobux} minimum",
+      "conversions.100UsdToRobux": "$100 to Robux",
+      "conversions.500UsdToRobux": "$500 to Robux"
+    }
+  },
+  "conversions.500UsdToRobux": {
+    "title": "$500 to Robux: Earned Robux Needed for a DevEx Payout",
+    "metaDescription": "A $500 DevEx payout needs about 131,579 eligible Earned Robux at the current rate. Compared against the legacy and U.S. 18+ rates.",
+    "h1": "$500 to Robux",
+    "navLabel": "$500 payout",
+    "quickAnswer": "A $500 DevEx payout needs 131,579 eligible Earned Robux at the current rate of {rateStandard} USD per Robux. At the older {rateLegacy} rate the same payout needs 11,279 more. At 500 dollars the deductions stop being rounding errors. A payment-provider percentage and an income-tax estimate are worth entering rather than ignoring at this scale, which is why this page links directly to the fees and taxes guide instead of leaving the gross figure to stand alone.",
+    "ogImageAlt": "$500 converted to the Earned Robux balance a DevEx payout would need.",
+    "sections": {
+      "requirement": "Earned Robux needed for $500",
+      "rate-comparison": "Across all three rates",
+      "context": "Why this target matters",
+      "minimum": "How this compares with the minimum",
+      "nearby": "Nearby targets"
+    },
+    "faqs": {
+      "q01": {
+        "question": "How much Robux is $500?",
+        "answer": "131,579 eligible Earned Robux, at the current DevEx rate, before any payment-provider fee or income tax. This is Earned Robux, not a purchased balance - a purchased balance cannot be exchanged."
+      },
+      "q02": {
+        "question": "Can a $500 DevEx payout be requested?",
+        "answer": "Yes, once the balance is there. 131,579 clears the documented {minimumRobux} minimum. Clearing it is not the same as being approved - Roblox reviews every request."
+      },
+      "q03": {
+        "question": "Does the rate change how much Robux $500 needs?",
+        "answer": "Yes. At the older {rateLegacy} rate the same $500 needs 11,279 more Earned Robux, and a balance qualifying for the U.S. 18+ rate needs 38,986 fewer. Roblox, not the creator, decides which rate applies to which part of a balance."
+      }
+    },
+    "links": {
+      "conversions": "the targets either side of $500",
+      "usdToRobux": "work back from a payout other than $500",
+      "devexRequirements": "whether $500 clears the {minimumRobux} minimum",
+      "conversions.250UsdToRobux": "$250 to Robux",
+      "conversions.1000UsdToRobux": "$1,000 to Robux"
+    }
+  },
+  "conversions.1000UsdToRobux": {
+    "title": "$1,000 to Robux: Earned Robux Needed for a DevEx Payout",
+    "metaDescription": "A $1,000 DevEx payout needs about 263,158 eligible Earned Robux at the current rate. Compared against the legacy and U.S. 18+ rates.",
+    "h1": "$1,000 to Robux",
+    "navLabel": "$1,000 payout",
+    "quickAnswer": "A $1,000 DevEx payout needs 263,158 eligible Earned Robux at the current rate of {rateStandard} USD per Robux. At the older {rateLegacy} rate the same payout needs 22,557 more. A thousand dollars is the round figure creators plan around. It is a little under nine times the smallest payout the programme can produce, which is the more useful way to read it: most creators arrive at this total over several cash-outs rather than holding one balance that covers it.",
+    "ogImageAlt": "$1,000 converted to the Earned Robux balance a DevEx payout would need.",
+    "sections": {
+      "requirement": "Earned Robux needed for $1,000",
+      "rate-comparison": "Across all three rates",
+      "context": "Why this target matters",
+      "minimum": "How this compares with the minimum",
+      "nearby": "Nearby targets"
+    },
+    "faqs": {
+      "q01": {
+        "question": "How much Robux is $1,000?",
+        "answer": "263,158 eligible Earned Robux, at the current DevEx rate, before any payment-provider fee or income tax. This is Earned Robux, not a purchased balance - a purchased balance cannot be exchanged."
+      },
+      "q02": {
+        "question": "Can a $1,000 DevEx payout be requested?",
+        "answer": "Yes, once the balance is there. 263,158 clears the documented {minimumRobux} minimum. Clearing it is not the same as being approved - Roblox reviews every request."
+      },
+      "q03": {
+        "question": "Does the rate change how much Robux $1,000 needs?",
+        "answer": "Yes. At the older {rateLegacy} rate the same $1,000 needs 22,557 more Earned Robux, and a balance qualifying for the U.S. 18+ rate needs 77,972 fewer. Roblox, not the creator, decides which rate applies to which part of a balance."
+      }
+    },
+    "links": {
+      "conversions": "the targets either side of $1,000",
+      "usdToRobux": "work back from a payout other than $1,000",
+      "devexRequirements": "whether $1,000 clears the {minimumRobux} minimum",
+      "conversions.500UsdToRobux": "$500 to Robux",
+      "conversions.2500UsdToRobux": "$2,500 to Robux"
+    }
+  },
+  "conversions.2500UsdToRobux": {
+    "title": "$2,500 to Robux: Earned Robux Needed for a DevEx Payout",
+    "metaDescription": "A $2,500 DevEx payout needs about 657,895 eligible Earned Robux at the current rate. Compared against the legacy and U.S. 18+ rates.",
+    "h1": "$2,500 to Robux",
+    "navLabel": "$2,500 payout",
+    "quickAnswer": "A $2,500 DevEx payout needs 657,895 eligible Earned Robux at the current rate of {rateStandard} USD per Robux. At the older {rateLegacy} rate the same payout needs 56,391 more. 2,500 dollars is past the point where one balance covers it comfortably for most creators, so the useful reading is not the single number but how many cash-out cycles it represents - it is more than twenty-one times the minimum balance.",
+    "ogImageAlt": "$2,500 converted to the Earned Robux balance a DevEx payout would need.",
+    "sections": {
+      "requirement": "Earned Robux needed for $2,500",
+      "rate-comparison": "Across all three rates",
+      "context": "Why this target matters",
+      "minimum": "How this compares with the minimum",
+      "nearby": "Nearby targets"
+    },
+    "faqs": {
+      "q01": {
+        "question": "How much Robux is $2,500?",
+        "answer": "657,895 eligible Earned Robux, at the current DevEx rate, before any payment-provider fee or income tax. This is Earned Robux, not a purchased balance - a purchased balance cannot be exchanged."
+      },
+      "q02": {
+        "question": "Can a $2,500 DevEx payout be requested?",
+        "answer": "Yes, once the balance is there. 657,895 clears the documented {minimumRobux} minimum. Clearing it is not the same as being approved - Roblox reviews every request."
+      },
+      "q03": {
+        "question": "Does the rate change how much Robux $2,500 needs?",
+        "answer": "Yes. At the older {rateLegacy} rate the same $2,500 needs 56,391 more Earned Robux, and a balance qualifying for the U.S. 18+ rate needs 194,932 fewer. Roblox, not the creator, decides which rate applies to which part of a balance."
+      }
+    },
+    "links": {
+      "conversions": "the targets either side of $2,500",
+      "usdToRobux": "work back from a payout other than $2,500",
+      "devexRequirements": "whether $2,500 clears the {minimumRobux} minimum",
+      "conversions.1000UsdToRobux": "$1,000 to Robux",
+      "conversions.5000UsdToRobux": "$5,000 to Robux"
+    }
+  },
+  "conversions.5000UsdToRobux": {
+    "title": "$5,000 to Robux: Earned Robux Needed for a DevEx Payout",
+    "metaDescription": "A $5,000 DevEx payout needs about 1,315,790 eligible Earned Robux at the current rate. Compared against the legacy and U.S. 18+ rates.",
+    "h1": "$5,000 to Robux",
+    "navLabel": "$5,000 payout",
+    "quickAnswer": "A $5,000 DevEx payout needs 1,315,790 eligible Earned Robux at the current rate of {rateStandard} USD per Robux. At the older {rateLegacy} rate the same payout needs 112,782 more. 5,000 dollars is where the qualifying U.S. 18+ rate makes its largest difference on this list. The same five thousand dollars needs 389,864 fewer Earned Robux if the balance qualifies for that rate than if it is paid at the standard one - and Roblox, not the creator, decides which applies.",
+    "ogImageAlt": "$5,000 converted to the Earned Robux balance a DevEx payout would need.",
+    "sections": {
+      "requirement": "Earned Robux needed for $5,000",
+      "rate-comparison": "Across all three rates",
+      "context": "Why this target matters",
+      "minimum": "How this compares with the minimum",
+      "nearby": "Nearby targets"
+    },
+    "faqs": {
+      "q01": {
+        "question": "How much Robux is $5,000?",
+        "answer": "1,315,790 eligible Earned Robux, at the current DevEx rate, before any payment-provider fee or income tax. This is Earned Robux, not a purchased balance - a purchased balance cannot be exchanged."
+      },
+      "q02": {
+        "question": "Can a $5,000 DevEx payout be requested?",
+        "answer": "Yes, once the balance is there. 1,315,790 clears the documented {minimumRobux} minimum. Clearing it is not the same as being approved - Roblox reviews every request."
+      },
+      "q03": {
+        "question": "Does the rate change how much Robux $5,000 needs?",
+        "answer": "Yes. At the older {rateLegacy} rate the same $5,000 needs 112,782 more Earned Robux, and a balance qualifying for the U.S. 18+ rate needs 389,864 fewer. Roblox, not the creator, decides which rate applies to which part of a balance."
+      }
+    },
+    "links": {
+      "conversions": "the targets either side of $5,000",
+      "usdToRobux": "work back from a payout other than $5,000",
+      "devexRequirements": "whether $5,000 clears the {minimumRobux} minimum",
+      "conversions.2500UsdToRobux": "$2,500 to Robux",
+      "conversions.1000UsdToRobux": "$1,000 to Robux"
+    }
+  },
   "corrections": {
     "title": "Corrections Policy",
     "metaDescription": "How to report an error on this site, what happens when a rate or requirement turns out to be wrong, and where corrections are recorded.",

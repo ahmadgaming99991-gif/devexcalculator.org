@@ -493,7 +493,10 @@
       "notRoundNumbers": "La lista no es una selección de números redondos: son las cantidades que de verdad se buscan. Cualquier cosa que no esté aquí —incluidas cifras mayores que la última fila de la tabla— va en el conversor de arriba, que usa las mismas tasas y la misma aritmética."
     },
     "multipleOfMinimum": "{multiple}× el mínimo de DevEx",
-    "belowMinimum": "Por debajo del mínimo de DevEx"
+    "belowMinimum": "Por debajo del mínimo de DevEx",
+    "targetsHeading": "Partir de un objetivo de pago",
+    "targetsDescription": "El saldo de Earned Robux elegibles que necesitaría cada pago, a la tasa actual.",
+    "robuxNeeded": "Earned Robux necesarios"
   },
   "amountPage": {
     "jumpLabel": "Comparar las tres tasas",
@@ -546,5 +549,49 @@
     "rateTableCaption": "Pago por {display} Earned Robux con cada tasa DevEx documentada",
     "faqHeading": "Preguntas sobre {display} Robux",
     "notYetMore": "Todavía no — faltan {shortfall}"
+  },
+  "usdPage": {
+    "intro": "Lo que un pago del Developer Exchange de {display} necesita en Earned Robux elegibles, con cada una de las tres tasas que documenta Roblox.",
+    "headlineHeading": "Earned Robux necesarios para {display}",
+    "headlineDescription": "A la tasa estándar actual, redondeado al alza hasta un Robux entero.",
+    "neededLabel": "Earned Robux elegibles necesarios para {display}",
+    "clearsMinimum": "Eso es {multiple} veces el mínimo de {minimum} que Roblox exige antes de poder enviar una solicitud.",
+    "belowMinimum": "Esto está por debajo del mínimo de {minimum} que exige Roblox, por {shortfall}. Un pago de este tamaño no se puede solicitar por sí solo.",
+    "allThreeDescription": "Roblox decide qué tasa se aplica a cada parte de un saldo. Aquí se ve lo que exigiría cada una para el mismo pago.",
+    "columnRobuxNeeded": "Earned Robux necesarios",
+    "contextHeading": "Por qué importa este objetivo",
+    "minimumHeading": "Cómo se compara con el mínimo",
+    "minimumDescription": "Roblox exige {minimum} Earned Robux elegibles antes de poder enviar siquiera una solicitud de DevEx.",
+    "aboveMinimumBody": "Un pago de {display} necesita {needed} Earned Robux elegibles, que son {multiple} veces el mínimo de {minimum}. Superar el mínimo no es lo mismo que ser aprobado: Roblox revisa cada solicitud y decide qué tasa se aplica a cada parte de un saldo.",
+    "belowMinimumBody": "Un pago de {display} corresponde a {needed} Earned Robux elegibles, que se quedan a {shortfall} de los {minimum} que exige Roblox. El pago más pequeño que puede producir el programa es el valor de ese saldo mínimo, {smallest}.",
+    "rateTableLabel": "Earned Robux necesarios para {display} con cada tasa",
+    "rateTableCaption": "Earned Robux elegibles necesarios para un pago de {display}, por tasa.",
+    "nearbyHeading": "Objetivos cercanos",
+    "nearbyDescription": "Los objetivos de pago a uno y otro lado de este, con el saldo que necesita cada uno.",
+    "faqHeading": "Preguntas sobre un pago de {display}",
+    "body": {
+      "requirement": {
+        "p1": "Abrir este objetivo en la calculadora"
+      },
+      "rateComparison": {
+        "p1": "La tasa antigua necesita {legacyExtra} Earned Robux más para el mismo pago, y un saldo que cumpla los requisitos de la tasa de EE. UU. 18+ necesita {us18Saved} menos.",
+        "p2": "cómo se documenta cada tasa"
+      },
+      "minimum": {
+        "p1": "Qué exige Roblox antes de poder enviar una solicitud"
+      },
+      "nearby": {
+        "p1": "todas las cantidades y objetivos en una página",
+        "p2": "partir de cualquier pago"
+      }
+    },
+    "context": {
+      "usd100": "100 dólares están por debajo del pago más pequeño que puede producir el Developer Exchange. El saldo que le corresponde está por debajo de los {minimumRobux} Earned Robux que Roblox exige antes de poder enviar siquiera una solicitud, así que la respuesta honesta aquí no es una conversión sino un umbral: el primer pago más pequeño disponible es el valor del propio saldo mínimo.",
+      "usd250": "250 dólares son el primer objetivo de esta lista que un solo cobro puede alcanzar de verdad. Se sitúa algo por encima del doble del saldo mínimo, y por eso suele ser la cifra que menciona quien ve que su experiencia ha empezado a generar ingresos de forma constante y no ocasional.",
+      "usd500": "A partir de 500 dólares las deducciones dejan de ser insignificantes. A esta escala merece la pena introducir un porcentaje del proveedor de pagos y una estimación del impuesto sobre la renta en lugar de ignorarlos, y por eso esta página enlaza directamente con la guía de comisiones e impuestos en vez de dejar sola la cifra bruta.",
+      "usd1000": "Mil dólares es la cifra redonda con la que planifican los creadores. Es algo menos de nueve veces el pago más pequeño que puede producir el programa, que es la forma más útil de leerlo: la mayoría llega a este total a lo largo de varios cobros y no con un único saldo que lo cubra.",
+      "usd2500": "2500 dólares están más allá del punto en que un solo saldo lo cubre con holgura para la mayoría de creadores, así que la lectura útil no es la cifra en sí sino cuántos ciclos de cobro representa: es más de veintiuna veces el saldo mínimo.",
+      "usd5000": "5000 dólares es donde la tasa de EE. UU. 18+ marca la mayor diferencia de esta lista. Esos mismos cinco mil dólares necesitan 389.864 Earned Robux menos si el saldo cumple los requisitos de esa tasa que si se paga a la estándar, y es Roblox, no el creador, quien decide cuál se aplica."
+    }
   }
 }

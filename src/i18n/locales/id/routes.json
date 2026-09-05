@@ -461,6 +461,222 @@
       "conversions.1000000RobuxToUsd": "1.000.000 Robux ke USD"
     }
   },
+  "conversions.100UsdToRobux": {
+    "title": "$100 ke Robux: Earned Robux untuk pembayaran DevEx",
+    "metaDescription": "$100 berada di bawah pembayaran DevEx terkecil yang tersedia. Roblox mensyaratkan {minimumRobux} Earned Robux sebelum permintaan dapat diajukan.",
+    "h1": "$100 ke Robux",
+    "navLabel": "pembayaran $100",
+    "quickAnswer": "$100 tidak dapat dicairkan sendiri. Roblox mensyaratkan {minimumRobux} Earned Robux yang memenuhi syarat sebelum permintaan DevEx dapat diajukan, dan $100 pada kurs saat ini {rateStandard} setara dengan 26.316, di bawah ambang tersebut. 100 dolar berada di bawah pembayaran terkecil yang dapat dihasilkan Developer Exchange. Saldo yang setara dengannya masih di bawah {minimumRobux} Earned Robux yang disyaratkan Roblox sebelum sebuah permintaan dapat diajukan sama sekali, sehingga jawaban jujur untuk yang satu ini bukan konversi melainkan ambang batas: pembayaran pertama terkecil yang tersedia adalah nilai dari saldo minimum itu sendiri.",
+    "ogImageAlt": "$100 dikonversi menjadi saldo Earned Robux yang dibutuhkan sebuah pembayaran DevEx.",
+    "sections": {
+      "requirement": "Earned Robux yang dibutuhkan untuk $100",
+      "rate-comparison": "Pada ketiga kurs",
+      "context": "Mengapa target ini penting",
+      "minimum": "Perbandingannya dengan jumlah minimum",
+      "nearby": "Target di sekitarnya"
+    },
+    "faqs": {
+      "q01": {
+        "question": "Berapa Robux nilai $100?",
+        "answer": "26.316 Earned Robux yang memenuhi syarat akan bernilai $100 pada kurs DevEx saat ini, tetapi itu di bawah jumlah minimum {minimumRobux}, sehingga tidak dapat diajukan sebagai pembayaran."
+      },
+      "q02": {
+        "question": "Bisakah pembayaran DevEx sebesar $100 diajukan?",
+        "answer": "Tidak. Roblox mensyaratkan {minimumRobux} Earned Robux yang memenuhi syarat sebelum permintaan DevEx dapat diajukan, dan itu lebih banyak daripada yang setara dengan pembayaran $100."
+      },
+      "q03": {
+        "question": "Apakah kurs mengubah berapa Robux yang dibutuhkan untuk $100?",
+        "answer": "Ya. Pada kurs lama {rateLegacy}, $100 yang sama membutuhkan 2.256 Earned Robux lebih banyak, dan saldo yang memenuhi syarat kurs AS 18+ membutuhkan 7.797 lebih sedikit. Roblox, bukan kreator, yang memutuskan kurs mana yang berlaku untuk bagian mana dari sebuah saldo."
+      }
+    },
+    "links": {
+      "conversions": "target di kedua sisi $100",
+      "usdToRobux": "menghitung mundur dari pembayaran selain $100",
+      "devexRequirements": "apakah $100 melewati jumlah minimum {minimumRobux}",
+      "conversions.250UsdToRobux": "$250 ke Robux",
+      "conversions.500UsdToRobux": "$500 ke Robux"
+    }
+  },
+  "conversions.250UsdToRobux": {
+    "title": "$250 ke Robux: Earned Robux untuk pembayaran DevEx",
+    "metaDescription": "Pembayaran DevEx sebesar $250 membutuhkan sekitar 65.790 Earned Robux yang memenuhi syarat pada kurs saat ini. Dibandingkan dengan kurs lama dan kurs AS 18+.",
+    "h1": "$250 ke Robux",
+    "navLabel": "pembayaran $250",
+    "quickAnswer": "Pembayaran DevEx sebesar $250 membutuhkan 65.790 Earned Robux yang memenuhi syarat pada kurs saat ini, yaitu {rateStandard} USD per Robux. Pada kurs lama {rateLegacy}, pembayaran yang sama membutuhkan 5.639 lebih banyak. 250 dolar adalah target pertama dalam daftar ini yang benar-benar dapat dicapai satu kali pencairan. Jumlahnya sedikit di atas dua kali saldo minimum, dan karena itu biasanya menjadi angka yang disebut seorang kreator setelah pengalamannya mulai menghasilkan secara konsisten, bukan sesekali.",
+    "ogImageAlt": "$250 dikonversi menjadi saldo Earned Robux yang dibutuhkan sebuah pembayaran DevEx.",
+    "sections": {
+      "requirement": "Earned Robux yang dibutuhkan untuk $250",
+      "rate-comparison": "Pada ketiga kurs",
+      "context": "Mengapa target ini penting",
+      "minimum": "Perbandingannya dengan jumlah minimum",
+      "nearby": "Target di sekitarnya"
+    },
+    "faqs": {
+      "q01": {
+        "question": "Berapa Robux nilai $250?",
+        "answer": "65.790 Earned Robux yang memenuhi syarat, pada kurs DevEx saat ini, sebelum biaya penyedia pembayaran atau pajak penghasilan apa pun. Ini adalah Earned Robux, bukan saldo yang dibeli: saldo yang dibeli tidak dapat ditukarkan."
+      },
+      "q02": {
+        "question": "Bisakah pembayaran DevEx sebesar $250 diajukan?",
+        "answer": "Bisa, setelah saldonya tersedia. 65.790 melewati jumlah minimum {minimumRobux} yang didokumentasikan. Melewatinya tidak sama dengan disetujui: Roblox meninjau setiap permintaan."
+      },
+      "q03": {
+        "question": "Apakah kurs mengubah berapa Robux yang dibutuhkan untuk $250?",
+        "answer": "Ya. Pada kurs lama {rateLegacy}, $250 yang sama membutuhkan 5.639 Earned Robux lebih banyak, dan saldo yang memenuhi syarat kurs AS 18+ membutuhkan 19.493 lebih sedikit. Roblox, bukan kreator, yang memutuskan kurs mana yang berlaku untuk bagian mana dari sebuah saldo."
+      }
+    },
+    "links": {
+      "conversions": "target di kedua sisi $250",
+      "usdToRobux": "menghitung mundur dari pembayaran selain $250",
+      "devexRequirements": "apakah $250 melewati jumlah minimum {minimumRobux}",
+      "conversions.100UsdToRobux": "$100 ke Robux",
+      "conversions.500UsdToRobux": "$500 ke Robux"
+    }
+  },
+  "conversions.500UsdToRobux": {
+    "title": "$500 ke Robux: Earned Robux untuk pembayaran DevEx",
+    "metaDescription": "Pembayaran DevEx sebesar $500 membutuhkan sekitar 131.579 Earned Robux yang memenuhi syarat pada kurs saat ini. Dibandingkan dengan kurs lama dan kurs AS 18+.",
+    "h1": "$500 ke Robux",
+    "navLabel": "pembayaran $500",
+    "quickAnswer": "Pembayaran DevEx sebesar $500 membutuhkan 131.579 Earned Robux yang memenuhi syarat pada kurs saat ini, yaitu {rateStandard} USD per Robux. Pada kurs lama {rateLegacy}, pembayaran yang sama membutuhkan 11.279 lebih banyak. Pada 500 dolar, potongan berhenti menjadi selisih pembulatan. Pada skala ini persentase penyedia pembayaran dan perkiraan pajak penghasilan layak dimasukkan alih-alih diabaikan, dan karena itu halaman ini menautkan langsung ke panduan biaya dan pajak alih-alih membiarkan angka kotor berdiri sendiri.",
+    "ogImageAlt": "$500 dikonversi menjadi saldo Earned Robux yang dibutuhkan sebuah pembayaran DevEx.",
+    "sections": {
+      "requirement": "Earned Robux yang dibutuhkan untuk $500",
+      "rate-comparison": "Pada ketiga kurs",
+      "context": "Mengapa target ini penting",
+      "minimum": "Perbandingannya dengan jumlah minimum",
+      "nearby": "Target di sekitarnya"
+    },
+    "faqs": {
+      "q01": {
+        "question": "Berapa Robux nilai $500?",
+        "answer": "131.579 Earned Robux yang memenuhi syarat, pada kurs DevEx saat ini, sebelum biaya penyedia pembayaran atau pajak penghasilan apa pun. Ini adalah Earned Robux, bukan saldo yang dibeli: saldo yang dibeli tidak dapat ditukarkan."
+      },
+      "q02": {
+        "question": "Bisakah pembayaran DevEx sebesar $500 diajukan?",
+        "answer": "Bisa, setelah saldonya tersedia. 131.579 melewati jumlah minimum {minimumRobux} yang didokumentasikan. Melewatinya tidak sama dengan disetujui: Roblox meninjau setiap permintaan."
+      },
+      "q03": {
+        "question": "Apakah kurs mengubah berapa Robux yang dibutuhkan untuk $500?",
+        "answer": "Ya. Pada kurs lama {rateLegacy}, $500 yang sama membutuhkan 11.279 Earned Robux lebih banyak, dan saldo yang memenuhi syarat kurs AS 18+ membutuhkan 38.986 lebih sedikit. Roblox, bukan kreator, yang memutuskan kurs mana yang berlaku untuk bagian mana dari sebuah saldo."
+      }
+    },
+    "links": {
+      "conversions": "target di kedua sisi $500",
+      "usdToRobux": "menghitung mundur dari pembayaran selain $500",
+      "devexRequirements": "apakah $500 melewati jumlah minimum {minimumRobux}",
+      "conversions.250UsdToRobux": "$250 ke Robux",
+      "conversions.1000UsdToRobux": "$1.000 ke Robux"
+    }
+  },
+  "conversions.1000UsdToRobux": {
+    "title": "$1.000 ke Robux: Earned Robux untuk pembayaran DevEx",
+    "metaDescription": "Pembayaran DevEx sebesar $1.000 membutuhkan sekitar 263.158 Earned Robux yang memenuhi syarat pada kurs saat ini. Dibandingkan dengan kurs lama dan kurs AS 18+.",
+    "h1": "$1.000 ke Robux",
+    "navLabel": "pembayaran $1.000",
+    "quickAnswer": "Pembayaran DevEx sebesar $1.000 membutuhkan 263.158 Earned Robux yang memenuhi syarat pada kurs saat ini, yaitu {rateStandard} USD per Robux. Pada kurs lama {rateLegacy}, pembayaran yang sama membutuhkan 22.557 lebih banyak. Seribu dolar adalah angka bulat yang menjadi patokan rencana para kreator. Jumlahnya sedikit di bawah sembilan kali pembayaran terkecil yang dapat dihasilkan program ini, dan itulah cara membacanya yang lebih berguna: sebagian besar kreator mencapai total ini melalui beberapa kali pencairan, bukan dengan satu saldo yang menutupinya.",
+    "ogImageAlt": "$1.000 dikonversi menjadi saldo Earned Robux yang dibutuhkan sebuah pembayaran DevEx.",
+    "sections": {
+      "requirement": "Earned Robux yang dibutuhkan untuk $1.000",
+      "rate-comparison": "Pada ketiga kurs",
+      "context": "Mengapa target ini penting",
+      "minimum": "Perbandingannya dengan jumlah minimum",
+      "nearby": "Target di sekitarnya"
+    },
+    "faqs": {
+      "q01": {
+        "question": "Berapa Robux nilai $1.000?",
+        "answer": "263.158 Earned Robux yang memenuhi syarat, pada kurs DevEx saat ini, sebelum biaya penyedia pembayaran atau pajak penghasilan apa pun. Ini adalah Earned Robux, bukan saldo yang dibeli: saldo yang dibeli tidak dapat ditukarkan."
+      },
+      "q02": {
+        "question": "Bisakah pembayaran DevEx sebesar $1.000 diajukan?",
+        "answer": "Bisa, setelah saldonya tersedia. 263.158 melewati jumlah minimum {minimumRobux} yang didokumentasikan. Melewatinya tidak sama dengan disetujui: Roblox meninjau setiap permintaan."
+      },
+      "q03": {
+        "question": "Apakah kurs mengubah berapa Robux yang dibutuhkan untuk $1.000?",
+        "answer": "Ya. Pada kurs lama {rateLegacy}, $1.000 yang sama membutuhkan 22.557 Earned Robux lebih banyak, dan saldo yang memenuhi syarat kurs AS 18+ membutuhkan 77.972 lebih sedikit. Roblox, bukan kreator, yang memutuskan kurs mana yang berlaku untuk bagian mana dari sebuah saldo."
+      }
+    },
+    "links": {
+      "conversions": "target di kedua sisi $1.000",
+      "usdToRobux": "menghitung mundur dari pembayaran selain $1.000",
+      "devexRequirements": "apakah $1.000 melewati jumlah minimum {minimumRobux}",
+      "conversions.500UsdToRobux": "$500 ke Robux",
+      "conversions.2500UsdToRobux": "$2.500 ke Robux"
+    }
+  },
+  "conversions.2500UsdToRobux": {
+    "title": "$2.500 ke Robux: Earned Robux untuk pembayaran DevEx",
+    "metaDescription": "Pembayaran DevEx sebesar $2.500 membutuhkan sekitar 657.895 Earned Robux yang memenuhi syarat pada kurs saat ini. Dibandingkan dengan kurs lama dan kurs AS 18+.",
+    "h1": "$2.500 ke Robux",
+    "navLabel": "pembayaran $2.500",
+    "quickAnswer": "Pembayaran DevEx sebesar $2.500 membutuhkan 657.895 Earned Robux yang memenuhi syarat pada kurs saat ini, yaitu {rateStandard} USD per Robux. Pada kurs lama {rateLegacy}, pembayaran yang sama membutuhkan 56.391 lebih banyak. 2.500 dolar sudah melewati titik di mana satu saldo menutupinya dengan nyaman bagi kebanyakan kreator, sehingga pembacaan yang berguna bukanlah angka tunggalnya melainkan berapa siklus pencairan yang diwakilinya: lebih dari dua puluh satu kali saldo minimum.",
+    "ogImageAlt": "$2.500 dikonversi menjadi saldo Earned Robux yang dibutuhkan sebuah pembayaran DevEx.",
+    "sections": {
+      "requirement": "Earned Robux yang dibutuhkan untuk $2.500",
+      "rate-comparison": "Pada ketiga kurs",
+      "context": "Mengapa target ini penting",
+      "minimum": "Perbandingannya dengan jumlah minimum",
+      "nearby": "Target di sekitarnya"
+    },
+    "faqs": {
+      "q01": {
+        "question": "Berapa Robux nilai $2.500?",
+        "answer": "657.895 Earned Robux yang memenuhi syarat, pada kurs DevEx saat ini, sebelum biaya penyedia pembayaran atau pajak penghasilan apa pun. Ini adalah Earned Robux, bukan saldo yang dibeli: saldo yang dibeli tidak dapat ditukarkan."
+      },
+      "q02": {
+        "question": "Bisakah pembayaran DevEx sebesar $2.500 diajukan?",
+        "answer": "Bisa, setelah saldonya tersedia. 657.895 melewati jumlah minimum {minimumRobux} yang didokumentasikan. Melewatinya tidak sama dengan disetujui: Roblox meninjau setiap permintaan."
+      },
+      "q03": {
+        "question": "Apakah kurs mengubah berapa Robux yang dibutuhkan untuk $2.500?",
+        "answer": "Ya. Pada kurs lama {rateLegacy}, $2.500 yang sama membutuhkan 56.391 Earned Robux lebih banyak, dan saldo yang memenuhi syarat kurs AS 18+ membutuhkan 194.932 lebih sedikit. Roblox, bukan kreator, yang memutuskan kurs mana yang berlaku untuk bagian mana dari sebuah saldo."
+      }
+    },
+    "links": {
+      "conversions": "target di kedua sisi $2.500",
+      "usdToRobux": "menghitung mundur dari pembayaran selain $2.500",
+      "devexRequirements": "apakah $2.500 melewati jumlah minimum {minimumRobux}",
+      "conversions.1000UsdToRobux": "$1.000 ke Robux",
+      "conversions.5000UsdToRobux": "$5.000 ke Robux"
+    }
+  },
+  "conversions.5000UsdToRobux": {
+    "title": "$5.000 ke Robux: Earned Robux untuk pembayaran DevEx",
+    "metaDescription": "Pembayaran DevEx sebesar $5.000 membutuhkan sekitar 1.315.790 Earned Robux yang memenuhi syarat pada kurs saat ini. Dibandingkan dengan kurs lama dan kurs AS 18+.",
+    "h1": "$5.000 ke Robux",
+    "navLabel": "pembayaran $5.000",
+    "quickAnswer": "Pembayaran DevEx sebesar $5.000 membutuhkan 1.315.790 Earned Robux yang memenuhi syarat pada kurs saat ini, yaitu {rateStandard} USD per Robux. Pada kurs lama {rateLegacy}, pembayaran yang sama membutuhkan 112.782 lebih banyak. 5.000 dolar adalah titik di mana kurs AS 18+ membuat perbedaan terbesar dalam daftar ini. Lima ribu dolar yang sama membutuhkan 389.864 Earned Robux lebih sedikit jika saldonya memenuhi syarat kurs tersebut dibandingkan jika dibayar pada kurs standar, dan Roblox, bukan kreator, yang memutuskan mana yang berlaku.",
+    "ogImageAlt": "$5.000 dikonversi menjadi saldo Earned Robux yang dibutuhkan sebuah pembayaran DevEx.",
+    "sections": {
+      "requirement": "Earned Robux yang dibutuhkan untuk $5.000",
+      "rate-comparison": "Pada ketiga kurs",
+      "context": "Mengapa target ini penting",
+      "minimum": "Perbandingannya dengan jumlah minimum",
+      "nearby": "Target di sekitarnya"
+    },
+    "faqs": {
+      "q01": {
+        "question": "Berapa Robux nilai $5.000?",
+        "answer": "1.315.790 Earned Robux yang memenuhi syarat, pada kurs DevEx saat ini, sebelum biaya penyedia pembayaran atau pajak penghasilan apa pun. Ini adalah Earned Robux, bukan saldo yang dibeli: saldo yang dibeli tidak dapat ditukarkan."
+      },
+      "q02": {
+        "question": "Bisakah pembayaran DevEx sebesar $5.000 diajukan?",
+        "answer": "Bisa, setelah saldonya tersedia. 1.315.790 melewati jumlah minimum {minimumRobux} yang didokumentasikan. Melewatinya tidak sama dengan disetujui: Roblox meninjau setiap permintaan."
+      },
+      "q03": {
+        "question": "Apakah kurs mengubah berapa Robux yang dibutuhkan untuk $5.000?",
+        "answer": "Ya. Pada kurs lama {rateLegacy}, $5.000 yang sama membutuhkan 112.782 Earned Robux lebih banyak, dan saldo yang memenuhi syarat kurs AS 18+ membutuhkan 389.864 lebih sedikit. Roblox, bukan kreator, yang memutuskan kurs mana yang berlaku untuk bagian mana dari sebuah saldo."
+      }
+    },
+    "links": {
+      "conversions": "target di kedua sisi $5.000",
+      "usdToRobux": "menghitung mundur dari pembayaran selain $5.000",
+      "devexRequirements": "apakah $5.000 melewati jumlah minimum {minimumRobux}",
+      "conversions.2500UsdToRobux": "$2.500 ke Robux",
+      "conversions.1000UsdToRobux": "$1.000 ke Robux"
+    }
+  },
   "corrections": {
     "title": "Kebijakan koreksi",
     "metaDescription": "Cara melaporkan kekeliruan di situs ini, apa yang terjadi ketika sebuah kurs atau persyaratan ternyata salah, dan di mana koreksinya dicatat.",

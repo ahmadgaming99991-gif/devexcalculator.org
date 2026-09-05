@@ -1,20 +1,20 @@
 {
   "datasetExportedAt": "2026-08-17T14:15:54Z",
   "datasetDigest": "10BA8579C2157BE1CD28874F99E9F448",
-  "edgeCount": 160,
-  "nodeCount": 36,
+  "edgeCount": 190,
+  "nodeCount": 42,
   "orphans": [],
   "brokenTargets": [],
   "overusedAnchors": [],
   "inboundCounts": {
     "/": 21,
     "/robux-to-usd/": 12,
-    "/usd-to-robux/": 3,
+    "/usd-to-robux/": 9,
     "/devex-rates/": 18,
     "/platform/": 1,
     "/platform/stock/": 1,
     "/roblox-stats/": 3,
-    "/devex-requirements/": 6,
+    "/devex-requirements/": 12,
     "/earned-robux/": 7,
     "/how-to-cash-out-robux/": 6,
     "/devex-rate-history/": 4,
@@ -22,7 +22,7 @@
     "/robux-tax-calculator/": 3,
     "/calculators/": 3,
     "/guides/": 1,
-    "/conversions/": 10,
+    "/conversions/": 16,
     "/about/": 5,
     "/methodology/": 6,
     "/sources/": 9,
@@ -42,7 +42,13 @@
     "/conversions/300000-robux-to-usd/": 2,
     "/conversions/500000-robux-to-usd/": 3,
     "/conversions/1000000-robux-to-usd/": 2,
-    "/conversions/10000000-robux-to-usd/": 1
+    "/conversions/10000000-robux-to-usd/": 1,
+    "/conversions/100-usd-to-robux/": 1,
+    "/conversions/250-usd-to-robux/": 2,
+    "/conversions/500-usd-to-robux/": 3,
+    "/conversions/1000-usd-to-robux/": 3,
+    "/conversions/2500-usd-to-robux/": 2,
+    "/conversions/5000-usd-to-robux/": 1
   },
   "edges": [
     {
@@ -1003,6 +1009,186 @@
       "from": "/conversions/10000000-robux-to-usd/",
       "to": "/conversions/500000-robux-to-usd/",
       "anchor": "500,000 Robux to USD",
+      "relationship": "sibling"
+    },
+    {
+      "from": "/conversions/100-usd-to-robux/",
+      "to": "/conversions/",
+      "anchor": "the targets either side of $100",
+      "relationship": "parent"
+    },
+    {
+      "from": "/conversions/100-usd-to-robux/",
+      "to": "/usd-to-robux/",
+      "anchor": "work back from a payout other than $100",
+      "relationship": "tool"
+    },
+    {
+      "from": "/conversions/100-usd-to-robux/",
+      "to": "/devex-requirements/",
+      "anchor": "whether $100 clears the 30,000 minimum",
+      "relationship": "prerequisite"
+    },
+    {
+      "from": "/conversions/100-usd-to-robux/",
+      "to": "/conversions/250-usd-to-robux/",
+      "anchor": "$250 to Robux",
+      "relationship": "sibling"
+    },
+    {
+      "from": "/conversions/100-usd-to-robux/",
+      "to": "/conversions/500-usd-to-robux/",
+      "anchor": "$500 to Robux",
+      "relationship": "sibling"
+    },
+    {
+      "from": "/conversions/250-usd-to-robux/",
+      "to": "/conversions/",
+      "anchor": "the targets either side of $250",
+      "relationship": "parent"
+    },
+    {
+      "from": "/conversions/250-usd-to-robux/",
+      "to": "/usd-to-robux/",
+      "anchor": "work back from a payout other than $250",
+      "relationship": "tool"
+    },
+    {
+      "from": "/conversions/250-usd-to-robux/",
+      "to": "/devex-requirements/",
+      "anchor": "whether $250 clears the 30,000 minimum",
+      "relationship": "prerequisite"
+    },
+    {
+      "from": "/conversions/250-usd-to-robux/",
+      "to": "/conversions/100-usd-to-robux/",
+      "anchor": "$100 to Robux",
+      "relationship": "sibling"
+    },
+    {
+      "from": "/conversions/250-usd-to-robux/",
+      "to": "/conversions/500-usd-to-robux/",
+      "anchor": "$500 to Robux",
+      "relationship": "sibling"
+    },
+    {
+      "from": "/conversions/500-usd-to-robux/",
+      "to": "/conversions/",
+      "anchor": "the targets either side of $500",
+      "relationship": "parent"
+    },
+    {
+      "from": "/conversions/500-usd-to-robux/",
+      "to": "/usd-to-robux/",
+      "anchor": "work back from a payout other than $500",
+      "relationship": "tool"
+    },
+    {
+      "from": "/conversions/500-usd-to-robux/",
+      "to": "/devex-requirements/",
+      "anchor": "whether $500 clears the 30,000 minimum",
+      "relationship": "prerequisite"
+    },
+    {
+      "from": "/conversions/500-usd-to-robux/",
+      "to": "/conversions/250-usd-to-robux/",
+      "anchor": "$250 to Robux",
+      "relationship": "sibling"
+    },
+    {
+      "from": "/conversions/500-usd-to-robux/",
+      "to": "/conversions/1000-usd-to-robux/",
+      "anchor": "$1,000 to Robux",
+      "relationship": "sibling"
+    },
+    {
+      "from": "/conversions/1000-usd-to-robux/",
+      "to": "/conversions/",
+      "anchor": "the targets either side of $1,000",
+      "relationship": "parent"
+    },
+    {
+      "from": "/conversions/1000-usd-to-robux/",
+      "to": "/usd-to-robux/",
+      "anchor": "work back from a payout other than $1,000",
+      "relationship": "tool"
+    },
+    {
+      "from": "/conversions/1000-usd-to-robux/",
+      "to": "/devex-requirements/",
+      "anchor": "whether $1,000 clears the 30,000 minimum",
+      "relationship": "prerequisite"
+    },
+    {
+      "from": "/conversions/1000-usd-to-robux/",
+      "to": "/conversions/500-usd-to-robux/",
+      "anchor": "$500 to Robux",
+      "relationship": "sibling"
+    },
+    {
+      "from": "/conversions/1000-usd-to-robux/",
+      "to": "/conversions/2500-usd-to-robux/",
+      "anchor": "$2,500 to Robux",
+      "relationship": "sibling"
+    },
+    {
+      "from": "/conversions/2500-usd-to-robux/",
+      "to": "/conversions/",
+      "anchor": "the targets either side of $2,500",
+      "relationship": "parent"
+    },
+    {
+      "from": "/conversions/2500-usd-to-robux/",
+      "to": "/usd-to-robux/",
+      "anchor": "work back from a payout other than $2,500",
+      "relationship": "tool"
+    },
+    {
+      "from": "/conversions/2500-usd-to-robux/",
+      "to": "/devex-requirements/",
+      "anchor": "whether $2,500 clears the 30,000 minimum",
+      "relationship": "prerequisite"
+    },
+    {
+      "from": "/conversions/2500-usd-to-robux/",
+      "to": "/conversions/1000-usd-to-robux/",
+      "anchor": "$1,000 to Robux",
+      "relationship": "sibling"
+    },
+    {
+      "from": "/conversions/2500-usd-to-robux/",
+      "to": "/conversions/5000-usd-to-robux/",
+      "anchor": "$5,000 to Robux",
+      "relationship": "sibling"
+    },
+    {
+      "from": "/conversions/5000-usd-to-robux/",
+      "to": "/conversions/",
+      "anchor": "the targets either side of $5,000",
+      "relationship": "parent"
+    },
+    {
+      "from": "/conversions/5000-usd-to-robux/",
+      "to": "/usd-to-robux/",
+      "anchor": "work back from a payout other than $5,000",
+      "relationship": "tool"
+    },
+    {
+      "from": "/conversions/5000-usd-to-robux/",
+      "to": "/devex-requirements/",
+      "anchor": "whether $5,000 clears the 30,000 minimum",
+      "relationship": "prerequisite"
+    },
+    {
+      "from": "/conversions/5000-usd-to-robux/",
+      "to": "/conversions/2500-usd-to-robux/",
+      "anchor": "$2,500 to Robux",
+      "relationship": "sibling"
+    },
+    {
+      "from": "/conversions/5000-usd-to-robux/",
+      "to": "/conversions/1000-usd-to-robux/",
+      "anchor": "$1,000 to Robux",
       "relationship": "sibling"
     }
   ]

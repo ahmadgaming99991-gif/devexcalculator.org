@@ -492,7 +492,10 @@
       "notRoundNumbers": "Die Liste ist keine Auswahl runder Zahlen: Es sind die Beträge, nach denen tatsächlich gesucht wird. Alles, was nicht hier steht — auch Zahlen jenseits der letzten Tabellenzeile — gehört in den Umrechner oben, der dieselben Sätze und dieselbe Arithmetik verwendet."
     },
     "multipleOfMinimum": "{multiple}× des DevEx-Mindestbetrags",
-    "belowMinimum": "Unter dem DevEx-Mindestbetrag"
+    "belowMinimum": "Unter dem DevEx-Mindestbetrag",
+    "targetsHeading": "Von einem Auszahlungsziel ausgehen",
+    "targetsDescription": "Das anrechenbare Earned-Robux-Guthaben, das jede Auszahlung zum aktuellen Kurs benötigen würde.",
+    "robuxNeeded": "Benötigte Earned Robux"
   },
   "amountPage": {
     "jumpLabel": "Alle drei Kurse vergleichen",
@@ -545,5 +548,49 @@
     "rateTableCaption": "Auszahlung für {display} Earned Robux zu jedem dokumentierten DevEx-Satz",
     "faqHeading": "Fragen zu {display} Robux",
     "notYetMore": "Noch nicht — {shortfall} fehlen"
+  },
+  "usdPage": {
+    "intro": "Was eine Auszahlung aus dem Developer Exchange von {display} an anrechenbaren Earned Robux benötigt, zu jedem der drei von Roblox dokumentierten Kurse.",
+    "headlineHeading": "Benötigte Earned Robux für {display}",
+    "headlineDescription": "Zum aktuellen Standardkurs, aufgerundet auf ganze Robux.",
+    "neededLabel": "Benötigte anrechenbare Earned Robux für {display}",
+    "clearsMinimum": "Das ist das {multiple}-Fache des Mindestbetrags von {minimum}, den Roblox verlangt, bevor ein Antrag gestellt werden kann.",
+    "belowMinimum": "Das liegt um {shortfall} unter dem von Roblox verlangten Mindestbetrag von {minimum}. Eine Auszahlung dieser Größe lässt sich für sich allein nicht beantragen.",
+    "allThreeDescription": "Roblox entscheidet, welcher Kurs für welchen Teil eines Guthabens gilt. Hier steht, was jeder Kurs für dieselbe Auszahlung verlangen würde.",
+    "columnRobuxNeeded": "Benötigte Earned Robux",
+    "contextHeading": "Warum dieses Ziel wichtig ist",
+    "minimumHeading": "Wie sich das zum Mindestbetrag verhält",
+    "minimumDescription": "Roblox verlangt {minimum} anrechenbare Earned Robux, bevor überhaupt ein DevEx-Antrag gestellt werden kann.",
+    "aboveMinimumBody": "Eine Auszahlung von {display} benötigt {needed} anrechenbare Earned Robux, das {multiple}-Fache des Mindestbetrags von {minimum}. Den Mindestbetrag zu erreichen ist nicht dasselbe wie eine Genehmigung: Roblox prüft jeden Antrag und entscheidet, welcher Kurs für welchen Teil eines Guthabens gilt.",
+    "belowMinimumBody": "Eine Auszahlung von {display} entspricht {needed} anrechenbaren Earned Robux und liegt damit {shortfall} unter den {minimum}, die Roblox verlangt. Die kleinste Auszahlung, die das Programm hervorbringen kann, ist der Wert genau dieses Mindestguthabens, {smallest}.",
+    "rateTableLabel": "Benötigte Earned Robux für {display} je Kurs",
+    "rateTableCaption": "Anrechenbare Earned Robux, die eine Auszahlung von {display} je Kurs benötigt.",
+    "nearbyHeading": "Benachbarte Ziele",
+    "nearbyDescription": "Die Auszahlungsziele zu beiden Seiten dieses Ziels, mit dem jeweils benötigten Guthaben.",
+    "faqHeading": "Fragen zu einer Auszahlung von {display}",
+    "body": {
+      "requirement": {
+        "p1": "Dieses Ziel im Rechner öffnen"
+      },
+      "rateComparison": {
+        "p1": "Der ältere Kurs benötigt für dieselbe Auszahlung {legacyExtra} Earned Robux mehr, und ein Guthaben, das für den USA-18+-Kurs infrage kommt, benötigt {us18Saved} weniger.",
+        "p2": "wie jeder Kurs dokumentiert ist"
+      },
+      "minimum": {
+        "p1": "Was Roblox verlangt, bevor ein Antrag gestellt werden kann"
+      },
+      "nearby": {
+        "p1": "alle Beträge und Ziele auf einer Seite",
+        "p2": "von einer beliebigen Auszahlung zurückrechnen"
+      }
+    },
+    "context": {
+      "usd100": "100 Dollar liegen unter der kleinsten Auszahlung, die der Developer Exchange hervorbringen kann. Das zugehörige Guthaben liegt unter den {minimumRobux} Earned Robux, die Roblox verlangt, bevor überhaupt ein Antrag gestellt werden kann. Die ehrliche Antwort ist hier deshalb keine Umrechnung, sondern eine Schwelle: die kleinste verfügbare erste Auszahlung ist der Wert des Mindestguthabens selbst.",
+      "usd250": "250 Dollar sind das erste Ziel dieser Liste, das eine einzelne Auszahlung tatsächlich erreichen kann. Es liegt etwas über dem Doppelten des Mindestguthabens, und darum ist es meist die Zahl, die genannt wird, sobald eine Erfahrung stetig und nicht mehr nur gelegentlich Einnahmen bringt.",
+      "usd500": "Ab 500 Dollar sind die Abzüge keine Rundungsfehler mehr. In dieser Größenordnung lohnt es sich, einen Prozentsatz des Zahlungsdienstleisters und eine Einkommensteuerschätzung einzugeben statt sie zu ignorieren – deshalb verweist diese Seite direkt auf den Leitfaden zu Gebühren und Steuern, statt die Bruttozahl allein stehen zu lassen.",
+      "usd1000": "Tausend Dollar ist die runde Zahl, mit der Creator planen. Sie ist etwas weniger als das Neunfache der kleinsten Auszahlung, die das Programm hervorbringen kann, und genau so liest man sie am sinnvollsten: die meisten erreichen diese Summe über mehrere Auszahlungen hinweg und nicht mit einem einzigen Guthaben, das sie abdeckt.",
+      "usd2500": "2.500 Dollar liegen jenseits des Punktes, an dem ein einzelnes Guthaben das für die meisten Creator bequem abdeckt. Sinnvoll ist deshalb nicht die einzelne Zahl, sondern wie viele Auszahlungszyklen sie darstellt: mehr als das Einundzwanzigfache des Mindestguthabens.",
+      "usd5000": "Bei 5.000 Dollar macht der qualifizierende USA-18+-Kurs in dieser Liste den größten Unterschied. Dieselben fünftausend Dollar benötigen 389.864 Earned Robux weniger, wenn das Guthaben für diesen Kurs infrage kommt, als wenn es zum Standardkurs ausgezahlt wird – und Roblox entscheidet, nicht der Creator, welcher gilt."
+    }
   }
 }

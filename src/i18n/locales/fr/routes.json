@@ -471,6 +471,222 @@
       "conversions.1000000RobuxToUsd": "1 000 000 Robux en USD"
     }
   },
+  "conversions.100UsdToRobux": {
+    "title": "100 $ en Robux : Earned Robux pour un paiement DevEx",
+    "metaDescription": "100 $ est inférieur au plus petit paiement DevEx possible. Roblox exige {minimumRobux} Earned Robux avant qu'une demande puisse être envoyée.",
+    "h1": "100 $ en Robux",
+    "navLabel": "paiement de 100 $",
+    "quickAnswer": "100 $ ne peut pas être encaissé seul. Roblox exige {minimumRobux} Earned Robux éligibles avant qu'une demande DevEx puisse être envoyée, et 100 $ correspond au taux actuel de {rateStandard} à 26 316, soit en dessous de ce seuil. 100 dollars, c'est en dessous du plus petit paiement que le Developer Exchange puisse produire. Le solde correspondant est inférieur aux {minimumRobux} Earned Robux que Roblox exige avant qu'une demande puisse seulement être envoyée : la réponse honnête ici n'est donc pas une conversion mais un seuil, et le plus petit premier paiement disponible est la valeur du solde minimum lui-même.",
+    "ogImageAlt": "100 $ converti en solde d'Earned Robux qu'un paiement DevEx nécessiterait.",
+    "sections": {
+      "requirement": "Earned Robux nécessaires pour 100 $",
+      "rate-comparison": "Aux trois taux",
+      "context": "Pourquoi cet objectif compte",
+      "minimum": "Comparaison avec le minimum",
+      "nearby": "Objectifs voisins"
+    },
+    "faqs": {
+      "q01": {
+        "question": "Combien de Robux représente 100 $ ?",
+        "answer": "26 316 Earned Robux éligibles vaudraient 100 $ au taux DevEx actuel, mais c'est en dessous du minimum de {minimumRobux}, donc cela ne peut pas être demandé en paiement."
+      },
+      "q02": {
+        "question": "Un paiement DevEx de 100 $ peut-il être demandé ?",
+        "answer": "Non. Roblox exige {minimumRobux} Earned Robux éligibles avant qu'une demande DevEx puisse être envoyée, ce qui dépasse ce à quoi correspond un paiement de 100 $."
+      },
+      "q03": {
+        "question": "Le taux change-t-il la quantité de Robux nécessaire pour 100 $ ?",
+        "answer": "Oui. À l'ancien taux de {rateLegacy}, le même montant de 100 $ nécessite 2 256 Earned Robux de plus, et un solde éligible au taux États-Unis 18+ en nécessite 7 797 de moins. C'est Roblox, et non le créateur, qui décide quel taux s'applique à quelle partie d'un solde."
+      }
+    },
+    "links": {
+      "conversions": "les objectifs de part et d'autre de 100 $",
+      "usdToRobux": "partir d'un paiement autre que 100 $",
+      "devexRequirements": "si 100 $ atteint le minimum de {minimumRobux}",
+      "conversions.250UsdToRobux": "250 $ en Robux",
+      "conversions.500UsdToRobux": "500 $ en Robux"
+    }
+  },
+  "conversions.250UsdToRobux": {
+    "title": "250 $ en Robux : Earned Robux pour un paiement DevEx",
+    "metaDescription": "Un paiement DevEx de 250 $ nécessite environ 65 790 Earned Robux éligibles au taux actuel. Comparé aux taux ancien et États-Unis 18+.",
+    "h1": "250 $ en Robux",
+    "navLabel": "paiement de 250 $",
+    "quickAnswer": "Un paiement DevEx de 250 $ nécessite 65 790 Earned Robux éligibles au taux actuel de {rateStandard} USD par Robux. À l'ancien taux de {rateLegacy}, le même paiement en nécessite 5 639 de plus. 250 dollars est le premier objectif de cette liste qu'un seul encaissement peut réellement atteindre. Il se situe un peu au-dessus du double du solde minimum, ce qui explique qu'il soit souvent le chiffre cité une fois qu'une expérience commence à rapporter régulièrement plutôt qu'occasionnellement.",
+    "ogImageAlt": "250 $ converti en solde d'Earned Robux qu'un paiement DevEx nécessiterait.",
+    "sections": {
+      "requirement": "Earned Robux nécessaires pour 250 $",
+      "rate-comparison": "Aux trois taux",
+      "context": "Pourquoi cet objectif compte",
+      "minimum": "Comparaison avec le minimum",
+      "nearby": "Objectifs voisins"
+    },
+    "faqs": {
+      "q01": {
+        "question": "Combien de Robux représente 250 $ ?",
+        "answer": "65 790 Earned Robux éligibles, au taux DevEx actuel, avant tout frais de prestataire de paiement ou impôt sur le revenu. Il s'agit d'Earned Robux, pas d'un solde acheté : un solde acheté ne peut pas être échangé."
+      },
+      "q02": {
+        "question": "Un paiement DevEx de 250 $ peut-il être demandé ?",
+        "answer": "Oui, une fois le solde atteint. 65 790 dépasse le minimum documenté de {minimumRobux}. Le dépasser n'équivaut pas à être approuvé : Roblox examine chaque demande."
+      },
+      "q03": {
+        "question": "Le taux change-t-il la quantité de Robux nécessaire pour 250 $ ?",
+        "answer": "Oui. À l'ancien taux de {rateLegacy}, le même montant de 250 $ nécessite 5 639 Earned Robux de plus, et un solde éligible au taux États-Unis 18+ en nécessite 19 493 de moins. C'est Roblox, et non le créateur, qui décide quel taux s'applique à quelle partie d'un solde."
+      }
+    },
+    "links": {
+      "conversions": "les objectifs de part et d'autre de 250 $",
+      "usdToRobux": "partir d'un paiement autre que 250 $",
+      "devexRequirements": "si 250 $ atteint le minimum de {minimumRobux}",
+      "conversions.100UsdToRobux": "100 $ en Robux",
+      "conversions.500UsdToRobux": "500 $ en Robux"
+    }
+  },
+  "conversions.500UsdToRobux": {
+    "title": "500 $ en Robux : Earned Robux pour un paiement DevEx",
+    "metaDescription": "Un paiement DevEx de 500 $ nécessite environ 131 579 Earned Robux éligibles au taux actuel. Comparé aux taux ancien et États-Unis 18+.",
+    "h1": "500 $ en Robux",
+    "navLabel": "paiement de 500 $",
+    "quickAnswer": "Un paiement DevEx de 500 $ nécessite 131 579 Earned Robux éligibles au taux actuel de {rateStandard} USD par Robux. À l'ancien taux de {rateLegacy}, le même paiement en nécessite 11 279 de plus. À partir de 500 dollars, les déductions cessent d'être négligeables. À cette échelle, il vaut la peine de saisir un pourcentage de prestataire de paiement et une estimation d'impôt sur le revenu plutôt que de les ignorer : c'est pourquoi cette page renvoie directement au guide des frais et impôts au lieu de laisser le montant brut seul.",
+    "ogImageAlt": "500 $ converti en solde d'Earned Robux qu'un paiement DevEx nécessiterait.",
+    "sections": {
+      "requirement": "Earned Robux nécessaires pour 500 $",
+      "rate-comparison": "Aux trois taux",
+      "context": "Pourquoi cet objectif compte",
+      "minimum": "Comparaison avec le minimum",
+      "nearby": "Objectifs voisins"
+    },
+    "faqs": {
+      "q01": {
+        "question": "Combien de Robux représente 500 $ ?",
+        "answer": "131 579 Earned Robux éligibles, au taux DevEx actuel, avant tout frais de prestataire de paiement ou impôt sur le revenu. Il s'agit d'Earned Robux, pas d'un solde acheté : un solde acheté ne peut pas être échangé."
+      },
+      "q02": {
+        "question": "Un paiement DevEx de 500 $ peut-il être demandé ?",
+        "answer": "Oui, une fois le solde atteint. 131 579 dépasse le minimum documenté de {minimumRobux}. Le dépasser n'équivaut pas à être approuvé : Roblox examine chaque demande."
+      },
+      "q03": {
+        "question": "Le taux change-t-il la quantité de Robux nécessaire pour 500 $ ?",
+        "answer": "Oui. À l'ancien taux de {rateLegacy}, le même montant de 500 $ nécessite 11 279 Earned Robux de plus, et un solde éligible au taux États-Unis 18+ en nécessite 38 986 de moins. C'est Roblox, et non le créateur, qui décide quel taux s'applique à quelle partie d'un solde."
+      }
+    },
+    "links": {
+      "conversions": "les objectifs de part et d'autre de 500 $",
+      "usdToRobux": "partir d'un paiement autre que 500 $",
+      "devexRequirements": "si 500 $ atteint le minimum de {minimumRobux}",
+      "conversions.250UsdToRobux": "250 $ en Robux",
+      "conversions.1000UsdToRobux": "1 000 $ en Robux"
+    }
+  },
+  "conversions.1000UsdToRobux": {
+    "title": "1 000 $ en Robux : Earned Robux pour un paiement DevEx",
+    "metaDescription": "Un paiement DevEx de 1 000 $ nécessite environ 263 158 Earned Robux éligibles au taux actuel. Comparé aux taux ancien et États-Unis 18+.",
+    "h1": "1 000 $ en Robux",
+    "navLabel": "paiement de 1 000 $",
+    "quickAnswer": "Un paiement DevEx de 1 000 $ nécessite 263 158 Earned Robux éligibles au taux actuel de {rateStandard} USD par Robux. À l'ancien taux de {rateLegacy}, le même paiement en nécessite 22 557 de plus. Mille dollars est le chiffre rond autour duquel les créateurs planifient. C'est un peu moins de neuf fois le plus petit paiement que le programme puisse produire, et c'est la lecture la plus utile : la plupart y arrivent sur plusieurs encaissements plutôt qu'avec un solde unique qui le couvre.",
+    "ogImageAlt": "1 000 $ converti en solde d'Earned Robux qu'un paiement DevEx nécessiterait.",
+    "sections": {
+      "requirement": "Earned Robux nécessaires pour 1 000 $",
+      "rate-comparison": "Aux trois taux",
+      "context": "Pourquoi cet objectif compte",
+      "minimum": "Comparaison avec le minimum",
+      "nearby": "Objectifs voisins"
+    },
+    "faqs": {
+      "q01": {
+        "question": "Combien de Robux représente 1 000 $ ?",
+        "answer": "263 158 Earned Robux éligibles, au taux DevEx actuel, avant tout frais de prestataire de paiement ou impôt sur le revenu. Il s'agit d'Earned Robux, pas d'un solde acheté : un solde acheté ne peut pas être échangé."
+      },
+      "q02": {
+        "question": "Un paiement DevEx de 1 000 $ peut-il être demandé ?",
+        "answer": "Oui, une fois le solde atteint. 263 158 dépasse le minimum documenté de {minimumRobux}. Le dépasser n'équivaut pas à être approuvé : Roblox examine chaque demande."
+      },
+      "q03": {
+        "question": "Le taux change-t-il la quantité de Robux nécessaire pour 1 000 $ ?",
+        "answer": "Oui. À l'ancien taux de {rateLegacy}, le même montant de 1 000 $ nécessite 22 557 Earned Robux de plus, et un solde éligible au taux États-Unis 18+ en nécessite 77 972 de moins. C'est Roblox, et non le créateur, qui décide quel taux s'applique à quelle partie d'un solde."
+      }
+    },
+    "links": {
+      "conversions": "les objectifs de part et d'autre de 1 000 $",
+      "usdToRobux": "partir d'un paiement autre que 1 000 $",
+      "devexRequirements": "si 1 000 $ atteint le minimum de {minimumRobux}",
+      "conversions.500UsdToRobux": "500 $ en Robux",
+      "conversions.2500UsdToRobux": "2 500 $ en Robux"
+    }
+  },
+  "conversions.2500UsdToRobux": {
+    "title": "2 500 $ en Robux : Earned Robux pour un paiement DevEx",
+    "metaDescription": "Un paiement DevEx de 2 500 $ nécessite environ 657 895 Earned Robux éligibles au taux actuel. Comparé aux taux ancien et États-Unis 18+.",
+    "h1": "2 500 $ en Robux",
+    "navLabel": "paiement de 2 500 $",
+    "quickAnswer": "Un paiement DevEx de 2 500 $ nécessite 657 895 Earned Robux éligibles au taux actuel de {rateStandard} USD par Robux. À l'ancien taux de {rateLegacy}, le même paiement en nécessite 56 391 de plus. 2 500 dollars dépasse le point où un seul solde le couvre confortablement pour la plupart des créateurs. La lecture utile n'est donc pas le chiffre isolé mais le nombre de cycles d'encaissement qu'il représente : plus de vingt et une fois le solde minimum.",
+    "ogImageAlt": "2 500 $ converti en solde d'Earned Robux qu'un paiement DevEx nécessiterait.",
+    "sections": {
+      "requirement": "Earned Robux nécessaires pour 2 500 $",
+      "rate-comparison": "Aux trois taux",
+      "context": "Pourquoi cet objectif compte",
+      "minimum": "Comparaison avec le minimum",
+      "nearby": "Objectifs voisins"
+    },
+    "faqs": {
+      "q01": {
+        "question": "Combien de Robux représente 2 500 $ ?",
+        "answer": "657 895 Earned Robux éligibles, au taux DevEx actuel, avant tout frais de prestataire de paiement ou impôt sur le revenu. Il s'agit d'Earned Robux, pas d'un solde acheté : un solde acheté ne peut pas être échangé."
+      },
+      "q02": {
+        "question": "Un paiement DevEx de 2 500 $ peut-il être demandé ?",
+        "answer": "Oui, une fois le solde atteint. 657 895 dépasse le minimum documenté de {minimumRobux}. Le dépasser n'équivaut pas à être approuvé : Roblox examine chaque demande."
+      },
+      "q03": {
+        "question": "Le taux change-t-il la quantité de Robux nécessaire pour 2 500 $ ?",
+        "answer": "Oui. À l'ancien taux de {rateLegacy}, le même montant de 2 500 $ nécessite 56 391 Earned Robux de plus, et un solde éligible au taux États-Unis 18+ en nécessite 194 932 de moins. C'est Roblox, et non le créateur, qui décide quel taux s'applique à quelle partie d'un solde."
+      }
+    },
+    "links": {
+      "conversions": "les objectifs de part et d'autre de 2 500 $",
+      "usdToRobux": "partir d'un paiement autre que 2 500 $",
+      "devexRequirements": "si 2 500 $ atteint le minimum de {minimumRobux}",
+      "conversions.1000UsdToRobux": "1 000 $ en Robux",
+      "conversions.5000UsdToRobux": "5 000 $ en Robux"
+    }
+  },
+  "conversions.5000UsdToRobux": {
+    "title": "5 000 $ en Robux : Earned Robux pour un paiement DevEx",
+    "metaDescription": "Un paiement DevEx de 5 000 $ nécessite environ 1 315 790 Earned Robux éligibles au taux actuel. Comparé aux taux ancien et États-Unis 18+.",
+    "h1": "5 000 $ en Robux",
+    "navLabel": "paiement de 5 000 $",
+    "quickAnswer": "Un paiement DevEx de 5 000 $ nécessite 1 315 790 Earned Robux éligibles au taux actuel de {rateStandard} USD par Robux. À l'ancien taux de {rateLegacy}, le même paiement en nécessite 112 782 de plus. 5 000 dollars est le montant où le taux États-Unis 18+ fait la plus grande différence de cette liste. Ces mêmes cinq mille dollars nécessitent 389 864 Earned Robux de moins si le solde est éligible à ce taux que s'il est payé au taux standard, et c'est Roblox, et non le créateur, qui décide lequel s'applique.",
+    "ogImageAlt": "5 000 $ converti en solde d'Earned Robux qu'un paiement DevEx nécessiterait.",
+    "sections": {
+      "requirement": "Earned Robux nécessaires pour 5 000 $",
+      "rate-comparison": "Aux trois taux",
+      "context": "Pourquoi cet objectif compte",
+      "minimum": "Comparaison avec le minimum",
+      "nearby": "Objectifs voisins"
+    },
+    "faqs": {
+      "q01": {
+        "question": "Combien de Robux représente 5 000 $ ?",
+        "answer": "1 315 790 Earned Robux éligibles, au taux DevEx actuel, avant tout frais de prestataire de paiement ou impôt sur le revenu. Il s'agit d'Earned Robux, pas d'un solde acheté : un solde acheté ne peut pas être échangé."
+      },
+      "q02": {
+        "question": "Un paiement DevEx de 5 000 $ peut-il être demandé ?",
+        "answer": "Oui, une fois le solde atteint. 1 315 790 dépasse le minimum documenté de {minimumRobux}. Le dépasser n'équivaut pas à être approuvé : Roblox examine chaque demande."
+      },
+      "q03": {
+        "question": "Le taux change-t-il la quantité de Robux nécessaire pour 5 000 $ ?",
+        "answer": "Oui. À l'ancien taux de {rateLegacy}, le même montant de 5 000 $ nécessite 112 782 Earned Robux de plus, et un solde éligible au taux États-Unis 18+ en nécessite 389 864 de moins. C'est Roblox, et non le créateur, qui décide quel taux s'applique à quelle partie d'un solde."
+      }
+    },
+    "links": {
+      "conversions": "les objectifs de part et d'autre de 5 000 $",
+      "usdToRobux": "partir d'un paiement autre que 5 000 $",
+      "devexRequirements": "si 5 000 $ atteint le minimum de {minimumRobux}",
+      "conversions.2500UsdToRobux": "2 500 $ en Robux",
+      "conversions.1000UsdToRobux": "1 000 $ en Robux"
+    }
+  },
   "corrections": {
     "title": "Politique de corrections",
     "metaDescription": "Comment signaler une erreur sur ce site, ce qui se passe quand un taux ou une condition se révèle faux, et où les corrections sont consignées.",

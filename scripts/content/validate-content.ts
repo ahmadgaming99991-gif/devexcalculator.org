@@ -12,7 +12,7 @@ import { indexableRoutes, routeRegistry } from "../../src/lib/content/route-regi
 import { footerNavigationRoutes, primaryNavigationRoutes } from "../../src/config/navigation";
 import { getSource } from "../../src/lib/calculations/rate-registry";
 import { MAX_DESCRIPTION_LENGTH, MAX_TITLE_LENGTH } from "../../src/lib/seo/metadata";
-import { approvedAmountValues } from "../../src/lib/content/amount-pages";
+import { approvedAmountValues, approvedUsdValues } from "../../src/lib/content/amount-pages";
 
 interface Finding {
   readonly level: "error" | "warning";
@@ -152,10 +152,20 @@ for (const record of routeRegistry) {
     if (Number.isNaN(Date.parse(value))) error(route, `${field} is not a valid date.`);
   }
 
-  // Amount pages must correspond to an approved amount.
+  /*
+   * Amount pages must correspond to an approved amount, in either direction.
+   *
+   * The second of two guards that only knew `-robux-to-usd`; the other is in
+   * `src/lib/seo/publish.ts`. Both matched a single direction out of a
+   * `pageType` that now covers two, so the payout-target pages read as six
+   * unapproved amounts while an unapproved target in the new direction would
+   * still have passed.
+   */
   if (record.pageType === "conversion-amount") {
-    const amount = Number(route.match(/(\d+)-robux-to-usd/)?.[1] ?? "0");
-    if (!approvedAmountValues.includes(amount)) {
+    const match = route.match(/(\d+)-(robux-to-usd|usd-to-robux)/);
+    const amount = Number(match?.[1] ?? "0");
+    const approved = match?.[2] === "usd-to-robux" ? approvedUsdValues : approvedAmountValues;
+    if (!approved.includes(amount)) {
       error(route, "Amount page is published for an amount that is not approved.");
     }
   }

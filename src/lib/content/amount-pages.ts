@@ -130,3 +130,176 @@ export function computeAmountValues(amount: number): AmountValues {
       .toFixed(1, "half-up"),
   };
 }
+
+/* -------------------------------------------------------------------------
+ * The other direction.
+ *
+ * Everything above answers "what is this Robux balance worth". These answer
+ * "what balance does this payout need", which is the question a creator
+ * planning a cash-out actually asks and which this site had no page for at
+ * all: eight amount pages existed and every one of them ran Robux to dollars.
+ * Search Console had already recorded the gap - `700 usd to robux`, with
+ * nothing to land on.
+ *
+ * The DevEx minimum is what stops this being the first list mirrored. Roblox
+ * requires 30,000 Earned Robux before a request can be submitted, which at the
+ * standard rate is $114 - so every dollar target below $114 is unreachable as
+ * a first payout, and a page about one has something true and specific to say
+ * rather than a number substituted into a sentence. $100 is here for exactly
+ * that reason.
+ * ---------------------------------------------------------------------- */
+
+export interface UsdPageDefinition {
+  /** The payout target, in whole US dollars. */
+  readonly amount: number;
+  /** Original, amount-specific framing. Never templated boilerplate. */
+  readonly context: string;
+  /** Neighbouring approved targets, for meaningful sibling links. */
+  readonly relatedAmounts: readonly number[];
+}
+
+export const APPROVED_USD_AMOUNTS: readonly UsdPageDefinition[] = [
+  {
+    amount: 100,
+    context:
+      "100 dollars is below the smallest payout the Developer Exchange can produce. The balance it corresponds to is under the {minimumRobux} Earned Robux Roblox requires before a request can be submitted at all, so the honest answer to this one is not a conversion but a threshold: the smallest first payout available is the value of the minimum balance itself.",
+    relatedAmounts: [250, 500],
+  },
+  {
+    amount: 250,
+    context:
+      "250 dollars is the first target on this list that a single cash-out can actually reach. It sits a little over twice the minimum balance, which is why it tends to be the figure a creator names once their experience has started earning steadily rather than occasionally.",
+    relatedAmounts: [100, 500],
+  },
+  {
+    amount: 500,
+    context:
+      "At 500 dollars the deductions stop being rounding errors. A payment-provider percentage and an income-tax estimate are worth entering rather than ignoring at this scale, which is why this page links directly to the fees and taxes guide instead of leaving the gross figure to stand alone.",
+    relatedAmounts: [250, 1_000],
+  },
+  {
+    amount: 1_000,
+    context:
+      "A thousand dollars is the round figure creators plan around. It is a little under nine times the smallest payout the programme can produce, which is the more useful way to read it: most creators arrive at this total over several cash-outs rather than holding one balance that covers it.",
+    relatedAmounts: [500, 2_500],
+  },
+  {
+    amount: 2_500,
+    context:
+      "2,500 dollars is past the point where one balance covers it comfortably for most creators, so the useful reading is not the single number but how many cash-out cycles it represents - it is more than twenty-one times the minimum balance.",
+    relatedAmounts: [1_000, 5_000],
+  },
+  {
+    amount: 5_000,
+    context:
+      "5,000 dollars is where the qualifying U.S. 18+ rate makes its largest difference on this list. The same five thousand dollars needs 389,864 fewer Earned Robux if the balance qualifies for that rate than if it is paid at the standard one - and Roblox, not the creator, decides which applies.",
+    relatedAmounts: [2_500, 1_000],
+  },
+];
+
+export const approvedUsdValues: readonly number[] = APPROVED_USD_AMOUNTS.map((a) => a.amount);
+
+export function findUsdPage(amount: number): UsdPageDefinition | null {
+  return APPROVED_USD_AMOUNTS.find((a) => a.amount === amount) ?? null;
+}
+
+export function usdPageSlug(amount: number): string {
+  return `${amount}-usd-to-robux`;
+}
+
+export function usdPageRoute(amount: number): string {
+  return `/conversions/${usdPageSlug(amount)}/`;
+}
+
+/** Parses a slug back to an approved dollar target, or null if not approved. */
+export function parseUsdSlug(slug: string): number | null {
+  const match = slug.match(/^(\d+)-usd-to-robux$/);
+  if (!match || match[1] === undefined) return null;
+  const amount = Number(match[1]);
+  return approvedUsdValues.includes(amount) ? amount : null;
+}
+
+export interface UsdValues {
+  readonly amount: number;
+  /** The dollar target, formatted. */
+  readonly display: string;
+  /** Earned Robux needed at each rate, rounded up to a whole Robux. */
+  readonly standardRobux: string;
+  readonly legacyRobux: string;
+  readonly us18Robux: string;
+  /** How many more Robux the legacy rate costs for the same payout. */
+  readonly legacyExtraRobux: string;
+  /** How many fewer the qualifying U.S. 18+ rate needs. */
+  readonly us18SavedRobux: string;
+  /** Whether the standard-rate balance clears the documented minimum. */
+  readonly clearsMinimum: boolean;
+  /** The raw standard-rate requirement, for comparisons. */
+  readonly standardRobuxValue: bigint;
+}
+
+/**
+ * Every figure a payout-target page displays, through the shared engine.
+ *
+ * Rounded **up** at every rate, for the reason the calculator's target mode
+ * rounds up: a balance one Robux short of the requirement does not pay the
+ * target, so rounding to nearest would print a number that is sometimes wrong
+ * in the direction that costs the reader money.
+ */
+export function computeUsdValues(amount: number): UsdValues {
+  const usd = Rational.fromInt(amount);
+  const standard = usd.div(getRateValue(standardRateId)).ceilToBigInt();
+  const legacy = usd.div(getRateValue(legacyRateId)).ceilToBigInt();
+  const us18 = usd.div(getRateValue(us18RateId)).ceilToBigInt();
+
+  return {
+    amount,
+    display: formatCurrency(DISPLAY_LOCALE, usd, "USD"),
+    standardRobux: formatRobux(DISPLAY_LOCALE, standard),
+    legacyRobux: formatRobux(DISPLAY_LOCALE, legacy),
+    us18Robux: formatRobux(DISPLAY_LOCALE, us18),
+    legacyExtraRobux: formatRobux(DISPLAY_LOCALE, legacy - standard),
+    us18SavedRobux: formatRobux(DISPLAY_LOCALE, standard - us18),
+    clearsMinimum: standard >= BigInt(minimumEarnedRobux),
+    standardRobuxValue: standard,
+  };
+}
+
+/* -------------------------------------------------------------------------
+ * One slug space, two directions.
+ *
+ * Both page types live under `/conversions/[slug]/`, so the route has to be
+ * able to say which one a slug is without either page file knowing about the
+ * other. These three functions are that answer, and they exist so the English
+ * and localized route files stay identical to each other - the previous shape
+ * had the approved list named twice, once per file, which is one edit away
+ * from a locale serving a different set of pages than English does.
+ * ---------------------------------------------------------------------- */
+
+export type ConversionDirection = "robux-to-usd" | "usd-to-robux";
+
+export interface ResolvedConversion {
+  readonly direction: ConversionDirection;
+  readonly amount: number;
+  readonly route: string;
+}
+
+/** Every approved slug, in both directions. */
+export function allConversionSlugs(): readonly string[] {
+  return [
+    ...APPROVED_AMOUNTS.map((definition) => amountPageSlug(definition.amount)),
+    ...APPROVED_USD_AMOUNTS.map((definition) => usdPageSlug(definition.amount)),
+  ];
+}
+
+/** Which page a slug names, or null when it names none. */
+export function resolveConversionSlug(slug: string): ResolvedConversion | null {
+  const robux = parseAmountSlug(slug);
+  if (robux !== null) {
+    return { direction: "robux-to-usd", amount: robux, route: amountPageRoute(robux) };
+  }
+  const usd = parseUsdSlug(slug);
+  if (usd !== null) {
+    return { direction: "usd-to-robux", amount: usd, route: usdPageRoute(usd) };
+  }
+  return null;
+}

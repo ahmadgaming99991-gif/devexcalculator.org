@@ -18,7 +18,14 @@ import {
   SourceNote,
 } from "@/components/content";
 import { AmountTable } from "@/components/content/tables";
-import { APPROVED_AMOUNTS, amountPageRoute, computeAmountValues } from "@/lib/content/amount-pages";
+import {
+  APPROVED_AMOUNTS,
+  APPROVED_USD_AMOUNTS,
+  amountPageRoute,
+  computeAmountValues,
+  computeUsdValues,
+  usdPageRoute,
+} from "@/lib/content/amount-pages";
 
 const ROUTE = "/conversions/";
 
@@ -103,6 +110,47 @@ export async function ConversionsView({ locale }: { readonly locale: Locale }) {
                     </p>
                   </Section>
         
+                  {/*
+                    The other direction, and the reason it is a section here
+                    rather than a second hub: a reader who lands on this page
+                    is choosing between "what is my balance worth" and "what
+                    do I need for a payout", and those two lists belong next
+                    to each other. Without this block the payout-target pages
+                    would be reachable only from each other, which is an
+                    orphan cluster whatever the sitemap says.
+                  */}
+                  <Section
+                    id="targets"
+                    heading={t("rates.conversions.targetsHeading")}
+                    description={t("rates.conversions.targetsDescription")}
+                  >
+                    <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                      {APPROVED_USD_AMOUNTS.map((definition) => {
+                        const values = computeUsdValues(definition.amount);
+                        return (
+                          <li key={definition.amount}>
+                            <Link
+                              href={localizedPath(locale, usdPageRoute(definition.amount))}
+                              className="flex h-full flex-col rounded-(--radius-control) border border-(--color-border) bg-(--color-surface) p-4 hover:border-(--color-primary) hover:bg-(--color-surface-subtle)"
+                            >
+                              <span className="font-semibold text-(--color-text)">
+                                {values.display}
+                              </span>
+                              <span className="tabular mt-1 text-lg font-bold text-(--color-primary)">
+                                {values.standardRobux}
+                              </span>
+                              <span className="mt-1 text-xs text-(--color-text-muted)">
+                                {values.clearsMinimum
+                                  ? t("rates.conversions.robuxNeeded")
+                                  : t("rates.conversions.belowMinimum")}
+                              </span>
+                            </Link>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </Section>
+
                   <Section
                     id="rounding"
                     heading={t("rates.conversions.roundingHeading")}

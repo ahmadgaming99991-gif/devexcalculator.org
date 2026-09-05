@@ -460,6 +460,222 @@
       "conversions.1000000RobuxToUsd": "1.000.000 Robux in USD"
     }
   },
+  "conversions.100UsdToRobux": {
+    "title": "100 $ in Robux: Earned Robux für eine DevEx-Auszahlung",
+    "metaDescription": "100 $ liegt unter der kleinsten möglichen DevEx-Auszahlung. Roblox verlangt {minimumRobux} Earned Robux, bevor ein Antrag gestellt werden kann.",
+    "h1": "100 $ in Robux",
+    "navLabel": "Auszahlung von 100 $",
+    "quickAnswer": "100 $ lässt sich für sich allein nicht auszahlen. Roblox verlangt {minimumRobux} anrechenbare Earned Robux, bevor ein DevEx-Antrag gestellt werden kann, und 100 $ entspricht zum aktuellen Kurs von {rateStandard} genau 26.316 – darunter. 100 Dollar liegen unter der kleinsten Auszahlung, die der Developer Exchange hervorbringen kann. Das zugehörige Guthaben liegt unter den {minimumRobux} Earned Robux, die Roblox verlangt, bevor überhaupt ein Antrag gestellt werden kann. Die ehrliche Antwort ist hier deshalb keine Umrechnung, sondern eine Schwelle: die kleinste verfügbare erste Auszahlung ist der Wert des Mindestguthabens selbst.",
+    "ogImageAlt": "100 $ umgerechnet in das Earned-Robux-Guthaben, das eine DevEx-Auszahlung benötigen würde.",
+    "sections": {
+      "requirement": "Benötigte Earned Robux für 100 $",
+      "rate-comparison": "Zu allen drei Kursen",
+      "context": "Warum dieses Ziel wichtig ist",
+      "minimum": "Wie sich das zum Mindestbetrag verhält",
+      "nearby": "Benachbarte Ziele"
+    },
+    "faqs": {
+      "q01": {
+        "question": "Wie viel Robux sind 100 $?",
+        "answer": "26.316 anrechenbare Earned Robux wären zum aktuellen DevEx-Kurs 100 $ wert, das liegt aber unter dem Mindestbetrag von {minimumRobux} und lässt sich deshalb nicht als Auszahlung beantragen."
+      },
+      "q02": {
+        "question": "Lässt sich eine DevEx-Auszahlung von 100 $ beantragen?",
+        "answer": "Nein. Roblox verlangt {minimumRobux} anrechenbare Earned Robux, bevor ein DevEx-Antrag gestellt werden kann, und das ist mehr, als einer Auszahlung von 100 $ entspricht."
+      },
+      "q03": {
+        "question": "Ändert der Kurs, wie viel Robux 100 $ benötigt?",
+        "answer": "Ja. Zum älteren Kurs von {rateLegacy} benötigen dieselben 100 $ 2.256 Earned Robux mehr, und ein Guthaben, das für den USA-18+-Kurs infrage kommt, benötigt 7.797 weniger. Roblox entscheidet, nicht die Creatorin oder der Creator, welcher Kurs für welchen Teil eines Guthabens gilt."
+      }
+    },
+    "links": {
+      "conversions": "die Ziele zu beiden Seiten von 100 $",
+      "usdToRobux": "von einer anderen Auszahlung als 100 $ zurückrechnen",
+      "devexRequirements": "ob 100 $ den Mindestbetrag von {minimumRobux} erreicht",
+      "conversions.250UsdToRobux": "250 $ in Robux",
+      "conversions.500UsdToRobux": "500 $ in Robux"
+    }
+  },
+  "conversions.250UsdToRobux": {
+    "title": "250 $ in Robux: Earned Robux für eine DevEx-Auszahlung",
+    "metaDescription": "Eine DevEx-Auszahlung von 250 $ benötigt zum aktuellen Kurs rund 65.790 anrechenbare Earned Robux. Verglichen mit dem alten Kurs und dem USA-18+-Kurs.",
+    "h1": "250 $ in Robux",
+    "navLabel": "Auszahlung von 250 $",
+    "quickAnswer": "Eine DevEx-Auszahlung von 250 $ benötigt 65.790 anrechenbare Earned Robux zum aktuellen Kurs von {rateStandard} USD pro Robux. Zum älteren Kurs von {rateLegacy} benötigt dieselbe Auszahlung 5.639 mehr. 250 Dollar sind das erste Ziel dieser Liste, das eine einzelne Auszahlung tatsächlich erreichen kann. Es liegt etwas über dem Doppelten des Mindestguthabens, und darum ist es meist die Zahl, die genannt wird, sobald eine Erfahrung stetig und nicht mehr nur gelegentlich Einnahmen bringt.",
+    "ogImageAlt": "250 $ umgerechnet in das Earned-Robux-Guthaben, das eine DevEx-Auszahlung benötigen würde.",
+    "sections": {
+      "requirement": "Benötigte Earned Robux für 250 $",
+      "rate-comparison": "Zu allen drei Kursen",
+      "context": "Warum dieses Ziel wichtig ist",
+      "minimum": "Wie sich das zum Mindestbetrag verhält",
+      "nearby": "Benachbarte Ziele"
+    },
+    "faqs": {
+      "q01": {
+        "question": "Wie viel Robux sind 250 $?",
+        "answer": "65.790 anrechenbare Earned Robux, zum aktuellen DevEx-Kurs, vor allen Gebühren des Zahlungsdienstleisters und vor Einkommensteuer. Gemeint sind Earned Robux, kein gekauftes Guthaben – gekauftes Guthaben lässt sich nicht eintauschen."
+      },
+      "q02": {
+        "question": "Lässt sich eine DevEx-Auszahlung von 250 $ beantragen?",
+        "answer": "Ja, sobald das Guthaben vorhanden ist. 65.790 liegt über dem dokumentierten Mindestbetrag von {minimumRobux}. Den Mindestbetrag zu erreichen ist nicht dasselbe wie eine Genehmigung – Roblox prüft jeden Antrag."
+      },
+      "q03": {
+        "question": "Ändert der Kurs, wie viel Robux 250 $ benötigt?",
+        "answer": "Ja. Zum älteren Kurs von {rateLegacy} benötigen dieselben 250 $ 5.639 Earned Robux mehr, und ein Guthaben, das für den USA-18+-Kurs infrage kommt, benötigt 19.493 weniger. Roblox entscheidet, nicht die Creatorin oder der Creator, welcher Kurs für welchen Teil eines Guthabens gilt."
+      }
+    },
+    "links": {
+      "conversions": "die Ziele zu beiden Seiten von 250 $",
+      "usdToRobux": "von einer anderen Auszahlung als 250 $ zurückrechnen",
+      "devexRequirements": "ob 250 $ den Mindestbetrag von {minimumRobux} erreicht",
+      "conversions.100UsdToRobux": "100 $ in Robux",
+      "conversions.500UsdToRobux": "500 $ in Robux"
+    }
+  },
+  "conversions.500UsdToRobux": {
+    "title": "500 $ in Robux: Earned Robux für eine DevEx-Auszahlung",
+    "metaDescription": "Eine DevEx-Auszahlung von 500 $ benötigt zum aktuellen Kurs rund 131.579 anrechenbare Earned Robux. Verglichen mit dem alten Kurs und dem USA-18+-Kurs.",
+    "h1": "500 $ in Robux",
+    "navLabel": "Auszahlung von 500 $",
+    "quickAnswer": "Eine DevEx-Auszahlung von 500 $ benötigt 131.579 anrechenbare Earned Robux zum aktuellen Kurs von {rateStandard} USD pro Robux. Zum älteren Kurs von {rateLegacy} benötigt dieselbe Auszahlung 11.279 mehr. Ab 500 Dollar sind die Abzüge keine Rundungsfehler mehr. In dieser Größenordnung lohnt es sich, einen Prozentsatz des Zahlungsdienstleisters und eine Einkommensteuerschätzung einzugeben statt sie zu ignorieren – deshalb verweist diese Seite direkt auf den Leitfaden zu Gebühren und Steuern, statt die Bruttozahl allein stehen zu lassen.",
+    "ogImageAlt": "500 $ umgerechnet in das Earned-Robux-Guthaben, das eine DevEx-Auszahlung benötigen würde.",
+    "sections": {
+      "requirement": "Benötigte Earned Robux für 500 $",
+      "rate-comparison": "Zu allen drei Kursen",
+      "context": "Warum dieses Ziel wichtig ist",
+      "minimum": "Wie sich das zum Mindestbetrag verhält",
+      "nearby": "Benachbarte Ziele"
+    },
+    "faqs": {
+      "q01": {
+        "question": "Wie viel Robux sind 500 $?",
+        "answer": "131.579 anrechenbare Earned Robux, zum aktuellen DevEx-Kurs, vor allen Gebühren des Zahlungsdienstleisters und vor Einkommensteuer. Gemeint sind Earned Robux, kein gekauftes Guthaben – gekauftes Guthaben lässt sich nicht eintauschen."
+      },
+      "q02": {
+        "question": "Lässt sich eine DevEx-Auszahlung von 500 $ beantragen?",
+        "answer": "Ja, sobald das Guthaben vorhanden ist. 131.579 liegt über dem dokumentierten Mindestbetrag von {minimumRobux}. Den Mindestbetrag zu erreichen ist nicht dasselbe wie eine Genehmigung – Roblox prüft jeden Antrag."
+      },
+      "q03": {
+        "question": "Ändert der Kurs, wie viel Robux 500 $ benötigt?",
+        "answer": "Ja. Zum älteren Kurs von {rateLegacy} benötigen dieselben 500 $ 11.279 Earned Robux mehr, und ein Guthaben, das für den USA-18+-Kurs infrage kommt, benötigt 38.986 weniger. Roblox entscheidet, nicht die Creatorin oder der Creator, welcher Kurs für welchen Teil eines Guthabens gilt."
+      }
+    },
+    "links": {
+      "conversions": "die Ziele zu beiden Seiten von 500 $",
+      "usdToRobux": "von einer anderen Auszahlung als 500 $ zurückrechnen",
+      "devexRequirements": "ob 500 $ den Mindestbetrag von {minimumRobux} erreicht",
+      "conversions.250UsdToRobux": "250 $ in Robux",
+      "conversions.1000UsdToRobux": "1.000 $ in Robux"
+    }
+  },
+  "conversions.1000UsdToRobux": {
+    "title": "1.000 $ in Robux: Earned Robux für eine DevEx-Auszahlung",
+    "metaDescription": "Eine DevEx-Auszahlung von 1.000 $ benötigt zum aktuellen Kurs rund 263.158 anrechenbare Earned Robux. Verglichen mit dem alten Kurs und dem USA-18+-Kurs.",
+    "h1": "1.000 $ in Robux",
+    "navLabel": "Auszahlung von 1.000 $",
+    "quickAnswer": "Eine DevEx-Auszahlung von 1.000 $ benötigt 263.158 anrechenbare Earned Robux zum aktuellen Kurs von {rateStandard} USD pro Robux. Zum älteren Kurs von {rateLegacy} benötigt dieselbe Auszahlung 22.557 mehr. Tausend Dollar ist die runde Zahl, mit der Creator planen. Sie ist etwas weniger als das Neunfache der kleinsten Auszahlung, die das Programm hervorbringen kann, und genau so liest man sie am sinnvollsten: die meisten erreichen diese Summe über mehrere Auszahlungen hinweg und nicht mit einem einzigen Guthaben, das sie abdeckt.",
+    "ogImageAlt": "1.000 $ umgerechnet in das Earned-Robux-Guthaben, das eine DevEx-Auszahlung benötigen würde.",
+    "sections": {
+      "requirement": "Benötigte Earned Robux für 1.000 $",
+      "rate-comparison": "Zu allen drei Kursen",
+      "context": "Warum dieses Ziel wichtig ist",
+      "minimum": "Wie sich das zum Mindestbetrag verhält",
+      "nearby": "Benachbarte Ziele"
+    },
+    "faqs": {
+      "q01": {
+        "question": "Wie viel Robux sind 1.000 $?",
+        "answer": "263.158 anrechenbare Earned Robux, zum aktuellen DevEx-Kurs, vor allen Gebühren des Zahlungsdienstleisters und vor Einkommensteuer. Gemeint sind Earned Robux, kein gekauftes Guthaben – gekauftes Guthaben lässt sich nicht eintauschen."
+      },
+      "q02": {
+        "question": "Lässt sich eine DevEx-Auszahlung von 1.000 $ beantragen?",
+        "answer": "Ja, sobald das Guthaben vorhanden ist. 263.158 liegt über dem dokumentierten Mindestbetrag von {minimumRobux}. Den Mindestbetrag zu erreichen ist nicht dasselbe wie eine Genehmigung – Roblox prüft jeden Antrag."
+      },
+      "q03": {
+        "question": "Ändert der Kurs, wie viel Robux 1.000 $ benötigt?",
+        "answer": "Ja. Zum älteren Kurs von {rateLegacy} benötigen dieselben 1.000 $ 22.557 Earned Robux mehr, und ein Guthaben, das für den USA-18+-Kurs infrage kommt, benötigt 77.972 weniger. Roblox entscheidet, nicht die Creatorin oder der Creator, welcher Kurs für welchen Teil eines Guthabens gilt."
+      }
+    },
+    "links": {
+      "conversions": "die Ziele zu beiden Seiten von 1.000 $",
+      "usdToRobux": "von einer anderen Auszahlung als 1.000 $ zurückrechnen",
+      "devexRequirements": "ob 1.000 $ den Mindestbetrag von {minimumRobux} erreicht",
+      "conversions.500UsdToRobux": "500 $ in Robux",
+      "conversions.2500UsdToRobux": "2.500 $ in Robux"
+    }
+  },
+  "conversions.2500UsdToRobux": {
+    "title": "2.500 $ in Robux: Earned Robux für eine DevEx-Auszahlung",
+    "metaDescription": "Eine DevEx-Auszahlung von 2.500 $ benötigt zum aktuellen Kurs rund 657.895 anrechenbare Earned Robux. Verglichen mit dem alten Kurs und dem USA-18+-Kurs.",
+    "h1": "2.500 $ in Robux",
+    "navLabel": "Auszahlung von 2.500 $",
+    "quickAnswer": "Eine DevEx-Auszahlung von 2.500 $ benötigt 657.895 anrechenbare Earned Robux zum aktuellen Kurs von {rateStandard} USD pro Robux. Zum älteren Kurs von {rateLegacy} benötigt dieselbe Auszahlung 56.391 mehr. 2.500 Dollar liegen jenseits des Punktes, an dem ein einzelnes Guthaben das für die meisten Creator bequem abdeckt. Sinnvoll ist deshalb nicht die einzelne Zahl, sondern wie viele Auszahlungszyklen sie darstellt: mehr als das Einundzwanzigfache des Mindestguthabens.",
+    "ogImageAlt": "2.500 $ umgerechnet in das Earned-Robux-Guthaben, das eine DevEx-Auszahlung benötigen würde.",
+    "sections": {
+      "requirement": "Benötigte Earned Robux für 2.500 $",
+      "rate-comparison": "Zu allen drei Kursen",
+      "context": "Warum dieses Ziel wichtig ist",
+      "minimum": "Wie sich das zum Mindestbetrag verhält",
+      "nearby": "Benachbarte Ziele"
+    },
+    "faqs": {
+      "q01": {
+        "question": "Wie viel Robux sind 2.500 $?",
+        "answer": "657.895 anrechenbare Earned Robux, zum aktuellen DevEx-Kurs, vor allen Gebühren des Zahlungsdienstleisters und vor Einkommensteuer. Gemeint sind Earned Robux, kein gekauftes Guthaben – gekauftes Guthaben lässt sich nicht eintauschen."
+      },
+      "q02": {
+        "question": "Lässt sich eine DevEx-Auszahlung von 2.500 $ beantragen?",
+        "answer": "Ja, sobald das Guthaben vorhanden ist. 657.895 liegt über dem dokumentierten Mindestbetrag von {minimumRobux}. Den Mindestbetrag zu erreichen ist nicht dasselbe wie eine Genehmigung – Roblox prüft jeden Antrag."
+      },
+      "q03": {
+        "question": "Ändert der Kurs, wie viel Robux 2.500 $ benötigt?",
+        "answer": "Ja. Zum älteren Kurs von {rateLegacy} benötigen dieselben 2.500 $ 56.391 Earned Robux mehr, und ein Guthaben, das für den USA-18+-Kurs infrage kommt, benötigt 194.932 weniger. Roblox entscheidet, nicht die Creatorin oder der Creator, welcher Kurs für welchen Teil eines Guthabens gilt."
+      }
+    },
+    "links": {
+      "conversions": "die Ziele zu beiden Seiten von 2.500 $",
+      "usdToRobux": "von einer anderen Auszahlung als 2.500 $ zurückrechnen",
+      "devexRequirements": "ob 2.500 $ den Mindestbetrag von {minimumRobux} erreicht",
+      "conversions.1000UsdToRobux": "1.000 $ in Robux",
+      "conversions.5000UsdToRobux": "5.000 $ in Robux"
+    }
+  },
+  "conversions.5000UsdToRobux": {
+    "title": "5.000 $ in Robux: Earned Robux für eine DevEx-Auszahlung",
+    "metaDescription": "Eine DevEx-Auszahlung von 5.000 $ benötigt zum aktuellen Kurs rund 1.315.790 anrechenbare Earned Robux. Verglichen mit dem alten Kurs und dem USA-18+-Kurs.",
+    "h1": "5.000 $ in Robux",
+    "navLabel": "Auszahlung von 5.000 $",
+    "quickAnswer": "Eine DevEx-Auszahlung von 5.000 $ benötigt 1.315.790 anrechenbare Earned Robux zum aktuellen Kurs von {rateStandard} USD pro Robux. Zum älteren Kurs von {rateLegacy} benötigt dieselbe Auszahlung 112.782 mehr. Bei 5.000 Dollar macht der qualifizierende USA-18+-Kurs in dieser Liste den größten Unterschied. Dieselben fünftausend Dollar benötigen 389.864 Earned Robux weniger, wenn das Guthaben für diesen Kurs infrage kommt, als wenn es zum Standardkurs ausgezahlt wird – und Roblox entscheidet, nicht der Creator, welcher gilt.",
+    "ogImageAlt": "5.000 $ umgerechnet in das Earned-Robux-Guthaben, das eine DevEx-Auszahlung benötigen würde.",
+    "sections": {
+      "requirement": "Benötigte Earned Robux für 5.000 $",
+      "rate-comparison": "Zu allen drei Kursen",
+      "context": "Warum dieses Ziel wichtig ist",
+      "minimum": "Wie sich das zum Mindestbetrag verhält",
+      "nearby": "Benachbarte Ziele"
+    },
+    "faqs": {
+      "q01": {
+        "question": "Wie viel Robux sind 5.000 $?",
+        "answer": "1.315.790 anrechenbare Earned Robux, zum aktuellen DevEx-Kurs, vor allen Gebühren des Zahlungsdienstleisters und vor Einkommensteuer. Gemeint sind Earned Robux, kein gekauftes Guthaben – gekauftes Guthaben lässt sich nicht eintauschen."
+      },
+      "q02": {
+        "question": "Lässt sich eine DevEx-Auszahlung von 5.000 $ beantragen?",
+        "answer": "Ja, sobald das Guthaben vorhanden ist. 1.315.790 liegt über dem dokumentierten Mindestbetrag von {minimumRobux}. Den Mindestbetrag zu erreichen ist nicht dasselbe wie eine Genehmigung – Roblox prüft jeden Antrag."
+      },
+      "q03": {
+        "question": "Ändert der Kurs, wie viel Robux 5.000 $ benötigt?",
+        "answer": "Ja. Zum älteren Kurs von {rateLegacy} benötigen dieselben 5.000 $ 112.782 Earned Robux mehr, und ein Guthaben, das für den USA-18+-Kurs infrage kommt, benötigt 389.864 weniger. Roblox entscheidet, nicht die Creatorin oder der Creator, welcher Kurs für welchen Teil eines Guthabens gilt."
+      }
+    },
+    "links": {
+      "conversions": "die Ziele zu beiden Seiten von 5.000 $",
+      "usdToRobux": "von einer anderen Auszahlung als 5.000 $ zurückrechnen",
+      "devexRequirements": "ob 5.000 $ den Mindestbetrag von {minimumRobux} erreicht",
+      "conversions.2500UsdToRobux": "2.500 $ in Robux",
+      "conversions.1000UsdToRobux": "1.000 $ in Robux"
+    }
+  },
   "corrections": {
     "title": "Korrekturrichtlinie",
     "metaDescription": "Wie man einen Fehler auf dieser Website meldet, was passiert, wenn ein Kurs oder eine Voraussetzung sich als falsch erweist, und wo Korrekturen festgehalten werden.",

@@ -1,7 +1,14 @@
 import type { RouteRecord } from "@/types/content";
 import { figures } from "@/i18n/figures";
 import { interpolate } from "@/i18n/interpolate";
-import { APPROVED_AMOUNTS, amountPageRoute, computeAmountValues } from "./amount-pages";
+import {
+  APPROVED_AMOUNTS,
+  APPROVED_USD_AMOUNTS,
+  amountPageRoute,
+  computeAmountValues,
+  computeUsdValues,
+  usdPageRoute,
+} from "./amount-pages";
 import { DISPLAY_LOCALE, formatRobux } from "@/lib/calculations/format";
 
 /**
@@ -1703,11 +1710,135 @@ function fillFigures<T extends RouteRecord>(record: T): T {
   };
 }
 
-/** Every route on the site, static pages plus approved amount pages. */
-export const routeRegistry: readonly RouteRecord[] = [
+
+/**
+ * Builds the record for one approved payout-target page.
+ *
+ * The mirror of `amountRouteRecord`, and deliberately not a shared generic:
+ * the two directions ask different questions and the honest copy for each is
+ * different, so a parameterised template would have produced twelve pages
+ * saying one thing twice. The only shape they share is the record type.
+ *
+ * The minimum is what makes these pages worth having rather than reciprocal.
+ * A target whose balance falls under the documented 30,000 cannot be a first
+ * payout at all, and every string below branches on that rather than printing
+ * a requirement the reader cannot act on.
+ */
+function usdRouteRecord(definition: (typeof APPROVED_USD_AMOUNTS)[number]): RouteRecord {
+  const values = computeUsdValues(definition.amount);
+  const plain = `$${definition.amount.toLocaleString("en-US")}`;
+
+  return {
+    route: usdPageRoute(definition.amount),
+    status: "published",
+    indexation: "index",
+    pageType: "conversion-amount",
+    title: `${plain} to Robux: Earned Robux Needed for a DevEx Payout`,
+    metaDescription: values.clearsMinimum
+      ? `A ${plain} DevEx payout needs about ${values.standardRobux} eligible Earned Robux at the current rate. Compared against the legacy and U.S. 18+ rates.`
+      : `${plain} is below the smallest DevEx payout available. Roblox requires {minimumRobux} Earned Robux before a request can be submitted.`,
+    h1: `${plain} to Robux`,
+    navLabel: `${plain} payout`,
+    primaryIntent: "numeric-amount-conversion",
+    primaryKeyword: `${definition.amount} usd to robux`,
+    secondaryKeywords: [
+      `${plain} to robux`,
+      `how much robux is ${plain}`,
+      `how many robux for ${plain}`,
+    ],
+    entities: ["Robux", "Earned Robux", "USD", "Developer Exchange Program"],
+    sourceIds: ["roblox-devex-program"],
+    lastReviewedAt: REVIEWED,
+    dateModified: REVIEWED,
+    quickAnswer: values.clearsMinimum
+      ? `A ${plain} DevEx payout needs ${values.standardRobux} eligible Earned Robux at the current rate of {rateStandard} USD per Robux. At the older {rateLegacy} rate the same payout needs ${values.legacyExtraRobux} more. ${definition.context}`
+      : `${plain} cannot be paid out on its own. Roblox requires {minimumRobux} eligible Earned Robux before a DevEx request can be submitted, and ${plain} at the current {rateStandard} rate corresponds to ${values.standardRobux} - below that threshold. ${definition.context}`,
+    sections: [
+      { id: "requirement", heading: `Earned Robux needed for ${plain}` },
+      { id: "rate-comparison", heading: "Across all three rates" },
+      { id: "context", heading: "Why this target matters" },
+      { id: "minimum", heading: "How this compares with the minimum" },
+      { id: "nearby", heading: "Nearby targets" },
+    ],
+    faqs: [
+      {
+        question: `How much Robux is ${plain}?`,
+        answer: values.clearsMinimum
+          ? `${values.standardRobux} eligible Earned Robux, at the current DevEx rate, before any payment-provider fee or income tax. This is Earned Robux, not a purchased balance - a purchased balance cannot be exchanged.`
+          : `${values.standardRobux} eligible Earned Robux would be worth ${plain} at the current DevEx rate, but that is below the {minimumRobux} minimum, so it cannot be requested as a payout.`,
+        sourceIds: ["roblox-devex-program"],
+      },
+      {
+        question: `Can a ${plain} DevEx payout be requested?`,
+        answer: values.clearsMinimum
+          ? `Yes, once the balance is there. ${values.standardRobux} clears the documented {minimumRobux} minimum. Clearing it is not the same as being approved - Roblox reviews every request.`
+          : `No. Roblox requires {minimumRobux} eligible Earned Robux before a DevEx request can be submitted, which is more than a ${plain} payout corresponds to.`,
+        sourceIds: ["roblox-devex-program"],
+      },
+      {
+        question: `Does the rate change how much Robux ${plain} needs?`,
+        answer: `Yes. At the older {rateLegacy} rate the same ${plain} needs ${values.legacyExtraRobux} more Earned Robux, and a balance qualifying for the U.S. 18+ rate needs ${values.us18SavedRobux} fewer. Roblox, not the creator, decides which rate applies to which part of a balance.`,
+        sourceIds: ["roblox-devex-program"],
+      },
+    ],
+    // Anchors carry the target so six generated pages do not point at the same
+    // destinations with identical text, which reads as a sitewide exact-match
+    // link block rather than as contextual linking.
+    internalLinks: [
+      {
+        route: "/conversions/",
+        anchor: `the targets either side of ${plain}`,
+        relationship: "parent",
+      },
+      {
+        route: "/usd-to-robux/",
+        anchor: `work back from a payout other than ${plain}`,
+        relationship: "tool",
+      },
+      {
+        route: "/devex-requirements/",
+        anchor: `whether ${plain} clears the {minimumRobux} minimum`,
+        relationship: "prerequisite",
+      },
+      ...definition.relatedAmounts.map((amount) => ({
+        route: usdPageRoute(amount),
+        anchor: `$${amount.toLocaleString("en-US")} to Robux`,
+        relationship: "sibling" as const,
+      })),
+    ],
+    schemaTypes: ["WebPage", "BreadcrumbList"],
+    parent: "/conversions/",
+    inPrimaryNav: false,
+    rateSensitive: true,
+    ogImageAlt: `${plain} converted to the Earned Robux balance a DevEx payout would need.`,
+  };
+}
+
+/**
+ * Every route on the site, before its figures are filled in.
+ *
+ * This is what the dictionary is extracted from, and the distinction matters
+ * more than it looks. `routeRegistry` below has `{rateStandard}` and
+ * `{minimumRobux}` already replaced with today's numbers, which is right for
+ * anything rendering English prose and wrong for anything writing a file:
+ * extracting from the filled version bakes the current rate into fifty
+ * sentences, so the next rate change updates the registry, the six
+ * translations and not the English dictionary - and the token validator then
+ * reports the six correct translations as the mismatch.
+ *
+ * `i18n:extract-routes` read the filled export and had done since `fillFigures`
+ * was introduced. Nothing caught it because nothing runs that script: it is
+ * not in a gate, so the damage only appears when somebody runs it, which is
+ * exactly how the three unwired validators had rotted too.
+ */
+export const routeRegistrySource: readonly RouteRecord[] = [
   ...staticRoutes,
   ...APPROVED_AMOUNTS.map(amountRouteRecord),
-].map(fillFigures);
+  ...APPROVED_USD_AMOUNTS.map(usdRouteRecord),
+];
+
+/** Every route on the site, with the registry's own figures filled in. */
+export const routeRegistry: readonly RouteRecord[] = routeRegistrySource.map(fillFigures);
 
 const byRoute = new Map(routeRegistry.map((record) => [record.route, record]));
 
