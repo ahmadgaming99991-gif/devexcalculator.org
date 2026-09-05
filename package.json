@@ -67,7 +67,8 @@
     "deploy:run": "opennextjs-cloudflare build && opennextjs-cloudflare deploy && npm run purge:cache && npm run seo:indexnow",
     "doctor": "node scripts/local/doctor.mjs",
     "validate:sitemap": "tsx scripts/quality/check-sitemap-coverage.ts",
-    "seo:index-status": "node scripts/local/with-cf-auth.mjs tsx scripts/seo/inspect-index-status.ts"
+    "seo:index-status": "node scripts/local/with-cf-auth.mjs tsx scripts/seo/inspect-index-status.ts",
+    "seo:demand-gap": "node scripts/local/with-cf-auth.mjs tsx scripts/seo/query-demand-gap.ts"
   },
   "dependencies": {
     "next": "16.3.1",
