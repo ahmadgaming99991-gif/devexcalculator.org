@@ -1828,3 +1828,28 @@ still stops the deploy.
 *Change if:* the flaky count stops being noise. `retries: 1` is a concession to
 a measured, specific flake, not a policy — if a test starts needing its retry
 every run, it is broken and the retry is covering for it.
+
+## D-057 · The 404 that answers had no title; the one that was checked did
+
+*2026-09-05.*
+
+`src/app/not-found.tsx` set `robots` and nothing else, so Next rendered no
+`<title>` and a reader who followed a broken link got a tab labelled with the
+URL. `src/app/(en)/not-found.tsx` had carried a title all along — and that is
+what hid it. The two files look interchangeable and are not: the one in the
+group is reached only by a `notFound()` call from inside it, while the one at
+the root answers every URL that matches no route, which is the ordinary 404.
+Whatever was checked, it was not the file that answers.
+
+Fixed with the same translation keys the sibling uses, in English, for the
+reason already written at the top of that file: it is rendered with no params,
+so the server cannot know which language the URL was asking for. The body
+corrects itself in the browser; a title is read before that can happen, and one
+honest language beats a guess.
+
+Verified in the build output rather than in the source: `.next/server/app/
+_not-found.html` now carries `<title>Page not found</title>` and exactly one
+robots meta.
+
+*Change if:* the root `not-found.tsx` ever gains params. It will not — that is
+the constraint the whole file is built around.

@@ -34,9 +34,28 @@ import { NotFoundBody } from "@/views/not-found-body";
  * navigation is English while the message is not.
  */
 
-export const metadata: Metadata = {
-  robots: { index: false, follow: true },
-};
+/**
+ * Titled, which it was not.
+ *
+ * This file answers every URL that matches no route — the common 404 by a wide
+ * margin — and set only `robots`, so Next rendered no `<title>` at all and the
+ * browser tab fell back to showing the URL. Its sibling in `(en)` had carried a
+ * title all along, which is what made the omission easy to miss: the page that
+ * was checked was not the page that answers.
+ *
+ * English, like the chrome around it and for the same reason: this file is
+ * rendered with no params, so the server cannot know which language the URL was
+ * asking for. The body corrects itself in the browser; a `<title>` is read
+ * before that can happen, and one honest language beats a guess.
+ */
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslator(DEFAULT_LOCALE, ["errors"]);
+  return {
+    title: t("errors.notFound.metaTitle"),
+    description: t("errors.notFound.metaDescription"),
+    robots: { index: false, follow: true },
+  };
+}
 
 export default async function NotFound() {
   const t = await getTranslator(DEFAULT_LOCALE, ["common"]);
