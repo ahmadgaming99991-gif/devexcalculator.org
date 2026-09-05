@@ -58,6 +58,11 @@ const SKIP_SEGMENTS = ["__tests__", "node_modules"];
  *   is the sentence in a JSON body that tells whoever is watching the endpoint
  *   why it went red, and nobody reading it is reading it in Turkish.
  *
+ *   `early-input.ts` — a list of state field names, not words. They are
+ *   compared against the `data-early-key` attribute the inputs carry, so both
+ *   sides of the match are identifiers; a translated one would simply fail to
+ *   match and the keystrokes it protects would be lost again.
+ *
  *   `og/english-cards.ts` — the words on the English social cards, and only
  *   the English ones. Each of the six other languages has a card of its own,
  *   drawn from `seo.og.*` in that language's dictionary, and
@@ -98,6 +103,12 @@ const NOT_PAGE_COPY = [
   "src/lib/platform/data-plane-health.ts",
   "src/lib/api/exports.ts",
   "src/lib/og/english-cards.ts",
+  // The pre-hydration input stash. Its only strings are the names of
+  // `CalculatorState` fields — `us18Robux`, `feePercent` — which are matched
+  // against the `data-early-key` attribute on the inputs. They are identifiers
+  // on both sides and never reach a page; translating one would break the
+  // match it exists to make.
+  "src/features/devex/early-input.ts",
 ];
 
 /** Attributes whose value is shown or read aloud to a person. */

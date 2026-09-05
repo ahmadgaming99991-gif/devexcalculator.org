@@ -5,6 +5,7 @@ import { SiteFooter } from "@/components/layout/site-footer";
 import { themeInitScript } from "@/components/layout/theme-toggle";
 import { Analytics } from "@/components/seo/analytics";
 import { SeoTooling } from "@/components/seo/seo-tooling";
+import { earlyInputScript } from "@/features/devex/early-input";
 import { getLocaleMeta } from "@/i18n/config";
 import type { Locale } from "@/i18n/types";
 
@@ -111,6 +112,13 @@ export async function SiteDocument({ locale, skipToContent, children }: SiteDocu
           readers see as a flash.
         */}
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+        {/*
+          And, beside it, the listener that keeps what someone types into the
+          calculator before the page is interactive. Same reason it has to be
+          here: by the time React can run, the field it would read has already
+          been overwritten. See src/features/devex/early-input.ts.
+        */}
+        <script dangerouslySetInnerHTML={{ __html: earlyInputScript }} />
         <SiteChrome locale={locale} skipToContent={skipToContent}>
           {children}
         </SiteChrome>

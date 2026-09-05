@@ -56,6 +56,7 @@ import {
   ThresholdMeter,
 } from "./components/results";
 import { CopyButton, ResetButton, ShareButton } from "./components/actions";
+import { earlyTypedPatch } from "./early-input";
 import {
   addHistoryEntry,
   clearHistory,
@@ -185,7 +186,35 @@ export function Calculator({
     [hydratedSearch, initialState],
   );
   const [stateOverride, setStateOverride] = useState<CalculatorState | null>(null);
-  const state = stateOverride ?? urlState;
+
+  /*
+   * Anything typed before this component existed.
+   *
+   * Read through `useClientValue` for the same reason the stored preferences
+   * below are: it renders the server's snapshot during hydration and swaps the
+   * real one in on the same commit, so the markup never disagrees. An effect
+   * that called `update()` would work, but it would also be the one thing this
+   * component is careful never to do — overrides are written from event
+   * handlers, and an effect that seeds state costs a second render besides.
+   *
+   * `earlyTypedPatch` memoises the claim at module scope, because
+   * `useSyncExternalStore` requires a snapshot that does not change between
+   * calls and `claimEarlyInput` deliberately empties itself as it is read.
+   */
+  const earlyTypedJson = useClientValue(earlyTypedPatch, "{}");
+  const earlyTyped = useMemo(
+    () => JSON.parse(earlyTypedJson) as Partial<CalculatorState>,
+    [earlyTypedJson],
+  );
+
+  /*
+   * The reader's own edits win; below them, whatever was typed before
+   * hydration; below that, the address bar. `update` merges onto this same
+   * base, so the first keystroke after hydration cannot drop the ones before
+   * it.
+   */
+  const baseState = useMemo(() => ({ ...urlState, ...earlyTyped }), [urlState, earlyTyped]);
+  const state = stateOverride ?? baseState;
   const [announcement, setAnnouncement] = useState("");
 
   const mode = lockedMode ?? state.mode;
@@ -232,9 +261,9 @@ export function Calculator({
 
   const update = useCallback(
     (patch: Partial<CalculatorState>) => {
-      setStateOverride((current) => ({ ...(current ?? urlState), ...patch }));
+      setStateOverride((current) => ({ ...(current ?? baseState), ...patch }));
     },
-    [urlState],
+    [baseState],
   );
 
   const selectCurrency = useCallback((value: string) => {
@@ -598,6 +627,7 @@ export function Calculator({
                 locale={t.locale}
                 label={t("calculator.inputs.eligibleEarnedRobux.label")}
                 value={state.robux}
+                earlyKey="robux"
                 onChange={(value) => update({ robux: value })}
                 error={errorOf(quickParse)}
                 hint={t("calculator.inputs.eligibleEarnedRobux.hint")}
@@ -626,6 +656,7 @@ export function Calculator({
                 locale={t.locale}
                 label={`${getRate(standardRateId).label} bucket`}
                 value={state.standardRobux}
+                earlyKey="standardRobux"
                 onChange={(value) => update({ standardRobux: value })}
                 error={errorOf(standardParse)}
                 hint={t("calculator.inputs.standardBucketHint")}
@@ -634,6 +665,7 @@ export function Calculator({
                 locale={t.locale}
                 label={`${getRate(legacyRateId).label} bucket`}
                 value={state.legacyRobux}
+                earlyKey="legacyRobux"
                 onChange={(value) => update({ legacyRobux: value })}
                 error={errorOf(legacyParse)}
                 hint={t("calculator.inputs.legacyBucketHint")}
@@ -642,6 +674,7 @@ export function Calculator({
                 locale={t.locale}
                 label={`${getRate(us18RateId).label} bucket`}
                 value={state.us18Robux}
+                earlyKey="us18Robux"
                 onChange={(value) => update({ us18Robux: value })}
                 error={errorOf(us18Parse)}
                 hint={t("calculator.inputs.us18BucketHint")}
@@ -655,6 +688,7 @@ export function Calculator({
                 locale={t.locale}
                 label={t("calculator.inputs.payoutTarget.label")}
                 value={state.targetUsd}
+                earlyKey="targetUsd"
                 onChange={(value) => update({ targetUsd: value })}
                 error={parseMessage(t, targetParse)}
                 hint={t("calculator.inputs.payoutTarget.hint")}
@@ -671,6 +705,7 @@ export function Calculator({
                 locale={t.locale}
                 label={t("calculator.inputs.currentBalance.label")}
                 value={state.currentRobux}
+                earlyKey="currentRobux"
                 onChange={(value) => update({ currentRobux: value })}
                 error={errorOf(currentParse)}
                 hint={t("calculator.inputs.currentBalance.hint")}
@@ -697,6 +732,7 @@ export function Calculator({
                 locale={t.locale}
                   label={t("calculator.deductions.percentageFeeLabel")}
                   value={state.feePercent}
+                  earlyKey="feePercent"
                   onChange={(value) => {
                     update({ feePercent: value });
                     setAdvancedOverride(true);
@@ -709,6 +745,7 @@ export function Calculator({
                 locale={t.locale}
                   label={t("calculator.deductions.flatFeeLabel")}
                   value={state.flatFeeUsd}
+                  earlyKey="flatFeeUsd"
                   onChange={(value) => update({ flatFeeUsd: value })}
                   error={parseMessage(t, flatFeeParse)}
                   placeholder={formatDecimal(t.locale, 0.3, 2)}
@@ -719,6 +756,7 @@ export function Calculator({
                 locale={t.locale}
                 label={t("calculator.deductions.taxLabel")}
                 value={state.taxPercent}
+                earlyKey="taxPercent"
                 onChange={(value) => update({ taxPercent: value })}
                 error={parseMessage(t, taxParse)}
                 hint={t("calculator.deductions.taxHint")}

@@ -39,6 +39,7 @@ export function AmountInput({
   suffix = "Robux",
   autoFocus = false,
   id: providedId,
+  earlyKey,
 }: {
   /**
    * Which notation this field expects.
@@ -60,6 +61,14 @@ export function AmountInput({
   suffix?: string;
   autoFocus?: boolean;
   id?: string;
+  /**
+   * The calculator state field this input feeds.
+   *
+   * Emitted as `data-early-key` so anything typed here before hydration is
+   * kept and re-applied — see src/features/devex/early-input.ts. Omit it and
+   * the field simply behaves as it always did.
+   */
+  earlyKey?: string;
 }) {
   const example = placeholder ?? formatRobux(locale, 100_000);
   const generatedId = useId();
@@ -84,6 +93,7 @@ export function AmountInput({
           inputMode="numeric"
           autoComplete="off"
           enterKeyHint="done"
+          data-early-key={earlyKey}
           value={value}
           placeholder={example}
           autoFocus={autoFocus}
@@ -300,6 +310,7 @@ export function PercentInput({
   hint,
   placeholder,
   suffix = "%",
+  earlyKey,
 }: {
   /** Which notation this field expects. See `AmountInput`. */
   readonly locale: string;
@@ -310,6 +321,8 @@ export function PercentInput({
   hint?: string;
   placeholder?: string;
   suffix?: string;
+  /** See `AmountInput`. */
+  earlyKey?: string;
 }) {
   const id = useId();
   const errorId = `${id}-error`;
@@ -328,6 +341,7 @@ export function PercentInput({
           type="text"
           inputMode="decimal"
           autoComplete="off"
+          data-early-key={earlyKey}
           value={value}
           placeholder={example}
           onChange={(event) => onChange(event.target.value)}
