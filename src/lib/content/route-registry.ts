@@ -24,6 +24,16 @@ import { DISPLAY_LOCALE, formatRobux } from "@/lib/calculations/format";
 const REVIEWED = "2026-08-17T00:00:00Z";
 /** Content genuinely changed after the launch review, for sitemap `lastmod`. */
 const REVIEWED_PLANNER = "2026-08-23T00:00:00Z";
+/**
+ * The payout-target direction, written and published on this date.
+ *
+ * These pages did not exist at the launch review, so reusing `REVIEWED` here
+ * told the sitemap they were three weeks old and told the IndexNow selector -
+ * which submits the routes carrying the newest `dateModified` - that this
+ * release had not touched them. Both were wrong, and neither fails a build:
+ * a brand-new page with a stale `lastmod` is simply crawled later.
+ */
+const PUBLISHED_USD_TARGETS = "2026-09-06T00:00:00Z";
 
 const staticRoutes: readonly RouteRecord[] = [
   // -------------------------------------------------------------------------
@@ -1748,8 +1758,8 @@ function usdRouteRecord(definition: (typeof APPROVED_USD_AMOUNTS)[number]): Rout
     ],
     entities: ["Robux", "Earned Robux", "USD", "Developer Exchange Program"],
     sourceIds: ["roblox-devex-program"],
-    lastReviewedAt: REVIEWED,
-    dateModified: REVIEWED,
+    lastReviewedAt: PUBLISHED_USD_TARGETS,
+    dateModified: PUBLISHED_USD_TARGETS,
     quickAnswer: values.clearsMinimum
       ? `A ${plain} DevEx payout needs ${values.standardRobux} eligible Earned Robux at the current rate of {rateStandard} USD per Robux. At the older {rateLegacy} rate the same payout needs ${values.legacyExtraRobux} more. ${definition.context}`
       : `${plain} cannot be paid out on its own. Roblox requires {minimumRobux} eligible Earned Robux before a DevEx request can be submitted, and ${plain} at the current {rateStandard} rate corresponds to ${values.standardRobux} - below that threshold. ${definition.context}`,

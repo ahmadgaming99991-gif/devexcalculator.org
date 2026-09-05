@@ -2040,3 +2040,81 @@ carries.
 *Change if:* a seventh target is added. Add it to `APPROVED_USD_AMOUNTS` with
 its own context sentence, run `i18n:extract-routes`, translate the six locales,
 and expect the register and the meta-length test to fail until both are done.
+
+---
+
+## D-062 · The tag that never worked, and the test that kept saying so
+
+*2026-09-06. The deploy of D-061 was blocked by an e2e gate; this is what the
+gate was actually reporting.*
+
+`tests/e2e/localized.spec.ts` asserts that no island throws — the whole point of
+which is that a broken island on a translated page is otherwise invisible. It
+failed on `desktop-firefox / tr`, and it had been called a flake twice before by
+me. It was not a flake. The console error it caught:
+
+> The resource from `https://seosignalx.com/api/patches?…` was blocked due to
+> MIME type ("application/json") mismatch (X-Content-Type-Options: nosniff).
+
+Fetching that URL directly returns `HTTP 400`, `Content-Type: application/json`,
+body `{"error":"Deployment id is invalid"}`. So the SEOSignalX patch tag has
+**never** applied a patch on this site. It asked for a script, was handed a JSON
+error document, and this site's own — correct — `X-Content-Type-Options:
+nosniff` refused to execute it. The visible cost was a console error on every
+page load in all seven languages; the invisible cost was a vendor dashboard that
+presumably showed the tag "installed".
+
+**Why it looked flaky.** The assertion only fails once the blocked request has
+finished. Under load the run often ended first. A test that depends on an
+outbound request completing is not a flaky test — it is a test whose subject is
+slow, and the correct reading of an intermittent failure there is that the
+failure is real and the passes are the accident.
+
+**Decision.** `NEXT_PUBLIC_SEOSIGNALX_TAG_SRC` is commented out in `.env.local`
+(git-ignored, so this is machine-local configuration, not code). `readEnv`
+treats empty as unset, so the tag stops rendering and `SEO_TOOLING_ORIGIN`
+becomes `null`, which removes `seosignalx.com` from both `script-src` and
+`connect-src`. Verified in production: the CSP header no longer names the
+origin and the string does not appear in any page.
+
+The test was not weakened. It found a real defect in something added the same
+week, which is exactly the case it was written for.
+
+*Change if:* SEOSignalX issues a snippet whose endpoint returns a valid script
+served as JavaScript. Uncomment the line, redeploy, and confirm no console error
+before believing any dashboard that says it is connected.
+
+---
+
+## D-063 · Two units compared as one, in the gate that rations IndexNow
+
+*2026-09-06, found while checking what the D-061 deploy actually announced.*
+
+The deploy submitted seven URLs to IndexNow and not one of the forty-two new
+pages. Two separate defects, both mine, both silent:
+
+**The new routes carried a launch-review date.** `usdRouteRecord` reused
+`REVIEWED` (2026-08-17) for `lastReviewedAt` and `dateModified` on pages that
+did not exist until 2026-09-06. The sitemap therefore told crawlers the new
+pages were three weeks old, and IndexNow's default selection — "the routes
+carrying the newest content date" — concluded this release had not touched
+them. Neither shows up as a failure; a new page with a stale `lastmod` is simply
+crawled later, which on a site whose binding constraint *is* crawl rate is the
+expensive kind of quiet. Now `PUBLISHED_USD_TARGETS`.
+
+**The bulk guard divided URLs by routes.** `selectRoutes` returns one URL per
+published language per route; `isBulkSubmission` divided that count by
+`indexableRoutes.length` alone. With seven public languages the denominator was
+seven times too small, so the documented 25% ceiling behaved like 3.6%. With the
+dates corrected, a legitimate 42-of-294 submission — a seventh of the site — was
+refused as "42 of 42 routes (100%)", a message that reads as obviously wrong
+only once you notice the numerator and denominator are different things.
+
+The unit test that covered this asserted `isBulkSubmission(indexableRoutes.length)
+=== true`, which passes under both the broken and the fixed formula — it was
+written in the same wrong unit as the code. It now asserts a fifth of the
+submitted URLs is not bulk and three tenths is, which fails against the old
+formula.
+
+*Change if:* `selectRoutes` ever returns routes rather than URLs. Then the
+denominator must lose the locale factor again, and the test above will say so.

@@ -54,7 +54,16 @@ export function selectRoutes(selection: IndexNowSelection = {}): readonly string
   return published.filter((entry) => entry.day === newest).map((entry) => entry.route);
 }
 
-/** True when a selection is large enough that it needs saying out loud. */
+/**
+ * True when a selection is large enough that it needs saying out loud.
+ *
+ * The count passed in is URLs, and `selectRoutes` emits one per published
+ * language per route, so the share has to be measured against that same
+ * universe. Dividing by the route count alone made the gate seven times
+ * stricter than the 25% it documents: the release that added the payout-target
+ * pages selected 42 URLs out of 294 - a seventh of the site - and was refused
+ * as "42 of 42 routes (100%)", which is two different units compared as one.
+ */
 export function isBulkSubmission(count: number): boolean {
-  return count / indexableRoutes.length > BULK_SHARE_THRESHOLD;
+  return count / (indexableRoutes.length * publicLocales().length) > BULK_SHARE_THRESHOLD;
 }

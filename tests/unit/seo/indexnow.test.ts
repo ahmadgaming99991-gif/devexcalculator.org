@@ -83,7 +83,17 @@ describe("IndexNow selection", () => {
   });
 
   it("flags a submission large enough to need saying out loud", () => {
-    expect(isBulkSubmission(indexableRoutes.length)).toBe(true);
+    const everything = indexableRoutes.length * perRoute();
+    expect(isBulkSubmission(everything)).toBe(true);
     expect(isBulkSubmission(1)).toBe(false);
+
+    /*
+     * The share is of the URLs submitted, not of the routes behind them.
+     * Measured against the route count alone, a fifth of the site read as
+     * 140% and was refused - so a genuine release could not be announced at
+     * all once six languages were public.
+     */
+    expect(isBulkSubmission(Math.floor(everything * 0.2))).toBe(false);
+    expect(isBulkSubmission(Math.ceil(everything * 0.3))).toBe(true);
   });
 });
