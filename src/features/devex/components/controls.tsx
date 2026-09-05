@@ -244,10 +244,17 @@ export const QUICK_PRESETS: readonly bigint[] = [
 export function QuickPresets({
   onSelect,
   activeValue,
+  earlyKey,
   t,
 }: {
   onSelect: (value: bigint) => void;
   activeValue: string;
+  /*
+   * The state field a press feeds, mirroring `earlyKey` on the text inputs.
+   * A preset tapped before hydration was lost for exactly the same reason
+   * typing was, and is recovered by exactly the same stash.
+   */
+  earlyKey: string;
   readonly t: Translate;
 }) {
   return (
@@ -275,6 +282,8 @@ export function QuickPresets({
               key={preset.toString()}
               type="button"
               onClick={() => onSelect(preset)}
+              data-early-key={earlyKey}
+              data-early-value={preset.toString()}
               aria-pressed={isActive}
               className={cx(
                 // `px-2` in the grid so the widest label still fits a quarter

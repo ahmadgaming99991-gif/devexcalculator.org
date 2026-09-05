@@ -79,7 +79,7 @@ test.describe("axe", () => {
   test("the calculator stays clean once it has a result", async ({ page }) => {
     await page.goto("/");
     await page.getByLabel("Eligible Earned Robux").fill("100000");
-    await expect(page.getByText("$380.00").first()).toBeVisible();
+    await expect(page.getByTestId("primary-result")).toHaveText("$380.00");
     await settle(page);
 
     const results = await new AxeBuilder({ page })
@@ -118,12 +118,12 @@ test.describe("keyboard", () => {
     const amount = page.getByLabel("Eligible Earned Robux");
     await amount.focus();
     await page.keyboard.type("100000");
-    await expect(page.getByText("$380.00").first()).toBeVisible();
+    await expect(page.getByTestId("primary-result")).toHaveText("$380.00");
 
     // The rate select is reachable and operable without a mouse.
     await page.getByLabel("Rate to apply").focus();
     await page.getByLabel("Rate to apply").selectOption("legacy-pre-2025-09-05");
-    await expect(page.getByText("$350.00").first()).toBeVisible();
+    await expect(page.getByTestId("primary-result")).toHaveText("$350.00");
   });
 
   test("mode tabs respond to arrow keys", async ({ page }) => {
@@ -223,7 +223,7 @@ test.describe("layout resilience", () => {
     });
 
     await page.getByLabel("Eligible Earned Robux").fill("100000");
-    await expect(page.getByText("$380.00").first()).toBeVisible();
+    await expect(page.getByTestId("primary-result")).toHaveText("$380.00");
 
     const report = await measureOverflow(page);
     expect(

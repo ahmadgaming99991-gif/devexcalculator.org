@@ -635,6 +635,7 @@ export function Calculator({
               />
               <QuickPresets t={t}
                 activeValue={quickParse?.ok ? quickParse.value.robux.toString() : ""}
+                earlyKey="robux"
                 onSelect={(value) => update({ robux: value.toString() })}
               />
               <RateSelector

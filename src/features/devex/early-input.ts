@@ -18,10 +18,18 @@
  * installed before the markup is parsed, and why it lives in the document
  * rather than in a component.
  *
- * It is deliberately small and total: one delegated listener, one plain object,
+ * It is deliberately small and total: delegated listeners, one plain object,
  * no framework, no storage, nothing that can throw. Fields opt in with
  * `data-early-key`, whose value is the calculator state field it feeds, so
  * adopting the result is a single state update rather than a lookup table.
+ *
+ * Presses count too. The quick-amount presets are the fastest way into this
+ * calculator on a phone, and the first version of this file watched only
+ * `input` and `change` — so a preset tapped before hydration went nowhere.
+ * Measured at 6x CPU throttling on a 400 kbps link, tapping as soon as the
+ * button could be pressed: lost 4 times out of 4. A press opts in with the
+ * same `data-early-key` plus a `data-early-value`, since a button carries its
+ * value in an attribute rather than in `.value`.
  */
 
 /** The global the script below writes to, and `readEarlyInput` reads from. */
@@ -45,8 +53,18 @@ export const earlyInputScript = `
       var key = el.getAttribute('data-early-key');
       if (key) stash[key] = el.value;
     };
+    var press = function(event){
+      var node = event.target;
+      // The press usually lands on a child — the label span inside the button.
+      while (node && !node.closest) node = node.parentNode;
+      var el = node && node.closest('[data-early-key][data-early-value]');
+      if (!el) return;
+      var key = el.getAttribute('data-early-key');
+      if (key) stash[key] = el.getAttribute('data-early-value');
+    };
     document.addEventListener('input', capture, true);
     document.addEventListener('change', capture, true);
+    document.addEventListener('click', press, true);
   } catch (e) {}
 })();
 `.trim();

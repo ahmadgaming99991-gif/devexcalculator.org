@@ -1728,3 +1728,74 @@ what a change to the drawing should do.
 
 *Change if:* the mark changes again. Bump `MARK_VERSION`, bump `/brand/vN/`,
 and regenerate — the two gates will tell you what you missed.
+
+## D-054 · A duplicate of the answer made the tests look at the wrong one
+
+*2026-09-05. Found by running the end-to-end suite, which nothing runs.*
+
+D-053's sibling change put the result in two places. `StickyResult` repeats the
+figure in a bar that follows the reader down a phone screen, and it is rendered
+before the result card so that it sticks from the top of the calculator rather
+than from halfway down it. Above `lg` it is `display: none`, because the card
+itself is on screen there.
+
+Fourteen assertions across two spec files looked for the answer by its text —
+`page.getByText("$380.00").first()`. Once the same text appeared twice, `.first()`
+stopped meaning "the answer" and started meaning "the sticky bar", which on a
+desktop viewport is invisible. **Four tests failed on desktop and passed on
+mobile**, which is the signature of exactly this and of nothing else.
+
+`ResultSummary` already carried `data-testid="primary-result"` and a comment
+saying it exists so a test can find the figure on its own — added the last time
+a text match wandered onto the worked-examples table. The tests were not using
+it. They are now, and they assert `toHaveText` rather than "is visible
+somewhere", so a wrong figure fails instead of a missing one.
+
+**Two assertions deliberately keep the text locator**, with a comment saying
+why: `$380.00` in the split-mode comparison is not the primary figure there
+(the primary is `$374.00`), and `$273.60` is the net after fees, while
+`primaryValueText` is the gross. Pointing either at `primary-result` makes the
+test pass for the wrong reason — which is how one of them was briefly wrong
+here before the suite said so.
+
+**The gap this exposed is that nothing runs the suite.** `npm run check` covers
+lint, types, unit tests, eleven content and i18n validators, the build, the
+sitemap, links, the bundle and the Worker — and no end-to-end test. Neither does
+`npm run deploy`. The regression sat on `main` and would have shipped.
+
+*Change if:* a third place ever shows the primary figure. The fix is not another
+locator — it is that `primary-result` stays the only element a test is allowed
+to read the answer from.
+
+## D-055 · A preset tapped before hydration went nowhere, like the typing did
+
+*2026-09-05.*
+
+The commit that kept early keystrokes watched `input` and `change` on anything
+carrying `data-early-key`. The quick-amount presets are buttons: they carry
+their value in an attribute, they fire `click`, and they were not covered. On a
+phone they are the fastest way into this calculator, and D-053's sibling change
+made them a four-column grid precisely because they are what a reader reaches
+for first.
+
+**Measured, not assumed.** At 6x CPU throttling on a 400 kbps link, tapping the
+30K preset as soon as it could be pressed: **lost 4 times out of 4**. With the
+press captured: **survived 4 times out of 4**. The same probe, the same run
+count, either side of the change.
+
+The fix is four lines in the script that was already there — a delegated
+`click` listener that walks `closest('[data-early-key][data-early-value]')`,
+because the press usually lands on the label span inside the button. Nothing
+else moves: the value goes into the same stash, under the same key, and
+`earlyTypedPatch` adopts it with no new code at all.
+
+**The original fix had no test, which is why this came back.** It was measured
+by hand once and then guarded by nothing. Both cases are now in
+`tests/e2e/calculator.spec.ts` under `before hydration`, throttled the same way
+the probes were — and the throttling is the test. Unthrottled, hydration wins
+the race on a developer machine every time and the tests pass whether the
+listener exists or not.
+
+*Change if:* another control becomes reachable before hydration. Give it
+`data-early-key`, give it a `data-early-value` if it is not an input, and add
+the case to that describe block.

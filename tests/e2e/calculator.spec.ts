@@ -1,4 +1,4 @@
-import { expect, test } from "@playwright/test";
+import { expect, test, type Page } from "@playwright/test";
 
 /**
  * Calculator behaviour.
@@ -13,13 +13,13 @@ test.describe("quick mode", () => {
   test("converts an amount at the standard rate", async ({ page }) => {
     await page.goto("/");
     await page.getByLabel("Eligible Earned Robux").fill("100000");
-    await expect(page.getByText("$380.00").first()).toBeVisible();
+    await expect(page.getByTestId("primary-result")).toHaveText("$380.00");
   });
 
   test("matches the figure Roblox publishes for the minimum", async ({ page }) => {
     await page.goto("/");
     await page.getByLabel("Eligible Earned Robux").fill("30000");
-    await expect(page.getByText("$114.00").first()).toBeVisible();
+    await expect(page.getByTestId("primary-result")).toHaveText("$114.00");
   });
 
   test("accepts shorthand and separators", async ({ page }) => {
@@ -27,19 +27,19 @@ test.describe("quick mode", () => {
     const amount = page.getByLabel("Eligible Earned Robux");
 
     await amount.fill("100k");
-    await expect(page.getByText("$380.00").first()).toBeVisible();
+    await expect(page.getByTestId("primary-result")).toHaveText("$380.00");
 
     await amount.fill("1,000,000");
-    await expect(page.getByText("$3,800.00").first()).toBeVisible();
+    await expect(page.getByTestId("primary-result")).toHaveText("$3,800.00");
 
     await amount.fill("1.5m");
-    await expect(page.getByText("$5,700.00").first()).toBeVisible();
+    await expect(page.getByTestId("primary-result")).toHaveText("$5,700.00");
   });
 
   test("applies a preset", async ({ page }) => {
     await page.goto("/");
     await page.getByRole("button", { name: "30K Robux" }).click();
-    await expect(page.getByText("$114.00").first()).toBeVisible();
+    await expect(page.getByTestId("primary-result")).toHaveText("$114.00");
   });
 
   test("shows an actionable error and keeps the value the user typed", async ({ page }) => {
@@ -62,7 +62,7 @@ test.describe("quick mode", () => {
     await page.goto("/");
     await page.getByLabel("Eligible Earned Robux").fill("30000");
     await page.getByLabel("Rate to apply").selectOption("legacy-pre-2025-09-05");
-    await expect(page.getByText("$105.00").first()).toBeVisible();
+    await expect(page.getByTestId("primary-result")).toHaveText("$105.00");
   });
 });
 
@@ -95,7 +95,7 @@ test.describe("advanced split mode", () => {
     await page.getByLabel(/Legacy balance rate bucket/).fill("20000");
 
     // 80,000 x 0.0038 + 20,000 x 0.0035 = 304 + 70
-    await expect(page.getByText("$374.00").first()).toBeVisible();
+    await expect(page.getByTestId("primary-result")).toHaveText("$374.00");
   });
 
   test("compares against a standard-only payout", async ({ page }) => {
@@ -104,6 +104,10 @@ test.describe("advanced split mode", () => {
     await page.getByLabel(/Standard rate bucket/).fill("80000");
     await page.getByLabel(/Legacy balance rate bucket/).fill("20000");
 
+    /*
+     * Deliberately not `primary-result`: the primary figure here is $374.00,
+     * and $380.00 is the standard-only comparison this test exists to check.
+     */
     await expect(page.getByText("$380.00").first()).toBeVisible();
   });
 
@@ -117,6 +121,10 @@ test.describe("advanced split mode", () => {
     await page.getByLabel("Your own tax estimate").fill("20");
 
     // 380 - 38 = 342, then 342 - 68.40 = 273.60
+    /*
+     * Not `primary-result`: that carries the gross figure. $273.60 is the net
+     * after the fee and tax deductions, which lives in the breakdown.
+     */
     await expect(page.getByText("$273.60")).toBeVisible();
   });
 });
@@ -128,7 +136,7 @@ test.describe("target mode", () => {
     await page.getByLabel("Payout target").fill("1000");
 
     // 1000 / 0.0038 = 263,157.89 -> 263,158
-    await expect(page.getByText("263,158").first()).toBeVisible();
+    await expect(page.getByTestId("primary-result")).toContainText("263,158");
   });
 
   test("warns that the minimum applies to a small target", async ({ page }) => {
@@ -185,7 +193,7 @@ test.describe("shareable state", () => {
   test("applies a shared link's state once hydrated", async ({ page }) => {
     await page.goto("/?robux=100000&rate=standard-current");
     await expect(page.getByLabel("Eligible Earned Robux")).toHaveValue("100000");
-    await expect(page.getByText("$380.00").first()).toBeVisible();
+    await expect(page.getByTestId("primary-result")).toHaveText("$380.00");
   });
 
   test("opens a shared link on the mode it names", async ({ page }) => {
@@ -229,7 +237,7 @@ test.describe("shareable state", () => {
 
   test("restores state after a reload", async ({ page }) => {
     await page.goto("/?robux=100000");
-    await expect(page.getByText("$380.00").first()).toBeVisible();
+    await expect(page.getByTestId("primary-result")).toHaveText("$380.00");
     await page.reload();
     await expect(page.getByLabel("Eligible Earned Robux")).toHaveValue("100000");
   });
@@ -252,7 +260,7 @@ test.describe("shareable state", () => {
     });
 
     await page.goto("/?robux=100000");
-    await expect(page.getByText("$380.00").first()).toBeVisible();
+    await expect(page.getByTestId("primary-result")).toHaveText("$380.00");
 
     // Poll through the window the race lived in.
     for (let i = 0; i < 20; i += 1) {
@@ -341,7 +349,7 @@ test.describe("local currency", () => {
     await page.getByLabel("Show result in").selectOption("GBP");
 
     // The USD figure survives, and the failure is explained rather than hidden.
-    await expect(page.getByText("$380.00").first()).toBeVisible();
+    await expect(page.getByTestId("primary-result")).toHaveText("$380.00");
     await expect(page.getByText(/temporarily unavailable/i)).toBeVisible();
   });
 
@@ -390,5 +398,58 @@ test.describe("marketplace fee calculator", () => {
     await page.getByLabel("Sale price").fill("1000");
     await page.getByLabel(/multiple of the price floor/).fill("6");
     await expect(page.getByText("700").first()).toBeVisible();
+  });
+});
+
+/**
+ * What the reader does before the page is interactive.
+ *
+ * The calculator's controls are server-rendered but React-controlled, so
+ * anything done to them before hydration is overwritten by the first commit
+ * unless something outside React caught it. `early-input.ts` is that something,
+ * and these are the tests it never had — the original fix was measured by hand
+ * and then had no guard, which is how the same bug came back for presets.
+ *
+ * Throttling is the whole test. Without it hydration wins the race on a
+ * developer machine every time, so an unthrottled version passes whether the
+ * mechanism works or not: removing the listener entirely left it green. At 6x
+ * CPU on a 400 kbps link the window is wide enough to be real, and both of
+ * these failed 4 times out of 4 before their fix.
+ */
+test.describe("before hydration", () => {
+  test.skip(({ browserName }) => browserName !== "chromium", "CDP throttling is Chromium-only.");
+
+  async function throttle(page: Page) {
+    const cdp = await page.context().newCDPSession(page);
+    await cdp.send("Emulation.setCPUThrottlingRate", { rate: 6 });
+    await cdp.send("Network.enable");
+    await cdp.send("Network.emulateNetworkConditions", {
+      offline: false,
+      latency: 300,
+      downloadThroughput: (400 * 1024) / 8,
+      uploadThroughput: (400 * 1024) / 8,
+    });
+  }
+
+  test("keeps what was typed", async ({ page }) => {
+    await throttle(page);
+    await page.goto("/", { waitUntil: "commit" });
+
+    const amount = page.getByLabel("Eligible Earned Robux");
+    await amount.click({ timeout: 20_000 });
+    await page.keyboard.type("100000");
+
+    await expect(amount).toHaveValue("100000", { timeout: 20_000 });
+    await expect(page.getByTestId("primary-result")).toHaveText("$380.00", { timeout: 20_000 });
+  });
+
+  test("keeps a preset that was tapped", async ({ page }) => {
+    await throttle(page);
+    await page.goto("/", { waitUntil: "commit" });
+
+    await page.getByRole("button", { name: "30K Robux" }).click({ timeout: 20_000 });
+
+    await expect(page.getByTestId("primary-result")).toHaveText("$114.00", { timeout: 20_000 });
+    await expect(page.getByLabel("Eligible Earned Robux")).toHaveValue("30000");
   });
 });
