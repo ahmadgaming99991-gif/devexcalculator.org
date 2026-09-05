@@ -1906,3 +1906,41 @@ confident, specific, entirely wrong findings, of a kind that invite someone to
 *Change if:* another of the unwired validators is brought in.
 `validate:leakage` and `validate:rendered-tokens` are still hand-run, and the
 first thing to do with either is not to trust its output.
+
+## D-059 · The leakage detector was sound, and the first test of it was not
+
+*2026-09-05. Immediately after D-058, and a correction to the assumption D-058
+left behind.*
+
+D-058 found one unwired validator badly broken and closed by saying the other
+two should not be trusted. `detect-language-leakage` reported zero English words
+in all six languages — a perfect score, from a family of checks that had just
+produced 468 false findings, so it was tested rather than believed.
+
+**The first test was wrong, and it looked like a damning result.** Scoring the
+English pages with the Spanish patterns returned zero, which reads as a checker
+that cannot fail. It is not. `stripForeign` removes any element carrying
+`lang="en"`, and on an English page the element carrying `lang="en"` is `<html>`
+— so the whole document was correctly stripped before a word could be counted.
+The test had disabled the thing it was testing. Nothing in normal operation does
+this, because the detector never scans an English page.
+
+**Tested properly, it works.** The same English prose, with the root relabelled
+so `stripForeign` leaves the body alone, scores **9,424 English words and OVER
+BUDGET**. So the zero on the translated pages is a real zero: the same scorer
+that finds nine thousand words of English in English finds none in any of the
+six translations, across all 216 pages.
+
+That is now proven in both directions, which is the only reason it is worth
+wiring into a gate — so it is. Like `validate:localized-html`, it starts its own
+`next start` when given no origin, and `npm run check` runs it.
+
+**The lesson is the one D-058 half-learned.** A check that passes proves nothing
+until it has been made to fail, and a test that makes it fail proves nothing
+until you know *why* it failed. The first negative test here produced exactly
+the number a broken checker would produce, for a reason that had nothing to do
+with the checker.
+
+*Change if:* `validate:rendered-tokens` is wired in too. It is the last of the
+three still hand-run — it passes cleanly on all 252 pages, and it has not been
+made to fail, so it has not earned a place in the gate yet.

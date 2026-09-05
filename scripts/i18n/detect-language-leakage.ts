@@ -39,6 +39,7 @@
 import { LAUNCH_LOCALES, DEFAULT_LOCALE, getLocaleMeta } from "../../src/i18n/config";
 import { indexableRoutes } from "../../src/lib/content/route-registry";
 import type { Locale } from "../../src/i18n/types";
+import { startServer, type RunningServer } from "../quality/server";
 
 /**
  * Words that mark a fragment as English.
@@ -248,14 +249,21 @@ async function scanPage(
   return { leaks, total };
 }
 
-const origin = process.argv[2] ?? "";
-if (!origin || !/^https?:\/\//.test(origin)) {
+/*
+ * An origin, or nothing - see the same note in `validate-localized-html.ts`.
+ * With none, a local production server is started, so this can run in
+ * `npm run check` rather than only by hand.
+ */
+const argOrigin = process.argv[2] ?? "";
+if (argOrigin !== "" && !/^https?:\/\//.test(argOrigin)) {
   console.error(
-    "Usage: tsx scripts/i18n/detect-language-leakage.ts <origin> [--budget N] [--locale xx]\n" +
-      "The origin must be a running server built with ENABLE_REVIEW_LOCALES=true.",
+    "Usage: tsx scripts/i18n/detect-language-leakage.ts [origin] [--budget N] [--locale xx]\n" +
+      "With no origin a local production server is started. Add\n" +
+      "ENABLE_REVIEW_LOCALES=true to the build to cover every locale.",
   );
   process.exit(1);
 }
+let origin = argOrigin;
 
 const budgetArg = process.argv.indexOf("--budget");
 /*
@@ -276,6 +284,19 @@ const targets = LAUNCH_LOCALES.filter(
 );
 
 async function main(): Promise<void> {
+  let server: RunningServer | null = null;
+  if (origin === "") {
+    server = await startServer();
+    origin = server.baseUrl;
+  }
+  try {
+    await run();
+  } finally {
+    await server?.stop();
+  }
+}
+
+async function run(): Promise<void> {
   console.log(`language leakage — ${routes.length} route(s) × ${targets.length} locale(s)\n`);
 
   let failed = false;
