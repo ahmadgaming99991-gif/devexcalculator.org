@@ -32,7 +32,7 @@
     "validate:routes": "tsx scripts/quality/check-routes.ts",
     "validate:worker": "tsx scripts/quality/check-worker-size.ts",
     "validate:bundle": "tsx scripts/quality/check-bundle-budget.ts",
-    "check": "npm run lint && npm run typecheck && npm run test && npm run validate:content && npm run validate:freshness && npm run validate:seo && npm run validate:i18n && npm run validate:data-dictionary && npm run validate:jsx-text && npm run validate:hardcoded && npm run validate:client-words && npm run validate:interpolation && npm run i18n:audit && npm run validate:localized-og && npm run build && npm run validate:static-routes && npm run validate:routes && npm run validate:links && npm run validate:duplicates && npm run validate:bundle && npm run cf-build && npm run cf-populate && npm run validate:worker",
+    "check": "npm run lint && npm run typecheck && npm run test && npm run validate:content && npm run validate:freshness && npm run validate:seo && npm run validate:i18n && npm run validate:data-dictionary && npm run validate:jsx-text && npm run validate:hardcoded && npm run validate:client-words && npm run validate:interpolation && npm run i18n:audit && npm run validate:localized-og && npm run build && npm run validate:static-routes && npm run validate:sitemap && npm run validate:routes && npm run validate:links && npm run validate:duplicates && npm run validate:bundle && npm run cf-build && npm run cf-populate && npm run validate:worker",
     "fx:snapshot": "tsx scripts/content/generate-fx-snapshot.ts",
     "test:visual": "playwright test --project=visual",
     "validate:duplicates": "tsx scripts/seo/detect-near-duplicate-content.ts",
@@ -64,8 +64,9 @@
     "validate:static-routes": "tsx scripts/quality/check-static-routes.ts",
     "preview:run": "opennextjs-cloudflare build && opennextjs-cloudflare preview -- --var DISABLE_HTTPS_UPGRADE:1",
     "upload:run": "opennextjs-cloudflare build && opennextjs-cloudflare upload",
-    "deploy:run": "opennextjs-cloudflare build && opennextjs-cloudflare deploy && npm run purge:cache",
-    "doctor": "node scripts/local/doctor.mjs"
+    "deploy:run": "opennextjs-cloudflare build && opennextjs-cloudflare deploy && npm run purge:cache && npm run seo:indexnow",
+    "doctor": "node scripts/local/doctor.mjs",
+    "validate:sitemap": "tsx scripts/quality/check-sitemap-coverage.ts"
   },
   "dependencies": {
     "next": "16.3.1",

@@ -269,23 +269,36 @@ function checkWrangler() {
 
 function checkEnvironment() {
   const section = "Environment";
+
+  /*
+   * The keys are checked against every file at once, not file by file.
+   *
+   * There is more than one now: `.env.local` holds build configuration, which
+   * Next inlines into the Worker bundle, and `.claude/deploy.env` holds
+   * credentials that must not be inlined anywhere. Asking each file for the
+   * whole list reported both as broken the moment the split happened — each
+   * was missing exactly the keys that belong in the other.
+   */
+  const merged = {};
   for (const relative of config.env.files ?? []) {
-    const path = join(REPO_ROOT, relative);
-    const values = readEnvFile(path);
+    const values = readEnvFile(join(REPO_ROOT, relative));
     if (!values) {
       record(section, relative, "FAIL", "not found");
       continue;
     }
     record(section, relative, "PRESENT", `${Object.keys(values).length} key(s), values never printed`);
-
-    const missing = (config.env.requiredKeys ?? []).filter((key) => !values[key]);
-    record(
-      section,
-      "expected keys",
-      missing.length === 0 ? "PASS" : "FAIL",
-      missing.length === 0 ? "all present" : `missing: ${missing.join(", ")}`,
-    );
+    Object.assign(merged, values);
   }
+
+  const missing = (config.env.requiredKeys ?? []).filter((key) => !merged[key]);
+  record(
+    section,
+    "expected keys",
+    missing.length === 0 ? "PASS" : "FAIL",
+    missing.length === 0
+      ? `all ${(config.env.requiredKeys ?? []).length} present across those files`
+      : `missing: ${missing.join(", ")}`,
+  );
 
   /* Optional: only `wrangler dev` reads it, and it holds no build-time value. */
   const devVars = join(REPO_ROOT, ".dev.vars");
@@ -362,7 +375,7 @@ console.log(
 );
 console.log(`Cloudflare non-interactive auth: ${verdict(ok(["token file", "token readable", "token active"]))}`);
 console.log(`Wrangler correct account:        ${verdict(ok(["available", "correct account", "site Worker"]))}`);
-console.log(`.env.local detected:             ${verdict(ok([".env.local", "expected keys"]))}`);
+console.log(`Local env detected:              ${verdict(ok([".env.local", ".claude/deploy.env", "expected keys"]))}`);
 console.log(
   `Fresh-shell test:                ${coldShell ? verdict(ok(["token file", "correct account"])) : "SKIPPED — a token was already in this shell"}`,
 );

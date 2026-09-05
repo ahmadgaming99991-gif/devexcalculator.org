@@ -76,6 +76,15 @@ secrets.txt
 # template beside it shows the shape.
 .claude/local.json
 
+# Credentials the DEPLOY needs and the BUILD must never bake in.
+#
+# Anything in .env.local is inlined into the Worker bundle by Next. This file
+# is loaded by scripts/local/with-cf-auth.mjs only, so a key here reaches the
+# deploy without being written into a build artefact. Values, not locations —
+# so this one matters more than the line above.
+.claude/deploy.env
+.claude/*.env
+
 # private analytics exports
 #
 # Search Console performance data is the owner's data about their own
