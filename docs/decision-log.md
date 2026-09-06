@@ -2118,3 +2118,81 @@ formula.
 
 *Change if:* `selectRoutes` ever returns routes rather than URLs. Then the
 denominator must lose the locale factor again, and the test above will say so.
+
+---
+
+## D-064 · The crawl-recovery gate, and the audit that found nothing wrong
+
+*2026-09-06. Set by the owner as "PHASE -1" after the measurements below.*
+
+**The measurement that forced this.** A full 294-URL Search Console inspection
+(`npm run seo:index-status`, ~45 minutes, written to `private/index-status.json`)
+plus a 90-day Search Analytics query:
+
+| | |
+| --- | --- |
+| URLs inspected | 293 (1 API error, see below) |
+| Indexed | **1** |
+| Discovered - currently not indexed | 127 |
+| URL is unknown to Google | 165 |
+| URLs with a non-null `lastCrawlTime` | **1** — `/`, crawled 2026-09-02 |
+| 90-day impressions / clicks | 88 / **0**, average position 13.4 |
+| Pages with any impression | **1** — the homepage |
+
+Every URL except the homepage has `lastCrawlTime: null`. These pages are not
+merely unindexed; Google has never fetched them. The one API error was an HTTP
+500 from Google's own Inspection API on `/pt-br/terms/`; that URL serves 200, so
+it is Google's fault and not a site defect.
+
+**The audit, run because a gate should not be set on a guess.** All five
+priority diagnostic URLs — `/robux-to-usd/`, `/usd-to-robux/`, `/devex-rates/`,
+`/conversions/`, `/devex-requirements/` — fetched with a Googlebot user agent:
+
+| Check | Result |
+| --- | --- |
+| HTTP status | 200, 5/5 |
+| Redirects | 0 |
+| `robots.txt` | `Allow: /`; sitemap declared |
+| `X-Robots-Tag` | absent, 5/5 |
+| `<meta name="robots">` | `index, follow`, 5/5 |
+| Canonical | self-referencing, apex HTTPS, trailing slash, 5/5 |
+| Sitemap entry | present, 5/5 |
+| Cloudflare challenge / `cf-mitigated` | none |
+| SSR HTML | 244-453 KB with a real `<h1>` and title |
+| Soft-404 | none; an unapproved slug returns a genuine 404 |
+| Homepage server-rendered `<a href>` | 5-7 links to each |
+
+**Nothing is broken.** There is no crawlability, canonical, robots, WAF or
+rendering defect to fix. The constraint is crawl demand, which is earned
+off-site and cannot be built here.
+
+**What the split by language adds.** Of the 127 URLs Google has discovered, 110
+(87%) are localized and 17 are English. So discovery attention, such as it is,
+is dominated by machine-drafted translations rather than the English pages that
+could rank. This is the evidence behind freezing expansion.
+
+**The gate.** Until verified Search Console evidence shows at least one
+non-homepage priority URL actually crawled: no additional locale, no new amount
+pages, no currency landing pages, no new programmatic SEO routes, and no
+material expansion of the sitemap URL count. Passing that initial gate is not
+permission to resume bulk expansion — that additionally requires multiple core
+non-homepage URLs being crawled, no Googlebot/WAF blocking, working sitemap and
+internal-link discovery, correct canonicals, accessible SSR HTML, stable HTTP
+responses, and Search Console activity progressing beyond the homepage.
+
+**What the gate deliberately does not do.** The six published locales stay live.
+Their URLs are not rolled back, not returned as 404 or 410, and keep their
+hreflang relationships, language navigation, canonicals and sitemap entries. The
+owner was asked directly and chose stability over a rollback: 252 URLs that
+currently work will keep working, and none of them is indexed, so there is
+nothing to protect by withdrawing them. Freeze expansion, not what is already
+serving.
+
+**One thing this audit could not check.** Cloudflare edge logs would show
+whether Googlebot reaches the origin at all, which is stronger evidence than
+Search Console. The API token lacks
+`com.cloudflare.api.account.zone.analytics.read`, so the GraphQL query was
+refused. That is an owner-side permission, deliberately not worked around.
+
+*Change if:* `seo:index-status` reports more than one URL with a non-null
+`lastCrawlTime`. Record which URL, and the date, before relaxing anything.
